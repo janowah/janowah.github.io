@@ -1,0 +1,29 @@
+
+<html>
+<title>git</title>
+</head>
+<body>
+<h1>git</h1>
+
+<pre>
+create new directory and copy contents from online repo into it
+
+- make directory and sychronise
+  - mkdir janowah
+  - cd janowah/
+  - git init
+  - git remote add origin
+    https://github.com/janowah/janowah.github.io.git ; don't need ssh keys
+  - git pull origin master
+  - ls -la
+- make change to index.html in directory
+  - git status ; to see changes not staged
+  - git add index.html ; updates what will be committed
+  - git diff --staged ; shows what changes have been made
+- synchronise
+  - git commit -m "your message" ; must add message
+  - git push origin master
+- points
+- prompted for password everytime you push
+</pre>
+<html>
