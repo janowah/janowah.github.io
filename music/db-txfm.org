@@ -1,7 +1,19 @@
 #+title: db-txfm
 #+options: num:nil toc:t author:nil
 
+<<<<<<< HEAD
+* 2015-12-25 (no tracklist)
+=Parts:   2=
+* 2015-12-18 (no tracklist)
+=Parts: 1 2=
+* 2015-12-11 (no tracklist)
+=Parts: 1 2=
 * 2015-12-04
+=Parts: 1 2=
+
+=======
+* 2015-12-04
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 Hour 1
 
 - Vitalic - Poison Lips (Extended Mix)
@@ -33,6 +45,11 @@ Hour 2
 - DJ Vadim (feat. Katherin Deboer) - Black Is The Night
 
 * 2015-11-27
+<<<<<<< HEAD
+=Parts: 2=
+
+=======
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 Hour 1
 
 - Dombrance - Donna
@@ -60,6 +77,10 @@ Hour 2
 - M83 - Wait (Kygo Remix)
 
 * 2015-11-20
+<<<<<<< HEAD
+=Parts: 1=
+=======
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -88,6 +109,10 @@ Hour 2
 - Parov Stelar - Hurt
 
 * 2015-11-13
+<<<<<<< HEAD
+=Parts: 1=
+=======
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -115,6 +140,10 @@ Hour 2
 - Flume - Some Minds (feat. Andrew Watt)
 
 * 2015-11-06
+<<<<<<< HEAD
+=Parts: 1 2=
+=======
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -142,10 +171,26 @@ Hour 2
 - Royksopp - Sordid Affair (Maceo Plex Remix)
 
 * 2015-10-30 (no tracklist)
+<<<<<<< HEAD
+=Parts: 1 2=
+
+* 2015-10-23 (no tracklist)
+=Parts: 1=
+
+* 2015-10-16 (no tracklist)
+=Parts: 1 2=
+
+* 2015-10-09 (no tracklist)
+=Parts: 2=
+
+* 2015-10-02
+=Parts: 1 2=
+=======
 * 2015-10-23 (no tracklist)
 * 2015-10-16 (no tracklist)
 * 2015-10-09 (no tracklist)
 * 2015-10-02
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -172,3 +217,436 @@ Hour 2
 - The Shoes - Give It Away feat. Postaal
 - Nortec Collective - Shake It Up
 - Turtle - The Floor
+<<<<<<< HEAD
+
+* 2015-06-05
+Hour 1
+
+- Shit Robot - Where It’s At (Feat. Reggie Watts)
+- Kindness - Swingin’ Party
+- Jamie xx - Girl
+- Hudson Mohawke - 100HM
+- A$AP Rocky - Everyday (Audio) ft. Rod Stewart, Miguel, Mark Ronson
+- Just Blaze x Baauer x Jay Z - Higher
+- DJ Fresh - Golddust
+- Tiga - Plush
+- Laurent Garnier - Jacques In The Box
+- The 2 Bears - Get Together
+- Roisin Murphy - Overpowered
+- The Chemical Brothers - Sometimes I Feel So Deserted
+
+Hour 2
+
+- Major Lazer Feat. Elliphant & Jovi Rockwell - Too Original
+- Gui Boratto - Joker
+- Daphni - Yes, I Know
+- Yolanda Be Cool - Soul Makossa (Money) (Club Mix)
+- Disclosure - Bang That
+- The Swiss - Phase III
+- Paper Route - Gutter (Nick Catchdubs Remix)
+- LCD Soundsystem - You Wanted A Hit (Soulwax Remix)
+- Aerolane - Let's Get Slow Feat. Benjamin Diamond (Original mix)
+- Monkey Safari - Cranes (Original Mix)
+- Isaac Delusion - Midnight Sun
+
+* 2015-05-22
+Hour 1
+
+- Donna Summer - I Feel Loved
+- Social Disco Club - Acid Town
+- LCD Soundsystem - Tribulations (Lindstrom Mix)
+- Discodromo - Cosmorama (Prins Thomas Diskomiks)
+- Todd Terje - Ragysh
+- Aeroplane - My Enemy (Rex The Dog Remix)
+- Lindstrom - Faar-I-Kaal
+- The Chemical Brothers - Go
+
+Hour 2
+
+- John Paul Young  - Love Is In The Air (PH  & Particular edit)
+- Shit Robot - Where It’s At (Feat. Reggie Watts)
+- Marvin Gaye - Sexual Healing (SNBRN Remix)
+- Ibeyi - River (RLR Remix)
+- Jungle - Julia (Soulwax Remix)
+- The Jackson 5 - Shake Your Body (Joey Negro Edit)
+- Eels - Fresh Blood
+- Run The Jewels - Bust No Moves feat. CUZ
+- SendMoreSpies - Tenia
+- Jamie xx - All Under One Roof Raving
+- Diana Ross - I’m Coming Out
+
+* 2015-05-15
+Hour 1
+
+- Mylo - Paris Four Hundred
+- Krafty Kuts - Hustle
+- Hot Chip - Dark Nights
+- SHAMIR - Call It Off
+- Lilly Wood & The Prick - Middle Of The Night (Yuksek Remix)
+- The Rapture - House of Jealous Lovers (Morgan Geist Remix)
+- Méle - Ambience
+- The Swiss - Kiss to Kiss (Breakbot Remix)
+- Boot and Tax - Fusci
+- Thomas Bangalter - On Da Rocks
+- Angus & Julia Stone - Grizzly Bear (Lakechild Remix)
+
+Hour 2
+
+- Hypnolove - Come To My Empire (Bufi & La Royale Remix)
+- Hot Chip - Easy To Get
+- The Irrepressibles - In This Shirt (Röyksopp Remix)
+- Candence Weapon - Unsuccessful Clubnights
+- The Chemical Brothers - Go (feat. Q-Tip)
+- Parov Stelar - Jimmy's Gang (Enzo Siffredi Remix)
+- Groove Armada - Get On The Floor (Fabric Edit)
+- Raekwon - Still Strugglin’
+- St. Germain - Real Blues
+- Photek - No Agenda (Origional Mix)
+
+* 2015-05-08
+Hour 1
+
+- LCD Soundsystem - Tribulations (Lindstrom Mix)
+- Discodromo - Cosmorama (Prins Thomas Diskomiks)
+- Todd Terje - Ragysh
+- Aeroplane - My Enemy (Rex The Dog Remix)
+- The Chemical Brothers - Go
+- Lindstrom - Faar-I-Kaal
+- Hot Chip, Bernard Sumner & Hot City - Didn't Know What Love Was
+- CFCF - Big Love (Junior Boys Remix)
+- !!! - Yadnus (Still Going to the Roadhouse Mix)
+
+Hour 2
+
+- Letherette - Restless
+- Jonny Pate - Shaft In Africa
+- Black Star - Respiration (Ft. Common)
+- Q-Tip - Manwomanboogie (Ft. Amanda Diva)
+- Lafayette Afro-Rock Band - Malik
+- Pete Rock - Half Man Half Amazin (Ft. Method Man)
+- Wax Sailor - There Is Danger
+- Paradis - Garde Le Pour Toi
+- Breakbot - Penelope Pitstop
+- Royksopp - Someone Like Me
+- Noze - Saint
+- Kolsch - Cassiopeia feat. Gregor Schwellenbach (Original Mix)
+
+* 2015-05-01
+Hour 1
+
+- Wax Tailor - Sit & Listen
+- Walter Murphy & The Big Apple Band - A Fifth Of Beethoven (Soulwax Remix)
+- The Chemical Brothers - Sometimes I Feel So Deserted
+- Light Year - Sex Education
+- Shinichi Osawa - Singapore Swing (feat. Paul Chambers - Original Mix)
+- Mr Oizo - Positif
+- Carte Blanche - Gare Du Nord
+- Parov Stelar - Jimmy's Gang (Enzo Siffredi Remix)
+- Crazy P - Witch Doctor
+- LCD Soundsystem - You Wanted A Hit (Soulwax remix)
+
+Hour 2
+
+- Melé - Ambience
+- Tinush - Sandburg (Original Mix)
+- Majid Jordan - Forever
+- Hexstatic - Freak Me (Michael Fakesch Remix)
+- YACHT - SECOND SUMMER (RAC REMIX)
+- Fakear - Morning In Japan
+- Toro Y Moi - Still Sound
+- Gecko Turner - Un Limon En La Cabeza (Quantic Remix)
+- Gloria Lynne - Perdido (suonho Swingin' Disco Mix)
+- Hypnolove - Holiday Reverie (Original Mix)
+- LA Priest - Oino
+- Moderat - Versions
+
+* 2015-04-24
+Hour 1
+
+- Tinush - Sandburg (Original Mix)
+- Mason - Exceeder (Original Mix)
+- Groove Armada - The Things That We Could Share (Sebastien Leger Remix)
+- Voom:Voom - Best Friend
+- Melé - Ambience
+- The Swiss - Kiss To Kiss (Pyramid remix)
+- Hypnolove - Get to Know the Girl
+- Le Galaxie - Put The Chain On
+- Gramatik - Muy Tranquilo Original Mix
+- Metronomy - Everything Goes My Way (Enchante remix)
+
+Hour 2
+
+- De La Soul - Gof It (feat. Nas)
+- Gauge The Mental Murderah - Break Through
+- The Hot 8 Brass Band - Sexual Healing
+- Jigmastas - Let Me Hear It
+- Lemaitre - The Friendly Sound
+- Feder - Goodbye feat. Lyse (Original Mix)
+- Dublex Inc. - Tango Forte (Quantic Mix)
+- Klangkarussell - Sonnentanz (Sun Don't Shine) (Jakwob Remix)
+- 20th Century Steel Band - Papa Was a Rolling Stone
+- Alan Parsons - I Wouldn't Want To Be Like You (Disco Tech Edit)
+- Howling - Stole The Night (Midland Remix)
+
+* 2015-04-17
+Hour 1
+
+- Midnight Juggernauts - Into The Galaxy (Metronomy remix)
+- Rasco - How Many X's (feat. Planet Asia)
+- Melé - Ambience
+- Justin Jay - Mind Games
+- Idris Muhammad - Could Heaven Ever Be Like This
+- Jamie xx - Loud Places (feat. Romy)
+- Stars On 33 - I Feel Music In Your Heart
+- Lupe Fiasco - Failure
+- Chrome Sparks - Marijuana
+- Ta-Ku - Blow Up (Ghost Town refix)
+- Jamiroquai - Alright
+
+Hour 2
+
+- Ratatat - Cream on Chrome
+- Dim Sum - Coucou Disco
+- Gang Starr - New York Strait Talk
+- Todd Terje - Inspector Norse (Justin Van Der Volgen remix)
+- MOUNT & Nicolas Haelg - Something Good (Original Mix)
+- Lindstrom - Home Tonight (Fort Romeau remix)
+- Mura Masa - Lovesick Fuck
+- Ben Khan - 1000
+- Made In Heights - Forgiveness
+- 20th Century Steel Band - Heaven & Hell [Original]
+- Booka Shade - Red Flag
+
+* 2015-04-10
+Hour 1
+
+- Mary Jane Girls - Give It To Ya (Casual Conncetion Rework)
+- The Chemical Brothers - Under The Influence
+- De La Soul - Say No Go
+- Moloko - INDIGO (All Seeing I Glamoloko Edit)
+- Cassius - I'm A Woman (Feat. Jocelyn Brown)
+- Barbarossa - Imager
+- Kevin Jonson - Aerialist (Original Mix)
+- Moderat - Rusty Nails
+- Terranova - Grounded
+- Discopunks - Tie Me Up
+- Rob Dougan - Chateau
+
+Hour 2
+
+- Ghost Culture - Answer
+- Battles - Wall Street (Gui Boratto Remix)
+- Jamie xx - Loud Places (feat. Romy)
+- Dynamic Concept - La Da Da
+- Hanni El Khatib - Two Brothers (Holy Ghost! Remix)
+- The Swiss - Elouisa (Cesare remix)
+- Status IV - You Ain'T Really Down (Jazzanova'S Hey Baby Remix)
+- Wu-Tang Clan - Wu-Tang Clan Ain’t Nuthing Ta F’ Wit
+- The Cure - Let's Go To Bed (Alkalino Remake)
+- Babatunde Adebimpe - Speedline Miracle Masterpiece (feat. Sal P & Sinkane)
+- Dusty Springfield - Son of a Preacher Man
+ 
+* 2015-04-03 /no tracklist/
+* 2015-03-27 /no tracklist/
+* 2015-03-20
+Hour 1
+
+- Parov Stelar - Chambermaid Swing
+- Lindstrom - Lamm-El-Aar
+- Kendrick Lamar - King Kunta
+- Rex The Dog - Sicko
+- Ralf Robles - Taking Over
+- Moullinex - Darkest Night (Xinobi Remix)
+- Jay-Z/The Beatles - What More Can i Say (DJ Danger Mouse)
+- I Monster - DayDream In Blue ‘68
+- Doldroms - Loops
+- Hexstatic - Newaves
+- Mickey Moonlight - Close To Everything (Original Mix)
+
+Hour 2
+
+- Ghost Culture - Answer
+- Jay-Z/The Beatles - Moment Of Clarity (DJ Danger Mouse)
+- Minus 8 - Breathe
+- Chrome Sparks - All There Is (Feat. Steffaloo)
+- Mayer Hawthorne - A Long Time (Chromeo Remix)
+- M83 - Graveyard Girl (Yuksek Remix)
+- Kraak & Smaak - Real Pain
+- DEVolution - With U
+- Radiohead - Little by Little (Caribou remix)
+- Nina Simone - Feeling Good (Nicolas Jaar remix)
+
+* 2015-03-13 /no tracklist/
+* 2015-03-06 /no tracklist/
+* 2015-02-27
+Hour 1
+
+- Bronski Beat - Small town boy (Extended Version)
+- Tiga - You gonna want me (Hey Today! remix)
+- Cypress Hill - When The Shit Goes Down
+- A Tribe Called Quest - Electric Relaxation
+- The 2 Bears - Take A Look Around
+- Dolly Parton - Jolene (Todd Terje Remix)
+- Pete Rock & C.L. Smooth - The Creator
+- Ned Doheny - Get It Up For Love (Mgnfque Sunday Edit)
+- Smif-n-Wessun feat. Talib Kweli - Crystal Stair (remix)
+- Super Flu - Jo Gurt
+
+Hour 2
+
+- Rex The Dog - Sicko
+- Fujiya and Miyagi - Cassette Single
+- Das EFX - BAKNAFFEK
+- Brodinski Feat. Louisahhh!!! & Bloody Jay - Need For Speed
+- A$AP Rocky - Palace (Prod. By Clams Casino)
+- Von Spar - Troops
+- Four Tet - She Moves She
+- We Are Match - Mohawk (Guillaume Griefjoy Remix)
+- Jamie Jones - Ruckus
+- Gold Panda - Snow & Taxies
+- ZHU - Paradise Awaits Part 2
+- Superpoze - Untitled
+
+* 2015-02-20
+Hour 1
+
+- Jabberwocky feat. Clara Cappagli - Pola
+- Parov Stelar - On My Way Now (Love Part 2)
+- Killer Mike - Ready Set Go (feat. T.I.)
+- DBFC - Leave My Room
+- CirKus - Bells
+- Scratch Massive Feat. Daniel Agust - Paris (Original Mix)
+- Jurgen Paape - So Weit Wie Noch Nie
+- MC Lite - My Main Task
+- Von Spar - Jon Voight (Original Mix)
+- Jamie xx - All Under One Roof Raving
+- Michael Jackson Vs James Brown - Wanna Get Up And Start Being A Sex Machine
+
+Hour 2
+
+- Calexico - Cumbia de Donde
+- Talib Kwali - Truth feat. Common
+- Gil Scott Heron - Gun (Disco Tech Edit)
+- KAYTRANADA - Drive Me Crazy
+- Roisin Murphy - Gone Fishing
+- Missy Elliott - Work It
+- OutputMessage - Approaching Skyline
+- Shannon - Let The Music Play [Dr Packer Rework]
+- Booka Shade - Karma Car
+- Christine and the queens - Saint claude (Domenico torti remix)
+- Vermont - Übersprung (Mano LeTough Mix)
+
+* 2015-02-13
+Hour 1
+
+- Chinese Man - I’ve Got That Tune
+- Hot Chip - Huarache Lights
+- Super Flu & Andhim - Reeves
+- The Go! Team - Blowtorch
+- Lito Barrientos - Cumbia En Do Menor (Voodo Cuts remix)
+- Shamir - On The Regular
+- The Toxic Avenger - Speed (featuring Ylva Falk)
+- Noir & Haze - Around (Solomun Vox Remix)
+- Disclosure - The Mechanism
+- Caribou - Leave House
+
+Hour 2
+
+- Roots Manuva - Witness (1 Hope)
+- Röyksopp Feat. Robyn - Monument
+- Birdy Nam Nam - Escape
+- The Fugees - Manifest
+- Young Wonder - Intergalactic
+- Diana Ross - Upside Down (Michael Voigt Remix)
+- Kenny Hawkes & Louise Carver - Play the Game (Extended Mix)
+- dFresh - Start Even
+- Jay Electronica - Call Of Duty f. Mobb Deep
+- Visage - Fade To Grey
+- Kane West - Preview
+- Run The Jewels - Oh My Darling Don’t Cry
+- Common - No Sell Out
+
+* 2015-02-06
+Hour 1
+
+- Lyre Le Temps - About The Trauma Drum
+- Action Bronson - Actin Crazy
+- Sebastien Tellier - La Ritournelle (Metronomy Mix)
+- Disciples - They Don't Know
+- Parov Stelar - The Duke
+- Groove Armada Feat. Candi Staton - Love Sweet Sound
+- The Avener Ft. Rodriguez - Hate Street Dialogue (Original Mix)
+- Royksopp - Eple
+- Lonelady - Groove It Out
+- Money Mark - Cry (Dust Brothers Remix)
+- Al’Tarba - Ladies & Ladies
+- Whirlpool Productions - From Disco To Disco
+- Brassroots – Goodlife
+
+Hour 2
+
+- WEVAL - Gimmie Some
+- Kenny Hawkes & Louise Carver - Play the Game (Extended Mix)
+- The Pharcyde - Drop
+- The xx - Shelter (Them Jeans 'Drums' Edit)
+- Salem - Stellar Walk
+- Aeroplane vs Friendly Fires vs Flight Facilities - I Crave Paris
+- The Turtles - Happy Together (Todd Terje Mix)
+- Chaka Khan - I Fell For You
+- Prince - I Wanna Be Your Love (Dimitri From Paris mix)
+- Afrika Bambaataa & James Brown - Unity Part 2
+- The Preatures - Is This How You Feel? (Classixx Remix)
+
+* 2015-01-30 /The sound of the Paradise Garage/
+
+Hour 1
+
+- Touch - Without You
+- Loleatta Holloway - Love Sensation
+- Alicia Myers - I Want to Thank You
+- Syreeta - Can't Shake Your Love (Larry Levan Mix)
+- North End - Tee's happy
+- Tamiko Jones - Can't Live Without Your Love (Original 12'' Mix)
+- Marshall Jefferson - Move Your Body
+- Donna Summer - I Feel Love
+
+Hour 2
+
+- Eddy Grant - Time Warp Nobody's Got Time [12'' Original Dub Mix]
+- Thelma Houston - I'm Here Again
+- First Choice - Double Cross (Larry Levan Mix)
+- ESG - Standing In Line
+- D Train - You're the One for Me
+- Martin Circus - Disco Circus (Francois K Remix
+- Chicago - Street Player
+- Bohannon - Let's Start the Dance
+- Celestial Choir - Stand on the Word (Larry Levan Mix)
+
+* 2015-01-23
+Hour 1
+
+- Insightful - Watching Birds On Hard Drugs
+- Bodytsu - Bigger than prince ( Hot since 82 )
+- Tiga - Plush
+- emancipator - bury them bones
+- Run The Jewels - Oh My Darling Don't Cry
+- Daft Punk - Human After All / Together / One More Time(Reprise) / Music Sounds Better With You (live)
+- Jon Cutler ft. E-Man - It's Yours (Nice7 Remix)
+- Andhim - The wizard of us
+- Sono - Keep Control (H.O.S.H. Remix)
+
+Hour 2
+
+- Thomas Bangalter - Paris By Night
+- Chin Chin - Appetite (Chicken Lips Extended Vocal Mix)
+- Royksopp feat. Robyn - Monument Dance
+- Grand Tourism Feat. Terry Callier - Les Courants D’air
+- Run The Jewels - Blockbuster Night Part 1
+- Noir & Haze - Around [Solomun Vox Mix]
+- Minitel Rose - Better Days (Part. II)
+- Kayper - Someone (Club Edit)
+- Mekkas - Funky Traffic
+- Robosonic - The Edge
+- The Chemical Brothers - This Is Not a Game (feat. Miguel)
+=======
+>>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
