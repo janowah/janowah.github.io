@@ -1,7 +1,6 @@
 #+title: db-txfm
 #+options: num:nil toc:t author:nil
 
-<<<<<<< HEAD
 * 2015-12-25 (no tracklist)
 =Parts:   2=
 * 2015-12-18 (no tracklist)
@@ -13,7 +12,7 @@
 
 =======
 * 2015-12-04
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
+
 Hour 1
 
 - Vitalic - Poison Lips (Extended Mix)
@@ -45,11 +44,8 @@ Hour 2
 - DJ Vadim (feat. Katherin Deboer) - Black Is The Night
 
 * 2015-11-27
-<<<<<<< HEAD
 =Parts: 2=
 
-=======
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 Hour 1
 
 - Dombrance - Donna
@@ -77,10 +73,7 @@ Hour 2
 - M83 - Wait (Kygo Remix)
 
 * 2015-11-20
-<<<<<<< HEAD
 =Parts: 1=
-=======
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -109,10 +102,7 @@ Hour 2
 - Parov Stelar - Hurt
 
 * 2015-11-13
-<<<<<<< HEAD
 =Parts: 1=
-=======
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -140,10 +130,7 @@ Hour 2
 - Flume - Some Minds (feat. Andrew Watt)
 
 * 2015-11-06
-<<<<<<< HEAD
 =Parts: 1 2=
-=======
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -171,12 +158,9 @@ Hour 2
 - Royksopp - Sordid Affair (Maceo Plex Remix)
 
 * 2015-10-30 (no tracklist)
-<<<<<<< HEAD
 =Parts: 1 2=
 
 * 2015-10-23 (no tracklist)
-=Parts: 1=
-
 * 2015-10-16 (no tracklist)
 =Parts: 1 2=
 
@@ -185,12 +169,6 @@ Hour 2
 
 * 2015-10-02
 =Parts: 1 2=
-=======
-* 2015-10-23 (no tracklist)
-* 2015-10-16 (no tracklist)
-* 2015-10-09 (no tracklist)
-* 2015-10-02
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
 
 Hour 1
 
@@ -217,7 +195,6 @@ Hour 2
 - The Shoes - Give It Away feat. Postaal
 - Nortec Collective - Shake It Up
 - Turtle - The Floor
-<<<<<<< HEAD
 
 * 2015-06-05
 Hour 1
@@ -648,5 +625,4 @@ Hour 2
 - Mekkas - Funky Traffic
 - Robosonic - The Edge
 - The Chemical Brothers - This Is Not a Game (feat. Miguel)
-=======
->>>>>>> 52877b08880117effc16541a4d994bb36d3243fa
+
