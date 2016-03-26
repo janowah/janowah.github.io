@@ -6,4 +6,4 @@
 - openbsd
 - ubuntu
 
-[[file:~/janowah/index.html][back]]
+[[../index.html][back]]
