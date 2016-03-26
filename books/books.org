@@ -5,4 +5,4 @@
 - [[file:computer-books.html][computer-books]]
 - [[file:sci-fi-fantasy.html][sci-fi-fantasy]]
 
-[[file:~/janowah/index.html][back]]
+[[../index.html][back]]

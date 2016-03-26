@@ -1,5 +1,5 @@
 #+title: Non Fiction
-#+options: num:nil ^:nil creator:nil author:nil
+#+options: num:nil ^:nil creator:nil author:nil creator:nil
 
 - Proficient Motorcycling / David L. Hough
 - A Twist of the Wrist 2 / Keith Code
@@ -11,3 +11,5 @@
 - Debt / David Graeber
 - Daily Rituals How Artists Work / Mason Currey
 - zlatan
+
+[[./books.html][back]]
