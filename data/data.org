@@ -1,8 +1,8 @@
 #+title: data
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- sd cards
-- usb drives
+- [[./sd-cards.txt][sd cards]]
+- [[./usb.txt][usb drives]]
 - hard drives
 
 [[../index.html][back]]
