@@ -2,6 +2,7 @@
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 - sd cards
+- usb drives
 - hard drives
 
 [[../index.html][back]]
