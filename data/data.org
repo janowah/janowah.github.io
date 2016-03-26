@@ -1,6 +1,7 @@
-#+title: centos
+#+title: data
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- nfo
+- sd cards
+- hard drives
 
-[[../systems.html][back]]
+[[../index.html][back]]
