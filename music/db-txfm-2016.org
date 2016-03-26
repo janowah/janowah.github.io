@@ -1,2 +1,249 @@
-#+title: db-txfm
-#+options: num:nil toc:t author:nil
+#+title: db-txfm-2016
+#+options: num:nil toc:t author:nil creator:nil
+
+* 2016-03-18
+* 2016-03-11 w partial
+#+BEGIN_EXAMPLE
+
+TXFM logo
+
+Overnight Music
+
+Now On: 00:00 - 07:00
+Overnight Music
+Recently Played
+ROISIN MURPHY - Exploitation
+The Frank And Walters - Something Happened To Me
+Beach Baby - Sleeperhead
+Le Galaxie - Love System
+White - Living Fiction
+Hozier - Angel Of Small Death and The Codeine Scene
+Richie Hawtin - Accelerator
+Submotion Orchestra - Amira
+Baio - All the Idiots
+Bonobo - The Keeper Featuring Andreya Triana
+Crazy P - Witch Doctor
+Caribou - Back Home
+Luke Vibert - I Can Phil It
+SISTER SLEDGE - The Greatest Dancer
+Jay-Z - 99 Problems
+Para One - When The Night
+Phoenix - Trying To Be Cool
+Sneaky Soundsystem - When We Were Young
+Gui Boratto - The Island
+Matt Karmil - Moment
+Zomby - SURF I
+Denis Sulta - LA Ruffgarden
+Jungle - Julia [soulwax remix]
+
+Bouts - Allies
+60% Complete
+
+#+END_EXAMPLE
+* 2016-03-04 partial
+#+BEGIN_EXAMPLE
+  - Recently Played
+  - White - Living Fiction
+  - New Order - Restless
+  - Four Tet - Parallel Jalebi
+  - Jem Atkins - Pushin On
+  - Oliver Dollar - Pushing On
+  - Tiga - 3 Rules
+  - Nightmares On Wax - Da Feelin
+  - Miike Snow - Heart Is Full
+  - Vitalic - Poison Lips
+  - Boys Noize - XTC
+  - The Prodigy - Voodoo People
+  - Method Man - Bring The Pain
+  - Eats Everything - Big Discs
+  - Crazy P - Echo
+  - Fat White Family - Satisfied
+  - J Dilla - Two Can Win
+  - Augustines - Are We Alive
+  - stereophonics - The Bartender And The Thief
+  - John Mayer - Vultures
+  - Common - No Sell Out
+  - Iggy Pop - Lust For Life
+  - Franz Ferdinand - Take Me Out
+  - Queens Of The Stone Age - My God Is The Sun
+  - Nirvana - Come As You Are
+#+END_EXAMPLE
+
+* 2016-02-26 w
+* 2016-02-19 w
+* 2016-02-12 partial
+#+BEGIN_EXAMPLE
+
+Recently Played
+Tim Wheeler - Shining Light
+Richard Hawley - Heart Of Oak
+
+
+J. Khotin - Baikal Acid
+I. Mike Dehnert - Detroit Switch Back To City
+H. Real Lies - North Circular
+G. RÃ³isÃ­n Murphy - Unputdownable tom demac
+F. Moderat - Bad Kingdom lambert rework
+E. Soichi Terada - Hohai Beats
+D. Leyya - Superego
+C. Claude VonStroke - R2 Knows
+B. West Norwood Cassette Library - Missing You
+A. Goody Goody - It Looks Like Love
+
+hour 2 
+
+11 Atts - Victory markus marr remix
+10 rokyspp robin markus marr dub monument dance
+9 markus marr remix alex metric ja safe with you
+8 Moderat - Reminder special request remix
+7 MeUTE - Rej
+6 airbird naploean only you
+5 submotion orchestra amira ; not on list
+4 TroyBoi - Force
+3 The 2 Bears - Not This Time brendan green remix
+2 ANOHNI - 4 DEGREES ; anthony hegarty
+1 Hierophante - ClichÃ©s
+
+hour 1
+
+Coldplay - Don't Panic
+Exmagician - Job Done
+The Strokes - Reptilia
+Johnny Marr - Easy Money
+Iggy Pop - The Passenger
+
+
+
+Recently Played
+Roisin Murphy - Unputdownable
+Moderat - Bad Kingdom
+Soichi Terada - Hohai Beats
+Leyya - Superego
+Claude VonStroke - R2 Knows
+West Norwood Cassette Library - Missing You
+Goody Goody - It Looks Like Love
+Atts - Victory
+Moderat - Reminder
+MeUTE - Rej
+TroyBoi - Force
+The 2 Bears - Not This Time
+ANOHNI - 4 DEGREES
+Hierophante - ClichÃ©s
+Coldplay - Don't Panic
+Exmagician - Job Done
+The Strokes - Reptilia
+Johnny Marr - Easy Money
+Iggy Pop - The Passenger
+Beck - Dreams
+Bloc Party - Banquet
+THE 1975 - The Sound
+Sex Pistols - Pretty Vacant
+Electric Six - Danger! High Voltage
+
+
+  - Nas - Halftime
+  - The Creators - The Cypher
+  - R.A. The Rugged Man - The Peoples Champ
+  - Damola - WorkFlow
+  - Cunninlynguists - 616 Rewind
+  - Blackalicious - Alphabet aerobics
+  - Channel Live - Mad Izm
+  - Dangerdoom - Benzi Box
+  - Pusha T - Numbers On The Boards
+  - The Disposable Heroes of Hiphoprisy - Television the Drug of the Nation
+  - Leaders Of The New School - Syntax Era
+  - Fu-Schnickens - Ring The Alarm
+  - Del Tha Funky Homosapien - Mistadobalina
+  - Brother Ali - The Preacher
+  - Jurassic 5 - Jayou
+  - Kanye West - Monster
+  - Big Daddy Kane - Warm It Up, Kane
+  - Roots Manuva - Join The Dots
+  - Aesop Rock - No Regrets
+  - Mad Skillz - Ghost Writer
+  - The Roots - Guns are Drawn
+#+END_EXAMPLE
+* 2016-02-05 partial
+#+BEGIN_EXAMPLE
+  - Something Happens - Parachute
+  - ROISIN MURPHY - Exploitation
+  - The Strypes - Get Into It
+  - Iggy Pop - Gardenia
+  - The Black Keys - Fever
+  - Ellen Allien - High
+  - Claude VonStroke - Make A Cake
+  - Anja Schneider - Dubmission
+  - The Fugees - Fu-Gee-La
+  - Ratking - 100
+  - Fu-Schnickens - Ring The Alarm
+  - Lindstrom Prins Thomas - Mighty Girl
+  - Wiley - I'm Skanking
+  - Death Cab For Cutie - You Are a Tourist
+  - Faze Action - Hypnotic
+  - Moderat - Reminder
+  - Holy Ghost! - Crime Cutz
+  - Jamie xx Four Tet Romy - Seesaw
+  - MIDNIGHT MAGIC - Threshold
+  - The Juan Maclean - A Simple Design
+#+END_EXAMPLE
+* 2016-01-29
+* 2016-01-22 partial
+#+BEGIN_EXAMPLE
+  Miike Snow - Genghis Khan
+  Johnny Cash - Hurt
+  alt-J - Left Hand Free
+  The Temper Trap - Sweet Disposition
+  Foals - Give It All
+  Champion x Four Tet - Disparate
+  Emmanuel Jal - Kuar
+  Kate Tempest - Europe Is Lost
+  Godblesscomputers - Spirits
+  Gramatik - Native Son
+  Balthazar - Bunker
+  Dele Sosimi Afrobeat Orchestra - Too much Information
+  The Human League - Never Let Me Go
+  9 SÃ©bastien Tellier - KILOMETER italo 84 remix aerpolane
+  8. <sly and the family stone - sing a simple song
+  7. ghostpoet - you not me remix
+  6. kolch der ante
+  5 - the hour no one is going to heaven
+  4. Modeselektor - Suckerpin
+  3 <written - rinse and repeat
+  2. <billy o you can win
+  1. Leisure - Got It Bad
+#+END_EXAMPLE
+* 2016-01-15 w partial
+#+BEGIN_EXAMPLE
+  | The Slow Readers Club   | Plant the Seed            |
+  | The Chemical Brothers   | Go                        |
+  | Bonobo                  | Don't Wait                |
+  | Pantha Du Prince        | A Nomad's Retreat         |
+  | Throwing Snow           | Xema                      |
+  | A Tribe Called Quest    | Electric Relaxation       |
+  | Oddisee                 | That's Love               |
+  | Formation               | Hangin                    |
+  | Todd Terje              | Strandbar                 |
+  | John Talabot            | When the Past Was Present |
+  | Tom Trago               | Use Me Again And Again    |
+  | Roots Manuva            | Witness                   |
+  | Apparat feat. Raz Ohara | Holdon                    |
+  | Patawawa                | Dare To Disco             |
+  | Clap! Clap!             | Kuj Yato                  |
+  | Erol Alkan              | A Hold On Love            |
+  | Crazy P                 | Heartbreaker              |
+  | Mary Clark              | Take me i'm yours         |
+  |-------------------------+---------------------------|
+  | Jamie XX                | Loud Places (Radio        |
+  | Bloc Party              | Flux                      |
+  | Arctic Monkeys          | When The Sun Goes Down    |
+  | Coldplay                | Adventure Of A Lifetime   |
+  | The Strokes             | Hard To Explain           |
+  | Ramones                 | Blitzkrieg Bop            |
+#+END_EXAMPLE
+* 2016-01-08 w
+pusha t.
+
+- hr1
+  - A. *Martyn ‎– Falling For You*
+  - B. *Mighty Mouse - Dusk*
+  - C. *Jape - Floating Prins Thomas Diskomiks*

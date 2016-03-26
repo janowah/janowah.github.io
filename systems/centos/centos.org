@@ -1,0 +1,6 @@
+#+title: centos
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- nfo
+
+[[file:~/janowah/systems/systems.html][back]]

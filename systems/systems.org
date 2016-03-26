@@ -1,0 +1,9 @@
+#+title: systems
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- [[file:centos/centos.html][centos]]
+- freebsd
+- openbsd
+- ubuntu
+
+[[file:~/janowah/index.html][back]]

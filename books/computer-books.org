@@ -1,0 +1,14 @@
+#+title: Computer Books
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- Network Flow Analysis / Michael W Lucas
+- FreeBSD Mastery: Storage Essentials / Michael W Lucas
+- FreeBSD Mastery: ZFS / Michael W Lucas
+- Networking for Systems Administrators / Michael W Lucas
+- SSH Mastery / Michael W Lucas
+- Wicked Cool Shell Scripts / Dave Taylor
+- Webbots, spiders, and screen scrapers / Michael Schrenk
+- TCP/IP Illustrated / W. Richard Stevens
+- RHCSA RHCE 6e / Michael Jang
+
+[[file:books.html][back]]

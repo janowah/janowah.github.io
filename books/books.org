@@ -1,0 +1,8 @@
+#+title: books
+#+options: num:nil toc:t author:nil creator:nil timestamp:nil
+
+- [[file:books-2014.html][books-2014]]
+- [[file:computer-books.html][computer-books]]
+- [[file:sci-fi-fantasy.html][sci-fi-fantasy]]
+
+[[file:~/janowah/index.html][back]]
