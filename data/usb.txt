@@ -1,2 +1,13 @@
 				 usb
 
+sandisk cruzer force 8GB
+kingston dt108 red 8GB
+kingston dt108 blue 4GB
+sandisk cruzer edge 16GB
+sandisk ultra 16GB ; ubuntu
+pny 4GB
+pny 8GB ; edmonton
+integral 2GB
+pny 4GB ; tails
+sandisk 32GB ; centos
+sandisk cruzer edge 32GB dad

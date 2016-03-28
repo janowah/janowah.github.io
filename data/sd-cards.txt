@@ -20,3 +20,4 @@ standard
 |       2 | kingston | photos     |
 |       4 | samsung  | photos/ sw |
 |       4 | kodak    | books      |
+|       4 | kingston | photos     |
