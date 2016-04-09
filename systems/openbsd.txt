@@ -1,0 +1,12 @@
+openbsd
+
+- installing software
+  - pkg_path
+  - pkg_add -v emacs
+    - emacs-24.5p2-no_x11
+- updating software
+  - pkg_info ; see what's installed
+  - pkg_add -u
+- adding users
+  - adduser
+- making sure the time is correct
