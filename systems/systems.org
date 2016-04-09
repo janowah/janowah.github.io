@@ -5,5 +5,7 @@
 - freebsd
 - [[file:./openbsd.txt][openbsd]]
 - ubuntu
+- [[file:netbsd.html][netbsd]]
+- [[file:fedora.html][fedora]]
 
 [[../index.html][back]]

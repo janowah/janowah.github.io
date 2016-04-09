@@ -13,8 +13,7 @@ create new directory and copy contents from online repo into it
   - mkdir janowah
   - cd janowah/
   - git init
-  - git remote add origin
-    https://github.com/janowah/janowah.github.io.git ; don't need ssh keys
+  - git remote add origin https://github.com/janowah/janowah.github.io.git ; don't need ssh keys
   - git pull origin master
   - ls -la
 - make change to index.html in directory
@@ -32,21 +31,35 @@ create new directory and copy contents from online repo into it
   1) generate keys on local machine
      - ssh-keygen -t rsa -b 4096 -C "homer@powerplant.com" ; creates 2 files
   2) add to ssh agent
-     - =ssh-add id_rsa=
+     - =ssh-add ~/.ssh/id_rsa=
      - check ssh agent =ssh-add -l=
   3) copy keys to github account =cat ~/.ssh/id_rsa.pub=
   4) test ssh access to github
      - ssh -T git@github.com
   5) urls for repo should be git@... and not https
+     - git remote set-url origin git@github.com:janowah/janowah.github.io.git
 - resources
 - configure username and email
   - git config --global user.name "janowah"
-  - git config --get --global user.name
   - git config --global user.email janowah@users.noreply.github.com
+  - git config --global color.ui true
+  - git config --global core.editor emacs
+  - verify
+  - git config --get --global user.name
   - git config --get --global user.email
+  - git config --get --global color.ui
+  - git config --get --global core.editor
 - commands
   - git add --all
   - git add . ; add all files
+  - git log
+  - git diff HEAD
+  - git checkout
+  - git branch
+  - git branch -d
+  - git rm '*.txt'
+  - git merge
+  - git blame
 - troubleshooting
   - git reflog
   - git reset
