@@ -1,0 +1,13 @@
+			      hard disks
+
+|   |       | location |                           | interface |
+|---+-------+----------+---------------------------+-----------|
+| f | 500GB | press    | unallocated               | sata      |
+| g |       | server   |                           | sata      |
+| h |       | server   |                           | sata      |
+| i | 320GB | press    | windows 10 self-build x64 | sata      |
+| j | 1TB   | press    | unallocated               | sata      |
+| k | 500GB | press    | NTFS. 330GB data          | sata      |
+| l |       | server   |                           | sata      |
+| m | 120GB | press    |                           | sata      |
+| n | 2TB   | server   |                           | sata      |
