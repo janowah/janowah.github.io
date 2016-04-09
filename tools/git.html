@@ -29,6 +29,15 @@ create new directory and copy contents from online repo into it
 - copy changes on remote to local
   - git pull origin master
 - setting up ssh keys
+  1) generate keys on local machine
+     - ssh-keygen -t rsa -b 4096 -C "homer@powerplant.com" ; creates 2 files
+  2) add to ssh agent
+     - =ssh-add id_rsa=
+     - check ssh agent =ssh-add -l=
+  3) copy keys to github account =cat ~/.ssh/id_rsa.pub=
+  4) test ssh access to github
+     - ssh -T git@github.com
+  5) urls for repo should be git@... and not https
 - resources
 - configure username and email
   - git config --global user.name "janowah"
