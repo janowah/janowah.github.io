@@ -4,5 +4,6 @@
 - [[./sd-cards.txt][sd cards]]
 - [[./usb.txt][usb drives]]
 - hard drives
+- hardware
 
 [[../index.html][back]]

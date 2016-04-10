@@ -1,6 +1,8 @@
 #+title: centos
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- nfo
+* yum
+- yum update
+- yum install emacs
 
 [[../systems.html][back]]
