@@ -10,14 +10,113 @@
 <body>
 <div id="content">
 <h1 class="title">centos</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">yum</a></li>
+<li><a href="#sec-2">samba</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">yum</h2>
+<div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>nfo
+<li>yum update
+</li>
+<li>yum install emacs
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">samba</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>install software
+<ul class="org-ul">
+<li>yum install samba samba-client samba-common
+</li>
+</ul>
+</li>
+<li>edit configuration
+<ul class="org-ul">
+<li>/etc/samba/smb.conf
+</li>
+</ul>
+<p>
+<code>~~~~~~~~~~~~~~~~~~~</code>  
+[global]
+workgroup = WORKGROUP
+server string = Samba Server %v
+netbios name = centos
+security = user
+map to guest = bad user
+dns proxy = no
+#============================ Share Definitions <code>============================</code> 
+[Anonymous]
+path = /samba/anonymous
+browsable =yes
+writable = yes
+guest ok = yes
+read only = no
+<code>~~~~~~~~~~~~</code>
+</p>
+</li>
+
+<li>create shared folder and edit permissions
+<ul class="org-ul">
+<li>mkdir -p /samba/anonymous
+</li>
+<li>chmod -R 0755 anonymous/
+</li>
+<li>chown -R nobody:nobody anonymous/
+</li>
+</ul>
+</li>
+<li>enable services
+<ul class="org-ul">
+<li>systemctl enable smb.service
+</li>
+<li>systemctl enable nmb.service
+</li>
+<li>systemctl restart smb.service
+</li>
+<li>systemctl restart nmb.service
+</li>
+</ul>
+</li>
+<li>firewall
+<ul class="org-ul">
+<li>firewall-cmd &#x2013;permanent &#x2013;zone=public &#x2013;add-service=samba
+</li>
+<li>firewall-cmd &#x2013;reload
+</li>
+</ul>
+</li>
+<li>selinux
+<ul class="org-ul">
+<li>chcon -t samba_share_t anonymous/
+</li>
+</ul>
+</li>
+
+<li>references
+<ul class="org-ul">
+<li><a href="https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7">https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7</a>
+</li>
+</ul>
 </li>
 </ul>
 
 <p>
 <a href="../systems.html">back</a>
 </p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="validation"></p>
