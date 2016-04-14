@@ -10,7 +10,7 @@
   - yum install samba samba-client samba-common
 - edit configuration
   - /etc/samba/smb.conf
-  ~~~~~~~~~~~~~~~~~~~~~  
+#+BEGIN_EXAMPLE
   [global]
   workgroup = WORKGROUP
   server string = Samba Server %v
@@ -25,7 +25,7 @@
   writable = yes
   guest ok = yes
   read only = no
-  ~~~~~~~~~~~~~~
+#+END_EXAMPLE
 
 - create shared folder and edit permissions
   - mkdir -p /samba/anonymous

@@ -47,8 +47,9 @@
 <li>/etc/samba/smb.conf
 </li>
 </ul>
-<p>
-<code>~~~~~~~~~~~~~~~~~~~</code>  
+</li>
+</ul>
+<pre class="example">
 [global]
 workgroup = WORKGROUP
 server string = Samba Server %v
@@ -56,17 +57,16 @@ netbios name = centos
 security = user
 map to guest = bad user
 dns proxy = no
-#============================ Share Definitions <code>============================</code> 
+#============================ Share Definitions ============================== 
 [Anonymous]
 path = /samba/anonymous
 browsable =yes
 writable = yes
 guest ok = yes
 read only = no
-<code>~~~~~~~~~~~~</code>
-</p>
-</li>
+</pre>
 
+<ul class="org-ul">
 <li>create shared folder and edit permissions
 <ul class="org-ul">
 <li>mkdir -p /samba/anonymous
