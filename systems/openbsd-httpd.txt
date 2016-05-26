@@ -1,0 +1,66 @@
+openbsd httpd
+
+* documentation
+- httpd
+- httpd.conf
+- rcctl  
+
+* resources
+- https://tribaal.io/this-now-served-by-openbsd.html
+- http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html
+
+* files and scripts
+- /etc/httpd.conf ; configuration file
+- /var/www/htdocs/ ; default root folder
+- /etc/rc.d/httpd ; server script
+- /etc/rc.conf
+  - httpd-flags=NO
+- /etc/rc/conf.local
+
+* setup
+** basic server example
+- directory index ; add to httpd.conf
+
+#+BEGIN_EXAMPLE
+  server "default" {
+  directory auto index
+  }
+  types { include "/usr/share/misc/mime.types" }
+#+END_EXAMPLE
+
+** password protected example
+- create htpasswd file in /var/www
+  - htpasswd /var/www/htpasswd janowah
+- need to update /etc/httpd.conf
+  - authenicate with htpasswd ; where htpasswd is the password file
+- make /var/www/htpasswd readable by www
+  - chown www /var/www/htpasswd
+- restart httpd
+  - sh /etc/rc.d/httpd -f restart
+
+#+BEGIN_EXAMPLE
+  server "default" {
+  directory auto index
+  authenticate with htpasswd
+  }
+  types { include "/usr/share/misc/mime.types" }
+#+END_EXAMPLE
+
+** https example
+- generate server keys
+- # openssl genrsa -out /etc/ssl/private/server.key
+- # openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt -days 3650
+
+#+BEGIN_EXAMPLE
+  server "default" {
+  listen on * tls port 443
+  hsts
+  directory auto index
+  authenticate with htpasswd
+  }
+  types { include "/usr/share/misc/mime.types" }
+#+END_EXAMPLE
+
+** application servers
+- php
+- tomcat

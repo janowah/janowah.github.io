@@ -2,6 +2,7 @@ openbsd
 
 - installing software
   - pkg_path
+    - export PKG_PATH=http://ftp.heanet.ie/pub/OpenBSD/$(uname -r)/packages/$(machine -a)/
   - pkg_add -v emacs
     - emacs-24.5p2-no_x11
 - updating software
@@ -10,3 +11,6 @@ openbsd
 - adding users
   - adduser
 - making sure the time is correct
+
+- locate
+  - sh /usr/libexec/locate.updatedb ; update database
