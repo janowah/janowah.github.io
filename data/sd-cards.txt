@@ -3,21 +3,21 @@
 micro
 =====
 
-| size GB | make      |          |
-|---------+-----------+----------|
-|       2 | transcend | data     |
-|       4 | co4g      | openelec |
-|       8 | sandisk   | raspbian |
-|      16 | tdk       | blank    |
-|      32 | sandisk   | data     |
-|      64 | sandisk   | data     |
+| size GB | make      | contents | location |    |
+|---------+-----------+----------+----------+----|
+|       2 | transcend | data     | ?        |    |
+|       4 | co4g      | openelec | box      |  4 |
+|       8 | sandisk   | raspbian | rpi      |  4 |
+|      16 | tdk       | blank    | box      | 10 |
+|      32 | sandisk   | data     |          |    |
+|      64 | sandisk   | data     | phone    | 10 |
 
 standard
 ========
 
-| size GB | make     |            |
-|---------+----------+------------|
-|       2 | kingston | photos     |
-|       4 | samsung  | photos/ sw |
-|       4 | kodak    | books      |
-|       4 | kingston | photos     |
+| size GB | make     | contents   | location |   |
+|---------+----------+------------+----------+---|
+|       2 | kingston | photos     | box      | - |
+|       4 | samsung  | photos/ sw | box      | 4 |
+|       4 | kodak    | books      | box      | 2 |
+|       4 | kingston | photos     | camera   | 4 |

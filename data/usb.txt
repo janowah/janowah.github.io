@@ -1,19 +1,22 @@
 				 usb
 
 
-| make                 | size | contents              |
-|----------------------+------+-----------------------|
-| pny                  | 4GB  | tails                 |
-| kingston dt108 blue  | 4GB  | ubuntu 15.10 x64 LIVE |
-| kingston dt108 red   | 8GB  | fedora 22 LIVE        |
-| pny                  | 4GB  | fedora 20 x64 LIVE    |
-| sandisk cruzer force | 8GB  | centos 7 LIVE         |
-|----------------------+------+-----------------------|
-| sandisk              | 32GB | centos 7              |
-| sandisk ultra        | 16GB | ubuntu                |
-| pny                  | 8GB  | edmonton              |
-| sandisk cruzer edge  | 16GB | ubuntu                |
-|----------------------+------+-----------------------|
-| integral             | 2GB  | data                  |
-| sandisk cruzer edge  | 32GB | data (dad)            |
-
+| make                 | size | interface | contents                |
+|----------------------+------+-----------+-------------------------|
+| pny                  | 4GB  |       2.0 | tails                   |
+| kingston dt108 blue  | 4GB  |       2.0 | ubuntu 15.10 x64 LIVE   |
+| kingston dt108 red   | 8GB  |       2.0 | fedora 22 LIVE          |
+| pny                  | 4GB  |       2.0 | fedora 20 x64 LIVE (bc) |
+| sandisk cruzer force | 8GB  |       2.0 | centos 7 LIVE           |
+|----------------------+------+-----------+-------------------------|
+| sandisk cruzer micro | 4GB  |       2.0 | freenas                 |
+| pny                  | 8GB  |       2.0 | edmonton (jc)           |
+| sandisk cruzer edge  | 16GB |       2.0 | ubuntu                  |
+| sandisk ultra        | 16GB |       3.0 | ubuntu                  |
+| sandisk              | 32GB |       3.0 | centos 7                |
+|----------------------+------+-----------+-------------------------|
+| integral             | 2GB  |       2.0 | data (bc)               |
+| sandisk cruzer edge  | 32GB |       2.0 | blank (jc)              |
+|----------------------+------+-----------+-------------------------|
+| samsung              | 32GB |       3.0 | fedora 24 LIVE          |
+| sandisk              | 32GB |           | data (mUSB)             |

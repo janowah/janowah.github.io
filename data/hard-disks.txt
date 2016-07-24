@@ -1,13 +1,40 @@
 			      hard disks
 
-|   |       | location |                           | interface |
-|---+-------+----------+---------------------------+-----------|
-| f | 500GB | press    | unallocated               | sata      |
-| g |       | server   |                           | sata      |
-| h |       | server   |                           | sata      |
-| i | 320GB | press    | windows 10 self-build x64 | sata      |
-| j | 1TB   | press    | unallocated               | sata      |
-| k | 500GB | press    | NTFS. 330GB data          | sata      |
-| l |       | server   |                           | sata      |
-| m | 120GB | press    |                           | sata      |
-| n | 2TB   | server   |                           | sata      |
+Internal
+========
+
+|   | size  | location  |                           | interface |      |                   |     |
+|---+-------+-----------+---------------------------+-----------+------+-------------------+-----|
+| a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |     |
+| c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |     |
+| d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |     |
+| f | 500GB | press     | unallocated               | sata      | 3.5" | Seagate           |     |
+| g |       | server    | data                      | sata      | 3.5" |                   |     |
+| h |       | server    | data                      | sata      | 3.5" |                   |     |
+| i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD                |     |
+| j | 1TB   | press     | unallocated               | sata      | 3.5" | WD                |     |
+| k | 500GB | press     | NTFS. 330GB data          | sata      | 3.5" | Samsung           |     |
+| l |       | server    | data                      | sata      | 3.5" |                   |     |
+| m | 120GB | press     | -                         | sata      | 2.5" | ocz agility 3     | ssd |
+| n | 2TB   | server    | data                      | sata      | 3.5" |                   |     |
+
+
+External
+========
+
+|   | size  | make    | model                      | interface | power         |
+|---+-------+---------+----------------------------+-----------+---------------|
+| 1 |       | Seagate |                            |       2.0 | 12 VDC/ 2.0 A |
+| 2 |       | Seagate | Free Agent Desktop         |       2.0 |               |
+| 3 | 250GB | WD      |                            |       2.0 |               |
+| 4 | 500GB | WD      | My Passport                |       2.0 |               |
+| 5 | 2TB   | Seagate | Backup Plus Portable Drive |       3.0 |               |
+
+
+
+other
+- WD Scorpio Blue 320GB 2.5"
+- ssd 2.5"
+- e 3.5"
+- 2.5"
+- 2.5"
