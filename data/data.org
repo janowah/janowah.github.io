@@ -3,7 +3,7 @@
 
 - [[./sd-cards.txt][sd cards]]
 - [[./usb.txt][usb drives]]
-- hard drives
+- [[file:hard-disks.txt][hard disks]]
 - hardware
 
 [[../index.html][back]]
