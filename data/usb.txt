@@ -6,7 +6,7 @@
 | pny                  | 4GB  |       2.0 | tails                   |
 | kingston dt108 blue  | 4GB  |       2.0 | ubuntu 15.10 x64 LIVE   |
 | kingston dt108 red   | 8GB  |       2.0 | fedora 22 LIVE          |
-| pny                  | 4GB  |       2.0 | fedora 20 x64 LIVE (bc) |
+| pny                  | 4GB  |       2.0 | fedora 23 x64 LIVE (bc) |
 | sandisk cruzer force | 8GB  |       2.0 | centos 7 LIVE           |
 |----------------------+------+-----------+-------------------------|
 | sandisk cruzer micro | 4GB  |       2.0 | freenas                 |
