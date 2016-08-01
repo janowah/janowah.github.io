@@ -1,0 +1,290 @@
+#+Title: Holidays
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil toc:nil
+
+* 2016
+#+BEGIN_EXAMPLE
+  | Occasion | Day       |       Date | Hours |
+  |----------+-----------+------------+-------|
+  |          | Monday    | 2016-02-01 |     8 |
+  |          | Friday    | 2016-03-18 |     7 |
+  |          | Thursday  | 2016-04-14 |     8 |
+  |          | Friday    | 2016-04-15 |     7 |
+  |          | Monday    | 2016-04-18 |     8 |
+  |          | Tuesday   | 2016-04-19 |     8 |
+  | bike     | Wednesday | 2016-05-18 |     8 |
+  | sweden   | Wednesday | 2016-06-08 |     8 |
+  | sweden   | Thursday  | 2016-06-09 |     8 |
+  | sweden   | Friday    | 2016-06-10 |     7 |
+  | sweden   | Monday    | 2016-06-13 |     8 |
+  | sweden   | Tuesday   | 2016-06-14 |     8 |
+  |          | Monday    | 2016-07-25 |     8 |
+  |          | Tuesday   | 2016-07-26 |     8 |
+  |          | Wednesday | 2016-07-27 |     8 |
+  |          | Thursday  | 2016-07-28 |     8 |
+  |          | Friday    | 2016-07-29 |     7 |
+  |----------+-----------+------------+-------|
+  |          |           |            |   132 |
+#+END_EXAMPLE
+
+- *Remaining* 140
+- Allowance: 200
+- Carry: 72
+- Total: 272
+- *bank holidays*
+- *sundays*
+  - 2016-07-03
+  - 2016-05-29
+  - 2016-04-24
+  - 2016-03-20
+  - 2016-02-14
+  - 2016-01-10
+- *sick*
+
+* 2015
+#+BEGIN_EXAMPLE
+  | Occasion  | Day       |       Date | Hours |
+  |-----------+-----------+------------+-------|
+  |           | Monday    | 2015-03-02 |     8 |
+  |           | Tuesday   | 2015-03-03 |     8 |
+  |           | Wednesday | 2015-03-04 |     8 |
+  |           | Thursday  | 2015-03-05 |     8 |
+  |           | Friday    | 2015-03-06 |     7 |
+  | clive     | Friday    | 2015-05-01 |     7 |
+  | frames    | Monday    | 2015-07-06 |     8 |
+  |           | Tuesday   | 2015-07-07 |     8 |
+  |           | Wednesday | 2015-07-08 |     8 |
+  |           | Monday    | 2015-08-17 |     8 |
+  |           | Tuesday   | 2015-08-18 |     8 |
+  |           | Wednesday | 2015-08-19 |     8 |
+  | dublin    | Monday    | 2015-09-21 |     8 |
+  |           | Monday    | 2015-09-28 |     8 |
+  |           | Tuesday   | 2015-09-29 |     8 |
+  |           | Wednesday | 2015-09-30 |     8 |
+  |           | Thursday  | 2015-10-01 |     8 |
+  |           | Friday    | 2015-10-02 |     7 |
+  | lisbon    | Friday    | 2015-10-16 |     7 |
+  | lisbon    | Monday    | 2015-10-19 |     8 |
+  | new york  | Thursday  | 2015-11-19 |     8 |
+  | new york  | Friday    | 2015-11-20 |     7 |
+  | new york  | Monday    | 2015-11-23 |     8 |
+  |           | Friday    | 2015-11-27 |     7 |
+  |           | Monday    | 2015-11-30 |     8 |
+  | christmas | Tuesday   | 2015-12-29 |     8 |
+  |-----------+-----------+------------+-------|
+  |           |           |            |   202 |
+#+END_EXAMPLE
+
+- *Remaining* 72
+- Allowance: 200
+- Carry: 74
+- Total: 274
+- *bank holidays*
+  - -
+- *sundays*
+  - 2015-12-06
+  - 2015-10-25
+  - 2015-09-13
+  - 2015-08-02
+  - 2015-06-21
+  - 2015-05-10
+  - 2015-03-29
+  - 2015-02-15
+  - 2015-01-04
+- *sick*
+  - 2015-10-08
+  - 2015-04-27
+
+* 2014
+#+BEGIN_EXAMPLE
+  | Occasion    | Day       |       Date | Hours |
+  |-------------+-----------+------------+-------|
+  | clive       | Thursday  | 2014-02-06 |     8 |
+  |             | Wednesday | 2014-04-30 |     8 |
+  |             | Thursday  | 2014-05-01 |     8 |
+  |             | Friday    | 2014-05-02 |     7 |
+  | arcade fire | Monday    | 2014-06-30 |     8 |
+  | seamus      | Tuesday   | 2014-07-01 |     8 |
+  | seamus      | Wednesday | 2014-07-02 |     8 |
+  | seamus      | Thursday  | 2014-07-03 |     8 |
+  | seamus      | Friday    | 2014-07-04 |     7 |
+  | bike        | Monday    | 2014-07-28 |     8 |
+  | bike        | Tuesday   | 2014-07-29 |     8 |
+  | bike        | Wednesday | 2014-07-30 |     8 |
+  | bike        | Thursday  | 2014-07-31 |     8 |
+  | bike        | Friday    | 2014-08-01 |     7 |
+  | break       | Monday    | 2014-09-29 |     8 |
+  | break       | Tuesday   | 2014-09-30 |     8 |
+  | break       | Wednesday | 2014-10-01 |     8 |
+  | break       | Thursday  | 2014-10-02 |     8 |
+  | break       | Friday    | 2014-10-03 |     7 |
+  | elaine      | Thursday  | 2014-10-16 |     8 |
+  | elaine      | Friday    | 2014-10-17 |     7 |
+  |             | Monday    | 2014-11-17 |     8 |
+  |             | Tuesday   | 2014-11-18 |     8 |
+  |             | Monday    | 2014-12-08 |     8 |
+  |             | Tuesday   | 2014-12-09 |     8 |
+  |             | Wednesday | 2014-12-31 |     8 |
+  |-------------+-----------+------------+-------|
+  |             |           |            |   203 |
+#+END_EXAMPLE
+
+- *Remaining* 74 (~2 weeks)
+- Allowance: 200
+- Carry: 77
+- Total: 277
+- *bank holidays*
+  - -
+- *sundays*
+  - 2014-11-23
+  - 2014-10-12
+  - 2014-08-31
+  - 2014-07-20
+  - 2014-04-27
+  - 2014-03-09
+  - 2014-02-09
+- *sick*
+  - -
+
+* 2013
+#+BEGIN_EXAMPLE
+  | Occasion  | Day         |       Date | Hours |
+  |-----------+-------------+------------+-------|
+  | Dublin    | Friday      | 2013-02-01 |     7 |
+  | drive     | Friday      | 2013-02-08 |     7 |
+  | week      | Wednesday   | 2013-02-13 |     8 |
+  | week      | Thursday    | 2013-02-14 |     8 |
+  | week      | Friday      | 2013-02-15 |     7 |
+  | week      | Monday      | 2013-02-18 |     8 |
+  | week      | Tuesday     | 2013-02-19 |     8 |
+  | test      | Wednesday   | 2013-03-06 |     8 |
+  | clive     | Friday      | 2013-06-07 |     7 |
+  | rosslare  | Friday (.5) | 2013-06-22 |     3 |
+  | sweden    | Thursday    | 2013-07-11 |     8 |
+  | sweden    | Friday      | 2013-07-12 |     7 |
+  | longitude | Friday      | 2013-07-19 |     7 |
+  | dublin    | Monday      | 2013-09-16 |     8 |
+  | dublin    | Tuesday     | 2013-09-17 |     8 |
+  | galway    | Friday      | 2013-09-27 |     7 |
+  | galway    | Monday      | 2013-09-30 |     8 |
+  | leitrim   | Friday      | 2013-10-25 |     7 |
+  | leitrim   | Monday      | 2013-10-28 |     0 |
+  | new york  | Thursday    | 2013-11-14 |     8 |
+  | new york  | Friday      | 2013-11-15 |     7 |
+  | new york  | Monday      | 2013-11-18 |     8 |
+  | new york  | Tuesday     | 2013-11-19 |     8 |
+  | dublin    | Monday      | 2013-11-25 |     8 |
+  | dublin    | Tuesday     | 2013-11-26 |     8 |
+  | dublin    | Wednesday   | 2013-11-27 |     8 |
+  | dublin    | Thursday    | 2013-11-28 |     8 |
+  | dublin    | Friday      | 2013-11-29 |     7 |
+  | dublin    | Friday      | 2013-12-20 |     7 |
+  | dublin    | Monday      | 2013-12-23 |     8 |
+  | dublin    | Tuesday     | 2013-12-31 |     8 |
+  |-----------+-------------+------------+-------|
+  |           |             |            |   224 |
+#+END_EXAMPLE
+
+- Allowance: 200
+- Carry: 101
+- Total: 301
+- Unused: 77
+
+- *bank holidays*
+  - -
+- *sundays*
+  - 2013-12-15
+  - 2013-11-03
+  - 2013-09-22
+  - 2013-08-11
+  - 2013-06-30
+  - 2013-05-19
+  - 2013-04-07
+  - 2013-03-03
+  - 2013-01-13
+- *sick*
+  - 2013-09-14
+  - 2013-09-13
+  - 2013-09-12
+  - 2013-09-11
+  - 2013-03-20
+  - 2013-03-19
+
+* 2012
+#+BEGIN_EXAMPLE
+  | Occasion    | Day       |       Date | Hours |
+  |-------------+-----------+------------+-------|
+  | Dublin      | Wednesday | 2012-02-01 |     8 |
+  | Brussells   | Friday    | 2012-02-24 |     7 |
+  | Brussells   | Monday    | 2012-02-27 |     8 |
+  | Fermanagh   | Friday    | 2012-04-06 |     7 |
+  | Fermanagh   | Monday    | 2012-04-09 |     0 |
+  | Poland      | Monday    | 2012-06-11 |     8 |
+  | Poland      | Tuesday   | 2012-06-12 |     8 |
+  | Poland      | Wednesday | 2012-06-13 |     8 |
+  | Poland      | Thursday  | 2012-06-14 |     8 |
+  | Poland      | Friday    | 2012-06-15 |     7 |
+  | Poland      | Monday    | 2012-06-18 |     8 |
+  | Poland      | Tuesday   | 2012-06-19 |     8 |
+  | Poland      | Wednesday | 2012-06-20 |     8 |
+  | Bishopstown | Friday    | 2012-08-10 |     7 |
+  | Dublin      | Thursday  | 2012-09-13 |     8 |
+  | Dublin      | Friday    | 2012-09-14 |     7 |
+  | Dublin      | Monday    | 2012-11-19 |     8 |
+  | Dublin      | Tuesday   | 2012-11-20 |     8 |
+  | Dublin      | Wednesday | 2012-11-21 |     8 |
+  | Dublin      | Thursday  | 2012-11-22 |     8 |
+  | Dublin      | Friday    | 2012-11-23 |     7 |
+  | Christmas   | Monday    | 2012-12-24 |     8 |
+  | Christmas   | Friday    | 2012-12-28 |     3 |
+  | Christmas   | Monday    | 2012-12-31 |     8 |
+  |-------------+-----------+------------+-------|
+  |             |           |            |   173 |
+#+END_EXAMPLE
+
+
+- *bank holidays*
+  - 2012-12-26
+- *sundays*
+  - 2012-09-09
+  - 2012-10-21
+- *sick*
+
+* 2011
+#+BEGIN_EXAMPLE
+| Occasion        | Day       |       Date | Hours |
+|-----------------+-----------+------------+-------|
+| Adare           | Friday    | 2011-03-25 |     7 |
+| Dublin          | Monday    | 2011-05-09 |     8 |
+| Dublin          | Tuesday   | 2011-05-10 |     8 |
+| Dublin          | Wednesday | 2011-05-11 |     8 |
+| Dublin          | Thursday  | 2011-05-12 |     8 |
+| Dublin          | Friday    | 2011-05-13 |     7 |
+| Bishopstown     | Friday    | 2011-06-03 |     7 |
+| driving test    | Tuesday   | 2011-06-14 |     4 |
+| Roundstone      | Friday    | 2011-07-22 |     7 |
+| Roundstone      | Monday    | 2011-07-25 |     8 |
+| Powerscourt     | Friday    | 2011-08-12 |     7 |
+| electric picnic | Friday    | 2011-09-02 |     7 |
+| electric picnic | Monday    | 2011-09-05 |     8 |
+| Amsterdam       | Friday    | 2011-10-07 |     7 |
+| Amsterdam       | Monday    | 2011-10-10 |     8 |
+|                 | Monday    | 2011-11-07 |     8 |
+|                 | Wednesday | 2011-11-09 |     8 |
+|                 | Thursday  | 2011-11-10 |     8 |
+|                 | Thursday  | 2011-11-24 |     8 |
+|                 | Friday    | 2011-11-25 |     7 |
+|                 | Monday    | 2011-11-28 |     8 |
+|-----------------+-----------+------------+-------|
+|                 |           |            |   156 |
+#+END_EXAMPLE
+
+- *bank holidays*
+  - 2011-10-31
+  - 2011-12-26
+- *sundays*
+  - 2011-01-30
+  - 2011-03-13
+  - 2011-06-19
+  - 2011-07-31
+  - 2011-09-18
+  - 2011-11-06
