@@ -22,16 +22,18 @@
   |          | Wednesday | 2016-07-27 |     8 |
   |          | Thursday  | 2016-07-28 |     8 |
   |          | Friday    | 2016-07-29 |     7 |
+  | clive    | Friday    | 2016-08-12 |     7 |
   |----------+-----------+------------+-------|
-  |          |           |            |   132 |
+  |          |           |            |   139 |
 #+END_EXAMPLE
 
-- *Remaining* 140
+- *Remaining* 133
 - Allowance: 200
 - Carry: 72
 - Total: 272
 - *bank holidays*
 - *sundays*
+  - 2016-08-21
   - 2016-07-03
   - 2016-05-29
   - 2016-04-24
