@@ -1,0 +1,24 @@
+#+title: ubuntu
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* setup
+- Auto-hide the launcher ; all settings > appearance
+- caps to control ; gnome-tweak tool
+- change terminal font to liberation mono regular 13
+- dash privacy
+
+* ricing
+- window borders ; what theme?
+- icons ; numix
+- install source code pro
+- can i change ctrl-super to super for managing windows?
+
+* mg
+installing mg on ubuntu 15.10
+- edit /etc/apt/sources.list
+  - change restricted to universe
+    - deb http://us.archive.ubuntu.com/ubuntu vivid main universe
+    - change vivid to what my release is
+- sudo apt-get update
+- sudo apt-get install mg
+

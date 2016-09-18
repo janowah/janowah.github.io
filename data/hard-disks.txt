@@ -3,20 +3,21 @@
 Internal
 ========
 
-|   | size  | location  |                           | interface |      |                   |     |
-|---+-------+-----------+---------------------------+-----------+------+-------------------+-----|
-| a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |     |
-| c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |     |
-| d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |     |
-| f | 500GB | press     | unallocated               | sata      | 3.5" | Seagate           |     |
-| g |       | server    | data                      | sata      | 3.5" |                   |     |
-| h |       | server    | data                      | sata      | 3.5" |                   |     |
-| i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD                |     |
-| j | 1TB   | press     | unallocated               | sata      | 3.5" | WD                |     |
-| k | 500GB | press     | NTFS. 330GB data          | sata      | 3.5" | Samsung           |     |
-| l |       | server    | data                      | sata      | 3.5" |                   |     |
-| m | 120GB | press     | -                         | sata      | 2.5" | ocz agility 3     | ssd |
-| n | 2TB   | server    | data                      | sata      | 3.5" |                   |     |
+|   | size  | location  |                           | interface |      |                   |            |
+|---+-------+-----------+---------------------------+-----------+------+-------------------+------------|
+| a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |            |
+| c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |            |
+| d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |            |
+| e | 250GB | press     | fedora 22                 | sata      | 3.5" | WD                | 2009-02-18 |
+| f | 500GB | press     | unallocated               | sata      | 3.5" | Seagate           | 2009-02-17 |
+| g | 320   | server    | data                      | sata      | 3.5" | WD Caviar Blue    | 2009-03-05 |
+| h | 1TB   | server    | data                      | sata      | 3.5" | Samsung           | 2009-07-xx |
+| i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD Caviar Blue    | 2009-09-24 |
+| j | 1TB   | press     | unallocated               | sata      | 3.5" | WD Caviar Green   | 2010-03-25 |
+| k | 500GB | press     | NTFS. 330GB data          | sata      | 3.5" | Samsung           | 2010-10-xx |
+| l | 500GB | server    | data                      | sata      | 3.5" | WD Caviar Green   | 2011-02-22 |
+| m | 120GB | press     | -                         | sata      | 2.5" | ocz agility 3     |        ssd |
+| n | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2013-01-28 |
 
 
 External
