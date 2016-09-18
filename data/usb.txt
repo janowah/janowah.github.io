@@ -11,8 +11,8 @@
 |----------------------+------+-----------+--------------------------|
 | sandisk cruzer micro | 4GB  |       2.0 | freenas                  |
 | pny                  | 8GB  |       2.0 | edmonton (jc)            |
-| sandisk cruzer edge  | 16GB |       2.0 | ubuntu                   |
-| sandisk ultra        | 16GB |       3.0 | ubuntu                   |
+| sandisk cruzer edge  | 16GB |       2.0 | ubuntu 12.04 i686 LIVE   |
+| sandisk ultra        | 16GB |       3.0 | ubuntu 14.04.3 x64       |
 | sandisk              | 32GB |       3.0 | centos 7 x64             |
 |----------------------+------+-----------+--------------------------|
 | integral             | 2GB  |       2.0 | data (bc)                |
