@@ -3,5 +3,6 @@
 
 - [[./attendance.html][attendance]]
 - [[./holidays.html][holidays]]
+- [[file:reminders.html][reminders]]
 
 [[../index.html][back]]
