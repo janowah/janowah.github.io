@@ -1,4 +1,4 @@
 #+title: reminders
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- library: DUE 2016-09-24-SAT
+- library: DUE 2016-10-14 FRI
