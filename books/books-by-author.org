@@ -1,0 +1,161 @@
+#+title: Books by Author
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* uk
+- Irvine Welsh
+  1. Trainspotting
+  2. Marabou Stork Nightmares
+  3. Filth
+  4. Glue
+  5. Porno
+  6. The Bedroom Secrets of the Master Chefs
+  7. Skagboys
+  8. The Acid House
+  9. Ecstasy: Three Tales of Chemical Romance
+  10. If You Liked School You'll Love Work
+- George Orwell
+  1. Keep the Aspidistra Flying
+  2. Coming Up for Air
+  3. Animal Farm
+  4. Nineteen Eighty-Four
+  5. Down and Out in Paris and London
+  6. The Road to Wigan Pier
+  7. Homage to Catalonia
+- Robert Harris
+  1. Fatherland
+  2. Enigma
+  3. Archangel
+  4. Pompeii
+  5. Imperium
+  6. The Ghost
+- Charles Dickens
+  1. The Old Curiosity Shop
+  2. Great Expectations
+  3. A Tale of Two Cities
+- Frederick Forsyth
+  1. The Day of the Jackal
+  2. The Odessa File
+  3. The Dogs of War
+- Nick Hornby
+  1. High Fidelity
+  2. About a Boy
+- Graham Greene
+  1. Brighton Rock
+  2. The End of the Affair
+- Robert Louis Stevenson
+  1. Treasure Island
+  2. The Black Arrow
+- Emily Brontë
+  - Wuthering Heights
+- Thomas Hardy
+  - Far from the Madding Crowd
+- Ian McEwan
+  - On Chesil Beach
+- George Eliot
+  - Silas Marner
+- Anthony Burgess
+  - A Clockwork Orange
+- Rudyard Kipling
+  - Kim
+- William Golding
+  - Lord of the Flies
+- Roald Dahl
+- jane austen
+- Arthur Conan Doyle
+- john le carre
+- Joseph Conrad / Heart of Darkness
+- douglas adams
+- jk rowling
+- tolkien
+
+* irish
+- roddy doyle / The Commitments 
+- joseph o'connor / Star of the Sea
+- john banville / The Book of Evidence
+- james joyce
+- flann o'brien brian o'nolan
+- samuel becket
+- john mcgahern?
+- frank mccourt
+- james plunkett
+- oscar wilde / de profundis
+
+* us
+#+BEGIN_EXAMPLE
+  |    | Author              | Title                                     |               |
+  |----+---------------------+-------------------------------------------+---------------|
+  |  1 | Bret Easton Ellis   | American Psycho                           |               |
+  |  2 | Don DeLillo         | White Noise                               |               |
+  |  3 | Ernest Hemingway    | A Farewell to Arms                        |               |
+  |  4 | Ernest Hemingway    | For Whom the Bell Tolls                   |               |
+  |  5 | Ernest Hemingway    | The Old Man and the Sea                   |               |
+  |  6 | F. Scott Fitzgerald | The Great Gatsby                          |               |
+  |  7 | Harper Lee          | To Kill a Mockingbird                     |               |
+  |  8 | Hunter S. Thompson  | Fear and Loathing in Las Vegas            |               |
+  |  9 | J. D. Salinger      | The Catcher in the Rye                    |               |
+  | 10 | Jack Kerouac        | On The Road*                              |               |
+  | 11 | John Kennedy Toole  | A Confederacy of Dunces                   |               |
+  | 12 | John Steinbeck      | The Grapes of Wrath                       |               |
+  | 13 | John Steinbeck      | The Pearl                                 |               |
+  | 14 | John Steinbeck      | Of Mice and Men                           |               |
+  | 15 | John Updike         | Rabbit, Run*                              |               |
+  | 16 | Ken Kesey           | One Flew Over the Cuckoo's Nest           |               |
+  | 17 | Philip Roth         | American Pastoral                         |               |
+  | 18 | Robert M. Pirsig    | Zen and the Art of Motorcycle Maintenance |               |
+  | 19 | Sinclair Lewis      | Babbitt                                   | 9780099264712 |
+  | 20 | Sinclair Lewis      | It Can't Happen Here                      |               |
+  | 21 | Stephen Crane       | The Red Badge of Courage*                 |               |
+  | 22 | Stephen King        | It                                        |               |
+  | 23 | Tom Wolfe           | The Bonfire of the Vanities               |               |
+  | 24 | Truman Capote       | In Cold Blood                             |               |
+  | 25 | Vladimir Nabokov    | Lolita                                    |               |
+#+END_EXAMPLE
+
+- Mark Twain
+- Herman Melville
+- Edgar Allan Poe
+- William Faulkner
+- Henry James?
+
+* french
+- Alexandre Dumas
+  - count of monte cristo
+  - musketeers?
+- Albert Camus
+  - The Plague
+- Victor Hugo?
+- Guy de Maupassant
+  - Boule de Suif
+- Jules Verne
+
+* russian
+- Leo Tolstoy
+  - War and Peace
+  - Anna Karenina
+  - The Death of Ivan Ilyich
+- Aleksandr Solzhenitsyn
+  - The First Circle
+  - The Gulag Archipelago
+- Fyodor Dostoyevsky
+  - Crime and Punishment
+- Anton Chekhov
+
+* german
+- Hermann Hesse steppenwolf
+- kafka trial
+- Erich Maria Remarque / All Quiet on the Western Front
+
+* spanish
+- Miguel de Cervantes
+  - Don Quixote
+* others
+
+#+BEGIN_EXAMPLE
+  | Gregory David Roberts | Shantaram                             |
+  | Stieg Larsson         | The Girl with the Dragon Tattoo       |
+  | Stieg Larsson         | The Girl Who Played with Fire         |
+  | Stieg Larsson         | The Girl Who Kicked the Hornets' Nest |
+  | Khaled Hosseini       | The Kite Runner                       |
+#+END_EXAMPLE
+
+[[file:books.html][back]]
