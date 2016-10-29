@@ -28,11 +28,13 @@
   |          | Thursday  | 2016-09-15 |     8 |
   |          | Friday    | 2016-09-16 |     7 |
   |          | Monday    | 2016-09-19 |     8 |
+  | test     | Wednesday | 2016-10-26 |     8 |
+  |          | Thursday  | 2016-10-27 |     8 |
   |----------+-----------+------------+-------|
-  |          |           |            |   178 |
+  |          |           |            |   194 |
 #+END_EXAMPLE
 
-- *Remaining* 94
+- *Remaining* 78
 - Allowance: 200
 - Carry: 72
 - Total: 272
