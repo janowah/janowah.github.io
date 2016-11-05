@@ -10,4 +10,4 @@ code
 - [[file:fibonacci.html][fibonacci]]
 - [[file:lotto.html][lotto]]
 
-[[file:~/janowah/programming/programming.html][back]]
+[[../programming.html][back]]
