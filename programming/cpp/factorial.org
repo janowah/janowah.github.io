@@ -1,5 +1,5 @@
-#+Title: Factorial
-#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+#+Title: factorial.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 #+BEGIN_SRC cpp :tangle factorial.cpp :padline no
   #include <iostream>

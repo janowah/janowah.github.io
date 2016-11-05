@@ -1,5 +1,5 @@
-#+Title: Fibonacci
-#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+#+Title: fibonacci.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 #+BEGIN_SRC cpp :tangle fibonacci.cpp :padline no
   #include <iostream>

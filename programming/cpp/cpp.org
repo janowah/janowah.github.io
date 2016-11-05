@@ -1,5 +1,5 @@
 #+Title: Cpp 
-#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 - [[file:cpp-quick-guide.html][quick guide]]
 
@@ -9,3 +9,5 @@ code
 - [[file:factorial.html][factorial]]
 - [[file:fibonacci.html][fibonacci]]
 - [[file:lotto.html][lotto]]
+
+[[file:~/janowah/programming/programming.html][back]]

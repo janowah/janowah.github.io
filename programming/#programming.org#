@@ -1,0 +1,10 @@
+#+Title: Programming
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- [[file:cpp/cpp.html][C++]]
+- java
+- c
+- lisp
+- erlang
+
+[[file:~/janowah/index.html][back]]

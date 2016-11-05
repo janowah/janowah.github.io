@@ -1,5 +1,5 @@
-#+Title: Encoder.h
-#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+#+Title: encoder.h
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 #+BEGIN_SRC cpp :tangle encoder.h :padline no
   #include <iostream>

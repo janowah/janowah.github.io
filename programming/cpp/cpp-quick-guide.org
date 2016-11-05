@@ -1,5 +1,5 @@
 #+Title: C++ Quick Guide
-#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil toc:nil
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil toc:nil timestamp:nil
 
 * compiling
 - =g++ hello.cpp=
@@ -17,3 +17,5 @@
 #+END_EXAMPLE
 
 main() has to return an int
+
+[[file:cpp.html][back]]
