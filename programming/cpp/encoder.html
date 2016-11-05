@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Encoder</title>
+<!-- 2016-11-05 Sat 20:46 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Encoder</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #6b400c;">#include</span> <span style="color: #336c6c;">"encoder.h"</span>
+
+
+<span style="color: #401440;">encoder</span>::<span style="color: #6c1f1c;">encoder</span> ()
+{
+  EncryptionKey = 2;
+}
+
+<span style="color: #834744;">void</span> <span style="color: #401440;">encoder</span>::<span style="color: #6c1f1c;">encryptLetter</span> (<span style="color: #834744;">char</span> &amp;<span style="color: #205070;">letter</span>, <span style="color: #834744;">int</span> <span style="color: #205070;">lettercount</span>)
+{
+  <span style="color: #0f2050; font-weight: bold;">if</span> ((lettercount % EncryptionKey) == 0)
+    {
+      <span style="color: #0f2050; font-weight: bold;">if</span> (letter != <span style="color: #336c6c;">'z'</span> &amp;&amp; letter != <span style="color: #336c6c;">'Z'</span> )
+        letter = <span style="color: #834744;">char</span> ((<span style="color: #834744;">int</span>) (letter)+1);
+      <span style="color: #0f2050; font-weight: bold;">else</span> <span style="color: #0f2050; font-weight: bold;">if</span> (letter == <span style="color: #336c6c;">'z'</span> )
+        letter = <span style="color: #336c6c;">'a'</span>;
+      <span style="color: #0f2050; font-weight: bold;">else</span> <span style="color: #0f2050; font-weight: bold;">if</span> (letter == <span style="color: #336c6c;">'Z'</span>)
+        letter = <span style="color: #336c6c;">'A'</span>;
+
+    }
+}
+
+<span style="color: #834744;">int</span> <span style="color: #6c1f1c;">main</span> ()
+{
+  <span style="color: #834744;">char</span> <span style="color: #205070;">UserLetter</span>;
+  <span style="color: #834744;">encoder</span> <span style="color: #205070;">my_Security</span>;
+  <span style="color: #834744;">int</span> <span style="color: #205070;">UserLetterCount</span> = 1;
+
+  <span style="color: #401440;">std</span>::cout &lt;&lt; <span style="color: #336c6c;">"Enter sentence to be encrypted, terminated by a full stop"</span>&lt;&lt; <span style="color: #401440;">std</span>::endl;
+  <span style="color: #401440;">std</span>::cin &gt;&gt; UserLetter;
+
+  <span style="color: #0f2050; font-weight: bold;">while</span> (UserLetter != <span style="color: #336c6c;">'.'</span>)
+    {
+      my_Security.encryptLetter (UserLetter, UserLetterCount);
+      <span style="color: #401440;">std</span>::cout &lt;&lt; UserLetter ;
+      <span style="color: #401440;">std</span>::cin &gt;&gt; UserLetter;
+      UserLetterCount++;
+    }
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2016-11-05 Sat 20:46</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

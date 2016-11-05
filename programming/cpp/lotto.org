@@ -1,0 +1,85 @@
+#+Title: lotto
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+#+BEGIN_SRC cpp :tangle lotto.cpp :padline no
+  #include <iostream>
+
+  const int CardSize = 6;
+  const int NumberOfGenNumbers = 6;
+  enum Boolean { TRUE, FALSE };
+
+  class card {
+  public:
+    card ();
+    void insertnumber( int );
+    Boolean checknumber ( int );
+    void displaycard ();
+
+  private:
+    int lottoticket[CardSize];
+    int cardindex; 
+
+  };
+
+  card::card ()
+  {
+    cardindex = 0;
+  }
+
+  void card::insertnumber ( int num)
+  {
+    if (cardindex < CardSize)
+      {
+        lottoticket[cardindex]=num;
+        cardindex++;
+      }
+  }
+
+  void card::displaycard ()
+  {
+    std::cout << "The lotto ticket values are " ;
+    for (int i=0; i < CardSize; i++) {
+      std::cout << lottoticket[i] << " ";
+    }
+    std::cout << std::endl;
+  }
+
+  Boolean card::checknumber (const int num)
+  {
+    int k = 0;
+    while (k < CardSize && lottoticket[k] != num) {
+      k++;
+    }
+
+    if ( k == CardSize)
+      return FALSE;
+    else
+      return TRUE;
+  }
+
+  //Boolean card::
+
+  int main ()
+  {
+    card lottocard;
+    int input, GenNum;
+    std::cout << "Please input lotto numbers in ascending order " << std::endl;
+    for ( int i = 0; i < CardSize; i++) {
+      std::cin >> input;
+      lottocard.insertnumber ( input );
+    }
+    
+    lottocard.displaycard();
+
+    for (int j = 0; j < NumberOfGenNumbers; j++) {
+      std::cout << "Enter Generated number ;";
+      std::cin >> GenNum;
+
+      if (lottocard.checknumber(GenNum) == TRUE) {
+        std::cout << GenNum << " found in Lotto card" << std::endl;
+      }
+      else
+        std::cout << GenNum << "NOT found in Lotto card" << std::endl;
+    }
+  }
+#+END_SRC

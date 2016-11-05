@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>lotto</title>
+<!-- 2016-11-05 Sat 20:29 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">lotto</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #6b400c;">#include</span> <span style="color: #336c6c;">&lt;iostream&gt;</span>
+
+<span style="color: #0f2050; font-weight: bold;">const</span> <span style="color: #834744;">int</span> <span style="color: #205070;">CardSize</span> = 6;
+<span style="color: #0f2050; font-weight: bold;">const</span> <span style="color: #834744;">int</span> <span style="color: #205070;">NumberOfGenNumbers</span> = 6;
+<span style="color: #0f2050; font-weight: bold;">enum</span> <span style="color: #834744;">Boolean</span> { <span style="color: #205070;">TRUE</span>, <span style="color: #205070;">FALSE</span> };
+
+<span style="color: #0f2050; font-weight: bold;">class</span> <span style="color: #834744;">card</span> {
+<span style="color: #0f2050; font-weight: bold;">public</span>:
+  <span style="color: #6c1f1c;">card</span> ();
+  <span style="color: #834744;">void</span> <span style="color: #6c1f1c;">insertnumber</span>( <span style="color: #834744;">int</span> );
+  <span style="color: #834744;">Boolean</span> <span style="color: #6c1f1c;">checknumber</span> ( <span style="color: #834744;">int</span> );
+  <span style="color: #834744;">void</span> <span style="color: #6c1f1c;">displaycard</span> ();
+
+<span style="color: #0f2050; font-weight: bold;">private</span>:
+  <span style="color: #834744;">int</span> <span style="color: #205070;">lottoticket</span>[CardSize];
+  <span style="color: #834744;">int</span> <span style="color: #205070;">cardindex</span>; 
+
+};
+
+<span style="color: #401440;">card</span>::<span style="color: #6c1f1c;">card</span> ()
+{
+  cardindex = 0;
+}
+
+<span style="color: #834744;">void</span> <span style="color: #401440;">card</span>::<span style="color: #6c1f1c;">insertnumber</span> ( <span style="color: #834744;">int</span> <span style="color: #205070;">num</span>)
+{
+  <span style="color: #0f2050; font-weight: bold;">if</span> (cardindex &lt; CardSize)
+    {
+      lottoticket[cardindex]=num;
+      cardindex++;
+    }
+}
+
+<span style="color: #834744;">void</span> <span style="color: #401440;">card</span>::<span style="color: #6c1f1c;">displaycard</span> ()
+{
+  <span style="color: #401440;">std</span>::cout &lt;&lt; <span style="color: #336c6c;">"The lotto ticket values are "</span> ;
+  <span style="color: #0f2050; font-weight: bold;">for</span> (<span style="color: #834744;">int</span> <span style="color: #205070;">i</span>=0; i &lt; CardSize; i++) {
+    <span style="color: #401440;">std</span>::cout &lt;&lt; lottoticket[i] &lt;&lt; <span style="color: #336c6c;">" "</span>;
+  }
+  <span style="color: #401440;">std</span>::cout &lt;&lt; <span style="color: #401440;">std</span>::endl;
+}
+
+<span style="color: #834744;">Boolean</span> <span style="color: #401440;">card</span>::<span style="color: #6c1f1c;">checknumber</span> (<span style="color: #0f2050; font-weight: bold;">const</span> <span style="color: #834744;">int</span> <span style="color: #205070;">num</span>)
+{
+  <span style="color: #834744;">int</span> <span style="color: #205070;">k</span> = 0;
+  <span style="color: #0f2050; font-weight: bold;">while</span> (k &lt; CardSize &amp;&amp; lottoticket[k] != num) {
+    k++;
+  }
+
+  <span style="color: #0f2050; font-weight: bold;">if</span> ( k == CardSize)
+    <span style="color: #0f2050; font-weight: bold;">return</span> FALSE;
+  <span style="color: #0f2050; font-weight: bold;">else</span>
+    <span style="color: #0f2050; font-weight: bold;">return</span> TRUE;
+}
+
+<span style="color: #a080a0;">//</span><span style="color: #806080;">Boolean card::</span>
+
+<span style="color: #834744;">int</span> <span style="color: #6c1f1c;">main</span> ()
+{
+  <span style="color: #834744;">card</span> <span style="color: #205070;">lottocard</span>;
+  <span style="color: #834744;">int</span> <span style="color: #205070;">input</span>, <span style="color: #205070;">GenNum</span>;
+  <span style="color: #401440;">std</span>::cout &lt;&lt; <span style="color: #336c6c;">"Please input lotto numbers in ascending order "</span> &lt;&lt; <span style="color: #401440;">std</span>::endl;
+  <span style="color: #0f2050; font-weight: bold;">for</span> ( <span style="color: #834744;">int</span> <span style="color: #205070;">i</span> = 0; i &lt; CardSize; i++) {
+    <span style="color: #401440;">std</span>::cin &gt;&gt; input;
+    lottocard.insertnumber ( input );
+  }
+
+  lottocard.displaycard();
+
+  <span style="color: #0f2050; font-weight: bold;">for</span> (<span style="color: #834744;">int</span> <span style="color: #205070;">j</span> = 0; j &lt; NumberOfGenNumbers; j++) {
+    <span style="color: #401440;">std</span>::cout &lt;&lt; <span style="color: #336c6c;">"Enter Generated number ;"</span>;
+    <span style="color: #401440;">std</span>::cin &gt;&gt; GenNum;
+
+    <span style="color: #0f2050; font-weight: bold;">if</span> (lottocard.checknumber(GenNum) == TRUE) {
+      <span style="color: #401440;">std</span>::cout &lt;&lt; GenNum &lt;&lt; <span style="color: #336c6c;">" found in Lotto card"</span> &lt;&lt; <span style="color: #401440;">std</span>::endl;
+    }
+    <span style="color: #0f2050; font-weight: bold;">else</span>
+      <span style="color: #401440;">std</span>::cout &lt;&lt; GenNum &lt;&lt; <span style="color: #336c6c;">"NOT found in Lotto card"</span> &lt;&lt; <span style="color: #401440;">std</span>::endl;
+  }
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2016-11-05 Sat 20:29</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

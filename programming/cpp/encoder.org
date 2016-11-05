@@ -1,0 +1,44 @@
+#+Title: Encoder
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+#+BEGIN_SRC cpp :tangle encoder.cpp :padline no
+  #include "encoder.h"
+
+
+  encoder::encoder ()
+  {
+    EncryptionKey = 2;
+  }
+
+  void encoder::encryptLetter (char &letter, int lettercount)
+  {
+    if ((lettercount % EncryptionKey) == 0)
+      {
+        if (letter != 'z' && letter != 'Z' )
+          letter = char ((int) (letter)+1);
+        else if (letter == 'z' )
+          letter = 'a';
+        else if (letter == 'Z')
+          letter = 'A';
+            
+      }
+  }
+
+  int main ()
+  {
+    char UserLetter;
+    encoder my_Security;
+    int UserLetterCount = 1;
+
+    std::cout << "Enter sentence to be encrypted, terminated by a full stop"<< std::endl;
+    std::cin >> UserLetter;
+
+    while (UserLetter != '.')
+      {
+        my_Security.encryptLetter (UserLetter, UserLetterCount);
+        std::cout << UserLetter ;
+        std::cin >> UserLetter;
+        UserLetterCount++;
+      }
+  }
+#+END_SRC

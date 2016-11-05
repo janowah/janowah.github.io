@@ -1,0 +1,11 @@
+#+Title: Cpp 
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+- [[file:cpp-quick-guide.html][quick guide]]
+
+code
+- [[file:hello.html][hello world]]
+- [[file:encoderh.html][encoder.h]], [[file:encoder.html][encoder]]
+- [[file:factorial.html][factorial]]
+- [[file:fibonacci.html][fibonacci]]
+- [[file:lotto.html][lotto]]

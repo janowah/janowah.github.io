@@ -1,0 +1,19 @@
+#+Title: C++ Quick Guide
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil toc:nil
+
+* compiling
+- =g++ hello.cpp=
+- =./a.out=
+- =g++ -g hello.cpp=
+
+* changes
+#+BEGIN_EXAMPLE
+  | old          | new        |
+  |--------------+------------|
+  | <iostream.h> | <iostream> |
+  | cin          | std::cin   |
+  | cout         | std::cout  |
+  | endl         | std::endl  |
+#+END_EXAMPLE
+
+main() has to return an int

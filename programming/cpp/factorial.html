@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Factorial</title>
+<!-- 2016-11-05 Sat 20:25 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Factorial</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #6b400c;">#include</span> <span style="color: #336c6c;">&lt;iostream&gt;</span>
+
+<span style="color: #a080a0;">/* </span><span style="color: #806080;">iterative */</span>
+<span style="color: #a080a0;">// </span><span style="color: #806080;">int factorial ( int number )</span>
+<span style="color: #a080a0;">// </span><span style="color: #806080;">{</span>
+<span style="color: #a080a0;">//   </span><span style="color: #806080;">if (number == 1)</span>
+<span style="color: #a080a0;">//     </span><span style="color: #806080;">return 1;</span>
+<span style="color: #a080a0;">//   </span><span style="color: #806080;">else</span>
+<span style="color: #a080a0;">//     </span><span style="color: #806080;">return number * factorial (number -1);</span>
+<span style="color: #a080a0;">// </span><span style="color: #806080;">}</span>
+
+<span style="color: #a080a0;">/* </span><span style="color: #806080;">recursive */</span>
+<span style="color: #834744;">int</span> <span style="color: #6c1f1c;">factorial</span> (<span style="color: #834744;">int</span> <span style="color: #205070;">n</span>)
+{
+  <span style="color: #834744;">int</span> <span style="color: #205070;">i</span>;
+  <span style="color: #834744;">int</span> <span style="color: #205070;">fac</span>=1;
+
+  <span style="color: #0f2050; font-weight: bold;">for</span> (i = n; i &lt; 1; i--)
+    fac = i * fac;
+  <span style="color: #0f2050; font-weight: bold;">return</span> fac;
+}
+
+<span style="color: #6c1f1c;">main</span>()
+{
+  <span style="color: #834744;">int</span> <span style="color: #205070;">AnyNumber</span>;
+
+  <span style="color: #401440;">std</span>::cin &gt;&gt; AnyNumber;
+
+  <span style="color: #401440;">std</span>::cout &lt;&lt; <span style="color: #336c6c;">"The factorial of "</span> &lt;&lt; AnyNumber &lt;&lt; <span style="color: #336c6c;">" is "</span> &lt;&lt; factorial (AnyNumber) &lt;&lt; <span style="color: #401440;">std</span>::endl;
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2016-11-05 Sat 20:25</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+#+Title: Fibonacci
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+#+BEGIN_SRC cpp :tangle fibonacci.cpp :padline no
+  #include <iostream>
+
+  int Fibonacci ( int n )
+  {
+    if ( n == 0  || n == 1)
+      return n;
+    else
+      return Fibonacci ( n-1 ) + Fibonacci (n-2);
+
+  }
+
+  main()
+  {
+    // int AnyNumber;
+    //  std::cin >> AnyNumber;
+
+    //  std::cout << "Fib " << AnyNumber << " is " << Fibonacci (AnyNumber) << std::endl;
+
+    for ( int i = 0 ; i < 9 ; i++)
+      {
+        std::cout << Fibonacci (i) << std::endl ;
+      }
+  }
+#+END_SRC

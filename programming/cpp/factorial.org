@@ -1,0 +1,35 @@
+#+Title: Factorial
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+#+BEGIN_SRC cpp :tangle factorial.cpp :padline no
+  #include <iostream>
+
+  /* iterative */
+  // int factorial ( int number )
+  // {
+  //   if (number == 1)
+  //     return 1;
+  //   else
+  //     return number * factorial (number -1);
+  // }
+
+  /* recursive */
+  int factorial (int n)
+  {
+    int i;
+    int fac=1;
+
+    for (i = n; i < 1; i--)
+      fac = i * fac;
+    return fac;
+  }
+
+  main()
+  {
+    int AnyNumber;
+
+    std::cin >> AnyNumber;
+
+    std::cout << "The factorial of " << AnyNumber << " is " << factorial (AnyNumber) << std::endl;
+  }
+#+END_SRC

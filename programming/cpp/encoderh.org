@@ -1,0 +1,17 @@
+#+Title: Encoder.h
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+#+BEGIN_SRC cpp :tangle encoder.h :padline no
+  #include <iostream>
+
+  class encoder
+  {
+  private :
+    int EncryptionKey;
+
+  public :
+    encoder ();
+    void encryptLetter ( char &, int lettercount );
+    
+  };
+#+END_SRC

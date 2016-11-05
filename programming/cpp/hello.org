@@ -1,0 +1,12 @@
+#+Title: Hello World
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil
+
+
+#+BEGIN_SRC cpp :tangle hello.cpp :padline no
+  #include <iostream>
+
+  main()
+  {
+    std::cout << "Hello World" << std::endl;
+  }
+#+END_SRC
