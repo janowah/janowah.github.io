@@ -14,6 +14,8 @@
   | cin          | std::cin   |
   | cout         | std::cout  |
   | endl         | std::endl  |
+
+using namespace std;
 #+END_EXAMPLE
 
 main() has to return an int

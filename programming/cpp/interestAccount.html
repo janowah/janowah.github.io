@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>interestAccount.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">interestAccount.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #b22222;">/*</span><span style="color: #b22222;">pg 61. doesn't work. runtime error*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;iostream&gt;</span>
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">Account</span> {
+<span style="color: #a020f0;">private</span>:
+  <span style="color: #228b22;">float</span> <span style="color: #a0522d;">the_balance</span>;
+<span style="color: #a020f0;">public</span>:
+  <span style="color: #0000ff;">Account</span>();
+  <span style="color: #228b22;">float</span> <span style="color: #0000ff;">account_balance</span>();
+  <span style="color: #228b22;">float</span> <span style="color: #0000ff;">withdraw</span>(<span style="color: #228b22;">float</span>);
+  <span style="color: #228b22;">void</span> <span style="color: #0000ff;">deposit</span>(<span style="color: #228b22;">float</span>);
+};
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">InterestAccount</span> : <span style="color: #a020f0;">public</span> <span style="color: #228b22;">Account</span> {
+<span style="color: #a020f0;">public</span>:
+  <span style="color: #0000ff;">InterestAccount</span>();
+  <span style="color: #228b22;">void</span> <span style="color: #0000ff;">calcInterest</span>();
+  <span style="color: #228b22;">void</span> <span style="color: #0000ff;">addInterest</span>();
+<span style="color: #a020f0;">protected</span>:
+  <span style="color: #228b22;">void</span> <span style="color: #0000ff;">accumulateInterest</span>(<span style="color: #228b22;">float</span>);
+<span style="color: #a020f0;">private</span>:
+  <span style="color: #228b22;">float</span> <span style="color: #a0522d;">theAccumulatedInterest</span>;
+};
+
+
+<span style="color: #008b8b;">InterestAccount</span>::<span style="color: #0000ff;">InterestAccount</span>()
+{
+  theAccumulatedInterest = 0.0;
+}
+
+<span style="color: #228b22;">void</span> <span style="color: #008b8b;">InterestAccount</span>::<span style="color: #0000ff;">accumulateInterest</span>(<span style="color: #228b22;">float</span> <span style="color: #a0522d;">ai</span>)
+{
+  theAccumulatedInterest = theAccumulatedInterest + ai;
+}
+
+<span style="color: #228b22;">void</span> <span style="color: #008b8b;">InterestAccount</span>::<span style="color: #0000ff;">calcInterest</span>()
+{
+  <span style="color: #228b22;">float</span> <span style="color: #a0522d;">temp</span>;
+  temp = account_balance() * 5 ; <span style="color: #b22222;">//</span><span style="color: #b22222;">theInterestRate;</span>
+  accumulateInterest(temp);
+}
+
+<span style="color: #228b22;">void</span> <span style="color: #008b8b;">InterestAccount</span>::<span style="color: #0000ff;">addInterest</span>()
+{
+  deposit(theAccumulatedInterest);
+  theAccumulatedInterest = 0.0;
+}
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>()
+{
+  <span style="color: #228b22;">InterestAccount</span> <span style="color: #a0522d;">mike</span>;
+  <span style="color: #228b22;">float</span> <span style="color: #a0522d;">obtained</span>;
+
+  mike.deposit(1000);
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Mike Balance = "</span> &lt;&lt; mike.account_balance() &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+
+  obtained = mike.withdraw(200);
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"mike has withdrawn "</span> &lt;&lt; obtained &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Mike Balance = "</span> &lt;&lt; mike.account_balance() &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+
+  mike.deposit(50);
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Mike has deposited 50 pounds"</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Mike balance = "</span> &lt;&lt; mike.account_balance() &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+
+  mike.calcInterest();
+  mike.addInterest();
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Mike Balance = "</span> &lt;&lt; mike.account_balance() &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

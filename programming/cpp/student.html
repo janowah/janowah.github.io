@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>student.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">student.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #b22222;">/* </span><span style="color: #b22222;">runtime errors. no constructor*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;iostream&gt;</span>
+<span style="color: #a020f0;">enum</span> <span style="color: #228b22;">Boolean</span> { <span style="color: #a0522d;">TRUE</span>, <span style="color: #a0522d;">FALSE</span> };
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">student</span>
+{
+<span style="color: #a020f0;">public</span>:
+  <span style="color: #228b22;">Boolean</span> <span style="color: #0000ff;">AddToList</span>(<span style="color: #228b22;">int</span>, <span style="color: #228b22;">student</span>*&amp;);
+  <span style="color: #228b22;">void</span> <span style="color: #0000ff;">printlist</span>(<span style="color: #228b22;">student</span> *);
+  <span style="color: #0000ff;">student</span>();
+<span style="color: #a020f0;">private</span>:
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">value</span>;
+  <span style="color: #228b22;">student</span>* <span style="color: #a0522d;">next_student</span>;
+};
+
+<span style="color: #008b8b;">student</span>::<span style="color: #0000ff;">student</span>()
+{
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">value</span>=0;
+}
+
+<span style="color: #228b22;">void</span> <span style="color: #008b8b;">student</span>::<span style="color: #0000ff;">printlist</span>(<span style="color: #228b22;">student</span>* <span style="color: #a0522d;">startoflist</span>)
+{
+  <span style="color: #228b22;">student</span> * <span style="color: #a0522d;">current</span>;
+  current = startoflist;
+
+  <span style="color: #a020f0;">if</span> (current != <span style="color: #008b8b;">NULL</span>)
+    <span style="color: #a020f0;">while</span> (current != <span style="color: #008b8b;">NULL</span>)
+      {
+        <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Student Number in list is "</span> &lt;&lt; current-&gt;value &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+        current = current-&gt;next_student;
+      }
+  <span style="color: #a020f0;">else</span>
+    <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"List is empty "</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+}
+
+<span style="color: #228b22;">Boolean</span> <span style="color: #008b8b;">student</span>::<span style="color: #0000ff;">AddToList</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">num</span>, <span style="color: #228b22;">student</span>*&amp; <span style="color: #a0522d;">startoflist</span>)
+{
+  <span style="color: #228b22;">student</span>* <span style="color: #a0522d;">currentitem</span>;
+  currentitem = startoflist;
+
+  <span style="color: #a020f0;">if</span> (currentitem != <span style="color: #008b8b;">NULL</span>)
+    {
+      <span style="color: #a020f0;">while</span> (currentitem-&gt;next_student != <span style="color: #008b8b;">NULL</span>)
+        {
+          currentitem = currentitem-&gt;next_student;
+        }
+      currentitem-&gt;next_student = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">student</span>[1];
+      currentitem-&gt;next_student-&gt;value = num;
+      currentitem-&gt;next_student-&gt;next_student=<span style="color: #008b8b;">NULL</span>;
+      <span style="color: #a020f0;">return</span> TRUE;
+    }
+  <span style="color: #a020f0;">else</span>
+    {
+      startoflist = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">student</span>[1];
+      startoflist-&gt;value = num;
+      startoflist-&gt;next_student = <span style="color: #008b8b;">NULL</span>;
+      <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"added student number "</span> &lt;&lt; startoflist-&gt;value &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+      <span style="color: #a020f0;">return</span> TRUE;
+    }
+}
+
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>()
+{
+  <span style="color: #228b22;">student</span> *<span style="color: #a0522d;">firstStudent</span>;
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">num</span>;
+
+  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Enter a student number "</span>;
+
+  firstStudent=<span style="color: #008b8b;">NULL</span>;
+
+  <span style="color: #008b8b;">std</span>::cin &gt;&gt; num;
+  <span style="color: #a020f0;">while</span> (num != 0)
+    {
+      <span style="color: #a020f0;">if</span> (firstStudent-&gt;AddToList(num,firstStudent))
+        {
+          <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"student number added to list"</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+        }
+      <span style="color: #a020f0;">else</span>
+        <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"failed to add number to list"</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+      <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #008b8b;">std</span>::endl &lt;&lt; <span style="color: #8b2252;">"Enter another number or enter 0 to finish: "</span>;
+      <span style="color: #008b8b;">std</span>::cin &gt;&gt; num;
+    }
+
+  firstStudent-&gt;printlist(firstStudent);
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

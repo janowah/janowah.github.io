@@ -1,0 +1,80 @@
+#+Title: stack.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle stack.cpp :padline no
+  /*pg45. buggy */
+  #include <iostream>
+
+  const int MaxElements = 5;
+  enum Boolean {FALSE, TRUE};
+
+  class stack {
+  public:
+    stack();
+    Boolean push (const int);
+    Boolean pop (int&);
+  private:
+    int the_elements[MaxElements];
+    int TopOfStack;
+  };
+
+  stack::stack()
+  {
+    TopOfStack = -1;
+  }
+
+  Boolean stack::push(const int item)
+  {
+    if (TopOfStack < MaxElements-1) {
+      the_elements[++TopOfStack] = item;
+      return TRUE;
+    }
+    else
+      return FALSE;
+  }
+
+  Boolean stack::pop (int& item)
+  {
+    if (TopOfStack < 0 ) {
+      return FALSE;
+    }
+    else {
+      item = the_elements[TopOfStack--];
+      return FALSE;
+    }
+  }
+
+  int main()
+  {
+    stack numbers;
+    char ch;
+    std::cin >> ch;
+    while (!std::cin.eof())
+      {
+        switch (ch)
+          {
+          case '+' :
+            {
+              int num;
+              std::cin >> num;
+              if (numbers.push(num) == FALSE) {
+                std::cout << "Stack Full" << std::endl;
+              }
+              break;
+            }
+            case '-':
+              {
+                int num;
+                if (numbers.pop(num) == FALSE ){
+                    std::cout << "Stack Empty" << std::endl;
+                  }
+                  else {
+                    std::cout << "Num = " << num << std::endl;
+                  }
+                  break ;
+              }
+          }
+        std::cin >> ch;
+      }
+  }
+#+END_SRC

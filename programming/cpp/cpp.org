@@ -4,10 +4,23 @@
 - [[file:cpp-quick-guide.html][quick guide]]
 
 code
-- [[file:hello.html][hello world]]
-- [[file:encoderh.html][encoder.h]], [[file:encoder.html][encoder]]
-- [[file:factorial.html][factorial]]
-- [[file:fibonacci.html][fibonacci]]
-- [[file:lotto.html][lotto]]
+- [[file:hello.html][hello world]] 2
+- account 11 ; classes
+- [[file:encoderh.html][encoder.h]], [[file:encoder.html][encoder]] 24
+- complex 31
+- [[file:factorial.html][factorial]] 32
+- [[file:fibonacci.html][fibonacci]] 33
+- name_address 35 ; arrays
+- histogram 37 ; arrays
+- [[file:lotto.html][lotto]] ; sorting
+- [[file:stack.html][stack]] 45
+- [[file:palindrome.html][palindrome]] 46 
+- stack 47 ; class templates
+- patient 49 ; array of objects
+- hotelroom 50 ; sort array of objects
+- [[file:student.html][student]] 55 ; linked lists
+- student search 56 ; linked list search
+- course 58 ; pointers between classes
+- [[file:interestAccount.html][interestAccount]] 61 ; inheritance
 
 [[../programming.html][back]]

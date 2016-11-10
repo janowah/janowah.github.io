@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>stack.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">stack.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #b22222;">/*</span><span style="color: #b22222;">pg45. buggy */</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;iostream&gt;</span>
+
+<span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">MaxElements</span> = 5;
+<span style="color: #a020f0;">enum</span> <span style="color: #228b22;">Boolean</span> {<span style="color: #a0522d;">FALSE</span>, <span style="color: #a0522d;">TRUE</span>};
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">stack</span> {
+<span style="color: #a020f0;">public</span>:
+  <span style="color: #0000ff;">stack</span>();
+  <span style="color: #228b22;">Boolean</span> <span style="color: #0000ff;">push</span> (<span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span>);
+  <span style="color: #228b22;">Boolean</span> <span style="color: #0000ff;">pop</span> (<span style="color: #228b22;">int</span>&amp;);
+<span style="color: #a020f0;">private</span>:
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">the_elements</span>[MaxElements];
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">TopOfStack</span>;
+};
+
+<span style="color: #008b8b;">stack</span>::<span style="color: #0000ff;">stack</span>()
+{
+  TopOfStack = -1;
+}
+
+<span style="color: #228b22;">Boolean</span> <span style="color: #008b8b;">stack</span>::<span style="color: #0000ff;">push</span>(<span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">item</span>)
+{
+  <span style="color: #a020f0;">if</span> (TopOfStack &lt; MaxElements-1) {
+    the_elements[++TopOfStack] = item;
+    <span style="color: #a020f0;">return</span> TRUE;
+  }
+  <span style="color: #a020f0;">else</span>
+    <span style="color: #a020f0;">return</span> FALSE;
+}
+
+<span style="color: #228b22;">Boolean</span> <span style="color: #008b8b;">stack</span>::<span style="color: #0000ff;">pop</span> (<span style="color: #228b22;">int</span>&amp; <span style="color: #a0522d;">item</span>)
+{
+  <span style="color: #a020f0;">if</span> (TopOfStack &lt; 0 ) {
+    <span style="color: #a020f0;">return</span> FALSE;
+  }
+  <span style="color: #a020f0;">else</span> {
+    item = the_elements[TopOfStack--];
+    <span style="color: #a020f0;">return</span> FALSE;
+  }
+}
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>()
+{
+  <span style="color: #228b22;">stack</span> <span style="color: #a0522d;">numbers</span>;
+  <span style="color: #228b22;">char</span> <span style="color: #a0522d;">ch</span>;
+  <span style="color: #008b8b;">std</span>::cin &gt;&gt; ch;
+  <span style="color: #a020f0;">while</span> (!<span style="color: #008b8b;">std</span>::cin.eof())
+    {
+      <span style="color: #a020f0;">switch</span> (ch)
+        {
+        <span style="color: #a020f0;">case</span> <span style="color: #8b2252;">'+'</span> :
+          {
+            <span style="color: #228b22;">int</span> <span style="color: #a0522d;">num</span>;
+            <span style="color: #008b8b;">std</span>::cin &gt;&gt; num;
+            <span style="color: #a020f0;">if</span> (numbers.push(num) == FALSE) {
+              <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Stack Full"</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+            }
+            <span style="color: #a020f0;">break</span>;
+          }
+          <span style="color: #a020f0;">case</span> <span style="color: #8b2252;">'-'</span>:
+            {
+              <span style="color: #228b22;">int</span> <span style="color: #a0522d;">num</span>;
+              <span style="color: #a020f0;">if</span> (numbers.pop(num) == FALSE ){
+                  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Stack Empty"</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+                }
+                <span style="color: #a020f0;">else</span> {
+                  <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"Num = "</span> &lt;&lt; num &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+                }
+                <span style="color: #a020f0;">break</span> ;
+            }
+        }
+      <span style="color: #008b8b;">std</span>::cin &gt;&gt; ch;
+    }
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

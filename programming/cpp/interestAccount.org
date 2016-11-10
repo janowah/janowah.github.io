@@ -1,0 +1,74 @@
+#+Title: interestAccount.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle interestAccount.cpp :padline no
+  /*pg 61. doesn't work. runtime error*/
+
+  #include <iostream>
+
+  class Account {
+  private:
+    float the_balance;
+  public:
+    Account();
+    float account_balance();
+    float withdraw(float);
+    void deposit(float);
+  };
+
+  class InterestAccount : public Account {
+  public:
+    InterestAccount();
+    void calcInterest();
+    void addInterest();
+  protected:
+    void accumulateInterest(float);
+  private:
+    float theAccumulatedInterest;
+  };
+
+
+  InterestAccount::InterestAccount()
+  {
+    theAccumulatedInterest = 0.0;
+  }
+
+  void InterestAccount::accumulateInterest(float ai)
+  {
+    theAccumulatedInterest = theAccumulatedInterest + ai;
+  }
+
+  void InterestAccount::calcInterest()
+  {
+    float temp;
+    temp = account_balance() * 5 ; //theInterestRate;
+    accumulateInterest(temp);
+  }
+
+  void InterestAccount::addInterest()
+  {
+    deposit(theAccumulatedInterest);
+    theAccumulatedInterest = 0.0;
+  }
+
+  int main()
+  {
+    InterestAccount mike;
+    float obtained;
+
+    mike.deposit(1000);
+    std::cout << "Mike Balance = " << mike.account_balance() << std::endl;
+
+    obtained = mike.withdraw(200);
+    std::cout << "mike has withdrawn " << obtained << std::endl;
+    std::cout << "Mike Balance = " << mike.account_balance() << std::endl;
+
+    mike.deposit(50);
+    std::cout << "Mike has deposited 50 pounds" << std::endl;
+    std::cout << "Mike balance = " << mike.account_balance() << std::endl;
+
+    mike.calcInterest();
+    mike.addInterest();
+    std::cout << "Mike Balance = " << mike.account_balance() << std::endl;
+  }
+#+END_SRC

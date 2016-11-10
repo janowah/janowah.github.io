@@ -1,0 +1,84 @@
+#+Title: palindrome.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle palindrome.cpp :padline no
+  /*pg 46. runtime bug*/
+
+  #include <iostream>
+
+  const int MaxElements = 20;
+  enum Boolean {FALSE, TRUE};
+
+  class stack {
+  public:
+    stack();
+    Boolean push (char);
+    Boolean pop (char&);
+  private:
+    char the_elements[MaxElements];
+    int TopOfStack;
+  };
+
+  stack::stack()
+  {
+    TopOfStack = -1;
+  }
+
+  Boolean stack::push(char item)
+  {
+    if (TopOfStack < MaxElements-1) {
+      the_elements[++TopOfStack] = item;
+      return TRUE;
+    }
+    else
+      return FALSE;
+  }
+
+  Boolean stack::pop (char& item)
+  {
+    if (TopOfStack < 0 ) {
+      return FALSE;
+    }
+    else {
+      item = the_elements[TopOfStack--];
+      return FALSE;
+    }
+  }
+
+  int main()
+  {
+    stack reverseword;
+    char word[MaxElements], letter;
+    int letterCnt, letterCnt2;
+    Boolean lettersEqual;
+
+    std::cin >> word;
+
+    letterCnt = 0;
+
+    while ((letterCnt != MaxElements) && (word[letterCnt] != '\0'))
+      {
+        if (reverseword.push(word[letterCnt]) == FALSE )
+          {
+            std::cout << "word is too long" << std::endl;
+            break;
+          }
+        letterCnt++;
+      }
+
+    letterCnt2 = 0;
+    lettersEqual = TRUE;
+    while((letterCnt >= 0) && (lettersEqual))
+      {
+        if ( reverseword.pop (letter) == TRUE)
+          if (letter != word[letterCnt2])
+            lettersEqual = FALSE;
+        letterCnt--;
+        letterCnt2++;
+      }
+    if (lettersEqual == TRUE)
+      std::cout << word << " is a palindrome " ;
+    else if (lettersEqual == FALSE)
+      std::cout << word << " is not a palindrome";
+  }
+#+END_SRC

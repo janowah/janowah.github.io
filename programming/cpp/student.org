@@ -1,0 +1,92 @@
+#+Title: student.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle students.cpp :padline no
+  /* runtime errors. no constructor*/
+
+  #include <iostream>
+  enum Boolean { TRUE, FALSE };
+
+  class student
+  {
+  public:
+    Boolean AddToList(int, student*&);
+    void printlist(student *);
+    student();
+  private:
+    int value;
+    student* next_student;
+  };
+
+  student::student()
+  {
+    int value=0;
+  }
+
+  void student::printlist(student* startoflist)
+  {
+    student * current;
+    current = startoflist;
+
+    if (current != NULL)
+      while (current != NULL)
+        {
+          std::cout << "Student Number in list is " << current->value << std::endl;
+          current = current->next_student;
+        }
+    else
+      std::cout << "List is empty " << std::endl;
+  }
+
+  Boolean student::AddToList(int num, student*& startoflist)
+  {
+    student* currentitem;
+    currentitem = startoflist;
+
+    if (currentitem != NULL)
+      {
+        while (currentitem->next_student != NULL)
+          {
+            currentitem = currentitem->next_student;
+          }
+        currentitem->next_student = new student[1];
+        currentitem->next_student->value = num;
+        currentitem->next_student->next_student=NULL;
+        return TRUE;
+      }
+    else
+      {
+        startoflist = new student[1];
+        startoflist->value = num;
+        startoflist->next_student = NULL;
+        std::cout << "added student number " << startoflist->value << std::endl;
+        return TRUE;
+      }
+  }
+    
+          
+  int main()
+  {
+    student *firstStudent;
+    int num;
+
+    std::cout << "Enter a student number ";
+
+    firstStudent=NULL;
+
+    std::cin >> num;
+    while (num != 0)
+      {
+        if (firstStudent->AddToList(num,firstStudent))
+          {
+            std::cout << "student number added to list" << std::endl;
+          }
+        else
+          std::cout << "failed to add number to list" << std::endl;
+        std::cout << std::endl << "Enter another number or enter 0 to finish: ";
+        std::cin >> num;
+      }
+
+    firstStudent->printlist(firstStudent);
+  }
+#+END_SRC

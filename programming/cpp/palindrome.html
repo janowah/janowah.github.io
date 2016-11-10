@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>palindrome.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">palindrome.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #b22222;">/*</span><span style="color: #b22222;">pg 46. runtime bug*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;iostream&gt;</span>
+
+<span style="color: #a020f0;">const</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">MaxElements</span> = 20;
+<span style="color: #a020f0;">enum</span> <span style="color: #228b22;">Boolean</span> {<span style="color: #a0522d;">FALSE</span>, <span style="color: #a0522d;">TRUE</span>};
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">stack</span> {
+<span style="color: #a020f0;">public</span>:
+  <span style="color: #0000ff;">stack</span>();
+  <span style="color: #228b22;">Boolean</span> <span style="color: #0000ff;">push</span> (<span style="color: #228b22;">char</span>);
+  <span style="color: #228b22;">Boolean</span> <span style="color: #0000ff;">pop</span> (<span style="color: #228b22;">char</span>&amp;);
+<span style="color: #a020f0;">private</span>:
+  <span style="color: #228b22;">char</span> <span style="color: #a0522d;">the_elements</span>[MaxElements];
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">TopOfStack</span>;
+};
+
+<span style="color: #008b8b;">stack</span>::<span style="color: #0000ff;">stack</span>()
+{
+  TopOfStack = -1;
+}
+
+<span style="color: #228b22;">Boolean</span> <span style="color: #008b8b;">stack</span>::<span style="color: #0000ff;">push</span>(<span style="color: #228b22;">char</span> <span style="color: #a0522d;">item</span>)
+{
+  <span style="color: #a020f0;">if</span> (TopOfStack &lt; MaxElements-1) {
+    the_elements[++TopOfStack] = item;
+    <span style="color: #a020f0;">return</span> TRUE;
+  }
+  <span style="color: #a020f0;">else</span>
+    <span style="color: #a020f0;">return</span> FALSE;
+}
+
+<span style="color: #228b22;">Boolean</span> <span style="color: #008b8b;">stack</span>::<span style="color: #0000ff;">pop</span> (<span style="color: #228b22;">char</span>&amp; <span style="color: #a0522d;">item</span>)
+{
+  <span style="color: #a020f0;">if</span> (TopOfStack &lt; 0 ) {
+    <span style="color: #a020f0;">return</span> FALSE;
+  }
+  <span style="color: #a020f0;">else</span> {
+    item = the_elements[TopOfStack--];
+    <span style="color: #a020f0;">return</span> FALSE;
+  }
+}
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>()
+{
+  <span style="color: #228b22;">stack</span> <span style="color: #a0522d;">reverseword</span>;
+  <span style="color: #228b22;">char</span> <span style="color: #a0522d;">word</span>[MaxElements], <span style="color: #a0522d;">letter</span>;
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">letterCnt</span>, <span style="color: #a0522d;">letterCnt2</span>;
+  <span style="color: #228b22;">Boolean</span> <span style="color: #a0522d;">lettersEqual</span>;
+
+  <span style="color: #008b8b;">std</span>::cin &gt;&gt; word;
+
+  letterCnt = 0;
+
+  <span style="color: #a020f0;">while</span> ((letterCnt != MaxElements) &amp;&amp; (word[letterCnt] != <span style="color: #8b2252;">'\0'</span>))
+    {
+      <span style="color: #a020f0;">if</span> (reverseword.push(word[letterCnt]) == FALSE )
+        {
+          <span style="color: #008b8b;">std</span>::cout &lt;&lt; <span style="color: #8b2252;">"word is too long"</span> &lt;&lt; <span style="color: #008b8b;">std</span>::endl;
+          <span style="color: #a020f0;">break</span>;
+        }
+      letterCnt++;
+    }
+
+  letterCnt2 = 0;
+  lettersEqual = TRUE;
+  <span style="color: #a020f0;">while</span>((letterCnt &gt;= 0) &amp;&amp; (lettersEqual))
+    {
+      <span style="color: #a020f0;">if</span> ( reverseword.pop (letter) == TRUE)
+        <span style="color: #a020f0;">if</span> (letter != word[letterCnt2])
+          lettersEqual = FALSE;
+      letterCnt--;
+      letterCnt2++;
+    }
+  <span style="color: #a020f0;">if</span> (lettersEqual == TRUE)
+    <span style="color: #008b8b;">std</span>::cout &lt;&lt; word &lt;&lt; <span style="color: #8b2252;">" is a palindrome "</span> ;
+  <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (lettersEqual == FALSE)
+    <span style="color: #008b8b;">std</span>::cout &lt;&lt; word &lt;&lt; <span style="color: #8b2252;">" is not a palindrome"</span>;
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>
