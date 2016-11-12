@@ -3,7 +3,20 @@
 
 * yum
 - yum update
-- yum install emacs
+- yum install mc tmux gcc git
+- yum repolist
+- yum install epel-release
+- rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+- yum install vlc
+
+* fonts
+- source code pro
+- share tech mono
+- cp ShareTechMono-Regular.ttf /usr/share/fonts/share-tech-mono/
+- aliasing
+  - Xft.hintstyle: hintslight
+  - Xft.rgba: rgb
+  - echo "Xft.lcdfilter: lcddefault" > ~/.Xresources
 
 * samba
 - install software
