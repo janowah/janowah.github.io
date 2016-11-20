@@ -9,7 +9,7 @@ micro
 |       4 | co4g      | openelec | box      |  4 |
 |       8 | sandisk   | raspbian | rpi      |  4 |
 |      16 | tdk       | blank    | box      | 10 |
-|      32 | sandisk   | data     | box      | 10 |
+|      32 | sandisk   | blank    | box      | 10 |
 |      64 | sandisk   | data     | phone    | 10 |
 
 standard
