@@ -1,6 +1,7 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Dune / Frank Herbert
 - Witches Abroad / Terry Pratchett
 - Backwards / Rob Grant
 - Last Human / Doug Naylor
