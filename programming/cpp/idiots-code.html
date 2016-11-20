@@ -1,0 +1,1620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>idiots-code</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">idiots-code</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">2.1 Using the cout Command.</a></li>
+<li><a href="#sec-2">2.2 A Program with Several Lines of Text and endl.</a></li>
+<li><a href="#sec-3">2.3 Using Defined Messages.</a></li>
+<li><a href="#sec-4">2.4 Mixed Data Types.</a></li>
+<li><a href="#sec-5">3.1 How to Show the Contents of an Integer Variable Onscreen.</a></li>
+<li><a href="#sec-6">3.2 How to Show the Contents of a char Variable Onscreen.</a></li>
+<li><a href="#sec-7">3.3 How to Show the Contents of a float Variable Onscreen.</a></li>
+<li><a href="#sec-8">3.4 An Example to Show the Size of the Box.</a></li>
+<li><a href="#sec-9">4.1 Demonstrating Add, Subtract, and Multiply.</a></li>
+<li><a href="#sec-10">4.2 Demonstrating a Quirky C++ Division.</a></li>
+<li><a href="#sec-11">4.3 Demonstrating a Nonquirky C++ Division.</a></li>
+<li><a href="#sec-12">4.4 Demonstrating the Cast Operation.</a></li>
+<li><a href="#sec-13">4.5 Demonstrating Divide and Subtract to Find the Decimal Part of the Calculation.</a></li>
+<li><a href="#sec-14">4.6 Demonstrating cin and a Further Demo of Add, Subtract, and Multiply.</a></li>
+<li><a href="#sec-15">5.1 Demonstrating a Simple for Loop That Counts from 0 to 9</a></li>
+<li><a href="#sec-16">5.2 The Running Total Program Finding the Total of a Number of Values Entered at Runtime.</a></li>
+<li><a href="#sec-17">5.3 Converting All Character Inputs to Uppercase.</a></li>
+<li><a href="#sec-18">5.4 Counting in Reverse.</a></li>
+<li><a href="#sec-19">6.1 Demonstrating a while Loop That Counts from 0 to 9.</a></li>
+<li><a href="#sec-20">6.2 Using Postfix Notation to Print Numbers Between 1 and 10.</a></li>
+<li><a href="#sec-21">6.3 Using Prefix Notation to Print Numbers Between 1 and 9.</a></li>
+<li><a href="#sec-22">6.4 Printing Numbers Between 0 and 9.</a></li>
+<li><a href="#sec-23">7.1 A Simple Example of the if else Statement.</a></li>
+<li><a href="#sec-24">7.2 An Example of Compound Statements Used with the if else Statement.</a></li>
+<li><a href="#sec-25">7.3 An Example of a Program with No Required Actions If the Condition Proves False.</a></li>
+<li><a href="#sec-26">7.4 An Example of the Nested if else Statement.</a></li>
+<li><a href="#sec-27">7.5 An Example of a Heavily Nested if else Program.</a></li>
+<li><a href="#sec-28">8.1 The Vowel Test.</a></li>
+<li><a href="#sec-29">8.2 The Vowel Test in a Nest (This is meant to be a bad example).</a></li>
+<li><a href="#sec-30">8.3 Demo of a Menu-Driven Program.</a></li>
+<li><a href="#sec-31">9.1 Demo of a Six-Element Array.</a></li>
+<li><a href="#sec-32">9.2 An Array of Integers that Demonstrates the Alignment of Columns.</a></li>
+<li><a href="#sec-33">9.3 Creating an Array of Integers Example #1.</a></li>
+<li><a href="#sec-34">9.4 Creating an Array of Integers Example #2.</a></li>
+<li><a href="#sec-35">9.5 Example of the getline Function.</a></li>
+<li><a href="#sec-36">10.1 Demo of a Two-Dimensional Array.</a></li>
+<li><a href="#sec-37">10.2 Using a Two-Dimensional Array to List a Particular Row.</a></li>
+<li><a href="#sec-38">10.3 Using a Two-Dimensional Array to List a Particular Column.</a></li>
+<li><a href="#sec-39">10.4 Demo of a Three-Dimensional Array.</a></li>
+<li><a href="#sec-40">10.5 Example of a Two-Dimensional Array of Characters.</a></li>
+<li><a href="#sec-41">11.1 A Parallel Array.</a></li>
+<li><a href="#sec-42">11.2 Vulcan Discovered At Last.</a></li>
+<li><a href="#sec-43">11.3 Four Parallel Arrays.</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">2.1 Using the cout Command.</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  cout &lt;&lt; "Hello everyone...this is easy ";
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">2.2 A Program with Several Lines of Text and endl.</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  cout &lt;&lt; "Hello everyone...this is easy " &lt;&lt; endl;
+  cout &lt;&lt; "Look a new line!" &lt;&lt; endl;
+  cout &lt;&lt; "Get the idea!!" &lt;&lt; endl &lt;&lt; endl;
+  cout &lt;&lt; "Dead easy...isn't it?" &lt;&lt; endl;
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">2.3 Using Defined Messages.</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define message1 "Hello everyone...this is easy "
+#define message2 "Look another line!"
+
+main()
+
+{
+  cout &lt;&lt; message1 &lt;&lt; endl;
+  cout &lt;&lt; message2;
+  cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; message1 &lt;&lt; endl &lt;&lt; endl;
+  cout &lt;&lt; message2 &lt;&lt; endl;
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">2.4 Mixed Data Types.</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  cout &lt;&lt; "The answer to" &lt;&lt; endl;
+  cout &lt;&lt; "LIFE THE UNIVERSE AND EVERYTHING is : ";
+  cout &lt;&lt; 42;
+  cout &lt;&lt; endl &lt;&lt; endl;
+  cout &lt;&lt; "But what was the question?";
+  cout &lt;&lt; endl &lt;&lt; endl;
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">3.1 How to Show the Contents of an Integer Variable Onscreen.</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int number;        //set up an integer variable
+  number = 42;         //give it a value
+  cout &lt;&lt; number;      //display to screen
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">3.2 How to Show the Contents of a char Variable Onscreen.</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  char letter;        // set up a character variable
+  letter = 'C';         // give it a value
+  cout &lt;&lt; letter;       // display to screen
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">3.3 How to Show the Contents of a float Variable Onscreen.</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  float number2;          // set up a float variable
+  number2 = 98.6;         // give it a value
+  cout &lt;&lt; number2;          // display to screen
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">3.4 An Example to Show the Size of the Box.</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int box1   = 52;
+  float box2 = 98.6;
+  char box3  = 'Z';
+  int size;
+
+  size = sizeof(box1);
+  cout &lt;&lt; "The integer box is     : " &lt;&lt; size &lt;&lt; " bytes" &lt;&lt; endl;
+  cout &lt;&lt; "This variable contains : " &lt;&lt; box1 &lt;&lt; endl;
+  cout &lt;&lt; endl;
+
+  size = sizeof(box2);
+  cout &lt;&lt; "The float box is       : " &lt;&lt; size &lt;&lt; " bytes" &lt;&lt; endl;
+  cout &lt;&lt; "This variable contains : " &lt;&lt; box2 &lt;&lt; endl;
+
+  size = sizeof(box3);
+  cout &lt;&lt; endl;
+  cout &lt;&lt; "The char box is        : " &lt;&lt; size  &lt;&lt; " bytes" &lt;&lt; endl;
+  cout &lt;&lt; "This variable contains : " &lt;&lt; box3 &lt;&lt; endl;
+  cout &lt;&lt; endl;
+  cout &lt;&lt; endl;
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">4.1 Demonstrating Add, Subtract, and Multiply.</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int A = 12;
+  int B = 22;
+  int C;
+  int D;
+  int E;
+
+  C = A + B;                       // ADD
+  D = A - B;                       // SUBTRACT
+  E = A * B;                       // MULTIPLY
+
+  cout &lt;&lt; "ADD  : " &lt;&lt; C &lt;&lt; endl;
+  cout &lt;&lt; "SUB  : " &lt;&lt; D &lt;&lt; endl;
+  cout &lt;&lt; "MULT : " &lt;&lt; E &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">4.2 Demonstrating a Quirky C++ Division.</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int A = 3;
+  int B = 2;
+  float C;
+
+  C = A / B;                    // DIVIDE
+
+  cout &lt;&lt; "DIVIDE  : " &lt;&lt; C &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">4.3 Demonstrating a Nonquirky C++ Division.</h2>
+<div class="outline-text-2" id="text-11">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  float A = 3;
+  float B = 2;
+  float C;
+
+  C = A / B;                    // DIVIDE
+
+  cout &lt;&lt; "DIVIDE  : " &lt;&lt; C &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">4.4 Demonstrating the Cast Operation.</h2>
+<div class="outline-text-2" id="text-12">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int A = 3;
+  int B = 2;
+  float C;
+
+  C = (float)A / B;        // CAST AND DIVIDE
+
+  cout &lt;&lt; "DIVIDE  : " &lt;&lt; C &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13">4.5 Demonstrating Divide and Subtract to Find the Decimal Part of the Calculation.</h2>
+<div class="outline-text-2" id="text-13">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int A = 3;
+  int B = 2;
+  float C;
+  float D;
+  float E;
+
+  C = A / B;                            // DIVIDE
+  D = (float)A / B;                     // CAST
+  E = D - C;                            // DECIMAL BIT
+
+  cout &lt;&lt; "DECIMAL  : " &lt;&lt; E &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14">4.6 Demonstrating cin and a Further Demo of Add, Subtract, and Multiply.</h2>
+<div class="outline-text-2" id="text-14">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+
+  int A;
+  int B;
+  int C;
+  int D;
+  int E;
+
+  cout &lt;&lt; "Enter the value for A : ";
+  cin &gt;&gt; A;
+  cout &lt;&lt; "Enter the value for B : ";
+  cin &gt;&gt; B;
+
+  C = A + B;                       // ADD
+  D = A - B;                       // SUBTRACT
+  E = A * B;                       // MULTIPLY
+
+  cout &lt;&lt; "ADD  : " &lt;&lt; C &lt;&lt; endl;
+  cout &lt;&lt; "SUB  : "  &lt;&lt; D &lt;&lt; endl;
+  cout &lt;&lt; "MULT : " &lt;&lt; E &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15">5.1 Demonstrating a Simple for Loop That Counts from 0 to 9</h2>
+<div class="outline-text-2" id="text-15">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int x;
+
+  for (x = 0; x &lt; 10; x++)
+    {
+      cout &lt;&lt; x  &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16">5.2 The Running Total Program Finding the Total of a Number of Values Entered at Runtime.</h2>
+<div class="outline-text-2" id="text-16">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int loop;
+  int total = 0;       // declare and initialize variables
+  int number = 0;
+
+  for (loop = 1; loop &lt;= 5; loop++)
+    {
+      cout &lt;&lt; "Enter a number : ";
+      cin &gt;&gt; number;
+      total += number;            // keep running total
+    }
+
+  cout &lt;&lt; endl &lt;&lt; "The total is " &lt;&lt; total;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17">5.3 Converting All Character Inputs to Uppercase.</h2>
+<div class="outline-text-2" id="text-17">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cctype&gt;
+
+using namespace std;
+
+#define MAX 20
+
+main()
+
+{
+  char name[MAX];
+  int x;
+
+  cout &lt;&lt; "Enter a name : ";
+  cin &gt;&gt; name;
+
+  for (x = 0; x &lt; strlen(name); x++)
+    {
+      name[x] = toupper(name[x]);
+    }
+
+  cout &lt;&lt; endl &lt;&lt; name &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18">5.4 Counting in Reverse.</h2>
+<div class="outline-text-2" id="text-18">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+
+{
+  int x;
+
+  for (x = 10; x &gt; 0; x--)
+    {
+      cout &lt;&lt; x  &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-19" class="outline-2">
+<h2 id="sec-19">6.1 Demonstrating a while Loop That Counts from 0 to 9.</h2>
+<div class="outline-text-2" id="text-19">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int counter = 0;                 //set initial value
+
+  while ( counter &lt; 10)            //test condition
+    {
+      cout &lt;&lt; counter &lt;&lt; " ";      //display
+      counter++;                   //increment
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-20" class="outline-2">
+<h2 id="sec-20">6.2 Using Postfix Notation to Print Numbers Between 1 and 10.</h2>
+<div class="outline-text-2" id="text-20">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+
+  int counter = 0;              //set initial value
+
+  while ( counter++ &lt; 10)       //test condition and increment
+    {
+      cout &lt;&lt; counter &lt;&lt; " ";   //display
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-21" class="outline-2">
+<h2 id="sec-21">6.3 Using Prefix Notation to Print Numbers Between 1 and 9.</h2>
+<div class="outline-text-2" id="text-21">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int counter = 0;              //set initial value
+
+  while ( ++counter &lt; 10)       //test condition and increment
+    {
+      cout &lt;&lt; counter &lt;&lt; " ";   //display
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-22" class="outline-2">
+<h2 id="sec-22">6.4 Printing Numbers Between 0 and 9.</h2>
+<div class="outline-text-2" id="text-22">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int counter = 0;                     //set initial value
+
+  do
+    {
+      cout &lt;&lt; counter &lt;&lt; " ";       //display
+      counter++;                    //increment
+    } while ( counter &lt; 10);              //test condition
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-23" class="outline-2">
+<h2 id="sec-23">7.1 A Simple Example of the if else Statement.</h2>
+<div class="outline-text-2" id="text-23">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int age;
+
+  cout &lt;&lt; "Enter your age : ";
+  cin &gt;&gt; age;
+
+  if (age &gt;= 18)
+    {
+      cout &lt;&lt; "You can vote " &lt;&lt; endl;
+    }
+
+  else
+    {
+      cout &lt;&lt; "Too young to vote" &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-24" class="outline-2">
+<h2 id="sec-24">7.2 An Example of Compound Statements Used with the if else Statement.</h2>
+<div class="outline-text-2" id="text-24">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int age;
+
+  cout &lt;&lt; "Enter your age : ";
+  cin &gt;&gt; age;
+
+  if (age &gt;= 18)
+    {
+      cout &lt;&lt; "Hello I am your local senator" &lt;&lt; endl;
+      cout &lt;&lt; "You are over 18" &lt;&lt; endl;
+      cout &lt;&lt; "That means you can vote" &lt;&lt; endl;
+      cout &lt;&lt; "I will crawl to you" &lt;&lt; endl;
+    }
+
+  else
+    {
+      cout &lt;&lt; "Too young to vote" &lt;&lt; endl;
+      cout &lt;&lt; "Do not waste my time" &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-25" class="outline-2">
+<h2 id="sec-25">7.3 An Example of a Program with No Required Actions If the Condition Proves False.</h2>
+<div class="outline-text-2" id="text-25">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int age;
+
+  cout &lt;&lt;"Enter your age : ";
+  cin &gt;&gt; age;
+
+  if (age &gt;= 18)
+    {
+      cout &lt;&lt; "Hello I am your local Senator" &lt;&lt; endl;
+      cout &lt;&lt; "You are over 18" &lt;&lt; endl;
+      cout &lt;&lt; "That means you can vote" &lt;&lt; endl;
+      cout &lt;&lt; "I will crawl to you" &lt;&lt; endl;
+    }    
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-26" class="outline-2">
+<h2 id="sec-26">7.4 An Example of the Nested if else Statement.</h2>
+<div class="outline-text-2" id="text-26">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define MyAge 21    // Don't laugh!
+
+main()
+{
+  int guess;
+
+  cout &lt;&lt;"Guess my age : ";
+  cin &gt;&gt; guess;
+
+  if (guess == MyAge)
+    {
+      cout &lt;&lt; endl
+	   &lt;&lt; "Congratulations you are a friend for life"
+	   &lt;&lt; endl;
+    }
+
+  else
+    {
+      if (guess &lt; MyAge)
+	{
+	  cout &lt;&lt; "Come on. . .I am older than that" &lt;&lt; endl;
+	}
+
+      else
+	{
+	  cout &lt;&lt; "Do not be so cheeky" &lt;&lt; endl;
+	}
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-27" class="outline-2">
+<h2 id="sec-27">7.5 An Example of a Heavily Nested if else Program.</h2>
+<div class="outline-text-2" id="text-27">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int age;
+
+  cout &lt;&lt; "Enter your age : ";
+  cin &gt;&gt; age;
+
+  if (age &lt; 16)
+    {
+      if ( age &lt; 5)
+	{
+	  cout &lt;&lt; "Under school age" &lt;&lt; endl;
+	}
+      else
+	{
+	  cout &lt;&lt; "School age" &lt;&lt; endl;
+	}
+    }
+  else
+    {
+      if (age &lt; 65)
+	{
+	  cout &lt;&lt; "Working age" &lt;&lt; endl;
+	}
+      else
+	{
+	  cout &lt;&lt; "Over the hill" &lt;&lt; endl;
+	}
+    }
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-28" class="outline-2">
+<h2 id="sec-28">8.1 The Vowel Test.</h2>
+<div class="outline-text-2" id="text-28">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cctype&gt;
+
+using namespace std;
+
+#define message "This is a vowel"
+
+main()
+{
+  char letter;
+
+  cout &lt;&lt; "Enter a letter : ";
+  cin &gt;&gt; letter;
+  letter = toupper(letter);
+  switch (letter)
+    {
+    case 'A' :    cout &lt;&lt; message &lt;&lt; endl;
+      break;
+    case 'E' :    cout &lt;&lt; message &lt;&lt; endl;
+      break;
+    case 'I' :    cout &lt;&lt; message &lt;&lt; endl;
+      break;
+    case 'O' :    cout &lt;&lt; message &lt;&lt; endl;
+      break;
+    case 'U' :    cout &lt;&lt; message &lt;&lt; endl;
+      break;
+    default  :    cout &lt;&lt; "Not a vowel" &lt;&lt; endl;
+}
+return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-29" class="outline-2">
+<h2 id="sec-29">8.2 The Vowel Test in a Nest (This is meant to be a bad example).</h2>
+<div class="outline-text-2" id="text-29">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cctype&gt;
+
+using namespace std;
+
+#define message "This is a vowel"
+
+main()
+{
+  char letter;
+  cout &lt;&lt; "Enter a letter : ";
+  cin &gt;&gt; letter;
+  letter = toupper(letter);
+
+  if (letter == 'A')
+    {
+      cout &lt;&lt; message &lt;&lt; endl;
+    }
+  else
+    {
+      if (letter == 'E')
+	{
+	  cout &lt;&lt; message &lt;&lt; endl;
+	}
+      else
+	if (letter == 'I')
+	  {
+	    cout &lt;&lt; message &lt;&lt; endl;
+	  }
+	else
+	  {
+	    if (letter == 'O')
+	      {
+		cout &lt;&lt; message &lt;&lt; endl;
+	      }
+	    else
+	      {
+		if (letter =='U')
+		  {
+		    cout &lt;&lt; message &lt;&lt; endl;
+		  }
+		else
+		  {
+		    cout &lt;&lt; "Not a vowel"
+			 &lt;&lt; endl;
+		  }
+	      }
+	  }
+    }
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-30" class="outline-2">
+<h2 id="sec-30">8.3 Demo of a Menu-Driven Program.</h2>
+<div class="outline-text-2" id="text-30">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+
+using namespace std;
+
+main()
+{
+  char choice;
+
+  do
+    {
+      // This is the menu displayed to the screen
+      cout &lt;&lt; "FLIGHT BOOKING SYSTEM" &lt;&lt; endl &lt;&lt; endl;
+      cout &lt;&lt; "1..New York to London Heathrow" &lt;&lt; endl;
+      cout &lt;&lt; "2..New York to Vancouver" &lt;&lt; endl;
+      cout &lt;&lt; "3..New York to Sydney" &lt;&lt; endl;
+      cout &lt;&lt; "4..New York to Cape Town" &lt;&lt; endl;
+      cout &lt;&lt; "Q..Quit" &lt;&lt; endl;
+      // This reads in the user selection.
+      cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; "Enter your choice : ";
+      cin &gt;&gt; choice;
+      // This section acts on the user selection.
+      switch (choice)
+	{
+	case '1' :     cout &lt;&lt; endl
+			    &lt;&lt; "New York to London booked"
+			    &lt;&lt; endl &lt;&lt; endl;
+	  break;
+	case '2' :     cout &lt;&lt; endl
+			    &lt;&lt; "New York to Vancouver booked"
+			    &lt;&lt; endl &lt;&lt; endl;
+	  break;
+	case '3' :     cout &lt;&lt; endl
+			    &lt;&lt; "New York to Sydney booked"
+			    &lt;&lt; endl &lt;&lt; endl;
+	  break;
+	case '4' :     cout &lt;&lt; endl
+			    &lt;&lt; "New York to Cape Town booked"
+			    &lt;&lt; endl &lt;&lt; endl;
+	  break;
+	case 'Q' :
+	case 'q' :     exit(0);
+	}
+    } while(1);
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-31" class="outline-2">
+<h2 id="sec-31">9.1 Demo of a Six-Element Array.</h2>
+<div class="outline-text-2" id="text-31">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  int number[6];            // an array of integer
+  int index;                // loop control variable
+
+  number[5] = 42;           // initialize the array
+  number[4] = 2001;
+  number[3] = 7;
+  number[2] = 180;
+  number[1] = 99;
+  number[0] = 1993;
+
+  for (index = 0; index &lt;= 5; index++)
+    {
+      cout &lt;&lt; number[index] &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-32" class="outline-2">
+<h2 id="sec-32">9.2 An Array of Integers that Demonstrates the Alignment of Columns.</h2>
+<div class="outline-text-2" id="text-32">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define MAX 20
+
+main()
+{
+  // declare and initialize an array
+  int number[MAX] = {12,33,45,66,43,1,56,78,101,99};
+  int index;
+
+  cout.setf(ios::right);
+
+  for (index = 0; index &lt; MAX; index++)
+    {
+      cout &lt;&lt; endl
+	   &lt;&lt; "THE CONTENTS OF ARRAY ELEMENT";
+      cout.width(4);
+      cout &lt;&lt; (index + 1)  &lt;&lt;  " IS :";
+      cout.width(4);
+      cout &lt;&lt; number[index];
+    }
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-33" class="outline-2">
+<h2 id="sec-33">9.3 Creating an Array of Integers Example #1.</h2>
+<div class="outline-text-2" id="text-33">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define MAX 4
+
+main()
+{
+  int number[MAX];        // declare empty array
+  int index;
+
+  // gather the data and put it in array
+  for (index = 0; index &lt; MAX; index ++)
+    {
+      cout &lt;&lt; "Enter a number ";
+      cin &gt;&gt; number[index];
+    }
+
+  // show array contents to screen
+  for (index = 0; index &lt; MAX; index++)
+    {
+      cout &lt;&lt; endl
+	   &lt;&lt; "THE CONTENTS OF ARRAY ELEMENT "
+	   &lt;&lt; (index + 1) &lt;&lt; " IS : ";
+      cout &lt;&lt; number[index];
+    }
+
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-34" class="outline-2">
+<h2 id="sec-34">9.4 Creating an Array of Integers Example #2.</h2>
+<div class="outline-text-2" id="text-34">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define MAX 40
+
+main()
+{
+  int number[MAX];      // declare empty array
+  int index;            // loop control variable
+  int count = 0;        // keep count of elements used
+  char more;            // is there more data?
+
+  // gather the data and put it in array
+  while(1)
+    {
+      cout &lt;&lt; "Enter a number ";
+      cin &gt;&gt; number[count];
+      cout &lt;&lt; "Any more items to enter y/n : ";
+      cin &gt;&gt; more;
+
+      if (more == 'n')
+	{
+	  break;
+	}
+      else
+	{
+	  count++;
+	}
+    }
+  // show contents of array element
+  //which contain data
+  for (index = 0; index &lt;= count; index++)
+    {
+      cout &lt;&lt; endl
+	   &lt;&lt; "THE CONTENTS OF ARRAY ELEMENT "
+	   &lt;&lt; (index + 1) &lt;&lt; " IS : ";
+      cout &lt;&lt; number[index];
+    }
+  cout &lt;&lt; endl &lt;&lt; "ARRAY ELEMENTS USED = "         &lt;&lt; count+1;
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-35" class="outline-2">
+<h2 id="sec-35">9.5 Example of the getline Function.</h2>
+<div class="outline-text-2" id="text-35">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+  char name[20];
+  cout &lt;&lt; "Enter a name ";
+  cin.getline(name,20);
+  cout &lt;&lt; endl &lt;&lt; name &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-36" class="outline-2">
+<h2 id="sec-36">10.1 Demo of a Two-Dimensional Array.</h2>
+<div class="outline-text-2" id="text-36">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt; 
+
+using namespace std;
+
+#define ROW 5           // FIVE WORKING DAYS
+#define COLUMN 4        // FOUR WEEKS IN MONTH
+
+main() 
+{
+  int sales[ROW][COLUMN] = { 91,22,37,40,
+			     58,63,99,35,
+			     77,81,23,62,
+			     92,15,33,29,
+			     102,73,62,64};
+  int down;        // go down the rows
+  int across;        // go across the columns
+
+  cout.setf(ios::right);
+  cout &lt;&lt; endl;
+
+  for (down = 0; down &lt; ROW; down++)
+    {
+      for (across = 0; across &lt; COLUMN; across++)
+	{
+	  cout.width(4);
+	  cout &lt;&lt; sales[down][across];
+	}
+      cout &lt;&lt; endl &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-37" class="outline-2">
+<h2 id="sec-37">10.2 Using a Two-Dimensional Array to List a Particular Row.</h2>
+<div class="outline-text-2" id="text-37">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define ROW 5
+#define COLUMN 4
+
+main()
+{
+  int sales[ROW][COLUMN] = {    91,22,37,40,
+				58,63,99,35,
+				77,81,23,62,
+				92,15,33,29,
+				102,73,62,64};
+  int across;        // This is the columns
+
+  cout.setf(ios::right);
+  cout &lt;&lt; endl &lt;&lt; "A Day In The Month";
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  for (across = 0; across &lt; COLUMN; across++)
+    {
+      cout.width(4);
+      cout &lt;&lt; sales[0][across];
+    }
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-38" class="outline-2">
+<h2 id="sec-38">10.3 Using a Two-Dimensional Array to List a Particular Column.</h2>
+<div class="outline-text-2" id="text-38">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define ROW 5
+#define COLUMN 4
+
+main() 
+{      
+  int sales[ROW][COLUMN] = {    91,22,37,40,
+				58,63,99,35,
+				77,81,23,62,
+				92,15,33,29,
+				102,73,62,64};
+  int down;        // This is the row
+
+  cout.setf(ios::right);
+  cout &lt;&lt; endl &lt;&lt; "A Week In The Month Observed.";
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  for (down = 0; down &lt; ROW; down++)
+    {
+      cout.width(4);
+      cout &lt;&lt; sales[down][1] &lt;&lt; endl;
+    }
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-39" class="outline-2">
+<h2 id="sec-39">10.4 Demo of a Three-Dimensional Array.</h2>
+<div class="outline-text-2" id="text-39">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define ROW 5                 // FIVE WORKING DAYS
+#define COLUMN 4              // FOUR WEEKS IN MONTH
+#define PAGE 2                // MONTHS 1 AND 2
+
+main()
+{
+  int sales[ROW][COLUMN][PAGE];
+  int down;
+  int across;
+  int back = 0;
+
+  sales[0][0][0] = 91;
+  sales[0][1][0] = 22;
+  sales[0][2][0] = 37;
+  sales[0][3][0] = 40;
+  sales[1][0][0] = 58;
+  sales[1][1][0] = 63;
+  sales[1][2][0] = 99;
+  sales[1][3][0] = 35;
+  sales[2][0][0] = 77;
+  sales[2][1][0] = 81;
+  sales[2][2][0] = 23;
+  sales[2][3][0] = 62;
+  sales[3][0][0] = 92;
+  sales[3][1][0] = 15;
+  sales[3][2][0] = 33;
+  sales[3][3][0] = 29;
+  sales[4][0][0] = 102;
+  sales[4][1][0] = 73;
+  sales[4][2][0] = 62;
+  sales[4][3][0] = 64;
+  sales[0][0][1] = 12;
+  sales[0][1][1] = 23;
+  sales[0][2][1] = 27;
+  sales[0][3][1] = 42;
+  sales[1][0][1] = 59;
+  sales[1][1][1] = 83;
+  sales[1][2][1] = 79;
+  sales[1][3][1] = 75;
+  sales[2][0][1] = 77;
+  sales[2][1][1] = 71;
+  sales[2][2][1] = 63;
+  sales[2][3][1] = 72;
+  sales[3][0][1] = 110;
+  sales[3][1][1] = 105;
+  sales[3][2][1] = 103;
+  sales[3][3][1] = 109;
+  sales[4][0][1] = 102;
+  sales[4][1][1] = 83;
+  sales[4][2][1] = 61;
+  sales[4][3][1] = 63;
+
+  cout.setf(ios::right);
+  cout &lt;&lt; endl;
+
+  for (down = 0; down &lt; ROW; down++)
+    {
+      for (across = 0; across &lt; COLUMN; across++)
+	{
+	  cout.width(4);
+	  cout &lt;&lt; sales[down][across][back];
+	}
+      cout &lt;&lt; endl &lt;&lt; endl;
+    }
+  back++;
+  cout &lt;&lt; endl &lt;&lt; endl;
+  for (down = 0; down &lt; ROW; down++)
+    {
+      for (across = 0; across &lt; COLUMN; across++)
+	{
+	  cout.width(4);
+	  cout &lt;&lt; sales[down][across][back];
+	}
+      cout &lt;&lt; endl &lt;&lt; endl;
+    }
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-40" class="outline-2">
+<h2 id="sec-40">10.5 Example of a Two-Dimensional Array of Characters.</h2>
+<div class="outline-text-2" id="text-40">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+#define MAXNAMES 4        // FOUR NAMES IN ARRAY
+#define MAXLENGTH 20      // NOT MORE THAN 19 CHARACTERS
+
+main()
+{
+  char name[MAXNAMES][MAXLENGTH] =     {
+    "DAVY CROCKETT",
+    "JOHN LENNON",
+    "MOHAMMED ALI",
+    "WILLIAM WALLACE"};
+  int index;
+
+  for (index = 0; index &lt; MAXNAMES; index++)
+    {
+      cout &lt;&lt; endl &lt;&lt; name[index];
+    }
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-41" class="outline-2">
+<h2 id="sec-41">11.1 A Parallel Array.</h2>
+<div class="outline-text-2" id="text-41">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+#define MAX 9        // There are 9 known planets
+#define LENGTH 8     // No name is longer than 7
+// characters
+#define TAB '\t'     // Define a tab character
+
+main()
+{
+  char planet[MAX][LENGTH];      // planet names
+  int  distance[MAX];            // distance from sun
+  int  index;
+
+  // INITIALIZE THE TWO ARRAYS
+  strcpy(planet[0],"MERCURY");
+  distance[0] = 58;
+  strcpy(planet[1],"VENUS");
+  distance[1] = 108;
+  strcpy(planet[2],"EARTH");
+  distance[2] = 150;
+  strcpy(planet[3],"MARS");
+  distance[3] = 228;
+  strcpy(planet[4],"JUPITER");
+  distance[4] = 778;
+  strcpy(planet[5],"SATURN");
+  distance[5] = 1427;
+  strcpy(planet[6],"URANUS");
+  distance[6] = 2869;
+  strcpy(planet[7],"NEPTUNE");
+  distance[7] = 4498;
+  strcpy(planet[8],"PLUTO");
+  distance[8] = 5900;
+  cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; "PLANET" &lt;&lt; TAB &lt;&lt; TAB
+       &lt;&lt; "DISTANCE" &lt;&lt; endl &lt;&lt; endl;
+
+  for (index = 0; index &lt; MAX; index++)
+    {
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; planet[index];
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; distance[index] &lt;&lt; endl;
+    }
+  cout &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-42" class="outline-2">
+<h2 id="sec-42">11.2 Vulcan Discovered At Last.</h2>
+<div class="outline-text-2" id="text-42">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+#define MAX 10        // There are NOW 10 known planets
+#define LENGTH 8      // No name is longer than 7
+// characters
+#define TAB '\t'      // Define a tab character
+
+main()
+{
+  char planet[MAX][LENGTH];      // planet names
+  int  distance[MAX];            // distance from sun
+  int  index;
+
+  // INITIALIZE THE TWO ARRAYS
+  strcpy(planet[0],"MERCURY");
+  distance[0] = 58;
+  strcpy(planet[1],"VENUS");
+  distance[1] = 108;
+  strcpy(planet[2],"EARTH");
+  distance[2] = 150;
+  strcpy(planet[3],"MARS");
+  distance[3] = 228;
+  strcpy(planet[4],"JUPITER");
+  distance[4] = 778;
+  strcpy(planet[5],"SATURN");
+  distance[5] = 1427;
+  strcpy(planet[6],"URANUS");
+  distance[6] = 2869;
+  strcpy(planet[7],"NEPTUNE");
+  distance[7] = 4498;
+  strcpy(planet[8],"PLUTO");
+  distance[8] = 5900;
+  strcpy(planet[9],"VULCAN");
+  distance[9] = 8992;
+  cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; "PLANET" &lt;&lt; TAB &lt;&lt; TAB
+       &lt;&lt; "DISTANCE" &lt;&lt; endl &lt;&lt; endl;
+
+  for (index = 0; index &lt; MAX; index++)
+    {
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; planet[index];
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; distance[index] &lt;&lt; endl;
+    }
+  cout &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-43" class="outline-2">
+<h2 id="sec-43">11.3 Four Parallel Arrays.</h2>
+<div class="outline-text-2" id="text-43">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+#define MAX 9        // There are 9 known planets
+#define LENGTH 8     // No name is longer than 7
+// characters
+#define TAB '\t'     // Define a tab character
+
+main()
+{
+  char  planet[MAX][LENGTH];    // planet names
+  int   moons[MAX];             // number of moons
+  float year[MAX];              // length of year
+  int   distance[MAX];          // distance from sun
+  int   index; 
+
+  // INITIALIZE THE FOUR ARRAYS
+  strcpy(planet[0],"MERCURY");
+  moons[0] = 0;
+  year[0] = 0.24;
+  distance[0] = 58;
+  strcpy(planet[1],"VENUS");
+  moons[1] = 0;
+  year[1] = 0.625;
+  distance[1] = 108;
+  strcpy(planet[2],"EARTH");
+  moons[2] = 1;
+  year[2] = 1;
+  distance[2] = 150;
+  strcpy(planet[3],"MARS");
+  moons[3] = 2;
+  year[3] = 1.91;
+  distance[3] = 228;
+  cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; "PLANET"
+       &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; "MOONS"
+       &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; "YEAR"
+       &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; "DISTANCE"&lt;&lt; endl &lt;&lt; endl;
+
+  for (index = 0; index &lt; 4; index++)
+    {
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; planet[index];
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; moons[index];
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; year[index];
+      cout &lt;&lt; TAB &lt;&lt; TAB &lt;&lt; distance[index] &lt;&lt; endl;
+    }
+  cout &lt;&lt; endl;
+
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

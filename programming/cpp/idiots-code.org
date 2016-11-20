@@ -1,0 +1,1296 @@
+#+title: idiots-code
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil tasks:nil
+
+* 2.1 Using the cout Command.
+#+BEGIN_SRC cpp :tangle 2_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    cout << "Hello everyone...this is easy ";
+    return(0);
+  }
+#+END_SRC
+
+* 2.2 A Program with Several Lines of Text and endl.
+#+BEGIN_SRC cpp :tangle 2_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    cout << "Hello everyone...this is easy " << endl;
+    cout << "Look a new line!" << endl;
+    cout << "Get the idea!!" << endl << endl;
+    cout << "Dead easy...isn't it?" << endl;
+    return(0);
+  }
+#+END_SRC
+
+* 2.3 Using Defined Messages.
+#+BEGIN_SRC cpp :tangle 2_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define message1 "Hello everyone...this is easy "
+  #define message2 "Look another line!"
+
+  main()
+
+  {
+    cout << message1 << endl;
+    cout << message2;
+    cout << endl << endl << message1 << endl << endl;
+    cout << message2 << endl;
+    return(0);
+  }
+#+END_SRC
+
+* 2.4 Mixed Data Types.
+#+BEGIN_SRC cpp :tangle 2_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    cout << "The answer to" << endl;
+    cout << "LIFE THE UNIVERSE AND EVERYTHING is : ";
+    cout << 42;
+    cout << endl << endl;
+    cout << "But what was the question?";
+    cout << endl << endl;
+    return(0);
+  }
+#+END_SRC
+* 3.1 How to Show the Contents of an Integer Variable Onscreen.
+#+BEGIN_SRC cpp :tangle 3_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int number;        //set up an integer variable
+    number = 42;         //give it a value
+    cout << number;      //display to screen
+    return(0);
+  }
+#+END_SRC
+
+* 3.2 How to Show the Contents of a char Variable Onscreen.
+#+BEGIN_SRC cpp :tangle 3_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    char letter;        // set up a character variable
+    letter = 'C';         // give it a value
+    cout << letter;       // display to screen
+    return(0);
+  }
+#+END_SRC
+
+* 3.3 How to Show the Contents of a float Variable Onscreen.
+#+BEGIN_SRC cpp :tangle 3_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    float number2;          // set up a float variable
+    number2 = 98.6;         // give it a value
+    cout << number2;          // display to screen
+    return(0);
+  }
+#+END_SRC
+
+* 3.4 An Example to Show the Size of the Box.
+#+BEGIN_SRC cpp :tangle 3_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int box1   = 52;
+    float box2 = 98.6;
+    char box3  = 'Z';
+    int size;
+
+    size = sizeof(box1);
+    cout << "The integer box is     : " << size << " bytes" << endl;
+    cout << "This variable contains : " << box1 << endl;
+    cout << endl;
+
+    size = sizeof(box2);
+    cout << "The float box is       : " << size << " bytes" << endl;
+    cout << "This variable contains : " << box2 << endl;
+
+    size = sizeof(box3);
+    cout << endl;
+    cout << "The char box is        : " << size  << " bytes" << endl;
+    cout << "This variable contains : " << box3 << endl;
+    cout << endl;
+    cout << endl;
+    return(0);
+  }
+#+END_SRC
+
+* 4.1 Demonstrating Add, Subtract, and Multiply.
+#+BEGIN_SRC cpp :tangle 4_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int A = 12;
+    int B = 22;
+    int C;
+    int D;
+    int E;
+
+    C = A + B;                       // ADD
+    D = A - B;                       // SUBTRACT
+    E = A * B;                       // MULTIPLY
+
+    cout << "ADD  : " << C << endl;
+    cout << "SUB  : " << D << endl;
+    cout << "MULT : " << E << endl;
+
+    return(0);
+  }
+#+END_SRC
+* 4.2 Demonstrating a Quirky C++ Division.
+#+BEGIN_SRC cpp :tangle 4_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int A = 3;
+    int B = 2;
+    float C;
+
+    C = A / B;                    // DIVIDE
+
+    cout << "DIVIDE  : " << C << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 4.3 Demonstrating a Nonquirky C++ Division.
+#+BEGIN_SRC cpp :tangle 4_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    float A = 3;
+    float B = 2;
+    float C;
+
+    C = A / B;                    // DIVIDE
+
+    cout << "DIVIDE  : " << C << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 4.4 Demonstrating the Cast Operation.
+#+BEGIN_SRC cpp :tangle 4_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int A = 3;
+    int B = 2;
+    float C;
+
+    C = (float)A / B;        // CAST AND DIVIDE
+
+    cout << "DIVIDE  : " << C << endl;
+
+    return(0);
+  }
+#+END_SRC
+* 4.5 Demonstrating Divide and Subtract to Find the Decimal Part of the Calculation.
+#+BEGIN_SRC cpp :tangle 4_5.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int A = 3;
+    int B = 2;
+    float C;
+    float D;
+    float E;
+
+    C = A / B;                            // DIVIDE
+    D = (float)A / B;                     // CAST
+    E = D - C;                            // DECIMAL BIT
+
+    cout << "DECIMAL  : " << E << endl;
+
+    return(0);
+  }
+#+END_SRC
+* 4.6 Demonstrating cin and a Further Demo of Add, Subtract, and Multiply.
+#+BEGIN_SRC cpp :tangle 4_6.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+
+    int A;
+    int B;
+    int C;
+    int D;
+    int E;
+
+    cout << "Enter the value for A : ";
+    cin >> A;
+    cout << "Enter the value for B : ";
+    cin >> B;
+
+    C = A + B;                       // ADD
+    D = A - B;                       // SUBTRACT
+    E = A * B;                       // MULTIPLY
+
+    cout << "ADD  : " << C << endl;
+    cout << "SUB  : "  << D << endl;
+    cout << "MULT : " << E << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 5.1 Demonstrating a Simple for Loop That Counts from 0 to 9
+#+BEGIN_SRC cpp :tangle 5_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int x;
+
+    for (x = 0; x < 10; x++)
+      {
+        cout << x  << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+* 5.2 The Running Total Program Finding the Total of a Number of Values Entered at Runtime.
+#+BEGIN_SRC cpp :tangle 5_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int loop;
+    int total = 0;       // declare and initialize variables
+    int number = 0;
+
+    for (loop = 1; loop <= 5; loop++)
+      {
+        cout << "Enter a number : ";
+        cin >> number;
+        total += number;            // keep running total
+      }
+
+    cout << endl << "The total is " << total;
+
+    return(0);
+  }
+#+END_SRC
+
+* 5.3 Converting All Character Inputs to Uppercase.
+#+BEGIN_SRC cpp :tangle 5_3.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+  #include <cctype>
+
+  using namespace std;
+
+  #define MAX 20
+
+  main()
+
+  {
+    char name[MAX];
+    int x;
+
+    cout << "Enter a name : ";
+    cin >> name;
+
+    for (x = 0; x < strlen(name); x++)
+      {
+        name[x] = toupper(name[x]);
+      }
+
+    cout << endl << name << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 5.4 Counting in Reverse.
+#+BEGIN_SRC cpp :tangle 5_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+
+  {
+    int x;
+
+    for (x = 10; x > 0; x--)
+      {
+        cout << x  << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 6.1 Demonstrating a while Loop That Counts from 0 to 9.
+#+BEGIN_SRC cpp :tangle 6_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int counter = 0;                 //set initial value
+
+    while ( counter < 10)            //test condition
+      {
+        cout << counter << " ";      //display
+        counter++;                   //increment
+      }
+
+    return(0);
+  }
+  #+END_SRC
+
+* 6.2 Using Postfix Notation to Print Numbers Between 1 and 10.
+#+BEGIN_SRC cpp :tangle 6_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+
+    int counter = 0;              //set initial value
+
+    while ( counter++ < 10)       //test condition and increment
+      {
+        cout << counter << " ";   //display
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 6.3 Using Prefix Notation to Print Numbers Between 1 and 9.
+#+BEGIN_SRC cpp :tangle 6_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int counter = 0;              //set initial value
+
+    while ( ++counter < 10)       //test condition and increment
+      {
+        cout << counter << " ";   //display
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 6.4 Printing Numbers Between 0 and 9.
+#+BEGIN_SRC cpp :tangle 6_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int counter = 0;                     //set initial value
+
+    do
+      {
+        cout << counter << " ";       //display
+        counter++;                    //increment
+      } while ( counter < 10);              //test condition
+
+    return(0);
+  }
+#+END_SRC
+
+* 7.1 A Simple Example of the if else Statement.
+#+BEGIN_SRC cpp :tangle 7_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int age;
+
+    cout << "Enter your age : ";
+    cin >> age;
+
+    if (age >= 18)
+      {
+        cout << "You can vote " << endl;
+      }
+
+    else
+      {
+        cout << "Too young to vote" << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 7.2 An Example of Compound Statements Used with the if else Statement.
+#+BEGIN_SRC cpp :tangle 7_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int age;
+
+    cout << "Enter your age : ";
+    cin >> age;
+
+    if (age >= 18)
+      {
+        cout << "Hello I am your local senator" << endl;
+        cout << "You are over 18" << endl;
+        cout << "That means you can vote" << endl;
+        cout << "I will crawl to you" << endl;
+      }
+
+    else
+      {
+        cout << "Too young to vote" << endl;
+        cout << "Do not waste my time" << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 7.3 An Example of a Program with No Required Actions If the Condition Proves False.
+#+BEGIN_SRC cpp :tangle 7_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int age;
+
+    cout <<"Enter your age : ";
+    cin >> age;
+
+    if (age >= 18)
+      {
+        cout << "Hello I am your local Senator" << endl;
+        cout << "You are over 18" << endl;
+        cout << "That means you can vote" << endl;
+        cout << "I will crawl to you" << endl;
+      }    
+
+    return(0);
+  }
+#+END_SRC
+
+* 7.4 An Example of the Nested if else Statement.
+#+BEGIN_SRC cpp :tangle 7_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define MyAge 21    // Don't laugh!
+
+  main()
+  {
+    int guess;
+
+    cout <<"Guess my age : ";
+    cin >> guess;
+
+    if (guess == MyAge)
+      {
+        cout << endl
+             << "Congratulations you are a friend for life"
+             << endl;
+      }
+
+    else
+      {
+        if (guess < MyAge)
+          {
+            cout << "Come on. . .I am older than that" << endl;
+          }
+
+        else
+          {
+            cout << "Do not be so cheeky" << endl;
+          }
+      }
+
+    return(0);
+  }
+  #+END_SRC
+
+* 7.5 An Example of a Heavily Nested if else Program.
+#+BEGIN_SRC cpp :tangle 7_5.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int age;
+   
+    cout << "Enter your age : ";
+    cin >> age;
+   
+    if (age < 16)
+      {
+        if ( age < 5)
+          {
+            cout << "Under school age" << endl;
+          }
+        else
+          {
+            cout << "School age" << endl;
+          }
+      }
+    else
+      {
+        if (age < 65)
+          {
+            cout << "Working age" << endl;
+          }
+        else
+          {
+            cout << "Over the hill" << endl;
+          }
+      }
+    return(0);
+  }
+#+END_SRC
+
+* 8.1 The Vowel Test.
+#+BEGIN_SRC cpp :tangle 8_1.cpp :padline no
+  #include <iostream>
+  #include <cctype>
+
+  using namespace std;
+
+  #define message "This is a vowel"
+
+  main()
+  {
+    char letter;
+
+    cout << "Enter a letter : ";
+    cin >> letter;
+    letter = toupper(letter);
+    switch (letter)
+      {
+      case 'A' :    cout << message << endl;
+        break;
+      case 'E' :    cout << message << endl;
+        break;
+      case 'I' :    cout << message << endl;
+        break;
+      case 'O' :    cout << message << endl;
+        break;
+      case 'U' :    cout << message << endl;
+        break;
+      default  :    cout << "Not a vowel" << endl;
+  }
+  return(0);
+  }
+#+END_SRC
+
+* 8.2 The Vowel Test in a Nest (This is meant to be a bad example).
+#+BEGIN_SRC cpp :tangle 8_2.cpp :padline no
+  #include <iostream>
+  #include <cctype>
+
+  using namespace std;
+
+  #define message "This is a vowel"
+
+  main()
+  {
+    char letter;
+    cout << "Enter a letter : ";
+    cin >> letter;
+    letter = toupper(letter);
+    
+    if (letter == 'A')
+      {
+        cout << message << endl;
+      }
+    else
+      {
+        if (letter == 'E')
+          {
+            cout << message << endl;
+          }
+        else
+          if (letter == 'I')
+            {
+              cout << message << endl;
+            }
+          else
+            {
+              if (letter == 'O')
+                {
+                  cout << message << endl;
+                }
+              else
+                {
+                  if (letter =='U')
+                    {
+                      cout << message << endl;
+                    }
+                  else
+                    {
+                      cout << "Not a vowel"
+                           << endl;
+                    }
+                }
+            }
+      }
+    return(0);
+  }
+#+END_SRC
+
+* 8.3 Demo of a Menu-Driven Program.
+#+BEGIN_SRC cpp :tangle 8_3.cpp :padline no
+  #include <iostream>
+  #include <cstdlib>
+
+  using namespace std;
+
+  main()
+  {
+    char choice;
+   
+    do
+      {
+        // This is the menu displayed to the screen
+        cout << "FLIGHT BOOKING SYSTEM" << endl << endl;
+        cout << "1..New York to London Heathrow" << endl;
+        cout << "2..New York to Vancouver" << endl;
+        cout << "3..New York to Sydney" << endl;
+        cout << "4..New York to Cape Town" << endl;
+        cout << "Q..Quit" << endl;
+        // This reads in the user selection.
+        cout << endl << endl << "Enter your choice : ";
+        cin >> choice;
+        // This section acts on the user selection.
+        switch (choice)
+          {
+          case '1' :     cout << endl
+                              << "New York to London booked"
+                              << endl << endl;
+            break;
+          case '2' :     cout << endl
+                              << "New York to Vancouver booked"
+                              << endl << endl;
+            break;
+          case '3' :     cout << endl
+                              << "New York to Sydney booked"
+                              << endl << endl;
+            break;
+          case '4' :     cout << endl
+                              << "New York to Cape Town booked"
+                              << endl << endl;
+            break;
+          case 'Q' :
+          case 'q' :     exit(0);
+          }
+      } while(1);
+    return(0);
+  }
+#+END_SRC
+* 9.1 Demo of a Six-Element Array.
+#+BEGIN_SRC cpp :tangle 9_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    int number[6];            // an array of integer
+    int index;                // loop control variable
+
+    number[5] = 42;           // initialize the array
+    number[4] = 2001;
+    number[3] = 7;
+    number[2] = 180;
+    number[1] = 99;
+    number[0] = 1993;
+
+    for (index = 0; index <= 5; index++)
+      {
+        cout << number[index] << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 9.2 An Array of Integers that Demonstrates the Alignment of Columns.
+#+BEGIN_SRC cpp :tangle 9_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define MAX 20
+
+  main()
+  {
+    // declare and initialize an array
+    int number[MAX] = {12,33,45,66,43,1,56,78,101,99};
+    int index;
+
+    cout.setf(ios::right);
+
+    for (index = 0; index < MAX; index++)
+      {
+        cout << endl
+             << "THE CONTENTS OF ARRAY ELEMENT";
+        cout.width(4);
+        cout << (index + 1)  <<  " IS :";
+        cout.width(4);
+        cout << number[index];
+      }
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 9.3 Creating an Array of Integers Example #1.
+#+BEGIN_SRC cpp :tangle 9_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define MAX 4
+
+  main()
+  {
+    int number[MAX];        // declare empty array
+    int index;
+
+    // gather the data and put it in array
+    for (index = 0; index < MAX; index ++)
+      {
+        cout << "Enter a number ";
+        cin >> number[index];
+      }
+
+    // show array contents to screen
+    for (index = 0; index < MAX; index++)
+      {
+        cout << endl
+             << "THE CONTENTS OF ARRAY ELEMENT "
+             << (index + 1) << " IS : ";
+        cout << number[index];
+      }
+
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 9.4 Creating an Array of Integers Example #2.
+#+BEGIN_SRC cpp :tangle 9_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define MAX 40
+
+  main()
+  {
+    int number[MAX];      // declare empty array
+    int index;            // loop control variable
+    int count = 0;        // keep count of elements used
+    char more;            // is there more data?
+
+    // gather the data and put it in array
+    while(1)
+      {
+        cout << "Enter a number ";
+        cin >> number[count];
+        cout << "Any more items to enter y/n : ";
+        cin >> more;
+
+        if (more == 'n')
+          {
+            break;
+          }
+        else
+          {
+            count++;
+          }
+      }
+    // show contents of array element
+    //which contain data
+    for (index = 0; index <= count; index++)
+      {
+        cout << endl
+             << "THE CONTENTS OF ARRAY ELEMENT "
+             << (index + 1) << " IS : ";
+        cout << number[index];
+      }
+    cout << endl << "ARRAY ELEMENTS USED = "         << count+1;
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+* 9.5 Example of the getline Function.
+#+BEGIN_SRC cpp :tangle 9_5.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {
+    char name[20];
+    cout << "Enter a name ";
+    cin.getline(name,20);
+    cout << endl << name << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+* 10.1 Demo of a Two-Dimensional Array.
+#+BEGIN_SRC cpp :tangle 10_1.cpp :padline no
+  #include <iostream> 
+
+  using namespace std;
+
+  #define ROW 5           // FIVE WORKING DAYS
+  #define COLUMN 4        // FOUR WEEKS IN MONTH
+
+  main() 
+  {
+    int sales[ROW][COLUMN] = { 91,22,37,40,
+                               58,63,99,35,
+                               77,81,23,62,
+                               92,15,33,29,
+                               102,73,62,64};
+    int down;        // go down the rows
+    int across;        // go across the columns
+
+    cout.setf(ios::right);
+    cout << endl;
+
+    for (down = 0; down < ROW; down++)
+      {
+        for (across = 0; across < COLUMN; across++)
+          {
+            cout.width(4);
+            cout << sales[down][across];
+          }
+        cout << endl << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 10.2 Using a Two-Dimensional Array to List a Particular Row.
+#+BEGIN_SRC cpp :tangle 10_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define ROW 5
+  #define COLUMN 4
+
+  main()
+  {
+    int sales[ROW][COLUMN] = {    91,22,37,40,
+                                  58,63,99,35,
+                                  77,81,23,62,
+                                  92,15,33,29,
+                                  102,73,62,64};
+    int across;        // This is the columns
+
+    cout.setf(ios::right);
+    cout << endl << "A Day In The Month";
+    cout << endl << endl;
+
+    for (across = 0; across < COLUMN; across++)
+      {
+        cout.width(4);
+        cout << sales[0][across];
+      }
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 10.3 Using a Two-Dimensional Array to List a Particular Column.
+#+BEGIN_SRC cpp :tangle 10_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define ROW 5
+  #define COLUMN 4
+
+  main() 
+  {      
+    int sales[ROW][COLUMN] = {    91,22,37,40,
+                                  58,63,99,35,
+                                  77,81,23,62,
+                                  92,15,33,29,
+                                  102,73,62,64};
+    int down;        // This is the row
+
+    cout.setf(ios::right);
+    cout << endl << "A Week In The Month Observed.";
+    cout << endl << endl;
+
+    for (down = 0; down < ROW; down++)
+      {
+        cout.width(4);
+        cout << sales[down][1] << endl;
+      }
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 10.4 Demo of a Three-Dimensional Array.
+#+BEGIN_SRC cpp :tangle 10_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define ROW 5                 // FIVE WORKING DAYS
+  #define COLUMN 4              // FOUR WEEKS IN MONTH
+  #define PAGE 2                // MONTHS 1 AND 2
+
+  main()
+  {
+    int sales[ROW][COLUMN][PAGE];
+    int down;
+    int across;
+    int back = 0;
+
+    sales[0][0][0] = 91;
+    sales[0][1][0] = 22;
+    sales[0][2][0] = 37;
+    sales[0][3][0] = 40;
+    sales[1][0][0] = 58;
+    sales[1][1][0] = 63;
+    sales[1][2][0] = 99;
+    sales[1][3][0] = 35;
+    sales[2][0][0] = 77;
+    sales[2][1][0] = 81;
+    sales[2][2][0] = 23;
+    sales[2][3][0] = 62;
+    sales[3][0][0] = 92;
+    sales[3][1][0] = 15;
+    sales[3][2][0] = 33;
+    sales[3][3][0] = 29;
+    sales[4][0][0] = 102;
+    sales[4][1][0] = 73;
+    sales[4][2][0] = 62;
+    sales[4][3][0] = 64;
+    sales[0][0][1] = 12;
+    sales[0][1][1] = 23;
+    sales[0][2][1] = 27;
+    sales[0][3][1] = 42;
+    sales[1][0][1] = 59;
+    sales[1][1][1] = 83;
+    sales[1][2][1] = 79;
+    sales[1][3][1] = 75;
+    sales[2][0][1] = 77;
+    sales[2][1][1] = 71;
+    sales[2][2][1] = 63;
+    sales[2][3][1] = 72;
+    sales[3][0][1] = 110;
+    sales[3][1][1] = 105;
+    sales[3][2][1] = 103;
+    sales[3][3][1] = 109;
+    sales[4][0][1] = 102;
+    sales[4][1][1] = 83;
+    sales[4][2][1] = 61;
+    sales[4][3][1] = 63;
+
+    cout.setf(ios::right);
+    cout << endl;
+
+    for (down = 0; down < ROW; down++)
+      {
+        for (across = 0; across < COLUMN; across++)
+          {
+            cout.width(4);
+            cout << sales[down][across][back];
+          }
+        cout << endl << endl;
+      }
+    back++;
+    cout << endl << endl;
+    for (down = 0; down < ROW; down++)
+      {
+        for (across = 0; across < COLUMN; across++)
+          {
+            cout.width(4);
+            cout << sales[down][across][back];
+          }
+        cout << endl << endl;
+      }
+
+    return(0);
+  }
+#+END_SRC
+
+* 10.5 Example of a Two-Dimensional Array of Characters.
+#+BEGIN_SRC cpp :tangle 10_5.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define MAXNAMES 4        // FOUR NAMES IN ARRAY
+  #define MAXLENGTH 20      // NOT MORE THAN 19 CHARACTERS
+
+  main()
+  {
+    char name[MAXNAMES][MAXLENGTH] =     {
+      "DAVY CROCKETT",
+      "JOHN LENNON",
+      "MOHAMMED ALI",
+      "WILLIAM WALLACE"};
+    int index;
+
+    for (index = 0; index < MAXNAMES; index++)
+      {
+        cout << endl << name[index];
+      }
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 11.1 A Parallel Array.
+#+BEGIN_SRC cpp :tangle 11_1.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define MAX 9        // There are 9 known planets
+  #define LENGTH 8     // No name is longer than 7
+  // characters
+  #define TAB '\t'     // Define a tab character
+
+  main()
+  {
+    char planet[MAX][LENGTH];      // planet names
+    int  distance[MAX];            // distance from sun
+    int  index;
+
+    // INITIALIZE THE TWO ARRAYS
+    strcpy(planet[0],"MERCURY");
+    distance[0] = 58;
+    strcpy(planet[1],"VENUS");
+    distance[1] = 108;
+    strcpy(planet[2],"EARTH");
+    distance[2] = 150;
+    strcpy(planet[3],"MARS");
+    distance[3] = 228;
+    strcpy(planet[4],"JUPITER");
+    distance[4] = 778;
+    strcpy(planet[5],"SATURN");
+    distance[5] = 1427;
+    strcpy(planet[6],"URANUS");
+    distance[6] = 2869;
+    strcpy(planet[7],"NEPTUNE");
+    distance[7] = 4498;
+    strcpy(planet[8],"PLUTO");
+    distance[8] = 5900;
+    cout << TAB << TAB << "PLANET" << TAB << TAB
+         << "DISTANCE" << endl << endl;
+
+    for (index = 0; index < MAX; index++)
+      {
+        cout << TAB << TAB << planet[index];
+        cout << TAB << TAB << distance[index] << endl;
+      }
+    cout << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 11.2 Vulcan Discovered At Last.
+#+BEGIN_SRC cpp :tangle 11_2.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define MAX 10        // There are NOW 10 known planets
+  #define LENGTH 8      // No name is longer than 7
+  // characters
+  #define TAB '\t'      // Define a tab character
+
+  main()
+  {
+    char planet[MAX][LENGTH];      // planet names
+    int  distance[MAX];            // distance from sun
+    int  index;
+
+    // INITIALIZE THE TWO ARRAYS
+    strcpy(planet[0],"MERCURY");
+    distance[0] = 58;
+    strcpy(planet[1],"VENUS");
+    distance[1] = 108;
+    strcpy(planet[2],"EARTH");
+    distance[2] = 150;
+    strcpy(planet[3],"MARS");
+    distance[3] = 228;
+    strcpy(planet[4],"JUPITER");
+    distance[4] = 778;
+    strcpy(planet[5],"SATURN");
+    distance[5] = 1427;
+    strcpy(planet[6],"URANUS");
+    distance[6] = 2869;
+    strcpy(planet[7],"NEPTUNE");
+    distance[7] = 4498;
+    strcpy(planet[8],"PLUTO");
+    distance[8] = 5900;
+    strcpy(planet[9],"VULCAN");
+    distance[9] = 8992;
+    cout << TAB << TAB << "PLANET" << TAB << TAB
+         << "DISTANCE" << endl << endl;
+
+    for (index = 0; index < MAX; index++)
+      {
+        cout << TAB << TAB << planet[index];
+        cout << TAB << TAB << distance[index] << endl;
+      }
+    cout << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 11.3 Four Parallel Arrays.
+#+BEGIN_SRC cpp :tangle 11_3.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define MAX 9        // There are 9 known planets
+  #define LENGTH 8     // No name is longer than 7
+  // characters
+  #define TAB '\t'     // Define a tab character
+
+  main()
+  {
+    char  planet[MAX][LENGTH];    // planet names
+    int   moons[MAX];             // number of moons
+    float year[MAX];              // length of year
+    int   distance[MAX];          // distance from sun
+    int   index; 
+
+    // INITIALIZE THE FOUR ARRAYS
+    strcpy(planet[0],"MERCURY");
+    moons[0] = 0;
+    year[0] = 0.24;
+    distance[0] = 58;
+    strcpy(planet[1],"VENUS");
+    moons[1] = 0;
+    year[1] = 0.625;
+    distance[1] = 108;
+    strcpy(planet[2],"EARTH");
+    moons[2] = 1;
+    year[2] = 1;
+    distance[2] = 150;
+    strcpy(planet[3],"MARS");
+    moons[3] = 2;
+    year[3] = 1.91;
+    distance[3] = 228;
+    cout << TAB << TAB << "PLANET"
+         << TAB << TAB << "MOONS"
+         << TAB << TAB << "YEAR"
+         << TAB << TAB << "DISTANCE"<< endl << endl;
+
+    for (index = 0; index < 4; index++)
+      {
+        cout << TAB << TAB << planet[index];
+        cout << TAB << TAB << moons[index];
+        cout << TAB << TAB << year[index];
+        cout << TAB << TAB << distance[index] << endl;
+      }
+    cout << endl;
+
+    return(0);
+  }
+#+END_SRC
