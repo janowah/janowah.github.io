@@ -1,0 +1,32 @@
+#+title: linux console
+#+options: num:nil toc:t author:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC org
+  FILES
+  - /etc/vconsole.conf
+  - /etc/inputrc
+
+  DIRECTORIES
+  - /usr/lib/kbd/consolefonts ; available fonts
+
+  PROGRAMS
+  - showconsolefont ; show current font map
+  - setfont ; with no options will load default
+    ter-v18b
+
+  HELP
+  - man vconsole.conf
+  - man setfont
+  - man showconsolefont
+  - man terminfo
+
+  FIX
+  - caps to control
+  - blinking cursor
+    - # echo 0 > /sys/class/graphics/fbcon/cursor_blink
+  - audible bell
+    - /etc/inputrc
+    - set bell-style none
+#+END_SRC
+
+[[./guides.html][back]]
