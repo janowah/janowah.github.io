@@ -36,7 +36,10 @@ create new directory and copy contents from online repo into it
   3) copy keys to github account =cat ~/.ssh/id_rsa.pub=
   4) test ssh access to github
      - ssh -T git@github.com
-  5) urls for repo should be git@... and not https
+  5) switch remote urls from https to ssh
+     - git remote -v
+     - urls for repo should be git@... and not https
+     - git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git
      - git remote set-url origin git@github.com:janowah/janowah.github.io.git
 - resources
 - configure username and email
