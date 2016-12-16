@@ -59,3 +59,8 @@
   - https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7
 
 [[../systems.html][back]]
+* shutdown
+- shutdown -r ; reboot
+* users
+- # adduser -D homer ; create user
+- # passwd homer ; change password

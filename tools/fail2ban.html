@@ -1,0 +1,18 @@
+
+<html>
+<head>
+<title>fail2ban</title>
+</head>
+<body>
+<h1>fail2ban</h1>
+
+<pre>
+# fail2ban-client status sshd
+
+whitelist ip
+------------
+# fail2ban-client set sshd addignoreip 1.1.1.1 ; doesn't change immediately
+# fail2ban-client set sshd unbanip 1.1.1.1 ; immediate unban
+</pre>
+</body>
+</html>

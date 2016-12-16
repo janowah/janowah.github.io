@@ -1,0 +1,60 @@
+
+<html>
+<head>
+<title>ssh</title>
+</head>
+<body>
+<h1>ssh</h1>
+
+<pre>
+* how it works
+id_rsa ; private key. kept with client
+id_rsa.pub ; public key. goes on server. contains email address
+
+user@server
+~/.ssh/authorized_keys contains id_rsa.pub
+
+user@client
+~/.ssh/id_rsa
+
+server will use key first if available
+dirs must be 700. files 600
+
+* commands 
+ssh-keygen -t rsa ; generate ssh keys
+ssh-add
+
+* copy keys to locations on client and server
+client location: (/home/homer/.ssh/id_rsa): 
+passphrase: monkey
+server location: ~/.ssh/authorized_keys
+
+* quick steps
+1) create a public/private key pair on the client or server
+   - =ssh-keygen -t rsa=
+2) copy client key to ~/.ssh on client; private key should be 600
+3) cat id_rsa.pub >> ~/.ssh/authorized_keys ; on server
+4) $ restorecon -Rv ~/.ssh 
+  
+* server configuration
+/etc/ssh/sshd_config 
+- keys only and no root
+  - PermitRootLogin no
+  - PasswordAuthentication no
+
+* client configuration
+/home/homer/.ssh/config
+
+Host myshortname realname.example.com
+    HostName realname.example.com
+    IdentityFile ~/.ssh/realname_rsa # private key for realname
+    User remoteusername
+
+* other
+- firewall rules
+
+* references
+  https://wiki.centos.org/HowTos/Network/SecuringSSH
+</pre>
+</body>
+</html>
