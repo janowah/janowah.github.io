@@ -1,6 +1,8 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- The Three Stigmata of Palmer Eldritch / Philip K. Dick
+- Neuromancer / William Gibson
 - Dune / Frank Herbert
 - Witches Abroad / Terry Pratchett
 - Backwards / Rob Grant
