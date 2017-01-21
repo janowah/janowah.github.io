@@ -29,14 +29,29 @@
 <h2 id="sec-2">changes</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
+#include
+
   | old          | new        |
   |--------------+------------|
+  | &lt;ctype.h&gt;    | &lt;cctype&gt;   |
+  | &lt;math.h&gt;     | &lt;cmath&gt;    |
+  | &lt;stdio.h&gt;    | &lt;cstdio&gt;   |
+  | &lt;stdlib.h&gt;   | &lt;cstdlib&gt;  |
+  | &lt;string.h&gt;   | &lt;cstring&gt;  |
+  | &lt;fstream.h&gt;  | &lt;fstream&gt;  |
   | &lt;iostream.h&gt; | &lt;iostream&gt; |
-  | cin          | std::cin   |
-  | cout         | std::cout  |
-  | endl         | std::endl  |
 
-using namespace std;
+standard library functions
+
+  | old  | new       |
+  |------+-----------|
+  | cin  | std::cin  |
+  | cout | std::cout |
+  | endl | std::endl |
+
+  OR
+
+  using namespace std;
 </pre>
 
 <p>

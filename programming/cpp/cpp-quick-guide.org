@@ -8,14 +8,29 @@
 
 * changes
 #+BEGIN_EXAMPLE
+#include
+
   | old          | new        |
   |--------------+------------|
+  | <ctype.h>    | <cctype>   |
+  | <math.h>     | <cmath>    |
+  | <stdio.h>    | <cstdio>   |
+  | <stdlib.h>   | <cstdlib>  |
+  | <string.h>   | <cstring>  |
+  | <fstream.h>  | <fstream>  |
   | <iostream.h> | <iostream> |
-  | cin          | std::cin   |
-  | cout         | std::cout  |
-  | endl         | std::endl  |
 
-using namespace std;
+standard library functions
+
+  | old  | new       |
+  |------+-----------|
+  | cin  | std::cin  |
+  | cout | std::cout |
+  | endl | std::endl |
+
+  OR
+
+  using namespace std;
 #+END_EXAMPLE
 
 main() has to return an int

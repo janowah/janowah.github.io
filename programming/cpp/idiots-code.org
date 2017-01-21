@@ -1294,3 +1294,3075 @@
     return(0);
   }
 #+END_SRC
+
+* 12.1 A Simple Function.
+#+BEGIN_SRC cpp :tangle 12_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  // Here is the function prototype
+  void Show(int x);
+
+  main()
+  {
+    int number;
+    cout << "Enter a number : ";
+    cin >> number;
+    Show(number);
+    return(0);
+  }
+
+  // Here is the function definition
+  void Show(int x)
+  {
+    cout.setf(ios::right);
+    cout << "The number is : ";
+    cout.width(6);
+    cout << x << endl;
+  }
+#+END_SRC
+
+* 12.2 A Fully Modular Program Uses Three Functions.
+#+BEGIN_SRC cpp :tangle 12_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  // Here are the function prototypes
+  void Show(int x);
+  int Square(int x);
+  int Gather(void);
+
+  main()
+  {
+    int number;
+    int answer;
+    number = Gather();
+    answer = Square(number);
+    Show(answer);
+    return(0);
+  }
+
+  // Here are the function definitions
+
+  void Show(int x)
+  {
+    cout.setf(ios::right);
+    cout << "The number is : ";
+    cout.width(6);
+    cout << x << endl;
+  }
+
+  int Square(int x)
+  {
+    x = x * x;
+    return(x);
+  }
+
+  int Gather(void)
+  {
+    int n;
+    cout << "Enter a number : ";
+    cin >> n;
+    return(n);
+  }
+#+END_SRC
+
+* 12.3 An Example of floats in Functions.
+#+BEGIN_SRC cpp :tangle 12_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  // Here are the function prototypes
+  void Show(float x);
+  float Square(float x);
+  float Gather(void);
+
+  main()
+  {
+    float number;
+    float answer;
+    number = Gather();
+    answer = Square(number);
+    Show(answer);
+    return(0);
+  }
+
+  // Here are the function definitions
+
+  void Show(float x)
+  {
+    cout.setf(ios::right);
+    cout << "The number is : ";
+    cout.width(6);
+    cout << x << endl;
+  }
+
+  float Square(float x)
+  {
+    x = x * x;
+    return(x);
+  }
+
+  float Gather(void)
+  {
+    float n;
+    cout << "Enter a number : ";
+    cin >> n;
+    return(n);
+  }
+#+END_SRC
+
+* 12.4 An Example of chars in Functions.
+#+BEGIN_SRC cpp :tangle 12_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  char GetData(void);
+  void Show(char alpha);
+  char NextCharacter(char beta);
+
+  main()
+  {
+    char choice;
+    char changed;
+    choice = GetData();
+    changed = NextCharacter(choice);
+    Show(choice);
+    Show(changed);
+    return(0);
+  }
+
+  char GetData(void)
+  {
+    char data;
+    cout << "Enter a character : ";
+    cin >> data;
+    return(data);
+  }
+
+  char NextCharacter(char beta)
+  {
+    return(++beta);
+  }
+
+  void Show(char alpha)
+  {
+    cout << "The character is " << alpha << endl;
+  }
+#+END_SRC
+
+* 13.1 An Example of Passing an Array to a Function.
+#+BEGIN_SRC cpp :tangle 13_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define MAX 10
+
+  void Show(int n[MAX]);
+
+  main()
+  {
+    // numbers can store 10 integers.
+    int numbers[MAX] ={12,99,77,34,6,45,199,38,123,91};
+    Show(numbers);
+    return(0);
+  }
+
+  void Show(int n[MAX])
+  {
+    int index;
+    for (index = 0; index < MAX; index++)
+      {
+        cout << "ARRAY ITEM  " << index
+             << " IS " << n[index] << endl;
+      }
+  }
+#+END_SRC
+
+* 13.2 Pass by Reference An Example of Pointers and Functions.
+#+BEGIN_SRC cpp :tangle 13_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  void Twice(int* x);
+
+  main()
+  {
+    int* number;
+    int Num1 = 77;
+    number = &Num1;
+    cout << *number << endl;
+    Twice(number);
+    cout << *number << endl;
+    return(0);
+  }
+
+  void Twice(int* x)
+  {
+    ,*x = *x * 2;
+  }
+#+END_SRC
+
+* 13.3 Pass an Array by Reference to Its Address.
+#+BEGIN_SRC cpp :tangle 13_3.cpp :padline no
+  // Simple sort demo
+
+  #include <iostream>
+
+  using namespace std;
+
+  #define MAX 4
+
+  void GetData(int x[MAX]);
+  void Sort(int x[MAX]);
+  void Show(int num[MAX]);
+
+  main()
+  {
+    int data[MAX];
+    GetData(data);
+    cout << endl << "BEFORE THE SORT" << endl;
+    Show(data);
+    cout << endl;
+    Sort(data);
+    cout << "AFTER THE SORT" << endl;
+    Show(data);
+    cout << endl;
+    return(0);
+  }
+
+  void GetData(int x[MAX])
+  {
+    int loop;
+    for (loop = 0; loop < MAX; loop++)
+      {
+        cout << "Enter a number : ";
+        cin >> x[loop];
+      }
+  }
+
+  void Show(int x[MAX])
+  {
+    int loop;
+    for (loop = 0; loop < MAX; loop++)
+      {
+        cout << "Array item " << loop
+             << " contains " << x[loop] << endl;
+      }
+  }
+
+  void Sort(int x[MAX])
+  {
+    int loop;
+    int swapflag = 0;
+    int temp;
+    do
+      {
+        swapflag = 0;
+        for (loop = 0; loop < MAX - 1; loop++)
+          {
+            if (x[loop] > x[loop+1])
+              {
+                temp = x[loop];
+                x[loop] = x[loop+1];
+                x[loop+1] = temp;
+                swapflag = 1;
+              }
+          }
+      }while (swapflag != 0);
+  }
+#+END_SRC
+
+* 13.4 Demo of an Array of Strings.
+#+BEGIN_SRC cpp :tangle 13_4.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define MAX 4
+  #define LENGTH 20
+
+  void GetData(char s[MAX][LENGTH]);
+  void Show(char s[MAX][LENGTH]);
+  void Sort(char s[MAX][LENGTH]);
+
+  main()
+  {
+    char people[MAX][LENGTH];
+    GetData(people);
+    cout << endl;
+    Show(people);
+    cout << endl;
+    Sort(people);
+    Show(people);
+    cout << endl;
+    return(0);
+  }
+
+  void GetData(char s[MAX][LENGTH])
+  {
+    int loop;
+    for (loop = 0; loop < MAX; loop++)
+      {
+        cout << "Enter a name : ";
+        cin.getline (s[loop],20);
+      }
+  }
+
+  void Show(char s[MAX][LENGTH])
+  {
+    int loop;
+    for (loop = 0; loop < MAX; loop++)
+      {
+        cout << s[loop] << endl;
+      }
+  }
+
+  void Sort(char x[MAX][LENGTH])
+  {
+    int loop;
+    int swapflag = 0;
+    char temp[LENGTH];
+    do
+      {
+        swapflag = 0;
+        for (loop = 0; loop < MAX - 1; loop++)
+          {
+            if (strcmp(x[loop],x[loop+1]) > 0)
+              {
+                strcpy(temp,x[loop]);
+                strcpy(x[loop],x[loop+1]);
+                strcpy(x[loop+1],temp);
+                swapflag = 1;
+              }
+          }
+      }while (swapflag != 0);
+  }
+#+END_SRC
+
+* 14.1 Demo of a Structure.
+#+BEGIN_SRC cpp :tangle 14_1.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define LENGTH 20
+
+  struct planet {
+    char name[LENGTH];
+    int howfar;
+  };
+
+  main()
+  {
+    struct planet solar;
+    strcpy(solar.name, "EARTH");
+    solar.howfar = 150;
+    cout << solar.name << endl;
+    cout << solar.howfar << endl;
+    return(0);
+  }
+#+END_SRC
+
+* 14.2 Demo of an Array of Structures.
+#+BEGIN_SRC cpp :tangle 14_2.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define MAX 9          // nine known planets
+  #define LENGTH 8       // name length
+  #define TAB '\t'
+
+  struct planet  {
+    char name[LENGTH];
+    int howfar;
+  };
+
+  main()
+  {
+    struct planet solarsystem[MAX];       // the array
+    int index;                            // loop control
+
+    strcpy(solarsystem[0].name, "MERCURY");
+    solarsystem[0].howfar = 58;
+    strcpy(solarsystem[1].name, "VENUS");
+    solarsystem[1].howfar = 108;
+    strcpy(solarsystem[2].name, "EARTH");
+    solarsystem[2].howfar = 150;
+    strcpy(solarsystem[3].name, "MARS");
+    solarsystem[3].howfar = 228;
+    strcpy(solarsystem[4].name, "JUPITER");
+    solarsystem[4].howfar = 778;
+    strcpy(solarsystem[5].name, "SATURN");
+    solarsystem[5].howfar = 1427;
+    strcpy(solarsystem[6].name, "URANUS");
+    solarsystem[6].howfar = 2869;
+    strcpy(solarsystem[7].name,"NEPTUNE");
+    solarsystem[7].howfar = 4498;
+    strcpy(solarsystem[8].name,"PLUTO");
+    solarsystem[8].howfar = 5900;
+    cout << "NAME" << TAB << TAB << "DISTANCE"
+         << endl << endl;
+
+    for (index = 0; index < MAX; index++)
+      {
+        cout << solarsystem[index].name;
+        cout << TAB << TAB;
+        cout << solarsystem[index].howfar << endl;
+      }
+    cout << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 14.3 Demo of Copying a Single Element
+#+BEGIN_SRC cpp :tangle 14_3.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  #define MAX 9
+  #define LENGTH 8
+  #define TAB '\t'
+
+  struct planet    {
+    char name[LENGTH];
+    int howfar;
+  };
+
+  main()
+  {
+    struct planet solarsystem[MAX];
+    int index;
+
+    struct planet oneplanet;
+    strcpy(solarsystem[0].name, "MERCURY");
+    solarsystem[0].howfar = 58;
+    strcpy(solarsystem[1].name, "VENUS");
+    solarsystem[1].howfar = 108;
+    strcpy(solarsystem[2].name, "EARTH");
+    solarsystem[2].howfar = 150;
+    strcpy(solarsystem[3].name, "MARS");
+    solarsystem[3].howfar = 228;
+    strcpy(solarsystem[4].name, "JUPITER");
+    solarsystem[4].howfar = 778;
+    strcpy(solarsystem[5].name, "SATURN");
+    solarsystem[5].howfar = 1427;
+    strcpy(solarsystem[6].name, "URANUS");
+    solarsystem[6].howfar = 2869;
+    strcpy(solarsystem[7].name, "NEPTUNE");
+    solarsystem[7].howfar = 4498;
+    strcpy(solarsystem[8].name, "PLUTO");
+    solarsystem[8].howfar = 5900;
+
+    cout << "Enter the planet [1 to 9] : ";
+    cin >> index;
+    cout << endl;
+    oneplanet = solarsystem[index - 1];
+    cout << "NAME" << TAB << TAB << "DISTANCE"
+         << endl << endl;
+    cout << oneplanet.name << TAB << TAB
+         << oneplanet.howfar;
+    cout << endl << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 15.1 Demo of Functions and Structures The Planets Revisited.
+#+BEGIN_SRC cpp :tangle 15_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define LENGTH 20
+  #define TAB '\t'
+
+  struct planet {
+    char name[LENGTH];
+    int howfar;
+  };
+
+  struct planet Gather(void);        // structure as output
+  void Show(struct planet p);        // structure as input
+
+  main()
+  {
+    struct planet third;
+
+    third = Gather();        // get details for earth
+    Show(third);             // display the details
+    return(0);
+  }
+
+  struct planet Gather(void)
+  {
+    struct planet temp;
+    cout << "ENTER THE PLANET NAME ";
+    cin >> temp.name;
+    cout << "ENTER THE PLANET DISTANCE ";
+    cin >> temp.howfar;
+    return(temp);
+  }
+
+  void Show(struct planet p)
+  {
+    cout << endl << p.name << TAB << TAB;
+    cout << p.howfar << endl;
+  }
+
+#+END_SRC
+
+* 15.2 Demo of Functions and Arrays of Structures.
+#+BEGIN_SRC cpp :tangle 15_2.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+  #include <cctype>
+
+  using namespace std;
+
+  #define LENGTH 20
+  #define MAX 4
+  #define TAB '\t'
+
+  struct planet     {
+    char name[LENGTH];
+    int howfar;
+  };
+
+  struct planet Gather(void);
+
+  void Show(struct planet p[MAX]);
+
+  main()
+  {
+    struct planet system[MAX];
+    int index;
+
+    for (index = 0; index < MAX; index++)
+      {
+        system[index] = Gather();
+      }
+    cout << endl;
+    Show(system);
+    return(0);
+  }
+
+  struct planet Gather(void)
+  {
+    struct planet temp;
+    unsigned int x;
+    cout << endl;
+    cout << "ENTER THE PLANET NAME " ;
+    cin >> temp.name;
+    // Convert to uppercase
+    for (x = 0; x < strlen(temp.name); x++)
+      {
+        temp.name[x] = toupper(temp.name[x]);
+      }
+    cout << "ENTER THE PLANET DISTANCE ";
+    cin >> temp.howfar;
+    return(temp);
+  }
+
+  void Show(struct planet p[MAX])
+  {
+    int loop;
+    for (loop = 0; loop < MAX; loop++)
+      {
+        cout << p[loop].name << TAB << TAB;
+        cout << p[loop].howfar << endl;
+      }
+    cout << endl;
+  }
+#+END_SRC
+
+* 15.3 Functions with More Than One Input Parameter.
+#+BEGIN_SRC cpp :tangle 15_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  int Gather(void);
+  int Add(int one, int two);
+  void Show(int total);
+
+  main()
+  {
+    int first;
+    int second;
+    int result;
+    first = Gather();
+    second = Gather();
+    result = Add(first,second);
+    Show(result);
+    return(0);
+  }
+
+  int Gather(void)
+  {
+    int x;
+    cout << "ENTER A NUMBER ";
+    cin >> x;
+    return(x);
+  }
+
+  int Add(int one, int two)
+  {
+    int res;
+    res = one + two;
+    return(res);
+  }
+
+  void Show(int total)
+  {
+    cout << endl << "THE TOTAL IS  " << total << endl;
+  }
+#+END_SRC
+
+* 15.4 An Example of a Multiple Input Function with Inputs of Different Data Types.
+#+BEGIN_SRC cpp :tangle 15_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  void Example(int alpha, char beta, double gamma);
+
+  main()
+  {
+    int a = 42;
+    char b = 'a';
+    double g = 9.275;
+    Example(a,b,g);
+    return(0);
+  }
+
+  void Example(int alpha, char beta, double gamma)
+  {
+    cout << alpha << endl;
+    cout << beta << endl;
+    cout << gamma << endl;
+  }
+#+END_SRC
+
+* 15.5 A C++ Shorthand Method for Passing Parameters.
+#+BEGIN_SRC cpp :tangle 15_5.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  int Gather(void);
+  int Add(int one, int two);
+  void Show(int total);
+
+  main()
+  {
+    Show(Add(Gather(),Gather()));
+    return(0);
+  }
+
+  int Gather(void)
+  {
+    int x;
+    cout << "ENTER A NUMBER ";
+    cin >> x;
+    return(x);
+  }
+
+  int Add(int one, int two)
+  {
+    // another piece of shorthand
+    return(one + two);
+  }
+
+  void Show(int total)
+  {
+    cout << endl << "THE TOTAL IS  " << total << endl;
+  }
+#+END_SRC
+
+* 15.6 A Main Program Using a Void Return. --CHECK AGAIN--
+#+BEGIN_SRC cpp :tangle 15_6.cpp :padline no
+  //error: ‘::main’ must return ‘int’
+
+  #include <iostream>
+
+  using namespace std;
+
+  void main()
+  {
+    cout << "Look, no return needed!" << endl;
+  }
+#+END_SRC
+
+* 15.7 A Command-Line Example.
+#+BEGIN_SRC cpp :tangle 15_7.cpp :padline no
+  // argc is the number of parameters in argv
+  // argv is a pointer to the actual string parameters
+  // argv[0] points to the name of the program
+
+  #include <iostream>
+  #include <cstdio>
+  #include <cstdlib>
+
+  using namespace std;
+
+  main(int argc, char *argv[])
+  {
+    int first;
+    int second;
+    int third;
+
+    // This is error checking
+    if (argc < 3)
+      {
+        cout << "MUST BE MORE THAN ONE PARAMETER"
+             << endl;
+        exit(0);
+      }
+
+    // This is the calculation
+    first = atoi(argv[1]);
+    second = atoi(argv[2]);
+    third = first + second;
+
+    // Display program title
+    cout << argv[0] << endl;
+
+    // Display the result
+    cout << "THE SUM OF " << first << " AND "
+         << second << " IS " << third << endl;
+
+    return(0);
+  }
+#+END_SRC
+
+* 16.1 Overload <<.
+#+BEGIN_SRC cpp :tangle 16_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define tab '\t'
+  struct data{
+    char name[20];
+    int  age;
+    float height;
+  };
+
+  ostream& operator << (ostream& str_out, struct data& d)
+  {
+    str_out << d.name << tab;
+    str_out << d.age << tab;
+    str_out << d.height << endl;
+    return(str_out);
+  };
+
+  main()
+  {
+    struct data person1 = {"Stuart Snaith",21,2.01};
+    struct data person2 = {"Kevin Keegan",42,1.56};
+    struct data person3 = {"Mein Gott",12000,0.99};
+    cout << person1;
+    cout << person2;
+    cout << person3;
+    return(0);
+  }
+#+END_SRC
+
+* 16.2 Overload >>.
+#+BEGIN_SRC cpp :tangle 16_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define tab '\t'
+
+  struct data{
+    char name[20];
+    int  age;
+    float height;
+  };
+
+  istream& operator >> (istream& str_in, struct data& d)
+  {
+    cout << "Enter Name : ";
+    str_in.getline(d.name,20);
+    cout << "Enter Age : ";
+    str_in >> d.age;
+    cout << "Enter Height : ";
+    str_in >> d.height;
+    str_in.get();
+    return(str_in);
+  };
+
+  ostream& operator << (ostream& str_out, struct data& d)
+  {
+    str_out << d.name << tab;
+    str_out << d.age << tab;
+    str_out << d.height << endl;
+    return(str_out);
+  };
+
+  main()
+  {
+    struct data person1;
+    struct data person2;
+    struct data person3;
+    cin >> person1;
+    cin >> person2;
+    cin >> person3;
+    cout << endl << endl;
+    cout << person1;
+    cout << person2;
+    cout << person3;
+    return(0);
+  }
+#+END_SRC
+
+* 16.3 Overload << to Deal with a Structure.
+#+BEGIN_SRC cpp :tangle 16_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define tab '\t'
+
+  struct car{
+    char make[10];
+    char model[10];
+    int  capacity;
+    double price;
+  };
+
+  ostream& operator << (ostream& str_out, car& d)
+  {
+    str_out << d.make << tab;
+    str_out << d.model << tab;
+    str_out << d.capacity << tab;
+    str_out << d.price << endl;
+    return(str_out);
+  };
+
+  main()
+  {
+    struct car car1 = {"FORD","ESCORT",1300,9.999};
+    struct car car2 = {"ROVER","216",1600,13.950};
+    struct car car3 = {"LADA","SCRAPPA",50,0.05};
+    struct car car4 = {"VW","BEETLE",1000,6.700};
+    cout << car1;
+    cout << car2;
+    cout << car3;
+    cout << car4;
+    return(0);
+  }
+#+END_SRC
+
+* 16.4 Overload << to Deal with an Array.
+#+BEGIN_SRC cpp :tangle 16_4.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define tab '\t'
+
+  struct car{
+    char make[10];
+    char model[10];
+    int  capacity;
+    double price;
+  };
+
+  ostream& operator << (ostream& str_out, struct car d[4])
+  {
+    int index;
+    for (index = 0; index < 4; index++)
+      {
+        str_out << d[index].make << tab;
+        str_out << d[index].model << tab;
+        str_out << d[index].capacity << tab;
+        str_out << d[index].price << endl;
+      }
+    return(str_out);
+  };
+
+  main()
+  {
+    struct car carstock[4] = {{"FORD","ESCORT",1300,9.999},
+                              {"ROVER","216",1600,13.950},
+                              {"LADA","SCRAPPA",50,0.05},
+                              {"VW","BEETLE",1000,6.700}};
+    cout << carstock;
+    return(0);
+  }
+#+END_SRC
+
+* 16.5 Overload << and >> to Deal with Structures.
+#+BEGIN_SRC cpp :tangle 16_5.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define tab '\t'
+
+  struct car{
+    char make[10];
+    char model[10];
+    int  capacity;
+    double price;
+  };
+
+  ostream& operator << (ostream& str_out, car& d)
+  {
+    str_out << d.make << tab;
+    str_out << d.model << tab;
+    str_out << d.capacity << tab;
+    str_out << d.price << endl;
+    return(str_out);
+  };
+
+  istream& operator >> (istream& str_in, car& d)
+  {
+    cout << "Enter Make : ";
+    str_in.getline(d.make,10);
+    cout << "Enter Model : ";
+    str_in.getline(d.model,10);
+    cout << "Enter Capacity : ";
+    str_in >> d.capacity;
+    cout << "Enter price : ";
+    str_in >> d.price;
+    str_in.get();
+    return(str_in);
+  };
+
+  main()
+  {
+    struct car car1;
+    struct car car2;
+    struct car car3;
+    struct car car4;
+    cin >> car1;
+    cin >> car2;
+    cin >> car3;
+    cin >> car4;
+    cout << car1;
+    cout << car2;
+    cout << car3;
+    cout << car4;
+    return(0);
+  }
+#+END_SRC
+
+* 16.6 Overload << and >> to Deal with Structure Arrays.
+#+BEGIN_SRC cpp :tangle 16_6.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  #define tab '\t'
+  struct car{
+    char make[10];
+    char model[10];
+    int  capacity;
+    double price;
+  };
+
+  ostream& operator << (ostream& str_out, struct car d[4])
+  {
+    int index;
+    for (index = 0; index < 4; index++)
+      {
+        str_out << d[index].make << tab;
+        str_out << d[index].model << tab;
+        str_out << d[index].capacity << tab;
+        str_out << d[index].price << endl;
+      }
+    return(str_out);
+  };
+
+  istream& operator >> (istream& str_in, struct car d[4])
+  {
+    int index;
+    for (index = 0; index < 4; index++)
+      {
+        cout << "Enter Make : ";
+        str_in.getline(d[index].make,10);
+        cout << "Enter Model : ";
+        str_in.getline(d[index].model,10);
+        cout << "Enter Capacity : ";
+        str_in >> d[index].capacity;
+        cout << "Enter price : ";
+        str_in >> d[index].price;
+        str_in.get();
+      }
+    return(str_in);
+  };
+
+  main()
+  {
+    struct car carlist[4];
+    cin >> carlist;
+    cout << carlist;
+    return(0);
+  }
+#+END_SRC
+
+* 17.1 Overloaded Functions. --CHECK AGAIN--
+#+BEGIN_SRC cpp :tangle 17_1.cpp :padline no
+  //void main. and unrecognised character
+
+  #include <iostream>
+
+  using namespace std;
+
+  int TimesTwo(int i);    // Three overloaded functions
+  double TimesTwo(double d);
+  char TimesTwo(char c);
+
+  main()
+  {
+    int i = 55;
+    double d = 234.56;
+    char c = 'A';
+    cout << TimesTwo(i) << endl;
+    cout << TimesTwo(d) << endl;
+    cout << TimesTwo(c) << endl;
+
+    return(0);
+  }
+
+  int TimesTwo(int i)
+  {
+    return(i*2);
+  }
+
+  double TimesTwo(double d)
+  {
+    return(d*2);
+  }
+
+  char TimesTwo(char c)
+  {
+    // Yes you can multiply characters!
+    return(c*2);
+  }
+#+END_SRC
+
+* 17.2 An Example of Overloaded Functions and Logical AND Operators.
+#+BEGIN_SRC cpp :tangle 17_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  bool InRange(int x);
+  bool InRange(char alpha);
+  void Show(bool answer);
+
+  main()
+  {
+    bool result;
+    result = InRange(25);
+    Show(result);
+    result = InRange('v');
+    Show(result);
+    return(0);
+  }
+
+  bool InRange(int x)
+  {
+    if ( (x <= 9) && (x >= 0))
+      {
+        return(true);
+      }
+    else
+      {
+        return(false);
+      }
+  }
+
+  bool InRange(char alpha)
+  {
+    if ( (alpha <= 'z') && (alpha >= 'a'))
+      {
+        return(true);
+      }
+    else
+      {
+        return(false);
+      }
+  }
+
+  void Show(bool answer)
+  {
+    if (answer == true)
+      {
+        cout << "Test was true" << endl;
+      }
+    else
+      {
+        cout << "Test was false" << endl;
+      }
+  }
+#+END_SRC
+
+* 17.3 An Example of Logical OR Operators.
+#+BEGIN_SRC cpp :tangle 17_3.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  char GetLetter(void);
+  bool IsValid(char alpha);
+
+  main()
+  {
+    bool result = false;
+    char letter;
+    do
+      {
+        letter = GetLetter();
+        result = IsValid(letter);
+      } while (result == false);
+    cout << "That's all folks" << endl << endl;
+    return(0);
+  }
+
+  char GetLetter(void)
+  {
+    char in;
+    cout << "Enter a letter or n to quit : ";
+    cin >> in;
+    return (in);
+  }
+
+  bool IsValid(char alpha)
+  {
+    if ( (alpha == 'n') || (alpha == 'N'))
+      {
+        return(true);
+      }
+    else
+      {
+        return(false);
+      }
+  }
+#+END_SRC
+
+* 18.1 Create a File on Your Floppy Disk. --CHECK AGAIN--
+#+BEGIN_SRC cpp :tangle 18_1.cpp :padline no
+  #include <iostream>
+    #include <fstream>
+
+    using namespace std;
+
+    main()
+    {
+      char ch;
+      char filename[20] = "test.txt";
+      // int mode = ios::out;
+      ofstream fout( filename); //, ios::out );      // Output file
+      cout << "Ready for input: Use Control-Z to end."
+           << endl;
+//      while ( cin.get(ch) )
+while ( cin >> ch )
+        {
+          fout.put( ch );
+        }
+      fout.close();
+      return(0);
+    }
+#+END_SRC
+
+* 18.2 Read Back the File. --CHECK AGAIN--
+#+BEGIN_SRC cpp :tangle 18_2.cpp :padline no
+  #include <iostream>  
+  #include <fstream>
+
+  using namespace std;
+
+  main()
+  {
+    char ch;
+    char filename[20] = "L18_1.cpp";
+    // int mode = ios::in;
+    fstream fin( filename, ios::in );      // Input file
+    if (!fin)
+      cout << "Unable to open file";
+//     while ( fin.get(ch) )
+while ( fin >> ch )
+      {
+        cout << ch;
+      }
+    fin.close();
+    return(0);
+  }
+#+END_SRC
+
+* 18.3 Create a File Stream of Integers, Using Binary Mode File Access. 
+#+BEGIN_SRC cpp :tangle 18_3.cpp :padline no
+  #include <iostream>
+  #include <fstream>
+
+  using namespace std;
+
+  #define MAX 6
+
+  main()
+
+  {
+  int loop;
+  int x[MAX] = {42,707,99,101};
+
+  char filename[20] = "xtest.dat";
+  // int mode = (ios::out | ios::binary);
+  fstream fout( filename, ios::out | ios::binary); //mode );      // Output file
+
+  for (loop = 0; loop < MAX; loop++)
+    {
+      fout << x[loop] << endl;
+    }
+  fout.close();
+
+  cout << "Data written to file" << endl;
+
+  return(0);
+  }
+#+END_SRC
+
+* 18.4 Read a File Stream of Integers, Using Binary Mode File Access. 
+#+BEGIN_SRC cpp :tangle 18_4.cpp :padline no
+  #include <iostream>
+  #include <fstream>
+
+  using namespace std;
+
+  main()
+  {
+    int loop = 0;
+    int x;
+    char filename[20] =
+      "xtest.dat";
+    //int mode = (ios::in | ios::binary);  
+    fstream fin( filename, ios::in | ios::binary );      // input file
+    if (!fin)
+      cerr << "Unable to open file";
+    while (fin >> x)
+      {
+        cout << x << endl;
+        loop++;
+      }
+    fin.close();
+    return(0);
+  }
+#+END_SRC
+
+* 18.5 Create a File Stream of Records. 
+#+BEGIN_SRC cpp :tangle 18_5.cpp :padline no
+  #include <iostream>
+  #include <fstream>
+
+  using namespace std;
+
+  struct planet     {
+    char name[10];
+    int  dist;
+  };
+
+  ostream& operator << (ostream& str_out, planet& d)
+  {
+    str_out << d.name  << endl;
+    str_out << d.dist << endl;
+    return(str_out);
+  };
+
+  main()
+  {
+    struct planet solar[3] = {    {"MERCURY",58},
+                                  {"VENUS",108},
+                                  {"EARTH",150}};
+    int x;
+    char filename[20] = "system.dat";
+    // int mode = (ios::out | ios::binary);
+    fstream fout( filename, ios::out | ios::binary );      // Output file
+    for (x = 0; x < 3; x++)
+      {
+        fout << solar[x];
+      }    
+    fout.close();
+    cout << "Data written to file" << endl;
+    return(0);
+  }
+#+END_SRC
+
+* 18.6 Read a File Stream of Records. 
+#+BEGIN_SRC cpp :tangle 18_6.cpp :padline no
+  #include <iostream>
+  #include <fstream>
+
+  using namespace std;
+
+  #define tab '\t'
+
+  struct planet     {
+    char name[10];
+    int  dist;
+  }; 
+
+  ostream& operator << (ostream& str_out, planet& d)
+  {
+    str_out << d.name << tab;
+    str_out << d.dist << tab << endl;
+    return(str_out);
+  };
+
+  istream& operator >> (istream& str_in, planet& d)
+  {
+    str_in >> d.name;
+    str_in >> d.dist;
+    return(str_in);
+  };
+
+  main()
+  {
+    struct planet solar;
+    char filename[20] = "system.dat";
+    //int mode = (ios::in | ios::binary);
+    fstream fin( filename, ios::in | ios::binary );  // Input file
+
+    if (!fin)    
+      cerr << "Unable to open file";
+
+
+    while (fin >> solar)
+      {
+        cout << solar;
+      }
+    fin.close();
+    return(0);
+  }
+#+END_SRC
+
+* 19.1 How to Create the Class. 
+#+BEGIN_SRC cpp :tangle 19_1.cpp :padline no
+  #include <iostream>
+
+  class shape {
+    // AN EMPTY CLASS
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.2 Adding the Data Members to the Class. 
+#+BEGIN_SRC cpp :tangle 19_2.cpp :padline no
+
+  #include <iostream>
+
+  class shape {
+    // DECLARE DATA MEMBERS
+    // WHICH ARE PRIVATE BY DEFAULT
+    // BUT I HAVE INCLUDED THE WORD
+    // TO SHOW THE CORRECT SYNTAX
+
+  private:
+    int length;
+    int height;
+    int area;
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.3 Adding the Member Functions to the Class. 
+#+BEGIN_SRC cpp :tangle 19_3.cpp :padline no
+  #include <iostream>
+
+  class shape {
+    // DECLARE DATA MEMBERS
+
+  private:
+    int length;
+    int height;
+    int area;
+
+  public:
+    // DECLARE MEMBER FUNCTIONS
+    // NOTE THE EXPLICIT USE OF PUBLIC
+    // THIS ALLOWS ACCESS FROM OUTSIDE
+    void CalcArea(void);
+    void ShowArea(void);
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.4 Adding the Constructor to the Class. 
+#+BEGIN_SRC cpp :tangle 19_4.cpp :padline no
+  #include <iostream>
+
+  class shape {
+    // DECLARE DATA MEMBERS
+
+  private:
+    int length;
+    int height;
+    int area;
+
+  public:
+    // DECLARE MEMBER FUNCTIONS
+    void CalcArea(void);
+    void ShowArea(void);
+
+    // CREATE A CONSTRUCTOR
+    shape(int l = 0, int h = 0);
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.5 Giving Definition to the Member Functions. 
+#+BEGIN_SRC cpp :tangle 19_5.cpp :padline no
+
+  #include <iostream>
+
+  using namespace std;
+
+  class shape     {
+    // DECLARE DATA MEMBERS
+
+  private:
+    int length;
+    int height;
+    int area;
+
+  public:
+    // DECLARE MEMBER FUNCTIONS
+    void CalcArea(void);
+    void ShowArea(void);
+
+    // CREATE A CONSTRUCTOR .
+    shape(int l = 0, int h = 0);
+  };
+
+  // NOW DEFINE THE MEMBER FUNCTIONS
+  void shape::CalcArea(void)
+  {
+    area = length * height;
+  }
+
+  void shape::ShowArea(void)
+  {
+    cout << "THE AREA IS : " << area;
+  }
+
+  shape::shape(int l, int h)
+  {
+    length = l;
+    height = h;
+  }
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.6 Using the Class in the Main Program. 
+#+BEGIN_SRC cpp :tangle 19_6.cpp :padline no
+
+  #include <iostream>
+
+  using namespace std;
+
+  class shape     {
+    // DECLARE DATA MEMBERS
+
+  private:
+    int length;
+    int height;
+    int area;
+
+  public:
+    void CalcArea(void);
+    void ShowArea(void);
+
+    // CREATE A CONSTRUCTOR .
+    shape(int l = 0, int h = 0);
+  };
+
+  // NOW DEFINE THE MEMBER FUNCTIONS
+  void shape::CalcArea(void)
+  {
+    area = length * height;
+  }
+
+  void shape::ShowArea(void)
+  {
+    cout << "THE AREA IS : " << area << endl;
+  }
+
+  shape::shape(int l, int h)
+  {
+    length = l;
+    height = h;
+  }
+
+  main()
+  {
+    int x;
+    int y;
+
+    cout << "ENTER THE HEIGHT : ";
+    cin >> x;
+    cout << "ENTER THE LENGTH : ";
+    cin >> y;
+
+    // CREATE AN INSTANCE OF SHAPE
+
+    shape square(y,x);
+    // CALL THE MEMBER FUNCTIONS
+    square.CalcArea();
+    square.ShowArea();
+    return(0);
+  }
+#+END_SRC
+
+* 19.7 The Q Program, Step One. 
+#+BEGIN_SRC cpp :tangle 19_7.cpp :padline no
+
+  #include <iostream>
+
+  class Q {
+    // an empty class.
+  }; 
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.8 The Q Program, Step Two. 
+#+BEGIN_SRC cpp :tangle 19_8.cpp :padline no
+
+  #include <iostream>
+
+  class Q {
+
+  private:
+    int back;
+    char data[10];
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.9 The Q Program, Step Three. 
+#+BEGIN_SRC cpp :tangle 19_9.cpp :padline no
+
+  #include <iostream>
+
+  class Q {
+  private:
+    int back;
+    char data[10];
+  public:
+    void JoinQ(char ch);
+    void LeaveQ(void);
+    void ShowQ(void);
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.10 The Q Program, Step Four. 
+#+BEGIN_SRC cpp :tangle 19_10.cpp :padline no
+
+  #include <iostream>
+
+  class Q {
+  private:
+    int back;
+    char data[10];
+  public:
+    void JoinQ(char ch);
+    void LeaveQ(void);
+    void ShowQ(void);
+    Q(void);
+  };
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+
+* 19.11 The Q Program, Step Five. 
+#+BEGIN_SRC cpp :tangle 19_11.cpp :padline no
+
+  #include <iostream>
+
+  using namespace std;
+  
+  #define TAB '\t'
+
+  class Q {
+  private:
+    int back;
+    char data[10];
+  public:
+    void JoinQ(char ch);
+    void LeaveQ(void);
+    void ShowQ(void);
+    Q(void);
+  };
+
+  // This is the constructor used
+  // to set up an empty Q.
+  // Assume that if back is zero, Q is empty
+  Q::Q()
+  {    
+    back = 0;
+  }
+
+  // This member function is used
+  // to show the contents of the Q
+  void Q::ShowQ(void)
+  {
+    int x;
+    if (back == 0)
+      {
+        cout << "Q is empty" << endl << endl;
+      }
+    else
+      {
+        for (x = 1; x <= back; x++)
+          {
+            cout << data[x] << TAB;
+          }
+        cout << endl << endl;
+      }
+  }
+
+  // This member function allows
+  // a letter to be added to the
+  // end of the Q
+  void Q::JoinQ(char ch)
+  {
+    if (back < 9)
+      {
+        back++;
+        data[back] = ch;
+      }
+    else
+      cout << "Q is full" << endl;
+  }
+
+  // This member function allows
+  // the data item at the front of
+  // the Q to leave. All remaining
+  // items in the Q are moved up one place
+  void Q::LeaveQ(void)
+  {
+    int index;
+    if (back > 0)
+      {
+        for (index = 1; index < back; index++)
+          {
+            data[index] = data[index + 1];
+          }
+        back--;
+      }
+    else
+      {
+        cout << "Q is already empty" << endl << endl;
+      }
+  }
+
+  main()
+  {
+    return(0);
+  }
+#+END_SRC
+* 19.12 The Q Program. 
+#+BEGIN_SRC cpp :tangle 19_12.cpp :padline no
+
+  #include <iostream>
+  using namespace std;
+
+  #define TAB '\t'
+
+  class Q {
+  private:
+    int back;
+    char data[10];
+  public:
+    void JoinQ(char ch);
+    void LeaveQ(void);
+    void ShowQ(void);
+    Q(void);
+  };
+
+  // This is the constructor used 
+  // to set up an empty Q.
+  // Assume that if back is zero, Q is empty
+  Q::Q()
+  {    
+    back = 0;
+  }
+
+  // This member function is used
+  // to show the contents of the Q
+  void Q::ShowQ(void)
+  {
+    int x;
+    if (back == 0)
+      {
+        cout << "Q is empty" << endl << endl;
+      }
+    else
+      {
+        for (x = 1; x <= back; x++)
+          {
+            cout << data[x] << TAB;
+          }
+        cout << endl << endl;
+      }
+  }
+
+  // This member function allows
+  // a letter to be added to the
+  // end of the Q
+  void Q::JoinQ(char ch)
+  {
+    if (back < 9)
+      {
+        back++;
+        data[back] = ch;
+      }
+    else
+      cout << "Q is full" << endl;
+  }
+
+  // This member function allows
+  // the data item at the front of
+  // the Q to leave. All remaining
+  // items in the Q are moved up one place
+  void Q::LeaveQ(void)
+  {
+    int index;
+    if (back > 0)
+      {
+        for (index = 1; index < back; index++)
+          {
+            data[index] = data[index + 1];
+          }
+        back--;
+      }
+    else
+      {
+        cout << "Q is already empty" << endl << endl;
+      }
+  }
+
+  main()
+  {
+    Q One;
+    One.ShowQ();
+    One.JoinQ('Z');
+    One.ShowQ();
+    One.JoinQ('A');
+    One.ShowQ();
+    One.JoinQ('K');
+    One.ShowQ();
+    One.LeaveQ();
+    One.ShowQ();
+    One.LeaveQ();
+    One.ShowQ();
+    One.LeaveQ();
+    One.ShowQ();
+    return(0);
+  }
+#+END_SRC
+
+* 19.13 Demo of OOP: The Q Program Spiced Up a Little.
+#+BEGIN_SRC cpp :tangle 19_13.cpp :padline no
+
+  #include <iostream>
+  #include <cstdlib>
+
+  using namespace std;
+
+  #define TAB '\t'
+
+  class Q {
+  private:
+    int back;
+    char data[10];
+  public:
+    void JoinQ(char ch);
+    void LeaveQ(void);
+    void ShowQ(void);
+    Q(void);
+  };
+
+  // This is the constructor used
+  // to set up an empty Q.
+  // Assume that if back is zero, Q is empty
+  Q::Q()
+  {    
+    back = 0;
+  }
+
+  // This member function is used
+  // to show the contents of the Q
+  void Q::ShowQ(void)
+  {
+    int x;
+    if (back == 0)
+      {
+        cout << "Q is empty" << endl << endl;
+      }
+    else
+      {
+        for (x = 1; x <= back; x++)
+          {
+            cout << data[x] << TAB;
+          }
+        cout << endl << endl;
+      }
+  }
+
+  // This member function allows
+  // a letter to be added to the
+  // end of the Q
+  void Q::JoinQ(char ch)
+  {
+    if (back < 9)
+      {
+        back++;
+        data[back] = ch;
+      }
+    else
+      cout << "Q is full" << endl;
+  }
+
+  // This member function allows
+  // the data item at the front of
+  // the Q to leave. All remaining
+  // items in the Q are moved up one place
+  void Q::LeaveQ(void)
+  {
+    int index;
+    if (back > 0)
+      {
+        for (index = 1; index < back; index++)
+          {
+            data[index] = data[index + 1];
+          }
+        back--;
+      }
+    else
+      {
+        cout << "Q is already empty" << endl << endl;
+      }
+  }
+
+  char menu(void);
+
+  main()
+  {
+    char ch;
+    char flipper;
+    Q One;
+    while (1)
+      {
+        ch = menu();
+        switch(ch)
+          {
+          case '1' :  cout << "Enter the character : ";
+            cin >> flipper;
+            One.JoinQ(flipper);
+            break;
+          case '2' :  One.LeaveQ();
+            break;
+          case '3' :  One.ShowQ();
+            break;
+          case '4' :  exit(0);
+          }
+      }
+    return(0);
+  }
+
+  char menu(void)
+  {
+    char choice;
+    cout << "1...Join the Q" << endl;
+    cout << "2...Leave the Q" << endl;
+    cout << "3...Show the Q" << endl;
+    cout << "4...Quit the program" << endl << endl;
+    cout << "Enter your choice : ";
+    cin >> choice;
+    return (choice);
+  }
+#+END_SRC
+
+* 20.1 Introducing The Destructor. --warning--
+#+BEGIN_SRC cpp :tangle 20_1.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  class StringThings {
+  private:
+    char str[20];
+    char FirstLetter;
+  public :
+    void First(void);
+    void Show(void);
+    StringThings(char s[20]);
+    ~StringThings(void);
+  };
+
+  void StringThings::First(void)
+  {
+    if (strlen(str) < 1)
+      FirstLetter = '?';
+    else
+      FirstLetter = str[0];
+  }
+
+  void StringThings::Show(void)
+  {
+    cout << FirstLetter << endl;
+  }
+
+  StringThings::StringThings(char s[20])
+  {
+    strcpy(str,s);
+  }
+
+  StringThings::~StringThings(void)
+  {
+    cout << endl << "THAT'S ALL FOLKS" << endl << endl;
+  }
+
+  main()
+  {
+    StringThings Test("PAUL");
+    Test.First();
+    Test.Show();
+    return(0);
+  }
+#+END_SRC
+
+* 20.2 Customizing the Destructor.
+#+BEGIN_SRC cpp :tangle 20_2.cpp :padline no
+
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  class StringThings {
+  private:
+    char str[20];
+    char FirstLetter;
+  public :
+    void First(void);
+    void Show(void);
+    StringThings(char s[20]);
+    ~StringThings(void);
+
+  };
+
+  void StringThings::First(void)
+  {
+    if (strlen(str) < 1)
+      FirstLetter = '?';
+    else
+      FirstLetter = str[0];
+  }
+
+  void StringThings::Show(void)
+  {
+    cout << FirstLetter << endl;
+  }
+
+  StringThings::StringThings(char s[20])
+  {
+    strcpy(str,s);
+  }
+
+  StringThings::~StringThings(void)
+  {
+    cout << endl << "THE FULL STRING WAS " << str;
+    cout << endl << "THAT'S ALL FOLKS" << endl << endl;
+  }
+
+  main()
+  {
+    char data[20];
+    cout << "Enter the string : ";
+    cin.getline(data,19);
+    StringThings Test(data);
+    Test.First();
+    Test.Show();
+    return(0);
+  }
+#+END_SRC
+
+* 20.3 StringThings in an Object-Oriented Program.
+#+BEGIN_SRC cpp :tangle 20_3.cpp :padline no
+
+  #include <iostream>
+  #include <cstring>
+  
+  using namespace std;
+
+  class StringThings {
+  private:
+    char str[20];
+    char FirstLetter;
+    char LastLetter;
+  public :
+    void First(void);
+    void Last(void);
+    void ShowFirst(void);
+    void ShowLast(void);
+    StringThings(char s[20]);
+    ~StringThings(void);
+  };
+
+  void StringThings::First(void)
+  {
+
+    if (strlen(str) < 1)
+      FirstLetter = '?';
+    else
+      FirstLetter = str[0];
+  }
+
+  void StringThings::Last(void)
+  {
+    if (strlen(str) < 1)
+      LastLetter = '?';
+    else
+      LastLetter = str[strlen(str)-1];
+  }
+
+  void StringThings::ShowFirst(void)
+  {
+    cout << FirstLetter << endl;
+  }
+
+  void StringThings::ShowLast(void)
+  {
+    cout << LastLetter << endl;
+  }
+
+  StringThings::StringThings(char s[20])
+  {
+    strcpy(str,s);
+  }
+
+  StringThings::~StringThings(void)
+  {
+    cout << endl << "THE FULL STRING WAS " << str;
+    cout << endl << "THAT'S ALL FOLKS" << endl << endl;
+  }
+
+  main()
+  {
+    char data[20];
+    cout << "Enter the string : ";
+    cin.getline(data,19);
+    StringThings Test(data);
+    Test.Last();
+    Test.ShowLast();
+    return(0);
+  }
+#+END_SRC
+
+* 20.4 More Practice with OOP. -warning-
+#+BEGIN_SRC cpp :tangle 20_4.cpp :padline no
+
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  class StringThings {
+  private:
+    char str[20];
+    char RevStr[20];
+  public :
+    void Reverse(void);
+    void ShowRevStr(void);
+    StringThings(char s[20]);
+    ~StringThings(void);
+  };
+
+  void StringThings::Reverse(void)
+  {
+    unsigned int index;
+    unsigned int last;
+    last = strlen(str);
+    last--;
+    if (strlen(str) < 1)
+      strcpy(RevStr,str);
+    else
+      {
+        for (index = 0; index < strlen(str); index++)
+          {
+            RevStr[index] = str[last - index];
+          }
+        RevStr[++last] = NULL;
+      }
+  }
+
+  void StringThings::ShowRevStr(void)
+  {
+    cout << RevStr << endl;
+  }
+
+  StringThings::StringThings(char s[20])
+  {
+    strcpy(str,s);
+  }
+
+  StringThings::~StringThings(void)
+  {
+    cout << endl << "THE FULL STRING WAS " << str;
+    cout << endl << "THAT'S ALL FOLKS" << endl << endl;
+  }
+
+  main()
+  {
+    char data[20];
+    cout << "Enter the string : ";
+    cin.getline(data,19);
+    StringThings Test(data);
+    Test.Reverse();
+    Test.ShowRevStr();
+    return(0);
+  }
+#+END_SRC
+
+* 20.5 Counting the Vowels Is the Object.
+#+BEGIN_SRC cpp :tangle 20_5.cpp :padline no
+
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  class StringThings {
+  private:
+    char str[20];
+    int count;
+  public :
+    void VowelCount(void);
+    void ShowCount(void);
+    StringThings(char s[20]);
+    ~StringThings(void);
+  };
+
+  void StringThings::VowelCount(void)
+  {
+    unsigned int index;
+    for (index = 0; index < strlen(str); index++)
+      {
+        switch (str[index])
+          {
+          case  'A' :
+          case  'a' :     count++;
+            break;
+          case  'E' :
+          case  'e' :     count++;
+            break;
+          case  'I' :
+          case  'i' :     count++;
+            break;
+          case  'O' :
+          case  'o' :     count++;
+            break;
+          case  'U' :
+          case  'u' :     count++;
+            break;
+          }
+      }
+  }
+
+  void StringThings::ShowCount(void)
+  {
+    cout << "The number of vowels is : "
+         << count << endl;
+  }
+
+  StringThings::StringThings(char s[20])
+  {
+    strcpy(str,s);
+    count = 0;
+  }
+
+  StringThings::~StringThings(void)
+  {
+    cout << endl << "THE FULL STRING WAS " << str;
+    cout << endl << "THAT'S ALL FOLKS" << endl << endl;
+
+  }
+
+  main()
+  {
+    char data[20];
+    cout << "Enter the string : ";
+    cin.getline(data,19);
+    StringThings Test(data);
+    Test.VowelCount();
+    Test.ShowCount();
+    return(0);
+  }
+#+END_SRC
+
+* 20.6 Multiple Constructors.
+#+BEGIN_SRC cpp :tangle 20_6.cpp :padline no
+
+  #include <iostream>
+
+  using namespace std;
+
+  class shape{
+  public:
+    int length;
+    int height;
+    int depth;
+    int radius;
+    double answer;
+    int which;
+  public:
+    void Calc(void);
+    void Show(void);
+    shape(int r);
+    shape(int l, int h);
+    shape(int l, int h, int d);
+    ~shape(void);
+  };
+
+  shape::shape(int r)
+  {
+    radius = r;
+    which =0;
+  }
+
+  shape::shape(int l, int h)
+  {
+    length = l;
+    height = h;
+    which = 1;
+  }
+
+  shape::shape(int l, int h, int d)
+  {
+    length = l;
+    height = h;
+    depth = d;
+    which = 2;
+  }
+
+  shape::~shape(void)
+  {
+    cout << "THAT'S ALL FOLKS" << endl;
+  }
+
+  void shape::Calc(void)
+  {
+    switch(which)
+      {
+      case 0 : answer = radius * radius * 3.14;
+        break;
+      case 1 : answer = length * height;
+        break;
+      case 2 : answer = length * height * depth;
+        break;
+      }
+  }
+
+  void shape::Show(void)
+  {
+    switch(which)
+
+      {
+      case 0 : cout << "The circles area is : "
+                    << answer;
+        cout << endl << endl;
+        break;
+      case 1 : cout << "The rectangles area is : "
+                    << answer;
+        cout << endl << endl;
+        break;
+      case 2 : cout << "The boxes volume is : "
+                    << answer;
+        cout << endl << endl;
+        break;
+      }
+  }
+
+  main()
+  {
+    shape square(2,2);
+    shape cube(2,3,4);
+    shape circle(4);
+    square.Calc();
+    cube.Calc();
+    circle.Calc();
+    square.Show();
+    cube.Show();
+    circle.Show();
+    return(0);
+  }
+#+END_SRC
+
+* 21.1 Object-Oriented Programming, Creating an Inherited Class.
+#+BEGIN_SRC cpp :tangle 21_1.cpp :padline no
+
+  #include <iostream>
+
+  using namespace std;
+
+  class shape     {
+    // NOTE THE USE OF PROTECTED
+  protected:
+    double length;
+    double height;
+    double area;
+  public:
+    void CalcArea(void);
+    void ShowArea(void);
+    shape(double l = 0, double h = 0);
+  };
+
+  void shape::CalcArea(void)
+  {
+    area = length * height;
+  }
+
+  void shape::ShowArea(void)
+  {
+    cout << "THE AREA IS : " << area << endl;
+  }
+
+  shape::shape(double l, double h)
+  {
+    length = l;
+    height = h;
+  }
+
+  main()
+  {
+    double x;
+    double y;
+
+    cout << "ENTER THE HEIGHT : ";
+    cin >> x;
+    cout << "ENTER THE LENGTH : ";
+    cin >> y;
+
+    // CREATE AN INSTANCE OF SHAPE
+    shape square(y,x);
+    // CALL THE MEMBER FUNCTIONS
+    square.CalcArea();
+    square.ShowArea();
+    return(0);
+  }
+#+END_SRC
+
+* 21.2 Inheritance of Data Members.
+#+BEGIN_SRC cpp :tangle 21_2.cpp :padline no
+
+  #include <iostream>
+
+  using namespace std;
+
+  class shape {
+  protected:
+    double length;
+    double height;
+    double area;
+  public:
+    void CalcArea();
+    void ShowArea();
+    shape(double l = 0, double h = 0);
+  };
+
+  // THIS IS A DERIVED CLASS
+  class ThreeD : public shape{
+  protected :
+    double depth;
+    double volume;
+  public:
+    void CalcVol();
+    void ShowVol();
+    ThreeD(double z=0,double x=0,double y=0);
+  };
+
+  // DEFINE ThreeD CONSTRUCTOR
+  // NOTE HOW IT EXPLICITLY CALLS shape CONSTRUCTOR
+  ThreeD::ThreeD(double z, double x, double y):shape(x,y)
+  {
+    depth = z;
+  }
+
+  shape::shape(double l, double h)
+  {
+    length = l;
+    height = h;
+  }
+
+  void shape::CalcArea()
+  {
+    area = length * height;
+  }
+
+  void shape::ShowArea()
+  {
+    cout << "THE AREA IS : " << area;
+  }
+
+  void ThreeD::CalcVol()
+  {
+    volume = depth * length * height;
+  }
+
+  void ThreeD::ShowVol()
+  {
+    cout << "THE VOLUME IS : " << volume << endl;
+  }
+
+  main()
+  {
+    double x, y, z;
+    cout << "ENTER THE LENGTH : ";
+    cin >> x;
+    cout << "ENTER THE HEIGHT : ";
+    cin >> y;
+    cout << "ENTER THE DEPTH  : ";
+    cin >> z;
+    ThreeD box(z,x,y);
+    box.CalcVol();
+    box.ShowVol();
+    return(0);
+  }
+#+END_SRC
+
+* 21.3 The shape.h Header File, Containing the Definition of shape.
+#+BEGIN_SRC cpp :tangle shape.h :padline no
+  using namespace std;
+
+  class shape {
+  protected:
+    double length;
+    double height;
+    double area;
+  public:
+    void CalcArea();
+    void ShowArea();
+    shape(double l = 0, double h = 0);
+  };
+
+  shape::shape(double l, double h)
+  {
+    length = l;
+    height = h;
+  }
+
+  void shape::CalcArea()
+  {
+    area = length * height;
+  }
+
+  void shape::ShowArea()
+  {
+    cout << "THE AREA IS : " << area << endl;
+  }
+#+END_SRC
+
+* 21.4 Inheritance, Using a Header File.
+#+BEGIN_SRC cpp :tangle 21_4.cpp :padline no
+  #include <iostream>
+  #include "shape.h"
+
+  using namespace std;
+
+  // THIS IS A DERIVED CLASS
+  class ThreeD : public shape{
+  protected :
+    double depth;
+    double volume;
+  public:
+
+    void CalcVol();
+    void ShowVol();
+    ThreeD(double z=0,double x=0,double y=0);
+  };
+
+  // DEFINE ThreeD CONSTRUCTOR
+  // NOTE HOW IT EXPLICITLY CALLS shape CONSTRUCTOR
+  ThreeD::ThreeD(double z, double x, double y):shape(x,y)
+  {
+    depth = z;
+  }
+
+  void ThreeD::CalcVol()
+  {
+    volume = depth * length * height;
+  }
+
+  void ThreeD::ShowVol()
+  {
+    cout << "THE VOLUME IS : " << volume << endl;
+  }
+
+  main()
+  {
+    double x, y, z;
+    cout << "ENTER THE LENGTH : ";
+    cin >> x;
+    cout << "ENTER THE HEIGHT : ";
+    cin >> y;
+    cout << "ENTER THE DEPTH  : ";
+    cin >> z;
+    ThreeD box(z,x,y);
+    box.CalcVol();
+    box.ShowVol();
+    return(0);
+  }
+#+END_SRC
+
+* 21.5 Inheritance, Using a Header File.
+#+BEGIN_SRC cpp :tangle 21_5.cpp :padline no
+
+  #include <iostream>
+  #include "shape.h"
+
+  using namespace std;
+
+  // THIS IS A DERIVED CLASS
+  class Triangle : public shape{
+  public:
+    void CalcArea();
+    Triangle(double x=0,double y=0);
+  };
+
+  // DEFINE Triangle CONSTRUCTOR
+  // NOTE HOW IT EXPLICITLY CALLS shape CONSTRUCTOR
+  Triangle::Triangle(double x, double y):shape(x,y)
+  {
+    // Does nothing except call shape.
+  }
+
+  void Triangle::CalcArea()
+  {
+    area = (length * height) / 2;
+  }
+
+  main()
+  {
+    double x, y;
+    cout << "ENTER THE LENGTH : ";
+    cin >> x;
+    cout << "ENTER THE HEIGHT : ";
+    cin >> y;
+    Triangle tri(x,y);
+    tri.CalcArea();
+    tri.ShowArea();
+    return(0);
+  }
+#+END_SRC
+
+* 21.6 Inheritance, Using a Header File.
+#+BEGIN_SRC cpp :tangle 21_6.cpp :padline no
+
+  #include <iostream>
+  #include <cmath>
+  #include "shape.h"
+
+  using namespace std;
+
+  // THIS IS A DERIVED CLASS
+  class Triangle : public shape{
+  protected :
+    double hypotenuse;
+  public:
+    void CalcHyp();
+    void ShowHyp();
+    Triangle(double x=0,double y=0);
+  };
+
+  // DEFINE Triangle CONSTRUCTOR
+  // NOTE HOW IT EXPLICITLY CALLS shape CONSTRUCTOR
+  Triangle::Triangle(double x, double y):shape(x,y)
+  {
+    // Does nothing except call shape.
+  }
+
+  void Triangle::CalcHyp()
+  {
+    hypotenuse = sqrt(pow(length,2) + pow(height,2));
+  }
+
+  void Triangle::ShowHyp()
+  {
+    cout << "THE HYPOTENUSE IS : " << hypotenuse
+         << endl;
+
+  }
+
+  main()
+  {
+    double x, y;
+    cout << "ENTER THE LENGTH : ";
+    cin >> x;
+    cout << "ENTER THE HEIGHT : ";
+    cin >> y;
+    Triangle tri(x,y);
+    tri.CalcHyp();
+    tri.ShowHyp();
+    return(0);
+  }
+#+END_SRC
+
+* 22.0 Sequence.h
+#+BEGIN_SRC cpp :tangle Sequence.h :padline no
+  // Sequence.h
+  // AN ABSTRACT CLASS
+  // IN A HEADER FILE.
+  #include <iostream>
+
+  using namespace std;
+
+  class SEQUENCE {
+  protected:
+    int back;
+    char data[10];
+  public:
+    virtual void POKE(char ch);
+    virtual void POP(void) = 0;
+    virtual void PEEK(void) = 0;
+    SEQUENCE();
+  };
+
+  SEQUENCE::SEQUENCE()
+  {
+    back = 0;
+  }
+
+  void SEQUENCE::POKE(char ch)
+  {
+    if (back < 9)
+      {
+        back++;
+        data[back] = ch;
+        cout << endl;
+      }
+    else
+      cout << endl << "SORRY - FULL"
+           << endl << endl;
+  }
+#+END_SRC
+
+* 22.1 The Implementation of a STACK, Based on the SEQUENCE Abstract Class.
+#+BEGIN_SRC cpp :tangle 22_1.cpp :padline no
+  #include <iostream>
+  #include <cstdlib>
+  #include "Sequence.h"
+
+  using namespace std;
+
+  class MyStack : public SEQUENCE {
+  public:
+    MyStack();
+    void POP(void);
+    void PEEK(void);
+  };
+
+  void MyStack::POP(void)
+  {
+    if (back > 0)
+      {
+        back--;
+      }
+    else
+      {
+        cout << endl << "STACK IS EMPTY";
+        cout << endl << endl;
+      }
+  }
+
+  void MyStack::PEEK(void)
+  {
+    if (back == 0)
+      {
+        cout << endl << "STACK IS EMPTY";
+        cout << endl << endl;
+      }
+    else
+      {
+        cout << endl << data[back];
+        cout << endl << endl;
+      }
+  }
+  MyStack::MyStack() : SEQUENCE()
+  {
+    cout << "STACK CREATED" << endl << endl;
+  }
+
+  char menu(void);
+
+  main()
+  {
+    char ch;
+    char moby;
+    MyStack S;
+    while (1)
+      {
+        ch = menu();
+        switch(ch)
+          {
+          case '1' : cout
+              << "Enter the character : ";   cin >> moby;
+            S.POKE(moby); break;
+          case '2' : S.POP();             break;
+          case '3' : S.PEEK();            break;
+          case '4' : exit(0);
+          }
+      }    return(0);
+  }
+
+  char menu(void)
+  {
+    char choice;
+    cout << "1...Join the STACK" << endl;
+    cout << "2...Leave the STACK" << endl;
+    cout << "3...Show the STACK" << endl;
+    cout << "4...Quit the program" << endl << endl;
+    cout << "Enter your choice : ";
+    cin >> choice;
+    return (choice);
+  }
+#+END_SRC
+
+* 22.2 The Implementation of a Q, Based on the SEQUENCE Abstract Class.
+#+BEGIN_SRC cpp :tangle 22_2.cpp :padline no
+
+  using namespace std;
+
+  #include <iostream>
+  #include <cstdlib>
+  #include "Sequence.h"
+
+  #define TAB '\t'
+
+  class MyQ : public SEQUENCE   {
+  public:
+    MyQ();
+    void POP(void);
+    void PEEK(void);
+  };
+
+  void MyQ::POP(void)
+  {
+    int index;
+    if (back > 0)
+      {
+        for (index = 1; index < back; index++)
+          {
+            data[index] = data[index + 1];
+            cout << endl;
+          }
+        back--;
+      }
+    else
+      {
+        cout << endl << "Q IS EMPTY";
+        cout << endl << endl;
+      }
+  }
+
+  void MyQ::PEEK(void)
+  {
+    int x;
+    if (back == 0)
+
+      {
+        cout << endl << "Q IS EMPTY";
+        cout << endl << endl;
+      }
+    else
+      {
+        for (x = 1; x <= back; x++)
+          {
+            cout << endl << data[x] << TAB;
+          }
+        cout << endl << endl;
+      }
+  }
+
+  MyQ::MyQ() : SEQUENCE()
+  {
+    cout << "Q CREATED" << endl << endl;
+  }
+
+  char menu(void);
+
+  main()
+  {
+    char ch;
+    char shark;
+    MyQ Q;
+    while (1)
+      {
+        ch = menu();
+        switch(ch)
+          {
+          case '1' : cout
+              <<  "Enter the character : "; cin >> shark;            Q.POKE(shark);
+            break;
+          case '2' : Q.POP();
+            break;
+          case '3' : Q.PEEK();
+            break;
+          case '4' : exit(0);
+          }
+      }
+
+    return(0);
+  }
+
+  char menu(void)
+  {
+    char choice;
+    cout << "1...Join the Q" << endl;
+    cout << "2...Leave the Q" << endl;
+    cout << "3...Show the Q" << endl;
+    cout << "4...Quit the program" << endl << endl;
+    cout << "Enter your choice : ";
+    cin >> choice;
+    return (choice);
+  }
+#+END_SRC
+
+* 23.1 Variables.
+#+BEGIN_SRC cpp :tangle 23_1.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  main()
+  {    int y = 77;    // Create and initialize
+                      // a simple variable.
+    
+    cout << y;        // Output the data contained
+                      // in the variable.
+    return(0);
+  }
+#+END_SRC
+
+* 23.2 Pointer Variables.
+#+BEGIN_SRC cpp :tangle 23_2.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  int main()
+  {
+  int* y;                  // Create a pointer variable
+  int temp = 77;       // Set up some temporary data
+  y = &temp;           // Copy the data to the
+  // memory location pointed
+  // to by the pointer variable.
+  cout << *y;             // Output the data pointed to
+  // by the pointer variable.
+  return 0;
+  }
+#+END_SRC
+
+* 23.3 A Program That Uses the Stack.
+#+BEGIN_SRC cpp :tangle 23_3.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+  #define MAX 20
+
+  using namespace std;
+
+  main()
+  {
+    char name[MAX];
+    strcpy(name,"PAUL");
+    cout << name;
+    return(0);
+  }
+#+END_SRC
+
+* 23.4 Dynamic Memory Allocation That Uses the Heap.
+#+BEGIN_SRC cpp :tangle 23_4.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  main()
+  {
+    char* name;
+    name = new char;
+    strcpy(name,"PAUL");
+    cout << name;
+    return(0);
+  }
+#+END_SRC
+
+* 23.5 Returning Memory to the Heap by Using the delete Command.
+#+BEGIN_SRC cpp :tangle 23_5.cpp :padline no
+  #include <iostream>
+  #include <cstring>
+
+  using namespace std;
+
+  main()
+  {
+    char* name;
+    name = new char;
+    strcpy(name,"PAUL");
+    cout << name << endl;
+    delete (name);
+    return(0);
+  }
+#+END_SRC
+
+* 23.6 The Implementation of a DEQUE, Based on the SEQUENCE Abstract Class. --check--
+#+BEGIN_SRC cpp :tangle 23_6.cpp :padline no
+  //Listing25_7.h ?
+
+  #include <iostream>
+  #include <cstdlib>
+  #include "Listing25_7.h"
+  #define TAB '\t'
+
+  using namespace std;
+
+  class MyDEQUE : public SEQUENCE    {
+  public:
+    MyDEQUE();
+    void POP(void);
+    void PEEK(void);
+  };
+
+  void MyDEQUE::POP(void)
+  {
+    int index;
+    char item;
+    if (back > 0)
+      {
+        cout << "LEAVE DEQUE FROM FRONT OR BACK (f/b) : ";
+        cin >> item;
+        if ((item == 'b') || (item == 'B'))
+          {
+            back--;
+          }
+        if ((item == 'f') || (item == 'F'))
+          {
+
+            for (index = 0; index < back; index++)
+              {
+                data[index] = data[index + 1];
+              }
+            back--;
+          }
+      }
+    else
+      {
+        cout << endl << "DEQUE IS EMPTY";
+        cout << endl << endl;
+      }
+  }
+
+  void MyDEQUE::PEEK(void)
+  {
+    int x;
+    if (back == 0)
+      {
+        cout << endl << "DEQUE IS EMPTY";
+        cout << endl << endl;
+      }
+    else
+      {
+        for (x = 1; x <= back; x++)
+          {
+            cout << data[x] << TAB;
+          }
+        cout << endl << endl;
+      }
+  }
+
+  MyDEQUE::MyDEQUE() : SEQUENCE()
+  {
+    cout << "LIST CREATED" << endl << endl;
+  }
+
+  main()
+  {
+    char ch;
+    char poker;
+    MyDEQUE D;
+    while (1)
+
+      {
+        ch = menu();
+        switch(ch)
+          {
+          case '1' :    cout <<
+              "Enter the character : ";
+            cin >> poker;
+            D.POKE(poker);
+            break;
+          case '2' :    D.POP();
+            break;
+          case '3' :    D.PEEK();
+            break;
+          case '4' :    exit(0);
+          }
+      }
+    return(0);
+  }
+#+END_SRC
