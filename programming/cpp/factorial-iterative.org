@@ -1,0 +1,24 @@
+#+Title: factorial-iterative.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle factorial-iterative.cpp :padline no
+  #include <iostream>
+
+  /* iterative */
+  int factorial ( int number )
+  {
+    if (number == 1)
+      return 1;
+    else
+      return number * factorial (number -1);
+  }
+
+  main()
+  {
+    int AnyNumber;
+
+    std::cin >> AnyNumber;
+
+    std::cout << "The factorial of " << AnyNumber << " is " << factorial (AnyNumber) << std::endl;
+  }
+#+END_SRC

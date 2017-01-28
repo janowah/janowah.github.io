@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>name_address.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">name_address.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp">//John Jones/Bar Street/Bray/Co Wicklow
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+const int MAX_STRING = 120;
+
+class Name_Address {
+public:
+  Name_Address (char str[] = "");
+  void set (char str[]);
+  void print_address();
+  void print_name();
+
+private:
+  void set_name(char str[]);
+  void write_spaces(int n);
+  char the_string [MAX_STRING];
+};
+
+Name_Address::Name_Address (char str[])
+{
+  set_name (str);
+}
+
+void Name_Address::set (char str[])
+{
+  set_name (str);
+}
+
+void Name_Address::set_name (char str [])
+{
+  int i = 0;
+  while ( (str[i] != '\0') &amp;&amp; i &lt; (MAX_STRING-1))
+    {
+      the_string[i] = str[i];
+      i++;
+    }
+  the_string[i] = '\0';
+}
+
+void Name_Address::print_address()
+{
+  int spaces = 0;
+  int i = 0;
+  while (the_string[i] != '\0')
+    {
+      if (the_string[i] == '/')
+	{
+	  cout &lt;&lt; endl;
+	  spaces = spaces + 4;
+	  write_spaces (spaces);
+	}
+      else
+	{
+	  cout &lt;&lt; the_string[i];
+	}
+      i++;
+    }
+  cout &lt;&lt; endl;
+}
+
+void Name_Address::write_spaces (int number_of_spaces)
+{
+  int n = number_of_spaces;
+  while (--n &gt;=0)
+    { cout &lt;&lt; " ";
+    }
+}
+
+void Name_Address::print_name()
+{
+  int i = 0;
+  while (the_string[i] != '\0' &amp;&amp; the_string[i] != '/')
+    {
+      cout &lt;&lt; the_string[i];
+      i++;
+    }
+}
+
+int main ()
+{
+  Name_Address Student;
+  char UserName[MAX_STRING];
+
+  cin.getline(UserName,MAX_STRING);
+  Student.set(UserName);
+
+  Student.print_name();
+  cout &lt;&lt; endl &lt;&lt; endl;
+
+  Student.print_address();
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

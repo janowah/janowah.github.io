@@ -1,17 +1,8 @@
-#+Title: factorial.cpp
+#+Title: factorial-recursive.cpp
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-#+BEGIN_SRC cpp :tangle factorial.cpp :padline no
+#+BEGIN_SRC cpp :tangle factorial-recursive.cpp :padline no
   #include <iostream>
-
-  /* iterative */
-  // int factorial ( int number )
-  // {
-  //   if (number == 1)
-  //     return 1;
-  //   else
-  //     return number * factorial (number -1);
-  // }
 
   /* recursive */
   int factorial (int n)

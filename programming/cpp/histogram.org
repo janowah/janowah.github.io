@@ -1,0 +1,93 @@
+#+Title: histogram.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle histogram.cpp :padline no
+  #include <iostream>
+  #include <cctype>
+
+  using namespace std;
+
+  const int No_Of_Letters = 26;
+
+  class Histogram {
+  private:
+    int the_letter_freq[No_Of_Letters];
+    int max_freq;
+
+  public:
+    Histogram();
+    void add_letter(const char);
+    void print() const;
+    void calc_max_freq();
+  };
+
+  Histogram::Histogram()
+  {
+    int ch_pos;
+
+    for (ch_pos=0; ch_pos < No_Of_Letters; ch_pos++)
+      {
+        the_letter_freq[ch_pos] = 0;
+      }
+  }
+
+  void Histogram::add_letter(const char letter_to_add)
+  {
+    int ch_pos;
+    char c = letter_to_add;
+
+    if (islower(c)) {
+      c = toupper(c);
+    }
+
+    if (isupper (c)) {
+      ch_pos = (int) c - (int) 'A';
+      the_letter_freq[ch_pos] = the_letter_freq[ch_pos] + 1;
+    }
+  }
+
+  void Histogram::print() const
+  {
+    for (int j = max_freq; j > 0; j--)
+      {
+        cout << "|" ;
+        for (int ch_pos = 0;
+             ch_pos < No_Of_Letters; ch_pos++) {
+          if (the_letter_freq[ch_pos] >= j)
+            cout << "*";
+          else
+            cout << " ";
+        }
+        cout << "|" << endl;
+      }
+    cout <<" --------------------------"<<endl;
+    cout <<" ABCDEFGHIJKLMNOPQRSTUVQXYZ" << endl;
+  }
+
+  void Histogram::calc_max_freq()
+  {
+    int max = 0;
+    for ( int ch_pos = 0; ch_pos < No_Of_Letters; ch_pos++)
+      {
+        if (the_letter_freq[ch_pos] > max)
+          max = the_letter_freq[ch_pos];
+      }
+    max_freq = max;
+  }
+
+  int main()
+  {
+    Histogram hist;
+    char ch;
+
+    do
+      {
+        cin >> ch;
+        hist.add_letter (ch);
+      }
+    while (ch != '#');
+
+    hist.calc_max_freq();
+    hist.print();
+  }
+#+END_SRC

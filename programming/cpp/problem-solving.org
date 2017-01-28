@@ -1,0 +1,18 @@
+#+Title: problem solving
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+How to solve ANY problem pg24
+
+- Identify the Class (or classes in the problem)
+  - A good clue to identifying the class(es) in the problem is to
+    underline all the nouns and then see which are the most useful to
+    solve the problem
+- What DATA needs to be stored in the Class(es)
+- What DATA TYPE(s) are needed to represent this data
+- What METHOD(s) should be performed by the class
+- Make a first attempt at the Class definition(s)
+- How is EACH method to be implemented (what's the algorithm or each method)
+- How can these methods be used to solve the original problem ie what
+  is the algorithm of main()
+#+END_EXAMPLE

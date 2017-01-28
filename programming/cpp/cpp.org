@@ -2,20 +2,24 @@
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 - [[file:cpp-quick-guide.html][quick guide]]
+- [[file:problem-solving.html][problem solving]]
+- [[file:cpp-quick-notes.html][quick notes]]
 
 code
 - [[file:hello.html][hello world]] 2
-- account 11 ; classes
+- [[file:account.html][account]] 11 ; classes
 - [[file:encoderh.html][encoder.h]], [[file:encoder.html][encoder]] 24
-- complex 31
-- [[file:factorial.html][factorial]] 32
+- [[file:complex.html][complex]] 31
+- [[file:factorial-iterative.html][factorial iterative]] 32
+- [[file:factorial-recursive.html][factorial recursive]] 32
 - [[file:fibonacci.html][fibonacci]] 33
-- name_address 35 ; arrays
-- histogram 37 ; arrays
+- [[file:array-example.html][array example]] 35 ; arrays
+- [[file:name_address.html][name_address]] 35 ; arrays
+- [[file:histogram.html][histogram]] 37 ; arrays
 - [[file:lotto.html][lotto]] ; sorting
 - [[file:stack.html][stack]] 45
 - [[file:palindrome.html][palindrome]] 46 
-- stack 47 ; class templates
+- [[file:stack-template.html][stack]] 47 ; class templates
 - patient 49 ; array of objects
 - hotelroom 50 ; sort array of objects
 - [[file:student.html][student]] 55 ; linked lists

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>array-example.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">array-example.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+const int LENGTH = 26;
+char characters[LENGTH];
+int i, j;
+
+int main() {
+  for (i=0; i&lt;LENGTH; i++)
+    {
+      characters[i] = (char) (i+ (int) 'A');
+    }
+
+  for (j=0; j&lt;LENGTH; j++)
+    {
+      cout &lt;&lt; characters[j];
+    }
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

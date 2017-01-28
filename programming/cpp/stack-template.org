@@ -1,0 +1,86 @@
+#+Title: stack-template.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle stack-template.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  const int MaxElements = 5;
+  enum Boolean {FALSE, TRUE};
+
+  template <class type>
+  class stack {
+  public:
+    stack();
+    Boolean push (const type);
+    Boolean pop (type&);
+  private:
+    type the_elements[MaxElements];
+    int TopOfStack;
+  };
+
+  template <class type>
+  stack<type>::stack()
+  {
+    TopOfStack = -1;
+  }
+
+  template <class type>
+  Boolean stack<type>::push (const type item)
+  {
+    if (TopOfStack < MaxElements-1) {
+      the_elements[++TopOfStack] = item;
+      return TRUE;
+    }
+    else
+      return FALSE;
+  }
+
+  template <class type>
+  Boolean stack<type>::pop (type& item)
+  {
+    if (TopOfStack < 0) {
+      return FALSE;
+    }
+    else {
+      item = the_elements [TopOfStack--];
+      return TRUE;
+    }
+  }
+
+  int main () {
+
+    stack <int> numbers;
+    char ch;
+
+    cin >> ch;
+    while (!cin.eof() ){
+      switch(ch)
+        {
+        case '+':
+          {
+            int num; cin >> num;
+            if (numbers.push(num) == FALSE) {
+              cout << "Stack Full" << endl;
+            }
+            break;
+          }
+        case '-' :
+          {
+            int num;
+
+            if (numbers.pop(num) == FALSE) {
+              cout << "Stack Empty" << endl;
+            }
+            else
+              {
+                cout << "Num = " << num << endl;
+              }
+            break;
+          }
+        }
+      cin >> ch;
+    }
+  }
+#+END_SRC

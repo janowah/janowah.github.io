@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>quick notes</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">quick notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">io</a></li>
+<li><a href="#sec-2"><span class="done DONE">DONE</span> variables</a></li>
+<li><a href="#sec-3">data structures</a>
+<ul>
+<li><a href="#sec-3-1">array</a></li>
+<li><a href="#sec-3-2">struct</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">flow control</a></li>
+<li><a href="#sec-5">built in functions</a></li>
+<li><a href="#sec-6">precedence</a></li>
+<li><a href="#sec-7">theory</a></li>
+<li><a href="#sec-8">idioms</a></li>
+<li><a href="#sec-9">templates</a>
+<ul>
+<li><a href="#sec-9-1">minimum</a></li>
+<li><a href="#sec-9-2">functions</a></li>
+<li><a href="#sec-9-3">class</a></li>
+</ul>
+</li>
+<li><a href="#sec-10">return values</a></li>
+<li><a href="#sec-11">pointers</a></li>
+<li><a href="#sec-12">functions</a></li>
+<li><a href="#sec-13">questions</a></li>
+<li><a href="#sec-14">classes</a></li>
+<li><a href="#sec-15">useful</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">io</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>#iostream
+<ul class="org-ul">
+<li>cout
+</li>
+<li>#include &lt;iostream&gt;
+</li>
+<li>using namespace std;
+</li>
+<li>&lt;&lt;
+</li>
+<li>endl
+</li>
+<li>cin
+</li>
+<li>&gt;&gt;
+</li>
+<li>cout.setf(ios::right);
+</li>
+<li>cout.width(4);
+</li>
+<li>cin.getline()
+</li>
+</ul>
+</li>
+</ul>
+<p>
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, struct data&amp; d)
+istream&amp; operator &gt;&gt; (istream&amp; str_in, struct data&amp; d)
+</p>
+<ul class="org-ul">
+<li>ios::out
+</li>
+<li>ofstream
+<ul class="org-ul">
+<li>.close
+</li>
+<li>.put
+</li>
+</ul>
+</li>
+<li>cin.get(ch)
+</li>
+<li>ios:in
+</li>
+<li>#fstream
+</li>
+<li>ios::binary
+</li>
+<li>cerr
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="done DONE">DONE</span> variables</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>int 4
+<ul class="org-ul">
+<li>unsigned 4
+</li>
+</ul>
+</li>
+<li>char 1
+<ul class="org-ul">
+<li>letter = 'C'; 
+</li>
+</ul>
+</li>
+<li>float 4
+</li>
+<li>double 8
+</li>
+<li>bool 1
+<ul class="org-ul">
+<li>return(true) || return (false)
+</li>
+<li>== &amp;&amp; ||
+</li>
+</ul>
+</li>
+<li>#define 4
+<ul class="org-ul">
+<li>no ;
+</li>
+<li>how is the type determined?
+</li>
+<li>#define TAB '\t'
+</li>
+<li>define a string ""
+</li>
+</ul>
+</li>
+<li>cast (float)A
+</li>
+<li>a string is an array of chars
+</li>
+<li>create. initialize
+</li>
+<li>single ' for chars, double " for strings
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">data structures</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">array</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>int number<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> ; declare
+</li>
+<li>int number[MAX] = {12,33,45,66,43,1,56,78,101,99}; assignment
+</li>
+<li>2d array
+</li>
+<li>int sales[ROW][COLUMN];
+</li>
+<li>char name[MAXNAMES][MAXLENGTH];
+</li>
+<li>3d array
+</li>
+<li>int sales[ROW][COLUMN][PAGE];
+</li>
+<li>parallel array
+</li>
+<li>char planet[MAX][LENGTH];
+</li>
+<li>int  distance[MAX];
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">struct</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>struct planet {
+</li>
+</ul>
+<p>
+char name[LENGTH];
+int howfar;
+};
+</p>
+
+<p>
+struct planet solar; // declare
+//assign
+strcpy(solar.name, "EARTH");
+  solar.howfar = 150;
+//access
+  cout &lt;&lt; solar.name &lt;&lt; endl;
+  cout &lt;&lt; solar.howfar &lt;&lt; endl;
+</p>
+
+<ul class="org-ul">
+<li>array of structures
+</li>
+<li>struct planet solarsystem[MAX];
+</li>
+<li>i/o struct structname
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">flow control</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>for
+<ul class="org-ul">
+<li>for (x = 0; x &lt; 10; x++) {}
+</li>
+</ul>
+</li>
+<li>while
+<ul class="org-ul">
+<li>while ( counter &lt; 10) {}
+</li>
+<li>while(1) can then use break to exit at runtime
+</li>
+</ul>
+</li>
+<li>do while
+<ul class="org-ul">
+<li>do {} while ();
+</li>
+<li>do {} while (1);
+</li>
+</ul>
+</li>
+<li>if else
+<ul class="org-ul">
+<li>if () {} else {}
+</li>
+</ul>
+</li>
+<li>if
+<ul class="org-ul">
+<li>if () {}
+</li>
+</ul>
+</li>
+<li>switch
+<ul class="org-ul">
+<li>switch () {case X: Y; break;}
+</li>
+<li>exit(0);
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">built in functions</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>sizeof
+</li>
+<li>strlen
+</li>
+<li>toupper
+</li>
+<li>strcpy. cstring
+</li>
+<li>atoi. to integer
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">precedence</h2>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">theory</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>runtime
+</li>
+<li>compile time
+</li>
+<li>data members
+<ul class="org-ul">
+<li>private by default
+</li>
+</ul>
+</li>
+<li>member functions
+<ul class="org-ul">
+<li>public allows access from outside
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">idioms</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>++
+</li>
+<li>+=
+</li>
+<li>&#x2013;
+</li>
+<li>postfix prefix
+</li>
+<li>Show(Add(Gather(),Gather()));
+<ul class="org-ul">
+<li>can use function where the o/p of function matches the required i/p
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<i>/ argc is the number of parameters in argv
+/</i> argv is a pointer to the actual string parameters
+// argv<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup> points to the name of the program
+main(int argc, char *argv[])
+</p>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">templates</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1">minimum</h3>
+<div class="outline-text-3" id="text-9-1">
+<pre class="example">
+#include &lt;iostream&gt;
+
+using namespace std;
+
+main()
+{
+
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-9-2" class="outline-3">
+<h3 id="sec-9-2">functions</h3>
+<div class="outline-text-3" id="text-9-2">
+<pre class="example">
+// Here is the function prototype
+void Show(int x);
+
+// Here is the function definition
+void Show(int x)
+{
+}
+--
+// eg of char function
+char NextCharacter(char beta)
+{
+  return(++beta);
+}
+
+//pass an array to function
+void Show(int n[MAX]);
+
+void Show(int n[MAX])
+{
+}
+
+int Add(int one, int two); 2 values by value
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-9-3" class="outline-3">
+<h3 id="sec-9-3">class</h3>
+<div class="outline-text-3" id="text-9-3">
+<pre class="example">
+class shape {
+  // AN EMPTY CLASS
+};
+
+class shape     {
+  // DECLARE DATA MEMBERS
+
+private:
+  int length;
+  int height;
+  int area;
+
+public:
+  // DECLARE MEMBER FUNCTIONS
+  void CalcArea(void);
+  void ShowArea(void);
+
+  // CREATE A CONSTRUCTOR .
+  shape(int l = 0, int h = 0);
+};
+
+// NOW DEFINE THE MEMBER FUNCTIONS
+void shape::CalcArea(void)
+{
+  area = length * height;
+}
+
+void shape::ShowArea(void)
+{
+  cout &lt;&lt; "THE AREA IS : " &lt;&lt; area;
+}
+
+shape::shape(int l, int h)
+{
+  length = l;
+  height = h;
+}
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">return values</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>by default main returns int
+</li>
+<li>return(0)
+</li>
+<li>return(n); where n is an int. this is in a funtion
+</li>
+<li>no return statement if void. normally for cout etc.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">pointers</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>int* .integer pointer variable. holds the address of an integer
+</li>
+<li>&amp;number. the address of the integer <span class="underline">number</span>. can assign this to integer pointer
+</li>
+<li>integer variable. standard
+</li>
+<li>*Num. the value that the interger pointer is referencing
+</li>
+<li>the array example 13.3 doesn't use pointers?
+</li>
+<li>postfix* .create pointer variable. built in variables
+</li>
+<li>*prefix  .the data pointed to by the pointer variable. instance of variable
+</li>
+<li>&amp;prefix. see 23.2. should be address of instance of variable
+<ul class="org-ul">
+<li>seem address pointer variable points to and contents of existing variable are different
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">functions</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+overloading
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, struct data&amp; d)
+istream&amp; operator &gt;&gt; (istream&amp; str_in, struct data&amp; d)
+</p>
+
+<p>
+standard &gt;&gt; can't deal with structures
+can change this to pass a structure
+why not just create a new function?
+it is the existing function extended or changed?
+</p>
+
+<p>
+depending on the values passed the program will do the right thing
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13">questions</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+prefix and postfix &amp;
+heap memory
+stack
+new
+delete
+return type for a constructor?
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14">classes</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+member functions
+data members
+public
+private
+protected. inheritance
+virtual - abstract classes
+constructor can overload
+ StringThings(char s<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>);
+ StringThings::StringThings(char s<sup><a id="fnr.3.100" name="fnr.3.100" class="footref" href="#fn.3">3</a></sup>) {}
+destructor
+ ~StringThings(void);
+ StringThings::~StringThings(void) {}
+inheritance
+</p>
+<ul class="org-ul">
+<li>class ThreeD : public shape{} .where shape is an existing class
+</li>
+<li>constructor ThreeD::ThreeD(double z, double x, double y):shape(x,y)
+</li>
+<li>header files
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15">useful</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+reading and writing from a file
+command line selection menu
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+#+Title: name_address.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle name_address.cpp :padline no
+  //John Jones/Bar Street/Bray/Co Wicklow
+
+  #include <iostream>
+
+  using namespace std;
+
+  const int MAX_STRING = 120;
+
+  class Name_Address {
+  public:
+    Name_Address (char str[] = "");
+    void set (char str[]);
+    void print_address();
+    void print_name();
+
+  private:
+    void set_name(char str[]);
+    void write_spaces(int n);
+    char the_string [MAX_STRING];
+  };
+
+  Name_Address::Name_Address (char str[])
+  {
+    set_name (str);
+  }
+
+  void Name_Address::set (char str[])
+  {
+    set_name (str);
+  }
+
+  void Name_Address::set_name (char str [])
+  {
+    int i = 0;
+    while ( (str[i] != '\0') && i < (MAX_STRING-1))
+      {
+        the_string[i] = str[i];
+        i++;
+      }
+    the_string[i] = '\0';
+  }
+
+  void Name_Address::print_address()
+  {
+    int spaces = 0;
+    int i = 0;
+    while (the_string[i] != '\0')
+      {
+        if (the_string[i] == '/')
+          {
+            cout << endl;
+            spaces = spaces + 4;
+            write_spaces (spaces);
+          }
+        else
+          {
+            cout << the_string[i];
+          }
+        i++;
+      }
+    cout << endl;
+  }
+
+  void Name_Address::write_spaces (int number_of_spaces)
+  {
+    int n = number_of_spaces;
+    while (--n >=0)
+      { cout << " ";
+      }
+  }
+
+  void Name_Address::print_name()
+  {
+    int i = 0;
+    while (the_string[i] != '\0' && the_string[i] != '/')
+      {
+        cout << the_string[i];
+        i++;
+      }
+  }
+
+  int main ()
+  {
+    Name_Address Student;
+    char UserName[MAX_STRING];
+
+    cin.getline(UserName,MAX_STRING);
+    Student.set(UserName);
+
+    Student.print_name();
+    cout << endl << endl;
+
+    Student.print_address();
+  }
+#+END_SRC

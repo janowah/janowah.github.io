@@ -1,0 +1,257 @@
+#+Title: quick notes
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* io
+  - #iostream
+    - cout
+    - #include <iostream>
+    - using namespace std;
+    - <<
+    - endl
+    - cin
+    - >>
+    - cout.setf(ios::right);
+    - cout.width(4);
+    - cin.getline()
+ostream& operator << (ostream& str_out, struct data& d)
+istream& operator >> (istream& str_in, struct data& d)
+- ios::out
+- ofstream
+  - .close
+  - .put
+- cin.get(ch)
+- ios:in
+- #fstream
+- ios::binary
+- cerr
+
+* DONE variables
+  - int 4
+    - unsigned 4
+  - char 1
+    - letter = 'C'; 
+  - float 4
+  - double 8
+  - bool 1
+    - return(true) || return (false)
+    - == && ||
+  - #define 4
+    - no ;
+    - how is the type determined?
+    - #define TAB '\t'
+    - define a string ""
+  - cast (float)A
+  - a string is an array of chars
+  - create. initialize
+  - single ' for chars, double " for strings
+* data structures
+** array
+- int number[6] ; declare
+- int number[MAX] = {12,33,45,66,43,1,56,78,101,99}; assignment
+- 2d array
+- int sales[ROW][COLUMN];
+- char name[MAXNAMES][MAXLENGTH];
+- 3d array
+- int sales[ROW][COLUMN][PAGE];
+- parallel array
+- char planet[MAX][LENGTH];
+- int  distance[MAX];
+** struct
+- struct planet {
+char name[LENGTH];
+int howfar;
+};
+
+struct planet solar; // declare
+//assign
+strcpy(solar.name, "EARTH");
+  solar.howfar = 150;
+//access
+  cout << solar.name << endl;
+  cout << solar.howfar << endl;
+
+- array of structures
+- struct planet solarsystem[MAX];
+- i/o struct structname
+
+* flow control
+  - for
+    - for (x = 0; x < 10; x++) {}
+  - while
+    - while ( counter < 10) {}
+    - while(1) can then use break to exit at runtime
+  - do while
+    - do {} while ();
+    - do {} while (1);
+  - if else
+    - if () {} else {}
+  - if
+    - if () {}
+  - switch
+    - switch () {case X: Y; break;}
+    - exit(0);
+
+* built in functions
+    - sizeof
+    - strlen
+    - toupper
+    - strcpy. cstring
+    - atoi. to integer
+* precedence
+* theory
+- runtime
+- compile time
+- data members
+  - private by default
+- member functions
+  - public allows access from outside
+* idioms
+      - ++
+      - +=
+      - --
+      - postfix prefix
+      - Show(Add(Gather(),Gather()));
+        - can use function where the o/p of function matches the required i/p
+
+// argc is the number of parameters in argv
+// argv is a pointer to the actual string parameters
+// argv[0] points to the name of the program
+main(int argc, char *argv[])
+* templates
+** minimum
+#+BEGIN_EXAMPLE
+#include <iostream>
+
+using namespace std;
+
+main()
+{
+
+}
+#+END_EXAMPLE
+** functions
+#+BEGIN_EXAMPLE
+// Here is the function prototype
+void Show(int x);
+
+// Here is the function definition
+void Show(int x)
+{
+}
+--
+// eg of char function
+char NextCharacter(char beta)
+{
+  return(++beta);
+}
+
+//pass an array to function
+void Show(int n[MAX]);
+
+void Show(int n[MAX])
+{
+}
+
+int Add(int one, int two); 2 values by value
+#+END_EXAMPLE
+
+** class
+#+BEGIN_EXAMPLE
+class shape {
+  // AN EMPTY CLASS
+};
+
+class shape     {
+  // DECLARE DATA MEMBERS
+
+private:
+  int length;
+  int height;
+  int area;
+
+public:
+  // DECLARE MEMBER FUNCTIONS
+  void CalcArea(void);
+  void ShowArea(void);
+
+  // CREATE A CONSTRUCTOR .
+  shape(int l = 0, int h = 0);
+};
+
+// NOW DEFINE THE MEMBER FUNCTIONS
+void shape::CalcArea(void)
+{
+  area = length * height;
+}
+
+void shape::ShowArea(void)
+{
+  cout << "THE AREA IS : " << area;
+}
+
+shape::shape(int l, int h)
+{
+  length = l;
+  height = h;
+}
+#+END_EXAMPLE
+
+
+* return values
+- by default main returns int
+- return(0)
+- return(n); where n is an int. this is in a funtion
+- no return statement if void. normally for cout etc.
+
+* pointers
+- int* .integer pointer variable. holds the address of an integer
+- &number. the address of the integer _number_. can assign this to integer pointer
+- integer variable. standard
+- *Num. the value that the interger pointer is referencing
+- the array example 13.3 doesn't use pointers?
+- postfix* .create pointer variable. built in variables
+- *prefix  .the data pointed to by the pointer variable. instance of variable
+- &prefix. see 23.2. should be address of instance of variable
+  - seem address pointer variable points to and contents of existing variable are different
+
+* functions
+overloading
+ostream& operator << (ostream& str_out, struct data& d)
+istream& operator >> (istream& str_in, struct data& d)
+
+standard >> can't deal with structures
+can change this to pass a structure
+why not just create a new function?
+it is the existing function extended or changed?
+
+depending on the values passed the program will do the right thing
+
+* questions
+prefix and postfix &
+heap memory
+stack
+new
+delete
+return type for a constructor?
+
+* classes
+member functions
+data members
+public
+private
+protected. inheritance
+virtual - abstract classes
+constructor can overload
+ StringThings(char s[20]);
+ StringThings::StringThings(char s[20]) {}
+destructor
+ ~StringThings(void);
+ StringThings::~StringThings(void) {}
+inheritance
+- class ThreeD : public shape{} .where shape is an existing class
+- constructor ThreeD::ThreeD(double z, double x, double y):shape(x,y)
+- header files
+
+* useful
+reading and writing from a file
+command line selection menu

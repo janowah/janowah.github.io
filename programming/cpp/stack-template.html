@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>stack-template.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">stack-template.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+const int MaxElements = 5;
+enum Boolean {FALSE, TRUE};
+
+template &lt;class type&gt;
+class stack {
+public:
+  stack();
+  Boolean push (const type);
+  Boolean pop (type&amp;);
+private:
+  type the_elements[MaxElements];
+  int TopOfStack;
+};
+
+template &lt;class type&gt;
+stack&lt;type&gt;::stack()
+{
+  TopOfStack = -1;
+}
+
+template &lt;class type&gt;
+Boolean stack&lt;type&gt;::push (const type item)
+{
+  if (TopOfStack &lt; MaxElements-1) {
+    the_elements[++TopOfStack] = item;
+    return TRUE;
+  }
+  else
+    return FALSE;
+}
+
+template &lt;class type&gt;
+Boolean stack&lt;type&gt;::pop (type&amp; item)
+{
+  if (TopOfStack &lt; 0) {
+    return FALSE;
+  }
+  else {
+    item = the_elements [TopOfStack--];
+    return TRUE;
+  }
+}
+
+int main () {
+
+  stack &lt;int&gt; numbers;
+  char ch;
+
+  cin &gt;&gt; ch;
+  while (!cin.eof() ){
+    switch(ch)
+      {
+      case '+':
+	{
+	  int num; cin &gt;&gt; num;
+	  if (numbers.push(num) == FALSE) {
+	    cout &lt;&lt; "Stack Full" &lt;&lt; endl;
+	  }
+	  break;
+	}
+      case '-' :
+	{
+	  int num;
+
+	  if (numbers.pop(num) == FALSE) {
+	    cout &lt;&lt; "Stack Empty" &lt;&lt; endl;
+	  }
+	  else
+	    {
+	      cout &lt;&lt; "Num = " &lt;&lt; num &lt;&lt; endl;
+	    }
+	  break;
+	}
+      }
+    cin &gt;&gt; ch;
+  }
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

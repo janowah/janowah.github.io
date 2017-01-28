@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>complex.cpp</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">complex.cpp</h1>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+class Complex {
+private:
+  float R, I;
+public:
+  Complex() {
+    R = I = 0.0;
+  }
+
+  void Assign(float a, float b) {
+    R = a;
+    I = b;}
+
+  void Print() {
+    if (I &gt;=0)
+      {
+	cout &lt;&lt; R &lt;&lt; "+" &lt;&lt; I &lt;&lt; "i";
+      }
+    else
+      {
+	cout &lt;&lt; R &lt;&lt; I &lt;&lt; "i";
+      }
+  }
+
+  Complex plus (Complex a) {
+    Complex c;
+    c.R = R + a.R;
+    c.I = I + a.I;
+    return c; }
+
+  Complex minus(Complex a) {
+    Complex c;
+    c.R = R - a.R;
+    c.I = I - a.I;
+    return c;}
+
+  Complex multiply(Complex a) {
+    Complex c;
+    c.R = R * a.R - I * a.I;
+    c.I = R * a.I + I * a.R;
+    return c; }
+};
+
+int main() {
+  Complex a, b, c;
+  float x,y;
+
+  cout &lt;&lt; "Enter two numbers : ";
+  cin &gt;&gt; x &gt;&gt; y;
+  a.Assign(x, y);
+  cout &lt;&lt; "Enter two more numbers : ";
+  cin &gt;&gt; x &gt;&gt; y;
+  b.Assign(x, y);
+
+  c = a.plus(b);
+  a.Print(); cout &lt;&lt; " + " ; b.Print();
+  cout &lt;&lt; " = "; c.Print(); cout &lt;&lt; endl;
+
+  c = a.minus(b);
+  a.Print(); cout &lt;&lt; " - "; b.Print();
+  cout &lt;&lt; " = "; c.Print(); cout &lt;&lt; endl;
+
+  c = a.multiply(b);
+  a.Print(); cout &lt;&lt; " * " ; b.Print();
+  cout &lt;&lt; " = "; c.Print(); cout &lt;&lt; endl;
+}
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

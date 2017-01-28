@@ -1,0 +1,54 @@
+#+Title: account.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle account.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  class Account {
+  private:
+    float the_balance;
+
+  public:
+    Account(void);
+    float account_balance();
+    float withdraw(float);
+    void deposit(float);
+  };
+
+  Account::Account(void)
+  {
+    the_balance = 0.0;
+  }
+
+  float Account::account_balance()
+  {
+    return the_balance;
+  }
+
+  float Account::withdraw(float money)
+  {
+    if (money <= the_balance) {
+      the_balance = the_balance - money;
+      return money;
+    }
+    else
+      {
+        return 0;
+      }
+  }
+
+  void Account::deposit(float money)
+  {
+    the_balance = the_balance + money;
+  }
+
+  main() {
+    Account mike;
+    mike.deposit (20.0);
+
+    cout << "The amount of money contained in Mike's Account is \n";
+    cout << mike.account_balance() << endl;
+  }
+#+END_SRC

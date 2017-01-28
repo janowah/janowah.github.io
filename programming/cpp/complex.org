@@ -1,0 +1,74 @@
+#+Title: complex.cpp
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_SRC cpp :tangle complex.cpp :padline no
+  #include <iostream>
+
+  using namespace std;
+
+  class Complex {
+  private:
+    float R, I;
+  public:
+    Complex() {
+      R = I = 0.0;
+    }
+
+    void Assign(float a, float b) {
+      R = a;
+      I = b;}
+
+    void Print() {
+      if (I >=0)
+        {
+          cout << R << "+" << I << "i";
+        }
+      else
+        {
+          cout << R << I << "i";
+        }
+    }
+
+    Complex plus (Complex a) {
+      Complex c;
+      c.R = R + a.R;
+      c.I = I + a.I;
+      return c; }
+
+    Complex minus(Complex a) {
+      Complex c;
+      c.R = R - a.R;
+      c.I = I - a.I;
+      return c;}
+
+    Complex multiply(Complex a) {
+      Complex c;
+      c.R = R * a.R - I * a.I;
+      c.I = R * a.I + I * a.R;
+      return c; }
+  };
+
+  int main() {
+    Complex a, b, c;
+    float x,y;
+
+    cout << "Enter two numbers : ";
+    cin >> x >> y;
+    a.Assign(x, y);
+    cout << "Enter two more numbers : ";
+    cin >> x >> y;
+    b.Assign(x, y);
+
+    c = a.plus(b);
+    a.Print(); cout << " + " ; b.Print();
+    cout << " = "; c.Print(); cout << endl;
+
+    c = a.minus(b);
+    a.Print(); cout << " - "; b.Print();
+    cout << " = "; c.Print(); cout << endl;
+
+    c = a.multiply(b);
+    a.Print(); cout << " * " ; b.Print();
+    cout << " = "; c.Print(); cout << endl;
+  }
+#+END_SRC
