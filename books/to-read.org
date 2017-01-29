@@ -1,6 +1,6 @@
 #+title: to read
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- The Cuckoo's Calling / Robert Galbraith
+- ?
 
 [[file:books.html][back]]
