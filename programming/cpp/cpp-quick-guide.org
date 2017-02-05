@@ -6,6 +6,20 @@
 - =./a.out=
 - =g++ -g hello.cpp=
 
+* installing
+- =yum install libstdc++-docs.x86_64=
+- =yum install boost-devel.x86_64=
+
+* resources
+- http://en.cppreference.com/
+- http://en.cppreference.com/w/Cppreference:Archives
+- http://www.boost.org
+
+* local
+- =/usr/include/c++/4.8.2/=
+- =/usr/include/boost/=
+- =man std::string=
+
 * changes
 #+BEGIN_EXAMPLE
 #include
