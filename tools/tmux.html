@@ -7,13 +7,24 @@
 <h1>tmux</h1>
 
 <pre>
-
 C-b c ; create new
 C-b x ; quit
 
 C-z suspend.
 % unsuspend.
 
+* sessions
+  - tmux new -s session_name
+  - tmux list-sessions
+  - tmux detach ; C-b d
+  - tmux attach -t session_name
+  - tmux switch -t session_name
+
+* help
+  - tmux list-keys
+  - tmux list-commands
+  - tmux info
+  - tmux source-file ~/.tmux.conf ; reload current config
 </pre>
 <a href="./tools.html">back</a>
 </body>
