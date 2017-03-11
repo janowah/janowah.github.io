@@ -1,7 +1,7 @@
 #+title: reminders
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- library: DUE 2017-02-20 MON
+- library: -
 - bike insurance:
 - health insurance:
 - bike tax:
