@@ -6,5 +6,6 @@
 - [[file:sci-fi-fantasy.html][sci-fi-fantasy]]
 - [[file:books-by-author.html][books-by-author]]
 - [[file:to-read.html][to-read]]
+- [[file:non-fiction.html][non-fiction]]
 
 [[../index.html][back]]
