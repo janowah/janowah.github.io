@@ -7,5 +7,7 @@
 - [[file:books-by-author.html][books-by-author]]
 - [[file:to-read.html][to-read]]
 - [[file:non-fiction.html][non-fiction]]
+- [[file:college-books.html][college-books]]
+- [[file:library.html][library]]
 
 [[../index.html][back]]

@@ -1,0 +1,10 @@
+#+title: College Books
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- [X] Server-Side Development
+- digital signal processing
+- [X] Computer Programming and Problem Solving
+  - Object Orientated Software in C++, M Smith, Chapman Hall
+  - C++ How To Program, H Deitel & P Deitel, Prentice Hall
+
+[[./books.html][back]]

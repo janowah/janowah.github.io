@@ -1,6 +1,7 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Small Gods / Terry Pratchett
 - The Three Stigmata of Palmer Eldritch / Philip K. Dick
 - Neuromancer / William Gibson
 - Dune / Frank Herbert
