@@ -2,7 +2,5 @@
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 - Stuart: A Life Backwards / Alexander Masters
-- Small Gods / Terry Pratchett
-- The Silkworm / Robert Galbraith
 
 [[file:books.html][back]]
