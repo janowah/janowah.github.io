@@ -1,6 +1,7 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Ender's Game / Orson Scott Card
 - Small Gods / Terry Pratchett
 - The Three Stigmata of Palmer Eldritch / Philip K. Dick
 - Neuromancer / William Gibson

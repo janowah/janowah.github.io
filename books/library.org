@@ -50,6 +50,31 @@
   - 9780593049662 How to DJ (Properly) / Bill Brewster
 #+END_EXAMPLE
 
+#+BEGIN_EXAMPLE
+  box 3
+  - 9781781311516 The Football Man / Arthur Hopcraft
+  - 9781849162883 The Girl with the Dragon Tattoo / Stieg Larsson
+  - 9780749399467 Complete Short Stories / Franz Kafka
+  - 9780670919598 Empire / Jeremy Paxman
+  - 9780007329069 Eats, Shoots and Leaves / Lynne Truss
+  - 9780571232093 Retromania / Simon Reynolds
+  - 9780140185584 Ulysses / James Joyce
+  - 9780670919574 Empire / Jeremy Paxman ?
+  - 9780789718167 The Complete Idiot's Guide to C++ / Paul Snaith
+  - 9780412553806 Object-Oriented Software in C++ / Michael A. Smith
+  - 9781841155807 The Music of the Primes / Marcus Du Sautoy
+  - 9780007284870 Bad Science / Ben Goldacre
+  - 9780575094185 Do Androids Dream of Electric Sheep? / Philip K. Dick
+  - 9780140621525 The Coral Island /  R. M. Ballantyne
+  - 9780099286080 Our Man in Havana / Graham Greene
+  - 9780755775194 Rules of the Road / Road Safety Authority
+  - 9780224087902 Skagboys / Irvine Welsh
+  - 586034862  ; 9780586034866 Papillon / Henri Charriere
+  - 014002414 x ; ? The Beautiful and Damned / F. Scott Fitzgerald [p1974]
+  - 090021703  ; The Trusting and the Maimed / James Plunkett
+  - Pal Joey / John O'Hara
+#+END_EXAMPLE
+
 front room
 #+BEGIN_EXAMPLE
   - 9780099532811 All Quiet on the Western Front / Erich Maria Remarque
