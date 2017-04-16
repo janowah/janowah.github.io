@@ -14,6 +14,8 @@ dd - convert and copy a file
 dd bs="32" if="/dev/cdrom" of=/home/somecdrom.iso
 dd --help
 dd if=/dev/cdrom of=~/cdrom_image1.iso
+
+dd bs=1M if=/dev/zero of=/dev/sdc
 </pre>
 <a href="./fileutils.html">back</a>
 </body>
