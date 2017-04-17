@@ -1,0 +1,170 @@
+#+title: OpenVPN
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* centos 7
+** install and setup
+#+BEGIN_EXAMPLE
+  yum install openvpn easy-rsa
+  cp /usr/share/doc/openvpn-2.4.1/sample/sample-config-files/server.conf /etc/openvpn/
+#+END_EXAMPLE
+
+** edit /etc/openvpn/server.conf
+#+BEGIN_EXAMPLE
+  dh dh2048.pem ; no changes
+  ;push "redirect-gateway def1 bypass-dhcp" ; uncomment
+  ;push "dhcp-option DNS 208.67.222.222" ; uncomment and change to google
+  ;push "dhcp-option DNS 208.67.220.220"
+  ;user nobody ; uncomment
+  ;group nobody
+#+END_EXAMPLE
+
+** keys and certs
+*** setup
+#+BEGIN_EXAMPLE
+  - mkdir -p /etc/openvpn/easy-rsa/keys
+  - cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa/ ; copy scripts
+  - edit /etc/openvpn/easy-rsa/vars ; this changes the defaults
+    - export KEY_NAME="EasyRSA" ; export KEY_NAME="server"
+    - # export KEY_CN="CommonName" ; export KEY_CN="openvpn.example.com"
+
+
+    export KEY_COUNTRY="US"
+    export KEY_PROVINCE="CA"
+    export KEY_CITY="SanFrancisco"
+    export KEY_ORG="Fort-Funston"
+    export KEY_EMAIL="me@myhost.mydomain"
+    export KEY_OU="MyOrganizationalUnit"
+
+    export KEY_COUNTRY="US"
+    export KEY_PROVINCE="NY"
+    export KEY_CITY="New York"
+    export KEY_ORG="DigitalOcean"
+    export KEY_EMAIL="sammy@example.com"
+    export KEY_OU="Community"
+
+
+  - cp /etc/openvpn/easy-rsa/openssl-1.0.0.cnf /etc/openvpn/easy-rsa/openssl.cnf
+  - cd /etc/openvpn/easy-rsa
+  - source ./vars
+  - ./clean-all
+#+END_EXAMPLE
+
+*** ca and server
+#+BEGIN_EXAMPLE
+  - ./build-ca
+  - ./build-key-server server
+  - Sign the certificate? [y/n]:y
+  - ./build-dh
+  - cd /etc/openvpn/easy-rsa/keys
+  - cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
+
+#+END_EXAMPLE
+
+*** client
+#+BEGIN_EXAMPLE
+cd /etc/openvpn/easy-rsa
+./build-key client
+#+END_EXAMPLE
+
+** routing
+*** iptables
+#+BEGIN_EXAMPLE
+  - yum install iptables-services
+  - systemctl mask firewalld
+  - systemctl enable iptables
+  - systemctl stop firewalld
+  - systemctl start iptables
+  - iptables --flush
+
+  iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+  iptables-save > /etc/sysconfig/iptables
+#+END_EXAMPLE
+
+*** edit /etc/sysctl.conf
+#+BEGIN_EXAMPLE
+  +++ net.ipv4.ip_forward = 1
+
+  - systemctl restart network.service
+  - systemctl restart network.service
+#+END_EXAMPLE
+
+*** firewalld (test this)
+#+BEGIN_EXAMPLE
+  firewall-cmd --permanent --add-service openvpn
+  firewall-cmd --permanent --add-masquerade
+
+  (Add the following line at the top of /etc/sysctl.conf:)
+  net.ipv4.ip_forward = 1
+
+  systemctl restart firewalld
+  systemctl restart network.service
+#+END_EXAMPLE
+
+** start OpenVPN
+#+BEGIN_EXAMPLE
+  - systemctl -f enable openvpn@server.service
+  - systemctl start openvpn@server.service
+
+  errors
+  ; tls-auth ta.key 0 # This file is secret      ; had to disable this line
+#+END_EXAMPLE
+
+** client setup
+*** required files
+#+BEGIN_EXAMPLE
+  /etc/openvpn/easy-rsa/keys/ca.crt
+  /etc/openvpn/easy-rsa/keys/client.crt
+  /etc/openvpn/easy-rsa/keys/client.key
+#+END_EXAMPLE
+
+*** client.ovpn
+#+BEGIN_EXAMPLE
+client
+dev tun
+proto udp
+remote 192.168.1.1 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+comp-lzo
+verb 3
+ca /path/to/ca.crt
+cert /path/to/client.crt
+key /path/to/client.key
+#+END_EXAMPLE
+
+*** unified form
+#+BEGIN_EXAMPLE
+client
+dev tun
+proto udp
+remote 192.168.1.1 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+comp-lzo
+verb 3
+<ca>
+-----BEGIN CERTIFICATE-----
+
+-----END CERTIFICATE-----
+</ca>
+<cert>
+-----BEGIN CERTIFICATE-----
+
+-----END CERTIFICATE-----
+</cert>
+<key>
+-----BEGIN PRIVATE KEY-----
+
+-----END PRIVATE KEY-----
+</key>
+#+END_EXAMPLE
+
+** references
+#+BEGIN_EXAMPLE
+  - https://www.digitalocean.com/community/tutorials/how-to-setup-and-configure-an-openvpn-server-on-centos-7
+#+END_EXAMPLE
+
