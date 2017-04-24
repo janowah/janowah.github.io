@@ -66,6 +66,8 @@
 #+BEGIN_EXAMPLE
 cd /etc/openvpn/easy-rsa
 ./build-key client
+
+./build-key-pkcs12
 #+END_EXAMPLE
 
 ** routing
