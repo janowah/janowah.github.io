@@ -1,10 +1,11 @@
+# -*- mode: org -*-
 #+title: OpenVPN
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 * centos 7
 ** install and setup
 #+BEGIN_EXAMPLE
-  yum install openvpn easy-rsa
+  yum install openvpn easy-rsa ; epel-release
   cp /usr/share/doc/openvpn-2.4.1/sample/sample-config-files/server.conf /etc/openvpn/
 #+END_EXAMPLE
 
@@ -25,7 +26,7 @@
   - cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa/ ; copy scripts
   - edit /etc/openvpn/easy-rsa/vars ; this changes the defaults
     - export KEY_NAME="EasyRSA" ; export KEY_NAME="server"
-    - # export KEY_CN="CommonName" ; export KEY_CN="openvpn.example.com"
+    - export KEY_CN="CommonName" ; export KEY_CN="openvpn.example.com"
 
 
     export KEY_COUNTRY="US"
@@ -57,7 +58,8 @@
   - ./build-dh
   - cd /etc/openvpn/easy-rsa/keys
   - cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
-
+  - openvpn --genkey --secret ta.key
+    - /etc/openvpn/ta.key
 #+END_EXAMPLE
 
 *** client
@@ -67,7 +69,21 @@ cd /etc/openvpn/easy-rsa
 #+END_EXAMPLE
 
 ** routing
-*** iptables
+*** edit /etc/sysctl.conf
+#+BEGIN_EXAMPLE
+  net.ipv4.ip_forward = 1 ; add to top of file
+#+END_EXAMPLE
+
+*** firewalld
+#+BEGIN_EXAMPLE
+  firewall-cmd --permanent --add-service openvpn
+  firewall-cmd --permanent --add-masquerade
+
+  systemctl restart firewalld
+  systemctl restart network.service
+#+END_EXAMPLE
+
+*** COMMENT iptables (optional)
 #+BEGIN_EXAMPLE
   - yum install iptables-services
   - systemctl mask firewalld
@@ -78,25 +94,7 @@ cd /etc/openvpn/easy-rsa
 
   iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
   iptables-save > /etc/sysconfig/iptables
-#+END_EXAMPLE
 
-*** edit /etc/sysctl.conf
-#+BEGIN_EXAMPLE
-  +++ net.ipv4.ip_forward = 1
-
-  - systemctl restart network.service
-  - systemctl restart network.service
-#+END_EXAMPLE
-
-*** firewalld (test this)
-#+BEGIN_EXAMPLE
-  firewall-cmd --permanent --add-service openvpn
-  firewall-cmd --permanent --add-masquerade
-
-  (Add the following line at the top of /etc/sysctl.conf:)
-  net.ipv4.ip_forward = 1
-
-  systemctl restart firewalld
   systemctl restart network.service
 #+END_EXAMPLE
 
@@ -106,7 +104,7 @@ cd /etc/openvpn/easy-rsa
   - systemctl start openvpn@server.service
 
   errors
-  ; tls-auth ta.key 0 # This file is secret      ; had to disable this line
+  ; tls-auth ta.key 0 # This file is secret      ; disable if not using tls-auth
 #+END_EXAMPLE
 
 ** client setup
@@ -115,6 +113,7 @@ cd /etc/openvpn/easy-rsa
   /etc/openvpn/easy-rsa/keys/ca.crt
   /etc/openvpn/easy-rsa/keys/client.crt
   /etc/openvpn/easy-rsa/keys/client.key
+  /etc/openvpn/ta.key ; optional
 #+END_EXAMPLE
 
 *** client.ovpn
@@ -161,10 +160,23 @@ verb 3
 
 -----END PRIVATE KEY-----
 </key>
+key-direction 1
+<tls-auth>
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+
+-----END OpenVPN Static key V1-----
+</tls-auth>
+#+END_EXAMPLE
+
+** connect centos as client
+#+BEGIN_EXAMPLE
+  openvpn --config client.ovpn
 #+END_EXAMPLE
 
 ** references
 #+BEGIN_EXAMPLE
   - https://www.digitalocean.com/community/tutorials/how-to-setup-and-configure-an-openvpn-server-on-centos-7
 #+END_EXAMPLE
-

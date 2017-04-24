@@ -5,7 +5,12 @@
 <body>
   <h1>selinux</h1>
   <pre>
-   xxx
+   ls -Z ; view 
+   chcon -R --reference /etc/openvpn /etc/openvpn ; restore
+
+   sestatus
+   setenforce
+   setenforce permissive
   </pre>
   <a href="./rhcsa.html">back</a>
 </body>

@@ -27,9 +27,8 @@
 </li>
 <li><a href="#sec-1-4">routing</a>
 <ul>
-<li><a href="#sec-1-4-1">iptables</a></li>
-<li><a href="#sec-1-4-2">edit /etc/sysctl.conf</a></li>
-<li><a href="#sec-1-4-3">firewalld (test this)</a></li>
+<li><a href="#sec-1-4-1">edit /etc/sysctl.conf</a></li>
+<li><a href="#sec-1-4-2">firewalld</a></li>
 </ul>
 </li>
 <li><a href="#sec-1-5">start OpenVPN</a></li>
@@ -40,7 +39,8 @@
 <li><a href="#sec-1-6-3">unified form</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-7">references</a></li>
+<li><a href="#sec-1-7">connect centos as client</a></li>
+<li><a href="#sec-1-8">references</a></li>
 </ul>
 </li>
 </ul>
@@ -54,7 +54,7 @@
 <h3 id="sec-1-1">install and setup</h3>
 <div class="outline-text-3" id="text-1-1">
 <pre class="example">
-yum install openvpn easy-rsa
+yum install openvpn easy-rsa ; epel-release
 cp /usr/share/doc/openvpn-2.4.1/sample/sample-config-files/server.conf /etc/openvpn/
 </pre>
 </div>
@@ -85,7 +85,7 @@ dh dh2048.pem ; no changes
 - cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa/ ; copy scripts
 - edit /etc/openvpn/easy-rsa/vars ; this changes the defaults
   - export KEY_NAME="EasyRSA" ; export KEY_NAME="server"
-  - # export KEY_CN="CommonName" ; export KEY_CN="openvpn.example.com"
+  - export KEY_CN="CommonName" ; export KEY_CN="openvpn.example.com"
 
 
   export KEY_COUNTRY="US"
@@ -121,6 +121,8 @@ dh dh2048.pem ; no changes
 - ./build-dh
 - cd /etc/openvpn/easy-rsa/keys
 - cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
+- openvpn --genkey --secret ta.key
+  - /etc/openvpn/ta.key
 </pre>
 </div>
 </div>
@@ -140,43 +142,20 @@ cd /etc/openvpn/easy-rsa
 <h3 id="sec-1-4">routing</h3>
 <div class="outline-text-3" id="text-1-4">
 </div><div id="outline-container-sec-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1">iptables</h4>
+<h4 id="sec-1-4-1">edit /etc/sysctl.conf</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <pre class="example">
-- yum install iptables-services
-- systemctl mask firewalld
-- systemctl enable iptables
-- systemctl stop firewalld
-- systemctl start iptables
-- iptables --flush
-
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-iptables-save &gt; /etc/sysconfig/iptables
+net.ipv4.ip_forward = 1 ; add to top of file
 </pre>
 </div>
 </div>
 
 <div id="outline-container-sec-1-4-2" class="outline-4">
-<h4 id="sec-1-4-2">edit /etc/sysctl.conf</h4>
+<h4 id="sec-1-4-2">firewalld</h4>
 <div class="outline-text-4" id="text-1-4-2">
-<pre class="example">
-+++ net.ipv4.ip_forward = 1
-
-- systemctl restart network.service
-- systemctl restart network.service
-</pre>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4-3" class="outline-4">
-<h4 id="sec-1-4-3">firewalld (test this)</h4>
-<div class="outline-text-4" id="text-1-4-3">
 <pre class="example">
 firewall-cmd --permanent --add-service openvpn
 firewall-cmd --permanent --add-masquerade
-
-(Add the following line at the top of /etc/sysctl.conf:)
-net.ipv4.ip_forward = 1
 
 systemctl restart firewalld
 systemctl restart network.service
@@ -193,7 +172,7 @@ systemctl restart network.service
 - systemctl start openvpn@server.service
 
 errors
-; tls-auth ta.key 0 # This file is secret      ; had to disable this line
+; tls-auth ta.key 0 # This file is secret      ; disable if not using tls-auth
 </pre>
 </div>
 </div>
@@ -208,6 +187,7 @@ errors
 /etc/openvpn/easy-rsa/keys/ca.crt
 /etc/openvpn/easy-rsa/keys/client.crt
 /etc/openvpn/easy-rsa/keys/client.key
+/etc/openvpn/ta.key ; optional
 </pre>
 </div>
 </div>
@@ -262,14 +242,32 @@ verb 3
 
 -----END PRIVATE KEY-----
 &lt;/key&gt;
+key-direction 1
+&lt;tls-auth&gt;
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+
+-----END OpenVPN Static key V1-----
+&lt;/tls-auth&gt;
 </pre>
 </div>
 </div>
 </div>
 
 <div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7">references</h3>
+<h3 id="sec-1-7">connect centos as client</h3>
 <div class="outline-text-3" id="text-1-7">
+<pre class="example">
+openvpn --config client.ovpn
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">references</h3>
+<div class="outline-text-3" id="text-1-8">
 <pre class="example">
 - https://www.digitalocean.com/community/tutorials/how-to-setup-and-configure-an-openvpn-server-on-centos-7
 </pre>
