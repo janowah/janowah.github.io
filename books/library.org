@@ -156,33 +156,33 @@ back room / right
   - 6414043184000599
 
 
-  - 9780674399471
-  - 9780993429101
+  - 9780674399471 A History of Modern Poetry, Volume II / David Perkins
+  - 9780993429101 Second Captains Sports Annual Vol 1 / Duffer McGregor
   - 6414173746000699
-  - 9780470435434
-  - 9780007243389
+  - 9780470435434 Mac OS X Snow Leopard For Dummies
+  - 9780007243389 The Genius in My Basement / Alexander Masters
   - 6414139424000699
-  - 9780679406419
-  - 9780717139729
+  - 9780679406419 The Complete Maus / Art Spiegelman
+  - 9780717139729 Something Rotten / Simon Carswell
   - 9780000008992
-  - 9780993289903
+  - 9780993289903 Hunger / Sean Kelly
   - 885118339378
 
-  - 9780199553891
-  - 9780450011849
-  - 9780241962817
+  - 9780199553891 Ward Number Six and Other Stories / Anton Chekhov
+  - 9780450011849 Dune / Frank Herbert 
+  - 9780241962817 Keeping Up with the Kalashnikovs / Ross O'Carroll-Kelly
   - 9780000004994
 
-  - 9780393310726
-  - 9781841155043
+  - 9780393310726 How to Lie with Statistics / Darrell Huff
+  - 9781841155043 When Genius Failed / Roger Lowenstein
   - 03302480229780349108391
-  - 9781853260452
+  - 9781853260452 Robinson Crusoe / Daniel Defoe
   - 586081739
-  - 9780140102901
-  - 9780141184883
+  - 9780140102901 Only A Game? / Eamon Dunphy
+  - 9780141184883 The Dharma Bums / Jack Kerouac
   - 9781846819377
   - 01550557399780805071344
-  - 9780471587422
+  - 9780471587422 Elementary Linear Algebra / Howard Anton
 #+END_EXAMPLE
 
 back room / press
