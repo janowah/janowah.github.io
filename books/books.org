@@ -8,6 +8,7 @@
 - [[file:to-read.html][to-read]]
 - [[file:non-fiction.html][non-fiction]]
 - [[file:college-books.html][college-books]]
+- [[file:lc-books.html][lc-books]]
 - [[file:library.html][library]]
 
 [[../index.html][back]]

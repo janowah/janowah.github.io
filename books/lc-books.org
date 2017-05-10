@@ -1,0 +1,30 @@
+#+title: LC Books
+#+options: num:nil ^:nil creator:nil author:nil creator:nil
+
+#+BEGIN_EXAMPLE
+  - applied maths
+  - business organisation
+    - 9780714412177 Revision Business Organisation for Leaving Certificate / Gregory O'Connor
+  - english
+    - 9780861676682 English Higher Level Leaving Certificate Exam Papers
+    - 9780717114528 The Plough and The Stars / Seán O'Casey
+    - 9780582030916 York Notes on Of Mice and Men: John Steinbeck / Martin Stephen
+    - 9780582022799 York Notes on William Golding's Lord of the Flies / Alastair Niven
+    - 9780582023246 York Notes on Emily Bronte's "Wuthering Heights" / A. J. P. Smith
+    - 9780582022775 York Notes on William Shakespeare's "King Lear" / Robert M. Rehder
+    - 9780861672172 King Lear / William Shakespeare
+  - german
+    - 0861214668    Sagen Sie Mal! / Seán Sutton
+  - history
+    - 9780861674534 Europe: History in the Making, 1870-1966 / Richard Fogarty
+    - 9780861673056 Ireland, 1868-1966: History in the Making / M.E. Collins
+    - 9780861672875 Revise Your History: Ireland 1868-1966 and Europe 1870-1966 / E. C. Gray
+    - 9780717123575 History Revision Notes for Leaving Certificate / Desmond O'Leary
+  - irish
+    - 9780714411514 Cunamh / Diarmaid Ó Tuama
+    - 9780714411415 Stair Na Gaeilge 
+    - 9780717123025 Saíocht / Donncha Ó Riain
+  - maths
+    - 9781872019291 Text and tests. mathematics part 4
+  - physics
+#+END_EXAMPLE
