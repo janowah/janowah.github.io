@@ -1,0 +1,23 @@
+#+title: vsftpd
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+
+#+BEGIN_EXAMPLE
+  - install
+    - yum install vsftpd
+  - systemd
+    - systemctl restart vsftpd
+    - systemctl start vsftpd
+  - firewalld
+    - firewall-cmd --permanent --add-service=ftp
+    - firewall-cmd --reload
+  - /etc/vsftpd/vsftpd.conf
+    - anon_upload_enable=YES ; changed
+  - questions
+    - who is the ftp user?
+    - allow anon access and upload
+  - logging
+    - access logs and error logs and error levels
+    - journalctl | grep ftpd
+#+END_EXAMPLE
+[[./rhcsa.html][back]]
+

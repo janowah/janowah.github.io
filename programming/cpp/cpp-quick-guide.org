@@ -5,6 +5,7 @@
 - =g++ hello.cpp=
 - =./a.out=
 - =g++ -g hello.cpp=
+- =g++ -pedantic -Wall -O2 hello.cpp=
 
 * installing
 - =yum install libstdc++-docs.x86_64=

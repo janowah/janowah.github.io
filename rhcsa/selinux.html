@@ -5,12 +5,18 @@
 <body>
   <h1>selinux</h1>
   <pre>
-   ls -Z ; view 
-   chcon -R --reference /etc/openvpn /etc/openvpn ; restore
-
-   sestatus
-   setenforce
-   setenforce permissive
+   - ls -Z ; view 
+   - sestatus
+   - setenforce
+     - setenforce permissive
+   - getsebool
+     - getsebool allow_ftpd_anon_write
+   - setsebool
+     - setsebool allow_ftpd_full_access on
+   - restorecon
+   - chcon
+     - chcon -R --reference /etc/openvpn /etc/openvpn ; restore
+     - chcon -R --reference=/var/ftp /var/ftp/
   </pre>
   <a href="./rhcsa.html">back</a>
 </body>

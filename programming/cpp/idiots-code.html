@@ -85,7 +85,7 @@
 <li><a href="#sec-69">17.2 An Example of Overloaded Functions and Logical AND Operators.</a></li>
 <li><a href="#sec-70">17.3 An Example of Logical OR Operators.</a></li>
 <li><a href="#sec-71">18.1 Create a File on Your Floppy Disk. &#x2013;CHECK AGAIN--</a></li>
-<li><a href="#sec-72">18.2 Read Back the File. &#x2013;CHECK AGAIN--</a></li>
+<li><a href="#sec-72">18.2 Read Back the File.</a></li>
 <li><a href="#sec-73">18.3 Create a File Stream of Integers, Using Binary Mode File Access.</a></li>
 <li><a href="#sec-74">18.4 Read a File Stream of Integers, Using Binary Mode File Access.</a></li>
 <li><a href="#sec-75">18.5 Create a File Stream of Records.</a></li>
@@ -124,6 +124,11 @@
 <li><a href="#sec-108">23.4 Dynamic Memory Allocation That Uses the Heap.</a></li>
 <li><a href="#sec-109">23.5 Returning Memory to the Heap by Using the delete Command.</a></li>
 <li><a href="#sec-110">23.6 The Implementation of a DEQUE, Based on the SEQUENCE Abstract Class. &#x2013;check--</a></li>
+<li><a href="#sec-111">B1.1 Search a File of Records</a></li>
+<li><a href="#sec-112">B1.2 Add a Record to a File Stream of Records</a></li>
+<li><a href="#sec-113">B1.3 The Amending Program</a></li>
+<li><a href="#sec-114">B1.4 A Deleting Program</a></li>
+<li><a href="#sec-115">B1.5 A Filtering Program</a></li>
 </ul>
 </div>
 </div>
@@ -3011,58 +3016,66 @@ bool IsValid(char alpha)
 <div class="outline-text-2" id="text-71">
 <div class="org-src-container">
 
-<pre class="src src-cpp">  #include &lt;iostream&gt;
-    #include &lt;fstream&gt;
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
 
-    using namespace std;
+using namespace std;
 
-    main()
-    {
-      char ch;
-      char filename[20] = "test.txt";
-      // int mode = ios::out;
-      ofstream fout( filename); //, ios::out );      // Output file
-      cout &lt;&lt; "Ready for input: Use Control-Z to end."
-	   &lt;&lt; endl;
-//      while ( cin.get(ch) )
-while ( cin &gt;&gt; ch )
-	{
-	  fout.put( ch );
-	}
-      fout.close();
-      return(0);
-    }
+main()
+{
+  char ch;
+  char filename[20] = "test.txt";
+  // int mode = ios::out;
+  ofstream fout( filename, ios::out );      // Output file
+  cout &lt;&lt; "Ready for input: Use Control-Z to end."
+       &lt;&lt; endl;
+
+  do {
+    ch = cin.get();
+    fout.put(ch);
+  } while (ch!='.');
+
+  // while ( cin.get(ch) ) // this doesn't work
+  //   {
+  //     fout.put( ch );
+  //   }
+
+  fout.close();
+  return(0);
+}
 </pre>
 </div>
 </div>
 </div>
 
 <div id="outline-container-sec-72" class="outline-2">
-<h2 id="sec-72">18.2 Read Back the File. &#x2013;CHECK AGAIN--</h2>
+<h2 id="sec-72">18.2 Read Back the File.</h2>
 <div class="outline-text-2" id="text-72">
 <div class="org-src-container">
 
-<pre class="src src-cpp">  #include &lt;iostream&gt;  
-  #include &lt;fstream&gt;
+<pre class="src src-cpp">//ignores whitespace
 
-  using namespace std;
+#include &lt;iostream&gt;  
+#include &lt;fstream&gt;
 
-  main()
-  {
-    char ch;
-    char filename[20] = "L18_1.cpp";
-    // int mode = ios::in;
-    fstream fin( filename, ios::in );      // Input file
-    if (!fin)
-      cout &lt;&lt; "Unable to open file";
-//     while ( fin.get(ch) )
-while ( fin &gt;&gt; ch )
-      {
-	cout &lt;&lt; ch;
-      }
-    fin.close();
-    return(0);
-  }
+using namespace std;
+
+main()
+{
+  char ch;
+  char filename[20] = "test.txt";
+  // int mode = ios::in;
+  fstream fin( filename, ios::in );      // Input file
+  if (!fin)
+    cout &lt;&lt; "Unable to open file";
+  //     while ( fin.get(ch) )
+  while ( fin &gt;&gt; ch )
+    {
+      cout &lt;&lt; ch;
+    }
+  fin.close();
+  return(0);
+}
 </pre>
 </div>
 </div>
@@ -5126,6 +5139,444 @@ main()
 	case '4' :    exit(0);
 	}
     }
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-111" class="outline-2">
+<h2 id="sec-111">B1.1 Search a File of Records</h2>
+<div class="outline-text-2" id="text-111">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#define tab '\t'
+
+using namespace std;
+
+struct planet     {
+  char name[10];
+  int  dist;
+};
+
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, planet&amp; d)
+{
+  unsigned int index;
+  // Force any new output to uppercase
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_out &lt;&lt; d.name &lt;&lt; tab;
+  str_out &lt;&lt; d.dist &lt;&lt; tab &lt;&lt; endl;
+  return(str_out);
+};
+
+istream&amp; operator &gt;&gt; (istream&amp; str_in, planet&amp; d)
+{
+  unsigned int index;
+  str_in &gt;&gt; d.name;
+  // Just in case, force any old input to uppercase
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_in &gt;&gt; d.dist;
+  return(str_in);
+};
+
+main()
+{
+  struct planet solar;
+  char filename[20] = "system.dat";
+  // int mode = (ios::in | ios::binary);
+  char target[10];
+  int found = 0;
+  unsigned int index;
+
+  fstream fin( filename, ios::in | ios::binary );      // Input file
+  if (!fin)
+    {
+      cout &lt;&lt; "Unable to open file";
+      exit(0);
+    }
+  cout &lt;&lt; "Enter the planet name : ";
+  cin &gt;&gt; target;
+  for (index = 0; index &lt; strlen(target); index++)
+    {
+      target[index] = toupper(target[index]);
+    }
+  while (fin &gt;&gt; solar)
+    {
+      if (strcmp(solar.name,target) == 0)
+	{
+	  cout &lt;&lt; solar;
+	  found = 1;
+	}
+    }
+  if (found == 0)
+    cout &lt;&lt; "Planet not found" &lt;&lt; endl;
+  fin.close();
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-112" class="outline-2">
+<h2 id="sec-112">B1.2 Add a Record to a File Stream of Records</h2>
+<div class="outline-text-2" id="text-112">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#define tab '\t'
+
+using namespace std;
+
+struct planet     {
+  char name[10];
+  int  dist;
+};
+
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, planet&amp; d)
+{
+  unsigned int index;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_out &lt;&lt; d.name &lt;&lt; tab;
+  str_out &lt;&lt; d.dist &lt;&lt; tab &lt;&lt; endl;
+  return(str_out);
+};
+
+istream&amp; operator &gt;&gt; (istream&amp; str_in, planet&amp; d)
+{
+  unsigned int index;
+  str_in &gt;&gt; d.name;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_in &gt;&gt; d.dist;
+  return(str_in);
+};
+
+main()
+{
+  struct planet another;
+  char filename[20] = "system.dat";
+  // int mode = (ios::app | ios::binary);
+  fstream fapp( filename, ios::out | ios::app | ios::binary );
+  cout &lt;&lt; "Enter the planet name : ";
+  cin &gt;&gt; another.name;
+  cout &lt;&lt; "Enter the distance : ";
+  cin &gt;&gt; another.dist;
+  fapp &lt;&lt; another;            // Attach to file end
+  fapp.close();               // Close file
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-113" class="outline-2">
+<h2 id="sec-113">B1.3 The Amending Program</h2>
+<div class="outline-text-2" id="text-113">
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#define tab '\t'
+
+using namespace std;
+
+struct planet     {
+  char name[10];
+  int  dist;
+};
+
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, planet&amp; d)
+{
+  unsigned int index;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_out &lt;&lt; d.name &lt;&lt; tab;
+  str_out &lt;&lt; d.dist &lt;&lt; tab &lt;&lt; endl;
+  return(str_out);
+};
+
+istream&amp; operator &gt;&gt; (istream&amp; str_in, planet&amp; d)
+{
+  unsigned int index;
+  str_in &gt;&gt; d.name;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_in &gt;&gt; d.dist;
+  return(str_in);
+};
+
+main()
+{
+  struct planet solar;
+  struct planet newworld;
+  char filename[20] = "system.dat";
+  char backup[20] = "system.bak";
+  // int modein = (ios::in | ios::binary);
+  // int modeout = (ios::out | ios::binary);
+  char target[10];
+  int found = 0;
+  unsigned int index;
+
+  fstream fin( filename, ios::in | ios::binary );
+  if (!fin)
+    {
+      cout &lt;&lt; "Unable to open file";
+      exit(0);
+    }
+
+  fstream fout( backup, ios::out | ios::binary );
+  cout &lt;&lt; "Enter the planet name : ";
+  cin &gt;&gt; target;
+  for (index = 0; index &lt; strlen(target); index++)
+    {
+      target[index] = toupper(target[index]);
+    }
+
+  while (fin &gt;&gt; solar)
+    {
+      if (strcmp(solar.name,target) == 0)
+	{
+	  cout &lt;&lt; solar;
+	  cout &lt;&lt; "Enter the new name : ";
+	  cin &gt;&gt; newworld.name;
+	  cout &lt;&lt; "Enter the new distance : ";
+	  cin &gt;&gt; newworld.dist;
+	  fout &lt;&lt; newworld;
+	  found = 1;
+	}
+      else
+	fout &lt;&lt; solar;
+    }
+
+  if (found == 0)
+    cout &lt;&lt; "Planet not found";
+  fin.close();
+  fout.close();
+
+  if (found == 1)
+    {
+      rename("system.bak","system.tmp");
+      rename("system.dat","system.bak");
+      rename("system.tmp","system.dat");
+    }
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-114" class="outline-2">
+<h2 id="sec-114">B1.4 A Deleting Program</h2>
+<div class="outline-text-2" id="text-114">
+<div class="org-src-container">
+
+<pre class="src src-cpp">// Read a file stream of records
+// Search for specific data
+// Delete that data
+// Save file and make a backup.
+
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#define tab '\t'
+
+using namespace std;
+
+struct planet     {
+  char name[10];
+  int  dist;
+};
+
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, planet&amp; d)
+{
+  unsigned int index;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_out &lt;&lt; d.name &lt;&lt; tab;
+  str_out &lt;&lt; d.dist &lt;&lt; tab &lt;&lt; endl;
+  return(str_out);
+};
+
+istream&amp; operator &gt;&gt; (istream&amp; str_in, planet&amp; d)
+{
+  unsigned int index;
+  str_in &gt;&gt; d.name;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_in &gt;&gt; d.dist;
+  return(str_in);
+};
+
+main()
+{
+  struct planet solar;
+  char filename[20] = "system.dat";
+  char backup[20] = "system.bak";
+  // int modein = (ios::in | ios::binary);
+  // int modeout = (ios::out | ios::binary);
+  char target[10];
+  int found = 0;
+  unsigned int index;
+  fstream fin( filename, ios::in | ios::binary );
+  if (!fin)
+    {
+      cout &lt;&lt; "Unable to open file";
+      exit(0);
+    }
+  fstream fout( backup, ios::out | ios::binary );
+  cout &lt;&lt; "Enter the planet name : ";
+  cin &gt;&gt; target;
+  for (index = 0; index &lt; strlen(target); index++)
+    {
+      target[index] = toupper(target[index]);
+    }
+  while (fin &gt;&gt; solar)
+    {
+      if (strcmp(solar.name,target) != 0)
+	{
+	  fout &lt;&lt; solar;
+	}
+      else
+	{
+	  found = 1;
+	}
+    }
+  if (found == 1)
+    {
+      cout &lt;&lt; "Planet deleted" &lt;&lt; endl;
+    }
+  else
+    {
+      cout &lt;&lt; "Planet not found" &lt;&lt; endl;
+    }
+  fin.close();
+  fout.close();
+  if (found == 1)
+    {
+      rename("system.bak","system.tmp");
+      rename("system.dat","system.bak");
+      rename("system.tmp","system.dat");
+    }
+  return(0);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-115" class="outline-2">
+<h2 id="sec-115">B1.5 A Filtering Program</h2>
+<div class="outline-text-2" id="text-115">
+<div class="org-src-container">
+
+<pre class="src src-cpp">// Read a file stream of records
+// Search for specific data
+// Look for all planets that start with letter M
+// Save filter
+
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#define tab '\t'
+
+using namespace std;
+
+struct planet     {
+  char name[10];
+  int  dist;
+};
+
+ostream&amp; operator &lt;&lt; (ostream&amp; str_out, planet&amp; d)
+{
+  str_out &lt;&lt; d.name &lt;&lt; tab;
+  str_out &lt;&lt; d.dist &lt;&lt; tab &lt;&lt; endl;
+  return(str_out);
+};
+
+istream&amp; operator &gt;&gt; (istream&amp; str_in, planet&amp; d)
+{
+  unsigned int index;
+  str_in &gt;&gt; d.name;
+  for (index = 0; index &lt; strlen(d.name); index++)
+    {
+      d.name[index] = toupper(d.name[index]);
+    }
+  str_in &gt;&gt; d.dist;
+  return(str_in);
+};
+
+main()
+{
+  struct planet solar;
+  char filename[20] = "system.dat";
+  char filter[20] = "filter.dat";
+  // int modein = (ios::in | ios::binary);
+  // int modeout = (ios::out | ios::binary);
+  int found = 0;
+  fstream fout( filter, ios::out | ios::binary);
+  fstream fin( filename, ios::in | ios::binary );
+  if (!fin)
+    {
+      cout &lt;&lt; "Unable to open file";
+      exit(0);
+    }
+  cout &lt;&lt; "Processing data...Please wait" &lt;&lt; endl;
+  while (fin &gt;&gt; solar)
+    {
+      // This is the filter
+      if (solar.name[0] == 'M')
+	{
+	  fout &lt;&lt; solar;
+	  found = 1;
+	}
+    }
+  if (found == 0)
+    {
+      cout &lt;&lt; "No match found" &lt;&lt; endl;
+    }
+  else
+    {
+      cout &lt;&lt; "Processing complete" &lt;&lt; endl;
+    }
+  fin.close();
+  fout.close();
   return(0);
 }
 </pre>
