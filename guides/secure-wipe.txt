@@ -1,0 +1,7 @@
+# -*- mode: org -*-
+#+title: Secure Wipe
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- dd
+- dban
+

@@ -1,0 +1,24 @@
+# -*- mode: org -*-
+#+title: Compare Directories
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* how to diff two directories
+
+** tools
+- cfv
+- hashdeep
+- diff
+  - =diff -r /folderA/ /folderB/=
+- rsync
+  - =rsync -avtn /folderA/ /folderB/=
+
+
+** options
+- diff directly like with total commander
+- create index files and diff these hash files
+
+** issues
+- timestamps
+- length of time it takes
+- hidden files
+- long file names

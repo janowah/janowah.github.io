@@ -1,0 +1,6 @@
+#+Title: python
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- [[file:setup.html][setup]]
+- [[file:code.html][code]]
+

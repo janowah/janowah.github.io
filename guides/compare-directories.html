@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Compare Directories</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Compare Directories</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">how to diff two directories</a>
+<ul>
+<li><a href="#sec-1-1">tools</a></li>
+<li><a href="#sec-1-2">options</a></li>
+<li><a href="#sec-1-3">issues</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">how to diff two directories</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">tools</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>cfv
+</li>
+<li>hashdeep
+</li>
+<li>diff
+<ul class="org-ul">
+<li><code>diff -r /folderA/ /folderB/</code>
+</li>
+</ul>
+</li>
+<li>rsync
+<ul class="org-ul">
+<li><code>rsync -avtn /folderA/ /folderB/</code>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">options</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>diff directly like with total commander
+</li>
+<li>create index files and diff these hash files
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">issues</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>timestamps
+</li>
+<li>length of time it takes
+</li>
+<li>hidden files
+</li>
+<li>long file names
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

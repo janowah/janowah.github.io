@@ -1,0 +1,29 @@
+#+Title: setup
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* centos
+** installation
+- python34.x86_64
+- python34-tools.x86_64
+- python34-pip.noarch
+
+** adding modules
+- sudo pip3 install /ModuleName/
+  - pip3 install pyperclip
+- pip3 install –U /ModuleName/ # upgrade
+- import /ModuleName/ # in the interactive shell to check
+
+** using the command line
+- chmod 764 pw.py
+- python3.4 ./pw.py email
+
+** pyperclip
+yum install xclip
+
+
+* windows
+#+BEGIN_EXAMPLE C:\Windows\pw.bat
+  @py.exe C:\Python34\pw.py %*
+  @pause
+#+END_EXAMPLE
+usage: win -R and typing pw <account name>

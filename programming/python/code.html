@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>code</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">code</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">chapter 4: lists</a>
+<ul>
+<li><a href="#sec-1-1">allMyCats1.py</a></li>
+<li><a href="#sec-1-2">allMyCats2.py</a></li>
+<li><a href="#sec-1-3">myPets.py</a></li>
+<li><a href="#sec-1-4">magic8Ball2.py</a></li>
+<li><a href="#sec-1-5">passingReference.py</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">chapter 5: dictionaries and structuring data</a>
+<ul>
+<li><a href="#sec-2-1">birthdays.py</a></li>
+<li><a href="#sec-2-2">characterCount.py</a></li>
+<li><a href="#sec-2-3">prettyCharacterCount.py</a></li>
+<li><a href="#sec-2-4">ticTacToe.py</a></li>
+<li><a href="#sec-2-5">inventory.py</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">chapter 6: strings</a>
+<ul>
+<li><a href="#sec-3-1">catnapping.py</a></li>
+<li><a href="#sec-3-2">validateInput.py</a></li>
+<li><a href="#sec-3-3">picnicTable.py</a></li>
+<li><a href="#sec-3-4">pw.py</a></li>
+<li><a href="#sec-3-5">bulletPointAdder.py</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">chapter 4: lists</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">allMyCats1.py</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+
+<pre class="src src-python"># allMyCats1.py
+# Working with Lists
+# WORKS
+
+print('Enter the name of cat 1:')
+catName1 = input()
+print('Enter the name of cat 2:')
+catName2 = input()
+print('Enter the name of cat 3:')
+catName3 = input()
+print('Enter the name of cat 4:')
+catName4 = input()
+print('Enter the name of cat 5:')
+catName5 = input()
+print('Enter the name of cat 6:')
+catName6 = input()
+print('The cat names are:')
+print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' + catName4 + ' ' +
+catName5 + ' ' + catName6)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">allMyCats2.py</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+
+<pre class="src src-python"># allMyCats2.py
+# Working with Lists
+# WORKS
+
+catNames = []
+while True:
+    print('Enter the name of cat ' + str(len(catNames) + 1) +
+    ' (Or enter nothing to stop.):')
+    name = input()
+    if name == '':
+	break
+    catNames = catNames + [name] # list concatenation
+print('The cat names are:')
+for name in catNames:
+    print(' ' + name)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">myPets.py</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+
+<pre class="src src-python"># myPets.py
+# The in and not in Operators
+# WORKS
+
+myPets = ['Zophie', 'Pooka', 'Fat-tail']
+print('Enter a pet name:')
+name = input()
+if name not in myPets:
+    print('I do not have a pet named ' + name)
+else:
+    print(name + ' is my pet.')
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">magic8Ball2.py</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+
+<pre class="src src-python"># magic8Ball2.py
+# Example Program: Magic 8 Ball with a List
+# WORKS
+
+import random
+
+messages = ['It is certain',
+    'It is decidedly so',
+    'Yes definitely',
+    'Reply hazy try again',
+    'Ask again later',
+    'Concentrate and ask again',
+    'My reply is no',
+    'Outlook not so good',
+    'Very doubtful']
+
+print(messages[random.randint(0, len(messages) - 1)])
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">passingReference.py</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+
+<pre class="src src-python"># passingReference.py
+# Passing References
+# WORKS
+
+def eggs(someParameter):
+    someParameter.append('Hello')
+
+spam = [1, 2, 3]
+eggs(spam)
+print(spam)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">chapter 5: dictionaries and structuring data</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">birthdays.py</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+
+<pre class="src src-python"># birthdays.py
+# Dictionaries vs. Lists
+# WORKS
+
+birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+
+while True:
+    print('Enter a name: (blank to quit)')
+    name = input()
+    if name == '':
+	break
+
+    if name in birthdays:
+	print(birthdays[name] + ' is the birthday of ' + name)
+    else:
+	print('I do not have birthday information for ' + name)
+	print('What is their birthday?')
+	bday = input()
+	birthdays[name] = bday
+	print('Birthday database updated.')
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">characterCount.py</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-python"># characterCount.py
+# The setdefault() Method
+# WORKS
+
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+print(count)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">prettyCharacterCount.py</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+
+<pre class="src src-python"># prettyCharacterCount.py
+# Pretty Printing
+# WORKS
+
+import pprint
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+pprint.pprint(count)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">ticTacToe.py</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+
+<pre class="src src-python"># ticTacToe.py
+# A Tic-Tac-Toe Board
+# WORKS but not functional
+# http://nostarch.com/automatestuff/ for full version
+
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+
+def printBoard(board):
+    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+    print('-+-+-')
+    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+    print('-+-+-')
+    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+turn = 'X'
+for i in range(9):
+    printBoard(theBoard)
+    print('Turn for ' + turn + '. Move on which space?')
+    move = input()
+    theBoard[move] = turn
+    if turn == 'X':
+	turn = 'O'
+    else:
+	turn = 'X'
+
+printBoard(theBoard)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">inventory.py</h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="org-src-container">
+
+<pre class="src src-python"># inventory.py
+# Practice Projects
+# WORKS. incomplete
+
+stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total = 0
+    for k, v in inventory.items():
+	print(str(v) + ' ' + k)
+	item_total += v
+    print("Total number of items: " + str(item_total))
+displayInventory(stuff)
+
+#def addToInventory(inventory, addedItems):
+    # your code goes here
+
+#inv = {'gold coin': 42, 'rope': 1}
+#dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+#inv = addToInventory(inv, dragonLoot)
+#displayInventory(inv)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">chapter 6: strings</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">catnapping.py</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-python"># catnapping.py
+# Multiline Strings with Triple Quotes
+# WORKS
+
+print('''Dear Alice,
+
+Eve's cat has been arrested for catnapping, cat burglary, and extortion.
+
+Sincerely,
+Bob''')
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">validateInput.py</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+
+<pre class="src src-python"># validateInput.py
+# The isX String Methods
+# WORKS
+
+while True:
+    print('Enter your age:')
+    age = input()
+    if age.isdecimal():
+	break
+    print('Please enter a number for your age.')
+
+while True:
+    print('Select a new password (letters and numbers only):')
+    password = input()
+    if password.isalnum():
+	break
+    print('Passwords can only have letters and numbers.')
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">picnicTable.py</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+
+<pre class="src src-python"># picnicTable.py
+# Justifying Text with rjust(), ljust(), and center()
+# WORKS
+
+def printPicnic(itemsDict, leftWidth, rightWidth):
+    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+    for k, v in itemsDict.items():
+	print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+
+picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+printPicnic(picnicItems, 12, 5)
+printPicnic(picnicItems, 20, 6)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4">pw.py</h3>
+<div class="outline-text-3" id="text-3-4">
+<div class="org-src-container">
+
+<pre class="src src-python">#! python3
+# pw.py - An insecure password locker program.
+# Project: Password Locker
+# install pyperclip module
+# Pyperclip could not find a copy/paste mechanism for your system.
+# yum install xclip
+# WORKS
+
+PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
+	     'blog': 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',
+	     'luggage': '12345'}
+
+import sys, pyperclip
+if len(sys.argv) &lt; 2:
+    print('Usage: py pw.py [account] - copy account password')
+    sys.exit()
+
+account = sys.argv[1]   # first command line arg is the account name
+
+if account in PASSWORDS:
+    pyperclip.copy(PASSWORDS[account])
+    print('Password for ' + account + ' copied to clipboard.')
+else:
+    print('There is no account named ' + account)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5">bulletPointAdder.py</h3>
+<div class="outline-text-3" id="text-3-5">
+<div class="org-src-container">
+
+<pre class="src src-python">#! python3
+# bulletPointAdder.py - Adds Wikipedia bullet points to the start
+# of each line of text on the clipboard.
+# Project: Adding Bullets to Wiki Markup
+# WORKS
+
+import pyperclip
+text = pyperclip.paste()
+
+# Separate lines and add stars.
+lines = text.split('\n')
+for i in range(len(lines)):    # loop through all indexes for "lines" list
+    lines[i] = '* ' + lines[i] # add star to each string in "lines" list
+text = '\n'.join(lines)
+pyperclip.copy(text)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,310 @@
+#+Title: code
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* chapter 4: lists
+** allMyCats1.py
+#+BEGIN_SRC python :tangle allMyCats1.py :padline no
+  # allMyCats1.py
+  # Working with Lists
+  # WORKS
+
+  print('Enter the name of cat 1:')
+  catName1 = input()
+  print('Enter the name of cat 2:')
+  catName2 = input()
+  print('Enter the name of cat 3:')
+  catName3 = input()
+  print('Enter the name of cat 4:')
+  catName4 = input()
+  print('Enter the name of cat 5:')
+  catName5 = input()
+  print('Enter the name of cat 6:')
+  catName6 = input()
+  print('The cat names are:')
+  print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' + catName4 + ' ' +
+  catName5 + ' ' + catName6)
+#+END_SRC
+
+** allMyCats2.py
+#+BEGIN_SRC python :tangle allMyCats2.py :padline no
+  # allMyCats2.py
+  # Working with Lists
+  # WORKS
+
+  catNames = []
+  while True:
+      print('Enter the name of cat ' + str(len(catNames) + 1) +
+      ' (Or enter nothing to stop.):')
+      name = input()
+      if name == '':
+          break
+      catNames = catNames + [name] # list concatenation
+  print('The cat names are:')
+  for name in catNames:
+      print(' ' + name)
+#+END_SRC
+
+** myPets.py
+#+BEGIN_SRC python :tangle myPets.py :padline no
+  # myPets.py
+  # The in and not in Operators
+  # WORKS
+
+  myPets = ['Zophie', 'Pooka', 'Fat-tail']
+  print('Enter a pet name:')
+  name = input()
+  if name not in myPets:
+      print('I do not have a pet named ' + name)
+  else:
+      print(name + ' is my pet.')
+#+END_SRC
+
+** magic8Ball2.py
+#+BEGIN_SRC python :tangle magic8Ball2.py :padline no
+  # magic8Ball2.py
+  # Example Program: Magic 8 Ball with a List
+  # WORKS
+
+  import random
+
+  messages = ['It is certain',
+      'It is decidedly so',
+      'Yes definitely',
+      'Reply hazy try again',
+      'Ask again later',
+      'Concentrate and ask again',
+      'My reply is no',
+      'Outlook not so good',
+      'Very doubtful']
+
+  print(messages[random.randint(0, len(messages) - 1)])
+#+END_SRC
+
+** passingReference.py
+#+BEGIN_SRC python :tangle passingReference.py :padline no
+  # passingReference.py
+  # Passing References
+  # WORKS
+
+  def eggs(someParameter):
+      someParameter.append('Hello')
+      
+  spam = [1, 2, 3]
+  eggs(spam)
+  print(spam)
+#+END_SRC
+
+* chapter 5: dictionaries and structuring data
+** birthdays.py
+#+BEGIN_SRC python :tangle birthdays.py :padline no
+  # birthdays.py
+  # Dictionaries vs. Lists
+  # WORKS
+
+  birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+
+  while True:
+      print('Enter a name: (blank to quit)')
+      name = input()
+      if name == '':
+          break
+      
+      if name in birthdays:
+          print(birthdays[name] + ' is the birthday of ' + name)
+      else:
+          print('I do not have birthday information for ' + name)
+          print('What is their birthday?')
+          bday = input()
+          birthdays[name] = bday
+          print('Birthday database updated.')
+#+END_SRC
+
+** characterCount.py
+#+BEGIN_SRC python :tangle characterCount.py :padline no
+  # characterCount.py
+  # The setdefault() Method
+  # WORKS
+
+  message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+  count = {}
+
+  for character in message:
+      count.setdefault(character, 0)
+      count[character] = count[character] + 1
+  print(count)
+#+END_SRC
+
+** prettyCharacterCount.py
+#+BEGIN_SRC python :tangle prettyCharacterCount.py :padline no
+  # prettyCharacterCount.py
+  # Pretty Printing
+  # WORKS
+
+  import pprint
+  message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+  count = {}
+
+  for character in message:
+      count.setdefault(character, 0)
+      count[character] = count[character] + 1
+
+  pprint.pprint(count)
+#+END_SRC
+
+** ticTacToe.py
+#+BEGIN_SRC python :tangle ticTacToe.py :padline no
+  # ticTacToe.py
+  # A Tic-Tac-Toe Board
+  # WORKS but not functional
+  # http://nostarch.com/automatestuff/ for full version
+
+  theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+  'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+  'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+
+  def printBoard(board):
+      print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+      print('-+-+-')
+      print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+      print('-+-+-')
+      print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+  turn = 'X'
+  for i in range(9):
+      printBoard(theBoard)
+      print('Turn for ' + turn + '. Move on which space?')
+      move = input()
+      theBoard[move] = turn
+      if turn == 'X':
+          turn = 'O'
+      else:
+          turn = 'X'
+      
+  printBoard(theBoard)
+#+END_SRC
+
+** inventory.py
+#+BEGIN_SRC python :tangle inventory.py :padline no
+  # inventory.py
+  # Practice Projects
+  # WORKS. incomplete
+
+  stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+  def displayInventory(inventory):
+      print("Inventory:")
+      item_total = 0
+      for k, v in inventory.items():
+          print(str(v) + ' ' + k)
+          item_total += v
+      print("Total number of items: " + str(item_total))
+  displayInventory(stuff)
+
+  #def addToInventory(inventory, addedItems):
+      # your code goes here
+
+  #inv = {'gold coin': 42, 'rope': 1}
+  #dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+  #inv = addToInventory(inv, dragonLoot)
+  #displayInventory(inv)
+#+END_SRC
+
+* chapter 6: strings
+** catnapping.py
+#+BEGIN_SRC python :tangle catnapping.py :padline no
+  # catnapping.py
+  # Multiline Strings with Triple Quotes
+  # WORKS
+
+  print('''Dear Alice,
+
+  Eve's cat has been arrested for catnapping, cat burglary, and extortion.
+
+  Sincerely,
+  Bob''')
+#+END_SRC
+
+** validateInput.py
+#+BEGIN_SRC python :tangle validateInput.py :padline no
+  # validateInput.py
+  # The isX String Methods
+  # WORKS
+
+  while True:
+      print('Enter your age:')
+      age = input()
+      if age.isdecimal():
+          break
+      print('Please enter a number for your age.')
+
+  while True:
+      print('Select a new password (letters and numbers only):')
+      password = input()
+      if password.isalnum():
+          break
+      print('Passwords can only have letters and numbers.')
+#+END_SRC
+
+** picnicTable.py
+#+BEGIN_SRC python :tangle picnicTable.py :padline no
+  # picnicTable.py
+  # Justifying Text with rjust(), ljust(), and center()
+  # WORKS
+
+  def printPicnic(itemsDict, leftWidth, rightWidth):
+      print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+      for k, v in itemsDict.items():
+          print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+
+  picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+  printPicnic(picnicItems, 12, 5)
+  printPicnic(picnicItems, 20, 6)
+#+END_SRC
+
+** pw.py
+#+BEGIN_SRC python :tangle pw.py :padline no
+  #! python3
+  # pw.py - An insecure password locker program.
+  # Project: Password Locker
+  # install pyperclip module
+  # Pyperclip could not find a copy/paste mechanism for your system.
+  # yum install xclip
+  # WORKS
+
+  PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
+               'blog': 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',
+               'luggage': '12345'}
+
+  import sys, pyperclip
+  if len(sys.argv) < 2:
+      print('Usage: py pw.py [account] - copy account password')
+      sys.exit()
+
+  account = sys.argv[1]   # first command line arg is the account name
+
+  if account in PASSWORDS:
+      pyperclip.copy(PASSWORDS[account])
+      print('Password for ' + account + ' copied to clipboard.')
+  else:
+      print('There is no account named ' + account)
+#+END_SRC
+
+** bulletPointAdder.py
+#+BEGIN_SRC python :tangle bulletPointAdder.py :padline no
+  #! python3
+  # bulletPointAdder.py - Adds Wikipedia bullet points to the start
+  # of each line of text on the clipboard.
+  # Project: Adding Bullets to Wiki Markup
+  # WORKS
+
+  import pyperclip
+  text = pyperclip.paste()
+
+  # Separate lines and add stars.
+  lines = text.split('\n')
+  for i in range(len(lines)):    # loop through all indexes for "lines" list
+      lines[i] = '* ' + lines[i] # add star to each string in "lines" list
+  text = '\n'.join(lines)
+  pyperclip.copy(text)
+#+END_SRC
+
+
+
