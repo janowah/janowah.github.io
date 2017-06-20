@@ -17,9 +17,27 @@
 - chmod 764 pw.py
 - python3.4 ./pw.py email
 
-** pyperclip
+** 3rd party modules
+*** pyperclip
 yum install xclip
 
+*** pygame
+#+BEGIN_EXAMPLE
+  yum install the following
+  - python34-devel.x86_64
+  - mercurial.x86_64
+  - SDL2_image-devel.x86_64
+  - SDL2-devel.x86_64
+  - SDL2_ttf-devel.x86_64
+  - yum install SDL-devel
+
+  pip3 install --user hg+http://bitbucket.org/pygame/pygame
+
+  navigate to the /tmp directory
+  - python3 config.py
+  - python3 setup.py build
+  - python3 setup.py install
+#+END_EXAMPLE
 
 * windows
 #+BEGIN_EXAMPLE C:\Windows\pw.bat
