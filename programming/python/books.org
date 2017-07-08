@@ -1,0 +1,13 @@
+#+Title: books
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- Automate the Boring Stuff with Python
+  - Al Sweigart
+- Python Crash Course
+  - Eric Matthes
+- Doing Math with Python
+  - Amit Saha
+- /Black Hat Python/
+  - /Justin Seitz/
+
+[[file:python.html][back]]

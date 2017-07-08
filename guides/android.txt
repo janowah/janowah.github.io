@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+#+title: android
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- sha1sum
+  - termius on android
+  - =find . -type f -print0 | xargs -r0 sha1sum > hashfile.txt=
+- storage
+  - =/storage/emulated/0=
+  - =/storage/3665-6433/=
+- applications
+- issues
+  - can't copy zip files to centos

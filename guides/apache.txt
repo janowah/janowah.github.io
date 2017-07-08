@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+#+title: apache
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* plain text directory listing
+- edit =/etc/httpd/conf.d/autoindex.conf=
+- set =IndexOptions FancyIndexing= or =IndexOptions FancyIndexing FoldersFirst=
+- uncomment all the icons block
+
+* length of filenames
+- =/etc/httpd/conf.d/autoindex.conf=
+- IndexOptions NameWidth=40 ; fixed
+- IndexOptions NameWidth=* ; auto
+- default is ?
+
+* passwords
+
+* footer
+

@@ -2,5 +2,7 @@
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 - [[file:setup.html][setup]]
+- [[file:books.html][books]]
 - [[file:code.html][code]]
+- [[file:crash-course.html][crash-course]]
 
