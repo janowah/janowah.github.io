@@ -1,0 +1,37 @@
+# -*- mode: org -*-
+
+#+title: time
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+
+#+BEGIN_EXAMPLE
+  you cannot have both chronyd and ntpd running on the same machine:
+
+  use one of
+
+  ntpd ; servers always connected to a network
+  chronyd ; virtual and mobile
+
+  /etc/localtime
+  /usr/share/zoneinfo/America/Los_Angeles
+  # timedatectl list-timezones
+  # timedatectl set-timezone America/Los_Angeles
+  /etc/chrony.conf
+  iburst configuration option shown here speeds the initial synchronization
+  when the chronyd service is started.
+  # systemctl restart chrnoyd
+  chronyc sources -v
+
+  ntpd
+  # systemctl stop chronyd.service
+  # systemctl disable chronyd.service
+
+  # yum install ntp
+  /etc/ntp.conf
+
+  # systemctl start ntpd.service
+  # systemctl enable ntpd.service
+
+  ntpq -p
+#+END_EXAMPLE
+
+[[file:rhcsa.html][back]]

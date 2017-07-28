@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>software</title>
+<!-- 2017-07-15 Sat 21:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">software</h1>
+<ul class="org-ul">
+<li>configure repos
+</li>
+<li>install from repos, local rpm files
+</li>
+<li>uninstall. update
+</li>
+</ul>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">yum</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">commands</h3>
+<div class="outline-text-3" id="text-1-1">
+<pre class="example">
+- VIEW
+  - yum | less ; list of commands
+  - yum list ; list of all packages, whether they’re installed or
+                available, along with their version numbers and
+                repositories
+  - yum list | grep /packagename/ 
+  - yum repolist all ; all configured repos
+  - yum info samba
+    - equivalent to rpm -qi samba ; works if the queried package is
+      already installed
+  - yum list updates ; avaliable updates
+    - yum check-update ; equivalent
+  - provides alias: whatprovides
+  - yum whatprovides "*evince*" ; if operational command includes evince
+  - yum whatprovides "*.repo" ; file search
+  - yum whatprovides "/etc/systemd/*"
+  - yum search
+
+- INSTALL
+  - yum install samba ; will install or update?
+  - yum install system-config-date
+
+- UPDATE
+  - yum update samba ; will update but not install
+    - same as rpm -F
+  - yum update ; all packages  
+  - yum makecache ; update the local database cache
+
+- DELETE 
+  - yum remove samba ; and dependencies
+  - yum clean all ; clear out databases from previously accessed repositories
+  - yum clean all ; if problems. flushes current cache of headers
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Groups</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>view
+<ul class="org-ul">
+<li>yum group list ; identify avaliable package groups
+</li>
+<li>yum group info "Basic Web Server"
+</li>
+<li>yum group list hidden ; list all groups
+<ul class="org-ul">
+<li>"There is no installed groups file" createrepo?
+</li>
+</ul>
+</li>
+<li>yum group info "Remote Desktop Clients" ; one regular group
+<ul class="org-ul">
+<li>yum install tigervnc ; install optional
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+example
+</p>
+<ul class="org-ul">
+<li>yum group info "Print Server" ;
+</li>
+<li>yum group install "Print Server" ; mandatory and default packages
+</li>
+</ul>
+
+<p>
+Mandatory always installed. default normally unless <code>-x</code> exclude
+</p>
+
+<ul class="org-ul">
+<li>yum group install "Print Server" -x paps -x gutenprint-cups ; exclude
+</li>
+<li>yum group info "Print Server" ; check again
+</li>
+<li>yum group remove "Print Server"
+</li>
+</ul>
+
+<p>
+= ; package installed with yum group install
+</p>
+<ul class="org-ul">
+<li>; package excluded
+<ul class="org-ul">
+<li>will not be installed if upgrade or install group
+</li>
+</ul>
+</li>
+<li>; not installed but will be installed if install or upgrade
+</li>
+</ul>
+<p>
+no marker. package was installed, but not as part of a yum group install command.
+yum group remove "Print Server" ; exclusions not possible
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">kernel</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>yum install kernel ; side by side
+</li>
+<li>ls /boot
+</li>
+<li>yum update kernel ; default to leave old kernel in place. max 3
+<ul class="org-ul">
+<li>add new kernel to (/boot/grub2/grub.cfg)
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">help</h3>
+<div class="outline-text-3" id="text-1-4">
+<pre class="example">
+list           List a package or groups of packages
+repolist       Display the configured software repositories
+info           Display details about a package or group of packages
+check-update   Check for available package updates
+provides       Find what package provides the given value
+install        Install a package or packages on your system
+update         Update a package or packages on your system
+clean          Remove cached data
+makecache      Generate the metadata cache
+groups         Display, or use, the groups information
+
+
+-y, --assumeyes       answer yes for all questions
+
+question
+- how to get more information on individual commands?
+- answer: yum help provides
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">rpm</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">commands</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example">
+- VIEW
+  - rpm -V package ; determine if any file has changed {-V|--verify}
+  - rpm -q systemd ; is package installed? {-q|--query}
+  - rpm -qlp epel-release-7-5.noarch.rpm ; query an RPM package file
+    rather than the local RPM database [-l,--list]
+  - rpm --verify –a ; verify all files
+  - rpm -Va
+  - rpm --verify -p vsftpd-3.0.2-9.el7.x86_64.rpm ; all files within a package against a downloaded RPM
+  - rpm --verify --file /bin/ls ; file associated with a particular package.
+    - no error, no output
+    - If you see a dot (.), that test passed
+    - rpm --verify --file /bin/vi
+  - rpm --verify -p sssd-client-1.11.2-65.el7.x86_64.rpm
+
+- INSTALL
+  - rpm -i policycoreutils-gui-2.2.5-11.el7.x86_64.rpm {-i|--install}
+    - --nodeps option to make rpm ignore dependencies
+  - rpm -i packagename ; installs the package, if it isn’t already installed
+  - rpm -ivh packagename-version.arch.rpm 
+    - -v|--verbose verbose mode
+    - [-h,--hash] hash marks that can help monitor the progress of the installation
+  - rpm -ivh ftp://ftp.rpmdownloads.com/pub/foo.rpm
+    - no wildcards. need exact name
+  - rpm -ivh newkernel ; side by side
+  - rpm -ivh ftp://username:password@hostname:port/path/to/remote/package.rpm ; remote
+
+- UPDATE
+  - rpm -U packagename ; upgrades any existing package or installs it
+    if an earlier version isn’t already installed {-U|--upgrade}
+  - rpm -F packagename {-F|--freshen} 
+    - upgrades only existing packages. It does not install a package if
+      it wasn’t previously installed.
+  - rpm -U newkernel command ; don't do this!!! overwrite exising kernel
+    - --force if trying to downgrade a package
+
+- REMOVE
+  - -e erased {-e|--erase}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">gpg</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>rpm &#x2013;import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+</li>
+<li>rpm -qa gpg-pubkey
+</li>
+
+<li>rpm &#x2013;checksig pkg.rpm
+<ul class="org-ul">
+<li>K switch is equivalent to &#x2013;checksig.
+</li>
+</ul>
+</li>
+<li>rpm &#x2013;checksig pkg-1.2.3-4.noarch.rpm
+</li>
+<li>&#x2013;verify (or -v) ; size, MD5 checksum, permissions, type, owner, and group
+<ul class="org-ul">
+<li>compares information about that package with information from the RPM database on a system
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">questions</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>how does rpm handle dependencies?
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">createrepo</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="rhcsa.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2017-07-15 Sat 21:28</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

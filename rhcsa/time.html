@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>time</title>
+<!-- 2017-07-15 Sat 16:02 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">time</h1>
+<pre class="example">
+you cannot have both chronyd and ntpd running on the same machine:
+
+use one of
+
+ntpd ; servers always connected to a network
+chronyd ; virtual and mobile
+
+/etc/localtime
+/usr/share/zoneinfo/America/Los_Angeles
+# timedatectl list-timezones
+# timedatectl set-timezone America/Los_Angeles
+/etc/chrony.conf
+iburst configuration option shown here speeds the initial synchronization
+when the chronyd service is started.
+# systemctl restart chrnoyd
+chronyc sources -v
+
+ntpd
+# systemctl stop chronyd.service
+# systemctl disable chronyd.service
+
+# yum install ntp
+/etc/ntp.conf
+
+# systemctl start ntpd.service
+# systemctl enable ntpd.service
+
+ntpq -p
+</pre>
+
+<p>
+<a href="rhcsa.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2017-07-15 Sat 16:02</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

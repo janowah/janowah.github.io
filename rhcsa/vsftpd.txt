@@ -1,3 +1,5 @@
+# -*- mode: org -*-
+
 #+title: vsftpd
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
 
@@ -19,5 +21,6 @@
     - access logs and error logs and error levels
     - journalctl | grep ftpd
 #+END_EXAMPLE
+
 [[./rhcsa.html][back]]
 

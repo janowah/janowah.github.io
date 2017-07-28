@@ -1,0 +1,90 @@
+# -*- mode: org -*-
+
+#+title: networking
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+
+* ip
+** commands
+#+BEGIN_EXAMPLE
+  - VIEW
+    - ip link show ; link status of the active network adapters
+    - ip -s link show ;  display statistics about network performance
+    - ip address show ; IP address information. same as link + ip address info
+    - ip address show eth0 ; current configuration for device eth0
+    - ip neigh ; table of hardware and IP addresses on the local computer
+      - can also set or modify ARP table entries manually
+    - ip neigh show
+      - all ARP entries in the local database
+    - ip route ; display routing tables
+    - ip -r route ; resolve /etc/hosts & dns servers
+      - equivalent to deprecated netstat -nr
+  - CREATE
+    - ip addr add 192.168.122.150/24 dev eth0
+  - MODIFY
+    - ip link set dev eth0 down
+    - ip link set dev eth0 up
+#+END_EXAMPLE
+
+** aliases
+- ip a s
+- ip addr show
+- address addr a
+- show s
+- neigh n
+- route r
+
+* ping and traceroute
+- ping 127.0.0.1
+- traceroute -n 192.168.20.5 ; numbers not hostnames
+- traceroute -I ; icmp
+- traceroute -T ; tcp
+- tracepath ; doesn't require root like traceroute
+
+* miscellaneous
+- ifup and ifdown ; call appropriate configuration files and scripts in the
+                    /etc/sysconfig/network-scripts directory
+- dhclient eth0 ; Dynamically Configures IP Addresse for /device/
+- /etc/resolv.conf ; adds dns servers here
+- systemctl status network ; check current status of network
+- systemctl restart network ; restart networking
+- dig @192.168.122.1 mheducation.com
+- host mheducation.com 192.168.122.1 ; HOST(1) - DNS lookup utility
+- hostname newname ; temporary ; HOSTNAME(1)  - show or set the system's host name
+- hostnamectl set-hostname newname ; permanent. updates /etc/hostname
+  - HOSTNAMECTL(1) - Control the system hostname
+
+* ss socket statistics
+- ss ; socket statistics. replaces netstat
+- ss -tuna4
+- all (-a) network sockets
+- IPv4 (-4)
+- TCP (-t)
+- UDP (-u)
+- numeric (-n) format
+- -p PID of the process using each socket.
+
+* network manager
+- systemctl status NetworkManager
+NMCLI
+- nmtui
+- nmtui - Text User Interface for controlling NetworkManager
+- nmcli dev status
+- profiles, also known as connections for the same network interface
+- command-line tool for controlling NetworkManager
+- nmcli con reload
+- nmcli con down eth0
+- nmcli con up eth0
+- nmcli con show
+- nmcli con add con-name "eth0-work" type ethernet ifname eth0
+- nmcli con mod "eth0-work" ipv4.addresses "192.168.20.100/24 192.168.20.1"
+- nmcli con show connection-id
+- nmcli con mod "eth0-work" +ipv4.dns 192.168.20.1
+- nmcli con up "eth0-work" ; switch
+- nmcli con mod "eth0-work" connection.autoconnect no ; don't start at boot
+NM-CONNECTION-EDITOR
+- nm-connection-editor ; gui
+- Applications > Sundry > Network Connections. not on my system!
+
+
+
+[[file:rhcsa.html][back]]

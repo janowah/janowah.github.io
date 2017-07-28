@@ -1,0 +1,156 @@
+# -*- mode: org -*-
+
+#+title: software
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+
+- configure repos
+- install from repos, local rpm files
+- uninstall. update
+
+* yum
+** commands
+#+BEGIN_EXAMPLE
+- VIEW
+  - yum | less ; list of commands
+  - yum list ; list of all packages, whether they’re installed or
+                available, along with their version numbers and
+                repositories
+  - yum list | grep /packagename/ 
+  - yum repolist all ; all configured repos
+  - yum info samba
+    - equivalent to rpm -qi samba ; works if the queried package is
+      already installed
+  - yum list updates ; avaliable updates
+    - yum check-update ; equivalent
+  - provides alias: whatprovides
+  - yum whatprovides "*evince*" ; if operational command includes evince
+  - yum whatprovides "*.repo" ; file search
+  - yum whatprovides "/etc/systemd/*"
+  - yum search
+
+- INSTALL
+  - yum install samba ; will install or update?
+  - yum install system-config-date
+
+- UPDATE
+  - yum update samba ; will update but not install
+    - same as rpm -F
+  - yum update ; all packages  
+  - yum makecache ; update the local database cache
+
+- DELETE 
+  - yum remove samba ; and dependencies
+  - yum clean all ; clear out databases from previously accessed repositories
+  - yum clean all ; if problems. flushes current cache of headers
+  #+END_EXAMPLE
+
+** Groups
+- view
+  - yum group list ; identify avaliable package groups
+  - yum group info "Basic Web Server"
+  - yum group list hidden ; list all groups
+    - "There is no installed groups file" createrepo?
+  - yum group info "Remote Desktop Clients" ; one regular group
+    - yum install tigervnc ; install optional
+
+example
+   - yum group info "Print Server" ;
+   - yum group install "Print Server" ; mandatory and default packages
+    
+   Mandatory always installed. default normally unless =-x= exclude
+   
+   - yum group install "Print Server" -x paps -x gutenprint-cups ; exclude
+   - yum group info "Print Server" ; check again
+   - yum group remove "Print Server"
+
+= ; package installed with yum group install
+- ; package excluded
+  - will not be installed if upgrade or install group
++ ; not installed but will be installed if install or upgrade
+no marker. package was installed, but not as part of a yum group install command.
+yum group remove "Print Server" ; exclusions not possible
+
+** kernel
+- yum install kernel ; side by side
+- ls /boot
+- yum update kernel ; default to leave old kernel in place. max 3
+  - add new kernel to (/boot/grub2/grub.cfg)
+
+** help
+#+BEGIN_EXAMPLE
+  list           List a package or groups of packages
+  repolist       Display the configured software repositories
+  info           Display details about a package or group of packages
+  check-update   Check for available package updates
+  provides       Find what package provides the given value
+  install        Install a package or packages on your system
+  update         Update a package or packages on your system
+  clean          Remove cached data
+  makecache      Generate the metadata cache
+  groups         Display, or use, the groups information
+
+
+  -y, --assumeyes       answer yes for all questions
+
+  question
+  - how to get more information on individual commands?
+  - answer: yum help provides
+#+END_EXAMPLE
+
+* rpm
+** commands
+#+BEGIN_EXAMPLE
+  - VIEW
+    - rpm -V package ; determine if any file has changed {-V|--verify}
+    - rpm -q systemd ; is package installed? {-q|--query}
+    - rpm -qlp epel-release-7-5.noarch.rpm ; query an RPM package file
+      rather than the local RPM database [-l,--list]
+    - rpm --verify –a ; verify all files
+    - rpm -Va
+    - rpm --verify -p vsftpd-3.0.2-9.el7.x86_64.rpm ; all files within a package against a downloaded RPM
+    - rpm --verify --file /bin/ls ; file associated with a particular package.
+      - no error, no output
+      - If you see a dot (.), that test passed
+      - rpm --verify --file /bin/vi
+    - rpm --verify -p sssd-client-1.11.2-65.el7.x86_64.rpm
+
+  - INSTALL
+    - rpm -i policycoreutils-gui-2.2.5-11.el7.x86_64.rpm {-i|--install}
+      - --nodeps option to make rpm ignore dependencies
+    - rpm -i packagename ; installs the package, if it isn’t already installed
+    - rpm -ivh packagename-version.arch.rpm 
+      - -v|--verbose verbose mode
+      - [-h,--hash] hash marks that can help monitor the progress of the installation
+    - rpm -ivh ftp://ftp.rpmdownloads.com/pub/foo.rpm
+      - no wildcards. need exact name
+    - rpm -ivh newkernel ; side by side
+    - rpm -ivh ftp://username:password@hostname:port/path/to/remote/package.rpm ; remote
+
+  - UPDATE
+    - rpm -U packagename ; upgrades any existing package or installs it
+      if an earlier version isn’t already installed {-U|--upgrade}
+    - rpm -F packagename {-F|--freshen} 
+      - upgrades only existing packages. It does not install a package if
+        it wasn’t previously installed.
+    - rpm -U newkernel command ; don't do this!!! overwrite exising kernel
+      - --force if trying to downgrade a package
+
+  - REMOVE
+    - -e erased {-e|--erase}
+#+END_EXAMPLE
+
+** gpg
+- rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+- rpm -qa gpg-pubkey
+
+- rpm --checksig pkg.rpm
+  - K switch is equivalent to --checksig.
+- rpm --checksig pkg-1.2.3-4.noarch.rpm
+- --verify (or -v) ; size, MD5 checksum, permissions, type, owner, and group
+  - compares information about that package with information from the RPM database on a system
+** questions
+- how does rpm handle dependencies?
+
+* createrepo
+
+[[file:rhcsa.html][back]]
