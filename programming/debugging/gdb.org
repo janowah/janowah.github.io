@@ -1,0 +1,30 @@
+#+Title: gdb
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* installation
+debuginfo-install glibc-2.17-157.el7_3.5.x86_64
+
+* usage
+- =gcc -g -Wall -o insert_sort ins.c=
+  - =-g= Produce debugging information in the operating system's
+    native format
+- =gdb insert_sort -tui=
+
+** shortcuts
+  - C-x C-a ; toggle tui mode
+  - C-c ; suspend
+
+** interactive commands
+  - run
+  - break
+    - 
+  - clear
+  - cond
+  - print
+  - next
+  - step
+
+** notes
+  - don't exit gdb when recompiling
+  - $1, $2, etc, value history of the debugging session.
+  

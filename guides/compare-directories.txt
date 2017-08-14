@@ -9,9 +9,18 @@
 - hashdeep
 - diff
   - =diff -r /folderA/ /folderB/=
+  - =diff -R=
+    - =-r, --recursive=
+  - to see the files that differ, you may use:
+    - =diff -qr dir_one dir_two | sort=
+    - =-q, --brief=
 - rsync
   - =rsync -avtn /folderA/ /folderB/=
-
+  - =rsync -avtn --delete /A /B=
+    - =-a, --archive=
+    - =-v, --verbose=
+    - =-t, --times=
+    - =-n, --dry-run=
 
 ** options
 - diff directly like with total commander

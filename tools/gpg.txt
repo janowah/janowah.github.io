@@ -1,0 +1,10 @@
+# -*- mode: org -*-
+
+#+title: gpg
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+#+BEGIN_EXAMPLE
+  gpg -d somefile.txt.gpg
+    -d     Decrypt 
+#+END_EXAMPLE
+

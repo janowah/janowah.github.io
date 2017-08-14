@@ -1,0 +1,4 @@
+#+Title: ddd
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+yum install ddd

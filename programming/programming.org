@@ -7,5 +7,7 @@
 - c
 - lisp
 - erlang
+- [[file:debugging/debugging.html][debugging]]
+- [[file:concepts.html][concepts]]
 
 [[../index.html][back]]

@@ -1,0 +1,10 @@
+#+Title: debugging
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+tools
+- [[file:gdb.html][gdb]]
+- [[file:ddd.html][ddd]]
+- [[file:eclipse.html][eclipse]]
+
+books
+- The Art of Debugging

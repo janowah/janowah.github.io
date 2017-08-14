@@ -1,10 +1,125 @@
 #+title: College Books
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- [X] Server-Side Development
-- digital signal processing
-- [X] Computer Programming and Problem Solving
-  - Object Orientated Software in C++, M Smith, Chapman Hall
-  - C++ How To Program, H Deitel & P Deitel, Prentice Hall
+* 5th year
+** Server-Side Development
+** Digital Signal Processing
+1. Analogue And Digital Signal Processing And Coding
+   - P. M. Grant ...[et al.]
+   - Chartwell-Bratt
+   - 1989
+2. Advanced Topics In Signal Processing
+   - Jae S. Lim and Alan V. Oppenheim
+   - Prentice-Hall
+   - c1988
+3. Digital Signal Processing : Principles, Algorithms, And Applications
+   - John G. Proakis, Dimitris G. Manolakis
+   - Macmillan
+   - c1992
+   - Notes Rev. ed. of: Introduction to digital signal processing. c1988
+4. Digital Signal Processing
+   - Richard A. Roberts, Clifford T. Mullis
+   - Addison-Wesley
+   - c1987
+5. Schaum's Outline Of Theory And Problems Of Digital Signal Processing
+   - Monson H. Hayes
+   - McGraw Hill
+   - 1999
+6. Two-Dimensional Signal And Image Processing
+   - Jae S. Lim
+   - Prentice Hall
+   - c1990
+7. Digital Coding Of Waveforms : Principles And Applications To Speech And Video
+   - N.S. Jayant, Peter Noll
+   - Prentice-Hall
+   - c1984
+8. Digital Signal Processing : Theory, Applications, And Hardware
+   - Richard A. Haddad and Thomas W. Parsons
+   - Computer Science Press
+   - c1991
+9. Fundamentals Of Digital Image Processing
+   - Anil K. Jain
+   - Prentice Hall
+   - c1989
+10. Digital Processing Of Speech Signals
+    - Lawrence R. Rabiner, Ronald W. Schafer
+    - Prentice-Hall
+    - c1978
+11. Speech And Audio Signal Processing : Processing And Perception Of Speech And Music
+    - Ben Gold, Nelson Morgan
+    - John Wiley
+    - 2000
+
+** Data Networks
+- Computer Networks
+  - 4th Edition
+  - Andrew Tanenbaum
+  - Pearson Education, 2003.
+  - ISBN 0-13-038488-7
+- Data Communications and Networking
+  - 2nd ed.
+  - Behrouz Forouzan
+  - McGraw Hill, 2000.
+  - ISBN 0-07-118160-1
+- Data Communications, Computer Networks and Open Systems
+  - 4th Edition
+  - Fred Halsall
+  - Addison-Wesley, 1995.
+  - ISBN 0201-565064 
+- Telecommunications Primer: Signals, Building Blocks, and Networks
+  - E. Bryan Carne
+  - Prentice Hall, 1995.
+  - ISBN 0-13-206129-5
+- Telecommunications Switching, Traffic and Networks
+  - J.E. Flood
+  - Prentice Hall, 1994.
+  - ISBN 0-13-033309-3
+
+* 4th year
+
+
+* 3rd year
+** maths
+kreysig
+
+** Numerical Methods
+- /Methods of Numerical Integration/
+  - Philip J. Davis, Philip Rabinowitz
+
+** Microprocessor Systems 1
+- MC68000 User's Manual >= 2e
+- M68000 Programmer's Reference Manual
+- 68000: Assembly Language Programming
+  - Gerry Kane, Doug Hawkins, Lance A. Leventhal
+- The Motorola Mc68000
+  - Jean Bacon 
+- Programming the MC68000
+  - Brian King & Tim Knight
+- 68000 Family Assembly Language
+  - Alan Clements
+  - ISBN 0-534-93275-4
+
+* 2nd year
+** Computer Programming and Problem Solving
+- Object Orientated Software in C++, M Smith, Chapman Hall
+- C++ How To Program, H Deitel & P Deitel, Prentice Hall
+
+** applied maths
+- Dynamics: Engineering Mechanics 
+  - 4th Edition
+  - J. L. Meriam, L. G. Kraige
+  - ISBN-13: 978-0471597674 
+- Engineering Mechanics: Dynamics
+  - 2nd Edition
+  - William F. Riley, Leroy D. Sturges
+  - ISBN: 978-0-471-05339-2
+- Classical Mechanics
+  - 4th Edition
+  - Tom W B Kibble, Frank H Berkshire
+
+* 1st year
+** maths
+- elementary linear algebra anton 6th
+- calculus thomas and finney 9th
 
 [[./books.html][back]]

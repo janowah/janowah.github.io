@@ -1,6 +1,8 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Assassin's Apprentice / Robin Hobb
+- Stranger in a Strange Land / Robert A. Heinlein*
 - Ender's Game / Orson Scott Card
 - Small Gods / Terry Pratchett
 - The Three Stigmata of Palmer Eldritch / Philip K. Dick

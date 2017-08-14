@@ -5,15 +5,57 @@
 * plain text directory listing
 - edit =/etc/httpd/conf.d/autoindex.conf=
 - set =IndexOptions FancyIndexing= or =IndexOptions FancyIndexing FoldersFirst=
-- uncomment all the icons block
-
-* length of filenames
-- =/etc/httpd/conf.d/autoindex.conf=
-- IndexOptions NameWidth=40 ; fixed
-- IndexOptions NameWidth=* ; auto
-- default is ?
+- =IndexOptions=
+  - =FancyIndexing=
+  - =HTMLTable= ; improve formatting
+  - =FoldersFirst=
+- length of filenames
+  - =/etc/httpd/conf.d/autoindex.conf=
+    - =IndexOptions NameWidth=40= ; fixed
+    - =IndexOptions NameWidth=*= ; auto
+    - default is ?
+  - this can be set on a per directory basis
+    - .htaccess =IndexOptions NameWidth=*=
+- hide the files .nfo and .cfv
+  - =IndexIgnore *.tmp *.swp .svn secret.txt=
+- uncomment all the icons block if you want plain listing
 
 * passwords
+- .htaccess
+
+- password file
+  #+BEGIN_EXAMPLE
+    <Directory "/var/www/html">
+    .
+      AuthName "Private"
+      AuthType Basic
+      AuthBasicProvider file
+      AuthUserFile "/var/www/passwd/passwords"
+      Require user homer
+    </Directory>
+  #+END_EXAMPLE
+
+  - how to create users?
+
+* ssl
+- modssl
 
 * footer
 
+* custom error pages
+
+* redirects to other folders on filesystem
+- Mapping a URL to a Directory
+  #+BEGIN_EXAMPLE
+    Alias "/desired-URL-prefix" "/path/to/other/directory"
+
+    <Directory "/path/to/other/directory">
+      Order allow,deny
+      Allow from all
+    </Directory>
+  #+END_EXAMPLE
+* centos setup
+- =firewall-cmd --permanent --add-service=http=
+- set file permissions to 755
+  - every location on the path needs to have the correct permissions
+- systemctl start httpd
