@@ -75,27 +75,28 @@
   |----+------------------+----------------------------------------------|
   |  1 | Erskine Childers | Riddle of the Sands                          |
   |  2 | Flann O'Brien    | At Swim-Two-Birds                            |
-  |  3 | Frank McCourt    | Angela's Ashes                               |
-  |  4 | James Joyce      | Dubliners                                    |
-  |  5 | James Joyce      | A Portrait of the Artist as a Young Man      |
-  |  6 | James Joyce      | Ulysses                                      |
-  |  7 | James Plunkett   | Strumpet City                                |
-  |  8 | John Banville    | The Book of Evidence                         |
-  |  9 | John Banville    | The Untouchable                              |
-  | 10 | Joseph O'Connor  | Star of the Sea                              |
-  | 11 | Joseph O'Connor  | Cowboys and Indians                          |
-  | 12 | Joseph O'Connor  | Desperadoes                                  |
-  | 13 | Joseph O'Connor  | The Salesman                                 |
-  | 14 | Oscar Wilde      | De Profundis                                 |
-  | 15 | Oscar Wilde      | The Happy Prince and Other Stories           |
-  | 16 | Oscar Wilde      | Lord Arthur Savile's Crime and Other Stories |
-  | 17 | Oscar Wilde      | The Picture of Dorian Gray                   |
-  | 18 | Oscar Wilde      | The Ballad of Reading Gaol                   |
-  | 19 | Roddy Doyle      | The Commitments                              |
-  | 20 | Roddy Doyle      | The Snapper                                  |
-  | 21 | Roddy Doyle      | The Van                                      |
-  | 22 | Roddy Doyle      | Paddy Clarke Ha Ha Ha                        |
-  | 23 | Samuel Beckett   | Molloy*                                      |
+  |  3 | Flann O'Brien    | The Third Policeman                          |
+  |  4 | Frank McCourt    | Angela's Ashes                               |
+  |  5 | James Joyce      | Dubliners                                    |
+  |  6 | James Joyce      | A Portrait of the Artist as a Young Man      |
+  |  7 | James Joyce      | Ulysses                                      |
+  |  8 | James Plunkett   | Strumpet City                                |
+  |  9 | John Banville    | The Book of Evidence                         |
+  | 10 | John Banville    | The Untouchable                              |
+  | 11 | Joseph O'Connor  | Star of the Sea                              |
+  | 12 | Joseph O'Connor  | Cowboys and Indians                          |
+  | 13 | Joseph O'Connor  | Desperadoes                                  |
+  | 14 | Joseph O'Connor  | The Salesman                                 |
+  | 15 | Oscar Wilde      | De Profundis                                 |
+  | 16 | Oscar Wilde      | The Happy Prince and Other Stories           |
+  | 17 | Oscar Wilde      | Lord Arthur Savile's Crime and Other Stories |
+  | 18 | Oscar Wilde      | The Picture of Dorian Gray                   |
+  | 19 | Oscar Wilde      | The Ballad of Reading Gaol                   |
+  | 20 | Roddy Doyle      | The Commitments                              |
+  | 21 | Roddy Doyle      | The Snapper                                  |
+  | 22 | Roddy Doyle      | The Van                                      |
+  | 23 | Roddy Doyle      | Paddy Clarke Ha Ha Ha                        |
+  | 24 | Samuel Beckett   | Molloy*                                      |
 #+END_EXAMPLE
   
 john mcgahern?

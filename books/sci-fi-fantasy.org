@@ -1,6 +1,9 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Lords and Ladies / Terry Pratchett
+- Assassin's Quest / Robin Hobb
+- Royal Assassin / Robin Hobb
 - Assassin's Apprentice / Robin Hobb
 - Stranger in a Strange Land / Robert A. Heinlein*
 - Ender's Game / Orson Scott Card
