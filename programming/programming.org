@@ -1,9 +1,9 @@
 #+Title: Programming
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-- [[file:cpp/cpp.html][C++]]
+- [[file:cpp/cpp.html][c++]]
 - [[file:python/python.html][python]]
-- java
+- [[file:java/java.html][java]]
 - c
 - lisp
 - erlang

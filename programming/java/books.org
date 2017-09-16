@@ -1,0 +1,27 @@
+#+Title: java books
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+  - thinkjava
+  - head first java 2e
+  - object programming
+  - java book from 2004?
+  - concurrent systems
+    - wrox java
+
+#+BEGIN_EXAMPLE
+  %T: Think Java
+  %A: Allen Downey and Chris Mayfield
+  %D: 
+  %N: 
+  %P: 
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  %T: Head First Java, Second Edition
+  %A: Kathy Sierra and Bert Bates
+  %D: February 2005
+  %N: ISBN: 978-0-596-00920-5
+  %P: 722
+#+END_EXAMPLE
+
+[[file:java.html][back]]
