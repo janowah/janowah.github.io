@@ -1,27 +1,49 @@
 #+Title: java books
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-  - thinkjava
-  - head first java 2e
-  - object programming
-  - java book from 2004?
-  - concurrent systems
-    - wrox java
-
+* Think.Java
 #+BEGIN_EXAMPLE
   %T: Think Java
   %A: Allen Downey and Chris Mayfield
-  %D: 
-  %N: 
-  %P: 
+  %D: 2016
+  %N: Version 6.1.3
+  %P: 273
 #+END_EXAMPLE
 
+* Head.First.Java.2e
 #+BEGIN_EXAMPLE
   %T: Head First Java, Second Edition
   %A: Kathy Sierra and Bert Bates
   %D: February 2005
   %N: ISBN: 978-0-596-00920-5
   %P: 722
+#+END_EXAMPLE
+
+* Beginning.Java.5e
+#+BEGIN_EXAMPLE
+  %T: Beginning Java 2, 5 Edition
+  %A: Ivor Horton
+  %D: 2005
+  %N: ISBN: 0-7645-6874-4
+  %P: 1470
+#+END_EXAMPLE
+
+* Java.by.Example
+#+BEGIN_EXAMPLE
+  %T: Java by Example
+  %A: J.R. Jackson, A.L. McClellan
+  %D: 1996
+  %N: ISBN 0-13-565763-6
+  %P: 
+#+END_EXAMPLE
+
+* Just.Java
+#+BEGIN_EXAMPLE
+  %T: Just Java
+  %A: Peter van der Linden
+  %D: 1996
+  %N: ISBN 0-13-565839-X
+  %P: 
 #+END_EXAMPLE
 
 [[file:java.html][back]]
