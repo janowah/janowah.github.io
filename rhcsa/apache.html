@@ -9,7 +9,17 @@
     binaries
     documentation
     configuration files
-  </pre>
+
+    - INSTALL
+      - yum install httpd
+    - START
+      - systemctl start httpd
+    - FIREWALL
+      - sudo firewall-cmd --permanent --add-port=80/tcp
+      - sudo firewall-cmd --permanent --add-port=443/tcp
+      - OR
+      - firewall-cmd --add-service http
+    </pre>
   <a href="./rhcsa.html">back</a>
 </body>
 </html>
