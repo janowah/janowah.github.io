@@ -17,6 +17,16 @@
    - chcon
      - chcon -R --reference /etc/openvpn /etc/openvpn ; restore
      - chcon -R --reference=/var/ftp /var/ftp/
+
+   CREATE EXCEPTION
+   - ausearch - a tool to query audit daemon logs
+   - audit2allow - generate SELinux policy allow/dontaudit rules from
+     logs of denied operations
+   - semodule - Manage SELinux policy modules.
+
+   - ausearch -c 'java' --raw | audit2allow -M my-java
+   - semodule -i my-java.pp 
+
   </pre>
   <a href="./rhcsa.html">back</a>
 </body>
