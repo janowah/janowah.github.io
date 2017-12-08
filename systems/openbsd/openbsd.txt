@@ -16,4 +16,4 @@
 - [[file:mandoc.html][mandoc]]
 - [[file:guides.html][guides]]
 
-[[file:~/janowah/systems/systems.html][back]]
+[[../systems.html][back]]
