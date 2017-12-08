@@ -1,0 +1,31 @@
+# -*- mode: org -*-
+
+#+title: software
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+* setup
+** set the package path
+- pkg_path
+  - =export PKG_PATH=http://ftp.heanet.ie/pub/OpenBSD/$(uname -r)/packages/$(machine -a)/=
+
+**  add PKG_PATH to =/root/.profile=
+- =export PKG_PATH=https://mirror.bytemark.co.uk/pub/OpenBSD/6.2/packages/amd64/=
+- =. $HOME/.profile= ; dot source
+- =echo PKG_PATH= ; test
+
+* install
+- =pkg_add -v emacs=
+  - =emacs-24.5p2-no_x11=
+- =mc=
+
+* updating 
+#+BEGIN_EXAMPLE
+  - pkg_info ; see what's installed
+  - pkg_info -Q ; query PKG_PATH
+  - pkg_add -u
+#+END_EXAMPLE
+
+* remove
+
+[[./openbsd.html][back]]
+

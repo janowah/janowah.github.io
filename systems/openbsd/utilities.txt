@@ -1,0 +1,15 @@
+# -*- mode: org -*-
+
+#+title: utilities
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  - making sure the time is correct
+  - locate
+    - sh /usr/libexec/locate.updatedb ; update database
+
+  - PROCESSES
+    - ps -ax | grep
+#+END_EXAMPLE
+
+[[./openbsd.html][back]]

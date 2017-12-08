@@ -3,7 +3,7 @@
 
 - [[file:centos/centos.html][centos]]
 - freebsd
-- [[file:./openbsd.txt][openbsd]]
+- [[file:openbsd/openbsd.html][openbsd]]
 - [[file:ubuntu/ubuntu.html][ubuntu]]
 - [[file:netbsd.html][netbsd]]
 - [[file:fedora.html][fedora]]

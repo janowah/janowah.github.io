@@ -1,0 +1,10 @@
+# -*- mode: org -*-
+
+#+title: guides
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+- patch the system
+- update from one version to the next
+
+[[./openbsd.html][back]]
+

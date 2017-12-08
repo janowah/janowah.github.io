@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+
+#+title: openbsd
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- [[file:installation.html][installation]]
+- [[file:software.html][software]]
+- [[file:user-management.html][user management]]
+- [[file:services.html][services]]
+- [[file:networking.html][networking]]
+- [[file:disks.html][disks]]
+- [[file:utilities.html][utilities]]
+- [[file:httpd.html][httpd]]
+- [[file:pf.html][pf]]
+- [[file:cwm.html][cwm]]
+- [[file:mandoc.html][mandoc]]
+- [[file:guides.html][guides]]
+
+[[file:~/janowah/systems/systems.html][back]]

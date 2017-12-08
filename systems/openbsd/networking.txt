@@ -1,0 +1,10 @@
+# -*- mode: org -*-
+
+#+title: networking
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+networking
+
+interfaces and commands
+
+[[./openbsd.html][back]]

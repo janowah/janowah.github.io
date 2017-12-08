@@ -1,6 +1,9 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- The Shadow Rising / Robert Jordan
+- The Dragon Reborn / Robert Jordan
+- The Great Hunt / Robert Jordan
 - The Eye of the World / Robert Jordan
 - Men at Arms / Terry Pratchett
 - Lords and Ladies / Terry Pratchett

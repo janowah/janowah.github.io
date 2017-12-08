@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>disks</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">disks</h1>
+<ul class="org-ul">
+<li>files
+<ul class="org-ul">
+<li>/etc/fstab
+</li>
+</ul>
+</li>
+<li>commands
+<ul class="org-ul">
+<li>df -h
+</li>
+<li>mount
+</li>
+<li>mount -a
+</li>
+<li>umount
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+what do the flags mean?
+</p>
+
+<pre class="example">
+# cat /etc/fstab
+c29addbc5c66bb1c.b none swap sw
+c29addbc5c66bb1c.a / ffs rw 1 1
+c29addbc5c66bb1c.k /home ffs rw,nodev,nosuid 1 2
+c29addbc5c66bb1c.d /tmp ffs rw,nodev,nosuid 1 2
+c29addbc5c66bb1c.f /usr ffs rw,nodev 1 2
+c29addbc5c66bb1c.g /usr/X11R6 ffs rw,nodev 1 2
+c29addbc5c66bb1c.h /usr/local ffs rw,wxallowed,nodev 1 2
+c29addbc5c66bb1c.j /usr/obj ffs rw,nodev,nosuid 1 2
+c29addbc5c66bb1c.i /usr/src ffs rw,nodev,nosuid 1 2
+c29addbc5c66bb1c.e /var ffs rw,nodev 1 2
+</pre>
+
+<pre class="example">
+# df -h
+Filesystem     Size    Used   Avail Capacity  Mounted on
+/dev/wd0a      753M   61.4M    654M     9%    /
+/dev/wd0k      5.2G    9.2M    4.9G     0%    /home
+/dev/wd0d      1.1G   14.0K    1.0G     0%    /tmp
+/dev/wd0f      1.5G    675M    741M    48%    /usr
+/dev/wd0g      865M    178M    644M    22%    /usr/X11R6
+/dev/wd0h      2.9G    430M    2.4G    15%    /usr/local
+/dev/wd0j      3.4G    2.0K    3.3G     0%    /usr/obj
+/dev/wd0i      1.2G    2.0K    1.2G     0%    /usr/src
+/dev/wd0e      1.6G    225M    1.3G    14%    /var
+</pre>
+
+<p>
+<a href="./openbsd.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

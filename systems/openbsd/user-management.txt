@@ -1,0 +1,18 @@
+# -*- mode: org -*-
+
+#+title: user management
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+* user management
+- adding users
+  - adduser
+- groups
+  - wheel
+- skel
+- files
+
+* recovering root password
+- single user mode. mount two partitions
+
+[[./openbsd.html][back]]
+

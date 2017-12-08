@@ -1,0 +1,8 @@
+# -*- mode: org -*-
+
+#+title: mandoc
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+mandoc
+
+[[./openbsd.html][back]]

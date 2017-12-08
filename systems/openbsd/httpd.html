@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>httpd</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">httpd</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">documentation</a></li>
+<li><a href="#sec-2">resources</a></li>
+<li><a href="#sec-3">files and scripts</a></li>
+<li><a href="#sec-4">setup</a>
+<ul>
+<li><a href="#sec-4-1">basic server example</a></li>
+<li><a href="#sec-4-2">password protected example</a></li>
+<li><a href="#sec-4-3">https example</a></li>
+<li><a href="#sec-4-4">application servers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">documentation</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>httpd
+</li>
+<li>httpd.conf
+</li>
+<li>rcctl  
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">resources</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><a href="https://tribaal.io/this-now-served-by-openbsd.html">https://tribaal.io/this-now-served-by-openbsd.html</a>
+</li>
+<li><a href="http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html">http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">files and scripts</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>/etc/httpd.conf ; configuration file
+</li>
+<li><i>var/www/htdocs</i> ; default root folder
+</li>
+<li>/etc/rc.d/httpd ; server script
+</li>
+<li>/etc/rc.conf
+<ul class="org-ul">
+<li>httpd-flags=NO
+</li>
+</ul>
+</li>
+<li>/etc/rc/conf.local
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">setup</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">basic server example</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>directory index ; add to httpd.conf
+</li>
+</ul>
+
+<pre class="example">
+server "default" {
+directory auto index
+}
+types { include "/usr/share/misc/mime.types" }
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">password protected example</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>create htpasswd file in /var/www
+<ul class="org-ul">
+<li>htpasswd /var/www/htpasswd janowah
+</li>
+</ul>
+</li>
+<li>need to update /etc/httpd.conf
+<ul class="org-ul">
+<li>authenicate with htpasswd ; where htpasswd is the password file
+</li>
+</ul>
+</li>
+<li>make /var/www/htpasswd readable by www
+<ul class="org-ul">
+<li>chown www /var/www/htpasswd
+</li>
+</ul>
+</li>
+<li>restart httpd
+<ul class="org-ul">
+<li>sh /etc/rc.d/httpd -f restart
+</li>
+</ul>
+</li>
+</ul>
+
+<pre class="example">
+server "default" {
+directory auto index
+authenticate with htpasswd
+}
+types { include "/usr/share/misc/mime.types" }
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">https example</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>generate server keys
+</li>
+<li># openssl genrsa -out /etc/ssl/private/server.key
+</li>
+<li># openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt -days 3650
+</li>
+</ul>
+
+<pre class="example">
+server "default" {
+listen on * tls port 443
+hsts
+directory auto index
+authenticate with htpasswd
+}
+types { include "/usr/share/misc/mime.types" }
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4">application servers</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>php
+</li>
+<li>tomcat
+</li>
+</ul>
+
+<p>
+<a href="./openbsd.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

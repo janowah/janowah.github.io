@@ -1,4 +1,7 @@
-openbsd httpd
+# -*- mode: org -*-
+
+#+title: httpd
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:t timestamp:nil
 
 * documentation
 - httpd
@@ -64,3 +67,6 @@ openbsd httpd
 ** application servers
 - php
 - tomcat
+
+[[./openbsd.html][back]]
+
