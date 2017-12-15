@@ -26,32 +26,21 @@ FILES
 [[./openbsd.html][back]]
 
 
-netstat(1)
+bgpd(8)
+dhclient(8) 
 gethostbyname(3)
 getnetbyname(3)
-netintro(4)
-route(4) ; route - kernel packet forwarding database
-tcp(4)
-
-
-
-bgpd(8)
-ospfd(8)
-ripd(8)
-sysctl(8)
-
-netstat(1)
+ifconfig(8) 
 ifmedia(4)
 inet(4)
 intro(4)
 netintro(4)
-
-
-
-
-
-
-hosts(5)
-networks(5)
+netstart(8) 
+netstat(1)
+ospfd(8)
 rc(8)
+ripd(8)
+route(4) ; route - kernel packet forwarding database
+sysctl(8)
+tcp(4)
 tcpdump(8)

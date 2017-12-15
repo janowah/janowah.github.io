@@ -8,7 +8,7 @@
 - pkg_path
   - =export PKG_PATH=http://ftp.heanet.ie/pub/OpenBSD/$(uname -r)/packages/$(machine -a)/=
 
-**  add PKG_PATH to =/root/.profile=
+** add PKG_PATH to =/root/.profile=
 - =export PKG_PATH=https://mirror.bytemark.co.uk/pub/OpenBSD/6.2/packages/amd64/=
 - =. $HOME/.profile= ; dot source
 - =echo PKG_PATH= ; test
@@ -20,9 +20,9 @@
 
 * updating 
 #+BEGIN_EXAMPLE
-  - pkg_info ; see what's installed
-  - pkg_info -Q ; query PKG_PATH
-  - pkg_add -u
+  - pkg_info      ; see what's installed
+  - pkg_info -Q   ; query PKG_PATH
+  - pkg_add -u    ; update all installed packages
 #+END_EXAMPLE
 
 * remove
