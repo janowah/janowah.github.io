@@ -1,0 +1,37 @@
+#+title: computers
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* raspberry pi 3
+- Raspberry Pi 3 Model B Rev 1.2
+- centos
+  - armv7l
+  - http://mirror.centos.org/altarch/7/isos/armhfp/CentOS-Userland-7-armv7hl-Minimal-1708-RaspberryPi3.img.xz
+- dmesg
+  - CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c5383d
+- uname -a 
+  - Linux centos-rpi3 4.9.50-v7.1.el7 #1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux
+- https://www.openbsd.org/arm64.html
+- cat /proc/cpuinfo
+  - model name      : ARMv7 Processor rev 4 (v7l)
+  - Hardware        : BCM2835
+
+* raspberry pi 2
+- Raspberry Pi 2 Model B Rev 1.1
+- model b
+- 832-6274
+- centos
+  - http://mirror.centos.org/altarch/7/isos/armhfp/CentOS-Userland-7-armv7hl-Minimal-1708-RaspberryPi2.img.xz
+- dmesg
+  - CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+- uname -a
+  - Linux centos-rpi2 4.9.50-v7.1.el7 #1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux
+- cat /proc/cpuinfo
+  - model name      : ARMv7 Processor rev 5 (v7l)
+  - Hardware        : BCM2835
+
+* lenovo
+
+* hp
+
+* dell
+

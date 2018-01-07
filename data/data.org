@@ -5,5 +5,7 @@
 - [[./usb.txt][usb drives]]
 - [[file:hard-disks.txt][hard disks]]
 - hardware
+- [[file:devices.html][devices]]
+- [[file:computers.html][computers]]
 
 [[../index.html][back]]
