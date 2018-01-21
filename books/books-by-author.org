@@ -5,65 +5,66 @@
 #+BEGIN_EXAMPLE
   |    | Author                 | Title                                    |
   |----+------------------------+------------------------------------------|
-  |  1 | Anthony Burgess        | A Clockwork Orange                       |
-  |  2 | Arthur Conan Doyle     | The Hound of the Baskervilles            |
-  |  3 | Ben Elton              | Popcorn                                  |
-  |  4 | Ben Elton              | High Society                             |
-  |  5 | Bez                    | Freaky Dancin'                           |
-  |  6 | Charles Dickens        | The Old Curiosity Shop                   |
-  |  7 | Charles Dickens        | Great Expectations                       |
-  |  8 | Charles Dickens        | A Tale of Two Cities                     |
-  |  9 | Daphne du Maurier      | Hungry Hill                              |
-  | 10 | Emily Brontë           | Wuthering Heights                        |
-  | 11 | Evelyn Waugh           | A Handful of Dust                        |
-  | 12 | Frederick Forsyth      | The Day of the Jackal                    |
-  | 13 | Frederick Forsyth      | The Odessa File                          |
-  | 14 | Frederick Forsyth      | The Dogs of War                          |
-  | 15 | George Eliot           | Silas Marner                             |
-  | 16 | George Orwell          | Keep the Aspidistra Flying               |
-  | 17 | George Orwell          | Coming Up for Air                        |
-  | 18 | George Orwell          | Animal Farm                              |
-  | 19 | George Orwell          | Nineteen Eighty-Four                     |
-  | 20 | George Orwell          | Down and Out in Paris and London         |
-  | 21 | George Orwell          | The Road to Wigan Pier                   |
-  | 22 | George Orwell          | Homage to Catalonia                      |
-  | 23 | Graham Greene          | Brighton Rock                            |
-  | 24 | Graham Greene          | Our Man in Havana                        |
-  | 25 | Graham Greene          | The End of the Affair                    |
-  | 26 | Howard Marks           | Mr Nice                                  |
-  | 27 | Ian McEwan             | On Chesil Beach                          |
-  | 28 | Irvine Welsh           | Trainspotting                            |
-  | 29 | Irvine Welsh           | Marabou Stork Nightmares                 |
-  | 30 | Irvine Welsh           | Filth                                    |
-  | 31 | Irvine Welsh           | Glue                                     |
-  | 32 | Irvine Welsh           | Porno                                    |
-  | 33 | Irvine Welsh           | The Bedroom Secrets of the Master Chefs  |
-  | 34 | Irvine Welsh           | Skagboys                                 |
-  | 35 | Irvine Welsh           | The Acid House                           |
-  | 36 | Irvine Welsh           | Ecstasy: Three Tales of Chemical Romance |
-  | 37 | Irvine Welsh           | If You Liked School You'll Love Work     |
-  | 38 | Jane Austen            | Sense and Sensibility                    |
-  | 39 | John Healy             | The Grass Arena                          |
-  | 40 | Joseph Conrad          | Heart of Darkness                        |
-  | 41 | L.P. Hartley           | The Go-Between                           |
-  | 42 | Nick Hornby            | High Fidelity                            |
-  | 43 | Nick Hornby            | About a Boy                              |
-  | 44 | Robert Galbraith       | The Cuckoo's Calling                     |
-  | 45 | Robert Galbraith       | The Silkworm                             |
-  | 46 | Robert Galbraith       | Career of Evil                           |
-  | 47 | Robert Harris          | Fatherland                               |
-  | 48 | Robert Harris          | Enigma                                   |
-  | 49 | Robert Harris          | Archangel                                |
-  | 50 | Robert Harris          | Pompeii                                  |
-  | 51 | Robert Harris          | Imperium                                 |
-  | 52 | Robert Harris          | The Ghost                                |
-  | 53 | Robert Louis Stevenson | Treasure Island                          |
-  | 54 | Robert Louis Stevenson | The Black Arrow                          |
-  | 55 | Rudyard Kipling        | Kim                                      |
-  | 56 | Thomas Hardy           | Far from the Madding Crowd               |
-  | 57 | Virginia Woolf         | Mrs Dalloway                             |
-  | 58 | Walter Scott           | Rob Roy                                  |
-  | 59 | William Golding        | Lord of the Flies                        |
+  |  1 | Alexander Masters      | Stuart: A Life Backwards                 |
+  |  2 | Anthony Burgess        | A Clockwork Orange                       |
+  |  3 | Arthur Conan Doyle     | The Hound of the Baskervilles            |
+  |  4 | Ben Elton              | Popcorn                                  |
+  |  5 | Ben Elton              | High Society                             |
+  |  6 | Bez                    | Freaky Dancin'                           |
+  |  7 | Charles Dickens        | The Old Curiosity Shop                   |
+  |  8 | Charles Dickens        | Great Expectations                       |
+  |  9 | Charles Dickens        | A Tale of Two Cities                     |
+  | 10 | Daphne du Maurier      | Hungry Hill                              |
+  | 11 | Emily Brontë           | Wuthering Heights                        |
+  | 12 | Evelyn Waugh           | A Handful of Dust                        |
+  | 13 | Frederick Forsyth      | The Day of the Jackal                    |
+  | 14 | Frederick Forsyth      | The Odessa File                          |
+  | 15 | Frederick Forsyth      | The Dogs of War                          |
+  | 16 | George Eliot           | Silas Marner                             |
+  | 17 | George Orwell          | Keep the Aspidistra Flying               |
+  | 18 | George Orwell          | Coming Up for Air                        |
+  | 19 | George Orwell          | Animal Farm                              |
+  | 20 | George Orwell          | Nineteen Eighty-Four                     |
+  | 21 | George Orwell          | Down and Out in Paris and London         |
+  | 22 | George Orwell          | The Road to Wigan Pier                   |
+  | 23 | George Orwell          | Homage to Catalonia                      |
+  | 24 | Graham Greene          | Brighton Rock                            |
+  | 25 | Graham Greene          | Our Man in Havana                        |
+  | 26 | Graham Greene          | The End of the Affair                    |
+  | 27 | Howard Marks           | Mr Nice                                  |
+  | 28 | Ian McEwan             | On Chesil Beach                          |
+  | 29 | Irvine Welsh           | Trainspotting                            |
+  | 30 | Irvine Welsh           | Marabou Stork Nightmares                 |
+  | 31 | Irvine Welsh           | Filth                                    |
+  | 32 | Irvine Welsh           | Glue                                     |
+  | 33 | Irvine Welsh           | Porno                                    |
+  | 34 | Irvine Welsh           | The Bedroom Secrets of the Master Chefs  |
+  | 35 | Irvine Welsh           | Skagboys                                 |
+  | 36 | Irvine Welsh           | The Acid House                           |
+  | 37 | Irvine Welsh           | Ecstasy: Three Tales of Chemical Romance |
+  | 38 | Irvine Welsh           | If You Liked School You'll Love Work     |
+  | 39 | Jane Austen            | Sense and Sensibility                    |
+  | 40 | John Healy             | The Grass Arena                          |
+  | 41 | Joseph Conrad          | Heart of Darkness                        |
+  | 42 | L.P. Hartley           | The Go-Between                           |
+  | 43 | Nick Hornby            | High Fidelity                            |
+  | 44 | Nick Hornby            | About a Boy                              |
+  | 45 | Robert Galbraith       | The Cuckoo's Calling                     |
+  | 46 | Robert Galbraith       | The Silkworm                             |
+  | 47 | Robert Galbraith       | Career of Evil                           |
+  | 48 | Robert Harris          | Fatherland                               |
+  | 49 | Robert Harris          | Enigma                                   |
+  | 50 | Robert Harris          | Archangel                                |
+  | 51 | Robert Harris          | Pompeii                                  |
+  | 52 | Robert Harris          | Imperium                                 |
+  | 53 | Robert Harris          | The Ghost                                |
+  | 54 | Robert Louis Stevenson | Treasure Island                          |
+  | 55 | Robert Louis Stevenson | The Black Arrow                          |
+  | 56 | Rudyard Kipling        | Kim                                      |
+  | 57 | Thomas Hardy           | Far from the Madding Crowd               |
+  | 58 | Virginia Woolf         | Mrs Dalloway                             |
+  | 59 | Walter Scott           | Rob Roy                                  |
+  | 60 | William Golding        | Lord of the Flies                        |
 #+END_EXAMPLE
 
 - Roald Dahl

@@ -1,6 +1,6 @@
 #+title: to read
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- Stuart: A Life Backwards / Alexander Masters
+- 
 
 [[file:books.html][back]]
