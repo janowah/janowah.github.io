@@ -9,5 +9,6 @@
 - erlang
 - [[file:debugging/debugging.html][debugging]]
 - [[file:concepts.html][concepts]]
+- [[file:sql/sql.html][sql]]
 
 [[../index.html][back]]

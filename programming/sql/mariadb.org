@@ -1,0 +1,31 @@
+#+Title: mariadb
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* mariadb on centos
+- install: 
+- start: systemctl start mariadb
+- login: mysql -u root -p
+
+* commands
+- show databases;
+- use database foo;
+- show tables;
+- source mycommands.sql
+- show create table product;
+- show create database foo;
+- select * from foo limit 2;
+- delete from foo; deletes all data
+- drop table foo; deletes table
+- show warnings;
+
+* date and time
+- datetime ; datatype
+- datediff ; function
+- timediff ; function
+
+* notes
+- commands written to ~/.mysql_history
+- table names are case sensitive, data in tables and commands aren't.
+- no space between function and (
+
+[[file:./sql.html][back]]

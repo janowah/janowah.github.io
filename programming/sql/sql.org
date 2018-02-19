@@ -1,0 +1,19 @@
+#+Title: sql
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- books
+  - manga guide
+  - beginning database design
+  - ssd notes
+- notes
+- [[file:sqlite.html][sqlite]]
+  - notes from work
+- [[file:mariadb.html][mariadb]]
+- mysql (ssd notes)
+- examples
+
+plan
+- want to have sql queries for different database products written down
+- these should be categoried. ddl, filters, joins etc.
+
+[[file:../programming.html][back]]

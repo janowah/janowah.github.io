@@ -6,4 +6,4 @@
 - [[file:code.html][code]]
 - [[file:crash-course.html][crash-course]]
 
-[[file:~/janowah/programming/programming.html][back]]
+[[file:../programming.html][back]]

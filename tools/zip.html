@@ -7,15 +7,21 @@
 <h1>zip</h1>
 
 <pre>
+NOTES
+  - using zip on the command line by default ~ backup files
+    weren't archived
 
-- using zip on the command line by default ~ backup files weren't
-archived
+CREATE
+  - zip -r target source
+  - zip -j target source/*  ; leave out top level directory
+    -j --junk-paths         ; do not store directory names
 
-unzip letters ; unzip
-unzip -tq letters ; test
-
--q quiet
--t test
+EXTRACT
+  - unzip -l foo.zip   ; list
+  - unzip foo.zip      ; unzip
+  - unzip -tq foo.zip  ; test
+    -q quiet
+    -t test
 </pre>
 <a href="./tools.html">back</a>
 </body>
