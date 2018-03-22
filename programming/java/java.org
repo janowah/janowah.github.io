@@ -3,4 +3,4 @@
 
 - [[file:books.html][books]]
 
-[[file:~/janowah/programming/programming.html][back]]
+[[../programming.html][back]]

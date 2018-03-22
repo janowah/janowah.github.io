@@ -2,7 +2,7 @@
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 - [[file:centos/centos.html][centos]]
-- freebsd
+- [[file:freebsd.html][freebsd]]
 - [[file:openbsd/openbsd.html][openbsd]]
 - [[file:ubuntu/ubuntu.html][ubuntu]]
 - [[file:netbsd.html][netbsd]]
