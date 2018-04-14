@@ -1,6 +1,9 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Interesting Times / Terry Pratchett
+- Soul Music / Terry Pratchett
+- American Gods / Neil Gaiman
 - The Dispossessed / Ursula K. Le Guin
 - Lord of Chaos / Robert Jordan
 - The Fires of Heaven / Robert Jordan

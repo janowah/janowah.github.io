@@ -3,6 +3,9 @@
 #+title: cwm
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
-cwm
+
+- man cwm
+- man cwmrc
+- https://wiki.archlinux.org/index.php/Cwm
 
 [[./openbsd.html][back]]

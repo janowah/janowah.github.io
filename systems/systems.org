@@ -1,9 +1,11 @@
+# -*- mode: org -*-
+
 #+title: systems
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 - [[file:centos/centos.html][centos]]
 - [[file:freebsd.html][freebsd]]
-- [[file:openbsd/openbsd.html][openbsd]]
+- [[file:openbsd/openbsd.html][OpenBSD]]
 - [[file:ubuntu/ubuntu.html][ubuntu]]
 - [[file:netbsd.html][netbsd]]
 - [[file:fedora.html][fedora]]

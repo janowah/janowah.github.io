@@ -4,10 +4,22 @@
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
 * service management
-rc.conf
-rc.conf.local
-rcctl
+#+BEGIN_EXAMPLE
+  config files
+  - rc.conf
+  - rc.conf.local
 
-locate the conf files
+  locate the conf files
+  
+  commands
+   - rcctl ; configure and control daemons and services
+     - rcctl start mysqld
+     - rcctl restart httpd
+#+END_EXAMPLE
+
+* rc.conf.local
+#+BEGIN_EXAMPLE
+  php56_fpm httpd
+#+END_EXAMPLE
 
 [[./openbsd.html][back]]

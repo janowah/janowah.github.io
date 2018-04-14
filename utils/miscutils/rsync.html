@@ -6,7 +6,9 @@
 <h1>rsync</h1>
 <pre>
 rsync -avt -e ssh --progress file.txt homer-pc:/home/homer/test/
-  homer-pc is a host alias in ~/.ssh  
+  homer-pc is a host alias in ~/.ssh
+
+rsync -avt --checksum --itemize-changes A/ B/
 </pre>
 <a href="./miscutils.html">back</a>
 </body>

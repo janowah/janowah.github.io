@@ -3,55 +3,43 @@
 #+title: networking
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
-networking
-
-interfaces and commands
-
-COMMANDS
-- ifconfig(8) ;  ifconfig - configure network interface parameters
-- route(8) ; route - manually manipulate the routing tables
+* COMMANDS
+- ifconfig(8)  ; configure network interface parameters
+- route(8)     ; manually manipulate the routing tables
 - ping(8)
 - nc(1)
 - traceroute(8)
 - netstat(1)
 
-FILES
+* FILES
 - /etc/
-- hostname.if(5) ; hostname.if - interface-specific configuration files
+- hostname.if(5) ; interface-specific configuration files
   - /etc/hostname.XXX  
 - mygate(5)
 - hosts(5)
 - networks(5)
 
+* unsorted
+- gethostbyname(3)
+- getnetbyname(3)
+- netintro(4)
+- route(4) ; route - kernel packet forwarding database
+- tcp(4)
+
+- bgpd(8)
+- ospfd(8)
+- ripd(8)
+- sysctl(8)
+
+- ifmedia(4)
+- inet(4)
+- intro(4)
+- netintro(4)
+
+- rc(8)
+- tcpdump(8)
+
 [[./openbsd.html][back]]
 
 
-netstat(1)
-gethostbyname(3)
-getnetbyname(3)
-netintro(4)
-route(4) ; route - kernel packet forwarding database
-tcp(4)
 
-
-
-bgpd(8)
-ospfd(8)
-ripd(8)
-sysctl(8)
-
-netstat(1)
-ifmedia(4)
-inet(4)
-intro(4)
-netintro(4)
-
-
-
-
-
-
-hosts(5)
-networks(5)
-rc(8)
-tcpdump(8)

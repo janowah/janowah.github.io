@@ -6,7 +6,12 @@
 - patch the system
 - update from one version to the next
 
-** syspatch(8)
+* general commands
+#+BEGIN_EXAMPLE
+  shutdown -p now
+#+END_EXAMPLE
+
+* syspatch(8)
 #+BEGIN_EXAMPLE
   no arguments ; apply all missing patches
   -c ; list available
@@ -20,7 +25,7 @@
   - /var/syspatch/*
 #+END_EXAMPLE
 
-** man sections
+* man sections
 #+BEGIN_EXAMPLE
   1         General commands (tools and utilities).
   2         System calls and error numbers.
