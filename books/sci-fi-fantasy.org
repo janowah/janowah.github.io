@@ -1,6 +1,8 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Feet of Clay / Terry Pratchett
+- Maskerade / Terry Pratchett
 - Interesting Times / Terry Pratchett
 - Soul Music / Terry Pratchett
 - American Gods / Neil Gaiman
