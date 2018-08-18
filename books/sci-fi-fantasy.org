@@ -1,6 +1,7 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Kafka on the Shore / Haruki Murakami
 - Feet of Clay / Terry Pratchett
 - Maskerade / Terry Pratchett
 - Interesting Times / Terry Pratchett

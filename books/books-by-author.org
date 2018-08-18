@@ -104,42 +104,44 @@ john mcgahern?
 
 * us
 #+BEGIN_EXAMPLE
-  |    | Author              | Title                                     |               |
-  |----+---------------------+-------------------------------------------+---------------|
-  |  1 | A. M. Homes         | This book will save your life             |               |
-  |  2 | Bret Easton Ellis   | American Psycho                           |               |
-  |  3 | Dan Brown           | The Da Vinci Code                         |               |
-  |  4 | Don DeLillo         | White Noise                               |               |
-  |  5 | Ernest Hemingway    | A Farewell to Arms                        |               |
-  |  6 | Ernest Hemingway    | For Whom the Bell Tolls                   |               |
-  |  7 | Ernest Hemingway    | The Old Man and the Sea                   |               |
-  |  8 | F. Scott Fitzgerald | The Great Gatsby                          |               |
-  |  9 | Harper Lee          | To Kill a Mockingbird                     |               |
-  | 10 | H.G. Bissinger      | Friday Night Lights                       |               |
-  | 11 | Hunter S. Thompson  | Fear and Loathing in Las Vegas            |               |
-  | 12 | Hunter S. Thompson  | Hell's Angels                             |               |
-  | 13 | J. D. Salinger      | The Catcher in the Rye                    |               |
-  | 14 | Jack Kerouac        | On The Road*                              |               |
-  | 15 | John Kennedy Toole  | A Confederacy of Dunces                   |               |
-  | 16 | John O'Hara         | Pal Joey                                  |               |
-  | 17 | John Steinbeck      | The Grapes of Wrath                       |               |
-  | 18 | John Steinbeck      | The Pearl                                 |               |
-  | 19 | John Steinbeck      | Of Mice and Men                           |               |
-  | 20 | John Updike         | Rabbit, Run*                              |               |
-  | 21 | Ken Kesey           | One Flew Over the Cuckoo's Nest           |               |
-  | 22 | Mario Puzo          | The Godfather                             |               |
-  | 23 | Mario Puzo          | Omertà                                    |               |
-  | 24 | Philip Roth         | American Pastoral                         |               |
-  | 25 | Robert M. Pirsig    | Zen and the Art of Motorcycle Maintenance |               |
-  | 26 | Sinclair Lewis      | Babbitt                                   | 9780099264712 |
-  | 27 | Sinclair Lewis      | It Can't Happen Here                      |               |
-  | 28 | Stephen Crane       | The Red Badge of Courage*                 |               |
-  | 29 | Stephen King        | It                                        |               |
-  | 30 | Stephen King        | Nightmares & Dreamscapes                  |               |
-  | 31 | Tom Wolfe           | The Bonfire of the Vanities               |               |
-  | 32 | Tom Wolfe           | The Electric Kool-Aid Acid Test           |               |
-  | 33 | Truman Capote       | In Cold Blood                             |               |
-  | 34 | Vladimir Nabokov    | Lolita                                    |               |
+  |    | Author              | Title                                       |               |
+  |----+---------------------+---------------------------------------------+---------------|
+  |  1 | A. M. Homes         | This book will save your life               |               |
+  |  2 | Bret Easton Ellis   | American Psycho                             |               |
+  |  3 | Dan Brown           | The Da Vinci Code                           |               |
+  |  4 | Dave Eggers         | A Heartbreaking Work of Staggering Genius*  |               |
+  |  5 | Don DeLillo         | White Noise                                 |               |
+  |  6 | Ernest Hemingway    | A Farewell to Arms                          |               |
+  |  7 | Ernest Hemingway    | For Whom the Bell Tolls                     |               |
+  |  8 | Ernest Hemingway    | The Old Man and the Sea                     |               |
+  |  9 | F. Scott Fitzgerald | The Great Gatsby                            |               |
+  | 10 | H.G. Bissinger      | Friday Night Lights                         |               |
+  | 11 | Harper Lee          | To Kill a Mockingbird                       |               |
+  | 12 | Hunter S. Thompson  | Fear and Loathing in Las Vegas              |               |
+  | 13 | Hunter S. Thompson  | Fear and Loathing on the Campaign Trail '72 |               |
+  | 14 | Hunter S. Thompson  | Hell's Angels                               |               |
+  | 15 | J. D. Salinger      | The Catcher in the Rye                      |               |
+  | 16 | Jack Kerouac        | On The Road*                                |               |
+  | 17 | John Kennedy Toole  | A Confederacy of Dunces                     |               |
+  | 18 | John O'Hara         | Pal Joey                                    |               |
+  | 19 | John Steinbeck      | Of Mice and Men                             |               |
+  | 20 | John Steinbeck      | The Grapes of Wrath                         |               |
+  | 21 | John Steinbeck      | The Pearl                                   |               |
+  | 22 | John Updike         | Rabbit, Run*                                |               |
+  | 23 | Ken Kesey           | One Flew Over the Cuckoo's Nest             |               |
+  | 24 | Mario Puzo          | Omertà                                      |               |
+  | 25 | Mario Puzo          | The Godfather                               |               |
+  | 26 | Philip Roth         | American Pastoral                           |               |
+  | 27 | Robert M. Pirsig    | Zen and the Art of Motorcycle Maintenance   |               |
+  | 28 | Sinclair Lewis      | Babbitt                                     | 9780099264712 |
+  | 29 | Sinclair Lewis      | It Can't Happen Here                        |               |
+  | 30 | Stephen Crane       | The Red Badge of Courage*                   |               |
+  | 31 | Stephen King        | It                                          |               |
+  | 32 | Stephen King        | Nightmares & Dreamscapes                    |               |
+  | 33 | Tom Wolfe           | The Bonfire of the Vanities                 |               |
+  | 34 | Tom Wolfe           | The Electric Kool-Aid Acid Test             |               |
+  | 35 | Truman Capote       | In Cold Blood                               |               |
+  | 36 | Vladimir Nabokov    | Lolita                                      |               |
 #+END_EXAMPLE
 
 - Mark Twain
