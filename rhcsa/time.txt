@@ -1,37 +1,51 @@
 # -*- mode: org -*-
 
 #+title: time
-#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
-#+BEGIN_EXAMPLE
-  you cannot have both chronyd and ntpd running on the same machine:
+only one time service should be running, chronyd or ntpd.
 
-  use one of
+* check current setup
 
-  ntpd ; servers always connected to a network
-  chronyd ; virtual and mobile
+- =timedatectl status= ; Show current settings of the system clock and RTC.
+- =systemctl status chronyd.service=
+- =systemctl status ntpd.service=
 
-  /etc/localtime
-  /usr/share/zoneinfo/America/Los_Angeles
-  # timedatectl list-timezones
-  # timedatectl set-timezone America/Los_Angeles
-  /etc/chrony.conf
-  iburst configuration option shown here speeds the initial synchronization
-  when the chronyd service is started.
-  # systemctl restart chrnoyd
-  chronyc sources -v
+* time zone
 
-  ntpd
-  # systemctl stop chronyd.service
-  # systemctl disable chronyd.service
+- =/etc/localtime= ; configuration file
+  - this is a symbolic link to one of the files in =/usr/share/zoneinfo/=
+  - eg. =/usr/share/zoneinfo/America/Los_Angeles=
+- =timedatectl= ; utility to set the timezone
+- with no arguments shows current settings
+- commands
+  - =timedatectl list-timezones=
+  - =timedatectl set-timezone America/Los_Angeles=
 
-  # yum install ntp
-  /etc/ntp.conf
+* chronyd
 
-  # systemctl start ntpd.service
-  # systemctl enable ntpd.service
+- the default. use for virtual and mobile devices
+- =/etc/chrony.conf= ; configuration file
+  - iburst configuration option speeds the initial synchronization
+    when the chronyd service is started.
+- commands
+  - =systemctl status chronyd.service=
+  - =systemctl enable chronyd.service=
+  - =systemctl restart chronyd.service=
+  - =systemctl stop chronyd.service=
+  - =systemctl disable chronyd.service=
+- =chronyc sources -v= ; show current time sources (verbose)
+  - chronyc - command-line interface for chrony daemon
 
-  ntpq -p
-#+END_EXAMPLE
+* ntpd
+
+- use if always connected to the network
+- =yum install ntp=
+- =/etc/ntp.conf= ; configuration file
+- commands
+  - =systemctl status ntpd.service=
+  - =systemctl start ntpd.service=
+  - =systemctl enable ntpd.service=
+- =ntpq -p= ; show information about the NTP sources
 
 [[file:rhcsa.html][back]]

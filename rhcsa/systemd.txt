@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+
+#+title: systemd
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  systemctl list-units
+  systemctl list-units --type=service
+  systemctl list-units --all --type=service
+  systemctl reboot 
+#+END_EXAMPLE
+
+[[file:rhcsa.html][back]]

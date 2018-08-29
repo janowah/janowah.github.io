@@ -3,12 +3,16 @@
 #+title: rhsca
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
-- [[file:apache.html][apache]]
-- [[file:kvm.html][kvm]]
-- [[file:firewalld.html][firewalld]]
-- [[file:selinux.html][selinux]]
+- administration
+  - [[file:networking.html][networking]]
+  - [[file:software.html][software]]
+  - [[file:systemd.html][systemd]]
+  - [[file:time.html][time]]
+- security
+  - [[file:firewalld.html][firewalld]]
+  - [[file:selinux.html][selinux]]
+- software
+  - [[file:apache.html][apache]]
+  - [[file:kvm.html][kvm]]
+  - [[file:vsftpd.html][vsftpd]]
 - [[file:resources.html][resources]]
-- [[file:networking.html][networking]]
-- [[file:vsftpd.html][vsftpd]]
-- [[file:time.html][time]]
-- [[file:software.html][software]]

@@ -16,8 +16,9 @@
 | sandisk              | 32GB |       3.0 | centos 7 x64            |
 | sandisk ultra 2      | 16GB |       3.0 | ubuntu 16.04.3 x64 LIVE |
 |----------------------+------+-----------+-------------------------|
-| integral             | 2GB  |       2.0 | data (bc)               |
+| integral             | 2GB  |       2.0 | data (bc) --x--         |
 | sandisk cruzer edge  | 32GB |       2.0 | data (jc) rpi2          |
 |----------------------+------+-----------+-------------------------|
-| samsung              | 32GB |       3.0 | kali-2018.1 x64 LIVE    |
+| samsung              | 32GB |       3.0 | ubuntu 18.04.01         |
 | sandisk              | 32GB |       3.0 | data (mUSB)             |
+| sandisk              | 16GB |       3.0 | ubuntu 18.04.01 LIVE    |

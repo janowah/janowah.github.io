@@ -1,7 +1,7 @@
 # -*- mode: org -*-
 
 #+title: software
-#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
 - configure repos
 - install from repos, local rpm files
