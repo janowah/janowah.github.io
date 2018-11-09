@@ -1,24 +1,24 @@
 				 usb
 
 
-| make                 | size | interface | contents                |
-|----------------------+------+-----------+-------------------------|
-| pny                  | 4GB  |       2.0 | tails                   |
-| kingston dt108 blue  | 4GB  |       2.0 | ubuntu 16.04.1 x64 LIVE |
-| kingston dt108 red   | 8GB  |       2.0 | blank                   |
-| pny                  | 4GB  |       2.0 | pfsense (bc)            |
-| sandisk cruzer force | 8GB  |       2.0 | CentOS 7 1708 x64 LIVE  |
-|----------------------+------+-----------+-------------------------|
-| sandisk cruzer micro | 4GB  |       2.0 | freenas                 |
-| pny                  | 8GB  |       2.0 | edmonton (jc)           |
-| sandisk cruzer edge  | 16GB |       2.0 | freebsd 11 i386         |
-| sandisk ultra 1      | 16GB |       3.0 | ubuntu 14.04.3          |
-| sandisk              | 32GB |       3.0 | centos 7 x64            |
-| sandisk ultra 2      | 16GB |       3.0 | ubuntu 16.04.3 x64 LIVE |
-|----------------------+------+-----------+-------------------------|
-| integral             | 2GB  |       2.0 | data (bc) --x--         |
-| sandisk cruzer edge  | 32GB |       2.0 | data (jc) rpi2          |
-|----------------------+------+-----------+-------------------------|
-| samsung              | 32GB |       3.0 | ubuntu 18.04.01         |
-| sandisk              | 32GB |       3.0 | data (mUSB)             |
-| sandisk              | 16GB |       3.0 | ubuntu 18.04.01 LIVE    |
+| make                 | size | interface | contents               |
+|----------------------+------+-----------+------------------------|
+| pny                  | 4GB  |       2.0 | tails                  |
+| kingston dt108 blue  | 4GB  |       2.0 | openbsd 6.4 install    |
+| kingston dt108 red   | 8GB  |       2.0 | blank                  |
+| pny                  | 4GB  |       2.0 | pfsense (bc)           |
+| sandisk cruzer force | 8GB  |       2.0 | CentOS 7 1708 x64 LIVE |
+|----------------------+------+-----------+------------------------|
+| sandisk cruzer micro | 4GB  |       2.0 | freenas                |
+| pny                  | 8GB  |       2.0 | edmonton (jc)          |
+| sandisk cruzer edge  | 16GB |       2.0 | freebsd 11 i386        |
+| sandisk ultra 1      | 16GB |       3.0 | ubuntu 14.04.3         |
+| sandisk              | 32GB |       3.0 | centos 7 x64           |
+| sandisk ultra 2      | 16GB |       3.0 | openbsd 6.4            |
+|----------------------+------+-----------+------------------------|
+| integral             | 2GB  |       2.0 | data (bc) --x--        |
+| sandisk cruzer edge  | 32GB |       2.0 | data (jc) rpi2         |
+|----------------------+------+-----------+------------------------|
+| samsung              | 32GB |       3.0 | ubuntu 18.04.01        |
+| sandisk              | 32GB |       3.0 | data (mUSB)            |
+| sandisk              | 16GB |       3.0 | ubuntu 18.04.01 LIVE   |

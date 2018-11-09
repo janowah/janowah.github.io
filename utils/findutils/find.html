@@ -10,6 +10,7 @@ command1 >> logfile 2>&1
 command1 >> log_file 2>> err_file
 find ./ -type f | wc
 find ./ -name "*.org" | grep foo
+find ./ -type f -mtime -1 ; last 24 hours
   </pre>
   <a href="./findutils.html">back</a>
 </body>
