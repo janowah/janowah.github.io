@@ -4,8 +4,19 @@
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
 ** install and after install
+
 - naming pc
-- afterboot
+- =afterboot(8)=
+
+** /etc variables
+
+#+BEGIN_EXAMPLE
+  /etc/installurl    ; https://cdn.openbsd.org/pub/OpenBSD
+  /etc/myname        ; obsd63.my.domain
+  /etc/mygate        ; 192.168.122.1
+  /etc/hostname.re0  ; dhcp
+  /etc/dhclient.conf ; send host-name "obsd62";
+#+END_EXAMPLE
 
 [[./openbsd.html][back]]
 

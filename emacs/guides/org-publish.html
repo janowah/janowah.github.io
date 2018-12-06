@@ -1,0 +1,32 @@
+
+<html>
+<head>
+<title>org-publish</title>
+</head>
+<body>
+<h1>org-publish</h1>
+<pre>
+
+;; to local directory
+(setq org-publish-project-alist
+      '(("org"
+         :base-directory "~/Desktop/0-publish/projects"
+         :publishing-directory "~/Desktop/0-publish/projects-html"
+         :publishing-function org-html-publish-to-html
+         :section-numbers nil
+         :with-toc nil
+	 :recursive t )))
+
+;; to server
+(setq org-publish-project-alist
+      '(("org"
+         :base-directory "~/Desktop/0-publish/projects"
+         :publishing-directory "/ssh:alias:/var/www/html/projects"
+         :publishing-function org-html-publish-to-html
+         :section-numbers nil
+         :with-toc nil
+	 :recursive t )))
+</pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

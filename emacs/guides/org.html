@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>org</title>
+</head>
+<body>
+<h1>org</h1>
+<pre>
+
+navigating headings
+===================  
+
+C-c C-u  outline-up-heading  ; moves up level
+C-c C-f  org-forward-heading-same-level	 ; same level
+C-c C-j  org-goto
+C-c C-b  org-backward-heading-same-level
+
+
+exporting tables
+================
+* table
+:PROPERTIES:
+:TABLE_EXPORT_FILE: c:/Users/merkur/Desktop/table.txt
+:TABLE_EXPORT_FORMAT: orgtbl-to-tsv
+:END:      
+
+M-x org-table-export ; export table
+(setq org-table-export-default-format "orgtbl-to-csv")
+
+
+export backends
+===============
+1) customise org-export-backends
+2) load file
+
+  (setq org-export-backends '(org ascii html icalendar latex))
+  (require 'ox-org)
+  
+  (setq org-export-backends '(man ascii html icalendar latex))
+  (require 'ox-man)
+  
+  (setq org-export-backends '(texinfo ascii html icalendar latex))
+  (require 'ox-texinfo)
+
+
+orgmode export options
+======================
+
+- ^:nil t {}    ; TeX-like syntax ^ & _
+- author:nil
+- creator:nil
+- email:nil
+- num:nil t
+- timestamp:nil ; creation time
+- toc:t 2 nil   ; table of contents, can set the level limit
+
+#+title: basic template
+#+options: ^:nil num:nil toc:nil timestamp:nil author:nil creator:nil email:nil
+#+date: 2017-01-01
+
+
+archiving
+=========
+commands
+  C-c C-x C-a  org-archive-subtree-default ; archive entry
+  C-c C-x C-s  org-advertized-archive-subtree ; archive subtree
+  C-u C-c C-x C-s ; search under headline to see what can be archived
+
+global archive
+  #+archive: filename.org::
+
+archive to different files
+  * Books
+    :PROPERTIES:
+    :ARCHIVE: track-books.org::* Read books
+    :END:
+
+html export styling
+===================
+external css
+  #+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+  </pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>org html exporting</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">org html exporting</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">org variables</a></li>
+<li><a href="#sec-2">external css</a></li>
+<li><a href="#sec-3">embed css</a></li>
+<li><a href="#sec-4">file variables</a></li>
+<li><a href="#sec-5">org html variables in .emacs</a></li>
+<li><a href="#sec-6">org-html-head example</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">org variables</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example">
+- org-html-style-default              ; don't change this
+- org-html-head-include-default-style ; or this
+- org-html-head                       ; customise by assigning string
+
+export html with syntax highlighting
+(setq org-src-fontify-natively t)
+htmlize.el (melpa)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">external css</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+
+<pre class="src src-org">#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">embed css</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><code>HTML_HEAD</code> file variables
+<div class="org-src-container">
+
+<pre class="src src-org">#+HTML_HEAD: &lt;style type="text/css" &gt;
+#+HTML_HEAD_EXTRA: h1, h2 {color: #990000;}
+#+HTML_HEAD_EXTRA: &lt;/style&gt;
+</pre>
+</div>
+</li>
+
+<li>embed <code>HTML</code>. this works but puts the style element below the toc.
+<div class="org-src-container">
+
+<pre class="src src-org">#+BEGIN_HTML
+  &lt;style&gt;
+
+  h1, h2 { color: #990000;
+  }
+
+  ul {
+  list-style-type: none;
+  } 
+  &lt;/style&gt;
+#+END_HTML
+</pre>
+</div>
+</li>
+
+<li>customise <code>org-html-head</code>
+<ul class="org-ul">
+<li>useful if exporting several files
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">file variables</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+
+<pre class="src src-org">#+title: 
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:t tex:nil
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">org html variables in .emacs</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example">
+(setq org-html-head-include-default-style nil)
+(setq org-html-head-include-scripts nil)
+(setq org-export-html-validation-link "")
+(setq org-html-validation-link nil)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">org-html-head example</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+escapes
+</p>
+<ul class="org-ul">
+<li>" -&gt; \"
+</li>
+</ul>
+
+<p>
+template
+</p>
+<ul class="org-ul">
+<li>"&lt;style&gt; &#x2026; &lt;/style&gt;"
+</li>
+<li>use to create newlines
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-elisp">(setq org-html-head "&lt;style type=\"text/css\"&gt;\n&lt;!--/*--&gt;&lt;![CDATA[/*&gt;&lt;!--*/\nh1, h2 { color: #990000;\n}\n\n ul {list-style-type: none;\n}\n/*]]&gt;*/--&gt;\n&lt;/style&gt;")
+</pre>
+</div>
+
+<p>
+to reset
+</p>
+<div class="org-src-container">
+
+<pre class="src src-elisp">(setq org-html-head "")
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

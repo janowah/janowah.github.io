@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>hooks</title>
+</head>
+<body>
+<h1>hooks</h1>
+<pre>
+text-mode-hook ; variable
+org-mode-hook
+dired-mode-hook
+
+use add-hook and remove-hook to customise
+- need to remove hooks one at a time
+- or set variable back to default
+- (setq dired-mode-hook nil)
+
+EXAMPLES
+(add-hook 'text-mode-hook 'turn-on-auto-fill) ; if existing function
+(add-hook 'text-mode-hook (lambda () (set-fill-column 72))) ; if not
+
+(add-hook 'text-mode-hook (lambda () (setq-default indent-tabs-mode nil)))
+</pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

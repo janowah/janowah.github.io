@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>org images</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">org images</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">templates</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+css block
+</p>
+<div class="org-src-container">
+
+<pre class="src src-org">#+HTML_HEAD: &lt;style type="text/css" &gt;
+#+HTML_HEAD_EXTRA: .figure {
+#+HTML_HEAD_EXTRA: margin: auto;
+#+HTML_HEAD_EXTRA: width: 80%;
+#+HTML_HEAD_EXTRA: border: 1px solid blue;
+#+HTML_HEAD_EXTRA: padding: 5px;
+#+HTML_HEAD_EXTRA: }
+#+HTML_HEAD_EXTRA: &lt;/style&gt;
+</pre>
+</div>
+
+<p>
+orgmode image block
+</p>
+<div class="org-src-container">
+
+<pre class="src src-org">#+name: emacs-splash
+#+caption: The Emacs Welcome Screen
+#+attr_html: :alt emacs welcome screen
+#+attr_html: :width 500
+[[file:splash.png]]
+</pre>
+</div>
+
+<p>
+exported html block
+</p>
+<div class="org-src-container">
+
+<pre class="src src-html">&lt;div id="emacs-splash" class="figure"&gt;
+&lt;p&gt;&lt;img src="splash.png" alt="emacs welcome screen" width="500" /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;span class="figure-number"&gt;Figure 1:&lt;/span&gt; The Emacs Welcome Screen&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+</div>
+
+<p>
+mapping
+</p>
+<div class="org-src-container">
+
+<pre class="src src-org">#+name: foo             --&gt; id="foo"
+#+caption: foo          --&gt; &lt;p&gt;Figure N: foo&lt;/p&gt;
+[[file:foo.png]]        --&gt; src="foo.png"
+#+attr_html: :alt foo   --&gt; alt="foo"
+#+attr_html: :width foo --&gt; width="foo"
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

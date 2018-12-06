@@ -11,6 +11,24 @@ command1 >> log_file 2>> err_file
 find ./ -type f | wc
 find ./ -name "*.org" | grep foo
 find ./ -type f -mtime -1 ; last 24 hours
+
+find ./ -type f -print0 | xargs -0 openssl sha1
+find ./ -type f -printf '%TY:%Tm:%Td:%TH:%TM:%TS %p\n'
+find ./ -type f -printf '%TY:%Tm:%Td:%TH:%TM:%Tss %p\n'
+find ./ -type f -printf '%TY:%Tm:%Td:%TT %p\n'
+find ./ -type f -printf '%TY:%Tm:%Td:%TX %p\n'
+find ./ -type f -printf '%TY:%Tm:%Td:%TX %p\n'
+
+- find -type f -name *.org
+
+    -mtime +60 means you are looking for a file modified 60 days ago.
+    -mtime -60 means less than 60 days.
+    -mtime 60 If you skip + or – it means exactly 60 days.
+
+So to find text files that were last modified 60 days ago, use
+$ find /home/you -iname "*.txt" -mtime -60 -print
+
+
   </pre>
   <a href="./findutils.html">back</a>
 </body>

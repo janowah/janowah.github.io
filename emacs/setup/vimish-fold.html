@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>vimish-fold</title>
+</head>
+<body>
+<h1>vimish-fold</h1>
+<pre>
+commands
+========
+- create fold
+  - vimish-fold vf
+- delete
+  - vimish-fold-delete vd
+    - vimish-fold-delete-all vda
+- modes
+  - vimish-fold-global-mode vfgm
+  - vimish-fold-mode vfm
+- navigation
+  - vimish-fold-next-fold vn
+  - vimish-fold-previous-fold vp
+- fold
+  - vimish-fold-refold vr
+    - vimish-fold-refold-all vra
+  - vimish-fold-toggle vt
+    - vimish-fold-toggle-all vta
+  - vimish-fold-unfold vu
+    - vimish-fold-unfold-all vua
+
+
+aliases
+=======
+(defalias 'vf 'vimish-fold)
+(defalias 'vd 'vimish-fold-delete)
+(defalias 'vda 'vimish-fold-delete-all)
+(defalias 'vfgm 'vimish-fold-global-mode)
+(defalias 'vfm 'vimish-fold-mode)
+(defalias 'vn 'vimish-fold-next-fold)
+(defalias 'vp 'vimish-fold-previous-fold)
+(defalias 'vr 'vimish-fold-refold)
+(defalias 'vra 'vimish-fold-refold-all)
+(defalias 'vt 'vimish-fold-toggle)
+(defalias 'vta 'vimish-fold-toggle-all)
+(defalias 'vu 'vimish-fold-unfold)
+(defalias 'vua 'vimish-fold-unfold-all)
+(global-set-key (kbd "&lt;H-tab&gt;") 'vimish-fold-toggle)
+
+
+header-width
+============
+(setq vimish-fold-header-width 70)
+</pre>
+<a href="../setup.html">back</a>
+</body>
+</html>

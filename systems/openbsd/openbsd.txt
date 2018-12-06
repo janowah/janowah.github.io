@@ -3,17 +3,26 @@
 #+title: openbsd
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- [[file:installation.html][installation]]
-- [[file:software.html][software]]
-- [[file:user-management.html][user management]]
-- [[file:services.html][services]]
-- [[file:networking.html][networking]]
-- [[file:disks.html][disks]]
-- [[file:utilities.html][utilities]]
-- [[file:httpd.html][httpd]]
-- [[file:pf.html][pf]]
-- [[file:cwm.html][cwm]]
-- [[file:mandoc.html][mandoc]]
-- [[file:guides.html][guides]]
+- setup
+  - [[file:installation.html][installation]]
+  - [[file:disks.html][disks]]
+  - [[file:networking.html][networking]]
+  - [[file:x11.html][x11]]
+- maintainence
+  - [[file:upgrade.html][upgrade]]
+  - [[file:software.html][software (pkg)]]
+  - [[file:user-management.html][user management]]
+  - [[file:services.html][services]]
+  - [[file:syspatch.html][syspatch]]
+  - [[file:shutdown.html][shutdown]]
+- software
+  - [[file:httpd.html][httpd]]
+  - [[file:pf.html][pf]]
+  - [[file:cwm.html][cwm]]
+  - [[file:mandoc.html][mandoc]]
+- extra
+  - [[file:help.html][help]]
+  - [[file:utilities.html][utilities]]
+  - [[file:guides.html][guides]]
 
 [[../systems.html][back]]

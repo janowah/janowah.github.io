@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>babel</title>
+</head>
+<body>
+<h1>babel</h1>
+<pre>
+.emacs
+------
+(package-initialize)
+(require 'cl)
+(require 'ob-tangle)
+(org-babel-load-file "~/config.org")
+
+tangle
+------
+#+BEGIN_SRC text :tangle foo.txt :padline no
+  nfo
+#+END_SRC
+
+#+BEGIN_SRC cpp -n :tangle foo.cpp :padline no
+  line numbers
+#+END_SRC
+</pre>
+<a href="../setup.html">back</a>
+</body>
+</html>

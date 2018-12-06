@@ -1,0 +1,214 @@
+<html>
+<head>
+<title>functions</title>
+</head>
+<body>
+<h1>functions</h1>
+<pre>
+;; - delete-duplicate-lines
+;; - transpose-windows
+;; - toggle-current-window-dedication
+;; - remove-dos-eol
+;; - ido-bookmark-jump
+;; - unfill-paragraph
+;; - org-begin-template
+;; - xah-new-empty-buffer
+;; - insert-todays-date
+;; - move-line
+;; - ido-bookmark-insert
+;; - ora-dired-rsync
+
+;;;;;;;;;;;;;;;;;;;;;;; delete-duplicate-lines ;;;;;;;;;;;;;;;;;;;;;;;
+(defun delete-duplicate-lines (beg end)
+  (interactive "r")
+  (let ((lines (split-string (buffer-substring beg end) "\n")))
+    (delete-region beg end)
+    (insert
+     (mapconcat #'identity (delete-dups lines) "\n"))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;; transpose-windows ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun transpose-windows (arg)
+  "Transpose the buffers shown in two windows."
+  (interactive "p")
+  (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+    (while (/= arg 0)
+      (let ((this-win (window-buffer))
+	    (next-win (window-buffer (funcall selector))))
+	(set-window-buffer (selected-window) next-win)
+	(set-window-buffer (funcall selector) this-win)
+	(select-window (funcall selector)))
+      (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+
+;;;;;;;;;;;;;;;;;; toggle-current-window-dedication ;;;;;;;;;;;;;;;;;;
+(defun toggle-current-window-dedication ()
+  (interactive)
+  (let* ((window    (selected-window))
+	 (dedicated (window-dedicated-p window)))
+    (set-window-dedicated-p window (not dedicated))
+    (message "Window %sdedicated to %s"
+	     (if dedicated "no longer " "")
+	     (buffer-name))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; remove-dos-eol ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; http://stackoverflow.com/questions/730751/hiding-m-in-emacs
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+;;;;;;;;;;;;;;;;;;;;;;;;; ido-bookmark-jump ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'bookmark)
+ (defun ido-bookmark-jump (bname)
+    "*Switch to bookmark interactively using `ido'."
+    (interactive (list (ido-completing-read "Bookmark: " (bookmark-all-names) nil t)))
+    (bookmark-jump bname))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;; unfill-paragraph ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Stefan Monnier . It is the opposite of fill-paragraph
+(defun unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil region)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;; org-begin-template ;;;;;;;;;;;;;;;;;;;;;;;;;
+;; http://pragmaticemacs.com/author/bjm/page/3/
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; function to wrap blocks of text in org templates                       ;;
+;; e.g. latex or src etc                                                  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun org-begin-template ()
+  "Make a template at point."
+  (interactive)
+  (if (org-at-table-p)
+      (call-interactively 'org-table-rotate-recalc-marks)
+    (let* ((choices '(("s" . "SRC")
+                      ("e" . "EXAMPLE")
+                      ("q" . "QUOTE")
+                      ("v" . "VERSE")
+                      ("c" . "CENTER")
+                      ("l" . "LaTeX")
+                      ("h" . "HTML")
+                      ("a" . "ASCII")))
+           (key
+            (key-description
+             (vector
+              (read-key
+               (concat (propertize "Template type: " 'face 'minibuffer-prompt)
+                       (mapconcat (lambda (choice)
+                                    (concat (propertize (car choice) 'face 'font-lock-type-face)
+                                            ": "
+                                            (cdr choice)))
+                                  choices
+                                  ", ")))))))
+      (let ((result (assoc key choices)))
+        (when result
+          (let ((choice (cdr result)))
+            (cond
+             ((region-active-p)
+              (let ((start (region-beginning))
+                    (end (region-end)))
+                (goto-char end)
+                (insert "#+END_" choice "\n")
+                (goto-char start)
+                (insert "#+BEGIN_" choice "\n")))
+             (t
+              (insert "#+BEGIN_" choice "\n")
+              (save-excursion (insert "#+END_" choice))))))))))
+
+;;bind to key
+; (define-key org-mode-map (kbd "C-<") 'org-begin-template) !!!
+
+;;;;;;;;;;;;;;;;;;;;;;;; xah-new-empty-buffer ;;;;;;;;;;;;;;;;;;;;;;;;
+(defun xah-new-empty-buffer ()
+  "Open a new empty buffer.
+URL `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
+Version 2015-06-12"
+  (interactive)
+  (let ((xahbuf (generate-new-buffer "untitled")))
+    (switch-to-buffer xahbuf)
+    (funcall (and initial-major-mode))
+    (setq buffer-offer-save t)))
+
+(global-set-key (kbd "&lt;f6&gt;") 'xah-new-empty-buffer)
+
+;;;;;;;;;;;;;;;;;;;;;;;;; insert-todays-date ;;;;;;;;;;;;;;;;;;;;;;;;;
+;; from http://emacswiki.org/emacs/InsertingTodaysDate
+(defun insert-todays-date (arg)
+  (interactive "P")
+  (insert (if arg
+              (format-time-string "%d-%m-%Y")
+            (format-time-string "%Y-%m-%d %a %H:%M"))))
+
+(global-set-key (kbd "&lt;f5&gt;") 'insert-todays-date)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;; move-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; https://www.emacswiki.org/emacs/MoveLine
+
+(defun move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2))
+
+(defun move-line-down ()
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1))
+
+(global-set-key (kbd "M-") 'move-line-up)
+(global-set-key (kbd "M-") 'move-line-down)
+
+; has to be in text mode
+; moves point to start of line
+
+;;;;;;;;;;;;;;;;;;;;;;;; ido-bookmark-insert ;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'bookmark)
+ (defun ido-bookmark-insert (bname)
+    "*Insert to bookmark interactively using `ido'."
+    (interactive (list (ido-completing-read "Bookmark: " (bookmark-all-names) nil t)))
+    (bookmark-insert bname))
+
+(global-set-key (kbd "H-i") 'ido-bookmark-insert)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;; ora-dired-rsync ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; http://oremacs.com/2016/02/24/dired-rsync/
+;; changed command from rsync -arvz --progress
+;;;###autoload
+(defun ora-dired-rsync (dest)
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name
+      "Rsync to:"
+      (dired-dwim-target-directory)))))
+  ;; store all selected files into "files" list
+  (let ((files (dired-get-marked-files
+                nil current-prefix-arg))
+        ;; the rsync command
+        (tmtxt/rsync-command
+         "rsync -avt --progress "))
+    ;; add all selected file names as arguments
+    ;; to the rsync command
+    (dolist (file files)
+      (setq tmtxt/rsync-command
+            (concat tmtxt/rsync-command
+                    (shell-quote-argument file)
+                    " ")))
+    ;; append the destination
+    (setq tmtxt/rsync-command
+          (concat tmtxt/rsync-command
+                  (shell-quote-argument dest)))
+    ;; run the async shell command
+    (async-shell-command tmtxt/rsync-command "*rsync*")
+    ;; finally, switch to that window
+    (other-window 1)))
+
+(define-key dired-mode-map "Y" 'ora-dired-rsync)
+
+</pre>
+<a href="../setup.html">back</a>
+</body>
+</html>

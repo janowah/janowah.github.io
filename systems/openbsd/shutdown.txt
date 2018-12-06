@@ -1,0 +1,16 @@
+# -*- mode: org -*-
+
+#+title: shutdown
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+* shutdown 
+
+#+BEGIN_EXAMPLE
+  shutdown -p now
+#+END_EXAMPLE
+
+halt
+
+reboot
+
+poweroff

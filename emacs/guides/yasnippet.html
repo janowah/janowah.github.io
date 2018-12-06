@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>yasnippet</title>
+</head>
+<body>
+<h1>yasnippet</h1>
+<pre>
+- https://melpa.org/#/yasnippet
+- (add-to-list 'load-path "~/path-to-yasnippet")
+- (require 'yasnippet)
+- (yas-global-mode 1)
+
+snippets
+~/.emacs.d/yasnippet/snippets/text-mode
+
+timestamp
+  # name: time stamp
+  # key: ts
+  # --
+  `(format-time-string "%Y-%m-%d %a %H:%M")`	$0
+
+text example
+  # -*- mode: snippet -*-
+  # name: some text
+  # key: st
+  # --
+  some text$0
+
+note: make sure no trailing $
+
+commands
+  - yas-describe-tables
+  - yas-reload-all
+
+customise yas-snippet-dirs
+  - (add-to-list 'yas-snippet-dirs "d:/Users/merkur/Desktop/test/snippets")
+  - ../test/snippets/org-mode/hello.snippet
+</pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

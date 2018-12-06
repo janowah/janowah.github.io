@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<title>package</title>
+</head>
+<body>
+<h1>package</h1>
+<pre>
+(package-initialize)
+  
+(setq package-list '(dired+ bookmark+ yasnippet csv-mode))
+(setq package-list '(htmlize ox-twbs vimish-fold))
+(setq package-list '(ace-jump-mode))
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/"))
+
+;; fetch the list of packages available
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; upgrade installed packages
+;; U  package-menu-mark-upgrades
+;; x  package-menu-execute
+</pre>
+<a href="../setup.html">back</a>
+</body>
+</html>

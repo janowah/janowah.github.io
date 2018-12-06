@@ -1,0 +1,20 @@
+
+<html>
+<head>
+<title>eshell</title>
+</head>
+<body>
+<h1>eshell</h1>
+<pre>
+(defun eshell/clear ()
+  "clear the eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
+(setq eshell-prompt-function
+      (lambda nil ">"))
+</pre>
+<a href="../setup.html">back</a>
+</body>
+</html>

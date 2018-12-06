@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>calc</title>
+</head>
+<body>
+<h1>calc</h1>
+<pre>
+basic usage
+-----------
+
+TAB        ; swap numbers on top of stack
+RET or SPC ; copy previous number to top of stack
+
+time functions
+--------------
+
+t N	calc-now
+t N F	calc-floor (date)
+	calc-time (x time)
+t U	calc-unix-time
+t D	calc-date (julian)
+t C	calc-convert-time-zones
+t Z	calc-time-zone (relative to utc in seconds)
+t P	calc-date-part (select part)
+
+
+change from decimal to binary
+-----------------------------
+
+d 0 (calc-decimal-radix)
+d 2 (calc-binary-radix)
+
+
+Angular Modes
+-------------
+
+m r (calc-radians-mode) 
+m d (calc-degrees-mode) ; default
+m h (calc-hms-mode)
+
+
+calculus
+--------
+
+' ; algebraic
+a d (calc-derivative)
+a i (calc-integral)
+
+
+functions
+---------
+
+d g (calc-group-digits)
+</pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

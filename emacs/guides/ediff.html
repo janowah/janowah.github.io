@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>ediff</title>
+</head>
+<body>
+<h1>ediff</h1>
+<pre>
+
+  commands
+  ========
+  - vertical/ horizontal split |
+  - toggle highlighting h
+  - enable whitespace
+  - how to edit and rescan !
+
+
+  - M-x eregistry
+  - ! rescan
+  - z suspend
+
+.emacs
+======
+
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+(setq ediff-split-window-function 'split-window-horizontally)
+
+(winner-mode)
+(add-hook 'ediff-after-quit-hook-internal 'winner-undo)
+
+
+windows
+=======
+
+http://gnuwin32.sourceforge.net/packages/diffutils.htm
+
+download binaries
+put them in path
+check path
+
+diffutils-2.8.7-1-dep.zip
+diffutils-2.8.7-1-bin.zip
+
+- diff3.exe
+- sdiff.exe
+- cmp.exe
+- diff.exe
+
+- libiconv2.dll
+- libintl3.dll
+
+</pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

@@ -4,15 +4,31 @@
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
 * user management
-- adding users
-  - adduser
-- groups
-  - wheel
-- skel
-- files
+
+#+BEGIN_EXAMPLE
+  - adding users
+    - adduser
+  - groups
+    - wheel
+    - groupadd, groupinfo, groupmod, groupdel
+  - skel
+  - files
+#+END_EXAMPLE
 
 * recovering root password
-- single user mode. mount two partitions
+
+boot into single user mode, mount two partitions (/ and /usr) and run passwd
+
+- put into single user mode
+  - interrupt boot
+    - =boot -s=
+  - mount partitions
+    - =fsck -p / && mount -uw /=
+    - =fsck -p /usr && mount /usr=
+  - change password
+    - =passwd=
+
+https://www.openbsd.org/faq/faq8.html#LostPW
 
 [[./openbsd.html][back]]
 

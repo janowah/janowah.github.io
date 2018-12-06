@@ -1,0 +1,19 @@
+# -*- mode: org -*-
+
+#+title: syspatch
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+* syspatch(8)
+
+#+BEGIN_EXAMPLE
+  no arguments ; apply all missing patches
+  -c ; list available
+  -l ; list installed
+  -r ; revert most recently installed patch
+
+  FILES
+  - /bsd.syspatch${OSrev} ; backup
+  - /etc/installurl
+    - https://ftp.openbsd.org/pub/OpenBSD
+  - /var/syspatch/*
+#+END_EXAMPLE

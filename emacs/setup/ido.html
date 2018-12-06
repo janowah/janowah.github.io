@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>ido</title>
+</head>
+<body>
+<h1>ido</h1>
+<pre>
+(ido-mode 1)
+(ido-everywhere 1)
+(setq ido-enable-flex-matching t)
+(setq ido-create-new-buffer 'prompt)
+(setq ido-enable-tramp-completion t)
+
+;; https://www.emacswiki.org/emacs/InteractivelyDoThings
+;; Display ido results vertically, rather than horizontally
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+
+idomenu.el ; melpa
+(global-set-key (kbd "M-i") 'idomenu)
+</pre>
+<a href="../setup.html">back</a>
+</body>
+</html>

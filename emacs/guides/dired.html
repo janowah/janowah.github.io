@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<title>dired</title>
+</head>
+<body>
+<h1>dired</h1>
+<pre>
+insert subdirectories
+=====================
+
+- i     ; dired-maybe-insert-subdir
+- C-u k ; dired-do-kill-lines
+
+
+find
+====
+
+- find-name-dired
+- find-grep-dired
+
+
+shell commands
+==============
+
+- ! dired-do-shell-command
+  - rsync -avt * ~/Desktop ; rsync marked files. locks emacs.
+
+
+replace text across multiple marked files
+=========================================
+
+Q ; dired-do-find-regexp-and-replace
+save in ibuffer using S
+
+
+diff using a shell command
+==========================
+
+1) mark two files
+   - can insert subdirectories
+2) ! diff *
+
+using dired diff
+================
+
+1) the file where the cursor is is the first file
+2) = 
+3) select a second file
+
+
+show the modification times of files
+====================================
+
+! ls -la --time-style=long-iso * ; all marked files
+</pre>
+<a href="../guides.html">back</a>
+</body>
+</html>

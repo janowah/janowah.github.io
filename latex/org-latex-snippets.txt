@@ -1,0 +1,499 @@
+# -*- mode: org -*-
+# 2018-02-05
+
+* GREEK
+** al \alpha
+#+BEGIN_SRC text :tangle al :padline no
+# -*- mode: snippet -*-
+# name: al
+# key: al
+# --
+\alpha$0
+#+END_SRC
+
+** be \beta
+#+BEGIN_SRC text :tangle be :padline no
+#+BEGIN_
+# -*- mode: snippet -*-
+# name: be
+# key: be
+# --
+\beta$0
+#+END_SRC
+
+** de \delta
+#+BEGIN_SRC text :tangle de :padline no
+# -*- mode: snippet -*-
+# name: de
+# key: de
+# --
+\delta$0
+#+END_SRC
+
+** ep \epsilon
+#+BEGIN_SRC text :tangle ep :padline no
+# -*- mode: snippet -*-
+# name: ep
+# key: ep
+# --
+\epsilon$0
+#+END_SRC
+
+** la \lambda
+#+BEGIN_SRC text :tangle la :padline no
+# -*- mode: snippet -*-
+# name: la
+# key: la
+# --
+\lambda$0
+#+END_SRC
+
+** mu \mu
+#+BEGIN_SRC text :tangle mu :padline no
+# -*- mode: snippet -*-
+# name: mu
+# key: mu
+# --
+\mu$0
+#+END_SRC
+
+** om \omega
+#+BEGIN_SRC text :tangle om :padline no
+# -*- mode: snippet -*-
+# name: om
+# key: om
+# --
+\omega$0
+#+END_SRC
+
+** pi \pi
+#+BEGIN_SRC text :tangle pi :padline no
+# -*- mode: snippet -*-
+# name: pi
+# key: pi
+# --
+\pi$0
+#+END_SRC
+
+** si \sigma
+#+BEGIN_SRC text :tangle si :padline no
+# -*- mode: snippet -*-
+# name: si
+# key: si
+# --
+\sigma$0
+#+END_SRC
+
+** ta \tau
+#+BEGIN_SRC text :tangle ta :padline no
+# -*- mode: snippet -*-
+# name: ta
+# key: ta
+# --
+\tau$0
+#+END_SRC
+
+** th \theta
+#+BEGIN_SRC text :tangle th :padline no
+# -*- mode: snippet -*-
+# name: th
+# key: th
+# --
+\theta$0
+#+END_SRC
+
+* MATHS SYMBOLS
+** fr \frac{}{}
+#+BEGIN_SRC text :tangle fr :padline no
+# -*- mode: snippet -*-
+# name: fr
+# key: fr
+# --
+\frac{$1}{$2}$0
+#+END_SRC
+
+** sq \sqrt{}
+#+BEGIN_SRC text :tangle sq :padline no
+# -*- mode: snippet -*-
+# name: sq
+# key: sq
+# --
+\sqrt{$1}$0
+#+END_SRC
+
+** sum \sum
+#+BEGIN_SRC text :tangle sum :padline no
+# -*- mode: snippet -*-
+# name: sum
+# key: sum
+# --
+\sum $0
+#+END_SRC
+
+** sl \sum\limits_{}^{}
+#+BEGIN_SRC text :tangle sl :padline no
+# -*- mode: snippet -*-
+# name: sl
+# key: sl
+# --
+\sum\limits_{$1}^{$2}$0
+#+END_SRC
+
+** ge \ge
+#+BEGIN_SRC text :tangle ge :padline no
+# -*- mode: snippet -*-
+# name: ge
+# key: ge
+# --
+\ge $0
+#+END_SRC
+
+** le \le
+#+BEGIN_SRC text :tangle le :padline no
+# -*- mode: snippet -*-
+# name: le
+# key: le
+# --
+\le $0
+#+END_SRC
+
+** ne \ne
+#+BEGIN_SRC text :tangle ne :padline no
+# -*- mode: snippet -*-
+# name: ne
+# key: ne
+# --
+\ne $0
+#+END_SRC
+
+** pm \pm
+#+BEGIN_SRC text :tangle pm :padline no
+# -*- mode: snippet -*-
+# name: pm
+# key: pm
+# --
+\pm $0
+#+END_SRC
+
+** in \infty
+#+BEGIN_SRC text :tangle in :padline no
+# -*- mode: snippet -*-
+# name: in
+# key: in
+# --
+\infty$0
+#+END_SRC
+
+** ~ \sim
+#+BEGIN_SRC text :tangle sim :padline no
+# -*- mode: snippet -*-
+# name: ~
+# key: ~
+# --
+\sim $0
+#+END_SRC
+
+** log \log
+#+BEGIN_SRC text :tangle log :padline no
+# -*- mode: snippet -*-
+# name: log
+# key: log
+# --
+\log$0
+#+END_SRC
+
+** sin \sin
+#+BEGIN_SRC text :tangle sin :padline no
+# -*- mode: snippet -*-
+# name: sin
+# key: sin
+# --
+\sin$0
+#+END_SRC
+
+** cos \cos
+#+BEGIN_SRC text :tangle cos :padline no
+# -*- mode: snippet -*-
+# name: cos
+# key: cos
+# --
+\cos$0
+#+END_SRC
+
+** x \times
+#+BEGIN_SRC text :tangle x :padline no
+# -*- mode: snippet -*-
+# name: x
+# key: x
+# --
+\times$0
+#+END_SRC
+
+** eqv \equiv
+#+BEGIN_SRC text :tangle eqv :padline no
+# -*- mode: snippet -*-
+# name: eqv
+# key: eqv
+# --
+\equiv$0
+#+END_SRC
+
+* CALCULUS
+** pd \partial
+#+BEGIN_SRC text :tangle pd :padline no
+# -*- mode: snippet -*-
+# name: pd
+# key: pd
+# --
+\partial
+#+END_SRC
+
+** dt \dot
+#+BEGIN_SRC text :tangle dt :padline no
+# -*- mode: snippet -*-
+# name: dt
+# key: dt
+# --
+\dot
+#+END_SRC
+
+** ddt \ddot
+#+BEGIN_SRC text :tangle ddt :padline no
+# -*- mode: snippet -*-
+# name: ddt
+# key: ddt
+# --
+\ddot
+#+END_SRC
+
+** int \int
+#+BEGIN_SRC text :tangle int :padline no
+# -*- mode: snippet -*-
+# name: int
+# key: int
+# --
+\int $0
+#+END_SRC
+
+** intl \int_{}^{}
+#+BEGIN_SRC text :tangle intl :padline no
+# -*- mode: snippet -*-
+# name: intl
+# key: intl
+# --
+\int $0
+#+END_SRC
+
+** if \int_{} ; integral from
+#+BEGIN_SRC text :tangle su :padline no
+# -*- mode: snippet -*-
+# name: if
+# key: if
+# --
+\int_{$0}
+#+END_SRC
+
+** ift \int_{-\infty}^{\infty}
+#+BEGIN_SRC text :tangle ift :padline no
+# -*- mode: snippet -*-
+# name: ift
+# key: ift
+# --
+\int_{-\infty}^{\infty}
+#+END_SRC
+
+* MATHS MODIFY {}
+** bar \bar
+#+BEGIN_SRC text :tangle bar :padline no
+# -*- mode: snippet -*-
+# name: bar
+# key: bar
+# --
+\bar{$0}
+#+END_SRC
+
+** hat \hat
+#+BEGIN_SRC text :tangle hat :padline no
+# -*- mode: snippet -*-
+# name: hat
+# key: hat
+# --
+\hat{$0}
+#+END_SRC
+
+** lap \mathcal{L}
+#+BEGIN_SRC text :tangle lap :padline no
+# -*- mode: snippet -*-
+# name: lap
+# key: lap
+# --
+\mathcal{L}{$0}
+#+END_SRC
+
+* ENVIRONMENTS
+** eqn \begin{equation}
+#+BEGIN_SRC text :tangle eqn :padline no
+# -*- mode: snippet -*-
+# name: eqn
+# key: eqn
+# --
+\begin{equation}
+$0
+\end{equation}
+#+END_SRC
+
+** eq \begin{equation*}
+#+BEGIN_SRC text :tangle eq :padline no
+# -*- mode: snippet -*-
+# name: eq
+# key: eq
+# --
+\begin{equation*}
+$0
+\end{equation*}
+#+END_SRC
+
+** aln \begin{align}
+#+BEGIN_SRC text :tangle aln :padline no
+# -*- mode: snippet -*-
+# name: aln
+# key: aln
+# --
+\begin{align}
+$0 = \\
+& = \\
+\end{align}
+#+END_SRC
+
+** ali \begin{align*}
+#+BEGIN_SRC text :tangle ali :padline no
+# -*- mode: snippet -*-
+# name: ali
+# key: ali
+# --
+\begin{align*}
+$0 & = \\\\
+& = \\\\
+\end{align*}
+#+END_SRC
+
+** ca \begin{cases}
+#+BEGIN_SRC text :tangle ca :padline no
+# -*- mode: snippet -*-
+# name: ca
+# key: ca
+# --
+\begin{cases}
+& \text{$0} \\
+\end{cases}
+#+END_SRC
+
+** txt \text{}
+#+BEGIN_SRC text :tangle tx :padline no
+# -*- mode: snippet -*-
+# name: tx
+# key: tx
+# --
+\text{$0}
+#+END_SRC
+
+** bf \textbf{}
+#+BEGIN_SRC text :tangle tx :padline no
+# -*- mode: snippet -*-
+# name: bf
+# key: bf
+# --
+\textbf{$0}
+#+END_SRC
+
+* BRACES
+** (( \left( \right) ; parentheses
+#+BEGIN_SRC text :tangle parentheses.snippet :padline no
+# -*- mode: snippet -*-
+# name: ((
+# key: ((
+# --
+\left( $0 \right)
+#+END_SRC
+
+** big( \big(  \big) ; big parentheses 
+#+BEGIN_SRC text :tangle big-parentheses.snippet :padline no
+# -*- mode: snippet -*-
+# name: big(
+# key: big(
+# --
+\big( $0 \big)
+#+END_SRC
+
+** {{ \left{  \right} ; braces
+#+BEGIN_SRC text :tangle braces.snippet :padline no
+# -*- mode: snippet -*-
+# name: {{
+# key: {{
+# --
+\left{ $0 \right}
+#+END_SRC
+
+** big{ ; big braces
+#+BEGIN_SRC text :tangle big-braces.snippet :padline no
+# -*- mode: snippet -*-
+# name: big{
+# key: big{
+# --
+\big{ $0 \big}
+#+END_SRC
+
+** big|  
+#+BEGIN_SRC text :tangle big-line.snippet :padline no
+# -*- mode: snippet -*-
+# name: big|
+# key: big|
+# --
+\big| $0 \big|
+#+END_SRC
+
+* PUNCTUATION
+** cd \cdots
+#+BEGIN_SRC text :tangle cd :padline no
+# -*- mode: snippet -*-
+# name: cd
+# key: cd
+# --
+\cdots
+#+END_SRC
+
+** ld \ldots
+#+BEGIN_SRC text :tangle ld :padline no
+# -*- mode: snippet -*-
+# name: ld
+# key: ld
+# --
+\ldots
+#+END_SRC
+
+** -> \rightarrow
+#+BEGIN_SRC text :tangle rightarrow :padline no
+# -*- mode: snippet -*-
+# name: ->
+# key: ->
+# --
+\rightarrow $0
+#+END_SRC
+
+** => \Rightarrow
+#+BEGIN_SRC text :tangle rightarrow :padline no
+# -*- mode: snippet -*-
+# name: =>
+# key: =>
+# --
+\Rightarrow $0
+#+END_SRC
+
+** ^ exponential
+#+BEGIN_SRC text :tangle power :padline no
+# -*- mode: snippet -*-
+# name: ^
+# key: ^
+# --
+$1^{$2}$0
+#+END_SRC

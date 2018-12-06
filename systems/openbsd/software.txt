@@ -3,7 +3,8 @@
 #+title: software
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
-* setup
+* PKG_PATH variable
+
 ** set the package path
 #+BEGIN_EXAMPLE
 pkg_path
@@ -17,6 +18,13 @@ pkg_path
 - =. $HOME/.profile= ; dot source
 - =echo PKG_PATH= ; test
 
+* commands 
+
+- pkg_add
+- pkg_info
+- pkg_delete
+- pkg_check
+
 * install
 - =pkg_add -v emacs=
   - =emacs-24.5p2-no_x11=
@@ -28,9 +36,15 @@ pkg_path
   - pkg_info      ; see what's installed
   - pkg_info -Q   ; query PKG_PATH
   - pkg_add -u    ; update all installed packages
+
+  - check /usr/local/share/doc/pkg-readmes
 #+END_EXAMPLE
 
 * remove
+
+* find out
+
+- how to check the installed packages history?
 
 [[./openbsd.html][back]]
 

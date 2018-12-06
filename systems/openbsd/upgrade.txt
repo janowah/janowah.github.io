@@ -1,0 +1,38 @@
+# -*- mode: org -*-
+
+#+title: upgrade
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+download the new ram disk kernel and put it in /, reboot the machine,
+select this kernel and upgrade.
+
+* preparation
+
+1) read the docs
+   - =https://www.openbsd.org/faq/upgrade64.html=
+2) need to download kernel
+   - =wget https://cdn.openbsd.org/pub/OpenBSD/6.4/amd64/bsd.rd=
+3) download sig
+   - =wget https://cdn.openbsd.org/pub/OpenBSD/6.4/amd64/SHA256.sig=
+4) verify
+   - =signify -C -p /etc/signify/openbsd-64-base.pub -x SHA256.sig bsd.rd=
+5) put into / and boot this kernel
+   - =boot bsd.rd=
+
+* performing the update
+
+- openbsd kernels
+  - .mp ; multiprocessor
+  - .rd ; ram disk, use to install, upgrade
+
+* afterboot
+
+- =sysmerge= ; config files
+- =pkg_add -u=
+  - check =PKG_PATH=
+  - =. ./root/.profile= ; dot source after changing
+- =syspatch=
+
+* references
+
+https://www.romanzolotarev.com/openbsd/vultr-upgrade.html

@@ -1,0 +1,27 @@
+# -*- mode: org -*-
+
+#+title: help
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+* man
+
+=man 8 afterboot=
+
+#+BEGIN_EXAMPLE
+  1         General commands (tools and utilities).
+  2         System calls and error numbers.
+  3         Library functions.
+  3p        perl(1) programmer's reference guide.
+  4         Device drivers.
+  5         File formats.
+  6         Games.
+  7         Miscellaneous information.
+  8         System maintenance and operation commands.
+  9         Kernel internals.
+#+END_EXAMPLE
+
+* links
+
+- https://www.openbsd.org/
+- https://www.openbsd.org/faq/index.html
+- https://man.openbsd.org/

@@ -4,13 +4,12 @@
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
 * service management
+
 #+BEGIN_EXAMPLE
   config files
-  - rc.conf
-  - rc.conf.local
+  - /etc/rc.conf       ; default services
+  - /etc/rc.conf.local ; local services
 
-  locate the conf files
-  
   commands
    - rcctl ; configure and control daemons and services
      - rcctl start mysqld
@@ -18,8 +17,33 @@
 #+END_EXAMPLE
 
 * rc.conf.local
+
 #+BEGIN_EXAMPLE
   php56_fpm httpd
+#+END_EXAMPLE
+
+* troubleshooting
+
+#+BEGIN_EXAMPLE
+  rcctl -d
+  rcclt -f
+#+END_EXAMPLE
+
+* examples
+
+#+BEGIN_EXAMPLE
+  usage:  rcctl get|getdef|set service | daemon [variable [arguments]]
+          rcctl [-df] check|reload|restart|stop|start daemon ...
+          rcctl disable|enable|order [daemon ...]
+          rcctl ls all|failed|off|on|started|stopped
+
+  rcctl start httpd
+  rcctl stop httpd
+  rcctl enable httpd  ; modifies /etc/rc.conf.local
+  rcctl disable httpd ; modifies /etc/rc.conf.local
+  rcctl check httpd   ; status
+  rcctl get httpd     ; variables
+  rcctl ls all
 #+END_EXAMPLE
 
 [[./openbsd.html][back]]
