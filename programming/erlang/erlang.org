@@ -1,0 +1,6 @@
+#+Title: erlang
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- erlang
+
+[[../programming.html][back]]

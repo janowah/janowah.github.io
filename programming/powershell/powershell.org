@@ -1,0 +1,6 @@
+#+Title: powershell
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- ?
+
+[[../programming.html][back]]

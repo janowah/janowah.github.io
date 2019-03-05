@@ -1,0 +1,17 @@
+#+title: simple bash examples
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* make folders from a list in a file
+
+#+BEGIN_SRC sh
+  #!/bin/bash
+
+  IFS=''
+
+  cat input.txt | while read x
+  do
+      mkdir $x
+  done
+#+END_SRC
+
+[[./bash.html][back]]

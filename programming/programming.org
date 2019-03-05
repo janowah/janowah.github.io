@@ -1,14 +1,18 @@
 #+Title: Programming
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
+- [[file:bash/bash.html][bash]]
+- [[file:c/c.html][c]]
 - [[file:cpp/cpp.html][c++]]
-- [[file:python/python.html][python]]
+- [[file:dos/dos.html][dos]]
+- [[file:elisp/elisp.html][elisp]]
+- [[file:erlang/erlang.html][erlang]]
 - [[file:java/java.html][java]]
-- c
-- lisp
-- erlang
-- [[file:debugging/debugging.html][debugging]]
-- [[file:concepts.html][concepts]]
+- [[file:javascript/javascript.html][javascript]]
+- [[file:powershell/powershell.html][powershell]]
+- [[file:python/python.html][python]]
 - [[file:sql/sql.html][sql]]
+- [[file:concepts.html][concepts]]
+- [[file:debugging/debugging.html][debugging]]
 
 [[../index.html][back]]

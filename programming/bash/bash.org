@@ -1,0 +1,6 @@
+#+Title: bash
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- [[file:simple-bash-examples.html][simple-bash-examples]]
+
+[[../programming.html][back]]
