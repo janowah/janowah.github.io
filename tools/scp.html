@@ -7,14 +7,26 @@
 <h1>scp</h1>
 
 <pre>
-scp -p file.txt u15000@u15000.your-storagebox.de:
+scp -p song.mp3 homer@example.com:
+
+host-alias
+----------
+
+scp -p song.mp3 springfield:
+
+
+reverse
+-------
+
+scp -p springfield:song.mp3 /home/homer/Desktop/
+
+
+switches
+--------
 
 -p  preserve modification times
 -r  recursive
 -v  verbose
-
-scp -p file.mp3 host-alias:
-
 </pre>
 <a href="./tools.html">back</a>
 </body>
