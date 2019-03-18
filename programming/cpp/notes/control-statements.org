@@ -1,0 +1,149 @@
+#+title: control statements
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* if
+
+#+BEGIN_EXAMPLE
+  if (expression)
+    {statement}
+#+END_EXAMPLE
+
+#+BEGIN_SRC cpp
+  if (x == y)
+    {x = x + 5;}
+#+END_SRC
+
+* if else
+
+#+BEGIN_EXAMPLE
+  if (expression)
+    {if true statement}
+  else
+    {if false statement}
+#+END_EXAMPLE
+
+#+BEGIN_SRC cpp
+  if (x > 5)
+    {x++;}
+  else
+    {x = x + 5;}
+#+END_SRC
+
+** Conditional operator ?
+
+=?:= Ternary Condition =x = (a < b) ? a : b;= right to left
+
+#+BEGIN_EXAMPLE
+  conditionalExpression ? trueExpression1 : falseExpression2
+#+END_EXAMPLE
+
+#+BEGIN_SRC cpp
+  (x > 5) ? x++ : x = x + 5;
+
+  // Display the shorter of s and t
+  cout << (s.length() < t.length() ? s : t);
+#+END_SRC
+
+Note that the expressions must have the same type.
+
+* while
+
+#+BEGIN_EXAMPLE
+  while (expression)
+    {statement}
+#+END_EXAMPLE
+
+#+BEGIN_SRC cpp
+  while (x < 3)
+    {x++;}
+#+END_SRC
+
+* do while
+
+#+BEGIN_EXAMPLE
+  do
+    {statement}
+  while (expression)
+#+END_EXAMPLE
+
+#+BEGIN_SRC cpp
+  do
+    {x++;}
+  while (x < 3)
+#+END_SRC
+
+* for
+
+#+BEGIN_EXAMPLE
+  for (init, comparison, modifier)
+    {statement}
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC cpp
+  for (i = 0; i < 10; i++)
+    {someFunct();}
+#+END_SRC
+
+** foreach?
+
+range-based 'for' loops (not C++98 mode)
+
+#+BEGIN_SRC cpp
+    for (int n : v) {
+        std::cout << n << '\n';
+    }
+#+END_SRC
+
+* switch
+
+#+BEGIN_EXAMPLE
+  switch (int)
+    {
+      case (expression): statement
+      case (expression): statement
+      default : (expression)
+    }
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC cpp
+  int x = 5;
+  switch(x)
+  {
+    case 1: cout << "test1";
+      break;
+    case 5: cout << "test5";
+      break;
+    default: cout << "none";
+  }
+#+END_SRC
+
+* break
+
+break quits out of the loop/switch, without completing the remaining
+statements in the loop/switch. 
+
+
+usage:
+
+most common usage break statement is in some form of infinite loop, such as
+while(true){},
+
+* continue
+
+continue on the other hand continues directly to the next iteration of
+loop without executing the remaining statements in the loop. 
+
+* goto
+
+don't use
+
+#+BEGIN_SRC cpp
+  goto endloop;
+
+  endloop:
+#+END_SRC
+
+
+[[./notes.html][back]]

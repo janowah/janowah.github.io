@@ -1,0 +1,9 @@
+#+title: documentation
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- Tp ; type
+- yum install libstdc++-docs ; already installed
+- file:///usr/share/doc/libstdc++-docs-4.8.5/html/api/index.html
+- https://en.cppreference.com/w/cpp/container/vector ; good resource
+
+[[./notes.html][back]]

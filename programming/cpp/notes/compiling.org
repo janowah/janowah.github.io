@@ -1,0 +1,21 @@
+#+title: compiling
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  g++ calc.cpp main.cpp
+
+  g++ -o myprog calc.cpp main.cpp
+
+  g++ -g main.cpp
+
+  g++ -std=c++11 myset.cpp 
+  C++98 mode is the default for g++
+
+  SWITCHES
+  -o ; output
+  -g ; debugging
+#+END_EXAMPLE
+
+
+
+[[./notes.html][back]]

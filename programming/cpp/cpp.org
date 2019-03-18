@@ -4,28 +4,7 @@
 - [[file:cpp-quick-guide.html][quick guide]]
 - [[file:problem-solving.html][problem solving]]
 - [[file:cpp-quick-notes.html][quick notes]]
+- [[file:code/cpp-code.html][code]]
+- [[file:notes/notes.html][notes]]
 
-code
-- [[file:hello.html][hello world]] 2
-- [[file:account.html][account]] 11 ; classes
-- [[file:encoderh.html][encoder.h]], [[file:encoder.html][encoder]] 24
-- [[file:complex.html][complex]] 31
-- [[file:factorial-iterative.html][factorial iterative]] 32
-- [[file:factorial-recursive.html][factorial recursive]] 32
-- [[file:fibonacci.html][fibonacci]] 33
-- [[file:array-example.html][array example]] 35 ; arrays
-- [[file:name_address.html][name_address]] 35 ; arrays
-- [[file:histogram.html][histogram]] 37 ; arrays
-- [[file:lotto.html][lotto]] ; sorting
-- [[file:stack.html][stack]] 45
-- [[file:palindrome.html][palindrome]] 46 
-- [[file:stack-template.html][stack]] 47 ; class templates
-- patient 49 ; array of objects
-- hotelroom 50 ; sort array of objects
-- [[file:student.html][student]] 55 ; linked lists
-- student search 56 ; linked list search
-- course 58 ; pointers between classes
-- [[file:interestAccount.html][interestAccount]] 61 ; inheritance
-
-- [[file:idiots-code.html][idiots-code]]
 [[../programming.html][back]]

@@ -1,0 +1,8 @@
+#+title: linting
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=cpplint.py=
+
+=python2 ~/cpplint.py ~/Desktop/main.cpp=
+
+[[./notes.html][back]]

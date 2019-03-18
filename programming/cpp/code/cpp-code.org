@@ -1,0 +1,31 @@
+#+Title: cpp code 
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* cpp
+
+- [[file:cpp-examples/hello.html][hello world]] 2
+- [[file:cpp-examples/account.html][account]] 11 ; classes
+- [[file:cpp-examples/encoderh.html][encoder.h]], [[file:cpp-examples/encoder.html][encoder]] 24
+- [[file:cpp-examples/complex.html][complex]] 31
+- [[file:cpp-examples/factorial-iterative.html][factorial iterative]] 32
+- [[file:cpp-examples/factorial-recursive.html][factorial recursive]] 32
+- [[file:cpp-examples/fibonacci.html][fibonacci]] 33
+- [[file:cpp-examples/array-example.html][array example]] 35 ; arrays
+- [[file:cpp-examples/name_address.html][name_address]] 35 ; arrays
+- [[file:cpp-examples/histogram.html][histogram]] 37 ; arrays
+- [[file:cpp-examples/lotto.html][lotto]] ; sorting
+- [[file:cpp-examples/stack.html][stack]] 45
+- [[file:cpp-examples/palindrome.html][palindrome]] 46 
+- [[file:cpp-examples/stack-template.html][stack]] 47 ; class templates
+- patient 49 ; array of objects
+- hotelroom 50 ; sort array of objects
+- [[file:cpp-examples/student.html][student]] 55 ; linked lists
+- student search 56 ; linked list search
+- course 58 ; pointers between classes
+- [[file:cpp-examples/interestAccount.html][interestAccount]] 61 ; inheritance
+
+* idiots
+
+- [[file:idiots/idiots-code.html][idiots-code]]
+
+[[../cpp.html][back]]

@@ -1,0 +1,24 @@
+#+title: debugging
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* steps
+
+1) =g++ -g foo.cpp= ; compile with debugging symbols
+2) =break main= ; break points
+   - =break 1= ; line number
+3) =run=
+4) =print x=  ; prints variable, array, vector etc.
+   - objects. just shows private data
+   - what about debugging pointers?
+
+* commands
+
+- next
+- step
+- continue
+
+* note
+
+- ENTER repeats last command
+
+[[./notes.html][back]]

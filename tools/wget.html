@@ -9,7 +9,7 @@
 <pre>
 wget -r -nH -nd -np -R index.html* http://example.com/
   
-switches
+SWITCHES
 
 -r  --recursive
 -np --no-parent
@@ -21,9 +21,14 @@ switches
 -U  --user-agent=agent-string
 -p --page-requisites ; off by default
 
+–no-check-certificate ; https websites
+
 EXAMPLES
+
 wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
 wget -r -np --timestamping --user=homer --ask-password https://example.com
+
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com/files
 </pre>
 <a href="./tools.html">back</a>
 </body>

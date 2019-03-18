@@ -1,0 +1,17 @@
+#+title: cpp notes
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- [[file:compiling.html][compiling]]
+- [[file:debugging.html][debugging]]
+- [[file:linting.html][linting]]
+- pointers
+- seperate compilation
+- [[file:documentation.html][documentation]]
+- [[file:control-statements.html][control statements]]
+- precedence
+- variables
+- preprocessor
+- constants
+- algorithms
+
+[[../cpp.html][back]]
