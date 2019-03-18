@@ -1,19 +1,38 @@
 #+title: ubuntu
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+* updating
+
+#+BEGIN_EXAMPLE
+  apt-get update ;
+  apt-get upgrade ; this installs software
+#+END_EXAMPLE
+
+* free up space
+
+#+BEGIN_EXAMPLE
+  du -sh /var/cache/apt/archives/
+  apt-get clean
+
+  sudo apt-get autoremove --purge ; remove old kernels
+#+END_EXAMPLE
+
 * setup
+
 - Auto-hide the launcher ; all settings > appearance
 - caps to control ; gnome-tweak tool
 - change terminal font to liberation mono regular 13
 - dash privacy
 
 * ricing
+
 - window borders ; what theme?
 - icons ; numix
 - install source code pro
 - can i change ctrl-super to super for managing windows?
 
 * mg
+
 installing mg on ubuntu 15.10
 - edit /etc/apt/sources.list
   - change restricted to universe

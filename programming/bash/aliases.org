@@ -1,0 +1,7 @@
+#+title: bash aliases
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  alias ll='ls -la'
+#+END_EXAMPLE
+

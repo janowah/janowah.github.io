@@ -1,17 +1,51 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>hashdeep</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
 </head>
 <body>
-<h1>hashdeep</h1>
-
-<pre>
-
+<div id="content">
+<h1 class="title">hashdeep</h1>
+<pre class="example">
 md5deep -rlz ./
 sha1deep -rlzt ./
 
+COMPARE UNSORTED DIRECTORIES
+
+- create hash file
+  - hashdeep -rb ./ &gt; ../hashlist.hashdeep
+- compare directory with hash file
+  - hashdeep -k ../hashlist.hashdeep -arebvv ./
+- switches
+  - -a         ; audit pass/fail
+  - -m         ; positive M include hashes
+  - -x         ; negative X
+  - -v         ; number in each category
+  - -vv        ; discrepancies (use this)
+  - -vvv       ; results for every file and hash
+  - -r         ; recursive
+  - -b         ; bare (no path information)
+  - -c         ; computation mode. use this if want different algorithm. leave
+                 out to use default md5,sha256
+  - -e         ; compute estimated time remaining for each file
+  - -k &lt;file&gt;  ; add a file of known hashes
+- steps
+  1) compute hashs for new directory
+  2) delete duplicates
+  3) check against files in old directory
+     - `Files matched' should be a greater than the number of hashes
 </pre>
+
+<p>
 <a href="./tools.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>

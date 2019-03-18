@@ -1,0 +1,34 @@
+#+title: hashdeep
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  md5deep -rlz ./
+  sha1deep -rlzt ./
+
+  COMPARE UNSORTED DIRECTORIES
+
+  - create hash file
+    - hashdeep -rb ./ > ../hashlist.hashdeep
+  - compare directory with hash file
+    - hashdeep -k ../hashlist.hashdeep -arebvv ./
+  - switches
+    - -a         ; audit pass/fail
+    - -m         ; positive M include hashes
+    - -x         ; negative X
+    - -v         ; number in each category
+    - -vv        ; discrepancies (use this)
+    - -vvv       ; results for every file and hash
+    - -r         ; recursive
+    - -b         ; bare (no path information)
+    - -c         ; computation mode. use this if want different algorithm. leave
+                   out to use default md5,sha256
+    - -e         ; compute estimated time remaining for each file
+    - -k <file>  ; add a file of known hashes
+  - steps
+    1) compute hashs for new directory
+    2) delete duplicates
+    3) check against files in old directory
+       - `Files matched' should be a greater than the number of hashes
+#+END_EXAMPLE
+
+[[./tools.html][back]]

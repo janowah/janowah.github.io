@@ -19,9 +19,11 @@ switches
 -c  --continue
 -R rejlist --reject rejlist
 -U  --user-agent=agent-string
+-p --page-requisites ; off by default
 
+EXAMPLES
 wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
-
+wget -r -np --timestamping --user=homer --ask-password https://example.com
 </pre>
 <a href="./tools.html">back</a>
 </body>
