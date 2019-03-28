@@ -1,0 +1,29 @@
+# -*- mode: org -*-
+
+#+title: users
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  commands
+
+  - id(1) ; print real and effective user and group IDs
+  - lid(1) ; Display user's groups or group's users
+    - lid -g
+  - useradd(8) ; create a new user or update default new user information
+  - usermod(8) ; modify a user account
+  - userdel(8) ; delete a user account and related files
+    - userdel -r centos
+  - groupadd(8) ; create a new group
+  - groupmod(8) ; modify a group definition on the system
+  - groupdel(8) ; delete a group
+  - passwd(1) ; update user's authentication tokens
+  - gpasswd (1) ; administer /etc/group and /etc/gshadow
+  - vipw(8)   
+    - vipw ; edit the group or shadow-group file
+    - vigr ; edit the password or shadow-password file
+#+END_EXAMPLE
+
+[[file:rhcsa.html][back]]
+
+
+

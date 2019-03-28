@@ -8,10 +8,13 @@
   - [[file:software.html][software]]
   - [[file:systemd.html][systemd]]
   - [[file:time.html][time]]
+  - [[file:users.html][users]]
 - security
   - [[file:firewalld.html][firewalld]]
   - [[file:selinux.html][selinux]]
+  - [[file:fail2ban.html][fail2ban]]
 - software
+  - [[file:sshd.html][sshd]]
   - [[file:apache.html][apache]]
   - [[file:kvm.html][kvm]]
   - [[file:vsftpd.html][vsftpd]]
