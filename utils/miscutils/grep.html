@@ -5,7 +5,16 @@
 <body>
   <h1>grep</h1>
   <pre>
-   grep -ir STRING ./ ; case-insensitive, recursive
+;; case-insensitive, recursive    
+grep -ir STRING ./ 
+
+;; search both text files for the string
+grep -iF 'some string'  foo.txt bar.txt
+
+SWITCHES
+-i, --ignore-case
+-r, --recursive
+-F, --fixed-strings
   </pre>
   <a href="./miscutils.html">back</a>
 </body>

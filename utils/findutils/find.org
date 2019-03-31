@@ -1,0 +1,58 @@
+#+title: find
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* examples
+
+#+BEGIN_EXAMPLE
+  find ./ -type f | wc
+  find ./ -name "*.org" | grep foo
+  find -type f -name "*.org"
+  find ./ -type f -mtime -1 ; last 24 hours
+#+END_EXAMPLE
+
+* directories
+
+#+BEGIN_EXAMPLE
+  find ./ -type d -iname "*vim*"
+#+END_EXAMPLE
+
+* checksum
+
+#+BEGIN_EXAMPLE
+  find ./ -type f -print0 | xargs -0 sha1sum
+  find ./ -type f -print0 | xargs -0 openssl sha1
+#+END_EXAMPLE
+
+* modification time
+
+#+BEGIN_EXAMPLE
+  ; using printf. gnu grep
+
+  find ./ -type f -printf '%TY-%Tm-%TdT%TH:%TM %p\n'
+    2019-03-28T13:06 ./files/foo.txt
+
+  find ./ -type f -printf '%TY-%Tm-%TdT%TH:%TM %f\n'
+    2019-03-28T13:06 foo.txt
+
+  find ./ -type f -printf '%TY:%Tm:%Td:%TH:%TM:%TS %p\n'
+  find ./ -type f -printf '%TY:%Tm:%Td:%TT %p\n'
+  find ./ -type f -printf '%TY:%Tm:%Td:%TX %p\n'
+  find ./ -type f -printf '%TY:%Tm:%Td:%TX %p\n'
+
+  ; using mtime
+  -mtime +60 means you are looking for a file modified 60 days ago.
+  -mtime -60 means less than 60 days.
+  -mtime 60 If you skip + or – it means exactly 60 days.
+
+  So to find text files that were last modified 60 days ago, use
+  $ find /home/you -iname "*.txt" -mtime -60 -print
+#+END_EXAMPLE
+
+* redirect stdin stdout stderr
+
+#+BEGIN_EXAMPLE
+  command1 >> logfile 2>&1
+  command1 >> log_file 2>> err_file
+#+END_EXAMPLE
+
+[[./findutils.html][back]]

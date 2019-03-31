@@ -1,0 +1,12 @@
+#+title: diff
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  diff -s foo.txt files/bar.txt 
+
+  switches
+  -s, --report-identical-files ; report when two files are the same
+
+#+END_EXAMPLE
+
+[[./tools.html][back]]

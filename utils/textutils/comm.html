@@ -5,6 +5,31 @@
 </head><body>
 <h1>comm</h1>
 <pre>
+comm - compare two sorted files line by line
+
+  
+Usage
+-----
+
+comm a.txt b.txt
+
+
+Note
+----
+
+By default, comm outputs 3 columns: left-only, right-only, both. The
+-1, -2 and -3 switches suppress these columns.
+
+The files must be sorted first.
+cat a.txt | sort | uniq > a-sorted.txt
+
+
+Examples
+--------
+comm -13 foo.txt bar.txt 
+
+NOT left and both.  This will display files that are only in bar.txt
+    
 </pre>
 <a href="./textutils.html">back</a>
 </body>
