@@ -1,0 +1,28 @@
+#+title: tidy
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* examples
+
+#+BEGIN_EXAMPLE
+  tidy  --vertical-space yes foo.html > tidied.html
+  tidy  --vertical-space yes -wrap 80 foo.html > tidied.html
+  tidy  --vertical-space yes foo.html > tidied.html
+#+END_EXAMPLE
+
+* switches
+
+#+BEGIN_EXAMPLE
+  -wrap <%s>       ;  wrap text at the specified column
+  -show-config
+  -help-config
+  --vertical-space ; add some extra empty lines for readability.
+#+END_EXAMPLE
+
+* find out
+
+- can it convert to html5?
+- how to use a configuration file
+  - -config <%s>
+  - tidy -config myconfig.txt
+
+[[file:tools.html][back]]

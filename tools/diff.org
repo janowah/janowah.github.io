@@ -4,9 +4,18 @@
 #+BEGIN_EXAMPLE
   diff -s foo.txt files/bar.txt 
 
+  diff -y --color --suppress-common-lines foo.txt bar.txt
+  diff -y --color --suppress-common-lines --width=200 foo.txt bar.txt 
+
+  aliases
+  alias jdiff='diff -y --color --width=180 --suppress-common-lines'
+
   switches
   -s, --report-identical-files ; report when two files are the same
 
+  -y, --side-by-side      ; output in two columns
+  -W, --width=NUM         ; output at most NUM (default 130) print columns
+  --suppress-common-lines ; do not output common lines
 #+END_EXAMPLE
 
 [[./tools.html][back]]
