@@ -1,0 +1,18 @@
+#+title: compiling
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  gcc foo.c bar.c
+
+  SWITCHES
+  -g ; debug
+  -lm
+  -Wall
+  -shared -fPIC
+  -nostartfiles
+  -O1 ; optimisation
+
+  gcc --help=optimizers
+#+END_EXAMPLE
+
+[[./c.html][back]]

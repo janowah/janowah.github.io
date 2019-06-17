@@ -1,0 +1,33 @@
+#+title: linting
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* indent(1)
+
+** styles
+
+#+BEGIN_EXAMPLE
+  -gnu, --gnu-style     ; Use GNU coding style.  This is the default.
+  -kr, --k-and-r-style  ; Use Kernighan & Ritchie coding style.
+  -linux, --linux-style ; Use Linux coding style.
+  -orig, --original     ; Use the original Berkeley coding style.
+#+END_EXAMPLE
+
+** notes
+
+- this fixes the spacing in functions
+- doesn't break comments that are over 80 columns
+
+* splint(1)
+
+#+BEGIN_EXAMPLE
+  https://ulissesaraujo.wordpress.com/2009/05/03/splint-the-static-c-code-checker/
+
+  https://coelhorjc.wordpress.com/2015/02/19/how-to-do-static-code-analysis-in-cc-using-sparse-splint-cpplint-and-clang/comment-page-1/
+
+  How to do static code analysis in C/C++ (using sparse, splint,
+  cpplint and clang)
+#+END_EXAMPLE
+
+* STYLE(9)
+
+[[./c.html][back]]

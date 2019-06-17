@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>debugging</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">debugging</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">gdb</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">commands</h3>
+<div class="outline-text-3" id="text-1-1">
+<pre class="example">
+p print
+r run (with arguments)
+file
+b break
+s step
+n next
+continue
+
+p (sizeof dbuf)
+ptype dbuf
+
+-g3
+p BLOCK_LEN
+macro BLOCK_LEN
+#define BLOCK_LEN 16
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">STEPS</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li>$gdb ./a.out
+</li>
+<li>file a.out
+</li>
+<li>run input.txt ; arguments
+</li>
+<li>b main
+</li>
+<li>n
+</li>
+<li>p
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">print</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+p /x aa
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">memory</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+help x
+</p>
+
+<p>
+x to examine memory
+</p>
+
+<p>
+defaults to hex
+</p>
+
+<p>
+(gdb) x/d 0x601038  ; shows the contents of memory location in decimal
+</p>
+
+<p>
+<a href="http://sourceware.org/gdb/onlinedocs/gdb/Memory.html">http://sourceware.org/gdb/onlinedocs/gdb/Memory.html</a>
+</p>
+
+<p>
+print (‘x’, ‘d’, ‘u’, ‘o’, ‘t’, ‘a’, ‘c’, ‘f’, ‘s’),
+</p>
+
+<p>
+Format letters are 
+</p>
+
+<ul class="org-ul">
+<li>o(octal)
+</li>
+<li>x(hex)
+</li>
+<li>d(decimal)
+</li>
+<li>u(unsigned decimal)
+</li>
+<li>t(binary)
+</li>
+<li>f(float)
+</li>
+<li>a(address)
+</li>
+<li>i(instruction)
+</li>
+<li>c(char)
+</li>
+<li>s(string)
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">emacs</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+M-x gdb
+
+gud-a.out ; Debugger 
+
+(setq gdb-display-buffer-other-frame-action '(my-custom-display-buffer-function))
+
+(setq-default gdb-display-io-nopopup t)
+</pre>
+
+<p>
+<a href="./c.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

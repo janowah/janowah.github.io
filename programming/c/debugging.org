@@ -1,0 +1,79 @@
+#+title: debugging
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* gdb
+
+** commands
+
+#+BEGIN_EXAMPLE
+  p print
+  r run (with arguments)
+  file
+  b break
+  s step
+  n next
+  continue
+  
+  p (sizeof dbuf)
+  ptype dbuf
+  
+  -g3
+  p BLOCK_LEN
+  macro BLOCK_LEN
+  #define BLOCK_LEN 16
+#+END_EXAMPLE
+  
+** STEPS
+
+1. $gdb ./a.out
+2. file a.out
+3. run input.txt ; arguments
+4. b main
+5. n
+6. p
+
+** print
+
+p /x aa
+
+** memory
+
+help x
+
+x to examine memory
+
+defaults to hex
+
+(gdb) x/d 0x601038  ; shows the contents of memory location in decimal
+
+http://sourceware.org/gdb/onlinedocs/gdb/Memory.html
+
+print (‘x’, ‘d’, ‘u’, ‘o’, ‘t’, ‘a’, ‘c’, ‘f’, ‘s’),
+
+Format letters are 
+
+- o(octal)
+- x(hex)
+- d(decimal)
+- u(unsigned decimal)
+- t(binary)
+- f(float)
+- a(address)
+- i(instruction)
+- c(char)
+- s(string)
+
+* emacs
+
+#+BEGIN_EXAMPLE
+  M-x gdb
+
+  gud-a.out ; Debugger 
+
+  (setq gdb-display-buffer-other-frame-action '(my-custom-display-buffer-function))
+
+  (setq-default gdb-display-io-nopopup t)
+#+END_EXAMPLE
+
+[[./c.html][back]]
+

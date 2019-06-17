@@ -1,6 +1,10 @@
 #+Title: c
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-- 
+- [[file:compiling.html][compiling]]
+- [[file:debugging.html][debugging]]
+- [[file:linting.html][linting]]
+- [[file:books.html][books]]
+- [[file:help.html][help]]
 
 [[../programming.html][back]]
