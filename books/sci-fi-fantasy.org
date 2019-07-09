@@ -1,6 +1,9 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- The Last Continent / Terry Pratchett
+- Jingo / Terry Pratchett
+- Hogfather / Terry Pratchett
 - A Crown of Swords / Robert Jordan
 - Kafka on the Shore / Haruki Murakami
 - Feet of Clay / Terry Pratchett

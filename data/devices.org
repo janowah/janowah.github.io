@@ -2,7 +2,11 @@
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 * music
+
 ** mp3 players
+
+*** sony NW-A45
+- capacity: 16GB
 *** sony NWZ-E585
 - capacity: 16GB
 - power: 5V
@@ -15,6 +19,7 @@
 *** cowon
 
 ** ipods
+
 issues
 - have to use itunes
 - sound isn't great
@@ -34,7 +39,7 @@ issues
 - model: A1099
 - power 5-30V 1A Max
 
-** minidisk
+** minidisc
 ** discman
 ** walkman
 

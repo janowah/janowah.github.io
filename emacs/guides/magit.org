@@ -1,0 +1,55 @@
+#+title: magit
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* initial setup
+
+#+BEGIN_EXAMPLE
+  1) M-x magit-init
+  2) s ; stage
+  3) c c ; commit
+  4) add message
+  5) C-c C-c 
+#+END_EXAMPLE
+
+* update
+
+#+BEGIN_EXAMPLE
+  1) M-x magit-status
+  2) s ; stage
+  3) c c ; commit
+  4) add message
+  5) C-c C-c 
+#+END_EXAMPLE
+
+* aliases
+
+#+BEGIN_EXAMPLE
+  ms magit-status
+  mi magit-init
+  mb magit-blame
+#+END_EXAMPLE
+
+* update locally and push to remote
+
+#+BEGIN_EXAMPLE
+  1) M-x magit-status
+  2) s ; to stage
+  3) c c ; to commit
+  4) add message
+  5) C-c C-c
+  6) P P origin/master
+#+END_EXAMPLE
+
+* commands
+
+#+BEGIN_EXAMPLE
+  M-x magit-init
+  M-x magit-status
+  M-x magit-stage
+  M-x magit-stage-file
+  M-x magit-merge
+  M-x magit-clone
+  M-x magit-blame
+#+END_EXAMPLE
+
+[[../guides.html][back]]
