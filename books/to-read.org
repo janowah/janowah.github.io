@@ -1,6 +1,6 @@
 #+title: to read
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- 
+- Empire of Democracy / Simon Reid-Henry
 
 [[file:books.html][back]]
