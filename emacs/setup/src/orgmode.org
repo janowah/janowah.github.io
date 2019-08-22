@@ -1,9 +1,9 @@
-#+title: functions
+#+title: orgmode
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
 
 #+BEGIN_SRC elisp
   (add-hook 'org-mode-hook 'org-indent-mode)
-    
+
   (setq org-html-head-include-default-style nil)
   (setq org-html-head-include-scripts nil)
 
