@@ -1,0 +1,21 @@
+#+title: functions
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC elisp
+  (add-hook 'org-mode-hook 'org-indent-mode)
+    
+  (setq org-html-head-include-default-style nil)
+  (setq org-html-head-include-scripts nil)
+
+  (setq org-export-html-validation-link "")
+
+  (setq org-html-validation-link nil)
+  (setq org-use-speed-commands t)
+
+  (setq org-todo-keywords
+        '((sequence "TODO" "|" "DONE" "INFO")))
+
+  (setq org-src-window-setup 'current-window)
+#+END_SRC
+
+[[../setup.html][back]]

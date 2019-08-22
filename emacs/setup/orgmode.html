@@ -1,24 +1,40 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>orgmode</title>
+<title>functions</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
 </head>
 <body>
-<h1>orgmode</h1>
-<pre>
-(add-hook 'org-mode-hook 'org-indent-mode)
-  
-(setq org-html-head-include-default-style nil)
-(setq org-html-head-include-scripts nil)
+<div id="content">
+<h1 class="title">functions</h1>
+<div class="org-src-container">
 
-(setq org-export-html-validation-link "")
+<pre class="src src-elisp">(add-hook 'org-mode-hook 'org-indent-mode)
 
-(setq org-html-validation-link nil)
-(setq org-use-speed-commands t)
+(<span style="color: #a020f0;">setq</span> org-html-head-include-default-style nil)
+(<span style="color: #a020f0;">setq</span> org-html-head-include-scripts nil)
 
-(setq org-todo-keywords
-     '((sequence "TODO" "|" "DONE" "INFO")))
+(<span style="color: #a020f0;">setq</span> org-export-html-validation-link <span style="color: #8b2252;">""</span>)
 
+(<span style="color: #a020f0;">setq</span> org-html-validation-link nil)
+(<span style="color: #a020f0;">setq</span> org-use-speed-commands t)
+
+(<span style="color: #a020f0;">setq</span> org-todo-keywords
+      '((sequence <span style="color: #8b2252;">"TODO"</span> <span style="color: #8b2252;">"|"</span> <span style="color: #8b2252;">"DONE"</span> <span style="color: #8b2252;">"INFO"</span>)))
+
+(<span style="color: #a020f0;">setq</span> org-src-window-setup 'current-window)
 </pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>

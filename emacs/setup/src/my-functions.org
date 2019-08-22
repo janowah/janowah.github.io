@@ -1,0 +1,45 @@
+#+title: my functions
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC elisp
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; xx-re ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (defun xx-re ()
+    "replace all newlines with one blank line in buffer"
+    (interactive)
+    (let ((case-fold-search t))
+      (goto-char (point-min))
+      (while (search-forward-regexp "[\n]" nil t)
+        (replace-match "\n\n"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "[\n]\\{3,\\}" nil t)
+        (replace-match "\n\n"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "\\([]\"')]?\\)\\([.?!]\\)\\([]\"')]?\\) +" nil t)
+        (replace-match "\\1\\2\\3  "))
+      (fill-region (point-min) (point-max))))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; xx-ascii ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ’ ‘ –  …
+
+  (defun xx-ascii ()
+    "asciify quotation characters"
+    (interactive)
+    (let ((case-fold-search t))
+      (goto-char (point-min))
+      (while (search-forward-regexp "“" nil t)
+        (replace-match "\""))
+      (goto-char (point-min))
+      (while (search-forward-regexp "”" nil t)
+        (replace-match "\""))
+      (goto-char (point-min))
+      (while (search-forward-regexp "’" nil t)
+        (replace-match "'"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "‘" nil t)
+        (replace-match "'"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "…" nil t)
+        (replace-match "..."))))
+#+END_SRC
+
+[[../setup.html][back]]

@@ -1,0 +1,13 @@
+#+title: ediff
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC elisp
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+  (setq ediff-split-window-function 'split-window-horizontally)
+
+  (winner-mode)
+  (add-hook 'ediff-after-quit-hook-internal 'winner-undo)
+#+END_SRC
+
+[[../setup.html][back]]

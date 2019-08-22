@@ -1,0 +1,34 @@
+#+title: setup
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+- essentials
+  - [[./setup/defaults.html][defaults]]
+  - [[./setup/aliases.html][aliases]]
+  - [[./setup/orgmode.html][orgmode]]
+  - [[./setup/functions.html][functions]]
+  - [[./setup/ido.html][ido]]
+  - [[file:setup/my-functions.html][my functions]]
+- standard packages
+  - [[./setup/babel.html][babel]]
+  - [[./setup/dired.html][dired]]
+  - [[./setup/eshell.html][eshell]]
+  - [[./setup/eww.html][eww]]
+  - [[./setup/package.html][package]]
+  - [[file:setup/ediff.html][ediff]]
+  - web mode
+  - magit
+- reference
+  - [[./setup/registers.html][registers]]
+  - [[./setup/build.html][build]]
+  - [[./setup/key-chord.html][key chords]]
+  - [[./setup/3rd-party.html][3rd party packages]]
+  - [[./setup/themes.html][themes]]
+  - [[./setup/vimish-fold.html][vimish fold]]
+  - [[./setup/bindings.html][key bindings]]
+- platforms
+  - [[./setup/linux.html][linux]]
+  - [[./setup/windows.html][windows]]
+- .emacs
+  - [[./setup/dot-emacs-windows.html][windows]]
+
+[[./emacs.html][back]]

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>my functions</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">my functions</h1>
+<div class="org-src-container">
+
+<pre class="src src-elisp"><span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">xx-re ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">xx-re</span> ()
+  <span style="color: #8b2252;">"replace all newlines with one blank line in buffer"</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (<span style="color: #a020f0;">let</span> ((case-fold-search t))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"[\n]"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"\n\n"</span>))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"[\n]\\{3,\\}"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"\n\n"</span>))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[]\"')]?</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[.?!]</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[]\"')]?</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;"> +"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"\\1\\2\\3  "</span>))
+    (fill-region (point-min) (point-max))))
+
+<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">xx-ascii ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #b22222;">;; </span><span style="color: #b22222;">&#8217; &#8216; &#8211;  &#8230;</span>
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">xx-ascii</span> ()
+  <span style="color: #8b2252;">"asciify quotation characters"</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (<span style="color: #a020f0;">let</span> ((case-fold-search t))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8220;"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"\""</span>))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8221;"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"\""</span>))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8217;"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"'"</span>))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8216;"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"'"</span>))
+    (goto-char (point-min))
+    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8230;"</span> nil t)
+      (replace-match <span style="color: #8b2252;">"..."</span>))))
+</pre>
+</div>
+
+<p>
+<a href="../setup.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>
