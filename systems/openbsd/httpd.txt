@@ -4,69 +4,189 @@
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:t timestamp:nil
 
 * documentation
-- httpd
-- httpd.conf
-- rcctl  
+
+#+BEGIN_EXAMPLE
+  man 8 httpd
+
+  man 5 httpd.conf
+
+  man 1 acme-client
+
+  man 8 oscpcheck
+
+  man 1 htpasswd
+
+  man 8 rcctl
+#+END_EXAMPLE
 
 * resources
+
 - https://tribaal.io/this-now-served-by-openbsd.html
 - http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html
 
 * files and scripts
-- /etc/httpd.conf ; configuration file
-- /var/www/htdocs/ ; default root folder
-- /etc/rc.d/httpd ; server script
-- /etc/rc.conf
-  - httpd-flags=NO
-- /etc/rc/conf.local
-
-* setup
-** basic server example
-- directory index ; add to httpd.conf
 
 #+BEGIN_EXAMPLE
+  /etc/httpd.conf  ; configuration file
+
+  /var/www/htdocs/ ; default root folder
+
+  /etc/rc.d/httpd  ; server script
+
+  /etc/rc.conf
+    httpd-flags=NO
+
+  /etc/rc/conf.local
+#+END_EXAMPLE
+
+* some basic examples
+
+** basic server example
+
+=directory index ; add to httpd.conf=
+
+#+BEGIN_SRC sh
   server "default" {
-  directory auto index
+      directory auto index
   }
   types { include "/usr/share/misc/mime.types" }
-#+END_EXAMPLE
+#+END_SRC
 
 ** password protected example
-- create htpasswd file in /var/www
-  - htpasswd /var/www/htpasswd janowah
-- need to update /etc/httpd.conf
-  - authenicate with htpasswd ; where htpasswd is the password file
-- make /var/www/htpasswd readable by www
-  - chown www /var/www/htpasswd
-- restart httpd
-  - sh /etc/rc.d/httpd -f restart
 
-#+BEGIN_EXAMPLE
+1. create htpasswd file in =/var/www=
+   - =htpasswd /var/www/htpasswd homer=
+2. need to update =/etc/httpd.conf=
+   - =authenicate with htpasswd ; where htpasswd is the password file=
+3. make =/var/www/htpasswd= readable by =www=
+   - =chown www /var/www/htpasswd=
+4. restart =httpd=
+   - =sh /etc/rc.d/httpd -f restart=
+
+#+BEGIN_SRC sh
   server "default" {
-  directory auto index
-  authenticate with htpasswd
+      directory auto index
+      authenticate with htpasswd
   }
   types { include "/usr/share/misc/mime.types" }
-#+END_EXAMPLE
+#+END_SRC
 
 ** https example
-- generate server keys
-- # openssl genrsa -out /etc/ssl/private/server.key
-- # openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt -days 3650
 
-#+BEGIN_EXAMPLE
-  server "default" {
-  listen on * tls port 443
-  hsts
-  directory auto index
-  authenticate with htpasswd
-  }
-  types { include "/usr/share/misc/mime.types" }
-#+END_EXAMPLE
+1. generate server keys
 
-** application servers
+   #+BEGIN_SRC sh
+     openssl genrsa -out /etc/ssl/private/server.key
+     openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt -days 3650
+   #+END_SRC
+
+2. update =/etc/httpd.conf=
+
+   #+BEGIN_SRC sh
+     server "default" {
+         listen on * tls port 443
+         hsts
+         directory auto index
+         authenticate with htpasswd
+     }
+     types { include "/usr/share/misc/mime.types" }
+   #+END_SRC
+
+* Let's Encrypt 
+
+** setup
+
+1. make directory
+   - =mkdir /etc/ssl/acme/example/=
+2. configure =/etc/acme-client.conf=
+   #+BEGIN_SRC sh
+     authority letsencrypt {
+         api url "https://acme-v01.api.letsencrypt.org/directory"
+         account key "/etc/acme/letsencrypt-privkey.pem"
+     }
+
+     authority letsencrypt-staging {
+         api url "https://acme-staging.api.letsencrypt.org/directory"
+         account key "/etc/acme/letsencrypt-staging-privkey.pem"
+     }
+
+     domain example.com {
+         alternative names { www.example.com }
+         domain key "/etc/ssl/acme/example/example.key"
+         domain certificate "/etc/ssl/acme/example/example.crt"
+         domain full chain certificate "/etc/ssl/acme/example/example.fullchain.pem"
+         sign with letsencrypt
+     }
+   #+END_SRC
+
+3. configure /etc/httpd.conf
+
+    #+BEGIN_SRC sh
+      # permanent redirect
+      server "example.com" {
+          listen on * port 80
+          block return 301 "https://$SERVER_NAME$REQUEST_URI"
+      }
+
+      server "example.com" {
+          listen on * tls port 443
+          tls certificate "/etc/ssl/acme/example/example.fullchain.pem"
+          tls key "/etc/ssl/acme/example/example.key"
+          tls ocsp "/etc/ssl/acme/example/example.der"
+          location "/.well-known/acme-challenge/*" {
+              root "/acme"
+              request strip 2
+              directory no auto index
+          }
+          root "/htdocs"
+          location "/private/*" {
+              authenticate with "/htpasswords"
+              directory auto index
+          }
+      }
+    #+END_SRC
+
+4. acme-client
+   - =acme-client -vvAD www.example.com=
+
+** renew certificates
+
+1. remove old certs
+
+   #+BEGIN_SRC sh
+     cd /etc/ssl/acme/example
+     rm example.crt example.der example.fullchain.pem
+   #+END_SRC
+
+2. letsencrypt
+
+   #+BEGIN_SRC sh
+     acme-client -vD example.com
+
+     this creates
+     /etc/ssl/acme/example/example.crt
+     /etc/ssl/acme/example/example.fullchain.pem
+   #+END_SRC
+
+3. ocsp (online certificate status protocol)
+
+   #+BEGIN_SRC sh
+     cd /etc/ssl/acme/example
+     ocspcheck -No example.der example.fullchain.pem
+
+     this creates 
+     /etc/ssl/acme/example/example.der
+   #+END_SRC
+
+- reload httpd
+
+   #+BEGIN_SRC sh
+     rcctl reload httpd
+   #+END_SRC
+
+* application servers
+
 - php
 - tomcat
 
 [[./openbsd.html][back]]
-
