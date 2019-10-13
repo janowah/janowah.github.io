@@ -1,0 +1,22 @@
+#+title: tables
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  \begin{table}
+  \begin{tabular}{*8l}
+  \X\alpha        &\X\theta       &\X o           &\X\tau         \\
+  \X\beta         &\X\vartheta    &\X\pi          &\X\upsilon     \\
+  \X\gamma        &\X\gamma       &\X\varpi       &\X\phi         \\
+  \X\delta        &\X\kappa       &\X\rho         &\X\varphi      \\
+  \X\epsilon      &\X\lambda      &\X\varrho      &\X\chi         \\
+  \X\varepsilon   &\X\mu          &\X\sigma       &\X\psi         \\
+  \X\zeta         &\X\nu          &\X\varsigma    &\X\omega       \\
+  \X\eta          &\X\xi                                          \\
+                                                                  \\
+  \X\Gamma        &\X\Lambda      &\X\Sigma       &\X\Psi         \\
+  \X\Delta        &\X\Xi          &\X\Upsilon     &\X\Omega       \\
+  \X\Theta        &\X\Pi          &\X\Phi
+  \end{tabular}
+#+END_SRC
+
+[[file:../latex.html][back]]

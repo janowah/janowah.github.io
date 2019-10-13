@@ -8,7 +8,7 @@
   - [[file:disks.html][disks]]
   - [[file:networking.html][networking]]
   - [[file:x11.html][x11]]
-- maintainence
+- maintenance
   - [[file:upgrade.html][upgrade]]
   - [[file:software.html][software (pkg)]]
   - [[file:user-management.html][user management]]

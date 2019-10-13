@@ -1,0 +1,24 @@
+#+title: documents
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* article
+
+#+BEGIN_SRC tex
+  \documentclass[11pt]{article}
+  \documentclass[11pt,epsf,a4paper]{article}
+  \documentclass[a4paper,12pt]{article}
+#+END_SRC
+
+* book
+
+#+BEGIN_SRC tex
+  -
+#+END_SRC 
+
+* report
+
+#+BEGIN_SRC tex
+  \documentclass[11pt,epsf,a4paper]{report}
+#+END_SRC
+
+[[file:../latex.html][back]]

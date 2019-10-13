@@ -1,0 +1,13 @@
+# -*- mode: org -*-
+
+#+title: disks
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+disks
+
+#+BEGIN_EXAMPLE
+  sudo blkid /dev/sd*
+  sudo mount -t ext4 /dev/sdb /mnt/mydrive/
+#+END_EXAMPLE
+
+[[file:ubuntu.html][back]]

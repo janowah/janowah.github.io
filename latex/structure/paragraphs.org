@@ -1,0 +1,19 @@
+#+title: paragraphs
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  \usepackage{parskip}
+
+  % % Make paragraphs not indented at the first line, but spaced apart
+  % % slightly:
+  % \setlength{\parindent}{0mm}
+  % \setlength{\parskip}{\medskipamount}
+#+END_SRC
+
+NOTES
+- default is to justify the first paragraph and indent the rest.
+- adjust
+  - spacing between paragraphs
+  - indenting the first line
+
+[[file:../latex.html][back]]

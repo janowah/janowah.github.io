@@ -1,0 +1,27 @@
+#+title: margins
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  % TERSE
+  \usepackage[vmargin=20mm,hmargin=25mm]{geometry}
+
+  % VERBOSE
+  % Adjust margins manually, via numerous length variables:
+  % \setlength{\oddsidemargin}{-0.4mm} % 25 mm left margin
+  % \setlength{\evensidemargin}{\oddsidemargin}
+  % \setlength{\textwidth}{160mm}      % 25 mm right margin
+  % \setlength{\topmargin}{-5.4mm}     % 20 mm top margin
+  % \setlength{\headheight}{5mm} 
+  % \setlength{\headsep}{5mm}
+  % \setlength{\footskip}{10mm} 
+  % \setlength{\textheight}{237mm}     % 20 mm bottom margin
+
+  % IMPERIAL
+  %%\setlength{\oddsidemargin}{0in}
+  %\setlength{\evensidemargin}{-0.0in}
+  %%\setlength{\textwidth}{6.25in}
+  %\setlength{\textheight}{8.5in}
+  %\setlength{\topmargin}{0.15\baselineskip}
+#+END_SRC
+
+[[file:../latex.html][back]]

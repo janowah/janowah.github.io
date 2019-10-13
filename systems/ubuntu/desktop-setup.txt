@@ -1,0 +1,11 @@
+# -*- mode: org -*-
+
+#+title: desktop setup
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+setup
+
+- Auto-hide the launcher ; all settings > appearance
+- caps to control ; gnome-tweak tool
+- change terminal font to liberation mono regular 13
+- dash privacy

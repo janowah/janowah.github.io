@@ -1,0 +1,25 @@
+#+title: tech template
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \documentclass[11pt,epsf,a4paper]{article}
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{fancyhdr}
+  \usepackage{epsfig}
+  \usepackage{layout}
+  \renewcommand{\baselinestretch}{1.3}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{document}
+  \pagestyle{fancy}
+  \title{Springfield}
+  \author{{\cal Dr. H. Simpson}}
+  \date{1st June 2020}
+  \maketitle
+  \include{content}
+  \end{document}
+#+END_SRC
+
+[[file:../latex.html][back]]

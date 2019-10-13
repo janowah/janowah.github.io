@@ -1,0 +1,16 @@
+#+title: bibtex templates
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC bibtex
+  @Book{bibID,
+    Author =       {},
+    Title =        {},
+    Subtitle =     {},
+    Edition =      {},
+    Publisher =    {},
+    ISBN =         {},
+    Year =         {}
+  }
+#+END_SRC
+
+[[file:../latex.html][back]]

@@ -1,0 +1,25 @@
+#+title: footnotes
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* hyperref
+
+#+BEGIN_SRC tex
+  % make the reference clickable
+  \usepackage{hyperref}
+#+END_SRC
+
+* format
+
+#+BEGIN_SRC tex
+  Microsoft Visual Studio\footnote{\label{4}The environment within which
+  one influential vendor’s set of native Windows development tools
+  reside.}.
+#+END_SRC
+
+* notes
+- don't know what {4} is
+- The environment ...} goes at the bottom of the page
+- Microsoft Visual Studio^1 is what it looks like
+- Q. what does orgmode export?
+
+[[file:../latex.html][back]]

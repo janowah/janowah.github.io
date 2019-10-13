@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>software and upgrades</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">software and upgrades</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">commands</a>
+<ul>
+<li><a href="#sec-1-1">apt(8)</a></li>
+<li><a href="#sec-1-2">apt-get(8)</a></li>
+<li><a href="#sec-1-3">unattended-upgrade(8)</a></li>
+<li><a href="#sec-1-4">apt-file(1)</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">how to</a>
+<ul>
+<li><a href="#sec-2-1">updating</a></li>
+<li><a href="#sec-2-2">free up space</a></li>
+<li><a href="#sec-2-3">install mg</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">all installed apt commands</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">commands</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">apt(8)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>apt search
+</li>
+</ul>
+</div>
+
+<ul class="org-ul"><li><a id="sec-1-1-0-1" name="sec-1-1-0-1"></a>autoremove<br  /><div class="outline-text-5" id="text-1-1-0-1">
+<p>
+Use 'sudo apt autoremove' to remove them.
+</p>
+</div>
+</li></ul>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">apt-get(8)</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>apt-get update ;
+</li>
+<li>apt-get upgrade ; this installs software
+</li>
+<li>apt-get clean
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">unattended-upgrade(8)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>/etc/apt/apt.conf.d/50unattended-upgrades
+</li>
+<li>/var/log/unattended-upgrades.log
+</li>
+<li>unattended-upgrade -h
+</li>
+</ul>
+
+<p>
+Q. how to check the status?
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">apt-file(1)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+; not installed
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">how to</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">updating</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example">
+apt-get update ;
+apt-get upgrade ; this installs software
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">free up space</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
+du -sh /var/cache/apt/archives/
+apt-get clean
+
+sudo apt-get autoremove --purge ; remove old kernels
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">install mg</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+installing mg on ubuntu 15.10
+</p>
+<ul class="org-ul">
+<li>edit /etc/apt/sources.list
+<ul class="org-ul">
+<li>change restricted to universe
+<ul class="org-ul">
+<li>deb <a href="http://us.archive.ubuntu.com/ubuntu">http://us.archive.ubuntu.com/ubuntu</a> vivid main universe
+</li>
+<li>change vivid to what my release is
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>sudo apt-get update
+</li>
+<li>sudo apt-get install mg
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">all installed apt commands</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>apt
+</li>
+<li>apt-add-repository
+</li>
+<li>apt-cache
+</li>
+<li>apt-cdrom
+</li>
+<li>apt-config
+</li>
+<li>apt-extracttemplates
+</li>
+<li>apt-ftparchive
+</li>
+<li>apt-get
+</li>
+<li>apt-key
+</li>
+<li>apt-mark
+</li>
+<li>apt-sortpkgs
+</li>
+</ul>
+
+<p>
+<a href="ubuntu.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+#+title: package list
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC tex
+  \usepackage{amsmath}
+  \usepackage{amssymb}
+  \usepackage{fancyhdr}
+  \usepackage{epsfig}
+  \usepackage{layout}
+#+END_SRC
+
+[[file:../latex.html][back]]

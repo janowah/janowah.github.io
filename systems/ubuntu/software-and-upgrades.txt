@@ -1,0 +1,76 @@
+# -*- mode: org -*-
+
+#+title: software and upgrades
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:t
+
+* commands
+
+** apt(8)
+
+- apt search
+
+**** autoremove
+
+Use 'sudo apt autoremove' to remove them.
+
+** apt-get(8)
+
+- apt-get update ;
+- apt-get upgrade ; this installs software
+- apt-get clean
+
+** unattended-upgrade(8)
+
+- /etc/apt/apt.conf.d/50unattended-upgrades
+- /var/log/unattended-upgrades.log
+- unattended-upgrade -h
+
+Q. how to check the status?
+
+** apt-file(1)
+
+; not installed
+
+* how to
+
+** updating
+
+#+BEGIN_EXAMPLE
+  apt-get update ;
+  apt-get upgrade ; this installs software
+#+END_EXAMPLE
+
+** free up space
+
+#+BEGIN_EXAMPLE
+  du -sh /var/cache/apt/archives/
+  apt-get clean
+
+  sudo apt-get autoremove --purge ; remove old kernels
+#+END_EXAMPLE
+
+** install mg
+
+installing mg on ubuntu 15.10
+- edit /etc/apt/sources.list
+  - change restricted to universe
+    - deb http://us.archive.ubuntu.com/ubuntu vivid main universe
+    - change vivid to what my release is
+- sudo apt-get update
+- sudo apt-get install mg
+
+* all installed apt commands
+
+- apt
+- apt-add-repository
+- apt-cache
+- apt-cdrom
+- apt-config
+- apt-extracttemplates
+- apt-ftparchive
+- apt-get
+- apt-key
+- apt-mark
+- apt-sortpkgs
+
+[[file:ubuntu.html][back]]

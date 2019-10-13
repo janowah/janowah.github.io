@@ -1,0 +1,20 @@
+#+title: lists
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+Numbered
+#+BEGIN_SRC tex
+  \begin{enumerate}
+
+  \item Complex tasks are often best solved by linking together several
+    existing programs rather than be re-inventing every possible
+    low-level detail of the wheel over again;
+
+  \item Regular expressions, seen in the Part Ia course as a
+    mathematical abstraction of the patterns that finite-state machines
+    can process, generalise to provide amazingly powerful and flexible
+    (if sometimes obscure-looking) capabilities;
+
+  \end{enumerate}
+#+END_SRC
+
+[[file:../latex.html][back]]

@@ -1,0 +1,26 @@
+#+title: natbib
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC tex
+  % \usepackage{natbib}
+
+  \cite{bibID}
+
+  % place in preamble
+  \biblographystyle{stylename}
+
+  Common Stylenames:
+
+  dinat
+  humannat    
+  plainnat    
+  abbrvnat    
+  unsrtnat    
+  rusnat    
+  ksfh_nat
+
+  \bibliography{bibfilename}
+#+END_SRC
+
+[[file:../latex.html][back]]
+

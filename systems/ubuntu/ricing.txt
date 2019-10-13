@@ -1,0 +1,11 @@
+# -*- mode: org -*-
+
+#+title: ricing
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+ricing
+
+- window borders ; what theme?
+- icons ; numix
+- install source code pro
+- can i change ctrl-super to super for managing windows?

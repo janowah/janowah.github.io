@@ -1,0 +1,21 @@
+#+title: bibliography
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  % reference
+  \cite{Knuth86}
+#+END_SRC
+
+#+BEGIN_SRC tex
+  % put this at end of document
+  \begin{thebibliography}{9}
+  \bibitem{Knuth86}Donald E. Knuth:
+    The \TeX book. Ad\-dison-Wesley, 1986. 
+  \end{thebibliography} 
+#+END_SRC
+
+#+BEGIN_SRC tex
+\nocite{*}
+#+END_SRC
+
+[[file:../latex.html][back]]

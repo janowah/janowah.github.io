@@ -1,0 +1,54 @@
+# -*- mode: org -*-
+
+#+title: information
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:t timestamp:nil
+
+* fdisk(8)
+
+fdisk - manipulate disk partition table
+
+fdisk -l ;  -l, --list
+
+* lscpu(1)
+
+lscpu - display information about the CPU architecture
+
+* lspci(8)
+
+lspci - list all PCI devices
+
+lspci -t
+
+lspci -v
+
+* lsusb(8)
+
+lsusb - list USB devices
+
+lsusb -v
+
+* lshw(1)
+
+lshw - list hardware
+
+SWITCHES
+- -short
+- -html
+
+* lsblk(8)
+
+lsblk - list block devices
+
+lsblk -a
+
+* blkid(8)
+
+blkid - locate/print block device attributes
+
+* hdparm(8)
+
+hdparm - get/set SATA/IDE device parameters
+
+sudo hdparm /dev/sda1
+
+sudo hdparm -g /dev/sda1

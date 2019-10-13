@@ -1,0 +1,38 @@
+#+title: bibtex
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  % citation in document 
+  \cite{bibID}
+
+  % place in body)
+  \bibliographystyle{abbrvnat}
+
+  % Print bibliography
+  \bibliography{articles}
+#+END_SRC
+
+* styles
+
+- abbrv    
+- acm
+- alpha
+- apalike    
+- ieeetr    
+- plain    
+- siam    
+- unsrt
+
+* notes
+
+- no packages required
+
+* steps
+
+1) create .bib file
+2) reference in main doc (don't need file extension)
+3) pdlatex to create .aux
+4) bibtex .aux to create .bbl
+5) pdflatex again
+
+[[file:../latex.html][back]]

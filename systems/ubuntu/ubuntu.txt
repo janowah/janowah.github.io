@@ -1,0 +1,21 @@
+# -*- mode: org -*-
+
+#+title: ubuntu
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+- setup
+  - installation
+- maintenance
+  - [[file:information.html][information]]
+  - [[file:software-and-upgrades.html][software and upgrades]]
+  - [[file:disks.html][disks]]
+- software
+  - apache
+  - samba
+- desktop
+  - [[file:desktop-setup.html][setup]]
+  - [[file:ricing.html][ricing]]
+- extra
+  - help
+  - guides
+  - resources
