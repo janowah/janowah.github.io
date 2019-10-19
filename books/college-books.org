@@ -2,16 +2,23 @@
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 * 5th year
+
 ** Server-Side Development
+
 ** Digital Signal Processing
+
 1. Analogue And Digital Signal Processing And Coding
    - P. M. Grant ...[et al.]
    - Chartwell-Bratt
    - 1989
+   - /ISBN-10: 0862382068/
+   - /ISBN-13: 978-0862382063/
 2. Advanced Topics In Signal Processing
    - Jae S. Lim and Alan V. Oppenheim
    - Prentice-Hall
    - c1988
+   - /ISBN-10: 0130129801/
+   - /ISBN-13: 978-0130129802/
 3. Digital Signal Processing : Principles, Algorithms, And Applications
    - John G. Proakis, Dimitris G. Manolakis
    - Macmillan

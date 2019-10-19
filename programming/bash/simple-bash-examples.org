@@ -14,4 +14,10 @@
   done
 #+END_SRC
 
+* run command on every file in a directory
+
+#+BEGIN_SRC sh
+  for filename in *; do ffmpeg -i "$filename" "$filename.flac"; done
+#+END_SRC
+
 [[./bash.html][back]]
