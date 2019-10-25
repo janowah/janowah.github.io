@@ -1,0 +1,112 @@
+#+title: tmux
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* intro
+
+#+BEGIN_EXAMPLE
+  C-b c ; create new
+  C-b x ; quit
+  C-b : ; command prompt
+
+  sessions > windows > panes
+#+END_EXAMPLE
+
+* help
+
+#+BEGIN_EXAMPLE
+  C-b ? ; help
+  q ; quit
+  tmux list-keys
+  tmux list-commands
+  tmux info
+  tmux source-file ~/.tmux.conf ; reload current config
+#+END_EXAMPLE
+
+* navigation
+
+#+BEGIN_EXAMPLE
+  Ctrl-b c	; new window
+  Ctrl-b n	; next window
+  Ctrl-b p	; previous window
+  Ctrl-b 0-9	; jump directly to a window by number
+  Ctrl-b w	; open a menu of all windows
+  Ctrl-b ,	; `rename-window'
+  Ctrl-b &	; kill current
+  Ctrl-b ?	; help (q to quit)
+  C-b '		; prompt for window (enter index 0, 1 etc.)
+#+END_EXAMPLE
+
+* session managment
+
+#+BEGIN_EXAMPLE
+  tmux new -s session_name
+  C-b d				; to disconnect
+  tmux list-sessions
+  tmux detach			; within a tmux session
+  tmux switch -t session_name
+  tmux attach			; to most recent
+  tmux attach-session -t 2	; -t target
+  tmux attach -t session_name
+  tmux kill-session -t 2
+  C-b $				; `rename-session'
+#+END_EXAMPLE
+
+* copy and paste
+
+#+BEGIN_EXAMPLE
+  1) C-b [ ; `copy-mode' wait for indicator in top right
+  2) select text
+  3) M-w   ; emacs binding? selection highlighted in orange
+  4) C-b ] ; `paste-buffer'
+#+END_EXAMPLE
+
+this works between sessions
+
+** copy-mode commands
+
+#+BEGIN_EXAMPLE
+  C-r ; search up
+  C-s ; search down
+#+END_EXAMPLE
+
+** paste buffers
+
+#+BEGIN_EXAMPLE
+  C-b = ; `choose-buffer'
+
+  C-b # ; `list-buffers'
+  C-b - ; `delete-buffer' 
+#+END_EXAMPLE
+
+* panes
+
+#+BEGIN_EXAMPLE
+  C-b %     ; vertical split window into panes
+  C-b {     ; swap panes. C-b } also
+  C-b o     ; cycle
+  C-b !     ; send pane to new window.
+  C-b "     ; horizontal split
+  C-b q     ; Briefly display pane indexes.
+  C-b ->/<- ; change to pane
+
+  RESIZE
+  C-b C ->/<-	; Resize pane in steps of one cell.
+  C-b M ->/<-	; Resize pane in steps of five cells.
+#+END_EXAMPLE
+
+* suspend
+
+#+BEGIN_EXAMPLE
+  C-b C-z ; `suspend-client'
+  fg ; to unsuspend
+
+  % unsuspend?
+#+END_EXAMPLE
+
+* misc commands
+
+#+BEGIN_EXAMPLE
+  C-b t ; time. `clock-mode'
+#+END_EXAMPLE
+
+[[file:tools.html][back]]

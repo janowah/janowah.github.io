@@ -24,4 +24,18 @@
     - vigr ; edit the password or shadow-password file
 #+END_EXAMPLE
 
+* recover root password
+
+#+BEGIN_EXAMPLE
+  - # pwmake 128 | passwd --stdin root
+  - append rd.break
+  - ls /sysroot to confirm filesytem hasn't properly mounted
+  - # mount -o remount,rw /sysroot
+  - chroot /sysroot
+  - # passwd
+  - # touch /.autorelabel ; force selinux to relabel to get correct context
+  - exit ; to get out of jail
+  - exit ; to reboot
+#+END_EXAMPLE
+
 [[file:../centos.html][back]]

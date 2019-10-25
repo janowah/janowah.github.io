@@ -11,6 +11,14 @@
 <body>
 <div id="content">
 <h1 class="title">users</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgdce445a">recover root password</a></li>
+</ul>
+</div>
+</div>
 <ul class="org-ul">
 <li><code>adduser -D homer</code> ; create user</li>
 <li><code>passwd homer</code> ; change password</li>
@@ -36,9 +44,26 @@ commands
   - vigr ; edit the password or shadow-password file
 </pre>
 
+<div id="outline-container-orgdce445a" class="outline-2">
+<h2 id="orgdce445a">recover root password</h2>
+<div class="outline-text-2" id="text-orgdce445a">
+<pre class="example">
+- # pwmake 128 | passwd --stdin root
+- append rd.break
+- ls /sysroot to confirm filesytem hasn't properly mounted
+- # mount -o remount,rw /sysroot
+- chroot /sysroot
+- # passwd
+- # touch /.autorelabel ; force selinux to relabel to get correct context
+- exit ; to get out of jail
+- exit ; to reboot
+</pre>
+
 <p>
 <a href="../centos.html">back</a>
 </p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="validation"></p>

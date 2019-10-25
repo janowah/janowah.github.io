@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>boot</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">boot</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgeeb26b3">boot sequence</a></li>
+<li><a href="#org06608fd">notes</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeeb26b3" class="outline-2">
+<h2 id="orgeeb26b3">boot sequence</h2>
+<div class="outline-text-2" id="text-orgeeb26b3">
+<p>
+<code>bios/uefi (ROM. POST) &gt; device (hdd etc.) &gt; mbr/gpt &gt; grub2 &gt; kernel &gt; systemd (first process)</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org06608fd" class="outline-2">
+<h2 id="org06608fd">notes</h2>
+<div class="outline-text-2" id="text-org06608fd">
+<p>
+uefi. tpm - trusted platform module
+first stage grub2 is on mbr/gpt
+/boot is normally first partition.
+</p>
+<ul class="org-ul">
+<li>historically bios couldn't find bootloader unless in first 1024 cylinders</li>
+</ul>
+<p>
+MBR max 2TB per disk. GPT no limit
+only uefi can boot gpt
+grub2 e to edit, c to open command prompt
+edit grub2. e &gt; ^linux16
+ add systemd.unit=emergency.target C-x ; to start emergency target
+type exit to return to default target (mutliuser or graphical target)
+systemctl reboot
+</p>
+<ul class="org-ul">
+<li>append <code>systemd.unit=name.target</code> to end of kernel command line</li>
+<li><code>systemd.unit=multi-user.target</code></li>
+<li>systemd.unit=rescue.target ; recovery shell</li>
+<li>systemd.unit=emergency.target ; no fs except root in ro</li>
+<li>init=/sysroot/bin/sh ; start shell, root in ro, no password required
+<ul class="org-ul">
+<li>or rd.break</li>
+</ul></li>
+<li>should password protect grub2 menu</li>
+<li>rhgb quiet ; red hat graphical boot</li>
+
+<li>/boot directory, initramfs filename of intial ram disk</li>
+
+<li>SELinux first starts in permissive mode, until the configured policy
+(enforcing) is loaded near the end of the boot process.</li>
+</ul>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+#+title: journald
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* binaries
+
+- =journalctl(1)=
+- =journald.conf(5)=
+
+- By default, the journal log files are temporarily stored in RAM in a
+  ring buffer in the /run/log/journal directory.
+
+* persistent logs
+
+- To get Linux to write journal log files persistently on disk, run
+  the following commands:
+
+** from man page
+
+- /etc/systemd/journald.conf
+  - =#Storage=persistent=
+- nb. i changed this setting and restarted journald but no directory
+  was created.  check on next boot - i did and no directory was
+  changed.  needed to uncomment the line in journald.conf
+
+** from book
+
+#+BEGIN_SRC sh
+  mkdir /var/log/journal
+  chgrp systemd-journal /var/log/journal
+  chmod 2775 /var/log/journal
+  systemctl restart systemd-journald.service
+#+END_SRC
+
+=drwxr-xr-x.  3 root root 45 Oct 25 13:39 journal= ; default when use persistent
+- see if this gets changed later or if there are any problems. A. no.
+
+Once persistent logging is enabled, you can show log messages from a
+specific boot with the -b switch: journalctl -b 0 displays the log
+messages since the last boot, journalctl -b 1 from the boot before the
+last one, and so on.
+
+* view by priority
+
+journalctl -p warning ; filter by priority
+
+warning in bold errors in red
+
+-p, --priority=
+
+[[file:../centos.html][back]]

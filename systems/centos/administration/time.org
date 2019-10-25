@@ -1,9 +1,10 @@
-# -*- mode: org -*-
-
 #+title: time
-#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:t
 
 only one time service should be running, chronyd or ntpd.
+
+- chronyd ; virtual and mobile (default)
+- ntpd ; servers always connected to a network
 
 * check current setup
 
@@ -34,8 +35,9 @@ only one time service should be running, chronyd or ntpd.
   - =systemctl restart chronyd.service=
   - =systemctl stop chronyd.service=
   - =systemctl disable chronyd.service=
-- =chronyc sources -v= ; show current time sources (verbose)
-  - chronyc - command-line interface for chrony daemon
+- chronyc(1) - command-line interface for chrony daemon
+  - =chronyc sources -v= ; show current time sources (verbose)
+- chronyd(8) - chrony daemon
 
 * ntpd
 
@@ -49,4 +51,3 @@ only one time service should be running, chronyd or ntpd.
 - =ntpq -p= ; show information about the NTP sources
 
 [[file:../centos.html][back]]
-

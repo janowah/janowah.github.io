@@ -4,13 +4,16 @@
 - administration
   - [[file:administration/users.html][users]]
   - [[file:administration/systemd.html][systemd]]
-  - journald
+  - [[file:administration/journald.html][journald]]
   - logs
   - [[file:administration/shutdown.html][shutdown]]
   - [[file:administration/time.html][time]]
   - [[file:administration/kvm.html][kvm]]
   - [[file:administration/selinux.html][selinux]]
   - lvm
+  - [[file:administration/grub.html][grub]]
+  - [[file:administration/cgroups.html][cgroups]]
+  - [[file:administration/boot.html][boot]]
 - installation
   - kickstart
 - services

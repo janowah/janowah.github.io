@@ -11,13 +11,29 @@
 <body>
 <div id="content">
 <h1 class="title">time</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org99277c0">check current setup</a></li>
+<li><a href="#org8a9b05a">time zone</a></li>
+<li><a href="#orgddf673a">chronyd</a></li>
+<li><a href="#org159d552">ntpd</a></li>
+</ul>
+</div>
+</div>
 <p>
 only one time service should be running, chronyd or ntpd.
 </p>
 
-<div id="outline-container-orgc1bcbb9" class="outline-2">
-<h2 id="orgc1bcbb9">check current setup</h2>
-<div class="outline-text-2" id="text-orgc1bcbb9">
+<ul class="org-ul">
+<li>chronyd ; virtual and mobile (default)</li>
+<li>ntpd ; servers always connected to a network</li>
+</ul>
+
+<div id="outline-container-org99277c0" class="outline-2">
+<h2 id="org99277c0">check current setup</h2>
+<div class="outline-text-2" id="text-org99277c0">
 <ul class="org-ul">
 <li><code>timedatectl status</code> ; Show current settings of the system clock and RTC.</li>
 <li><code>systemctl status chronyd.service</code></li>
@@ -26,9 +42,9 @@ only one time service should be running, chronyd or ntpd.
 </div>
 </div>
 
-<div id="outline-container-org84517aa" class="outline-2">
-<h2 id="org84517aa">time zone</h2>
-<div class="outline-text-2" id="text-org84517aa">
+<div id="outline-container-org8a9b05a" class="outline-2">
+<h2 id="org8a9b05a">time zone</h2>
+<div class="outline-text-2" id="text-org8a9b05a">
 <ul class="org-ul">
 <li><code>/etc/localtime</code> ; configuration file
 <ul class="org-ul">
@@ -46,9 +62,9 @@ only one time service should be running, chronyd or ntpd.
 </div>
 </div>
 
-<div id="outline-container-org7a4e4c4" class="outline-2">
-<h2 id="org7a4e4c4">chronyd</h2>
-<div class="outline-text-2" id="text-org7a4e4c4">
+<div id="outline-container-orgddf673a" class="outline-2">
+<h2 id="orgddf673a">chronyd</h2>
+<div class="outline-text-2" id="text-orgddf673a">
 <ul class="org-ul">
 <li>the default. use for virtual and mobile devices</li>
 <li><code>/etc/chrony.conf</code> ; configuration file
@@ -64,17 +80,18 @@ when the chronyd service is started.</li>
 <li><code>systemctl stop chronyd.service</code></li>
 <li><code>systemctl disable chronyd.service</code></li>
 </ul></li>
-<li><code>chronyc sources -v</code> ; show current time sources (verbose)
+<li>chronyc(1) - command-line interface for chrony daemon
 <ul class="org-ul">
-<li>chronyc - command-line interface for chrony daemon</li>
+<li><code>chronyc sources -v</code> ; show current time sources (verbose)</li>
 </ul></li>
+<li>chronyd(8) - chrony daemon</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaf1f5e0" class="outline-2">
-<h2 id="orgaf1f5e0">ntpd</h2>
-<div class="outline-text-2" id="text-orgaf1f5e0">
+<div id="outline-container-org159d552" class="outline-2">
+<h2 id="org159d552">ntpd</h2>
+<div class="outline-text-2" id="text-org159d552">
 <ul class="org-ul">
 <li>use if always connected to the network</li>
 <li><code>yum install ntp</code></li>

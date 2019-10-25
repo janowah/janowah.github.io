@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>journald</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">journald</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org19edf8a">binaries</a></li>
+<li><a href="#org767523f">persistent logs</a>
+<ul>
+<li><a href="#org266f0c2">from man page</a></li>
+<li><a href="#org12055ba">from book</a></li>
+</ul>
+</li>
+<li><a href="#orgeb1f81e">view by priority</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org19edf8a" class="outline-2">
+<h2 id="org19edf8a">binaries</h2>
+<div class="outline-text-2" id="text-org19edf8a">
+<ul class="org-ul">
+<li><code>journalctl(1)</code></li>
+<li><code>journald.conf(5)</code></li>
+
+<li>By default, the journal log files are temporarily stored in RAM in a
+ring buffer in the /run/log/journal directory.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org767523f" class="outline-2">
+<h2 id="org767523f">persistent logs</h2>
+<div class="outline-text-2" id="text-org767523f">
+<ul class="org-ul">
+<li>To get Linux to write journal log files persistently on disk, run
+the following commands:</li>
+</ul>
+</div>
+
+<div id="outline-container-org266f0c2" class="outline-3">
+<h3 id="org266f0c2">from man page</h3>
+<div class="outline-text-3" id="text-org266f0c2">
+<ul class="org-ul">
+<li>/etc/systemd/journald.conf
+<ul class="org-ul">
+<li><code>#Storage=persistent</code></li>
+</ul></li>
+<li>nb. i changed this setting and restarted journald but no directory
+was created.  check on next boot - i did and no directory was
+changed.  needed to uncomment the line in journald.conf</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org12055ba" class="outline-3">
+<h3 id="org12055ba">from book</h3>
+<div class="outline-text-3" id="text-org12055ba">
+<div class="org-src-container">
+<pre class="src src-sh">mkdir /var/log/journal
+chgrp systemd-journal /var/log/journal
+chmod 2775 /var/log/journal
+systemctl restart systemd-journald.service
+</pre>
+</div>
+
+<p>
+<code>drwxr-xr-x.  3 root root 45 Oct 25 13:39 journal</code> ; default when use persistent
+</p>
+<ul class="org-ul">
+<li>see if this gets changed later or if there are any problems. A. no.</li>
+</ul>
+
+<p>
+Once persistent logging is enabled, you can show log messages from a
+specific boot with the -b switch: journalctl -b 0 displays the log
+messages since the last boot, journalctl -b 1 from the boot before the
+last one, and so on.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb1f81e" class="outline-2">
+<h2 id="orgeb1f81e">view by priority</h2>
+<div class="outline-text-2" id="text-orgeb1f81e">
+<p>
+journalctl -p warning ; filter by priority
+</p>
+
+<p>
+warning in bold errors in red
+</p>
+
+<p>
+-p, &#x2013;priority=
+</p>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

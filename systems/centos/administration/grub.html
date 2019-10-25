@@ -5,25 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>shutdown</title>
+<title>grub</title>
 <meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
-<h1 class="title">shutdown</h1>
-<ul class="org-ul">
-<li>systemctl(1)
-<ul class="org-ul">
-<li><code>systemctl poweroff</code> ; Shut down and power-off the system</li>
-<li><code>systemctl reboot</code> ; Shut down and reboot the system</li>
-<li><code>systemctl halt</code> ; Shut down and halt the system</li>
-</ul></li>
-
-<li>shutdown(8)
-<ul class="org-ul">
-<li>shutdown -r ; reboot</li>
-</ul></li>
-</ul>
+<h1 class="title">grub</h1>
+<pre class="example">
+- # grub2-mkconfig -o /boot/grub2/grub.cfg
+  - /etc/default/grub ; config file
+  - /etc/grub.d/ ; scripts
+  - edit grub file and run mkconfig to generate new grub.cfg
+- # grub2-set-default 1 ; boot 2nd entry in /etc/grub2.cfg
+- grub2-install ; if ms ntldr or bootmgr installed. this updates grub
+</pre>
 
 <p>
 <a href="../centos.html">back</a>

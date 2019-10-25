@@ -1,0 +1,110 @@
+#+title: grub
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  - # grub2-mkconfig -o /boot/grub2/grub.cfg
+    - /etc/default/grub ; config file
+    - /etc/grub.d/ ; scripts
+    - edit grub file and run mkconfig to generate new grub.cfg
+  - # grub2-set-default 1 ; boot 2nd entry in /etc/grub2.cfg
+  - grub2-install ; if ms ntldr or bootmgr installed. this updates grub
+#+END_EXAMPLE
+
+
+- /etc/grub2.cfg ; symlink to
+  - /boot/grub2/grub.cfg ; bios mode
+  - /boot/efi/EFI/redhat/grub.cfg ; uefi mode
+;; on my machine there is a /etc/grub2-efi.cfg
+- header entry and menuentry stanzas one for each kernel
+- linux16 kernel ; can pass additional command line parameters and
+  boot non-default systemd target
+- initrd16 ram disk filesystem
+
+* sample /etc/grub/default file
+
+#+BEGIN_EXAMPLE
+  GRUB_TIMEOUT=5
+  GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+  GRUB_DEFAULT=saved
+  GRUB_DISABLE_SUBMENU=true
+  GRUB_TERMINAL_OUTPUT="console"
+  GRUB_CMDLINE_LINUX="rd.lvm.lv=rhel/root vconsole.font=latarcyrheb-sun16 rd.lvm.lv=rhel/swap crashkernel=auto vconsole.keymap=uk rhgb quiet"
+  GRUB_DISABLE_RECOVERY="true"
+#+END_EXAMPLE
+
+The value “saved” instructs GRUB 2 to look at the saved_entry variable
+in the file /boot/grub2/grubenv.
+
+rd.lvm.lv tells the name of the logical volumes where the root
+filesystem and swap partition are located.
+
+The next options, vconsole.font and vconsole.keymap, list the default
+font and keyboard map, respectively. 
+
+The crashkernel option is used to reserve some memory for kdump, which
+is invoked to capture a kernel core dump if the system crashes.
+
+Finally, at the end of the line, the rhgb quiet directives enable the
+Red Hat graphical boot and hide the boot messages by default. If you
+want to enable verbose boot messages, remove the quiet option from
+this line.
+
+grub2 cli
+c to access
+tab to see options. or help
+ls to see all detected hard drives
+
+#+BEGIN_EXAMPLE
+grub> ls
+(proc) (hd0) (hd0,msdos1) (hd0,msdos2)
+#+END_EXAMPLE
+
+where
+- hd0 is the first hard drive
+- msdos1 is the first partition, created with the mbr format (msdos)
+- gpt1 if using gpt
+
+* how to boot from the grub command line 
+
+grub> ls (hd0,msdos1)/grub2/grub.cfg
+grub> cat (hd0,msdos1)/grub2/grub.cfg
+grub> search.file /grub2/grub.cfg ; finds the config file
+grub> cat (hd0,msdos2)/etc/fstab
+grub> insmod lvm ; to check lvm volumes
+grub> cat (lvm/rhel-root)/etc/fstab
+grub> cat (lvm/rhel-root)/etc/fstab
+grub> set root=(lvm/rhel-root)
+linux (hd0,msdos1)/vmlinuz-3.10.0-123.el7.x86_64 root=/dev/mapper/rhel-root
+- specify kernel and root directory partition
+initrd (hd0,msdos1)/initramfs-3.10.0-123.el7.x86_64.img
+- ram disk
+- boot
+
+* reinstall grub
+
+- if grub2-mkconfig doesn't work
+- or if the config file it generates contains errors
+
+- # rpm -qc grub2-tools ; remove all grub2 configs and scripts
+- # yum reinstall grub2-tools
+- # grub2-mkconfig -o /boot/grub2/grub.cfg
+
+would need to have networking to do this
+in situation where i can boot from the grub cli but not with the config
+
+rescue mode. when can't boot from grub cli
+first boot from installation dvd or network boot
+select troubleshooting option
+select rescue
+its minimal text only version of os
+/mnt/sysimage directory
+- chroot /mnt/sysimage
+
+list the ways of booting
+- grub config ; default
+- grub menu ; edit at runtime
+- grub cli
+- installation dvd or network
+  - rescue
+
+[[file:../centos.html][back]]

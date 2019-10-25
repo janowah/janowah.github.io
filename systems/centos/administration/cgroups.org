@@ -1,0 +1,24 @@
+#+title: cgroups
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- Control groups (or cgroups) are a feature of the Linux kernel to
+  group processes together and control or limit their resource usage
+  (such as CPU, memory, and so on).
+
+- In systemd, cgroups are primarily used to track processes and to
+  ensure that all processes that belong to a service are terminated
+  when a service is stopped.
+
+- old way : stopping all dependent processes manually (with the ps and
+  kill commands
+
+- To address this limitation, systemd labels processes associated with
+  a service using cgroups.
+
+- The command =systemd-cgls= displays the cgroup hierarchy in a tree
+  format
+
+- =systemctl list-dependencies rsyslog.service=
+  - dependencies must be started first
+
+[[file:../centos.html][back]]

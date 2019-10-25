@@ -1,47 +1,183 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tmux</title>
+<meta name="generator" content="Org mode" />
 </head>
 <body>
-<h1>tmux</h1>
+<div id="content">
+<h1 class="title">tmux</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0ded845">intro</a></li>
+<li><a href="#orgddc9d2b">help</a></li>
+<li><a href="#org59633ba">navigation</a></li>
+<li><a href="#orgb76f2f6">session managment</a></li>
+<li><a href="#org0e67e14">copy and paste</a>
+<ul>
+<li><a href="#org795c811">copy-mode commands</a></li>
+<li><a href="#orgc8d1fb6">paste buffers</a></li>
+</ul>
+</li>
+<li><a href="#org9f9792f">panes</a></li>
+<li><a href="#org4d6951c">suspend</a></li>
+<li><a href="#org9e6653e">misc commands</a></li>
+</ul>
+</div>
+</div>
 
-<pre>
+<div id="outline-container-org0ded845" class="outline-2">
+<h2 id="org0ded845">intro</h2>
+<div class="outline-text-2" id="text-org0ded845">
+<pre class="example">
 C-b c ; create new
 C-b x ; quit
 C-b : ; command prompt
 
-C-z suspend.
-% unsuspend.
-
-* sessions
-  - tmux new -s session_name
-  - tmux list-sessions
-  - tmux detach ; C-b d
-  - tmux attach -t session_name
-  - tmux switch -t session_name
-
-* help
-  - tmux list-keys
-  - tmux list-commands
-  - tmux info
-  - tmux source-file ~/.tmux.conf ; reload current config
-
-C-b ? ; help. q to quit
-
-* windows
-  - C-b % ; vertical split
-  - C-b { ; swap windows. C-b } also
-  - C-b o ; cycle 
-
-* editing
-  - C-b [ ; copy
-  - C-b ] ; paste
-
-  - enter copy mode
-  - select and copy text using applications functions
-  - paste
+sessions &gt; windows &gt; panes
 </pre>
-<a href="./tools.html">back</a>
+</div>
+</div>
+
+<div id="outline-container-orgddc9d2b" class="outline-2">
+<h2 id="orgddc9d2b">help</h2>
+<div class="outline-text-2" id="text-orgddc9d2b">
+<pre class="example">
+C-b ? ; help
+q ; quit
+tmux list-keys
+tmux list-commands
+tmux info
+tmux source-file ~/.tmux.conf ; reload current config
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org59633ba" class="outline-2">
+<h2 id="org59633ba">navigation</h2>
+<div class="outline-text-2" id="text-org59633ba">
+<pre class="example">
+Ctrl-b c	; new window
+Ctrl-b n	; next window
+Ctrl-b p	; previous window
+Ctrl-b 0-9	; jump directly to a window by number
+Ctrl-b w	; open a menu of all windows
+Ctrl-b ,	; `rename-window'
+Ctrl-b &amp;	; kill current
+Ctrl-b ?	; help (q to quit)
+C-b '		; prompt for window (enter index 0, 1 etc.)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb76f2f6" class="outline-2">
+<h2 id="orgb76f2f6">session managment</h2>
+<div class="outline-text-2" id="text-orgb76f2f6">
+<pre class="example">
+tmux new -s session_name
+C-b d				; to disconnect
+tmux list-sessions
+tmux detach			; within a tmux session
+tmux switch -t session_name
+tmux attach			; to most recent
+tmux attach-session -t 2	; -t target
+tmux attach -t session_name
+tmux kill-session -t 2
+C-b $				; `rename-session'
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0e67e14" class="outline-2">
+<h2 id="org0e67e14">copy and paste</h2>
+<div class="outline-text-2" id="text-org0e67e14">
+<pre class="example">
+1) C-b [ ; `copy-mode' wait for indicator in top right
+2) select text
+3) M-w   ; emacs binding? selection highlighted in orange
+4) C-b ] ; `paste-buffer'
+</pre>
+
+<p>
+this works between sessions
+</p>
+</div>
+
+<div id="outline-container-org795c811" class="outline-3">
+<h3 id="org795c811">copy-mode commands</h3>
+<div class="outline-text-3" id="text-org795c811">
+<pre class="example">
+C-r ; search up
+C-s ; search down
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc8d1fb6" class="outline-3">
+<h3 id="orgc8d1fb6">paste buffers</h3>
+<div class="outline-text-3" id="text-orgc8d1fb6">
+<pre class="example">
+C-b = ; `choose-buffer'
+
+C-b # ; `list-buffers'
+C-b - ; `delete-buffer' 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9f9792f" class="outline-2">
+<h2 id="org9f9792f">panes</h2>
+<div class="outline-text-2" id="text-org9f9792f">
+<pre class="example">
+C-b %     ; vertical split window into panes
+C-b {     ; swap panes. C-b } also
+C-b o     ; cycle
+C-b !     ; send pane to new window.
+C-b "     ; horizontal split
+C-b q     ; Briefly display pane indexes.
+C-b -&gt;/&lt;- ; change to pane
+
+RESIZE
+C-b C -&gt;/&lt;-	; Resize pane in steps of one cell.
+C-b M -&gt;/&lt;-	; Resize pane in steps of five cells.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4d6951c" class="outline-2">
+<h2 id="org4d6951c">suspend</h2>
+<div class="outline-text-2" id="text-org4d6951c">
+<pre class="example">
+C-b C-z ; `suspend-client'
+fg ; to unsuspend
+
+% unsuspend?
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9e6653e" class="outline-2">
+<h2 id="org9e6653e">misc commands</h2>
+<div class="outline-text-2" id="text-org9e6653e">
+<pre class="example">
+C-b t ; time. `clock-mode'
+</pre>
+
+<p>
+<a href="tools.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>

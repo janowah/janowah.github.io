@@ -1,6 +1,12 @@
 #+title: shutdown
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- shutdown -r ; reboot
+- systemctl(1)
+  - =systemctl poweroff= ; Shut down and power-off the system
+  - =systemctl reboot= ; Shut down and reboot the system
+  - =systemctl halt= ; Shut down and halt the system
+
+- shutdown(8)
+  - shutdown -r ; reboot
 
 [[file:../centos.html][back]]

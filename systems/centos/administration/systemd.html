@@ -11,16 +11,437 @@
 <body>
 <div id="content">
 <h1 class="title">systemd</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org25176af">commands</a></li>
+<li><a href="#org4496662">systemd notes</a>
+<ul>
+<li><a href="#org33446e5">units and targets</a></li>
+</ul>
+</li>
+<li><a href="#orgf2348e6">units</a>
+<ul>
+<li><a href="#orgf7bbf86">systemd unit types</a></li>
+</ul>
+</li>
+<li><a href="#org6c6cb3f">targets</a>
+<ul>
+<li><a href="#org74bb42c">systemd target units</a></li>
+<li><a href="#orgcc7f7fb">RHEL 6 Runlevels and RHEL 7 systemd Targets</a></li>
+</ul>
+</li>
+<li><a href="#orgd303e47">systemctl Service Control Commands</a></li>
+<li><a href="#org4d3e45a">systemctl</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org25176af" class="outline-2">
+<h2 id="org25176af">commands</h2>
+<div class="outline-text-2" id="text-org25176af">
+<pre class="example">
+systemctl reboot
+</pre>
+
+<ul class="org-ul">
+<li># systemctl list-units &#x2013;type=service &#x2013;all</li>
+<li><code>systemctl list-units --type=target --all</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4496662" class="outline-2">
+<h2 id="org4496662">systemd notes</h2>
+<div class="outline-text-2" id="text-org4496662">
+<ul class="org-ul">
+<li>systemd is the first process <code>PID 1</code></li>
+<li>it's a service manager</li>
+
+<li>Systemd activates all the system units for the <code>initrd.target</code> and
+mounts the root filesystem under <code>/sysroot</code>.  Finally, systemd
+restarts itself in the new root directory and activates all units
+for the default target</li>
+
+<li>systemd parallelizes the initialization of services</li>
+</ul>
+</div>
+
+<div id="outline-container-org33446e5" class="outline-3">
+<h3 id="org33446e5">units and targets</h3>
+<div class="outline-text-3" id="text-org33446e5">
+<ul class="org-ul">
+<li>everything is a unit
+<ul class="org-ul">
+<li><i>service units</i> .service system services</li>
+<li><i>mount and automount units</i></li>
+<li><i>path units</i> eg spool directories. activate a service when change
+on path on demand.</li>
+</ul></li>
+
+<li>As an example, systemd starts the CUPS printing service only when a
+print job is sent to the <i>var/spool/cups queue /socket units</i> ; start
+when client connection is made</li>
+
+<li>target unit ; used to group together other system units</li>
+<li>targets provide the same function as runlevels</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf2348e6" class="outline-2">
+<h2 id="orgf2348e6">units</h2>
+<div class="outline-text-2" id="text-orgf2348e6">
+<p>
+configuration files
+</p>
+<ul class="org-ul">
+<li>/etc/systemd/system ; custom files. supersede defaults</li>
+<li>/usr/lib/systemd/system ; default config files. don't modify</li>
+</ul>
+
 <pre class="example">
 systemctl list-units
 systemctl list-units --type=service
 systemctl list-units --all --type=service
-systemctl reboot 
 </pre>
+</div>
+
+<div id="outline-container-orgf7bbf86" class="outline-3">
+<h3 id="orgf7bbf86">systemd unit types</h3>
+<div class="outline-text-3" id="text-orgf7bbf86">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Unit</th>
+<th scope="col" class="org-left">Type Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Target</td>
+<td class="org-left">A group of units. It is used as a synchronization point at startup to define a set of units to be activated.</td>
+</tr>
+
+<tr>
+<td class="org-left">Service</td>
+<td class="org-left">A service, such as a daemon like the Apache web server.</td>
+</tr>
+
+<tr>
+<td class="org-left">Socket</td>
+<td class="org-left">An IPC or network socket, used to activate a service when traffic is received on a listening socket (similar to the activation of services on demand performed by the xinetd daemon).</td>
+</tr>
+
+<tr>
+<td class="org-left">Device</td>
+<td class="org-left">A device unit, such as a drive or partition.</td>
+</tr>
+
+<tr>
+<td class="org-left">Mount</td>
+<td class="org-left">A filesystem mount point controlled by systemd.</td>
+</tr>
+
+<tr>
+<td class="org-left">Automount</td>
+<td class="org-left">A filesystem automount point controlled by systemd.</td>
+</tr>
+
+<tr>
+<td class="org-left">Swap</td>
+<td class="org-left">A swap partition to be activated by systemd.</td>
+</tr>
+
+<tr>
+<td class="org-left">Path</td>
+<td class="org-left">A path monitored by systemd, used to activate a service when the path changes.</td>
+</tr>
+
+<tr>
+<td class="org-left">Timer</td>
+<td class="org-left">A timer controlled by systemd, used to activate a service when the timer elapses.</td>
+</tr>
+
+<tr>
+<td class="org-left">Snapshot</td>
+<td class="org-left">Used to create a snapshot of the systemd run-time state.</td>
+</tr>
+
+<tr>
+<td class="org-left">Slice</td>
+<td class="org-left">A group of system resources (such as CPU, memory, and so on) that can be assigned to a unit via the cgroup interface.</td>
+</tr>
+
+<tr>
+<td class="org-left">Scope</td>
+<td class="org-left">A unit for organizing and managing resource utilization of a set of system processes.</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><code>systemctl list-units</code> ; list all active systemd units</li>
+<li><code>systemctl -all</code> ; include inactive, maintenance and failed</li>
+<li><code>systemctl list-unit-files</code> ; enabled|disabled at startup
+<ul class="org-ul">
+<li><code>static</code>. enabled and cannot be disabled</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c6cb3f" class="outline-2">
+<h2 id="org6c6cb3f">targets</h2>
+<div class="outline-text-2" id="text-org6c6cb3f">
+<ul class="org-ul">
+<li><code>ls -l /etc/systemd/system/default.target</code> ; current target</li>
+<li><code>systemctl get-default</code></li>
+<li><code>/usr/lib/systemd/system</code> ; location of targets</li>
+</ul>
+</div>
+
+<div id="outline-container-org74bb42c" class="outline-3">
+<h3 id="org74bb42c">systemd target units</h3>
+<div class="outline-text-3" id="text-org74bb42c">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Target</th>
+<th scope="col" class="org-left">Unit Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">emergency.target</td>
+<td class="org-left">Emergency shell; only the / filesystem is mounted in read-only mode.</td>
+</tr>
+
+<tr>
+<td class="org-left">graphical.target</td>
+<td class="org-left">The default target for multiuser graphical systems.</td>
+</tr>
+
+<tr>
+<td class="org-left">multi-user.target</td>
+<td class="org-left">Nongraphical multiuser system.</td>
+</tr>
+
+<tr>
+<td class="org-left">rescue.target</td>
+<td class="org-left">Emergency shell; all filesystems are mounted.</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example">
+ls -l /usr/lib/systemd/system/runlevel?.target
+
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel0.target -&gt; poweroff.target
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel1.target -&gt; rescue.target
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel2.target -&gt; multi-user.target
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel3.target -&gt; multi-user.target
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel4.target -&gt; multi-user.target
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel5.target -&gt; graphical.target
+lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel6.target -&gt; reboot.target
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcc7f7fb" class="outline-3">
+<h3 id="orgcc7f7fb">RHEL 6 Runlevels and RHEL 7 systemd Targets</h3>
+<div class="outline-text-3" id="text-orgcc7f7fb">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Runlevel</th>
+<th scope="col" class="org-left">systemd Target</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">poweroff.target</td>
+<td class="org-left">Halt the system</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">rescue.target</td>
+<td class="org-left">Single-user mode for maintenance and repair</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">multi-user.target</td>
+<td class="org-left">Multiuser, without NFS</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">multi-user.target</td>
+<td class="org-left">Full multiuser mode</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">multi-user.target</td>
+<td class="org-left">Not used in RHEL 6</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">graphical.target</td>
+<td class="org-left">X11 GUI with networking</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">reboot.target</td>
+<td class="org-left">Reboot the system</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>systemctl list-dependencies graphical.target</li>
+<li>systemctl set-default multi-user.target</li>
+<li>systemctl isolate multi-user.target ; move to a different target</li>
+<li>systemctl isolate poweroff.target ; what happens?</li>
+
+<li>systemd-analyze time ; time required to boot system</li>
+<li>systemd-analyse blame</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd303e47" class="outline-2">
+<h2 id="orgd303e47">systemctl Service Control Commands</h2>
+<div class="outline-text-2" id="text-orgd303e47">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">start</td>
+<td class="org-left">Starts the service if it’s currently not running.</td>
+</tr>
+
+<tr>
+<td class="org-left">stop</td>
+<td class="org-left">Stops the service if it’s currently running.</td>
+</tr>
+
+<tr>
+<td class="org-left">restart</td>
+<td class="org-left">Stops and then starts the service.</td>
+</tr>
+
+<tr>
+<td class="org-left">reload</td>
+<td class="org-left">If supported, it loads the current version of the configuration file(s). The service is not stopped, and clients that have previously connected are not kicked off.</td>
+</tr>
+
+<tr>
+<td class="org-left">try-restart</td>
+<td class="org-left">Stops and then restarts the service only if it is already running.</td>
+</tr>
+
+<tr>
+<td class="org-left">condrestart</td>
+<td class="org-left">Same as try-restart.</td>
+</tr>
+
+<tr>
+<td class="org-left">status</td>
+<td class="org-left">Lists the current operational status of the service.</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>systemctl reload sshd.service ; doesn't stop or restart service</li>
+<li>systemctl list-unit-files &#x2013;type=service</li>
+<li>systemctl list-unit-files | grep postfix.service</li>
+<li>systemctl is-enabled postfix.service</li>
+<li>systemctl disable postfix.service</li>
+<li>systemctl enable postfix.service</li>
+</ul>
+
+<p>
+enable &gt; link &gt; /etc/systemd/system/multi-user.target.wants ==&gt; /usr/lib/systemd/system
+</p>
+
+<ul class="org-ul">
+<li># systemctl mask postfix.service ; service disabled and cannot be started</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4d3e45a" class="outline-2">
+<h2 id="org4d3e45a">systemctl</h2>
+<div class="outline-text-2" id="text-org4d3e45a">
+<ul class="org-ul">
+<li><code>systemctl get-default</code></li>
+<li><code>ls /etc/systemd/system/graphical.target.wants/</code>
+<ul class="org-ul">
+<li>&#x2013;&gt; <code>accounts-daemon.service  rtkit-daemon.service</code></li>
+</ul></li>
+
+<li><code>systemctl isolate multi-user.target</code> ; run from graphical.target
+<ul class="org-ul">
+<li>similar to changing the runlevel in a traditional init system.</li>
+</ul></li>
+<li><code>systemctl status rsyslog.service</code> ; don't need to include the file extension
+<ul class="org-ul">
+<li><code>-l</code> switch to display full lines</li>
+</ul></li>
+</ul>
 
 <p>
 <a href="../centos.html">back</a>
 </p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="validation"></p>

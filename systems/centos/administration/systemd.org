@@ -1,14 +1,159 @@
-# -*- mode: org -*-
-
 #+title: systemd
-#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
+#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:t timestamp:nil
+
+* commands
+
+#+BEGIN_EXAMPLE
+  systemctl reboot
+#+END_EXAMPLE
+
+- systemctl list-units --type=service --all
+- systemctl list-units --type=target --all
+
+* systemd notes
+
+- systemd is the first process =PID 1=
+- it's a service manager
+
+- Systemd activates all the system units for the =initrd.target= and
+  mounts the root filesystem under =/sysroot=.  Finally, systemd
+  restarts itself in the new root directory and activates all units
+  for the default target
+
+- systemd parallelizes the initialization of services
+
+** units and targets
+
+- everything is a unit
+  - /service units/ .service system services
+  - /mount and automount units/
+  - /path units/ eg spool directories. activate a service when change
+    on path on demand.
+
+- As an example, systemd starts the CUPS printing service only when a
+  print job is sent to the /var/spool/cups queue /socket units/ ; start
+  when client connection is made
+
+- target unit ; used to group together other system units
+- targets provide the same function as runlevels 
+
+* units
+
+- 12 different types
+
+configuration files
+- /etc/systemd/system ; custom files. supersede defaults
+- /usr/lib/systemd/system ; default config files. don't modify
 
 #+BEGIN_EXAMPLE
   systemctl list-units
   systemctl list-units --type=service
   systemctl list-units --all --type=service
-  systemctl reboot 
 #+END_EXAMPLE
 
+** systemd unit types
+ 
+| Unit      | Type Description                                                                                                                                                                      |
+|-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Target    | A group of units. It is used as a synchronization point at startup to define a set of units to be activated.                                                                          |
+| Service   | A service, such as a daemon like the Apache web server.                                                                                                                               |
+| Socket    | An IPC or network socket, used to activate a service when traffic is received on a listening socket (similar to the activation of services on demand performed by the xinetd daemon). |
+| Device    | A device unit, such as a drive or partition.                                                                                                                                          |
+| Mount     | A filesystem mount point controlled by systemd.                                                                                                                                       |
+| Automount | A filesystem automount point controlled by systemd.                                                                                                                                   |
+| Swap      | A swap partition to be activated by systemd.                                                                                                                                          |
+| Path      | A path monitored by systemd, used to activate a service when the path changes.                                                                                                        |
+| Timer     | A timer controlled by systemd, used to activate a service when the timer elapses.                                                                                                     |
+| Snapshot  | Used to create a snapshot of the systemd run-time state.                                                                                                                              |
+| Slice     | A group of system resources (such as CPU, memory, and so on) that can be assigned to a unit via the cgroup interface.                                                                 |
+| Scope     | A unit for organizing and managing resource utilization of a set of system processes.                                                                                                 |
+
+- =systemctl list-units= ; list all active systemd units
+- =systemctl -all= ; include inactive, maintenance and failed
+- =systemctl list-unit-files= ; enabled|disabled at startup
+  - =static=. enabled and cannot be disabled
+
+* targets
+
+- =ls -l /etc/systemd/system/default.target= ; current target
+- =systemctl get-default=
+- =/usr/lib/systemd/system= ; location of targets
+
+** systemd target units
+
+| Target            | Unit Description                                                     |
+|-------------------+----------------------------------------------------------------------|
+| emergency.target  | Emergency shell; only the / filesystem is mounted in read-only mode. |
+| graphical.target  | The default target for multiuser graphical systems.                  |
+| multi-user.target | Nongraphical multiuser system.                                       |
+| rescue.target     | Emergency shell; all filesystems are mounted.                        |
+
+#+BEGIN_EXAMPLE
+  ls -l /usr/lib/systemd/system/runlevel?.target
+
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel0.target -> poweroff.target
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel1.target -> rescue.target
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel2.target -> multi-user.target
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel3.target -> multi-user.target
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel4.target -> multi-user.target
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel5.target -> graphical.target
+  lrwxrwxrwx. 1 root root /usr/lib/systemd/system/runlevel6.target -> reboot.target
+#+END_EXAMPLE
+
+** RHEL 6 Runlevels and RHEL 7 systemd Targets
+
+| Runlevel | systemd Target    | Description                                 |
+|----------+-------------------+---------------------------------------------|
+|        0 | poweroff.target   | Halt the system                             |
+|        1 | rescue.target     | Single-user mode for maintenance and repair |
+|        2 | multi-user.target | Multiuser, without NFS                      |
+|        3 | multi-user.target | Full multiuser mode                         |
+|        4 | multi-user.target | Not used in RHEL 6                          |
+|        5 | graphical.target  | X11 GUI with networking                     |
+|        6 | reboot.target     | Reboot the system                           |
+
+- systemctl list-dependencies graphical.target
+- systemctl set-default multi-user.target
+- systemctl isolate multi-user.target ; move to a different target
+- systemctl isolate poweroff.target ; what happens?
+
+- systemd-analyze time ; time required to boot system
+- systemd-analyse blame
+
+* systemctl Service Control Commands
+
+| Command     | Description                                                                                                                                                         |
+|-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| start       | Starts the service if it’s currently not running.                                                                                                                   |
+| stop        | Stops the service if it’s currently running.                                                                                                                        |
+| restart     | Stops and then starts the service.                                                                                                                                  |
+| reload      | If supported, it loads the current version of the configuration file(s). The service is not stopped, and clients that have previously connected are not kicked off. |
+| try-restart | Stops and then restarts the service only if it is already running.                                                                                                  |
+| condrestart | Same as try-restart.                                                                                                                                                |
+| status      | Lists the current operational status of the service.                                                                                                                |
+
+- systemctl reload sshd.service ; doesn't stop or restart service
+- systemctl list-unit-files --type=service
+- systemctl list-unit-files | grep postfix.service
+- systemctl is-enabled postfix.service
+- systemctl disable postfix.service
+- systemctl enable postfix.service
+
+enable > link > /etc/systemd/system/multi-user.target.wants ==> /usr/lib/systemd/system
+
+- # systemctl mask postfix.service ; service disabled and cannot be started
+
+* systemctl
+
+- =systemctl get-default=
+- =ls /etc/systemd/system/graphical.target.wants/=
+  - --> =accounts-daemon.service  rtkit-daemon.service=
+
+- =systemctl isolate multi-user.target= ; run from graphical.target
+  - similar to changing the runlevel in a traditional init system.
+- =systemctl status rsyslog.service= ; don't need to include the file extension
+  - =-l= switch to display full lines
+
 [[file:../centos.html][back]]
+
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cgroups</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">cgroups</h1>
+<ul class="org-ul">
+<li>Control groups (or cgroups) are a feature of the Linux kernel to
+group processes together and control or limit their resource usage
+(such as CPU, memory, and so on).</li>
+
+<li>In systemd, cgroups are primarily used to track processes and to
+ensure that all processes that belong to a service are terminated
+when a service is stopped.</li>
+
+<li>old way : stopping all dependent processes manually (with the ps and
+kill commands</li>
+
+<li>To address this limitation, systemd labels processes associated with
+a service using cgroups.</li>
+
+<li>The command <code>systemd-cgls</code> displays the cgroup hierarchy in a tree
+format</li>
+
+<li><code>systemctl list-dependencies rsyslog.service</code>
+<ul class="org-ul">
+<li>dependencies must be started first</li>
+</ul></li>
+</ul>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>
