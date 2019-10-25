@@ -1,0 +1,9 @@
+#+title: yum
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- yum update
+- yum install mc tmux gcc git
+- yum repolist
+- yum install epel-release
+- rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+- yum install vlc

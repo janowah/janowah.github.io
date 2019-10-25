@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>samba</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">samba</h1>
+<ul class="org-ul">
+<li>install software
+<ul class="org-ul">
+<li>yum install samba samba-client samba-common</li>
+</ul></li>
+<li>edit configuration
+<ul class="org-ul">
+<li>/etc/samba/smb.conf</li>
+</ul></li>
+</ul>
+<pre class="example">
+[global]
+workgroup = WORKGROUP
+server string = Samba Server %v
+netbios name = centos
+security = user
+map to guest = bad user
+dns proxy = no
+#============================ Share Definitions ============================== 
+[Anonymous]
+path = /samba/anonymous
+browsable =yes
+writable = yes
+guest ok = yes
+read only = no
+</pre>
+
+<ul class="org-ul">
+<li>create shared folder and edit permissions
+<ul class="org-ul">
+<li>mkdir -p /samba/anonymous</li>
+<li>chmod -R 0755 anonymous/</li>
+<li>chown -R nobody:nobody anonymous/</li>
+</ul></li>
+<li>enable services
+<ul class="org-ul">
+<li>systemctl enable smb.service</li>
+<li>systemctl enable nmb.service</li>
+<li>systemctl restart smb.service</li>
+<li>systemctl restart nmb.service</li>
+</ul></li>
+<li>firewall
+<ul class="org-ul">
+<li>firewall-cmd &#x2013;permanent &#x2013;zone=public &#x2013;add-service=samba</li>
+<li>firewall-cmd &#x2013;reload</li>
+</ul></li>
+<li>selinux
+<ul class="org-ul">
+<li>chcon -t samba_share_t anonymous/</li>
+</ul></li>
+
+<li>references
+<ul class="org-ul">
+<li><a href="https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7">https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7</a></li>
+</ul></li>
+</ul>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

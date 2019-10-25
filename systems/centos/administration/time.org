@@ -48,4 +48,5 @@ only one time service should be running, chronyd or ntpd.
   - =systemctl enable ntpd.service=
 - =ntpq -p= ; show information about the NTP sources
 
-[[file:rhcsa.html][back]]
+[[file:../centos.html][back]]
+

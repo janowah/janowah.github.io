@@ -1,66 +1,39 @@
 #+title: centos
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-* yum
-- yum update
-- yum install mc tmux gcc git
-- yum repolist
-- yum install epel-release
-- rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-- yum install vlc
-
-* fonts
-- source code pro
-- share tech mono
-- cp ShareTechMono-Regular.ttf /usr/share/fonts/share-tech-mono/
-- aliasing
-  - Xft.hintstyle: hintslight
-  - Xft.rgba: rgb
-  - echo "Xft.lcdfilter: lcddefault" > ~/.Xresources
-
-* samba
-- install software
-  - yum install samba samba-client samba-common
-- edit configuration
-  - /etc/samba/smb.conf
-#+BEGIN_EXAMPLE
-  [global]
-  workgroup = WORKGROUP
-  server string = Samba Server %v
-  netbios name = centos
-  security = user
-  map to guest = bad user
-  dns proxy = no
-  #============================ Share Definitions ============================== 
-  [Anonymous]
-  path = /samba/anonymous
-  browsable =yes
-  writable = yes
-  guest ok = yes
-  read only = no
-#+END_EXAMPLE
-
-- create shared folder and edit permissions
-  - mkdir -p /samba/anonymous
-  - chmod -R 0755 anonymous/
-  - chown -R nobody:nobody anonymous/
-- enable services
-  - systemctl enable smb.service
-  - systemctl enable nmb.service
-  - systemctl restart smb.service
-  - systemctl restart nmb.service
-- firewall
-  - firewall-cmd --permanent --zone=public --add-service=samba
-  - firewall-cmd --reload
-- selinux
-  - chcon -t samba_share_t anonymous/
-
-- references
-  - https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7
+- administration
+  - [[file:administration/users.html][users]]
+  - [[file:administration/systemd.html][systemd]]
+  - journald
+  - logs
+  - [[file:administration/shutdown.html][shutdown]]
+  - [[file:administration/time.html][time]]
+  - [[file:administration/kvm.html][kvm]]
+  - [[file:administration/selinux.html][selinux]]
+  - lvm
+- installation
+  - kickstart
+- services
+  - [[file:services/apache.html][httpd ; apache]]
+  - mariadb
+  - [[file:services/samba.html][smb, nmb ; samba]]
+  - sshd
+  - nginx
+  - [[file:services/vsftpd.html][vsftpd]]
+  - nfs-server
+  - openvpn?
+- software
+  - [[file:software/yum.html][yum]]
+  - rpm
+  - installed
+  - [[file:software/software.html][software]]
+- networking
+  - [[file:networking/firewalld.html][firewalld]]
+  - [[file:networking/networking.html][networking]]
+- desktop
+  - [[file:desktop/fonts.html][fonts]]
+  - customisations
 
 [[../systems.html][back]]
-* shutdown
-- shutdown -r ; reboot
-* users
-- # adduser -D homer ; create user
-- # passwd homer ; change password
+
+

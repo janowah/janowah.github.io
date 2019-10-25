@@ -3,28 +3,27 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>software</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">software</h1>
 <ul class="org-ul">
-<li>configure repos
-</li>
-<li>install from repos, local rpm files
-</li>
-<li>uninstall. update
-</li>
+<li>configure repos</li>
+<li>install from repos, local rpm files</li>
+<li>uninstall. update</li>
 </ul>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">yum</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">commands</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org09675b6" class="outline-2">
+<h2 id="org09675b6">yum</h2>
+<div class="outline-text-2" id="text-org09675b6">
+</div>
+<div id="outline-container-org38f8dd6" class="outline-3">
+<h3 id="org38f8dd6">commands</h3>
+<div class="outline-text-3" id="text-org38f8dd6">
 <pre class="example">
 - VIEW
   - yum | less ; list of commands
@@ -62,40 +61,31 @@
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">Groups</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org044cfbf" class="outline-3">
+<h3 id="org044cfbf">Groups</h3>
+<div class="outline-text-3" id="text-org044cfbf">
 <ul class="org-ul">
 <li>view
 <ul class="org-ul">
-<li>yum group list ; identify avaliable package groups
-</li>
-<li>yum group info "Basic Web Server"
-</li>
+<li>yum group list ; identify avaliable package groups</li>
+<li>yum group info "Basic Web Server"</li>
 <li>yum group list hidden ; list all groups
 <ul class="org-ul">
-<li>"There is no installed groups file" createrepo?
-</li>
-</ul>
-</li>
+<li>"There is no installed groups file" createrepo?</li>
+</ul></li>
 <li>yum group info "Remote Desktop Clients" ; one regular group
 <ul class="org-ul">
-<li>yum install tigervnc ; install optional
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>yum install tigervnc ; install optional</li>
+</ul></li>
+</ul></li>
 </ul>
 
 <p>
 example
 </p>
 <ul class="org-ul">
-<li>yum group info "Print Server" ;
-</li>
-<li>yum group install "Print Server" ; mandatory and default packages
-</li>
+<li>yum group info "Print Server" ;</li>
+<li>yum group install "Print Server" ; mandatory and default packages</li>
 </ul>
 
 <p>
@@ -103,12 +93,9 @@ Mandatory always installed. default normally unless <code>-x</code> exclude
 </p>
 
 <ul class="org-ul">
-<li>yum group install "Print Server" -x paps -x gutenprint-cups ; exclude
-</li>
-<li>yum group info "Print Server" ; check again
-</li>
-<li>yum group remove "Print Server"
-</li>
+<li>yum group install "Print Server" -x paps -x gutenprint-cups ; exclude</li>
+<li>yum group info "Print Server" ; check again</li>
+<li>yum group remove "Print Server"</li>
 </ul>
 
 <p>
@@ -117,12 +104,9 @@ Mandatory always installed. default normally unless <code>-x</code> exclude
 <ul class="org-ul">
 <li>; package excluded
 <ul class="org-ul">
-<li>will not be installed if upgrade or install group
-</li>
-</ul>
-</li>
-<li>; not installed but will be installed if install or upgrade
-</li>
+<li>will not be installed if upgrade or install group</li>
+</ul></li>
+<li>; not installed but will be installed if install or upgrade</li>
 </ul>
 <p>
 no marker. package was installed, but not as part of a yum group install command.
@@ -131,27 +115,23 @@ yum group remove "Print Server" ; exclusions not possible
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">kernel</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-org48c9130" class="outline-3">
+<h3 id="org48c9130">kernel</h3>
+<div class="outline-text-3" id="text-org48c9130">
 <ul class="org-ul">
-<li>yum install kernel ; side by side
-</li>
-<li>ls /boot
-</li>
+<li>yum install kernel ; side by side</li>
+<li>ls /boot</li>
 <li>yum update kernel ; default to leave old kernel in place. max 3
 <ul class="org-ul">
-<li>add new kernel to (/boot/grub2/grub.cfg)
-</li>
-</ul>
-</li>
+<li>add new kernel to (/boot/grub2/grub.cfg)</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">help</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org9a12610" class="outline-3">
+<h3 id="org9a12610">help</h3>
+<div class="outline-text-3" id="text-org9a12610">
 <pre class="example">
 list           List a package or groups of packages
 repolist       Display the configured software repositories
@@ -175,12 +155,13 @@ question
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">rpm</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">commands</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org55badb8" class="outline-2">
+<h2 id="org55badb8">rpm</h2>
+<div class="outline-text-2" id="text-org55badb8">
+</div>
+<div id="outline-container-orgc832303" class="outline-3">
+<h3 id="orgc832303">commands</h3>
+<div class="outline-text-3" id="text-orgc832303">
 <pre class="example">
 - VIEW
   - rpm -V package ; determine if any file has changed {-V|--verify}
@@ -223,48 +204,40 @@ question
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">gpg</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgfb310a9" class="outline-3">
+<h3 id="orgfb310a9">gpg</h3>
+<div class="outline-text-3" id="text-orgfb310a9">
 <ul class="org-ul">
-<li>rpm &#x2013;import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-</li>
-<li>rpm -qa gpg-pubkey
-</li>
+<li>rpm &#x2013;import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release</li>
+<li>rpm -qa gpg-pubkey</li>
 
 <li>rpm &#x2013;checksig pkg.rpm
 <ul class="org-ul">
-<li>K switch is equivalent to &#x2013;checksig.
-</li>
-</ul>
-</li>
-<li>rpm &#x2013;checksig pkg-1.2.3-4.noarch.rpm
-</li>
+<li>K switch is equivalent to &#x2013;checksig.</li>
+</ul></li>
+<li>rpm &#x2013;checksig pkg-1.2.3-4.noarch.rpm</li>
 <li>&#x2013;verify (or -v) ; size, MD5 checksum, permissions, type, owner, and group
 <ul class="org-ul">
-<li>compares information about that package with information from the RPM database on a system
-</li>
-</ul>
-</li>
+<li>compares information about that package with information from the RPM database on a system</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">questions</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org1051c05" class="outline-3">
+<h3 id="org1051c05">questions</h3>
+<div class="outline-text-3" id="text-org1051c05">
 <ul class="org-ul">
-<li>how does rpm handle dependencies?
-</li>
+<li>how does rpm handle dependencies?</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">createrepo</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org1f16166" class="outline-2">
+<h2 id="org1f16166">createrepo</h2>
+<div class="outline-text-2" id="text-org1f16166">
 <p>
-<a href="rhcsa.html">back</a>
+<a href="../centos.html">back</a>
 </p>
 </div>
 </div>

@@ -1,5 +1,3 @@
-# -*- mode: org -*-
-
 #+title: networking
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
@@ -85,6 +83,4 @@ NM-CONNECTION-EDITOR
 - nm-connection-editor ; gui
 - Applications > Sundry > Network Connections. not on my system!
 
-
-
-[[file:rhcsa.html][back]]
+[[file:../centos.html][back]]

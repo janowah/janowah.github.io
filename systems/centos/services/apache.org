@@ -1,0 +1,21 @@
+#+title: apache
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  tasks
+  binaries
+  documentation
+  configuration files
+
+  - INSTALL
+    - yum install httpd
+  - START
+    - systemctl start httpd
+  - FIREWALL
+    - sudo firewall-cmd --permanent --add-port=80/tcp
+    - sudo firewall-cmd --permanent --add-port=443/tcp
+    - OR
+    - firewall-cmd --add-service http
+#+END_EXAMPLE
+
+[[file:../centos.html][back]]

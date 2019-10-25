@@ -1,0 +1,6 @@
+#+title: shutdown
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- shutdown -r ; reboot
+
+[[file:../centos.html][back]]

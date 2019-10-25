@@ -1,7 +1,5 @@
-# -*- mode: org -*-
-
 #+title: vsftpd
-#+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 #+BEGIN_EXAMPLE
   - install
@@ -22,5 +20,5 @@
     - journalctl | grep ftpd
 #+END_EXAMPLE
 
-[[./rhcsa.html][back]]
+[[file:../centos.html][back]]
 

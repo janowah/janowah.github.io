@@ -1,0 +1,34 @@
+#+title: kvm
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  - config files
+    - main config
+      - /etc/libvirt/
+    - individual
+      - virsh edit centos7      
+      - /etc/libvirt/qemu/centos7.xml
+  - log file
+    - /var/log/libvirt/qemu/centos7.log
+  - images
+    - /var/lib/libvirt/images/centos7.qcow2
+  - commands
+    - virsh dominfo centos7
+
+  gui
+  command line
+  options
+
+  configuring resources
+  - disks
+  - network
+
+  actions
+  - create vm
+  - start, stop, start at boot
+  - modify vm. add/ remove storage, networking
+  - attach storage.
+  - delete
+#+END_EXAMPLE
+
+[[file:../centos.html][back]]

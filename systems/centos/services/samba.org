@@ -1,0 +1,43 @@
+#+title: samba
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- install software
+  - yum install samba samba-client samba-common
+- edit configuration
+  - /etc/samba/smb.conf
+#+BEGIN_EXAMPLE
+  [global]
+  workgroup = WORKGROUP
+  server string = Samba Server %v
+  netbios name = centos
+  security = user
+  map to guest = bad user
+  dns proxy = no
+  #============================ Share Definitions ============================== 
+  [Anonymous]
+  path = /samba/anonymous
+  browsable =yes
+  writable = yes
+  guest ok = yes
+  read only = no
+#+END_EXAMPLE
+
+- create shared folder and edit permissions
+  - mkdir -p /samba/anonymous
+  - chmod -R 0755 anonymous/
+  - chown -R nobody:nobody anonymous/
+- enable services
+  - systemctl enable smb.service
+  - systemctl enable nmb.service
+  - systemctl restart smb.service
+  - systemctl restart nmb.service
+- firewall
+  - firewall-cmd --permanent --zone=public --add-service=samba
+  - firewall-cmd --reload
+- selinux
+  - chcon -t samba_share_t anonymous/
+
+- references
+  - https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7
+
+[[file:../centos.html][back]]

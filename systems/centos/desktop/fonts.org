@@ -1,0 +1,12 @@
+#+title: fonts
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- source code pro
+- share tech mono
+- cp ShareTechMono-Regular.ttf /usr/share/fonts/share-tech-mono/
+- aliasing
+  - Xft.hintstyle: hintslight
+  - Xft.rgba: rgb
+  - echo "Xft.lcdfilter: lcddefault" > ~/.Xresources
+
+[[file:../centos.html][back]]

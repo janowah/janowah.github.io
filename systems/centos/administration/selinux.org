@@ -1,0 +1,28 @@
+#+title: selinux
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  - ls -Z ; view 
+  - sestatus
+  - setenforce
+    - setenforce permissive
+  - getsebool
+    - getsebool allow_ftpd_anon_write
+  - setsebool
+    - setsebool allow_ftpd_full_access on
+  - restorecon
+  - chcon
+    - chcon -R --reference /etc/openvpn /etc/openvpn ; restore
+    - chcon -R --reference=/var/ftp /var/ftp/
+
+  CREATE EXCEPTION
+  - ausearch - a tool to query audit daemon logs
+  - audit2allow - generate SELinux policy allow/dontaudit rules from
+    logs of denied operations
+  - semodule - Manage SELinux policy modules.
+
+  - ausearch -c 'java' --raw | audit2allow -M my-java
+  - semodule -i my-java.pp 
+#+END_EXAMPLE
+
+[[file:../centos.html][back]]

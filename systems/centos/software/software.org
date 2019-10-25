@@ -1,5 +1,3 @@
-# -*- mode: org -*-
-
 #+title: software
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
@@ -153,4 +151,4 @@ yum group remove "Print Server" ; exclusions not possible
 
 * createrepo
 
-[[file:rhcsa.html][back]]
+[[file:../centos.html][back]]

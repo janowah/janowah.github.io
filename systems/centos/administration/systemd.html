@@ -3,19 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>sshd</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>systemd</title>
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
-<h1 class="title">sshd</h1>
+<h1 class="title">systemd</h1>
 <pre class="example">
-sshd
+systemctl list-units
+systemctl list-units --type=service
+systemctl list-units --all --type=service
+systemctl reboot 
 </pre>
 
 <p>
-<a href="rhcsa.html">back</a>
+<a href="../centos.html">back</a>
 </p>
 </div>
 <div id="postamble" class="status">

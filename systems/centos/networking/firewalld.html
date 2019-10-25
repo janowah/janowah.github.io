@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>firewalld</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">firewalld</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4575b77">binaries</a></li>
+<li><a href="#org1f18549">configuration</a></li>
+<li><a href="#orgded5870">commands</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4575b77" class="outline-2">
+<h2 id="org4575b77">binaries</h2>
+<div class="outline-text-2" id="text-org4575b77">
+<ul class="org-ul">
+<li><code>/usr/bin/firewall-cmd</code></li>
+<li><code>/usr/bin/firewall-config</code> ; gui</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1f18549" class="outline-2">
+<h2 id="org1f18549">configuration</h2>
+<div class="outline-text-2" id="text-org1f18549">
+<ul class="org-ul">
+<li><code>/etc/firewalld/services/</code> ; this is a directory. system/user config.</li>
+<li><code>/usr/lib/firewalld/services/</code> ; default. updates will overwrite changes made here.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgded5870" class="outline-2">
+<h2 id="orgded5870">commands</h2>
+<div class="outline-text-2" id="text-orgded5870">
+<ul class="org-ul">
+<li>systemctl status firewalld ; check current status</li>
+<li>systemctl start firewalld ; start if not started</li>
+<li>systemctl enable firewalld ; create symlinks to allow start at boot</li>
+<li>systemctl restart firewalld ; reload rules</li>
+<li>systemctl stop firewalld</li>
+<li>systemctl disable firewalld</li>
+</ul>
+
+<p>
+notes: 
+</p>
+<ul class="org-ul">
+<li>start and enable are orthogonal.</li>
+<li>status will show the vendor preset, enabled and active.</li>
+
+<li>firewall-cmd &#x2013;list-all</li>
+<li>firewall-cmd &#x2013;get-zones</li>
+<li>firewall-cmd &#x2013;get-services</li>
+<li>firewall-cmd &#x2013;get-default-zone</li>
+<li>firewall-cmd &#x2013;permanent &#x2013;add-service=ftp</li>
+<li>firewall-cmd &#x2013;reload</li>
+</ul>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>
