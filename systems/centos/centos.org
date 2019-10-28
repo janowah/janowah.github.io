@@ -24,7 +24,7 @@
   - nginx
   - [[file:services/vsftpd.html][vsftpd]]
   - nfs-server
-  - openvpn?
+  - [[file:services/openvpn.html][openvpn]]
 - software
   - [[file:software/yum.html][yum]]
   - rpm
