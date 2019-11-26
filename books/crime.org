@@ -1,0 +1,12 @@
+#+title: Crime
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+- Henning Mankell / Faceless Killers (KW1)
+- Henning Mankell / The Dogs of Riga (KW2)
+- Henning Mankell / The White Lioness (KW3)
+- Henning Mankell / The Man Who Smiled (KW4)
+- Henning Mankell / Sidetracked (KW5)
+- Henning Mankell / The Fifth Woman (KW6)
+- Jo Nesbø / The Bat (HH1)
+
+[[file:books.html][back]]

@@ -1,6 +1,9 @@
 #+title: Non Fiction
 #+options: num:nil ^:nil creator:nil author:nil creator:nil
 
+- A Monk's Guide to a Clean House and Mind / Shoukei Matsumoto
+- Prisoners Of Geography / Tim Marshall
+- Fear and Loathing: On the Campaign Trail '72 / Hunter S. Thompson
 - Proficient Motorcycling / David L. Hough
 - A Twist of the Wrist 2 / Keith Code
 - A Twist of the Wrist 1 / Keith Code

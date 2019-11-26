@@ -1,14 +1,18 @@
 #+title: books
 #+options: num:nil toc:t author:nil creator:nil timestamp:nil
 
-- [[file:books-2014.html][books-2014]]
-- [[file:computer-books.html][computer-books]]
-- [[file:sci-fi-fantasy.html][sci-fi-fantasy]]
-- [[file:books-by-author.html][books-by-author]]
-- [[file:to-read.html][to-read]]
-- [[file:non-fiction.html][non-fiction]]
-- [[file:college-books.html][college-books]]
-- [[file:lc-books.html][lc-books]]
-- [[file:library.html][library]]
+- categories
+  - [[file:sci-fi-fantasy.html][sci-fi-fantasy]]
+  - [[file:crime.html][crime]]
+  - [[file:non-fiction.html][non-fiction]]
+- lists
+  - [[file:books-by-author.html][books-by-author]]
+  - [[file:to-read.html][to-read]]
+- collections
+  - [[file:college-books.html][college-books]]
+  - [[file:computer-books.html][computer-books]]
+  - [[file:books-2014.html][books-2014]]
+  - [[file:lc-books.html][lc-books]]
+  - [[file:library.html][library]]
 
 [[../index.html][back]]
