@@ -1,7 +1,21 @@
 #+title: computers
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+* COMMENT lshw
+
+#+BEGIN_EXAMPLE
+  lshw -short
+
+  ,*-cpu
+  ,*-memory
+  ,*-display
+  ,*-network
+  ,*-multimedia
+  ,*-disk
+#+END_EXAMPLE
+
 * raspberry pi 3
+
 - Raspberry Pi 3 Model B Rev 1.2
 - centos
   - armv7l
@@ -15,7 +29,15 @@
   - model name      : ARMv7 Processor rev 4 (v7l)
   - Hardware        : BCM2835
 
-* raspberry pi 2
+* Raspberry Pi 2 Model B Rev 1.1
+
+#+BEGIN_EXAMPLE
+  Processor: ARMv7 Processor rev 5 (v7l)
+  Memory: 926MiB System memory
+  Disk:
+  Network: SMSC9512/9514 Fast Ethernet Adapter
+#+END_EXAMPLE
+
 - Raspberry Pi 2 Model B Rev 1.1
 - model b
 - 832-6274
@@ -29,9 +51,36 @@
   - model name      : ARMv7 Processor rev 5 (v7l)
   - Hardware        : BCM2835
 
-* lenovo
+* Lenovo ThinkPad x230
 
-* hp
+#+BEGIN_EXAMPLE
+  Processor:	 Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz x4
+  Memory:		 4GiB - 1 x 4GiB SODIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+  Disk:		 500GB
+  Network:	 82579LM Gigabit Network Connection (Lewisville)
+                   RTL8188CE 802.11b/g/n WiFi Adapter
+#+END_EXAMPLE
+
+* HP ProLiant ML110 G5
+
+#+BEGIN_EXAMPLE
+  Processor:	 Intel(R) Xeon(R) CPU 3065 @ 2.33GHz
+  Memory:		 1GiB - 1 x 1GiB DIMM DDR2 Synchronous 800 MHz (1.2 ns)
+  Disk:		 8004MB Cruzer Force
+  Network:	 NetXtreme BCM5722 Gigabit Ethernet PCI Express
+#+END_EXAMPLE
 
 * dell
 
+* intel
+
+#+BEGIN_EXAMPLE
+  Processor:	 Intel(R) Core(TM) i5 CPU 750 @ 2.67GHz x4
+  Memory:		 8GiB - 2 x 4GiB DIMM DDR3 Synchronous 1600 MHz (0.6 ns)
+  Disk:		 250GB
+  Graphics:	 AMD(R) Cedar
+  Network:	 82578DC Gigabit Network Connection
+                   82541PI Gigabit Ethernet Controller
+#+END_EXAMPLE
+
+[[file:data.html][back]]
