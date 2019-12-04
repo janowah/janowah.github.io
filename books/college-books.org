@@ -86,14 +86,23 @@
 
 
 * 3rd year
+
+** Concurrent Systems
+
+- Concurrent Systems: Operating Systems
+  - Jean Bacon
+  - Addison Wesley
+
+- Inside Windows NT
+  - Helen Custer
+  - Microsoft Press
+
 ** maths
+
 kreysig
 
-** Numerical Methods
-- /Methods of Numerical Integration/
-  - Philip J. Davis, Philip Rabinowitz
-
 ** Microprocessor Systems 1
+
 - MC68000 User's Manual >= 2e
 - M68000 Programmer's Reference Manual
 - 68000: Assembly Language Programming
@@ -101,10 +110,57 @@ kreysig
 - The Motorola Mc68000
   - Jean Bacon 
 - Programming the MC68000
+  - 2nd Edition
   - Brian King & Tim Knight
 - 68000 Family Assembly Language
   - Alan Clements
   - ISBN 0-534-93275-4
+
+** Microprocessor Systems 2
+
+- Microprocessor Systems Design
+  - 68000 Hardware, Software and Interfacing.
+  - 3rd Edition
+  - Alan Clements
+- Computer Architecture – A Quantitative Approach
+  - John Hennessey & David Patterson
+- High Performance Computer Architecture
+  - 3rd Edition
+  - Harold S Stone 
+- Computer Architecture and Design
+  - AJ Van De Goor
+
+** Numerical Methods
+
+- /Methods of Numerical Integration/
+  - Philip J. Davis, Philip Rabinowitz
+
+** Signals And Systems
+
+- Signals and Systems – An Introduction
+  - 2nd Edition
+  - Leslie Balmer
+  - Prentice Hall (1997)
+
+** Telecommunications
+
+- Information, Transmission, Modulation and Noise
+  - Schwartz
+  - McGraw Hill
+- Electronic Communication Techniques
+  - 3rd Edition
+  - Paul H. Young
+  - Merrill
+- Probability for Electronic Engineering
+  - Leon Garcia
+  - Addison Wesley
+- Analog and Digital Communication Systems
+  - 3rd Edition
+  - Martin S. Roden
+  - Prentice-Hall
+- Digital Communication Systems Design
+  - Martin S. Roden
+  - Prentice-Hall
 
 * 2nd year
 ** Computer Programming and Problem Solving
