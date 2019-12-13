@@ -12,50 +12,50 @@
 <div id="content">
 <h1 class="title">hard disks</h1>
 
-<div id="outline-container-org7723e26" class="outline-2">
-<h2 id="org7723e26">internal 3.5"</h2>
-<div class="outline-text-2" id="text-org7723e26">
+<div id="outline-container-orge2e4e34" class="outline-2">
+<h2 id="orge2e4e34">internal 3.5"</h2>
+<div class="outline-text-2" id="text-orge2e4e34">
 <pre class="example">
-|   | size  | location  | contents                  | interface | ff   | make model        |        dom |   |
-|---+-------+-----------+---------------------------+-----------+------+-------------------+------------+---|
-| a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |            |   |
-| c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |            |   |
-| d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |            |   |
-|---+-------+-----------+---------------------------+-----------+------+-------------------+------------+---|
-| e | 250GB | press     | centos 7                  | sata      | 3.5" | WD                | 2009-02-18 |   |
-| f | 500GB | press     | *unallocated*             | sata      | 3.5" | Seagate           | 2009-02-17 | . |
-| g | 320GB | press     | data                      | sata      | 3.5" | WD Caviar Blue    | 2009-03-05 |   |
-| h | 1TB   | press     | data                      | sata      | 3.5" | Samsung           | 2009-07-xx |   |
-| i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD Caviar Blue    | 2009-09-24 | . |
-| j | 1TB   | press     | *unallocated*             | sata      | 3.5" | WD Caviar Green   | 2010-03-25 | . |
-| k | 500GB | press     | NTFS. 330GB data          | sata      | 3.5" | Samsung           | 2010-10-xx | . |
-| l | 500GB | server    | data                      | sata      | 3.5" | WD Caviar Green   | 2011-02-22 |   |
-| n | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2013-01-28 |   |
-| o | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2017-11-23 |   |
+|   | size  | location  | contents                  | interface | ff   | make model        |        dom |   | fs   | used  |
+|---+-------+-----------+---------------------------+-----------+------+-------------------+------------+---+------+-------|
+| a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |            |   |      |       |
+| c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |            |   |      |       |
+| d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |            |   |      |       |
+|---+-------+-----------+---------------------------+-----------+------+-------------------+------------+---+------+-------|
+| e | 250GB | press     | centos 7                  | sata      | 3.5" | WD                | 2009-02-18 |   | xfs  |       |
+| f | 500GB | press     | *unallocated*             | sata      | 3.5" | Seagate           | 2009-02-17 | . | -    |       |
+| g | 320GB | press     | data                      | sata      | 3.5" | WD Caviar Blue    | 2009-03-05 |   | ufs  |       |
+| h | 1TB   | press     | data                      | sata      | 3.5" | Samsung           | 2009-07-xx |   | ufs  |       |
+| i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD Caviar Blue    | 2009-09-24 | . | ntfs |       |
+| j | 1TB   | press     | *unallocated*             | sata      | 3.5" | WD Caviar Green   | 2010-03-25 | . | -    |       |
+| k | 500GB | press     | data                      | sata      | 3.5" | Samsung           | 2010-10-xx | . | ntfs | 330GB |
+| l | 500GB | server    | data                      | sata      | 3.5" | WD Caviar Green   | 2011-02-22 |   | ufs  |       |
+| n | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2013-01-28 |   | ufs  |       |
+| o | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2017-11-23 |   |      |       |
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orga9bfe1a" class="outline-2">
-<h2 id="orga9bfe1a">internal 2.5"</h2>
-<div class="outline-text-2" id="text-orga9bfe1a">
+<div id="outline-container-orga5e6a4a" class="outline-2">
+<h2 id="orga5e6a4a">internal 2.5"</h2>
+<div class="outline-text-2" id="text-orga5e6a4a">
 <pre class="example">
-|   | size  | location     | contents  | interface | ff   | make model      |        dom |
-|---+-------+--------------+-----------+-----------+------+-----------------+------------|
-|   |       | dell laptop  | centos 7  | sata      | 2.5" |                 |            |
-|   | 320GB | enclosure    | data      | sata      | 2.5" | WD Scorpio Blue | 2009-07-24 |
-|   | 500GB | lenovo       | windows 7 | sata      | 2.5" | Hitachi         |            |
-|---+-------+--------------+-----------+-----------+------+-----------------+------------|
-| m | 120GB | press        | -         | sata      | 2.5" | ocz agility 3   |            |
-|   | 120GB | dell desktop |           | sata      | 2.5" | Samsung 840     |            |
-|   | 240GB | -            | ubuntu    | sata      | 2.5" | Kingston        |            |
+|   | size  | location     | contents  | interface | ff   | make model      |        dom | fs   | used  |
+|---+-------+--------------+-----------+-----------+------+-----------------+------------+------+-------|
+|   |       | dell laptop  | centos 7  | sata      | 2.5" |                 |            |      |       |
+|   | 320GB | enclosure    | data      | sata      | 2.5" | WD Scorpio Blue | 2009-07-24 | ntfs | 201GB |
+|   | 500GB | lenovo       | windows 7 | sata      | 2.5" | Hitachi         |            |      |       |
+|---+-------+--------------+-----------+-----------+------+-----------------+------------+------+-------|
+| m | 120GB | press        | -         | sata      | 2.5" | ocz agility 3   |            |      |       |
+|   | 120GB | dell desktop |           | sata      | 2.5" | Samsung 840     |            |      |       |
+|   | 240GB | -            | ubuntu    | sata      | 2.5" | Kingston        |            |      |       |
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org7e5ef26" class="outline-2">
-<h2 id="org7e5ef26">external</h2>
-<div class="outline-text-2" id="text-org7e5ef26">
+<div id="outline-container-orgdf01b4e" class="outline-2">
+<h2 id="orgdf01b4e">external</h2>
+<div class="outline-text-2" id="text-orgdf01b4e">
 <pre class="example">
 |   | size  | interface | make    | model                      | power         |
 |---+-------+-----------+---------+----------------------------+---------------|
@@ -70,9 +70,9 @@
 </div>
 </div>
 
-<div id="outline-container-org667bddd" class="outline-2">
-<h2 id="org667bddd">other</h2>
-<div class="outline-text-2" id="text-org667bddd">
+<div id="outline-container-orgc2c788a" class="outline-2">
+<h2 id="orgc2c788a">other</h2>
+<div class="outline-text-2" id="text-orgc2c788a">
 <pre class="example">
 | size  | location | contents | interface | ff   | make | model  |        dom |
 |-------+----------+----------+-----------+------+------+--------+------------|
