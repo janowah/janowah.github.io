@@ -3,9 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>httpd</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
@@ -14,30 +15,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">documentation</a></li>
-<li><a href="#sec-2">resources</a></li>
-<li><a href="#sec-3">files and scripts</a></li>
-<li><a href="#sec-4">some basic examples</a>
+<li><a href="#org8424938">documentation</a></li>
+<li><a href="#org1fd569d">resources</a></li>
+<li><a href="#org8e61e40">files and scripts</a></li>
+<li><a href="#org6f3a776">some basic examples</a>
 <ul>
-<li><a href="#sec-4-1">basic server example</a></li>
-<li><a href="#sec-4-2">password protected example</a></li>
-<li><a href="#sec-4-3">https example</a></li>
+<li><a href="#orge0539a9">basic server example</a></li>
+<li><a href="#org23e4f2f">password protected example</a></li>
+<li><a href="#org8a9c718">https example</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">Let's Encrypt</a>
+<li><a href="#org143a2bd">Let's Encrypt</a>
 <ul>
-<li><a href="#sec-5-1">setup</a></li>
-<li><a href="#sec-5-2">renew certificates</a></li>
+<li><a href="#org6b12e6e">setup</a></li>
+<li><a href="#orgb9fa92a">renew certificates</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">application servers</a></li>
+<li><a href="#orge4eaedd">application servers</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">documentation</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org8424938" class="outline-2">
+<h2 id="org8424938">documentation</h2>
+<div class="outline-text-2" id="text-org8424938">
 <pre class="example">
 man 8 httpd
 
@@ -54,21 +55,19 @@ man 8 rcctl
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">resources</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org1fd569d" class="outline-2">
+<h2 id="org1fd569d">resources</h2>
+<div class="outline-text-2" id="text-org1fd569d">
 <ul class="org-ul">
-<li><a href="https://tribaal.io/this-now-served-by-openbsd.html">https://tribaal.io/this-now-served-by-openbsd.html</a>
-</li>
-<li><a href="http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html">http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html</a>
-</li>
+<li><a href="https://tribaal.io/this-now-served-by-openbsd.html">https://tribaal.io/this-now-served-by-openbsd.html</a></li>
+<li><a href="http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html">http://bluepilltech.blogspot.ie/2015/05/configuring-tlsssl-on-openbsd-57s-httpd.html</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">files and scripts</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org8e61e40" class="outline-2">
+<h2 id="org8e61e40">files and scripts</h2>
+<div class="outline-text-2" id="text-org8e61e40">
 <pre class="example">
 /etc/httpd.conf  ; configuration file
 
@@ -84,18 +83,18 @@ man 8 rcctl
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">some basic examples</h2>
-<div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1">basic server example</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org6f3a776" class="outline-2">
+<h2 id="org6f3a776">some basic examples</h2>
+<div class="outline-text-2" id="text-org6f3a776">
+</div>
+<div id="outline-container-orge0539a9" class="outline-3">
+<h3 id="orge0539a9">basic server example</h3>
+<div class="outline-text-3" id="text-orge0539a9">
 <p>
 <code>directory index ; add to httpd.conf</code>
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh">server <span style="color: #8b2252;">"default"</span> {
     directory auto index
 }
@@ -105,38 +104,29 @@ types { include <span style="color: #8b2252;">"/usr/share/misc/mime.types"</span
 </div>
 </div>
 
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2">password protected example</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org23e4f2f" class="outline-3">
+<h3 id="org23e4f2f">password protected example</h3>
+<div class="outline-text-3" id="text-org23e4f2f">
 <ol class="org-ol">
 <li>create htpasswd file in <code>/var/www</code>
 <ul class="org-ul">
-<li><code>htpasswd /var/www/htpasswd homer</code>
-</li>
-</ul>
-</li>
+<li><code>htpasswd /var/www/htpasswd homer</code></li>
+</ul></li>
 <li>need to update <code>/etc/httpd.conf</code>
 <ul class="org-ul">
-<li><code>authenicate with htpasswd ; where htpasswd is the password file</code>
-</li>
-</ul>
-</li>
+<li><code>authenicate with htpasswd ; where htpasswd is the password file</code></li>
+</ul></li>
 <li>make <code>/var/www/htpasswd</code> readable by <code>www</code>
 <ul class="org-ul">
-<li><code>chown www /var/www/htpasswd</code>
-</li>
-</ul>
-</li>
+<li><code>chown www /var/www/htpasswd</code></li>
+</ul></li>
 <li>restart <code>httpd</code>
 <ul class="org-ul">
-<li><code>sh /etc/rc.d/httpd -f restart</code>
-</li>
-</ul>
-</li>
+<li><code>sh /etc/rc.d/httpd -f restart</code></li>
+</ul></li>
 </ol>
 
 <div class="org-src-container">
-
 <pre class="src src-sh">server <span style="color: #8b2252;">"default"</span> {
     directory auto index
     authenticate with htpasswd
@@ -147,24 +137,25 @@ types { include <span style="color: #8b2252;">"/usr/share/misc/mime.types"</span
 </div>
 </div>
 
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3">https example</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org8a9c718" class="outline-3">
+<h3 id="org8a9c718">https example</h3>
+<div class="outline-text-3" id="text-org8a9c718">
 <ol class="org-ol">
-<li>generate server keys
+<li><p>
+generate server keys
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh">openssl genrsa -out /etc/ssl/private/server.key
 openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt -days 3650
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>update <code>/etc/httpd.conf</code>
+<li><p>
+update <code>/etc/httpd.conf</code>
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh">server <span style="color: #8b2252;">"default"</span> {
     listen on * tls port 443
     hsts
@@ -173,36 +164,35 @@ openssl req -new -x509 -key /etc/ssl/private/server.key -out /etc/ssl/server.crt
 }
 types { include <span style="color: #8b2252;">"/usr/share/misc/mime.types"</span> }
 </pre>
-</div>
-</li>
+</div></li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Let's Encrypt</h2>
-<div class="outline-text-2" id="text-5">
-</div><div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1">setup</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-org143a2bd" class="outline-2">
+<h2 id="org143a2bd">Let's Encrypt</h2>
+<div class="outline-text-2" id="text-org143a2bd">
+</div>
+<div id="outline-container-org6b12e6e" class="outline-3">
+<h3 id="org6b12e6e">setup</h3>
+<div class="outline-text-3" id="text-org6b12e6e">
 <ol class="org-ol">
 <li>make directory
 <ul class="org-ul">
-<li><code>mkdir /etc/ssl/acme/example/</code>
-</li>
-</ul>
-</li>
-<li>configure <code>/etc/acme-client.conf</code>
+<li><code>mkdir /etc/ssl/acme/example/</code></li>
+</ul></li>
+<li><p>
+configure <code>/etc/acme-client.conf</code>
+</p>
 <div class="org-src-container">
-
 <pre class="src src-sh">authority letsencrypt {
-    api url <span style="color: #8b2252;">"https://acme-v01.api.letsencrypt.org/directory"</span>
+    api url <span style="color: #8b2252;">"https://acme-v02.api.letsencrypt.org/directory"</span>
     account key <span style="color: #8b2252;">"/etc/acme/letsencrypt-privkey.pem"</span>
 }
 
 authority letsencrypt-staging {
-    api url <span style="color: #8b2252;">"https://acme-staging.api.letsencrypt.org/directory"</span>
+    api url <span style="color: #8b2252;">"https://acme-staging-v02.api.letsencrypt.org/directory"</span>
     account key <span style="color: #8b2252;">"/etc/acme/letsencrypt-staging-privkey.pem"</span>
 }
 
@@ -214,13 +204,13 @@ domain example.com {
     sign with letsencrypt
 }
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>configure /etc/httpd.conf
+<li><p>
+configure /etc/httpd.conf
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">permanent redirect</span>
 server <span style="color: #8b2252;">"example.com"</span> {
     listen on * port 80
@@ -244,80 +234,75 @@ server <span style="color: #8b2252;">"example.com"</span> {
     }
 }
 </pre>
-</div>
-</li>
+</div></li>
 
 <li>acme-client
 <ul class="org-ul">
-<li><code>acme-client -vvAD www.example.com</code>
-</li>
-</ul>
-</li>
+<li><code>acme-client -v www.example.com</code></li>
+</ul></li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-5-2" class="outline-3">
-<h3 id="sec-5-2">renew certificates</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-orgb9fa92a" class="outline-3">
+<h3 id="orgb9fa92a">renew certificates</h3>
+<div class="outline-text-3" id="text-orgb9fa92a">
 <ol class="org-ol">
-<li>remove old certs
+<li><p>
+remove old certs
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh"><span style="color: #483d8b;">cd</span> /etc/ssl/acme/example
 rm example.crt example.der example.fullchain.pem
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>letsencrypt
+<li><p>
+letsencrypt
+</p>
 
 <div class="org-src-container">
-
-<pre class="src src-sh">acme-client -vD example.com
+<pre class="src src-sh">acme-client -v example.com
 
 this creates
 /etc/ssl/acme/example/example.crt
 /etc/ssl/acme/example/example.fullchain.pem
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>ocsp (online certificate status protocol)
+<li><p>
+ocsp (online certificate status protocol)
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh"><span style="color: #483d8b;">cd</span> /etc/ssl/acme/example
 ocspcheck -No example.der example.fullchain.pem
 
 this creates 
 /etc/ssl/acme/example/example.der
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>reload httpd
+<li><p>
+reload httpd
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-sh">rcctl reload httpd
 </pre>
-</div>
-</li>
+</div></li>
 </ol>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">application servers</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orge4eaedd" class="outline-2">
+<h2 id="orge4eaedd">application servers</h2>
+<div class="outline-text-2" id="text-orge4eaedd">
 <ul class="org-ul">
-<li>php
-</li>
-<li>tomcat
-</li>
+<li>php</li>
+<li>tomcat</li>
 </ul>
 
 <p>

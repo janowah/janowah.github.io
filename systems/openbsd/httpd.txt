@@ -101,12 +101,12 @@
 2. configure =/etc/acme-client.conf=
    #+BEGIN_SRC sh
      authority letsencrypt {
-         api url "https://acme-v01.api.letsencrypt.org/directory"
+         api url "https://acme-v02.api.letsencrypt.org/directory"
          account key "/etc/acme/letsencrypt-privkey.pem"
      }
 
      authority letsencrypt-staging {
-         api url "https://acme-staging.api.letsencrypt.org/directory"
+         api url "https://acme-staging-v02.api.letsencrypt.org/directory"
          account key "/etc/acme/letsencrypt-staging-privkey.pem"
      }
 
@@ -147,7 +147,7 @@
     #+END_SRC
 
 4. acme-client
-   - =acme-client -vvAD www.example.com=
+   - =acme-client -v www.example.com=
 
 ** renew certificates
 
@@ -161,7 +161,7 @@
 2. letsencrypt
 
    #+BEGIN_SRC sh
-     acme-client -vD example.com
+     acme-client -v example.com
 
      this creates
      /etc/ssl/acme/example/example.crt
