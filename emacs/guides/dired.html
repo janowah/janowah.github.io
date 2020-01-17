@@ -1,59 +1,121 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dired</title>
+<meta name="generator" content="Org mode" />
 </head>
 <body>
-<h1>dired</h1>
-<pre>
-insert subdirectories
-=====================
-
-- i     ; dired-maybe-insert-subdir
-- C-u k ; dired-do-kill-lines
-
-
-find
-====
-
-- find-name-dired
-- find-grep-dired
-
-
-shell commands
-==============
-
-- ! dired-do-shell-command
-  - rsync -avt * ~/Desktop ; rsync marked files. locks emacs.
+<div id="content">
+<h1 class="title">dired</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8a0206e">insert subdirectories</a></li>
+<li><a href="#org4f320e0">find</a></li>
+<li><a href="#org0ad9547">shell commands</a></li>
+<li><a href="#orgc3224d7">replace text across multiple marked files</a></li>
+<li><a href="#org87744ec">diff using a shell command</a></li>
+<li><a href="#org9da79cc">using dired diff</a></li>
+<li><a href="#orgd7796df">show the modification times of files</a></li>
+<li><a href="#orgd81ea58">open file using default application</a></li>
+</ul>
+</div>
+</div>
 
 
-replace text across multiple marked files
-=========================================
+<div id="outline-container-org8a0206e" class="outline-2">
+<h2 id="org8a0206e">insert subdirectories</h2>
+<div class="outline-text-2" id="text-org8a0206e">
+<ul class="org-ul">
+<li>i     ; dired-maybe-insert-subdir</li>
+<li>C-u k ; dired-do-kill-lines</li>
+</ul>
+</div>
+</div>
 
-Q ; dired-do-find-regexp-and-replace
-save in ibuffer using S
+<div id="outline-container-org4f320e0" class="outline-2">
+<h2 id="org4f320e0">find</h2>
+<div class="outline-text-2" id="text-org4f320e0">
+<ul class="org-ul">
+<li>find-name-dired</li>
+<li>find-grep-dired</li>
+</ul>
+</div>
+</div>
 
+<div id="outline-container-org0ad9547" class="outline-2">
+<h2 id="org0ad9547">shell commands</h2>
+<div class="outline-text-2" id="text-org0ad9547">
+<ul class="org-ul">
+<li>! dired-do-shell-command</li>
+<li>rsync -avt * ~/Desktop ; rsync marked files. locks emacs.</li>
+</ul>
+</div>
+</div>
 
-diff using a shell command
-==========================
+<div id="outline-container-orgc3224d7" class="outline-2">
+<h2 id="orgc3224d7">replace text across multiple marked files</h2>
+<div class="outline-text-2" id="text-orgc3224d7">
+<ul class="org-ul">
+<li>Q ; dired-do-find-regexp-and-replace</li>
+<li>save in ibuffer using S</li>
+</ul>
+</div>
+</div>
 
-1) mark two files
-   - can insert subdirectories
-2) ! diff *
+<div id="outline-container-org87744ec" class="outline-2">
+<h2 id="org87744ec">diff using a shell command</h2>
+<div class="outline-text-2" id="text-org87744ec">
+<ol class="org-ol">
+<li>mark two files
+<ul class="org-ul">
+<li>can insert subdirectories</li>
+</ul></li>
+<li>! diff *</li>
+</ol>
+</div>
+</div>
 
-using dired diff
-================
+<div id="outline-container-org9da79cc" class="outline-2">
+<h2 id="org9da79cc">using dired diff</h2>
+<div class="outline-text-2" id="text-org9da79cc">
+<ol class="org-ol">
+<li>the file where the cursor is is the first file</li>
+<li>=</li>
+<li>select a second file</li>
+</ol>
+</div>
+</div>
 
-1) the file where the cursor is is the first file
-2) = 
-3) select a second file
-
-
-show the modification times of files
-====================================
-
+<div id="outline-container-orgd7796df" class="outline-2">
+<h2 id="orgd7796df">show the modification times of files</h2>
+<div class="outline-text-2" id="text-orgd7796df">
+<pre class="example">
 ! ls -la --time-style=long-iso * ; all marked files
 </pre>
+</div>
+</div>
+
+<div id="outline-container-orgd81ea58" class="outline-2">
+<h2 id="orgd81ea58">open file using default application</h2>
+<div class="outline-text-2" id="text-orgd81ea58">
+<ul class="org-ul">
+<li>W ; browse-url-of-dired-file</li>
+</ul>
+
+<p>
 <a href="../guides.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>
