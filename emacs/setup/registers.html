@@ -11,11 +11,19 @@ copy-to-register ; C-x r x
 insert-register ; C-x r i
 increment-register ; C-x r +
 list-registers
+append-to-register
+  (global-set-key (kbd "C-x r a") 'append-to-register)
+prepend-to-register
+  (global-set-key (kbd "C-x r p") 'prepend-to-register)
 
 numbers
 -------
 number-to-register ; C-x r n
+  C-x r n a ; 0 into register a
+  C-u 1 C-x r n b ; 1 into register b
 increment-register ; C-x r +
+  C-x r + a ; increment register by 1
+  C-u 2 C-x r + a ; increment register by 2
 
 folders
 -------

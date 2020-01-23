@@ -92,10 +92,16 @@
 - Concurrent Systems: Operating Systems
   - Jean Bacon
   - Addison Wesley
+  - 2nd edition
+  - 1998
+  - 0201177676
 
 - Inside Windows NT
   - Helen Custer
   - Microsoft Press
+  - Microsoft Press, c1993.
+  - 155615481x
+  - 978-1556154812
 
 ** maths
 
@@ -104,16 +110,34 @@ kreysig
 ** Microprocessor Systems 1
 
 - MC68000 User's Manual >= 2e
+  - M68000 8-/16-/32-Bit Microprocessors User's Manual
+  - 9th ed.
+  - Motorola
 - M68000 Programmer's Reference Manual
+  - M68000 Family Programmer’s Reference Manual
+  - Motorola
+  - M68000PM/AD, M68000 Programmer's Reference Manual
+  - 1992
 - 68000: Assembly Language Programming
   - Gerry Kane, Doug Hawkins, Lance A. Leventhal
-- The Motorola Mc68000
-  - Jean Bacon 
+  - McGraw-Hill,
+  - 1981,
+  - ISBN 0-931988-62-4
+- The Motorola Mc68000: An Introduction to Processor, Memory, and Interfacing
+  - Jean Bacon
+  - 1986
+  - ISBN-10: 0136041094
+  - ISBN-13: 978-0136041092
 - Programming the MC68000
+  - Tim King, Brian Knight
   - 2nd Edition
-  - Brian King & Tim Knight
+  - 1987
+  - 0805355502
+  - 9780805355505
 - 68000 Family Assembly Language
   - Alan Clements
+  - PWS
+  - 1994
   - ISBN 0-534-93275-4
 
 ** Microprocessor Systems 2
@@ -122,6 +146,9 @@ kreysig
   - 68000 Hardware, Software and Interfacing.
   - 3rd Edition
   - Alan Clements
+  - 9780534948221
+  - 0534948235
+  - PWS Publishing, c1998.
 - Computer Architecture – A Quantitative Approach
   - John Hennessey & David Patterson
 - High Performance Computer Architecture
