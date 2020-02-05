@@ -1,0 +1,41 @@
+#+title: numfmt
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* switches
+
+#+BEGIN_EXAMPLE
+  - --help
+  - to
+    - --to=si    ; 1000 single letter K,M
+    - --to=iec   ; 1024 single letter K,M
+    - --to=iec-i ; 1024 two letter Ki,Mi
+  - from
+    - --from=iec-i
+  - suffix
+    - --suffix=B
+    - --suffix=byte
+    - --suffix=bit 
+#+END_EXAMPLE
+
+* examples
+
+#+BEGIN_EXAMPLE
+  - numfmt --help
+  - numfmt --to=iec-i 43594990 42Mi
+  - numfmt --to=iec 43594990   42M
+  - numfmt 43594990            43594990
+  - numfmt --to=si 43594990    44M
+  - numfmt --to=iec --suffix=B 40804209 39MB
+  - numfmt --to=iec --suffix=byte 40804209 39Mbyte
+  - numfmt --to=iec --suffix=bit 40804209 39Mbit
+  - numfmt --to=iec-i <<< "12345" 13Ki
+  - numfmt --to=iec-i 12345 13Ki
+  - numfmt --to=iec-i --suffix=B <<< "1234567" 1.2MiB
+  - numfmt --to=iec-i --suffix=B 1234567 1.2MiB
+  - echo "1234567" | numfmt --to=iec-i --suffix=B 1.2MiB
+  - numfmt --from=iec-i --to=iec-i --suffix=B 12345Ki 13MiB
+  - numfmt --from=iec-i --to=iec-i --suffix=B <<< "12345Ki" 13MiB
+  - numfmt --to=iec-i --suffix=B 1234567 1.2MiB
+#+END_EXAMPLE
+
+[[file:textutils.html][back]]

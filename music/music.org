@@ -4,5 +4,6 @@
 - [[file:db-txfm-2016.html][db-txfm-2016]]
 - [[file:db-txfm.html][db-txfm-2015]]
 - [[file:trax.html][trax]]
+- [[file:albums.html][albums]]
 
 [[../index.html][back]]
