@@ -1,0 +1,90 @@
+#+title: calc
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:t
+
+* basic usage
+
+#+BEGIN_EXAMPLE
+  TAB        ; swap numbers on top of stack
+  RET or SPC ; copy previous number to top of stack
+#+END_EXAMPLE
+
+* time functions
+
+#+BEGIN_EXAMPLE
+  t N	calc-now
+  t N F	calc-floor (date)
+          calc-time (x time)
+  t U	calc-unix-time
+  t D	calc-date (julian)
+  t C	calc-convert-time-zones
+  t Z	calc-time-zone (relative to utc in seconds)
+  t P	calc-date-part (select part)
+#+END_EXAMPLE
+
+* decimal, binary and hexidecimal
+
+#+BEGIN_EXAMPLE
+  d 0 (calc-decimal-radix)
+  d 2 (calc-binary-radix)
+  d 6 (calc-hex-radix)
+#+END_EXAMPLE
+
+* angular modes
+
+#+BEGIN_EXAMPLE
+  m r (calc-radians-mode) 
+  m d (calc-degrees-mode) ; default
+  m h (calc-hms-mode)
+#+END_EXAMPLE
+
+* calculus
+
+#+BEGIN_EXAMPLE
+  ' ; algebraic
+  a d (calc-derivative)
+  a i (calc-integral)
+#+END_EXAMPLE
+
+* functions
+
+#+BEGIN_EXAMPLE
+d g (calc-group-digits)
+#+END_EXAMPLE
+
+* units
+
+#+BEGIN_EXAMPLE
+  u c (calc-convert-units)
+  u v (calc-enter-units-table)
+
+  ;; example
+  253033
+    uc sec  hms
+    => 2 day + 22 hr + 17 min + 13 s
+
+  ;; user-defined units
+  (setq math-additional-units '((dollar nil "Dollar")
+                                (euro "1.27 dollar" "Euro")))
+  ;; This resets calc's cache
+  (setq math-units-table nil)
+
+  (setq math-additional-units '((bytes "byte" "Bytes")
+                                (bits "bit" "Bits")
+                                (bps "bit / s" "Bits per second")
+                                (byte "8 * bit" "Byte")
+                                (bit nil "Bit")))
+
+  (setq math-additional-units '((GiB "1024 * MiB" "Giga Byte")
+                                (MiB "1024 * KiB" "Mega Byte")
+                                (KiB "1024 * B" "Kilo Byte")
+                                (B nil "Byte")
+                                (Gib "1024 * Mib" "Giga Bit")
+                                (Mib "1024 * Kib" "Mega Bit")
+                                (Kib "1024 * b" "Kilo Bit")
+                                (b "B / 8" "Bit")))
+
+
+#+END_EXAMPLE
+
+[[file:~/janowah/emacs/guides.html][back]]
+

@@ -5,7 +5,33 @@
 </head><body>
 <h1>tar</h1>
 <pre>
-  create a tar pipe
+- CREATE
+  - tar -cvf foo.tar /foo/bar/
+
+- EXTRACT
+  - tar -xvf foo.tar ; current directory
+  - tar -xvf foo.tar -C /bar/ ; specify directory
+
+- LIST
+  - tar -tvf foo.tar
+
+- COMPARE
+  - tar --compare --file=foo.tar bar
+
+- SWITCHES
+  - c --create
+  - x --extract
+  - v --verbose
+  - f --file
+  - C --directory
+  - t --list
+  - d --compare --diff
+
+- COMPRESSION
+  - z --gzip
+  - j --bzip2
+
+- TAR PIPE  
 </pre>
 <a href="./miscutils.html">back</a>
 </body>

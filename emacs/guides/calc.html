@@ -1,57 +1,143 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>calc</title>
+<meta name="generator" content="Org mode" />
 </head>
 <body>
-<h1>calc</h1>
-<pre>
-basic usage
------------
+<div id="content">
+<h1 class="title">calc</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgffde02d">basic usage</a></li>
+<li><a href="#org4d7aa47">time functions</a></li>
+<li><a href="#org9a75ac3">decimal, binary and hexidecimal</a></li>
+<li><a href="#org4210359">angular modes</a></li>
+<li><a href="#orgc5bf3ce">calculus</a></li>
+<li><a href="#orged3cd89">functions</a></li>
+<li><a href="#org7039b76">units</a></li>
+</ul>
+</div>
+</div>
 
+<div id="outline-container-orgffde02d" class="outline-2">
+<h2 id="orgffde02d">basic usage</h2>
+<div class="outline-text-2" id="text-orgffde02d">
+<pre class="example">
 TAB        ; swap numbers on top of stack
 RET or SPC ; copy previous number to top of stack
+</pre>
+</div>
+</div>
 
-time functions
---------------
-
+<div id="outline-container-org4d7aa47" class="outline-2">
+<h2 id="org4d7aa47">time functions</h2>
+<div class="outline-text-2" id="text-org4d7aa47">
+<pre class="example">
 t N	calc-now
 t N F	calc-floor (date)
-	calc-time (x time)
+        calc-time (x time)
 t U	calc-unix-time
 t D	calc-date (julian)
 t C	calc-convert-time-zones
 t Z	calc-time-zone (relative to utc in seconds)
 t P	calc-date-part (select part)
+</pre>
+</div>
+</div>
 
-
-change from decimal to binary
------------------------------
-
+<div id="outline-container-org9a75ac3" class="outline-2">
+<h2 id="org9a75ac3">decimal, binary and hexidecimal</h2>
+<div class="outline-text-2" id="text-org9a75ac3">
+<pre class="example">
 d 0 (calc-decimal-radix)
 d 2 (calc-binary-radix)
+d 6 (calc-hex-radix)
+</pre>
+</div>
+</div>
 
-
-Angular Modes
--------------
-
+<div id="outline-container-org4210359" class="outline-2">
+<h2 id="org4210359">angular modes</h2>
+<div class="outline-text-2" id="text-org4210359">
+<pre class="example">
 m r (calc-radians-mode) 
 m d (calc-degrees-mode) ; default
 m h (calc-hms-mode)
+</pre>
+</div>
+</div>
 
-
-calculus
---------
-
+<div id="outline-container-orgc5bf3ce" class="outline-2">
+<h2 id="orgc5bf3ce">calculus</h2>
+<div class="outline-text-2" id="text-orgc5bf3ce">
+<pre class="example">
 ' ; algebraic
 a d (calc-derivative)
 a i (calc-integral)
+</pre>
+</div>
+</div>
 
-
-functions
----------
-
+<div id="outline-container-orged3cd89" class="outline-2">
+<h2 id="orged3cd89">functions</h2>
+<div class="outline-text-2" id="text-orged3cd89">
+<pre class="example">
 d g (calc-group-digits)
 </pre>
-<a href="../guides.html">back</a>
+</div>
+</div>
+
+<div id="outline-container-org7039b76" class="outline-2">
+<h2 id="org7039b76">units</h2>
+<div class="outline-text-2" id="text-org7039b76">
+<pre class="example">
+u c (calc-convert-units)
+u v (calc-enter-units-table)
+
+;; example
+253033
+  uc sec  hms
+  =&gt; 2 day + 22 hr + 17 min + 13 s
+
+;; user-defined units
+(setq math-additional-units '((dollar nil "Dollar")
+                              (euro "1.27 dollar" "Euro")))
+;; This resets calc's cache
+(setq math-units-table nil)
+
+(setq math-additional-units '((bytes "byte" "Bytes")
+                              (bits "bit" "Bits")
+                              (bps "bit / s" "Bits per second")
+                              (byte "8 * bit" "Byte")
+                              (bit nil "Bit")))
+
+(setq math-additional-units '((GiB "1024 * MiB" "Giga Byte")
+                              (MiB "1024 * KiB" "Mega Byte")
+                              (KiB "1024 * B" "Kilo Byte")
+                              (B nil "Byte")
+                              (Gib "1024 * Mib" "Giga Bit")
+                              (Mib "1024 * Kib" "Mega Bit")
+                              (Kib "1024 * b" "Kilo Bit")
+                              (b "B / 8" "Bit")))
+
+
+</pre>
+
+<p>
+<a href="file:///home/fry/janowah/emacs/guides.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>
