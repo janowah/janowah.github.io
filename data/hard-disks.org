@@ -4,22 +4,22 @@
 * internal 3.5"
 
 #+BEGIN_EXAMPLE
-  |   | size  | location  | contents                  | interface | ff   | make model        |        dom |   | fs   |
-  |---+-------+-----------+---------------------------+-----------+------+-------------------+------------+---+------|
-  | a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |            |   |      |
-  | c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |            |   |      |
-  | d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |            |   |      |
-  |---+-------+-----------+---------------------------+-----------+------+-------------------+------------+---+------|
-  | e | 250GB | press     | centos 7                  | sata      | 3.5" | WD                | 2009-02-18 |   | xfs  |
-  | f | 500GB | press     | *unallocated*             | sata      | 3.5" | Seagate           | 2009-02-17 | . | -    |
-  | g | 320GB | press     | data                      | sata      | 3.5" | WD Caviar Blue    | 2009-03-05 |   | ufs  |
-  | h | 1TB   | press     | data                      | sata      | 3.5" | Samsung           | 2009-07-xx |   | 0    |
-  | i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD Caviar Blue    | 2009-09-24 | . | ntfs |
-  | j | 1TB   | press     | *unallocated*             | sata      | 3.5" | WD Caviar Green   | 2010-03-25 | . | -    |
-  | k | 500GB | press     | data                      | sata      | 3.5" | Samsung           | 2010-10-xx | . | ntfs |
-  | l | 500GB | server    | data                      | sata      | 3.5" | WD Caviar Green   | 2011-02-22 |   | 0    |
-  | n | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2013-01-28 |   | ext4 |
-  | o | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2017-11-23 |   | ext4 |
+  |   | size  | location  | contents                  | interface | ff   | make model        |        dom | fs   |
+  |---+-------+-----------+---------------------------+-----------+------+-------------------+------------+------|
+  | a | 80GB  | pc        | blank                     | ide       | 3.5" | WD Caviar         |            |      |
+  | c | 200GB | enclosure | data                      | ide       | 3.5" | Seagate Barracuda |            |      |
+  | d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           |            |      |
+  |---+-------+-----------+---------------------------+-----------+------+-------------------+------------+------|
+  | e | 250GB | press     | centos 7                  | sata      | 3.5" | WD                | 2009-02-18 | xfs  |
+  | f | 500GB | press     | *unallocated*             | sata      | 3.5" | Seagate           | 2009-02-17 | -    |
+  | g | 320GB | press     | data                      | sata      | 3.5" | WD Caviar Blue    | 2009-03-05 | 0    |
+  | h | 1TB   | press     | data                      | sata      | 3.5" | Samsung           | 2009-07-xx | 0    |
+  | i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD Caviar Blue    | 2009-09-24 | ntfs |
+  | j | 1TB   | press     | *unallocated*             | sata      | 3.5" | WD Caviar Green   | 2010-03-25 | -    |
+  | k | 500GB | press     | data                      | sata      | 3.5" | Samsung           | 2010-10-xx | 0    |
+  | l | 500GB | server    | data                      | sata      | 3.5" | WD Caviar Green   | 2011-02-22 | 0    |
+  | n | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2013-01-28 | ext4 |
+  | o | 2TB   | server    | data                      | sata      | 3.5" | Seagate Barracuda | 2017-11-23 | ext4 |
 #+END_EXAMPLE
 
 * internal 2.5"

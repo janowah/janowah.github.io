@@ -1,6 +1,7 @@
 #+title: Sci-Fi/Fantasy
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+- Cryptonomicon / Neal Stephenson
 - The Left Hand of Darkness/ Ursula K. Le Guin
 - The Fifth Elephant / Terry Pratchett
 - Carpe Jugulum / Terry Pratchett
