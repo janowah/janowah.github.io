@@ -44,4 +44,8 @@
 
 - W ; browse-url-of-dired-file
 
+* copy marked filenames
+
+- w ; dired-copy-filename-as-kill
+
 [[../guides.html][back]]
