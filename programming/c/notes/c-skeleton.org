@@ -1,0 +1,116 @@
+#+title: c skeleton
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+- use this for the basis of yasnippet notes
+- general example
+- simple example
+
+* flow
+
+** for
+
+#+BEGIN_EXAMPLE
+  - for: for (...) {...}
+  - forn: for_n
+#+END_EXAMPLE
+
+** if
+
+#+BEGIN_EXAMPLE
+  - if: if (...) {...}
+#+END_EXAMPLE
+
+** if else
+
+#+BEGIN_EXAMPLE
+  - else: else {...}
+#+END_EXAMPLE
+
+** while
+
+#+BEGIN_EXAMPLE
+  - while: while (...) {...}
+#+END_EXAMPLE
+
+** do
+
+#+BEGIN_EXAMPLE
+  - do: do {...} while (...)
+#+END_EXAMPLE
+
+** switch
+
+#+BEGIN_EXAMPLE
+  - switch: switch (...) {case : ... default: ...}
+  - case: case : {...}
+#+END_EXAMPLE
+
+** tenary
+
+#+BEGIN_EXAMPLE
+  - ?: (cond) ? then : else;
+#+END_EXAMPLE
+
+* types
+
+- int
+- char
+- string
+- float
+- double
+
+* i/o
+
+** file
+
+#+BEGIN_EXAMPLE
+  - fopen: FILE *fp = fopen(..., ...);
+#+END_EXAMPLE
+
+** stdin/ stdout/ stderr
+
+- 
+
+* print
+  - print
+  - fprint
+  - sprint
+
+- printf ./printf:2:# name: printf
+- printf ./printf:3:# key: pr printf("format string" ,a0,a1);
+
+* arrays and pointers
+* storage
+  - struct
+
+- struct name : struct ... { ... }
+
+* comments
+- \file
+- \brief
+- \!<
+- comment co
+- commentblock cob
+- commentline col
+- fixme fi
+- todo t
+- xxx x
+
+* memory
+- malloc ./malloc:3:# key: malloc malloc(sizeof() * 3)
+* headers
+
+- inc ./inc:2:# name : #include <...>
+- inc.1 ./inc.1:2:# name : #include "..."
+- ifdef ./ifdef:2:# name: ifdef
+- once #name : #ifndef XXX; #define XXX; #endif
+- typedef ./typedef:2:# name: typedef
+- assert  ./assert:3:# key: ass #include <assert.h>
+- stdio /stdio:3:# key: io #include <stdio.h>
+- stdlib ./stdlib:3:# key: std #include <stdlib.h>
+- string ./string:3:# key: str #include <string.h>
+- unistd ./unistd:3:# key: uni #include <unistd.h>
+
+* other 
+
+getopts

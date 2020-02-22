@@ -13,6 +13,9 @@
   -O1 ; optimisation
 
   gcc --help=optimizers
+
+  m68k-linux-gnu-gcc -S -march=68010 recursion.c
+  m68k-linux-gnu-gcc -E -march=68010 recursion.c
 #+END_EXAMPLE
 
 [[./c.html][back]]

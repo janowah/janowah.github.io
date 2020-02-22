@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>c skeleton</title>
+<meta name="generator" content="Org mode" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">c skeleton</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc55ff3e">flow</a>
+<ul>
+<li><a href="#orgb87bdd6">for</a></li>
+<li><a href="#orgc7322ce">if</a></li>
+<li><a href="#org52428a3">if else</a></li>
+<li><a href="#org8c39beb">while</a></li>
+<li><a href="#org3b80024">do</a></li>
+<li><a href="#org08bf25a">switch</a></li>
+<li><a href="#orgc013f95">tenary</a></li>
+</ul>
+</li>
+<li><a href="#orgab40892">types</a></li>
+<li><a href="#org5948949">i/o</a>
+<ul>
+<li><a href="#org4e0fe33">file</a></li>
+<li><a href="#orga77cf71">stdin/ stdout/ stderr</a></li>
+</ul>
+</li>
+<li><a href="#orge2dbe5a">print</a></li>
+<li><a href="#org5916067">arrays and pointers</a></li>
+<li><a href="#org1a34f48">storage</a></li>
+<li><a href="#orgd3eb675">comments</a></li>
+<li><a href="#orga43124d">memory</a></li>
+<li><a href="#org8d05ea0">headers</a></li>
+<li><a href="#org3cc3f82">other</a></li>
+</ul>
+</div>
+</div>
+<ul class="org-ul">
+<li>use this for the basis of yasnippet notes</li>
+<li>general example</li>
+<li>simple example</li>
+</ul>
+
+<div id="outline-container-orgc55ff3e" class="outline-2">
+<h2 id="orgc55ff3e">flow</h2>
+<div class="outline-text-2" id="text-orgc55ff3e">
+</div>
+<div id="outline-container-orgb87bdd6" class="outline-3">
+<h3 id="orgb87bdd6">for</h3>
+<div class="outline-text-3" id="text-orgb87bdd6">
+<pre class="example">
+- for: for (...) {...}
+- forn: for_n
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc7322ce" class="outline-3">
+<h3 id="orgc7322ce">if</h3>
+<div class="outline-text-3" id="text-orgc7322ce">
+<pre class="example">
+- if: if (...) {...}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org52428a3" class="outline-3">
+<h3 id="org52428a3">if else</h3>
+<div class="outline-text-3" id="text-org52428a3">
+<pre class="example">
+- else: else {...}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8c39beb" class="outline-3">
+<h3 id="org8c39beb">while</h3>
+<div class="outline-text-3" id="text-org8c39beb">
+<pre class="example">
+- while: while (...) {...}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3b80024" class="outline-3">
+<h3 id="org3b80024">do</h3>
+<div class="outline-text-3" id="text-org3b80024">
+<pre class="example">
+- do: do {...} while (...)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org08bf25a" class="outline-3">
+<h3 id="org08bf25a">switch</h3>
+<div class="outline-text-3" id="text-org08bf25a">
+<pre class="example">
+- switch: switch (...) {case : ... default: ...}
+- case: case : {...}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc013f95" class="outline-3">
+<h3 id="orgc013f95">tenary</h3>
+<div class="outline-text-3" id="text-orgc013f95">
+<pre class="example">
+- ?: (cond) ? then : else;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab40892" class="outline-2">
+<h2 id="orgab40892">types</h2>
+<div class="outline-text-2" id="text-orgab40892">
+<ul class="org-ul">
+<li>int</li>
+<li>char</li>
+<li>string</li>
+<li>float</li>
+<li>double</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5948949" class="outline-2">
+<h2 id="org5948949">i/o</h2>
+<div class="outline-text-2" id="text-org5948949">
+</div>
+<div id="outline-container-org4e0fe33" class="outline-3">
+<h3 id="org4e0fe33">file</h3>
+<div class="outline-text-3" id="text-org4e0fe33">
+<pre class="example">
+- fopen: FILE *fp = fopen(..., ...);
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga77cf71" class="outline-3">
+<h3 id="orga77cf71">stdin/ stdout/ stderr</h3>
+<div class="outline-text-3" id="text-orga77cf71">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge2dbe5a" class="outline-2">
+<h2 id="orge2dbe5a">print</h2>
+<div class="outline-text-2" id="text-orge2dbe5a">
+<ul class="org-ul">
+<li>print</li>
+<li>fprint</li>
+<li>sprint</li>
+</ul>
+<ul class="org-ul">
+<li>printf ./printf:2:# name: printf</li>
+<li>printf ./printf:3:# key: pr printf("format string" ,a0,a1);</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5916067" class="outline-2">
+<h2 id="org5916067">arrays and pointers</h2>
+</div>
+<div id="outline-container-org1a34f48" class="outline-2">
+<h2 id="org1a34f48">storage</h2>
+<div class="outline-text-2" id="text-org1a34f48">
+<ul class="org-ul">
+<li>struct</li>
+</ul>
+<ul class="org-ul">
+<li>struct name : struct &#x2026; { &#x2026; }</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd3eb675" class="outline-2">
+<h2 id="orgd3eb675">comments</h2>
+<div class="outline-text-2" id="text-orgd3eb675">
+<ul class="org-ul">
+<li>\file</li>
+<li>\brief</li>
+<li>\!&lt;</li>
+<li>comment co</li>
+<li>commentblock cob</li>
+<li>commentline col</li>
+<li>fixme fi</li>
+<li>todo t</li>
+<li>xxx x</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga43124d" class="outline-2">
+<h2 id="orga43124d">memory</h2>
+<div class="outline-text-2" id="text-orga43124d">
+<ul class="org-ul">
+<li>malloc ./malloc:3:# key: malloc malloc(sizeof() * 3)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8d05ea0" class="outline-2">
+<h2 id="org8d05ea0">headers</h2>
+<div class="outline-text-2" id="text-org8d05ea0">
+<ul class="org-ul">
+<li>inc ./inc:2:# name : #include &lt;&#x2026;&gt;</li>
+<li>inc.1 ./inc.1:2:# name : #include "&#x2026;"</li>
+<li>ifdef ./ifdef:2:# name: ifdef</li>
+<li>once #name : #ifndef XXX; #define XXX; #endif</li>
+<li>typedef ./typedef:2:# name: typedef</li>
+<li>assert  ./assert:3:# key: ass #include &lt;assert.h&gt;</li>
+<li>stdio /stdio:3:# key: io #include &lt;stdio.h&gt;</li>
+<li>stdlib ./stdlib:3:# key: std #include &lt;stdlib.h&gt;</li>
+<li>string ./string:3:# key: str #include &lt;string.h&gt;</li>
+<li>unistd ./unistd:3:# key: uni #include &lt;unistd.h&gt;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3cc3f82" class="outline-2">
+<h2 id="org3cc3f82">other</h2>
+<div class="outline-text-2" id="text-org3cc3f82">
+<p>
+getopts
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

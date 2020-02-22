@@ -1,0 +1,62 @@
+#+title: c keywords
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+there are 32 keywords
+
+* TYPES
+
+- int
+- char
+- float
+- double
+- const
+- long
+- short
+- unsigned
+- signed
+- void
+
+* FLOW
+
+- break
+- case
+- continue
+- do
+- else
+- for
+- goto
+- if
+- switch
+- return
+- while
+
+* SCOPE
+
+- auto
+  - automatic variable.
+  - variable exists and can only be accessed inside the block
+  - destroyed after exiting the block
+- extern
+  - explicitly available for the entire program
+  - global
+- static
+  - available to all functions etc in the same file.  not accessible
+    outside the file
+  - eg use in headers or sharing variables between functions
+
+q. what is the default behaviour?
+- when to use these keywords?
+
+* known
+
+- struct
+- typedef
+- sizeof
+
+* unknown
+
+- default
+- enum
+- register
+- union
+- volatile

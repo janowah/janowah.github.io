@@ -6,5 +6,13 @@
 - [[file:linting.html][linting]]
 - [[file:books.html][books]]
 - [[file:help.html][help]]
+- code
+  - [[file:code/c-lang.html][c lang]]
+  - [[file:code/algorithms.html][algorithms]]
+- notes
+  - [[file:notes/c-skeleton.html][skeleton]]
+  - [[file:notes/types.html][types]]
+  - [[file:notes/c-keywords.html][keywords]]
+  - print
 
 [[../programming.html][back]]

@@ -2,7 +2,17 @@
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 #+BEGIN_EXAMPLE
-  books
+  %T: The C Programming Language 2e
+  %A: Brian Kernighan and Dennis Ritchie
+  %D: 1988
+  %N: 9780131103627
+  %P: 272
+
+  %T: Algorithms in C 3e
+  %A: Robert Sedgewick
+  %D: 1998
+  %N: 0201314525
+  %P: 720
 #+END_EXAMPLE
 
 [[./c.html][back]]

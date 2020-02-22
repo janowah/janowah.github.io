@@ -1,0 +1,2555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Algorithms in C</title>
+<meta name="generator" content="Org mode" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Algorithms in C</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge80864d">Chapter 1. Introduction</a>
+<ul>
+<li><a href="#org36fab22">Program 1.1 Quick-find solution to connectivity problem</a></li>
+<li><a href="#org75c4178">Program 1.2 Quick-union solution to connectivity problem</a></li>
+<li><a href="#org16063ea">Program 1.3 Weighted version of quick union</a></li>
+<li><a href="#orge2bfa08">Program 1.4 Path compression by halving</a></li>
+</ul>
+</li>
+<li><a href="#orgbd2a4f6">Chapter 2. Principles of Algorithm Analysis</a>
+<ul>
+<li><a href="#org702fc92">Program 2.1 Sequential search</a></li>
+<li><a href="#org1535026">Program 2.2 Binary search</a></li>
+</ul>
+</li>
+<li><a href="#org3af1031">Chapter 3. Elementary Data Structures</a>
+<ul>
+<li><a href="#org3986be1">3.1 Building Blocks</a>
+<ul>
+<li><a href="#orgf257647">Program 3.1 Function definition</a></li>
+<li><a href="#orgae2eefb">Program 3.2 Types of numbers</a></li>
+<li><a href="#orgfdb3504">Program 3.3 Point data type interface</a></li>
+<li><a href="#orgfe25884">Program 3.4 Point data type implementation</a></li>
+</ul>
+</li>
+<li><a href="#orgbe7f03a">3.2 Arrays</a>
+<ul>
+<li><a href="#orga0f2d6e">Program 3.5 Sieve of Eratosthenes</a></li>
+<li><a href="#org250d092">Program 3.6 Dynamic memory allocation for an array</a></li>
+<li><a href="#org64e7d62">Program 3.7 Coin-flipping simulation</a></li>
+<li><a href="#orgad8f848">Program 3.8 Closest-point computation</a></li>
+</ul>
+</li>
+<li><a href="#org785d11f">3.3 Linked Lists</a>
+<ul>
+<li><a href="#org5dd2287">Program 3.9 Circular list example (Josephus problem)</a></li>
+</ul>
+</li>
+<li><a href="#org741592d">3.4 Elementary List Processing</a>
+<ul>
+<li><a href="#org5555e44">Program 3.10 List reversal</a></li>
+<li><a href="#orgd731f8d">Program 3.11 List insertion sort</a></li>
+<li><a href="#org598a11d">Program 3.12 List-processing interface</a></li>
+<li><a href="#orga2266f4">Program 3.13 List allocation for the Josephus problem</a></li>
+</ul>
+</li>
+<li><a href="#org3e7bf2c">3.5 Memory Allocation for Lists</a>
+<ul>
+<li><a href="#org27a23a2">Program 3.14 Implementation of list-processing interface</a></li>
+</ul>
+</li>
+<li><a href="#org91f67a5">3.6 Strings</a>
+<ul>
+<li><a href="#org8e9ba50">Program 3.15 String search</a></li>
+</ul>
+</li>
+<li><a href="#orgdb8ff44">3.7 Compound Data Structures</a>
+<ul>
+<li><a href="#org3a9a6cd">Program 3.16 Two-dimensional array allocation</a></li>
+<li><a href="#org096fbc2">Program 3.17 Sorting an array of strings</a></li>
+<li><a href="#org006e5fb">Program 3.18 Adjacency-matrix graph representation</a></li>
+<li><a href="#orgd6f1033">Program 3.19 Adjacency-lists graph representation</a></li>
+<li><a href="#orgcfd8695">Program 3.20 A two-dimensional array of lists</a></li>
+</ul>
+</li>
+<li><a href="#org281f5fc">not in chapter</a></li>
+</ul>
+</li>
+<li><a href="#org73fa7dd">Chapter 4. Abstract Data Types</a>
+<ul>
+<li><a href="#orgb110ba1">4.1 Abstract Objects and Collections of Objects</a></li>
+<li><a href="#org7ba81c2">4.2 Pushdown Stack ADT</a>
+<ul>
+<li><a href="#org5ba73d7">Program 4.1 Pushdown-stack ADT interface</a></li>
+</ul>
+</li>
+<li><a href="#org2d88305">4.3 Examples of Stack ADT Clients</a>
+<ul>
+<li><a href="#org1bcb0a0">Program 4.2 Postfix-expression evaluation</a></li>
+<li><a href="#orgaee7230">Program 4.3 Infix-to-postfix conversion</a></li>
+</ul>
+</li>
+<li><a href="#org63e764d">4.4 Stack ADT Implementations</a>
+<ul>
+<li><a href="#org5e6dadf">Program 4.4 Array implementation of a pushdown stack</a></li>
+<li><a href="#org0f0c7ea">Program 4.5 Linked-list implementation of a pushdown stack</a></li>
+</ul>
+</li>
+<li><a href="#orgbe14b23">4.5 Creation of a New ADT</a>
+<ul>
+<li><a href="#org4220bc4">Program 4.6 Equivalence-relations ADT interface</a></li>
+<li><a href="#orgdafd765">Program 4.7 Equivalence-relations ADT client</a></li>
+<li><a href="#org78561d8">Program 4.8 Equivalence-relations ADT implementation</a></li>
+</ul>
+</li>
+<li><a href="#org61dbe1e">4.6 FIFO Queues and Generalized Queues</a>
+<ul>
+<li><a href="#org3d1110d">Program 4.9 FIFO queue ADT interface</a></li>
+<li><a href="#orgf60fa8f">Program 4.10 FIFO queue linked-list implementation</a></li>
+<li><a href="#org170570b">Program 4.11 FIFO queue array implementation</a></li>
+</ul>
+</li>
+<li><a href="#org56dee80">4.7 Duplicate and Index Items</a>
+<ul>
+<li><a href="#orgb607b68">Program 4.12 Stack with index items and no duplicates</a></li>
+</ul>
+</li>
+<li><a href="#org70d0832">4.8 First-Class ADTs</a>
+<ul>
+<li><a href="#orgb2e6dfb">Program 4.13 Complex numbers driver (roots of unity)</a></li>
+<li><a href="#orgbb5d3fd">Program 4.14 First-class data type for complex numbers</a></li>
+<li><a href="#org31f0cb1">Program 4.15 Complex-numbers data-type implementation</a></li>
+<li><a href="#org28a1421">Program 4.16 First-class ADT for complex numbers</a></li>
+<li><a href="#orgb92aeed">Program 4.17 Complex-numbers ADT implementation</a></li>
+<li><a href="#org75138a0">Program 4.18 First-class ADT interface for queues</a></li>
+<li><a href="#org34404c0">Program 4.19 Queue client program (queue simulation)</a></li>
+<li><a href="#orgf276232">Program 4.20 Linked-list implementation of first-class queue</a></li>
+</ul>
+</li>
+<li><a href="#org94521d6">4.9 Application-Based ADT Example</a>
+<ul>
+<li><a href="#orga952c0c">Program 4.21 Polynomial client (binomial coefficients)</a></li>
+<li><a href="#org97c2982">Program 4.22 First-class ADT interface for polynomials</a></li>
+<li><a href="#org2460a1e">Program 4.23 Array implementation of polynomial ADT</a></li>
+</ul>
+</li>
+<li><a href="#orgfd254e9">4.10 Perspective</a></li>
+</ul>
+</li>
+<li><a href="#org8304a38">Chapter 5. Recursion and Trees</a>
+<ul>
+<li><a href="#org02b8fce">5.1 Recursive Algorithms</a>
+<ul>
+<li><a href="#org3b8fdce">Program 5.1 Factorial function (recursive implementation)</a></li>
+<li><a href="#orge55037f">Program 5.2 A questionable recursive program</a></li>
+<li><a href="#orgf009ecf">Program 5.3 Euclid's algorithm</a></li>
+<li><a href="#org43b632c">Program 5.4 Recursive program to evaluate prefix expressions</a></li>
+<li><a href="#org870ea21">Program 5.5 Examples of recursive functions for linked lists</a></li>
+</ul>
+</li>
+<li><a href="#orgef89d24">5.2 Divide and Conquer</a>
+<ul>
+<li><a href="#org7f0e86e">Program 5.6 Divide-and-conquer to find the maximum</a></li>
+<li><a href="#orgd339c05">Program 5.7 Solution to the towers of Hanoi</a></li>
+<li><a href="#orgee63fbb">Program 5.8 Divide and conquer to draw a ruler</a></li>
+<li><a href="#orgdb46cee">Program 5.9 Nonrecursive program to draw a ruler</a></li>
+</ul>
+</li>
+<li><a href="#orgc753f39">5.3 Dynamic Programming</a>
+<ul>
+<li><a href="#org3dcd86d">Program 5.10 Fibonacci numbers (recursive implementation)</a></li>
+<li><a href="#orgbb41fb7">Program 5.11 Fibonacci numbers (dynamic programming)</a></li>
+<li><a href="#orgc110b57">Program 5.12 Knapsack problem (recursive implementation)</a></li>
+<li><a href="#orgaf5f560">Program 5.13 Knapsack problem (dynamic programming)</a></li>
+</ul>
+</li>
+<li><a href="#org938156e">5.4 Trees</a></li>
+<li><a href="#org59e12a8">5.5 Mathematical Properties of Binary Trees</a></li>
+<li><a href="#orgf5eb6d5">5.6 Tree Traversal</a>
+<ul>
+<li><a href="#org2802b76">Program 5.14 Recursive tree traversal</a></li>
+<li><a href="#org9b51410">Program 5.15 Preorder traversal (nonrecursive)</a></li>
+<li><a href="#orgb2917de">Program 5.16 Level-order traversal</a></li>
+</ul>
+</li>
+<li><a href="#org594ee5c">5.7 Recursive Binary-Tree Algorithms</a>
+<ul>
+<li><a href="#orgcd412d7">Program 5.I7 Computation of tree parameters</a></li>
+<li><a href="#orgbfbdffe">Program 5-18 Quick tree-print function</a></li>
+<li><a href="#org81a46dd">Program 5.I9 Construction of a tournament</a></li>
+<li><a href="#org916df5d">Program 5.20 Construction of a parse tree</a></li>
+</ul>
+</li>
+<li><a href="#org11d87b9">5.8 Graph Traversal</a>
+<ul>
+<li><a href="#org7072a75">Program 5.21 Depth-first search</a></li>
+<li><a href="#org7ea6351">Program 5.22 Breadth-first search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge80864d" class="outline-2">
+<h2 id="orge80864d">Chapter 1. Introduction</h2>
+<div class="outline-text-2" id="text-orge80864d">
+</div>
+<div id="outline-container-org36fab22" class="outline-3">
+<h3 id="org36fab22">Program 1.1 Quick-find solution to connectivity problem</h3>
+<div class="outline-text-3" id="text-org36fab22">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">N</span> 10000
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #e69f00; font-weight: bold;">q</span>, <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">id</span>[N];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++)
+        id[i] = i;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (scanf(<span style="color: #848ea9;">"%d %d\n"</span>, &amp;p, &amp;q) == 2) {
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (id[p] == id[q])
+            <span style="color: #56b4e9; font-weight: bold;">continue</span>;
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (t = id[p], i = 0; i &lt; N; i++)
+            <span style="color: #56b4e9; font-weight: bold;">if</span> (id[i] == t)
+                id[i] = id[q];
+        printf(<span style="color: #848ea9;">" %d %d\n"</span>, p, q);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75c4178" class="outline-3">
+<h3 id="org75c4178">Program 1.2 Quick-union solution to connectivity problem</h3>
+<div class="outline-text-3" id="text-org75c4178">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">N</span> 10000
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #e69f00; font-weight: bold;">q</span>, <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">id</span>[N];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++)
+        id[i] = i;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (scanf(<span style="color: #848ea9;">"%d %d\n"</span>, &amp;p, &amp;q) == 2) {
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (i = p; i != id[i]; i = id[i]);
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = q; j != id[j]; j = id[j]);
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (i == j)
+            <span style="color: #56b4e9; font-weight: bold;">continue</span>;
+        id[i] = j;
+        printf(<span style="color: #848ea9;">" %d %d\n"</span>, p, q);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org16063ea" class="outline-3">
+<h3 id="org16063ea">Program 1.3 Weighted version of quick union</h3>
+<div class="outline-text-3" id="text-org16063ea">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">N</span> 10000
+<span style="color: #d55e00;">main</span>()
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #e69f00; font-weight: bold;">q</span>, <span style="color: #e69f00; font-weight: bold;">id</span>[N], <span style="color: #e69f00; font-weight: bold;">sz</span>[N];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) 
+      { id[i] = i; sz[i] = 1; }
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (scanf(<span style="color: #848ea9;">"%d %d\n"</span>, &amp;p, &amp;q) == 2)
+      { 
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (i = p; i != id[i]; i = id[i]) ;
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = q; j != id[j]; j = id[j]) ;
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (i == j) <span style="color: #56b4e9; font-weight: bold;">continue</span>;
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (sz[i] &lt; sz[j])
+             { id[i] = j; sz[j] += sz[i]; }
+        <span style="color: #56b4e9; font-weight: bold;">else</span> { id[j] = i; sz[i] += sz[j]; }
+        printf(<span style="color: #848ea9;">" %d %d\n"</span>, p, q);
+      }
+ }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge2bfa08" class="outline-3">
+<h3 id="orge2bfa08">Program 1.4 Path compression by halving</h3>
+<div class="outline-text-3" id="text-orge2bfa08">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">for</span> (i = p; i != id[i]; i = id[i]) 
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">t</span> = i; i = id[id[t]]; id[t] = i; } 
+<span style="color: #56b4e9; font-weight: bold;">for</span> (j = q; j != id[j]; j = id[j]) ;
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">t</span> = j; j = id[id[t]]; id[t] = j; } 
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd2a4f6" class="outline-2">
+<h2 id="orgbd2a4f6">Chapter 2. Principles of Algorithm Analysis</h2>
+<div class="outline-text-2" id="text-orgbd2a4f6">
+</div>
+<div id="outline-container-org702fc92" class="outline-3">
+<h3 id="org702fc92">Program 2.1 Sequential search</h3>
+<div class="outline-text-3" id="text-org702fc92">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">search</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">a</span>[], <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">v</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = l; i &lt;= r; i++)
+      <span style="color: #56b4e9; font-weight: bold;">if</span> (v == a[i]) <span style="color: #56b4e9; font-weight: bold;">return</span> i;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> -1;
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1535026" class="outline-3">
+<h3 id="org1535026">Program 2.2 Binary search</h3>
+<div class="outline-text-3" id="text-org1535026">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">search</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">a</span>[], <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">v</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>)
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (r &gt;= l)
+      { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">m</span> = (l+r)/2;
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (v == a[m]) <span style="color: #56b4e9; font-weight: bold;">return</span> m;
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (v &lt; a[m]) r = m-1; <span style="color: #56b4e9; font-weight: bold;">else</span> l = m+1;
+      }
+    <span style="color: #56b4e9; font-weight: bold;">return</span> -1;
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3af1031" class="outline-2">
+<h2 id="org3af1031">Chapter 3. Elementary Data Structures</h2>
+<div class="outline-text-2" id="text-org3af1031">
+</div>
+<div id="outline-container-org3986be1" class="outline-3">
+<h3 id="org3986be1">3.1 Building Blocks</h3>
+<div class="outline-text-3" id="text-org3986be1">
+</div>
+<div id="outline-container-orgf257647" class="outline-4">
+<h4 id="orgf257647">Program 3.1 Function definition</h4>
+<div class="outline-text-4" id="text-orgf257647">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">lg</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 1, N = 10; i &lt;= 6; i++, N *= 10)
+        printf(<span style="color: #848ea9;">"%7d %2d %9d\n"</span>, N, lg(N), N * lg(N));
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">lg</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; N &gt; 0; i++, N /= 2);
+    <span style="color: #56b4e9; font-weight: bold;">return</span> i;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae2eefb" class="outline-4">
+<h4 id="orgae2eefb">Program 3.2 Types of numbers</h4>
+<div class="outline-text-4" id="text-orgae2eefb">
+<ul class="org-ul">
+<li>missing stdio.h and math.h</li>
+<li>gcc 3-02.c -lm</li>
+<li>./a.out 2</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #0072b2; font-weight: bold;">numType</span>;
+
+<span style="color: #0072b2; font-weight: bold;">numType</span> <span style="color: #d55e00;">randNum</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> rand();
+}
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">m1</span> = 0.0, <span style="color: #e69f00; font-weight: bold;">m2</span> = 0.0;
+    <span style="color: #0072b2; font-weight: bold;">numType</span> <span style="color: #e69f00; font-weight: bold;">x</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        x = randNum();
+        m1 += ((<span style="color: #0072b2; font-weight: bold;">float</span>) x) / N;
+        m2 += ((<span style="color: #0072b2; font-weight: bold;">float</span>) x * x) / N;
+    }
+    printf(<span style="color: #848ea9;">"       Average: %f\n"</span>, m1);
+    printf(<span style="color: #848ea9;">"Std. deviation: %f\n"</span>, sqrt(m2 - m1 * m1));
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfdb3504" class="outline-4">
+<h4 id="orgfdb3504">Program 3.3 Point data type interface</h4>
+<div class="outline-text-4" id="text-orgfdb3504">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> {
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">x</span>;
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">y</span>;
+} <span style="color: #0072b2; font-weight: bold;">point</span>;
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">distance</span>(<span style="color: #0072b2; font-weight: bold;">point</span> <span style="color: #e69f00; font-weight: bold;">a</span>, <span style="color: #0072b2; font-weight: bold;">point</span> <span style="color: #e69f00; font-weight: bold;">b</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfe25884" class="outline-4">
+<h4 id="orgfe25884">Program 3.4 Point data type implementation</h4>
+<div class="outline-text-4" id="text-orgfe25884">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Point.h"</span>
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">distance</span>(<span style="color: #0072b2; font-weight: bold;">point</span> <span style="color: #e69f00; font-weight: bold;">a</span>, <span style="color: #0072b2; font-weight: bold;">point</span> <span style="color: #e69f00; font-weight: bold;">b</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">dx</span> = a.x - b.x, <span style="color: #e69f00; font-weight: bold;">dy</span> = a.y - b.y;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> sqrt(dx * dx + dy * dy);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe7f03a" class="outline-3">
+<h3 id="orgbe7f03a">3.2 Arrays</h3>
+<div class="outline-text-3" id="text-orgbe7f03a">
+</div>
+<div id="outline-container-orga0f2d6e" class="outline-4">
+<h4 id="orga0f2d6e">Program 3.5 Sieve of Eratosthenes</h4>
+<div class="outline-text-4" id="text-orga0f2d6e">
+<ul class="org-ul">
+<li>missing stdio.h</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">N</span> 10000
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">a</span>[N];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt; N; i++)
+        a[i] = 1;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt; N; i++)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i])
+            <span style="color: #56b4e9; font-weight: bold;">for</span> (j = i; j &lt; N / i; j++)
+                a[i * j] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt; N; i++)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i])
+            printf(<span style="color: #848ea9;">"%4d "</span>, i);
+    printf(<span style="color: #848ea9;">"\n"</span>);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org250d092" class="outline-4">
+<h4 id="org250d092">Program 3.6 Dynamic memory allocation for an array</h4>
+<div class="outline-text-4" id="text-org250d092">
+<ul class="org-ul">
+<li>./a.out 1000000. took a couple of minutes</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #e69f00; font-weight: bold;">a</span> = malloc(<span style="color: #0072b2; font-weight: bold;">N</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (a == <span style="color: #d55e00; font-weight: bold;">NULL</span>) {
+        printf(<span style="color: #848ea9;">"Insufficient memory.\n"</span>);
+        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    }
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt; N; i++)
+        a[i] = 1;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt; N; i++)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i])
+            <span style="color: #56b4e9; font-weight: bold;">for</span> (j = i; j &lt; N / i; j++)
+                a[i * j] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt; N; i++)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i])
+            printf(<span style="color: #848ea9;">"%4d "</span>, i);
+    printf(<span style="color: #848ea9;">"\n"</span>);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org64e7d62" class="outline-4">
+<h4 id="org64e7d62">Program 3.7 Coin-flipping simulation</h4>
+<div class="outline-text-4" id="text-org64e7d62">
+<ul class="org-ul">
+<li>./a.out 32 1000</li>
+<li>note. it will seg fault with no command line arguments
+<ul class="org-ul">
+<li>should have a check</li>
+</ul></li>
+<li>it always returns the same values with the same arguments.</li>
+<li>N first argument. no of coin tosses</li>
+<li>M second argument. no of experiments/ trials</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">heads</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> rand() &lt; RAND_MAX / 2;
+}
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">cnt</span>;
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]), <span style="color: #e69f00; font-weight: bold;">M</span> = atoi(argv[2]);
+    <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #e69f00; font-weight: bold;">f</span> = malloc((N + 1) * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; j &lt;= N; j++)
+        f[j] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; M; i++, f[cnt]++)
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (cnt = 0, j = 0; j &lt;= N; j++)
+            <span style="color: #56b4e9; font-weight: bold;">if</span> (heads())
+                cnt++;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; j &lt;= N; j++) {
+        printf(<span style="color: #848ea9;">"%2d "</span>, j);
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; f[j]; i += 10)
+            printf(<span style="color: #848ea9;">"*"</span>);
+        printf(<span style="color: #848ea9;">"\n"</span>);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgad8f848" class="outline-4">
+<h4 id="orgad8f848">Program 3.8 Closest-point computation</h4>
+<div class="outline-text-4" id="text-orgad8f848">
+<p>
+N 1st. number of pairs 
+d 2nd. length less than
+</p>
+
+<p>
+ gcc 3-08.c distance.c -lm
+./a.out 4 2
+</p>
+
+<p>
+4 pairs of points (8 points) 
+distance less than 2
+note: random number generator isn't random
+</p>
+
+<p>
+printf("%f %f\n",a[i].x,a[i].y); to see same results from rng
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Point.h"</span>
+
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">randFloat</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> 1.0 * rand() / RAND_MAX;
+}
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">d</span> = atof(argv[2]);
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">cnt</span> = 0, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">point</span> *<span style="color: #e69f00; font-weight: bold;">a</span> = malloc(N * (<span style="color: #56b4e9; font-weight: bold;">sizeof</span>(*a)));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        a[i].x = randFloat();
+        a[i].y = randFloat();
+    }
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++)
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = i + 1; j &lt; N; j++)
+            <span style="color: #56b4e9; font-weight: bold;">if</span> (distance(a[i], a[j]) &lt; d)
+                cnt++;
+    printf(<span style="color: #848ea9;">"%d edges shorter than %f\n"</span>, cnt, d);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org785d11f" class="outline-3">
+<h3 id="org785d11f">3.3 Linked Lists</h3>
+<div class="outline-text-3" id="text-org785d11f">
+</div>
+<div id="outline-container-org5dd2287" class="outline-4">
+<h4 id="org5dd2287">Program 3.9 Circular list example (Josephus problem)</h4>
+<div class="outline-text-4" id="text-org5dd2287">
+<ul class="org-ul">
+<li>N people</li>
+<li>eliminate every Mth person</li>
+<li>gcc 3-09.c</li>
+<li>./a.out 9 5</li>
+<li>ex. N = 9 and}vI 5</li>
+
+<li>segmentation fault with no inputs</li>
+</ul>
+
+<p>
+look at printing all the nodes in the list
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> {
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">item</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]), <span style="color: #e69f00; font-weight: bold;">M</span> = atoi(argv[2]);
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *t), <span style="color: #e69f00; font-weight: bold;">x</span> = t;
+    t-&gt;item = 1;
+    t-&gt;next = t;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2; i &lt;= N; i++) {
+        x = (x-&gt;next = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x));
+        x-&gt;item = i;
+        x-&gt;next = t;
+    }
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (x != x-&gt;next) {
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 1; i &lt; M; i++)
+            x = x-&gt;next;
+        x-&gt;next = x-&gt;next-&gt;next;
+        N--;
+    }
+    printf(<span style="color: #848ea9;">"%d\n"</span>, x-&gt;item);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org741592d" class="outline-3">
+<h3 id="org741592d">3.4 Elementary List Processing</h3>
+<div class="outline-text-3" id="text-org741592d">
+</div>
+<div id="outline-container-org5555e44" class="outline-4">
+<h4 id="org5555e44">Program 3.10 List reversal</h4>
+<div class="outline-text-4" id="text-org5555e44">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">reverse</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">y</span> = x, <span style="color: #e69f00; font-weight: bold;">r</span> = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (y != <span style="color: #d55e00; font-weight: bold;">NULL</span>) {
+        t = y-&gt;next;
+        y-&gt;next = r;
+        r = y;
+        y = t;
+    }
+    <span style="color: #56b4e9; font-weight: bold;">return</span> r;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd731f8d" class="outline-4">
+<h4 id="orgd731f8d">Program 3.11 List insertion sort</h4>
+<div class="outline-text-4" id="text-orgd731f8d">
+<p>
+see cc3-11.c which includes a main
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> <span style="color: #e69f00; font-weight: bold;">heada</span>, <span style="color: #e69f00; font-weight: bold;">headb</span>;
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">u</span>, <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #e69f00; font-weight: bold;">a</span> = &amp;heada, <span style="color: #e69f00; font-weight: bold;">b</span>;
+<span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0, t = a; i &lt; N; i++) {
+    t-&gt;next = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *t);
+    t = t-&gt;next;
+    t-&gt;next = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    t-&gt;item = rand() % 1000;
+}
+
+b = &amp;headb;
+b-&gt;next = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+<span style="color: #56b4e9; font-weight: bold;">for</span> (t = a-&gt;next; t != <span style="color: #d55e00; font-weight: bold;">NULL</span>; t = u) {
+    u = t-&gt;next;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (x = b; x-&gt;next != <span style="color: #d55e00; font-weight: bold;">NULL</span>; x = x-&gt;next)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (x-&gt;next-&gt;item &gt; t-&gt;item)
+            <span style="color: #56b4e9; font-weight: bold;">break</span>;
+    t-&gt;next = x-&gt;next;
+    x-&gt;next = t;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org598a11d" class="outline-4">
+<h4 id="org598a11d">Program 3.12 List-processing interface</h4>
+<div class="outline-text-4" id="text-org598a11d">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> {
+    <span style="color: #0072b2; font-weight: bold;">itemType</span> <span style="color: #e69f00; font-weight: bold;">item</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #0072b2; font-weight: bold;">Node</span>;
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">initNodes</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">newNode</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">freeNode</span>(<span style="color: #0072b2; font-weight: bold;">link</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">insertNext</span>(<span style="color: #0072b2; font-weight: bold;">link</span>, <span style="color: #0072b2; font-weight: bold;">link</span>);
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">deleteNext</span>(<span style="color: #0072b2; font-weight: bold;">link</span>);
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">Next</span>(<span style="color: #0072b2; font-weight: bold;">link</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">Item</span>(<span style="color: #0072b2; font-weight: bold;">link</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga2266f4" class="outline-4">
+<h4 id="orga2266f4">Program 3.13 List allocation for the Josephus problem</h4>
+<div class="outline-text-4" id="text-orga2266f4">
+<ul class="org-ul">
+<li>gcc 3-13.c 3-14.c</li>
+<li>./a.out 9 5</li>
+<li>not change itemtype to int in list.h</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"list.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]), <span style="color: #e69f00; font-weight: bold;">M</span> = atoi(argv[2]);
+    <span style="color: #0072b2; font-weight: bold;">Node</span> <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">x</span>;
+    initNodes(N);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 2, x = newNode(1); i &lt;= N; i++) {
+        t = newNode(i);
+        insertNext(x, t);
+        x = t;
+    }
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (x != Next(x)) {
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 1; i &lt; M; i++)
+            x = Next(x);
+        freeNode(deleteNext(x));
+    }
+    printf(<span style="color: #848ea9;">"%d\n"</span>, Item(x));
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e7bf2c" class="outline-3">
+<h3 id="org3e7bf2c">3.5 Memory Allocation for Lists</h3>
+<div class="outline-text-3" id="text-org3e7bf2c">
+</div>
+<div id="outline-container-org27a23a2" class="outline-4">
+<h4 id="org27a23a2">Program 3.14 Implementation of list-processing interface</h4>
+<div class="outline-text-4" id="text-org27a23a2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"list.h"</span>
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">freelist</span>;
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">initNodes</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    freelist = malloc((N + 1) * (<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *freelist));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N + 1; i++)
+        freelist[i].next = &amp;freelist[i + 1];
+    freelist[N].next = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+}
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">newNode</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = deleteNext(freelist);
+    x-&gt;item = i;
+    x-&gt;next = x;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">freeNode</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    insertNext(freelist, x);
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">insertNext</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span>)
+{
+    t-&gt;next = x-&gt;next;
+    x-&gt;next = t;
+}
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">deleteNext</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = x-&gt;next;
+    x-&gt;next = t-&gt;next;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">Next</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x-&gt;next;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">Item</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x-&gt;item;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org91f67a5" class="outline-3">
+<h3 id="org91f67a5">3.6 Strings</h3>
+<div class="outline-text-3" id="text-org91f67a5">
+</div>
+<div id="outline-container-org8e9ba50" class="outline-4">
+<h4 id="org8e9ba50">Program 3.15 String search</h4>
+<div class="outline-text-4" id="text-org8e9ba50">
+<ul class="org-ul">
+<li>gcc -g 3-15.c</li>
+
+<li>./a.out shine</li>
+<li>enter sunshine EOF</li>
+<li>the program returns 3 (position of the word in the sentence)</li>
+</ul>
+
+<pre class="example">
+./a.out shine
+sunshine
+3 
+
+./a.out fox
+the quick brown fox
+16 
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">N</span> 10000
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">t</span>;
+    <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">a</span>[N], *<span style="color: #e69f00; font-weight: bold;">p</span> = argv[1];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N - 1; a[i] = t, i++)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> ((t = getchar()) == EOF)
+            <span style="color: #56b4e9; font-weight: bold;">break</span>;
+    a[i] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; a[i] != 0; i++) {
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; p[j] != 0; j++)
+            <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i + j] != p[j])
+                <span style="color: #56b4e9; font-weight: bold;">break</span>;
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (p[j] == 0)
+            printf(<span style="color: #848ea9;">"%d "</span>, i);
+    }
+    printf(<span style="color: #848ea9;">"\n"</span>);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb8ff44" class="outline-3">
+<h3 id="orgdb8ff44">3.7 Compound Data Structures</h3>
+<div class="outline-text-3" id="text-orgdb8ff44">
+</div>
+<div id="outline-container-org3a9a6cd" class="outline-4">
+<h4 id="org3a9a6cd">Program 3.16 Two-dimensional array allocation</h4>
+<div class="outline-text-4" id="text-org3a9a6cd">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> **<span style="color: #d55e00;">malloc2d</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">c</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #0072b2; font-weight: bold;">int</span> **<span style="color: #e69f00; font-weight: bold;">t</span> = malloc(<span style="color: #0072b2; font-weight: bold;">r</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span> *));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; r; i++)
+        t[i] = malloc(<span style="color: #0072b2; font-weight: bold;">c</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org096fbc2" class="outline-4">
+<h4 id="org096fbc2">Program 3.17 Sorting an array of strings</h4>
+<div class="outline-text-4" id="text-org096fbc2">
+<ul class="org-ul">
+<li>compilation warnings with qsort</li>
+</ul>
+
+<pre class="example">
+./a.out 
+the
+quick
+brown
+fox
+&lt;EOF&gt; C-d emacs shell
+brown
+fox
+quick
+the
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;string.h&gt;</span>
+
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">Nmax</span> 1000
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">Mmax</span> 10000
+
+<span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">buf</span>[Mmax];
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">M</span> = 0;
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">compare</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #e69f00; font-weight: bold;">j</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> strcmp(*(<span style="color: #0072b2; font-weight: bold;">char</span> **) i, *(<span style="color: #0072b2; font-weight: bold;">char</span> **) j);
+}
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span>;
+    <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">a</span>[Nmax];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (N = 0; N &lt; Nmax; N++) {
+        a[N] = &amp;buf[M];
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (scanf(<span style="color: #848ea9;">"%s"</span>, a[N]) == EOF)
+            <span style="color: #56b4e9; font-weight: bold;">break</span>;
+        M += strlen(a[N]) + 1;
+    }
+    qsort(a, N, <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *), compare);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++)
+        printf(<span style="color: #848ea9;">"%s\n"</span>, a[i]);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org006e5fb" class="outline-4">
+<h4 id="org006e5fb">Program 3.18 Adjacency-matrix graph representation</h4>
+<div class="outline-text-4" id="text-org006e5fb">
+<p>
+need to define V
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">adj</span>[V][V];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; V; i++)
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; j &lt; V; j++)
+            adj[i][j] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; V; i++)
+        adj[i][i] = 1;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (scanf(<span style="color: #848ea9;">"%d %d\n"</span>, &amp;i, &amp;j) == 2) {
+        adj[i][j] = 1;
+        adj[j][i] = 1;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd6f1033" class="outline-4">
+<h4 id="orgd6f1033">Program 3.19 Adjacency-lists graph representation</h4>
+<div class="outline-text-4" id="text-orgd6f1033">
+<ul class="org-ul">
+<li>need to define V</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> {
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">v</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">NEW</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">v</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x);
+    x-&gt;v = v;
+    x-&gt;next = next;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+}
+
+<span style="color: #d55e00;">main</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">adj</span>[V];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; V; i++)
+        adj[i] = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (scanf(<span style="color: #848ea9;">"%d %d\n"</span>, &amp;i, &amp;j) == 2) {
+        adj[j] = NEW(i, adj[j]);
+        adj[i] = NEW(j, adj[i]);
+    }
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcfd8695" class="outline-4">
+<h4 id="orgcfd8695">Program 3.20 A two-dimensional array of lists</h4>
+<div class="outline-text-4" id="text-orgcfd8695">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Point.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> {
+    <span style="color: #0072b2; font-weight: bold;">point</span> <span style="color: #e69f00; font-weight: bold;">p</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+<span style="color: #0072b2; font-weight: bold;">link</span> **<span style="color: #e69f00; font-weight: bold;">grid</span>;
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">G</span>;
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">d</span>;
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">cnt</span> = 0;
+
+<span style="color: #d55e00;">gridinsert</span>(<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">y</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">s</span>;
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">X</span> = x * G + 1;
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">Y</span> = y * G + 1;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *t);
+    t-&gt;p.x = x;
+    t-&gt;p.y = y;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = X - 1; i &lt;= X + 1; i++)
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = Y - 1; j &lt;= Y + 1; j++)
+            <span style="color: #56b4e9; font-weight: bold;">for</span> (s = grid[i][j]; s != <span style="color: #d55e00; font-weight: bold;">NULL</span>; s = s-&gt;next)
+                <span style="color: #56b4e9; font-weight: bold;">if</span> (distance(s-&gt;p, t-&gt;p) &lt; d)
+                    cnt++;
+    t-&gt;next = grid[X][Y];
+    grid[X][Y] = t;
+}
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    d = atof(argv[2]);
+    G = 1 / d;
+    grid = malloc2d(G + 2, G + 2);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; G + 2; i++)
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; j &lt; G + 2; j++)
+            grid[i][j] = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++)
+        gridinsert(randFloat(), randFloat());
+    printf(<span style="color: #848ea9;">"%d edges shorter than %f\n"</span>, cnt, d);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org281f5fc" class="outline-3">
+<h3 id="org281f5fc">not in chapter</h3>
+<div class="outline-text-3" id="text-org281f5fc">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #0072b2; font-weight: bold;">numType</span>;
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">R</span> 1000
+
+<span style="color: #0072b2; font-weight: bold;">numType</span> <span style="color: #d55e00;">randNum</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> rand() % R;
+}
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #e69f00; font-weight: bold;">f</span> = malloc(<span style="color: #0072b2; font-weight: bold;">R</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">m1</span> = 0.0, <span style="color: #e69f00; font-weight: bold;">m2</span> = 0.0, <span style="color: #e69f00; font-weight: bold;">t</span> = 0.0;
+    <span style="color: #0072b2; font-weight: bold;">numType</span> <span style="color: #e69f00; font-weight: bold;">x</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; R; i++)
+        f[i] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        f[x = randNum()]++;
+        m1 += (<span style="color: #0072b2; font-weight: bold;">float</span>) x / N;
+        m2 += (<span style="color: #0072b2; font-weight: bold;">float</span>) <span style="color: #0072b2; font-weight: bold;">x</span> *<span style="color: #e69f00; font-weight: bold;">x</span> / N;
+    }
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; R; i++)
+        t += f[i] * f[i];
+    printf(<span style="color: #848ea9;">"       Average: %f\n"</span>, m1);
+    printf(<span style="color: #848ea9;">"Std. deviation: %f\n"</span>, sqrt(m2 - m1 * m1));
+    printf(<span style="color: #848ea9;">"    Chi-square: %f\n"</span>, (R * t / N) - N);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73fa7dd" class="outline-2">
+<h2 id="org73fa7dd">Chapter 4. Abstract Data Types</h2>
+<div class="outline-text-2" id="text-org73fa7dd">
+</div>
+<div id="outline-container-orgb110ba1" class="outline-3">
+<h3 id="orgb110ba1">4.1 Abstract Objects and Collections of Objects</h3>
+<div class="outline-text-3" id="text-orgb110ba1">
+<p>
+no code
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ba81c2" class="outline-3">
+<h3 id="org7ba81c2">4.2 Pushdown Stack ADT</h3>
+<div class="outline-text-3" id="text-org7ba81c2">
+</div>
+<div id="outline-container-org5ba73d7" class="outline-4">
+<h4 id="org5ba73d7">Program 4.1 Pushdown-stack ADT interface</h4>
+<div class="outline-text-4" id="text-org5ba73d7">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">STACKempty</span>();
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKpush</span>(Item);
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">STACKpop</span>();
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d88305" class="outline-3">
+<h3 id="org2d88305">4.3 Examples of Stack ADT Clients</h3>
+<div class="outline-text-3" id="text-org2d88305">
+</div>
+<div id="outline-container-org1bcb0a0" class="outline-4">
+<h4 id="org1bcb0a0">Program 4.2 Postfix-expression evaluation</h4>
+<div class="outline-text-4" id="text-org1bcb0a0">
+<ul class="org-ul">
+<li>gcc 4-02.c 4-04.c</li>
+<li>or</li>
+<li>gcc 4-02.c 4-05.c</li>
+<li>./a.out "5 9 8 + 4 6 * * 7 + *"</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Program 4.2 Postfix-expression evaluation </span><span style="color: #009e73; font-style: italic;">*/</span>
+
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;string.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"STACK.h"</span>
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">a</span> = argv[1];
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = strlen(a);
+    STACKinit(N);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i] == <span style="color: #848ea9;">'+'</span>)
+            STACKpush(STACKpop() + STACKpop());
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i] == <span style="color: #848ea9;">'*'</span>)
+            STACKpush(STACKpop() * STACKpop());
+        <span style="color: #56b4e9; font-weight: bold;">if</span> ((a[i] &gt;= <span style="color: #848ea9;">'0'</span>) &amp;&amp; (a[i] &lt;= <span style="color: #848ea9;">'9'</span>))
+            STACKpush(0);
+        <span style="color: #56b4e9; font-weight: bold;">while</span> ((a[i] &gt;= <span style="color: #848ea9;">'0'</span>) &amp;&amp; (a[i] &lt;= <span style="color: #848ea9;">'9'</span>))
+            STACKpush(10 * STACKpop() + (a[i++] - <span style="color: #848ea9;">'0'</span>));
+    }
+    printf(<span style="color: #848ea9;">"%d \n"</span>, STACKpop());
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaee7230" class="outline-4">
+<h4 id="orgaee7230">Program 4.3 Infix-to-postfix conversion</h4>
+<div class="outline-text-4" id="text-orgaee7230">
+<ul class="org-ul">
+<li>gcc 4-03.c 4-05.c</li>
+<li>or</li>
+<li>gcc 4-03.c 4-04.c</li>
+<li>./a.out "(5 * (((9 + 8) * (4 * 6)) + 7))"</li>
+<li>=&gt; 5 9 8 + 4 6 * * 7 + *</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Program 4.3 Infix-to-postfix conversion </span><span style="color: #009e73; font-style: italic;">*/</span>
+
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;string.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"STACK.h"</span>
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">a</span> = argv[1];
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = strlen(a);
+    STACKinit(N);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i] == <span style="color: #848ea9;">')'</span>)
+            printf(<span style="color: #848ea9;">"%c "</span>, STACKpop());
+        <span style="color: #56b4e9; font-weight: bold;">if</span> ((a[i] == <span style="color: #848ea9;">'+'</span>) || (a[i] == <span style="color: #848ea9;">'*'</span>))
+            STACKpush(a[i]);
+        <span style="color: #56b4e9; font-weight: bold;">if</span> ((a[i] &gt;= <span style="color: #848ea9;">'0'</span>) &amp;&amp; (a[i] &lt;= <span style="color: #848ea9;">'9'</span>))
+            printf(<span style="color: #848ea9;">"%c "</span>, a[i]);
+    }
+    printf(<span style="color: #848ea9;">"\n"</span>);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org63e764d" class="outline-3">
+<h3 id="org63e764d">4.4 Stack ADT Implementations</h3>
+<div class="outline-text-3" id="text-org63e764d">
+</div>
+<div id="outline-container-org5e6dadf" class="outline-4">
+<h4 id="org5e6dadf">Program 4.4 Array implementation of a pushdown stack</h4>
+<div class="outline-text-4" id="text-org5e6dadf">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Array implementation of a pushdown stack </span><span style="color: #009e73; font-style: italic;">*/</span>
+
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"STACK.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">Item</span> *<span style="color: #e69f00; font-weight: bold;">s</span>;
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>;
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>)
+{
+    s = malloc(<span style="color: #0072b2; font-weight: bold;">maxN</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(Item));
+    N = 0;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">STACKempty</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> N == 0;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKpush</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>)
+{
+    s[N++] = item;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">STACKpop</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> s[--N];
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f0c7ea" class="outline-4">
+<h4 id="org0f0c7ea">Program 4.5 Linked-list implementation of a pushdown stack</h4>
+<div class="outline-text-4" id="text-org0f0c7ea">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Linked-list implementation of a pushdown stack </span><span style="color: #009e73; font-style: italic;">*/</span>
+
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">STACKnode</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">STACKnode</span> {
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">head</span>;
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">NEW</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x);
+    x-&gt;item = item;
+    x-&gt;next = next;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>)
+{
+    head = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">STACKempty</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> head == <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+}
+
+<span style="color: #d55e00;">STACKpush</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>)
+{
+    head = NEW(item, head);
+}
+
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">STACKpop</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span> = head-&gt;item;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = head-&gt;next;
+    free(head);
+    head = t;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> item;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe14b23" class="outline-3">
+<h3 id="orgbe14b23">4.5 Creation of a New ADT</h3>
+<div class="outline-text-3" id="text-orgbe14b23">
+</div>
+<div id="outline-container-org4220bc4" class="outline-4">
+<h4 id="org4220bc4">Program 4.6 Equivalence-relations ADT interface</h4>
+<div class="outline-text-4" id="text-org4220bc4">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">UFinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">UFfind</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">UFunion</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdafd765" class="outline-4">
+<h4 id="orgdafd765">Program 4.7 Equivalence-relations ADT client</h4>
+<div class="outline-text-4" id="text-orgdafd765">
+<ul class="org-ul">
+<li>gcc 4-07.c 4-08.c</li>
+<li>./a.out 3 4
+<ul class="org-ul">
+<li>same as the examples in chapter 1</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"UF.h"</span>
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #e69f00; font-weight: bold;">q</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    UFinit(N);
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (scanf(<span style="color: #848ea9;">"%d %d"</span>, &amp;p, &amp;q) == 2)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (!UFfind(p, q)) {
+            UFunion(p, q);
+            printf(<span style="color: #848ea9;">" %d %d\n"</span>, p, q);
+        }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78561d8" class="outline-4">
+<h4 id="org78561d8">Program 4.8 Equivalence-relations ADT implementation</h4>
+<div class="outline-text-4" id="text-org78561d8">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"UF.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #e69f00; font-weight: bold;">id</span>, *<span style="color: #e69f00; font-weight: bold;">sz</span>;
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">UFinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    id = malloc(<span style="color: #0072b2; font-weight: bold;">N</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    sz = malloc(<span style="color: #0072b2; font-weight: bold;">N</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        id[i] = i;
+        sz[i] = 1;
+    }
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">find</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = x;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (i != id[i])
+        i = id[i];
+    <span style="color: #56b4e9; font-weight: bold;">return</span> i;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">UFfind</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">q</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> (find(p) == find(q));
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">UFunion</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">q</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = find(p), <span style="color: #e69f00; font-weight: bold;">j</span> = find(q);
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (i == j)
+        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (sz[i] &lt; sz[j]) {
+        id[i] = j;
+        sz[j] += sz[i];
+    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+        id[j] = i;
+        sz[i] += sz[j];
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org61dbe1e" class="outline-3">
+<h3 id="org61dbe1e">4.6 FIFO Queues and Generalized Queues</h3>
+<div class="outline-text-3" id="text-org61dbe1e">
+</div>
+<div id="outline-container-org3d1110d" class="outline-4">
+<h4 id="org3d1110d">Program 4.9 FIFO queue ADT interface</h4>
+<div class="outline-text-4" id="text-org3d1110d">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">QUEUEempty</span>();
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEput</span>(Item);
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">QUEUEget</span>();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf60fa8f" class="outline-4">
+<h4 id="orgf60fa8f">Program 4.10 FIFO queue linked-list implementation</h4>
+<div class="outline-text-4" id="text-orgf60fa8f">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"QUEUE.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">QUEUEnode</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">QUEUEnode</span> {
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">head</span>, <span style="color: #e69f00; font-weight: bold;">tail</span>;
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">NEW</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x);
+    x-&gt;item = item;
+    x-&gt;next = next;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>)
+{
+    head = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">QUEUEempty</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> head == <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+}
+
+<span style="color: #d55e00;">QUEUEput</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (head == <span style="color: #d55e00; font-weight: bold;">NULL</span>) {
+        head = (tail = NEW(item, head));
+        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    }
+    tail-&gt;next = NEW(item, tail-&gt;next);
+    tail = tail-&gt;next;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">QUEUEget</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span> = head-&gt;item;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = head-&gt;next;
+    free(head);
+    head = t;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> item;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org170570b" class="outline-4">
+<h4 id="org170570b">Program 4.11 FIFO queue array implementation</h4>
+<div class="outline-text-4" id="text-org170570b">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">Item</span> *<span style="color: #e69f00; font-weight: bold;">q</span>;
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>, <span style="color: #e69f00; font-weight: bold;">head</span>, <span style="color: #e69f00; font-weight: bold;">tail</span>;
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>)
+{
+    q = malloc((maxN + 1) * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(Item));
+    N = maxN + 1;
+    head = N;
+    tail = 0;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">QUEUEempty</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> head % N == tail;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEput</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>)
+{
+    q[tail++] = item;
+    tail = tail % N;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">QUEUEget</span>()
+{
+    head = head % N;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> q[head++];
+}
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org56dee80" class="outline-3">
+<h3 id="org56dee80">4.7 Duplicate and Index Items</h3>
+<div class="outline-text-3" id="text-org56dee80">
+</div>
+<div id="outline-container-orgb607b68" class="outline-4">
+<h4 id="orgb607b68">Program 4.12 Stack with index items and no duplicates</h4>
+<div class="outline-text-4" id="text-orgb607b68">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #e69f00; font-weight: bold;">s</span>, *<span style="color: #e69f00; font-weight: bold;">t</span>;
+<span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>;
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    s = malloc(<span style="color: #0072b2; font-weight: bold;">maxN</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    t = malloc(<span style="color: #0072b2; font-weight: bold;">maxN</span> * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; maxN; i++)
+        t[i] = 0;
+    N = 0;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">STACKempty</span>()
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> !N;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">STACKpush</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">item</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (t[item] == 1)
+        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    s[N++] = item;
+    t[item] = 1;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">STACKpop</span>()
+{
+    N--;
+    t[s[N]] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> s[N];
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70d0832" class="outline-3">
+<h3 id="org70d0832">4.8 First-Class ADTs</h3>
+<div class="outline-text-3" id="text-org70d0832">
+</div>
+<div id="outline-container-orgb2e6dfb" class="outline-4">
+<h4 id="orgb2e6dfb">Program 4.13 Complex numbers driver (roots of unity)</h4>
+<div class="outline-text-4" id="text-orgb2e6dfb">
+<ul class="org-ul">
+<li>gcc 4-13.c 4-15.c -lm</li>
+</ul>
+
+<pre class="example">
+./a.out 8
+8th complex roots of unity
+ 0  1.000  0.000  1.000  0.000
+ 1  0.707  0.707  1.000  0.000
+ 2 -0.000  1.000  1.000  0.000
+ 3 -0.707  0.707  1.000  0.000
+ 4 -1.000 -0.000  1.000  0.000
+ 5 -0.707 -0.707  1.000 -0.000
+ 6  0.000 -1.000  1.000  0.000
+ 7  0.707 -0.707  1.000 -0.000
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"COMPLEX.h"</span>
+
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">PI</span> 3.141592625
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">x</span>;
+    printf(<span style="color: #848ea9;">"%dth complex roots of unity\n"</span>, N);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++) {
+        <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">r</span> = 2.0 * PI * i / N;
+        t = COMPLEXinit(cos(r), sin(r));
+        printf(<span style="color: #848ea9;">"%2d %6.3f %6.3f "</span>, i, Re(t), Im(t));
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (x = t, j = 0; j &lt; N - 1; j++)
+            x = COMPLEXmult(t, x);
+        printf(<span style="color: #848ea9;">"%6.3f %6.3f\n"</span>, Re(x), Im(x));
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb5d3fd" class="outline-4">
+<h4 id="orgbb5d3fd">Program 4.14 First-class data type for complex numbers</h4>
+<div class="outline-text-4" id="text-orgbb5d3fd">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> {
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Re</span>;
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Im</span>;
+} <span style="color: #0072b2; font-weight: bold;">Complex</span>;
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXinit</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Re</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Im</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span>);
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXmult</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span>, <span style="color: #0072b2; font-weight: bold;">Complex</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org31f0cb1" class="outline-4">
+<h4 id="org31f0cb1">Program 4.15 Complex-numbers data-type implementation</h4>
+<div class="outline-text-4" id="text-org31f0cb1">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"COMPLEX.h"</span>
+
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXinit</span>(<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Re</span>, <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Im</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">t</span>;
+    t.Re = Re;
+    t.Im = Im;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Re</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">z</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> z.Re;
+}
+
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Im</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">z</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> z.Im;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXmult</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">a</span>, <span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">b</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">t</span>;
+    t.Re = a.Re * b.Re - a.Im * b.Im;
+    t.Im = a.Re * b.Im + a.Im * b.Re;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org28a1421" class="outline-4">
+<h4 id="org28a1421">Program 4.16 First-class ADT for complex numbers</h4>
+<div class="outline-text-4" id="text-org28a1421">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">complex</span> *<span style="color: #0072b2; font-weight: bold;">Complex</span>;
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXinit</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Re</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Im</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span>);
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXmult</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span>, <span style="color: #0072b2; font-weight: bold;">Complex</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb92aeed" class="outline-4">
+<h4 id="orgb92aeed">Program 4.17 Complex-numbers ADT implementation</h4>
+<div class="outline-text-4" id="text-orgb92aeed">
+<ul class="org-ul">
+<li>use 4-13.c as driver.  need to change COMPLEX.h</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"aCOMPLEX.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">complex</span> {
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Re</span>;
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Im</span>;
+};
+
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXinit</span>(<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Re</span>, <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">Im</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">t</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *t);
+    t-&gt;Re = Re;
+    t-&gt;Im = Im;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Re</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">z</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> z-&gt;Re;
+}
+
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">Im</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">z</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> z-&gt;Im;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #d55e00;">COMPLEXmult</span>(<span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">a</span>, <span style="color: #0072b2; font-weight: bold;">Complex</span> <span style="color: #e69f00; font-weight: bold;">b</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> COMPLEXinit(Re(a) * Re(b) - Im(a) * Im(b),
+                       Re(a) * Im(b) + Im(a) * Re(b));
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75138a0" class="outline-4">
+<h4 id="org75138a0">Program 4.18 First-class ADT interface for queues</h4>
+<div class="outline-text-4" id="text-org75138a0">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">queue</span> *<span style="color: #0072b2; font-weight: bold;">Q</span>;
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEdump</span>(<span style="color: #0072b2; font-weight: bold;">Q</span>);
+<span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #d55e00;">QUEUEinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">QUEUEempty</span>(<span style="color: #0072b2; font-weight: bold;">Q</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEput</span>(<span style="color: #0072b2; font-weight: bold;">Q</span>, Item);
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">QUEUEget</span>(<span style="color: #0072b2; font-weight: bold;">Q</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34404c0" class="outline-4">
+<h4 id="org34404c0">Program 4.19 Queue client program (queue simulation)</h4>
+<div class="outline-text-4" id="text-org34404c0">
+<p>
+gcc 4-19.c 4-20.c 
+./a.out 84
+</p>
+
+<p>
+just outputs all zeros.  something wrong somewhere
+</p>
+
+<p>
+there are two bugs
+missing ; // in notes not in code
+j instead of i in both book and code
+</p>
+
+<p>
+i don't get the same results that he has in the book
+the book looks wrong.  missing numbers 85-89 and has 90
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"QUEUE.h"</span>
+
+<span style="color: #0072b2;">#define</span> <span style="color: #e69f00; font-weight: bold;">M</span> 10
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #e69f00; font-weight: bold;">queues</span>[M];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; M; i++)
+        queues[i] = QUEUEinit(N);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; N; i++)
+        QUEUEput(queues[rand() % M], j);
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; M; i++, printf(<span style="color: #848ea9;">"\n"</span>))
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; !QUEUEempty(queues[i]); j++)
+            printf(<span style="color: #848ea9;">"%3d "</span>, QUEUEget(queues[i]));
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf276232" class="outline-4">
+<h4 id="orgf276232">Program 4.20 Linked-list implementation of first-class queue</h4>
+<div class="outline-text-4" id="text-orgf276232">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"Item.h"</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"QUEUE.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">QUEUEnode</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">QUEUEnode</span> {
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>;
+};
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">queue</span> {
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">head</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">tail</span>;
+};
+
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">NEW</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">next</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x);
+    x-&gt;item = item;
+    x-&gt;next = next;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #d55e00;">QUEUEinit</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">maxN</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #e69f00; font-weight: bold;">q</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *q);
+    q-&gt;head = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    q-&gt;tail = <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> q;
+}
+
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">QUEUEempty</span>(<span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #e69f00; font-weight: bold;">q</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">return</span> q-&gt;head == <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+}
+
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">QUEUEput</span>(<span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #e69f00; font-weight: bold;">q</span>, <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (q-&gt;head == <span style="color: #d55e00; font-weight: bold;">NULL</span>) {
+        q-&gt;tail = NEW(item, q-&gt;head)
+            q-&gt;head = q-&gt;tail;
+        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    }
+    q-&gt;tail-&gt;next = NEW(item, q-&gt;tail-&gt;next);
+    q-&gt;tail = q-&gt;tail-&gt;next;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">QUEUEget</span>(<span style="color: #0072b2; font-weight: bold;">Q</span> <span style="color: #e69f00; font-weight: bold;">q</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span> = q-&gt;head-&gt;item;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = q-&gt;head-&gt;next;
+    free(q-&gt;head);
+    q-&gt;head = t;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> item;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94521d6" class="outline-3">
+<h3 id="org94521d6">4.9 Application-Based ADT Example</h3>
+<div class="outline-text-3" id="text-org94521d6">
+</div>
+<div id="outline-container-orga952c0c" class="outline-4">
+<h4 id="orga952c0c">Program 4.21 Polynomial client (binomial coefficients)</h4>
+<div class="outline-text-4" id="text-orga952c0c">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"POLY.h"</span>
+
+<span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">argc</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">argv</span>[])
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span> = atoi(argv[1]);
+    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">p</span> = atof(argv[2]);
+    <span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">t</span>, <span style="color: #e69f00; font-weight: bold;">x</span>;
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>;
+    printf(<span style="color: #848ea9;">"Binomial coefficients\n"</span>);
+    t = POLYadd(POLYterm(1, 1), POLYterm(1, 0));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0, x = t; i &lt; N; i++) {
+        x = POLYmult(t, x);
+        showPOLY(x);
+    }
+    printf(<span style="color: #848ea9;">"%f\n"</span>, POLYeval(x, p));
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org97c2982" class="outline-4">
+<h4 id="org97c2982">Program 4.22 First-class ADT interface for polynomials</h4>
+<div class="outline-text-4" id="text-org97c2982">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">poly</span> *<span style="color: #0072b2; font-weight: bold;">Poly</span>;
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">showPOLY</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span>);
+<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #d55e00;">POLYterm</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #d55e00;">POLYadd</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span>, <span style="color: #0072b2; font-weight: bold;">Poly</span>);
+<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #d55e00;">POLYmult</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span>, <span style="color: #0072b2; font-weight: bold;">Poly</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">POLYeval</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2460a1e" class="outline-4">
+<h4 id="org2460a1e">Program 4.23 Array implementation of polynomial ADT</h4>
+<div class="outline-text-4" id="text-org2460a1e">
+<p>
+there is no void showPOLY(Poly);
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">"POLY.h"</span>
+
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">poly</span> {
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>;
+    <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #e69f00; font-weight: bold;">a</span>;
+};
+
+<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #d55e00;">POLYterm</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">coeff</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">exp</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">t</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *t);
+    t-&gt;a = malloc((exp + 1) * <span style="color: #56b4e9; font-weight: bold;">sizeof</span>(<span style="color: #0072b2; font-weight: bold;">int</span>));
+    t-&gt;N = exp + 1;
+    t-&gt;a[exp] = coeff;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; exp; i++)
+        t-&gt;a[i] = 0;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #d55e00;">POLYadd</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">q</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">t</span>;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (p-&gt;N &lt; q-&gt;N) {
+        t = p;
+        p = q;
+        q = t;
+    }
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; q-&gt;N; i++)
+        p-&gt;a[i] += q-&gt;a[i];
+    <span style="color: #56b4e9; font-weight: bold;">return</span> p;
+}
+
+<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #d55e00;">POLYmult</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">q</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>;
+    <span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">t</span> = POLYterm(0, (p-&gt;N - 1) + (q-&gt;N - 1));
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; p-&gt;N; i++)
+        <span style="color: #56b4e9; font-weight: bold;">for</span> (j = 0; j &lt; q-&gt;N; j++)
+            t-&gt;a[i + j] += p-&gt;a[i] * q-&gt;a[j];
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+
+<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">POLYeval</span>(<span style="color: #0072b2; font-weight: bold;">Poly</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">t</span> = 0.0;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = p-&gt;N - 1; i &gt;= 0; i--)
+        t = t * x + p-&gt;a[i];
+    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd254e9" class="outline-3">
+<h3 id="orgfd254e9">4.10 Perspective</h3>
+<div class="outline-text-3" id="text-orgfd254e9">
+<p>
+no code
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8304a38" class="outline-2">
+<h2 id="org8304a38">Chapter 5. Recursion and Trees</h2>
+<div class="outline-text-2" id="text-org8304a38">
+</div>
+<div id="outline-container-org02b8fce" class="outline-3">
+<h3 id="org02b8fce">5.1 Recursive Algorithms</h3>
+<div class="outline-text-3" id="text-org02b8fce">
+</div>
+<div id="outline-container-org3b8fdce" class="outline-4">
+<h4 id="org3b8fdce">Program 5.1 Factorial function (recursive implementation)</h4>
+<div class="outline-text-4" id="text-org3b8fdce">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Factorial function (recursive implementation) </span><span style="color: #009e73; font-style: italic;">*/</span>
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">factorial</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (N == 0)
+        <span style="color: #56b4e9; font-weight: bold;">return</span> 1;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> N * factorial(N - 1);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge55037f" class="outline-4">
+<h4 id="orge55037f">Program 5.2 A questionable recursive program</h4>
+<div class="outline-text-4" id="text-orge55037f">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">A questionable recursive program </span><span style="color: #009e73; font-style: italic;">*/</span>
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">puzzle</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (N == 1)
+        <span style="color: #56b4e9; font-weight: bold;">return</span> 1;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (N % 2 == 0)
+        <span style="color: #56b4e9; font-weight: bold;">return</span> puzzle(N / 2);
+    <span style="color: #56b4e9; font-weight: bold;">else</span>
+        <span style="color: #56b4e9; font-weight: bold;">return</span> puzzle(3 * N + 1);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf009ecf" class="outline-4">
+<h4 id="orgf009ecf">Program 5.3 Euclid's algorithm</h4>
+<div class="outline-text-4" id="text-orgf009ecf">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Euclid's algorithm </span><span style="color: #009e73; font-style: italic;">*/</span>
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">gcd</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">m</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">n</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (n == 0)
+        <span style="color: #56b4e9; font-weight: bold;">return</span> m;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> gcd(n, m % n);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org43b632c" class="outline-4">
+<h4 id="org43b632c">Program 5.4 Recursive program to evaluate prefix expressions</h4>
+<div class="outline-text-4" id="text-org43b632c">
+<p>
+works. but can't figure how to print the value of the runnning total
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Recursive program to evaluate prefix expressions </span><span style="color: #009e73; font-style: italic;">*/</span>
+<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">a</span>;
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">eval</span>()
+{
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">x</span> = 0;
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (a[i] == <span style="color: #848ea9;">' '</span>)
+        i++;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i] == <span style="color: #848ea9;">'+'</span>) {
+        i++;
+        <span style="color: #56b4e9; font-weight: bold;">return</span> eval() + eval();
+    }
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (a[i] == <span style="color: #848ea9;">'*'</span>) {
+        i++;
+        <span style="color: #56b4e9; font-weight: bold;">return</span> eval() * eval();
+    }
+    <span style="color: #56b4e9; font-weight: bold;">while</span> ((a[i] &gt;= <span style="color: #848ea9;">'0'</span>) &amp;&amp; (a[i] &lt;= <span style="color: #848ea9;">'9'</span>))
+        x = 10 * x + (a[i++] - <span style="color: #848ea9;">'0'</span>);
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org870ea21" class="outline-4">
+<h4 id="org870ea21">Program 5.5 Examples of recursive functions for linked lists</h4>
+<div class="outline-text-4" id="text-org870ea21">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">count</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>)
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (x == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span> 0;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> 1 + count(x-&gt;next); 
+  }
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverse</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">link</span>))
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (h == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    (*visit)(h); 
+    traverse(h-&gt;next, visit);
+  }
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverseR</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">link</span>))
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (h == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    traverseR(h-&gt;next, visit);
+    (*visit)(h); 
+  }
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">delete</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">v</span>)
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (x == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">NULL</span>;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (eq(x-&gt;item, v))
+      { <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span> = x-&gt;next; free(x); <span style="color: #56b4e9; font-weight: bold;">return</span> t; }
+    x-&gt;next = delete(x-&gt;next, v);
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef89d24" class="outline-3">
+<h3 id="orgef89d24">5.2 Divide and Conquer</h3>
+<div class="outline-text-3" id="text-orgef89d24">
+</div>
+<div id="outline-container-org7f0e86e" class="outline-4">
+<h4 id="org7f0e86e">Program 5.6 Divide-and-conquer to find the maximum</h4>
+<div class="outline-text-4" id="text-org7f0e86e">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #009e73; font-style: italic;">/* </span><span style="color: #009e73; font-style: italic;">Divide-and-conquer to find the maximum </span><span style="color: #009e73; font-style: italic;">*/</span>
+<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #d55e00;">max</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">a</span>[], <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>)
+{
+    <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">u</span>, <span style="color: #e69f00; font-weight: bold;">v</span>;
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">m</span> = (l + r) / 2;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (l == r)
+        <span style="color: #56b4e9; font-weight: bold;">return</span> a[l];
+    u = max(a, l, m);
+    v = max(a, m + 1, r);
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (u &gt; v)
+        <span style="color: #56b4e9; font-weight: bold;">return</span> u;
+    <span style="color: #56b4e9; font-weight: bold;">else</span>
+        <span style="color: #56b4e9; font-weight: bold;">return</span> v;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd339c05" class="outline-4">
+<h4 id="orgd339c05">Program 5.7 Solution to the towers of Hanoi</h4>
+<div class="outline-text-4" id="text-orgd339c05">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">hanoi</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">N</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">d</span>)
+{
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (N == 0)
+        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    hanoi(N - 1, -d);
+    shift(N, d);
+    hanoi(N - 1, -d);
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgee63fbb" class="outline-4">
+<h4 id="orgee63fbb">Program 5.8 Divide and conquer to draw a ruler</h4>
+<div class="outline-text-4" id="text-orgee63fbb">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #d55e00;">rule</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">h</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">m</span> = (l+r)/2;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (h &gt; 0)
+      { 
+        rule(l, m, h-1);
+        mark(m, h);
+        rule(m, r, h-1);
+      }
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb46cee" class="outline-4">
+<h4 id="orgdb46cee">Program 5.9 Nonrecursive program to draw a ruler</h4>
+<div class="outline-text-4" id="text-orgdb46cee">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #d55e00;">rule</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">h</span>)
+  { 
+    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">j</span>, <span style="color: #e69f00; font-weight: bold;">t</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (t = 1, j = 1; t &lt;= h; j += j, t++)
+      <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; l+j+i &lt;= r; i += j+j)
+        mark(l+j+i, t);
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc753f39" class="outline-3">
+<h3 id="orgc753f39">5.3 Dynamic Programming</h3>
+<div class="outline-text-3" id="text-orgc753f39">
+</div>
+<div id="outline-container-org3dcd86d" class="outline-4">
+<h4 id="org3dcd86d">Program 5.10 Fibonacci numbers (recursive implementation)</h4>
+<div class="outline-text-4" id="text-org3dcd86d">
+<p>
+"This program is not usable because it takes exponential time to
+compute FN."
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">F</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>)
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (i &lt; 1) <span style="color: #56b4e9; font-weight: bold;">return</span> 0;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (i == 1) <span style="color: #56b4e9; font-weight: bold;">return</span> 1;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> F(i-1) + F(i-2);
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb41fb7" class="outline-4">
+<h4 id="orgbb41fb7">Program 5.11 Fibonacci numbers (dynamic programming)</h4>
+<div class="outline-text-4" id="text-orgbb41fb7">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">F</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">t</span>;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (knownF[i] != unknown) <span style="color: #56b4e9; font-weight: bold;">return</span> knownF[i];
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (i == 0) t = 0;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (i == 1) t = 1;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (i &gt; 1) t = F(i-1) + F(i-2);
+    <span style="color: #56b4e9; font-weight: bold;">return</span> knownF[i] = t; 
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc110b57" class="outline-4">
+<h4 id="orgc110b57">Program 5.12 Knapsack problem (recursive implementation)</h4>
+<div class="outline-text-4" id="text-orgc110b57">
+<p>
+"do not use this program, because it will take exponential time"
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">knap</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">cap</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">space</span>, <span style="color: #e69f00; font-weight: bold;">max</span>, <span style="color: #e69f00; font-weight: bold;">t</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0, max = 0; i &lt; N; i++)
+      <span style="color: #56b4e9; font-weight: bold;">if</span> ((space = cap-items[i].size) &gt;= 0)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> ((t = knap(space) + items[i].val) &gt; max) 
+          max = t;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> max;     
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf5f560" class="outline-4">
+<h4 id="orgaf5f560">Program 5.13 Knapsack problem (dynamic programming)</h4>
+<div class="outline-text-4" id="text-orgaf5f560">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">knap</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">M</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">space</span>, <span style="color: #e69f00; font-weight: bold;">max</span>, <span style="color: #e69f00; font-weight: bold;">maxi</span>, <span style="color: #e69f00; font-weight: bold;">t</span>;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (maxKnown[M] != unknown) <span style="color: #56b4e9; font-weight: bold;">return</span> maxKnown[M];
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0, max = 0; i &lt; N; i++)
+      <span style="color: #56b4e9; font-weight: bold;">if</span> ((space = M-items[i].size) &gt;= 0)
+        <span style="color: #56b4e9; font-weight: bold;">if</span> ((t = knap(space) + items[i].val) &gt; max)
+          { max = t; maxi = i; }
+    maxKnown[M] = max; itemKnown[M] = items[maxi];
+    <span style="color: #56b4e9; font-weight: bold;">return</span> max;     
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org938156e" class="outline-3">
+<h3 id="org938156e">5.4 Trees</h3>
+<div class="outline-text-3" id="text-org938156e">
+<p>
+no code
+</p>
+</div>
+</div>
+
+<div id="outline-container-org59e12a8" class="outline-3">
+<h3 id="org59e12a8">5.5 Mathematical Properties of Binary Trees</h3>
+<div class="outline-text-3" id="text-org59e12a8">
+<p>
+no code
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5eb6d5" class="outline-3">
+<h3 id="orgf5eb6d5">5.6 Tree Traversal</h3>
+<div class="outline-text-3" id="text-orgf5eb6d5">
+</div>
+<div id="outline-container-org2802b76" class="outline-4">
+<h4 id="org2802b76">Program 5.14 Recursive tree traversal</h4>
+<div class="outline-text-4" id="text-org2802b76">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverse</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">link</span>))
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (h == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span>;
+    (*visit)(h); 
+    traverse(h-&gt;l, visit);
+    traverse(h-&gt;r, visit);
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b51410" class="outline-4">
+<h4 id="org9b51410">Program 5.15 Preorder traversal (nonrecursive)</h4>
+<div class="outline-text-4" id="text-org9b51410">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverse</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">link</span>))
+  {
+    STACKinit(max); STACKpush(h);
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (!STACKempty())
+      {
+        (*visit)(h = STACKpop());
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (h-&gt;r != <span style="color: #d55e00; font-weight: bold;">NULL</span>) STACKpush(h-&gt;r); 
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (h-&gt;l != <span style="color: #d55e00; font-weight: bold;">NULL</span>) STACKpush(h-&gt;l); 
+      }
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb2917de" class="outline-4">
+<h4 id="orgb2917de">Program 5.16 Level-order traversal</h4>
+<div class="outline-text-4" id="text-orgb2917de">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverse</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">link</span>))
+  {
+    QUEUEinit(max); QUEUEput(h);
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (!QUEUEempty())
+      {
+        (*visit)(h = QUEUEget());
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (h-&gt;l != <span style="color: #d55e00; font-weight: bold;">NULL</span>) QUEUEput(h-&gt;l); 
+        <span style="color: #56b4e9; font-weight: bold;">if</span> (h-&gt;r != <span style="color: #d55e00; font-weight: bold;">NULL</span>) QUEUEput(h-&gt;r); 
+      }
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org594ee5c" class="outline-3">
+<h3 id="org594ee5c">5.7 Recursive Binary-Tree Algorithms</h3>
+<div class="outline-text-3" id="text-org594ee5c">
+</div>
+<div id="outline-container-orgcd412d7" class="outline-4">
+<h4 id="orgcd412d7">Program 5.I7 Computation of tree parameters</h4>
+<div class="outline-text-4" id="text-orgcd412d7">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">count</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>)
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (h == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span> 0;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> count(h-&gt;l) + count(h-&gt;r) + 1;
+  }
+<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">height</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">h</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">u</span>, <span style="color: #e69f00; font-weight: bold;">v</span>;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (h == <span style="color: #d55e00; font-weight: bold;">NULL</span>) <span style="color: #56b4e9; font-weight: bold;">return</span> -1;
+    u = height(h-&gt;l); v = height(h-&gt;r);
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (u &gt; v) <span style="color: #56b4e9; font-weight: bold;">return</span> u+1; <span style="color: #56b4e9; font-weight: bold;">else</span> <span style="color: #56b4e9; font-weight: bold;">return</span> v+1;
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbfbdffe" class="outline-4">
+<h4 id="orgbfbdffe">Program 5-18 Quick tree-print function</h4>
+<div class="outline-text-4" id="text-orgbfbdffe">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">printnode</span>(<span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">c</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">h</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = 0; i &lt; h; i++) printf(<span style="color: #848ea9;">"  "</span>);
+    printf(<span style="color: #848ea9;">"%c\n"</span>, c);
+  }
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">show</span>(<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">h</span>)
+  { 
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (x == <span style="color: #d55e00; font-weight: bold;">NULL</span>) { printnode(<span style="color: #848ea9;">"*"</span>, h); <span style="color: #56b4e9; font-weight: bold;">return</span>; }
+    show(x-&gt;r, h+1);    
+    printnode(x-&gt;item, h);
+    show(x-&gt;l, h+1);    
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org81a46dd" class="outline-4">
+<h4 id="org81a46dd">Program 5.I9 Construction of a tournament</h4>
+<div class="outline-text-4" id="text-org81a46dd">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> *<span style="color: #0072b2; font-weight: bold;">link</span>;
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">node</span> { <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>; <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #e69f00; font-weight: bold;">r</span> };
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">NEW</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">item</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">r</span>)
+  { <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x); 
+    x-&gt;item = item; x-&gt;l = l; x-&gt;r = r;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+  }
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">max</span>(<span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">a</span>[], <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">r</span>)
+  { <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">m</span> = (l+r)/2; <span style="color: #0072b2; font-weight: bold;">Item</span> <span style="color: #e69f00; font-weight: bold;">u</span>, <span style="color: #e69f00; font-weight: bold;">v</span>;
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = NEW(a[m], <span style="color: #d55e00; font-weight: bold;">NULL</span>, <span style="color: #d55e00; font-weight: bold;">NULL</span>);
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (l == r) <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+    x-&gt;l = max(a, l, m);
+    x-&gt;r = max(a, m+1, r);
+    u = x-&gt;l-&gt;item; v = x-&gt;r-&gt;item;
+    <span style="color: #56b4e9; font-weight: bold;">if</span> (u &gt; v) 
+      x-&gt;item = u; <span style="color: #56b4e9; font-weight: bold;">else</span> x-&gt;item = v;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org916df5d" class="outline-4">
+<h4 id="org916df5d">Program 5.20 Construction of a parse tree</h4>
+<div class="outline-text-4" id="text-org916df5d">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">a</span>; <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+<span style="color: #56b4e9; font-weight: bold;">typedef</span> <span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">Tnode</span>* <span style="color: #0072b2; font-weight: bold;">link</span>;
+<span style="color: #56b4e9; font-weight: bold;">struct</span> <span style="color: #0072b2; font-weight: bold;">Tnode</span> { <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">token</span>; <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #e69f00; font-weight: bold;">r</span>; };
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">NEW</span>(<span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">token</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">l</span>, <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">r</span>)
+  { <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = malloc(<span style="color: #56b4e9; font-weight: bold;">sizeof</span> *x); 
+    x-&gt;token = token; x-&gt;l = l; x-&gt;r = r;
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+  }
+<span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #d55e00;">parse</span>()
+  { <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">t</span> = a[i++];
+    <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">x</span> = NEW(t, <span style="color: #d55e00; font-weight: bold;">NULL</span>, <span style="color: #d55e00; font-weight: bold;">NULL</span>);
+    <span style="color: #56b4e9; font-weight: bold;">if</span> ((t == <span style="color: #848ea9;">'+'</span>) || (t == <span style="color: #848ea9;">'*'</span>))
+      { x-&gt;l = parse(); x-&gt;r = parse(); }
+    <span style="color: #56b4e9; font-weight: bold;">return</span> x;
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11d87b9" class="outline-3">
+<h3 id="org11d87b9">5.8 Graph Traversal</h3>
+<div class="outline-text-3" id="text-org11d87b9">
+</div>
+<div id="outline-container-org7072a75" class="outline-4">
+<h4 id="org7072a75">Program 5.21 Depth-first search</h4>
+<div class="outline-text-4" id="text-org7072a75">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverse</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">k</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">int</span>))
+  { <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span>;
+    (*visit)(k); visited[k] = 1;
+    <span style="color: #56b4e9; font-weight: bold;">for</span> (t = adj[k]; t != <span style="color: #d55e00; font-weight: bold;">NULL</span>; t = t-&gt;next)
+      <span style="color: #56b4e9; font-weight: bold;">if</span> (!visited[t-&gt;v]) traverse(t-&gt;v, visit);
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ea6351" class="outline-4">
+<h4 id="org7ea6351">Program 5.22 Breadth-first search</h4>
+<div class="outline-text-4" id="text-org7ea6351">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">traverse</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">k</span>, <span style="color: #0072b2; font-weight: bold;">void</span> (*<span style="color: #d55e00;">visit</span>)(<span style="color: #0072b2; font-weight: bold;">int</span>))
+  { <span style="color: #0072b2; font-weight: bold;">link</span> <span style="color: #e69f00; font-weight: bold;">t</span>;
+    QUEUEinit(V); QUEUEput(k);
+    <span style="color: #56b4e9; font-weight: bold;">while</span> (!QUEUEempty())
+      <span style="color: #56b4e9; font-weight: bold;">if</span> (visited[k = QUEUEget()] == 0)
+        {
+          (*visit)(k); visited[k] = 1;
+          <span style="color: #56b4e9; font-weight: bold;">for</span> (t = adj[k]; t != <span style="color: #d55e00; font-weight: bold;">NULL</span>; t = t-&gt;next)
+            <span style="color: #56b4e9; font-weight: bold;">if</span> (visited[t-&gt;v] == 0) QUEUEput(t-&gt;v);
+        }
+  }
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

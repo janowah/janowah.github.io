@@ -1,8 +1,7 @@
 #+title: help
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-#+BEGIN_EXAMPLE
-  help
-#+END_EXAMPLE
+- https://en.cppreference.com/w/c
+- http://c-faq.com/  comp.lang.c Frequently Asked Questions
 
 [[./c.html][back]]
