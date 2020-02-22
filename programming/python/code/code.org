@@ -6,8 +6,283 @@
 #+HTML_HEAD_EXTRA: pre.src-python {background-color: #ffffff;}
 #+HTML_HEAD_EXTRA: </style>
 
-* chapter 4: lists
+* Chapter 2 - Flow Control
+
+** vampire.py
+
+#+BEGIN_SRC python :tangle vampire.py :padline no
+  if name == 'Alice':
+      print('Hi, Alice.')
+  elif age < 12:
+      print('You are not Alice, kiddo.')
+  elif age > 2000:
+      print('Unlike you, Alice is not an undead, immortal vampire.')
+  elif age > 100:
+      print('You are not Alice, grannie.')
+#+END_SRC
+
+** vampire2.py
+
+#+BEGIN_SRC python :tangle vampire2.py :padline no
+  if name == 'Alice':
+      print('Hi, Alice.')
+  elif age < 12:
+      print('You are not Alice, kiddo.')
+  elif age > 100:
+      print('You are not Alice, grannie.')
+  elif age > 2000:
+      print('Unlike you, Alice is not an undead, immortal vampire.')
+#+END_SRC
+
+** littleKid.py
+
+#+BEGIN_SRC python :tangle littleKid.py :padline no
+  if name == 'Alice':
+      print('Hi, Alice.')
+  elif age < 12:
+      print('You are not Alice, kiddo.')
+  else:
+      print('You are neither Alice nor a little kid.')
+#+END_SRC
+
+** swordfish.py
+
+#+BEGIN_SRC python :tangle swordfish.py :padline no
+  # swordfish.py WORKS. case sensitive.
+
+  while True:
+      print('Who are you?')
+      name = input()
+      if name != 'Joe':
+          continue
+      print('Hello, Joe. What is the password? (It is a fish.)')
+      password = input()
+      if password == 'swordfish':
+          break
+  print('Access granted.')
+#+END_SRC
+
+** fiveTimes.py
+
+#+BEGIN_SRC python :tangle fiveTimes.py :padline no
+  # fiveTimes.py FOR LOOP. WORKS
+  print('My name is')
+  for i in range(5):
+      print('Jimmy Five Times (' + str(i) + ')')
+#+END_SRC
+
+** printRandom.py
+
+#+BEGIN_SRC python :tangle printRandom.py :padline no
+  # printRandom.py. random. WORKS
+
+  import random
+  for i in range(5):
+      print(random.randint(1, 10))
+
+#+END_SRC
+
+** exitExample.py
+
+#+BEGIN_SRC python :tangle exitExample.py :padline no
+  # exitExample.py. EXIT. WORKS
+
+  import sys
+
+  while True:
+      print('Type exit to exit.')
+      response = input()
+      if response == 'exit':
+          sys.exit()
+      print('You typed ' + response + '.')
+#+END_SRC
+
+* Chapter 3 - Functions
+
+** helloFunc.py
+
+#+BEGIN_SRC python :tangle helloFunc.py :padline no
+# helloFunc.py. functions. WORKS
+
+def hello():
+    print('Howdy!')
+    print('Howdy!!!')
+    print('Hello there.')
+
+hello()
+hello()
+hello()
+#+END_SRC
+
+** helloFunc2.py
+
+#+BEGIN_SRC python :tangle helloFunc2.py :padline no
+# helloFunc2.py. function arguments. WORKS
+
+def hello(name):
+    print('Hello ' + name)
+
+hello('Alice')
+hello('Bob')
+#+END_SRC
+
+** magic8Ball.py
+
+#+BEGIN_SRC python :tangle magic8Ball.py :padline no
+  # magic8Ball.py. WORKS
+
+  import random
+
+  def getAnswer(answerNumber):
+      if answerNumber == 1:
+          return 'It is certain'
+      elif answerNumber == 2:
+          return 'It is decidedly so'
+      elif answerNumber == 3:
+          return 'Yes'
+      elif answerNumber == 4:
+          return 'Reply hazy try again'
+      elif answerNumber == 5:
+          return 'Ask again later'
+      elif answerNumber == 6:
+          return 'Concentrate and ask again'
+      elif answerNumber == 7:
+          return 'My reply is no'
+      elif answerNumber == 8:
+          return 'Outlook not so good'
+      elif answerNumber == 9:
+          return 'Very doubtful'
+
+  r = random.randint(1, 9)
+  fortune = getAnswer(r)
+  print(fortune)
+#+END_SRC
+
+** zeroDivide.py
+
+#+BEGIN_SRC python :tangle zeroDivide.py :padline no
+  # zeroDivide.py
+  # example of bad code
+  # Exception Handling
+
+  # def spam(divideBy):
+    #  return 42 / divideBy
+
+  def spam(divideBy):
+      try:
+          return 42 / divideBy
+      except ZeroDivisionError:
+          print('Error: Invalid argument.')
+
+  print(spam(2))
+  print(spam(12))
+  print(spam(0))
+  print(spam(1))
+#+END_SRC
+
+** guessTheNumber.py
+
+#+BEGIN_SRC python :tangle guessTheNumber.py :padline no
+  # guessTheNumber.py
+  # A Short Program: Guess the Number
+  # WORKS
+
+  # This is a guess the number game.
+
+  import random
+  secretNumber = random.randint(1, 20)
+  print('I am thinking of a number between 1 and 20.')
+
+  # Ask the player to guess 6 times.
+  for guessesTaken in range(1, 7):
+      print('Take a guess.')
+      guess = int(input())
+
+      if guess < secretNumber:
+          print('Your guess is too low.')
+      elif guess > secretNumber:
+          print('Your guess is too high.')
+      else:
+          break # This condition is the correct guess!
+
+  if guess == secretNumber:
+      print('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
+  else:
+      print('Nope. The number I was thinking of was ' + str(secretNumber))
+#+END_SRC
+
+** sameName2.py
+
+#+BEGIN_SRC python :tangle sameName2.py :padline no
+  # sameName2.py
+  # The global Statement
+
+  def spam():
+      global eggs
+      eggs = 'spam'
+    
+  eggs = 'global'
+  spam()
+  print(eggs)
+#+END_SRC
+
+** sameName3.py
+
+#+BEGIN_SRC python :tangle sameName3.py :padline no
+  # sameName3.py
+
+  def spam():
+      global eggs
+      eggs = 'spam' # this is the global
+
+  def bacon():
+      eggs = 'bacon' # this is a localw
+  def ham():
+      print(eggs) # this is the global
+
+  eggs = 42 # this is the global
+  spam()
+  print(eggs)
+#+END_SRC
+
+** sameName4.py
+
+#+BEGIN_SRC python :tangle sameName4.py :padline no
+  # sameName4.py
+  # example of bad code
+
+  def spam():
+      print(eggs) # ERROR!
+      eggs = 'spam local'
+
+  eggs = 'global'
+  spam()
+#+END_SRC
+
+** sameName.py
+
+#+BEGIN_SRC python :tangle sameName.py :padline no
+  # sameName.py
+  # Local and Global Variables with the Same Name
+  # WORKS
+
+  def spam():
+      eggs = 'spam local'
+      print(eggs)     # prints 'spam local'
+  def bacon():
+      eggs = 'bacon local'
+      print(eggs) # prints 'bacon local'
+      spam()
+      print(eggs) # prints 'bacon local'
+  eggs = 'global'
+  bacon()
+  print(eggs) # prints 'global'
+#+END_SRC
+
+* Chapter 4 - Lists
+
 ** allMyCats1.py
+
 #+BEGIN_SRC python :tangle allMyCats1.py :padline no
   # allMyCats1.py
   # Working with Lists
@@ -31,6 +306,7 @@
 #+END_SRC
 
 ** allMyCats2.py
+
 #+BEGIN_SRC python :tangle allMyCats2.py :padline no
   # allMyCats2.py
   # Working with Lists
@@ -50,6 +326,7 @@
 #+END_SRC
 
 ** myPets.py
+
 #+BEGIN_SRC python :tangle myPets.py :padline no
   # myPets.py
   # The in and not in Operators
@@ -65,6 +342,7 @@
 #+END_SRC
 
 ** magic8Ball2.py
+
 #+BEGIN_SRC python :tangle magic8Ball2.py :padline no
   # magic8Ball2.py
   # Example Program: Magic 8 Ball with a List
@@ -86,6 +364,7 @@
 #+END_SRC
 
 ** passingReference.py
+
 #+BEGIN_SRC python :tangle passingReference.py :padline no
   # passingReference.py
   # Passing References
@@ -99,8 +378,10 @@
   print(spam)
 #+END_SRC
 
-* chapter 5: dictionaries and structuring data
+* Chapter 5 - Dictionaries and Structuring Data
+
 ** birthdays.py
+
 #+BEGIN_SRC python :tangle birthdays.py :padline no
   # birthdays.py
   # Dictionaries vs. Lists
@@ -125,6 +406,7 @@
 #+END_SRC
 
 ** characterCount.py
+
 #+BEGIN_SRC python :tangle characterCount.py :padline no
   # characterCount.py
   # The setdefault() Method
@@ -140,6 +422,7 @@
 #+END_SRC
 
 ** prettyCharacterCount.py
+
 #+BEGIN_SRC python :tangle prettyCharacterCount.py :padline no
   # prettyCharacterCount.py
   # Pretty Printing
@@ -157,6 +440,7 @@
 #+END_SRC
 
 ** ticTacToe.py
+
 #+BEGIN_SRC python :tangle ticTacToe.py :padline no
   # ticTacToe.py
   # A Tic-Tac-Toe Board
@@ -188,6 +472,7 @@
 #+END_SRC
 
 ** inventory.py
+
 #+BEGIN_SRC python :tangle inventory.py :padline no
   # inventory.py
   # Practice Projects
@@ -212,8 +497,10 @@
   #displayInventory(inv)
 #+END_SRC
 
-* chapter 6: strings
+* Chapter 6 - Manipulating Strings
+
 ** catnapping.py
+
 #+BEGIN_SRC python :tangle catnapping.py :padline no
   # catnapping.py
   # Multiline Strings with Triple Quotes
@@ -228,6 +515,7 @@
 #+END_SRC
 
 ** validateInput.py
+
 #+BEGIN_SRC python :tangle validateInput.py :padline no
   # validateInput.py
   # The isX String Methods
@@ -249,6 +537,7 @@
 #+END_SRC
 
 ** picnicTable.py
+
 #+BEGIN_SRC python :tangle picnicTable.py :padline no
   # picnicTable.py
   # Justifying Text with rjust(), ljust(), and center()
@@ -265,6 +554,7 @@
 #+END_SRC
 
 ** pw.py
+
 #+BEGIN_SRC python :tangle pw.py :padline no
   #! python3
   # pw.py - An insecure password locker program.
@@ -293,6 +583,7 @@
 #+END_SRC
 
 ** bulletPointAdder.py
+
 #+BEGIN_SRC python :tangle bulletPointAdder.py :padline no
   #! python3
   # bulletPointAdder.py - Adds Wikipedia bullet points to the start
@@ -311,17 +602,289 @@
   pyperclip.copy(text)
 #+END_SRC
 
-* chapter 12: excel
+* Chapter 7 - Pattern Matching with Regular Expressions
+
+** isPhoneNumber.py
+
+#+BEGIN_SRC python :tangle isPhoneNumber.py :padline no
+  # isPhoneNumber.py
+  # works
+
+  def isPhoneNumber(text):
+      if len(text) != 12:
+          return False
+      for i in range(0, 3):
+          if not text[i].isdecimal():
+              return False
+      if text[3] != '-':
+          return False
+      for i in range(4, 7):
+          if not text[i].isdecimal():
+              return False
+      if text[7] != '-':
+          return False
+      for i in range(8, 12):
+          if not text[i].isdecimal():
+              return False
+      return True
+
+
+  print('415-555-4242 is a phone number:')
+  print(isPhoneNumber('415-555-4242'))
+  print('Moshi moshi is a phone number:')
+  print(isPhoneNumber('Moshi moshi'))
+#+END_SRC
+
+** phoneAndEmail.py
+
+#+BEGIN_SRC python :tangle phoneAndEmail.py :padline no
+  #! python3
+  # phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+  # works
+  # usage: python3.4 ./phoneAndEmail.py
+  # copy https://www.nostarch.com/contactus.htm to the clipboard
+
+  import pyperclip, re
+
+  phoneRegex = re.compile(r'''(
+      (\d{3}|\(\d{3}\))?                 # area code        
+      (\s|-|\.)?                         # separator        
+      (\d{3})                            # first 3 digits   
+      (\s|-|\.)                          # separator        
+      (\d{4})                            # last 4 digits    
+      (\s*(ext|x|ext.)\s*(\d{2,5}))?     # extension      
+      )''', re.VERBOSE)
+
+  # Create email regex.
+  emailRegex = re.compile(r'''(
+      [a-zA-Z0-9._%+-]+    # username
+      @                    # @ symbol
+      [a-zA-Z0-9.-]+       # domain name
+      (\.[a-zA-Z]{2,4})    # dot-something
+      )''', re.VERBOSE)
+
+  # Find matches in clipboard text.
+  text = str(pyperclip.paste())
+  matches = []
+  for groups in phoneRegex.findall(text):
+      phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+      if groups[8] != '':
+          phoneNum += ' x' + groups[8]
+      matches.append(phoneNum)
+  for groups in emailRegex.findall(text):
+      matches.append(groups[0])
+
+  # Copy results to the clipboard.
+  if len(matches) > 0:
+      pyperclip.copy('\n'.join(matches))
+      print('Copied to clipboard:')
+      print('\n'.join(matches))
+  else:
+      print('No phone numbers or email addresses found.')
+#+END_SRC
+
+* Chapter 8 - Reading and Writing Files
+
+** randomQuizGenerator.py
+
+#+BEGIN_SRC python :tangle randomQuizGenerator.py :padline no
+  #! python3
+  # randomQuizGenerator.py - Creates quizzes with questions and answers in
+  # random order, along with the answer key.
+  # works
+
+  import random
+
+  # The quiz data. Keys are states and values are their capitals.
+  capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau',
+              'Arizona': 'Phoenix','Arkansas': 'Little Rock',
+              'California': 'Sacramento', 'Colorado': 'Denver',
+              'Connecticut': 'Hartford', 'Delaware': 'Dover',
+              'Florida': 'Tallahassee','Georgia': 'Atlanta',
+              'Hawaii': 'Honolulu', 'Idaho': 'Boise',
+              'Illinois':'Springfield', 'Indiana': 'Indianapolis',
+              'Iowa': 'Des Moines', 'Kansas':'Topeka',
+              'Kentucky': 'Frankfort', 'Louisiana': 'Baton Rouge',
+              'Maine':'Augusta', 'Maryland': 'Annapolis',
+              'Massachusetts': 'Boston', 'Michigan':'Lansing',
+              'Minnesota': 'Saint Paul', 'Mississippi': 'Jackson',
+              'Missouri':'Jefferson City', 'Montana': 'Helena',
+              'Nebraska': 'Lincoln', 'Nevada':'Carson City',
+              'New Hampshire': 'Concord', 'New Jersey': 'Trenton',
+              'New Mexico': 'Santa Fe', 'New York': 'Albany',
+              'North Carolina': 'Raleigh','North Dakota': 'Bismarck',
+              'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',
+              'Oregon': 'Salem', 'Pennsylvania': 'Harrisburg',
+              'Rhode Island': 'Providence','South Carolina': 'Columbia',
+              'South Dakota': 'Pierre', 'Tennessee':'Nashville',
+              'Texas': 'Austin', 'Utah': 'Salt Lake City',
+              'Vermont':'Montpelier', 'Virginia': 'Richmond',
+              'Washington': 'Olympia', 'WestVirginia': 'Charleston',
+              'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
+
+  # Generate 35 quiz files.
+
+  for quizNum in range(35):
+      # Create the quiz and answer key files.
+      quizFile = open('capitalsquiz%s.txt' % (quizNum + 1), 'w')
+      answerKeyFile = open('capitalsquiz_answers%s.txt' % (quizNum + 1), 'w')
+
+      # Write out the header for the quiz.
+      quizFile.write('Name:\n\nDate:\n\nPeriod:\n\n')
+      quizFile.write((' ' * 20) + 'State Capitals Quiz (Form %s)' % (quizNum + 1))
+      quizFile.write('\n\n')
+
+      # Shuffle the order of the states.
+      states = list(capitals.keys())
+      random.shuffle(states)
+
+      # Loop through all 50 states, making a question for each.
+      for questionNum in range(50):
+
+          # Get right and wrong answers.
+          correctAnswer = capitals[states[questionNum]]
+          wrongAnswers = list(capitals.values())
+          del wrongAnswers[wrongAnswers.index(correctAnswer)]
+          wrongAnswers = random.sample(wrongAnswers, 3)
+          answerOptions = wrongAnswers + [correctAnswer]
+          random.shuffle(answerOptions)
+
+          # Write the question and the answer options to the quiz file.
+          quizFile.write('%s. What is the capital of %s?\n' % (questionNum + 1,
+              states[questionNum]))
+          for i in range(4):
+              quizFile.write('%s. %s\n' % ('ABCD'[i], answerOptions[i]))
+          quizFile.write('\n')
+
+          # Write the answer key to a file.
+          answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[
+              answerOptions.index(correctAnswer)]))
+  quizFile.close()
+  answerKeyFile.close()
+#+END_SRC
+
+** mcb.pyw
+
+#+BEGIN_SRC python :tangle mcb.pyw :padline no
+  #! python3
+  # mcb.pyw - Saves and loads pieces of text to the clipboard.
+  # Usage: py.exe mcb.pyw save <keyword> - Saves clipboard to keyword.
+  #        py.exe mcb.pyw <keyword> - Loads keyword to clipboard.
+  #        py.exe mcb.pyw list - Loads all keywords to clipboard.
+
+  # works but check what is going on
+
+  import shelve, pyperclip, sys
+
+  mcbShelf = shelve.open('mcb')
+
+  # Save clipboard content.
+  if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+      mcbShelf[sys.argv[2]] = pyperclip.paste()
+  elif len(sys.argv) == 2:
+      # List keywords and load content.
+      if sys.argv[1].lower() == 'list':
+          pyperclip.copy(str(list(mcbShelf.keys())))
+      elif sys.argv[1] in mcbShelf:
+          pyperclip.copy(mcbShelf[sys.argv[1]])
+#+END_SRC
+
+* Chapter 10 - Debugging
+
+** boxPrint.py
+
+#+BEGIN_SRC python :tangle boxPrint.py :padline no
+  def boxPrint(symbol, width, height):
+      if len(symbol) != 1:
+          raise Exception('Symbol must be a single character string.')
+      if width <= 2:
+          raise Exception('Width must be greater than 2.')
+      if height <= 2:
+          raise Exception('Height must be greater than 2.')
+      print(symbol * width)
+      for i in range(height - 2):
+          print(symbol + (' ' * (width - 2)) + symbol)
+      print(symbol * width)
+
+  for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3)):
+      try:
+          boxPrint(sym, w, h)
+      except Exception as err:
+          print('An exception happened: ' + str(err))
+#+END_SRC
+
+** buggyAddingProgram.py
+
+#+BEGIN_SRC python :tangle buggyAddingProgram.py :padline no
+  print('Enter the first number to add:')
+  first = input()
+  print('Enter the second number to add:')
+  second = input()
+  print('Enter the third number to add:')
+  third = input()
+  print('The sum is ' + first + second + third)
+#+END_SRC
+
+** coinFlip.py
+
+#+BEGIN_SRC python :tangle coinFlip.py :padline no
+  import random
+  heads = 0
+  for i in range(1, 1001):
+      if random.randint(0, 1) == 1:
+          heads = heads + 1
+      if i == 500:
+          print('Halfway done!')
+  print('Heads came up ' + str(heads) + ' times.')
+#+END_SRC
+
+** errorExample.py
+
+#+BEGIN_SRC python :tangle errorExample.py :padline no
+  def spam():
+      bacon()
+      
+  def bacon():
+      raise Exception('This is the error message.')
+
+  spam()
+#+END_SRC
+
+** factorialLog.py
+
+#+BEGIN_SRC python :tangle factorialLog.py :padline no
+  import logging
+  logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+  logging.debug('Start of program')
+
+  def factorial(n):
+      logging.debug('Start of factorial(%s%%)' % (n))
+      total = 1
+      # for i in range(n + 1):
+      for i in range(1, n + 1):    
+          total *= i
+          logging.debug('i is ' + str(i) + ', total is ' + str(total))
+      logging.debug('End of factorial(%s%%)' % (n))
+      return total
+
+  print(factorial(5))
+  logging.debug('End of program')
+#+END_SRC
+
+* chapter 12 - Working with Excel Spreadsheets
+
 ** Opening Excel Documents with OpenPyXL
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('example.xlsx')
   >>> type(wb)
   <class 'openpyxl.workbook.workbook.Workbook'>
-#+END_EXAMPLE
+#+END_SRC
 
 ** Getting Sheets from the Workbook
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('example.xlsx')
   >>> type(wb)
@@ -340,10 +903,11 @@
   >>> anotherSheet = wb.get_active_sheet()
   >>> anotherSheet
   <Worksheet "Sheet1">
-#+END_EXAMPLE
+#+END_SRC
 
 ** Getting Cells from the Sheets
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('example.xlsx')
   >>> sheet = wb.get_sheet_by_name('Sheet1')
@@ -361,9 +925,9 @@
   >>> sheet['C1'].value
   73
   >>> 
-#+END_EXAMPLE
+#+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC python
   >>> sheet.cell(row=1, column=2)
   <Cell 'Sheet1'.B1>
   >>> sheet.cell(row=1, column=2).value
@@ -375,21 +939,22 @@
   3 Pears
   5 Apples
   7 Strawberries
-#+END_EXAMPLE
+#+END_SRC
 
-#+BEGIN_EXAMPLE
->>> import openpyxl
->>> wb = openpyxl.load_workbook('example.xlsx')
->>> sheet = wb.get_sheet_by_name('Sheet1')
->>> sheet.max_row
-7
->>> sheet.max_column
-3
->>> 
-#+END_EXAMPLE
+#+BEGIN_SRC python
+  >>> import openpyxl
+  >>> wb = openpyxl.load_workbook('example.xlsx')
+  >>> sheet = wb.get_sheet_by_name('Sheet1')
+  >>> sheet.max_row
+  7
+  >>> sheet.max_column
+  3
+  >>> 
+#+END_SRC
 
 ** Converting Between Column Letters and Numbers
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> from openpyxl.utils import get_column_letter, column_index_from_string
   >>> get_column_letter(1)
@@ -408,10 +973,11 @@
   1
   >>> column_index_from_string('AA')
   27
-#+END_EXAMPLE
+#+END_SRC
 
 ** Getting Rows and Columns from the Sheets
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('example.xlsx')
   >>> sheet = wb.get_sheet_by_name('Sheet1')
@@ -436,9 +1002,9 @@
   B3 Pears
   C3 14
   --- END OF ROW ---
-#+END_EXAMPLE
+#+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('example.xlsx')
   >>> sheet = wb.get_active_sheet()
@@ -455,12 +1021,14 @@
   Apples
   Bananas
   Strawberries
-#+END_EXAMPLE
+#+END_SRC
 
 ** Project: Reading Data from a Spreadsheet
+
 =censuspopdata.xlsx=
 
 *** readCensusExcel.py
+
 #+BEGIN_SRC python :tangle readCensusExcel.py :padline no
   #! python3
   # readCensusExcel.py - Tabulates population and number of census tracts for
@@ -484,7 +1052,7 @@
       countyData.setdefault(state, {})
       # Make sure the key for this county in this state exists.
       countyData[state].setdefault(county, {'tracts': 0, 'pop': 0})
-      
+
       # Each row represents one census tract, so increment by one.
       countyData[state][county]['tracts'] += 1
       # Increase the county pop by the pop in this census tract.
@@ -498,17 +1066,18 @@
   print('Done.')
 #+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC python
   >>> import census2010
   >>> census2010.allData['AK']['Anchorage']
   {'pop': 291826, 'tracts': 55}
   >>> anchoragePop = census2010.allData['AK']['Anchorage']['pop']
   >>> print('The 2010 population of Anchorage was ' + str(anchoragePop))
   The 2010 population of Anchorage was 291826
-#+END_EXAMPLE
+#+END_SRC
 
 ** Creating and Saving Excel Documents
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.Workbook()
   >>> wb.get_sheet_names()
@@ -519,18 +1088,19 @@
   >>> sheet.title = 'Spam Bacon Eggs Sheet'
   >>> wb.get_sheet_names()
   ['Spam Bacon Eggs Sheet']
-#+END_EXAMPLE
+#+END_SRC
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('example.xlsx')
   >>> sheet = wb.get_active_sheet()
   >>> sheet.title = 'Spam Spam Spam'
   >>> wb.save('example_copy.xlsx')
-#+END_EXAMPLE
+#+END_SRC
 
 ** Creating and Removing Sheets
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.Workbook()
   >>> wb.get_sheet_names()
@@ -551,22 +1121,25 @@
   >>> wb.remove_sheet(wb.get_sheet_by_name('Sheet1'))
   >>> wb.get_sheet_names()
   ['First Sheet', 'Sheet']
-#+END_EXAMPLE
+#+END_SRC
 
 ** Writing Values to Cells
-#+BEGIN_EXAMPLE
+
+#+BEGIN_SRC python
   >>> import openpyxl
   >>> wb = openpyxl.Workbook()
   >>> sheet = wb.get_sheet_by_name('Sheet')
   >>> sheet['A1'] = 'Hello world!'
   >>> sheet['A1'].value
   'Hello world!'
-#+END_EXAMPLE
+#+END_SRC
 
 ** Project: Updating a Spreadsheet
+
 =produceSales.xlsx=
 
 *** updateProduce.py
+
 #+BEGIN_SRC python :tangle updateProduce.py :padline no
   #! python3
   # updateProduce.py - Corrects costs in produce sales spreadsheet.
@@ -592,8 +1165,10 @@
 #+END_SRC
 
 ** Adjusting Rows and Columns
+
 *** Setting Row Height and Column Width
-#+BEGIN_EXAMPLE works
+
+#+BEGIN_SRC python works
   >>> import openpyxl
   >>> wb = openpyxl.Workbook()
   >>> sheet = wb.get_active_sheet()
@@ -602,10 +1177,11 @@
   >>> sheet.row_dimensions[1].height = 70
   >>> sheet.column_dimensions['B'].width = 20
   >>> wb.save('dimensions.xlsx')
-#+END_EXAMPLE
+#+END_SRC
 
 *** Merging and Unmerging Cells
-#+BEGIN_EXAMPLE works
+
+#+BEGIN_SRC python works
   >>> import openpyxl
   >>> wb = openpyxl.Workbook()
   >>> sheet = wb.get_active_sheet()
@@ -614,18 +1190,19 @@
   >>> sheet.merge_cells('C5:D5')
   >>> sheet['C5'] = 'Two merged cells.'
   >>> wb.save('merged.xlsx')
-#+END_EXAMPLE
+#+END_SRC
 
-#+BEGIN_EXAMPLE works
+#+BEGIN_SRC python works
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('merged.xlsx')
   >>> sheet = wb.get_active_sheet()
   >>> sheet.unmerge_cells('A1:D3')
   >>> sheet.unmerge_cells('C5:D5')
   >>> wb.save('merged.xlsx')
-#+END_EXAMPLE
+#+END_SRC
 
 ** Freeze Panes
+
 *** Table 12-3: Frozen Pane Examples
 
 #+BEGIN_EXAMPLE
@@ -638,10 +1215,10 @@
   | sheet.freeze_panes = 'A1' or sheet.freeze_panes = None | No frozen panes           |
 #+END_EXAMPLE
 
-#+BEGIN_EXAMPLE works
+#+BEGIN_SRC python works
   >>> import openpyxl
   >>> wb = openpyxl.load_workbook('produceSales.xlsx')
   >>> sheet = wb.get_active_sheet()
   >>> sheet.freeze_panes = 'A2'
   >>> wb.save('freezeExample.xlsx')
-#+END_EXAMPLE
+#+END_SRC

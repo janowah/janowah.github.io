@@ -498,9 +498,7 @@
 
 * Chapter 2 - Types, Operators and Expressions
 
-will need to write my own main() to test these
-
-** strlen function
+** function: strlen
 
 - change strlen to xstrlen. conflict
 - gcc strlen.c
@@ -527,7 +525,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** atoi function
+** function: atoi
 
 - ascii to integer
 - not sure what is happening
@@ -556,7 +554,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** lower function
+** function: lower
 
 #+BEGIN_SRC c :tangle lower.c
   #include <stdio.h>
@@ -580,7 +578,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** rand function
+** function: rand
 
 #+BEGIN_SRC c :tangle rand.c
   #include <stdio.h>
@@ -613,7 +611,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** squeeze function
+** function: squeeze
 
 - ascii automatically converted to integers?
 - this works but i don't understand how
@@ -639,7 +637,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** strcat function
+** function: strcat
 
 - this only copies the first character of c
 - had to rename strcat to xstrcat
@@ -665,7 +663,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** getbits function
+** function: getbits
 
 - doesn't work like it should
 
@@ -688,7 +686,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** bitcount function
+** function: bitcount
 
 - haven't looked at this
 
@@ -705,9 +703,9 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-* Chapter 3 - Control Flow 
+* Chapter 3 - Control Flow
 
-** binsearch function
+** function: binsearch
 
 #+BEGIN_SRC c :tangle binsearch.c
   /* binsearch: find x in v[0] <= v[1] <= ... <= v[n-1] */
@@ -730,7 +728,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** switchex
+** program: count digits, white space, others (switch)
 
 #+BEGIN_SRC c :tangle switchex.c
   #include <stdio.h>
@@ -781,7 +779,7 @@ will need to write my own main() to test these
   digits = 0 1 1 1 1 1 0 0 0 0, white space = 2, other = 0
 #+END_EXAMPLE
 
-** atoi function
+** function: atoi
 
 #+BEGIN_SRC c :tangle atoif.c
   #include <ctype.h>
@@ -801,7 +799,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** shellsort function
+** function: shellsort
 
 #+BEGIN_SRC c :tangle shellsort.c
   /* shellsort: sort v[0]...v[n-1] into increasing order */
@@ -818,7 +816,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** reverse function
+** function: reverse
 
 #+BEGIN_SRC c :tangle reverse.c
   #include <string.h>
@@ -836,7 +834,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** itoa function
+** function: itoa
 
 #+BEGIN_SRC c :tangle itoa.c
   /* itoa: convert n to characters in s */
@@ -857,7 +855,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** trim function
+** function: trim
 
 #+BEGIN_SRC c :tangle trim.c
   /* trim: remove trailing blanks, tabs, newlines */
@@ -872,10 +870,13 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-
 * Chapter 4 - Functions and Program Structure
 
-** 41 ; not sure what this does
+** program: find all lines matching pattern
+
+#+BEGIN_EXAMPLE
+  41 ; not sure what this does
+#+END_EXAMPLE
 
 #+BEGIN_SRC c :tangle 41.c
   #include <stdio.h>
@@ -929,7 +930,11 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** atof function
+** function: atof
+
+#+BEGIN_EXAMPLE
+  ascii to float
+#+END_EXAMPLE
 
 #+BEGIN_SRC c :tangle atof.c
   #include <ctype.h>
@@ -956,7 +961,7 @@ will need to write my own main() to test these
   }
 #+END_SRC
 
-** calculator
+** program: calculator
 
 need to include and change getline
 
@@ -979,7 +984,11 @@ need to include and change getline
   }
 #+END_SRC
 
-** atoi function rewrite
+** function: atoi (rewrite)
+
+#+BEGIN_EXAMPLE
+  ascii to integer
+#+END_EXAMPLE
 
 Given atof, properly declared, we could write atoi (convert a string
 to int) in terms of it:
@@ -993,7 +1002,7 @@ to int) in terms of it:
   }
 #+END_SRC
 
-** TODO reverse polish calculator
+** program: reverse polish calculator
 
 push and pop?
 
@@ -1049,7 +1058,7 @@ push and pop?
   }
 #+END_SRC
 
-** push and pop functions
+** functions: push & pop
 
 #+BEGIN_SRC c
   #define MAXVAL 100 /* maximum depth of val stack */
@@ -1078,7 +1087,7 @@ push and pop?
   }
 #+END_SRC
 
-** TODO complete cal
+** program: complete cal
 
 missing getopt()
 
@@ -1204,7 +1213,7 @@ missing getopt()
   }
 #+END_SRC
 
-** getop function
+** function: getop
 
 #+BEGIN_SRC c
   #include <ctype.h>
@@ -1235,7 +1244,7 @@ missing getopt()
   }
 #+END_SRC
 
-** getch and ungetch funcions
+** funcions: getch & ungetch
 
 #+BEGIN_SRC c
   #define BUFSIZE 100
@@ -1257,7 +1266,11 @@ missing getopt()
   }
 #+END_SRC
 
-** recursion example. printd function
+** function: printd (recursion example)
+
+#+BEGIN_EXAMPLE
+  print decimal
+#+END_EXAMPLE
 
 #+BEGIN_SRC c
   #include <stdio.h>
@@ -1275,7 +1288,7 @@ missing getopt()
   }
 #+END_SRC
 
-** qsort function
+** functions: qsort & swap
 
 #+BEGIN_SRC c :tangle qsort.c
   /* qsort: sort v[left]...v[right] into increasing order */
@@ -1311,7 +1324,7 @@ missing getopt()
 
 * Chapter 5 - Pointers and Arrays
 
-** swap (with pointers)
+** function: swap (with pointers)
 
 #+BEGIN_SRC c
   void swap(int *px, int *py) /* interchange *px and *py */
@@ -1324,7 +1337,7 @@ missing getopt()
   }
 #+END_SRC
 
-** getint
+** function: getint
 
 #+BEGIN_SRC c :tangle getint.c
   #include <ctype.h>
@@ -1355,7 +1368,7 @@ missing getopt()
   }
 #+END_SRC
 
-** strlen 
+** function: strlen
 
 #+BEGIN_SRC c
   /* strlen: return length of string s */
@@ -1369,7 +1382,7 @@ missing getopt()
   }
 #+END_SRC
 
-** alloc and afree 
+** functions: alloc & afree
 
 #+BEGIN_SRC c
   #define ALLOCSIZE 10000 /* size of available space */
@@ -1393,7 +1406,7 @@ missing getopt()
   }
 #+END_SRC
 
-** strlen 
+** function: strlen
 
 #+BEGIN_SRC c
   /* strlen: return length of string s */
@@ -1407,7 +1420,7 @@ missing getopt()
   }
 #+END_SRC
 
-** strcpy (using arrays)
+** function: strcpy (using arrays)
 
 #+BEGIN_SRC c
   /* strcpy: copy t to s; array subscript version */
@@ -1421,7 +1434,7 @@ missing getopt()
   }
 #+END_SRC
 
-** strcpy (using pointers)
+** function: strcpy (using pointers)
 
 #+BEGIN_SRC c
   /* strcpy: copy t to s; pointer version */
@@ -1437,7 +1450,7 @@ missing getopt()
   }
 #+END_SRC
 
-** strcpy (experienced programmers)
+** function: strcpy (experienced programmers)
 
 #+BEGIN_SRC c
   /* strcpy: copy t to s; pointer version 2 */
@@ -1448,7 +1461,8 @@ missing getopt()
   }
 #+END_SRC
 
-** STRCPY (v3)
+** function: strcpy (v3)
+
 #+BEGIN_SRC c
   /* strcpy: copy t to s; pointer version 3 */
   void strcpy(char *s, char *t)
@@ -1458,7 +1472,7 @@ missing getopt()
   }
 #+END_SRC
 
-** strcmp (no pointers)
+** function: strcmp (no pointers)
 
 #+BEGIN_SRC c
   /* strcmp: return <0 if s<t, 0 if s==t, >0 if s>t */
@@ -1473,7 +1487,7 @@ missing getopt()
   }
 #+END_SRC
 
-** STRCMP (with pointers)
+** function: strcmp (with pointers)
 
 #+BEGIN_SRC c
   /* strcmp: return <0 if s<t, 0 if s==t, >0 if s>t */
@@ -1486,13 +1500,15 @@ missing getopt()
   }
 #+END_SRC
 
-** TODO program:  + readlines and writelines
-
-The function getline is from Section 1.9.
+** program: sort input lines
 
 #+BEGIN_EXAMPLE
+  + readlines and writelines
+
+  The function getline is from Section 1.9.
+
   55.c:39:33: error: lvalue required as left operand of assignment
-       if (nlines >= maxlines || p = alloc(len) == NULL)
+      if (nlines >= maxlines || p = alloc(len) == NULL)
 #+END_EXAMPLE
 
 #+BEGIN_SRC c :tangle 55.c
@@ -1553,7 +1569,7 @@ The function getline is from Section 1.9.
   }
 #+END_SRC
 
-** WRITELINES
+** function: writelines
 
 #+BEGIN_SRC c
   /* writelines: write output lines */
@@ -1564,7 +1580,7 @@ The function getline is from Section 1.9.
   }
 #+END_SRC
 
-** QSORT 
+** function: qsort
 
 #+BEGIN_SRC c
   /* qsort: sort v[left]...v[right] into increasing order */
@@ -1586,7 +1602,7 @@ The function getline is from Section 1.9.
   }
 #+END_SRC
 
-** swap 
+** function: swap (using char*)
 
 #+BEGIN_SRC c
   /* swap: interchange v[i] and v[j] */
@@ -1600,7 +1616,7 @@ The function getline is from Section 1.9.
   }
 #+END_SRC
 
-** multi-dimensional arrays daytab, day_of_year, month_day
+** multi-dimensional array: daytab, functions: day_of_year & month_day
 
 #+BEGIN_SRC c
   static char daytab[2][13] = {
@@ -1631,7 +1647,7 @@ The function getline is from Section 1.9.
   }
 #+END_SRC
 
-** month_name
+** function: month_name
 
 #+BEGIN_SRC c
   /* month_name: return name of n-th month */
@@ -1644,12 +1660,16 @@ The function getline is from Section 1.9.
       "July", "August", "September",
       "October", "November", "December"
     };
-    
+
     return (n < 1 || n > 12) ? name[0] : name[n];
   }
 #+END_SRC
 
-** DONE program: krecho v1
+** program: krecho v1
+
+#+BEGIN_EXAMPLE
+  kr echo
+#+END_EXAMPLE
 
 #+BEGIN_SRC c :tangle krecho.c
   #include <stdio.h>
@@ -1666,7 +1686,11 @@ The function getline is from Section 1.9.
   }
 #+END_SRC
 
-** DONE program: krecho v2
+** program: krecho v2
+
+#+BEGIN_EXAMPLE
+  kr echo
+#+END_EXAMPLE
 
 #+BEGIN_SRC c :tangle krechov2.c
   #include <stdio.h>
@@ -1687,11 +1711,11 @@ Alternatively, we could write the printf statement as
 
 This shows that the format argument of printf can be an expression too.
 
-** main
+** program: main
 
 uses getline
 
-#+BEGIN_SRC c :tangle 
+#+BEGIN_SRC c :tangle
   #include <stdio.h>
   #include <string.h>
   #define MAXLINE 1000
@@ -1716,7 +1740,7 @@ uses getline
   }
 #+END_SRC
 
-** program: 
+** program: find: print lines that match pattern from 1st arg
 
 #+BEGIN_SRC c
   #include <stdio.h>
@@ -1763,7 +1787,7 @@ uses getline
   }
 #+END_SRC
 
-** program: 
+** program: sort input lines
 
 #+BEGIN_SRC c
   #include <stdio.h>
@@ -1800,7 +1824,7 @@ uses getline
   }
 #+END_SRC
 
-** qsort 
+** function: qsort
 
 #+BEGIN_SRC c
   /* qsort: sort v[left]...v[right] into increasing order */
@@ -1823,7 +1847,7 @@ uses getline
   }
 #+END_SRC
 
-** NUMCMP 
+** function: numcmp
 
 #+BEGIN_SRC c
   #include <stdlib.h>
@@ -1844,7 +1868,7 @@ uses getline
   }
 #+END_SRC
 
-** swap 
+** function: swap (using void*)
 
 #+BEGIN_SRC c
   void swap(void *v[], int i, int j;)
@@ -1857,7 +1881,11 @@ uses getline
   }
 #+END_SRC
 
-** recursive decent parser dcl, dirdcl, 
+** functions: dcl & dirdcl
+
+#+BEGIN_EXAMPLE
+  recursive decent parser
+#+END_EXAMPLE
 
 #+BEGIN_SRC c
   /* dcl: parse a declarator */
@@ -1896,7 +1924,7 @@ uses getline
   }
 #+END_SRC
 
-** program: 
+** program: convert declaration to words
 
 #+BEGIN_SRC c :tangle 56.c
   #include <stdio.h>
@@ -1912,9 +1940,9 @@ uses getline
   void dirdcl(void);
 
   int gettoken(void);
-  int tokentype;             /* type of last token */         
-  char token[MAXTOKEN];      /* last token string */          
-  char name[MAXTOKEN];       /* identifier name */            
+  int tokentype;             /* type of last token */
+  char token[MAXTOKEN];      /* last token string */
+  char name[MAXTOKEN];       /* identifier name */
   char datatype[MAXTOKEN];   /* data type = char, int, etc. */
   char out[1000];
 
@@ -1932,7 +1960,7 @@ uses getline
   }
 #+END_SRC
 
-** GETTOKEN 
+** function: gettoken
 
 think that i'm missing some global variables
 
@@ -1969,7 +1997,7 @@ think that i'm missing some global variables
   }
 #+END_SRC
 
-** undcl
+** program: undcl
 
 #+BEGIN_SRC c
   /* undcl: convert word descriptions to declarations */
@@ -1996,10 +2024,9 @@ think that i'm missing some global variables
   }
 #+END_SRC
 
-
 * Chapter 6 - Structures
 
-** makepoint
+** function: makepoint
 
 #+BEGIN_SRC c
   /* makepoint: make a point from x and y components */
@@ -2013,24 +2040,45 @@ think that i'm missing some global variables
   }
 #+END_SRC
 
-** 
+** program: using makepoint
+
 #+BEGIN_SRC c
-  struct rect screen;
-  struct point middle;
-  struct point makepoint(int, int);
+  #include <stdio.h>
 
-  screen.pt1 = makepoint(0,0);
-  screen.pt2 = makepoint(XMAX, YMAX);
-  middle = makepoint((screen.pt1.x + screen.pt2.x)/2,
-                     (screen.pt1.y + screen.pt2.y)/2);
+  #define XMAX 80
+  #define YMAX 24
 
+  struct point {
+    int x;
+    int y;
+  };
+
+  struct rect {
+    struct point pt1;
+    struct point pt2;
+  };
+
+  int main(void) {
+    struct rect screen;
+    struct point middle;
+    struct point makepoint(int, int);
+
+    screen.pt1 = makepoint(0,0);
+    screen.pt2 = makepoint(XMAX, YMAX);
+    middle = makepoint((screen.pt1.x + screen.pt2.x)/2,
+                       (screen.pt1.y + screen.pt2.y)/2);
+
+    printf("x:%d y:%d\n",middle.x, middle.y);
+
+    return 0;
+  }
 #+END_SRC
 
-** addpoint
+** function: addpoint
 
 #+BEGIN_SRC c
   /* addpoints: add two points */
-  struct addpoint(struct point p1, struct point p2)
+  struct point addpoint(struct point p1, struct point p2)
   {
     p1.x += p2.x;
     p1.y += p2.y;
@@ -2038,7 +2086,8 @@ think that i'm missing some global variables
   }
 #+END_SRC
 
-** ptinrect
+** function: ptinrect
+
 #+BEGIN_SRC c
   /* ptinrect: return 1 if p in r, 0 if not */
   int ptinrect(struct point p, struct rect r)
@@ -2048,7 +2097,7 @@ think that i'm missing some global variables
   }
 #+END_SRC
 
-** canonrect
+** function: canonrect
 
 #+BEGIN_SRC c
   #define min(a, b) ((a) < (b) ? (a) : (b))
@@ -2067,10 +2116,12 @@ think that i'm missing some global variables
   }
 #+END_SRC
 
-** binsearch
+** program: keyword-counting (using array indices)
 
-won't compile
-keytab?
+#+BEGIN_EXAMPLE
+  won't compile
+  keytab?
+#+END_EXAMPLE
 
 #+BEGIN_SRC c :tangle krsearch.c
   #include <stdio.h>
@@ -2078,9 +2129,28 @@ keytab?
   #include <string.h>
 
   #define MAXWORD 100
+  #define NKEYS (sizeof keytab / sizeof(struct key))
 
-  int getword(char *, int);
-  int binsearch(char *, struct key *, int);
+  /* int getword(char *, int); */
+  /* int binsearch(char *, struct key *, int); */
+
+  /* declare and initialize structure */
+  struct key {
+    char *word;
+    int count;
+  } keytab[] = {
+                "auto", 0,
+                "break", 0,
+                "case", 0,
+                "char", 0,
+                "const", 0,
+                "continue", 0,
+                "default", 0,
+                "unsigned", 0,
+                "void", 0,
+                "volatile", 0,
+                "while", 0
+  };
 
   /* count C keywords */
   main()
@@ -2120,7 +2190,7 @@ keytab?
   }
 #+END_SRC
 
-** GETWORD
+** function: getword
 
 #+BEGIN_SRC c :tangle ch06.h
   /* getword: get next word or character from input */
@@ -2148,7 +2218,7 @@ keytab?
   }
 #+END_SRC
 
-** program: pointers to structures
+** program: keyword-counting (using pointers)
 
 #+BEGIN_SRC c :tangle krpoint.c
   #include <stdio.h>
@@ -2157,9 +2227,27 @@ keytab?
   #include "ch06.h"
 
   #define MAXWORD 100
+  #define NKEYS (sizeof keytab / sizeof(struct key))
 
   int getword(char *, int);
   struct key *binsearch(char *, struct key *, int);
+
+  struct key {
+    char *word;
+    int count;
+  } keytab[] = {
+                "auto", 0,
+                "break", 0,
+                "case", 0,
+                "char", 0,
+                "const", 0,
+                "continue", 0,
+                "default", 0,
+                "unsigned", 0,
+                "void", 0,
+                "volatile", 0,
+                "while", 0
+  };
 
   /* count C keywords; pointer version */
   main()
@@ -2178,7 +2266,7 @@ keytab?
   }
 
   /* binsearch: find word in tab[0]...tab[n-1] */
-  struct key *binsearch(char *word, struck key *tab, int n)
+  struct key *binsearch(char *word, struct key *tab, int n)
   {
     int cond;
     struct key *low = &tab[0];
@@ -2198,18 +2286,18 @@ keytab?
   }
 #+END_SRC
 
-** tnode
+** struct: tnode
 
 #+BEGIN_SRC c :tangle ch06.h
-  struct tnode { /* the tree node: */
-    char *word;           /* points to the text */           
-    int count;            /* number of occurrences */        
-    struct tnode *left;   /* left child */                   
-    struct tnode *right;  /* right child */                  
+  struct tnode {		/* the tree node: */
+    char *word;		/* points to the text */
+    int count;		/* number of occurrences */
+    struct tnode *left;	/* left child */
+    struct tnode *right;	/* right child */
   };
 #+END_SRC
 
-** program: 
+** program: word frequency count
 
 #+BEGIN_SRC c :tangle kr nodes.c
   #include <stdio.h>
@@ -2238,7 +2326,7 @@ keytab?
   }
 #+END_SRC
 
-** treenode
+** function: addtree
 
 #+BEGIN_SRC c
   struct tnode *talloc(void);
@@ -2263,7 +2351,7 @@ keytab?
   }
 #+END_SRC
 
-** treeprint
+** function: treeprint
 
 #+BEGIN_SRC c :tangle ch06.h
   /* treeprint: in-order print of tree p */
@@ -2277,7 +2365,8 @@ keytab?
   }
 #+END_SRC
 
-** tnode strdup
+** functions: talloc & strdup
+
 #+BEGIN_SRC c
   #include <stdlib.h>
 
@@ -2298,17 +2387,17 @@ keytab?
   }
 #+END_SRC
 
-** nlist
+** struct: nlist
 
 #+BEGIN_SRC c
-  struct nlist {          /* table entry: */
-  struct nlist *next;     /* next entry in chain */
-  char *name;             /* defined name */
-  char *defn;             /* replacement text */
+  struct nlist {		/* table entry: */
+    struct nlist *next;	/* next entry in chain */
+    char *name;		/* defined name */
+    char *defn;		/* replacement text */
   };
 #+END_SRC
 
-** hash
+** function: hash
 
 #+BEGIN_SRC c
   /* hash: form hash value for string s */
@@ -2321,7 +2410,7 @@ keytab?
   }
 #+END_SRC
 
-** nlist
+** function: lookup
 
 #+BEGIN_SRC c
   /* lookup: look for s in hashtab */
@@ -2335,7 +2424,7 @@ keytab?
   }
 #+END_SRC
 
-** nlist
+** function: install
 
 #+BEGIN_SRC c
   struct nlist *lookup(char *);
@@ -2362,20 +2451,21 @@ keytab?
   }
 #+END_SRC
 
-** 
+** struct: tnode / Treenode
 
 #+BEGIN_SRC c
   typedef struct tnode *Treeptr;
 
-  typedef struct tnode { /* the tree node: */
-    char *word;           /* points to the text */
-    int count;            /* number of occurrences */
-    struct tnode *left;   /* left child */
-    struct tnode *right;  /* right child */
+  typedef struct tnode {	/* the tree node: */
+    char *word;		/* points to the text */
+    int count;		/* number of occurrences */
+    struct tnode *left;	/* left child */
+    struct tnode *right;	/* right child */
   } Treenode;
 #+END_SRC
 
-** 
+** function: talloc
+
 #+BEGIN_SRC c
   Treeptr talloc(void)
   {
@@ -2383,10 +2473,9 @@ keytab?
   }
 #+END_SRC
 
-
 * Chapter 7 - Input and Output
 
-** Program Lower
+** program: convert input to lower case
 
 - =$ gcc lower.c=
 - =./a.out=
@@ -2407,7 +2496,8 @@ keytab?
   }
 #+END_SRC
 
-** ex printf myprint.c
+** program: ex printf myprint.c
+
 printf("%.*s", max, s);
 
 - how to assign a string of characters to a variable?
@@ -2433,7 +2523,7 @@ printf("%.*s", max, s);
       printf("%15.10s\n", s);     // %15.10s
       printf("%-15.10s\n", s);    // %-15.10s
   }
-#+END_SRC                   
+#+END_SRC
 
 output
 #+BEGIN_EXAMPLE
@@ -2448,7 +2538,7 @@ output
   hello,.wor
 #+END_EXAMPLE
 
-** minprintf
+** program: minimal printf with variable argument list
 
 #+BEGIN_SRC c :tangle minprintf.c
   #include <stdarg.h>
@@ -2600,7 +2690,7 @@ warnings about the exit
   }
 #+END_SRC
 
-** fputs and fgets
+** functions: fputs & fgets
 
 #+BEGIN_SRC c :tangle fputsgets.c
   /* fgets: get at most n chars from iop */
@@ -2628,7 +2718,7 @@ warnings about the exit
   }
 #+END_SRC
 
-** getline using fgets
+** function: getline (using fgets)
 
 #+BEGIN_SRC c :tangle fgets.c
   /* getline: read a line, return length */

@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>my python index</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">my python index</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8b68838">simple data types</a>
+<ul>
+<li><a href="#org3c13b1a">int</a></li>
+<li><a href="#orgc815d61">float</a></li>
+<li><a href="#orgd9ec7b5">bool</a></li>
+<li><a href="#org5aa1475">str</a></li>
+</ul>
+</li>
+<li><a href="#org20817fb">complex data types</a>
+<ul>
+<li><a href="#org6d75e5d">tuple</a></li>
+<li><a href="#orgb385a92">list</a></li>
+<li><a href="#org70a4c47">dict</a></li>
+<li><a href="#orgb42315e">set</a></li>
+</ul>
+</li>
+<li><a href="#org192b231">flow control</a>
+<ul>
+<li><a href="#orgf74c986">if</a></li>
+<li><a href="#orge4c602b">if else</a></li>
+<li><a href="#org3b531f4">if elif else</a></li>
+<li><a href="#org59c8bc8">try except</a></li>
+<li><a href="#org5742245">not</a></li>
+<li><a href="#org423fc66">foreach (enumerate)</a></li>
+</ul>
+</li>
+<li><a href="#org4db474e">looping</a>
+<ul>
+<li><a href="#orga0a59f9">for</a></li>
+<li><a href="#orgb58b955">while</a></li>
+</ul>
+</li>
+<li><a href="#org23f0675">functions</a></li>
+<li><a href="#orgab20f72">built-in functions</a>
+<ul>
+<li><a href="#orgfeba696">open</a></li>
+</ul>
+</li>
+<li><a href="#org4f7f27f">modules (built-in)</a>
+<ul>
+<li><a href="#org8b82855">socket ; networking</a></li>
+<li><a href="#orge469b2e">sys</a></li>
+<li><a href="#org65717f9">os</a></li>
+<li><a href="#orgce54a73">crypt</a></li>
+<li><a href="#orgf1a3717">zipfile</a></li>
+<li><a href="#orga8e1879">threading</a></li>
+<li><a href="#org845a0f3">optparse</a></li>
+<li><a href="#org6952889">shelve</a></li>
+<li><a href="#org2563434">glob</a></li>
+<li><a href="#orgae00ea7">date time</a></li>
+<li><a href="#org9f7ee0b">ftplib</a></li>
+<li><a href="#org9b7dae3">pprint</a></li>
+<li><a href="#org75c8290">json</a></li>
+<li><a href="#org6384041">sqlite</a></li>
+<li><a href="#org2e5f680">pyperclip</a></li>
+<li><a href="#org96380aa">re</a></li>
+</ul>
+</li>
+<li><a href="#orgdef96a4">i/o</a></li>
+<li><a href="#org900eaad">casting</a></li>
+<li><a href="#orgf5f96e1">emacs setup</a></li>
+<li><a href="#org693a0ae">debugging</a></li>
+<li><a href="#orgcc775da">python shell</a></li>
+<li><a href="#org01d4a07">classes</a></li>
+<li><a href="#org49914e1">help</a></li>
+<li><a href="#orgbe8218d">escapes</a></li>
+<li><a href="#org28c567e">find out</a></li>
+<li><a href="#orga031677">comparison operators</a></li>
+<li><a href="#org0504186">3rd party modules</a>
+<ul>
+<li><a href="#org8619789">installing</a></li>
+<li><a href="#orga428c1d">examples</a></li>
+</ul>
+</li>
+<li><a href="#org3f9922c">differences between python2 and python3</a></li>
+<li><a href="#orgea4a39f">web libraries</a></li>
+<li><a href="#orgcf25472">idle3</a></li>
+<li><a href="#orgd7cb166">how to</a>
+<ul>
+<li><a href="#orgf7a24ab">read function from file in shell</a></li>
+</ul>
+</li>
+<li><a href="#orgbf0df5b">docstrings</a></li>
+<li><a href="#orgfab5d28">modules</a></li>
+<li><a href="#org0bb587a">notes on this document</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8b68838" class="outline-2">
+<h2 id="org8b68838">simple data types</h2>
+<div class="outline-text-2" id="text-org8b68838">
+</div>
+<div id="outline-container-org3c13b1a" class="outline-3">
+<h3 id="org3c13b1a">int</h3>
+<div class="outline-text-3" id="text-org3c13b1a">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>class int in module __builtin__:
+<span class="linenr">2: </span>&lt;type 'int'&gt;
+<span class="linenr">3: </span>help('int')
+<span class="linenr">4: </span>
+<span class="linenr">5: </span>postive and negative numbers
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc815d61" class="outline-3">
+<h3 id="orgc815d61">float</h3>
+<div class="outline-text-3" id="text-orgc815d61">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>real numbers
+<span class="linenr">2: </span>
+<span class="linenr">3: </span>class float in module __builtin__:
+<span class="linenr">4: </span>help('float')
+<span class="linenr">5: </span>&lt;type 'float'&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd9ec7b5" class="outline-3">
+<h3 id="orgd9ec7b5">bool</h3>
+<div class="outline-text-3" id="text-orgd9ec7b5">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>class bool in module __builtin__:
+<span class="linenr">2: </span>- booleans
+<span class="linenr">3: </span>&lt;type 'bool'&gt;
+<span class="linenr">4: </span>help('bool')
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5aa1475" class="outline-3">
+<h3 id="org5aa1475">str</h3>
+<div class="outline-text-3" id="text-org5aa1475">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>class str in module __builtin__:
+<span class="linenr"> 2: </span>&lt;type 'str'&gt;
+<span class="linenr"> 3: </span>help('str')
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>- http://docs.python.org/library/string.html
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>- methods
+<span class="linenr"> 8: </span>      - upper()
+<span class="linenr"> 9: </span>      - lower()
+<span class="linenr">10: </span>      - replace() ; Replace(old,new) print banner.replace('FreeFloat','Ability')
+<span class="linenr">11: </span>      - find() ; offset where the first occurrence of the substring occurs
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>- interpolation/ concatenation
+<span class="linenr">14: </span>print "[+] Checking for "+banner+" on port "+str(port)
+<span class="linenr">15: </span>print "[+] There are "+str(pos)+" ports to scan before 80."
+<span class="linenr">16: </span>"+str(services['ftp'])
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>STRING FORMATTING
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>https://realpython.com/python-string-formatting/ ; good overview
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>NEW STYLE STRING FORMATTING
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>https://docs.python.org/3/library/string.html#string-formatting
+<span class="linenr">25: </span>
+<span class="linenr">26: </span>PRINTF-STYLE STRING FORMATTING
+<span class="linenr">27: </span>
+<span class="linenr">28: </span>https://docs.python.org/3/library/stdtypes.html#old-string-formatting
+<span class="linenr">29: </span>
+<span class="linenr">30: </span>%% to escape %
+<span class="linenr">31: </span>\ ; new line?
+<span class="linenr">32: </span>%x hex
+<span class="linenr">33: </span>%r ; string version of objects
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>substitions
+<span class="linenr">36: </span>- create a dictionary with substitutions
+<span class="linenr">37: </span>  - dctSub = {'foo':'bar'}
+<span class="linenr">38: </span>- create here string with placeholders
+<span class="linenr">39: </span>  - %(foo)s
+<span class="linenr">40: </span>- print (hereString % dctSub)
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>gotchas
+<span class="linenr">43: </span>- variables are case senstive
+<span class="linenr">44: </span>- must be a match for every substitution
+<span class="linenr">45: </span>- by default doesn't ignore errors
+<span class="linenr">46: </span>
+<span class="linenr">47: </span>%s %s %s % (a,b,c) ; why use this format? in loops?
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20817fb" class="outline-2">
+<h2 id="org20817fb">complex data types</h2>
+<div class="outline-text-2" id="text-org20817fb">
+</div>
+<div id="outline-container-org6d75e5d" class="outline-3">
+<h3 id="org6d75e5d">tuple</h3>
+<div class="outline-text-3" id="text-org6d75e5d">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; p = (4, 5)
+<span class="linenr"> 2: </span>&gt;&gt;&gt; type(p)
+<span class="linenr"> 3: </span>&lt;type 'tuple'&gt;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>- immutable. can't ever change
+<span class="linenr"> 6: </span>- round brackets parentheses and commas (,)
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>- can access the variables in a tuple by index
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>&gt;&gt;&gt; tupA = os.path.split(cc1)
+<span class="linenr">11: </span>&gt;&gt;&gt; tupA
+<span class="linenr">12: </span>('/home/janowah', '.emacs')
+<span class="linenr">13: </span>&gt;&gt;&gt; tupA[1]
+<span class="linenr">14: </span>'.emacs'
+<span class="linenr">15: </span>&gt;&gt;&gt; tupA[0]
+<span class="linenr">16: </span>'/home/janowah'
+<span class="linenr">17: </span>&gt;&gt;&gt; varA = tupA[1]
+<span class="linenr">18: </span>&gt;&gt;&gt; varA
+<span class="linenr">19: </span>'.emacs'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb385a92" class="outline-3">
+<h3 id="orgb385a92">list</h3>
+<div class="outline-text-3" id="text-orgb385a92">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">  1: </span>list. array?
+<span class="linenr">  2: </span>
+<span class="linenr">  3: </span>&lt;type 'list'&gt;
+<span class="linenr">  4: </span>class list in module __builtin__:
+<span class="linenr">  5: </span>help('list')
+<span class="linenr">  6: </span>
+<span class="linenr">  7: </span>append
+<span class="linenr">  8: </span>insert
+<span class="linenr">  9: </span>remove
+<span class="linenr"> 10: </span>pop
+<span class="linenr"> 11: </span>.count
+<span class="linenr"> 12: </span>
+<span class="linenr"> 13: </span>- appending .append(21)
+<span class="linenr"> 14: </span>- inserting
+<span class="linenr"> 15: </span>- removing .remove(443)
+<span class="linenr"> 16: </span>- popping
+<span class="linenr"> 17: </span>- indexing .index(80)
+<span class="linenr"> 18: </span>
+<span class="linenr"> 19: </span>&gt;&gt;&gt; portList.index(80) ; only first if more than one.
+<span class="linenr"> 20: </span>0
+<span class="linenr"> 21: </span>- counting  len(portList)
+<span class="linenr"> 22: </span>- sorting .sort() ; low to high. modifies original
+<span class="linenr"> 23: </span>- reversing
+<span class="linenr"> 24: </span>
+<span class="linenr"> 25: </span>portList.reverse()
+<span class="linenr"> 26: </span>portList
+<span class="linenr"> 27: </span>[80, 25, 21]
+<span class="linenr"> 28: </span>
+<span class="linenr"> 29: </span>- contains?
+<span class="linenr"> 30: </span>
+<span class="linenr"> 31: </span>EXAMPLE
+<span class="linenr"> 32: </span>
+<span class="linenr"> 33: </span>CREATE
+<span class="linenr"> 34: </span>- portList = []
+<span class="linenr"> 35: </span>
+<span class="linenr"> 36: </span>READ
+<span class="linenr"> 37: </span>- portList[1]
+<span class="linenr"> 38: </span>  - 80
+<span class="linenr"> 39: </span>
+<span class="linenr"> 40: </span>UPDATE (left to right)
+<span class="linenr"> 41: </span>add new elements
+<span class="linenr"> 42: </span>- portList.append(21)
+<span class="linenr"> 43: </span>- portList
+<span class="linenr"> 44: </span>  - [21]
+<span class="linenr"> 45: </span>- portList.append(80)
+<span class="linenr"> 46: </span>- portList
+<span class="linenr"> 47: </span>  - [21, 80]
+<span class="linenr"> 48: </span>- portList.append(443)
+<span class="linenr"> 49: </span>- portList
+<span class="linenr"> 50: </span>  - [21, 80, 443]
+<span class="linenr"> 51: </span>- portList.append(25)
+<span class="linenr"> 52: </span>- portList
+<span class="linenr"> 53: </span>  - [21, 80, 443, 25]
+<span class="linenr"> 54: </span>
+<span class="linenr"> 55: </span>- portList.insert(0,21)
+<span class="linenr"> 56: </span>- portList
+<span class="linenr"> 57: </span>  - [21, 80, 25]
+<span class="linenr"> 58: </span>
+<span class="linenr"> 59: </span>modify existing elements
+<span class="linenr"> 60: </span>- portList[1] = 32
+<span class="linenr"> 61: </span>  - portList
+<span class="linenr"> 62: </span>  - [21, 32, 25]
+<span class="linenr"> 63: </span>
+<span class="linenr"> 64: </span>DELETE
+<span class="linenr"> 65: </span>remove elements. 
+<span class="linenr"> 66: </span>
+<span class="linenr"> 67: </span>- del to remove an element by index
+<span class="linenr"> 68: </span>  - del portList[0]
+<span class="linenr"> 69: </span>- pop() to remove it by index if you need the returned value
+<span class="linenr"> 70: </span>  - var = portList.pop(1)
+<span class="linenr"> 71: </span>  - var
+<span class="linenr"> 72: </span>    - 80
+<span class="linenr"> 73: </span>- remove() to delete an element by value
+<span class="linenr"> 74: </span>  - portList.remove(443)
+<span class="linenr"> 75: </span>  - portList
+<span class="linenr"> 76: </span>    - [21, 80, 25]
+<span class="linenr"> 77: </span>
+<span class="linenr"> 78: </span>INDEX (first element is 0)
+<span class="linenr"> 79: </span>&gt;&gt;&gt; portList.index(21)
+<span class="linenr"> 80: </span>0
+<span class="linenr"> 81: </span>&gt;&gt;&gt; portList.index(80)
+<span class="linenr"> 82: </span>1
+<span class="linenr"> 83: </span>
+<span class="linenr"> 84: </span>portList = []
+<span class="linenr"> 85: </span>portList.append(80)
+<span class="linenr"> 86: </span>print portList
+<span class="linenr"> 87: </span>  [21, 80, 443, 25]
+<span class="linenr"> 88: </span>
+<span class="linenr"> 89: </span>contain integers, strings etc.
+<span class="linenr"> 90: </span>
+<span class="linenr"> 91: </span>square brackets and commas [,]
+<span class="linenr"> 92: </span>
+<span class="linenr"> 93: </span>comparing lists
+<span class="linenr"> 94: </span>- a = ['cat', 'dog', 'cow']
+<span class="linenr"> 95: </span>- b = ['cow', 'horse', 'cat']
+<span class="linenr"> 96: </span>- set(a) &amp; set(b)
+<span class="linenr"> 97: </span>- set(a) - set(b)
+<span class="linenr"> 98: </span>- set(b) - set(a)
+<span class="linenr"> 99: </span>
+<span class="linenr">100: </span>set(a).intersection(b) # both
+<span class="linenr">101: </span>set(b).union(b)        # join
+<span class="linenr">102: </span>set(b).difference(a)   # diff
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70a4c47" class="outline-3">
+<h3 id="org70a4c47">dict</h3>
+<div class="outline-text-3" id="text-org70a4c47">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&lt;type 'dict'&gt;
+<span class="linenr"> 2: </span>class dict in module __builtin__:
+<span class="linenr"> 3: </span>help('dict')
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>dictionary. hashtable
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>- curly brackets, commas and colons {:,}
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>- .keys() ; &lt;list&gt; of all keys in the dictionary
+<span class="linenr">10: </span>- .items() ; entire &lt;list&gt; of items in the dictionary
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>services = {'ftp':21,'ssh':22,'smtp':25,'http':80}
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>cc_res['sha1']
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb42315e" class="outline-3">
+<h3 id="orgb42315e">set</h3>
+<div class="outline-text-3" id="text-orgb42315e">
+<div class="org-src-container">
+<pre class="src src-text">&gt;&gt;&gt; type(b)
+&lt;class 'set'&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org192b231" class="outline-2">
+<h2 id="org192b231">flow control</h2>
+<div class="outline-text-2" id="text-org192b231">
+</div>
+<div id="outline-container-orgf74c986" class="outline-3">
+<h3 id="orgf74c986">if</h3>
+<div class="outline-text-3" id="text-orgf74c986">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>The ``if`` statement
+<span class="linenr">2: </span>********************
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>help('if')
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>if ("FreeFloat Ftp Server (Version 1.00)" in ans):
+<span class="linenr">7: </span>...     print "[+] FreeFloat FTP Server is vulnerable."
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge4c602b" class="outline-3">
+<h3 id="orge4c602b">if else</h3>
+<div class="outline-text-3" id="text-orge4c602b">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>if ("FreeFloat Ftp Server (Version 1.00)" in ans):
+<span class="linenr">2: </span>...     print "[+] FreeFloat FTP Server is vulnerable."
+<span class="linenr">3: </span>else:
+<span class="linenr">4: </span>...     print "[-] FTP Server is not vulnerable."
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b531f4" class="outline-3">
+<h3 id="org3b531f4">if elif else</h3>
+<div class="outline-text-3" id="text-org3b531f4">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; if ("FreeFloat Ftp Server (Version 1.00)" in ans):
+<span class="linenr"> 2: </span>...     print "[+] FreeFloat FTP Server is vulnerable."
+<span class="linenr"> 3: </span>... elif ("3Com 3CDaemon FTP Server Version 2.0" in banner):
+<span class="linenr"> 4: </span>...     print "[+] 3CDaemon FTP Server is vulnerable."
+<span class="linenr"> 5: </span>... elif ("Ability Server 2.34" in banner):
+<span class="linenr"> 6: </span>...     print "[+] Ability FTP Server is vulnerable."
+<span class="linenr"> 7: </span>... elif ("Sami FTP Server 2.0.2" in banner):
+<span class="linenr"> 8: </span>...     print "[+] Sami FTP Server is vulnerable."
+<span class="linenr"> 9: </span>... else:
+<span class="linenr">10: </span>...     print "[-] FTP Server is not vulnerable."
+<span class="linenr">11: </span>... 
+<span class="linenr">12: </span>[-] FTP Server is not vulnerable.
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59c8bc8" class="outline-3">
+<h3 id="org59c8bc8">try except</h3>
+<div class="outline-text-3" id="text-org59c8bc8">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span>&gt;&gt;&gt; try:
+<span class="linenr"> 3: </span>  ...     print "[+] 1337/0 = "+str(1337/0)
+<span class="linenr"> 4: </span>  ... except:
+<span class="linenr"> 5: </span>  ...     print "[-] Error. "
+<span class="linenr"> 6: </span>  ... 
+<span class="linenr"> 7: </span>  [-] Error.
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &gt;&gt;&gt; try:
+<span class="linenr">11: </span>  ...     print "[+] 1337/0 = "+str(1337/0)
+<span class="linenr">12: </span>  ... except Exception, e:
+<span class="linenr">13: </span>  ...     print "[-] Error = "+str(e)
+<span class="linenr">14: </span>  ...
+<span class="linenr">15: </span>  [-] Error = integer division or modulo by zero
+<span class="linenr">16: </span>  &gt;&gt;&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5742245" class="outline-3">
+<h3 id="org5742245">not</h3>
+<div class="outline-text-3" id="text-org5742245">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>if not (True):
+<span class="linenr"> 2: </span>...    print('a')
+<span class="linenr"> 3: </span>... else:
+<span class="linenr"> 4: </span>...    print('b')
+<span class="linenr"> 5: </span>... 
+<span class="linenr"> 6: </span>b
+<span class="linenr"> 7: </span>&gt;&gt;&gt; if (True):
+<span class="linenr"> 8: </span>...    print('a')
+<span class="linenr"> 9: </span>... else:
+<span class="linenr">10: </span>...    print('b')
+<span class="linenr">11: </span>... 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org423fc66" class="outline-3">
+<h3 id="org423fc66">foreach (enumerate)</h3>
+<div class="outline-text-3" id="text-org423fc66">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>my_list = [1,2,3]
+<span class="linenr"> 2: </span>for member in my_list:
+<span class="linenr"> 3: </span>    member = 42
+<span class="linenr"> 4: </span>print my_list
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>Output:
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    [1, 2, 3]
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>If you want to change a list containing immutable types, you need to do something like:
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>my_list = [1,2,3]
+<span class="linenr">13: </span>for ndx, member in enumerate(my_list):
+<span class="linenr">14: </span>    my_list[ndx] += 42
+<span class="linenr">15: </span>print my_list
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>Output:
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    [43, 44, 45]
+<span class="linenr">20: </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4db474e" class="outline-2">
+<h2 id="org4db474e">looping</h2>
+<div class="outline-text-2" id="text-org4db474e">
+<p>
+Related help topics: break, continue, while
+</p>
+</div>
+
+<div id="outline-container-orga0a59f9" class="outline-3">
+<h3 id="orga0a59f9">for</h3>
+<div class="outline-text-3" id="text-orga0a59f9">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>The ``for`` statement
+<span class="linenr"> 2: </span>help('for')
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>&gt;&gt;&gt; for x in range(1,255):
+<span class="linenr"> 5: </span>  ...     print "192.168.95."+str(x)
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>&lt;list&gt;
+<span class="linenr"> 8: </span>for port in portList:
+<span class="linenr"> 9: </span>  ...     print port
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>nested
+<span class="linenr">12: </span>for x in range(1,255):
+<span class="linenr">13: </span>  ...     for port in portList:
+<span class="linenr">14: </span>  ...             print "[+] Checking 192.168.95."\
+<span class="linenr">15: </span>  ...             +str(x)+": "+str(port)
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>for i in reversed(array):
+<span class="linenr">18: </span>...     print(i)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb58b955" class="outline-3">
+<h3 id="orgb58b955">while</h3>
+<div class="outline-text-3" id="text-orgb58b955">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org23f0675" class="outline-2">
+<h2 id="org23f0675">functions</h2>
+<div class="outline-text-2" id="text-org23f0675">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>help('def')
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>Function definitions
+<span class="linenr"> 4: </span>********************
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>A function definition defines a user-defined function object 
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>naming
+<span class="linenr"> 9: </span>functions.  can't use _ or -
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>def retBanner(ip, port):
+<span class="linenr">13: </span>
+<span class="linenr">14: </span> def main():
+<span class="linenr">15: </span>if __name__ == '__main__':
+<span class="linenr">16: </span>          main()
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>MAIN
+<span class="linenr">19: </span>good article on main()
+<span class="linenr">20: </span>https://www.journaldev.com/17752/python-main-function
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab20f72" class="outline-2">
+<h2 id="orgab20f72">built-in functions</h2>
+<div class="outline-text-2" id="text-orgab20f72">
+</div>
+<div id="outline-container-orgfeba696" class="outline-3">
+<h3 id="orgfeba696">open</h3>
+<div class="outline-text-3" id="text-orgfeba696">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span>help('open')
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>- what type of object is the file handle? fileObj?
+<span class="linenr"> 5: </span>  - methods
+<span class="linenr"> 6: </span>    - .read()
+<span class="linenr"> 7: </span>    - .readlines()
+<span class="linenr"> 8: </span>    - .write() 
+<span class="linenr"> 9: </span>    - .close()
+<span class="linenr">10: </span>  - modes
+<span class="linenr">11: </span>    - w open for writing
+<span class="linenr">12: </span>    - a append
+<span class="linenr">13: </span>    - r read only?
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>&gt;&gt;&gt; test2.name
+<span class="linenr">16: </span>'python.org'
+<span class="linenr">17: </span>&gt;&gt;&gt; test2.mode
+<span class="linenr">18: </span>'r'
+<span class="linenr">19: </span>&gt;&gt;&gt; test2.newlines
+<span class="linenr">20: </span>&gt;&gt;&gt; test2.encoding
+<span class="linenr">21: </span>'UTF-8'
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f7f27f" class="outline-2">
+<h2 id="org4f7f27f">modules (built-in)</h2>
+<div class="outline-text-2" id="text-org4f7f27f">
+<p>
+all require and import statment
+</p>
+</div>
+
+<div id="outline-container-org8b82855" class="outline-3">
+<h3 id="org8b82855">socket ; networking</h3>
+<div class="outline-text-3" id="text-org8b82855">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; help('socket')
+<span class="linenr"> 2: </span>Help on module socket:
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>http://docs.Python.org/library/socket.html.
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>&gt;&gt;&gt; import socket
+<span class="linenr"> 7: </span>  &gt;&gt;&gt; socket.setdefaulttimeout(2)
+<span class="linenr"> 8: </span>  &gt;&gt;&gt; s = socket.socket()
+<span class="linenr"> 9: </span>  &gt;&gt;&gt; s.connect(("ftp.ncftp.com",21))
+<span class="linenr">10: </span>  &gt;&gt;&gt; ans = s.recv(1024)
+<span class="linenr">11: </span>  &gt;&gt;&gt; print ans
+<span class="linenr">12: </span>  220 ProFTPD Server (ncftpd.com's FTP Server) [209.197.102.38]
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>socket.gethostbyname(hostname) &#8211; This function takes a hostname such
+<span class="linenr">15: </span>as www.syngress.com and returns an IPv4 address format such as
+<span class="linenr">16: </span>69.163.177.2.
+<span class="linenr">17: </span>socket.gethostbyaddr(ip address) &#8211; This function takes an IPv4 address
+<span class="linenr">18: </span>and returns a triple containing the hostname, alternative list of
+<span class="linenr">19: </span>host names, and a list of IPv4/v6 addresses for the same interface
+<span class="linenr">20: </span>on the host.
+<span class="linenr">21: </span>socket.socket([family[, type[, proto]]]) &#8211; This function creates an
+<span class="linenr">22: </span>instance of a new socket given the family. Options for the socket
+<span class="linenr">23: </span>family are AF_INET, AF_INET6, or AF_UNIX. Additionally, the socket
+<span class="linenr">24: </span>can be specified as SOCK_STREAM for a TCP socket or SOCK_DGRAM for
+<span class="linenr">25: </span>a UDP socket. Finally, the protocol number is usually zero and is
+<span class="linenr">26: </span>omitted in most cases.
+<span class="linenr">27: </span>socket.create_connection(address[, timeout[, source_address]]) &#8211; This
+<span class="linenr">28: </span>function takes a 2-tuple (host, port) and returns an instance of a
+<span class="linenr">29: </span>network socket. Additi
+<span class="linenr">30: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge469b2e" class="outline-3">
+<h3 id="orge469b2e">sys</h3>
+<div class="outline-text-3" id="text-orge469b2e">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; help('sys')
+<span class="linenr"> 2: </span>Help on built-in module sys:
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>The built-in sys module provides access to objects used or maintained
+<span class="linenr"> 6: </span>by the Python interpreter. This includes flags, version, max sizes of
+<span class="linenr"> 7: </span>integers, available modules, path hooks, location of standard
+<span class="linenr"> 8: </span>error/in/out, and command line arguments called by the
+<span class="linenr"> 9: </span>interpreter.
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>http://docs.python.org/library/sys.
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>help('sys')
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>;; read command line arguments
+<span class="linenr">16: </span>import sys
+<span class="linenr">17: </span>  if len(sys.argv)==2:
+<span class="linenr">18: </span>      filename = sys.argv[1]
+<span class="linenr">19: </span>      print "[+] Reading Vulnerabilities From: "+filename
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>sys.argv[1]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65717f9" class="outline-3">
+<h3 id="org65717f9">os</h3>
+<div class="outline-text-3" id="text-org65717f9">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">  1: </span>&gt;&gt;&gt; help('os')
+<span class="linenr">  2: </span>Help on module os:
+<span class="linenr">  3: </span>
+<span class="linenr">  4: </span>
+<span class="linenr">  5: </span>The built-in OS module provides a wealth of OS routines for Mac, NT,
+<span class="linenr">  6: </span>or Posix operating systems. This module allows the program to
+<span class="linenr">  7: </span>independently interact with the OS environment, file-system, user
+<span class="linenr">  8: </span>database, and permissions
+<span class="linenr">  9: </span>
+<span class="linenr"> 10: </span>BASIC
+<span class="linenr"> 11: </span>
+<span class="linenr"> 12: </span>- os.getcwd()
+<span class="linenr"> 13: </span>  - --&gt; '/home/homer'
+<span class="linenr"> 14: </span>- os.listdir()
+<span class="linenr"> 15: </span>  - os.listdir('.') --&gt; ['python.txt', 'temp']  
+<span class="linenr"> 16: </span>- os.chdir()
+<span class="linenr"> 17: </span>  - os.chdir('temp')
+<span class="linenr"> 18: </span>  - os.chdir('../')
+<span class="linenr"> 19: </span>- os.makedirs() ; mkdir -p
+<span class="linenr"> 20: </span>  - os.makedirs('temp')
+<span class="linenr"> 21: </span>
+<span class="linenr"> 22: </span>TESTS
+<span class="linenr"> 23: </span>
+<span class="linenr"> 24: </span>- os.path.isabs('.') ; tests if absolute path
+<span class="linenr"> 25: </span>  - --&gt; False
+<span class="linenr"> 26: </span>  - os.path.isabs('/home/') --&gt; True
+<span class="linenr"> 27: </span>- os.path.exists
+<span class="linenr"> 28: </span>  - os.path.exists('/home') --&gt; True
+<span class="linenr"> 29: </span>  - os.path.exists('.') --&gt; True
+<span class="linenr"> 30: </span>- os.path.isdir
+<span class="linenr"> 31: </span>  - os.path.isdir(".") --&gt; True
+<span class="linenr"> 32: </span>- os.path.isfile
+<span class="linenr"> 33: </span>  - os.path.isfile('../python.sha1') --&gt; True
+<span class="linenr"> 34: </span>
+<span class="linenr"> 35: </span>PATH
+<span class="linenr"> 36: </span>
+<span class="linenr"> 37: </span>- os.path.join()
+<span class="linenr"> 38: </span>  - os.path.join('abc','def') --&gt; 'abc/def'
+<span class="linenr"> 39: </span>- os.path.abspath('.') ; returns absolute path of current directory. no ~ expansion
+<span class="linenr"> 40: </span>- os.path.relpath ; returns location in relation to each other
+<span class="linenr"> 41: </span>  - os.path.relpath('/home/janowah/','/home/janowah/.emacs.d') --&gt; '..'
+<span class="linenr"> 42: </span>  - os.path.relpath('/home/janowah/.emacs.d','/home/janowah/') --&gt; '.emacs.d'
+<span class="linenr"> 43: </span>- os.path.basename(path) ; returns filename. starting from the right until first /
+<span class="linenr"> 44: </span>  - os.path.basename('/home/janowah/.emacs') --&gt; '.emacs'
+<span class="linenr"> 45: </span>- os.path.dirname('/home/janowah/.emacs') ; path
+<span class="linenr"> 46: </span>  - os.path.dirname(cc1) --&gt; '/home/janowah'
+<span class="linenr"> 47: </span>- os.path.split(calcFilePath) ; splits file from path. splits at last /
+<span class="linenr"> 48: </span>  - os.path.split('/home/janowah/.emacs') --&gt; ('/home/janowah', '.emacs')
+<span class="linenr"> 49: </span>- os.path.sep ; returns seperator '/' in linux
+<span class="linenr"> 50: </span>- os.path.getsize() ; works for files
+<span class="linenr"> 51: </span>  - os.path.getsize('../python.sha1') --&gt; 655
+<span class="linenr"> 52: </span>- os.path.expanduser('~/Desktop') ; does ~ expansion
+<span class="linenr"> 53: </span>  - --&gt; '/home/homer/Desktop'
+<span class="linenr"> 54: </span>- os.path.getmtime(x)
+<span class="linenr"> 55: </span>  - os.path.getmtime('temp1') --&gt; 1548964347.251015
+<span class="linenr"> 56: </span>  - os.path.getmtime('../python.sha1') --&gt; 1500027376.061472
+<span class="linenr"> 57: </span>
+<span class="linenr"> 58: </span>IDIOMS
+<span class="linenr"> 59: </span>
+<span class="linenr"> 60: </span>os.walk(directory)
+<span class="linenr"> 61: </span>
+<span class="linenr"> 62: </span>&gt;&gt;&gt; for root, dirs, files in os.walk('0-new-projects'):
+<span class="linenr"> 63: </span>...     print(files)
+<span class="linenr"> 64: </span>
+<span class="linenr"> 65: </span>this will print a list of all the files
+<span class="linenr"> 66: </span>
+<span class="linenr"> 67: </span>&gt;&gt;&gt; for root, dirs, files in os.walk('../files/0-publish'):
+<span class="linenr"> 68: </span>...     for f in files:
+<span class="linenr"> 69: </span>...         path = "%s/%s" % (root,f)
+<span class="linenr"> 70: </span>...         print(path)
+<span class="linenr"> 71: </span>
+<span class="linenr"> 72: </span>
+<span class="linenr"> 73: </span>&gt;&gt;&gt; for root, dirs, files in os.walk('./'):
+<span class="linenr"> 74: </span>...     print(files)
+<span class="linenr"> 75: </span>... 
+<span class="linenr"> 76: </span>['11.py', 'cc-deep.py']
+<span class="linenr"> 77: </span>&gt;&gt;&gt; for root, dirs, files in os.walk('./'):
+<span class="linenr"> 78: </span>...     print(dirs)
+<span class="linenr"> 79: </span>... 
+<span class="linenr"> 80: </span>[]
+<span class="linenr"> 81: </span>&gt;&gt;&gt; for root, dirs, files in os.walk('./'):
+<span class="linenr"> 82: </span>...     print(root)
+<span class="linenr"> 83: </span>... 
+<span class="linenr"> 84: </span>./
+<span class="linenr"> 85: </span>&gt;&gt;&gt;
+<span class="linenr"> 86: </span>
+<span class="linenr"> 87: </span>if not os.path.isfile(filename):  return True if not a file, else False
+<span class="linenr"> 88: </span>if not os.access(filename, os.R_OK):
+<span class="linenr"> 89: </span>
+<span class="linenr"> 90: </span>os.system('ls') or os.system("ls")
+<span class="linenr"> 91: </span>
+<span class="linenr"> 92: </span>delete empty directories?
+<span class="linenr"> 93: </span>
+<span class="linenr"> 94: </span>if not os.listdir(dir):
+<span class="linenr"> 95: </span>os.rmdir(dir)
+<span class="linenr"> 96: </span>
+<span class="linenr"> 97: </span>&gt;&gt;&gt; if (os.listdir('/home/homer/Desktop/empty')):
+<span class="linenr"> 98: </span>...    print('true')
+<span class="linenr"> 99: </span>... else:
+<span class="linenr">100: </span>...    print('false')
+<span class="linenr">101: </span>... 
+<span class="linenr">102: </span>false
+<span class="linenr">103: </span>&gt;&gt;&gt; if not (os.listdir('/home/homer/Desktop/empty')):
+<span class="linenr">104: </span>...    print('true')
+<span class="linenr">105: </span>... else:
+<span class="linenr">106: </span>...    print('false')
+<span class="linenr">107: </span>... 
+<span class="linenr">108: </span>true
+<span class="linenr">109: </span>&gt;&gt;&gt; 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce54a73" class="outline-3">
+<h3 id="orgce54a73">crypt</h3>
+<div class="outline-text-3" id="text-orgce54a73">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>&gt;&gt;&gt; help('crypt')
+<span class="linenr">2: </span>Help on module crypt:
+<span class="linenr">3: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf1a3717" class="outline-3">
+<h3 id="orgf1a3717">zipfile</h3>
+<div class="outline-text-3" id="text-orgf1a3717">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>&gt;&gt;&gt; help('zipfile')
+<span class="linenr">2: </span>Help on module zipfile:
+<span class="linenr">3: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga8e1879" class="outline-3">
+<h3 id="orga8e1879">threading</h3>
+<div class="outline-text-3" id="text-orga8e1879">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>&gt;&gt;&gt; help('threading')
+<span class="linenr">2: </span>Help on module threading:
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>from threading  Thread
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org845a0f3" class="outline-3">
+<h3 id="org845a0f3">optparse</h3>
+<div class="outline-text-3" id="text-org845a0f3">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>&gt;&gt;&gt; help('optparse')
+<span class="linenr">2: </span>Help on module optparse:
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>NAME
+<span class="linenr">5: </span>    optparse - A powerful, extensible, and easy-to-use option parser.
+<span class="linenr">6: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6952889" class="outline-3">
+<h3 id="org6952889">shelve</h3>
+<div class="outline-text-3" id="text-org6952889">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>&gt;&gt;&gt; help('shelve')
+<span class="linenr">2: </span>saving variables to a file
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>Help on module shelve:
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>NAME
+<span class="linenr">7: </span>    shelve - Manage shelves of pickled objects.
+<span class="linenr">8: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2563434" class="outline-3">
+<h3 id="org2563434">glob</h3>
+<div class="outline-text-3" id="text-org2563434">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; help('glob')
+<span class="linenr"> 2: </span>Help on module glob:
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>NAME
+<span class="linenr"> 5: </span>    glob - Filename globbing utility.
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>from glob import glob
+<span class="linenr">10: </span>glob("/path/to/directory/*/")
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>from glob import glob
+<span class="linenr">13: </span>paths = glob('*/')
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae00ea7" class="outline-3">
+<h3 id="orgae00ea7">date time</h3>
+<div class="outline-text-3" id="text-orgae00ea7">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; help('datetime')
+<span class="linenr"> 2: </span>Help on module datetime:
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>NAME
+<span class="linenr"> 5: </span>    datetime - Fast implementation of the datetime type.
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>from datetime import datetime
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>&gt;&gt;&gt; os.path.getmtime('python.org') ; modified time
+<span class="linenr">10: </span>1543435561.1202424
+<span class="linenr">11: </span>&gt;&gt;&gt; os.path.getctime('python.org') ; created time. no use in *nix
+<span class="linenr">12: </span>1543435561.1202424
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>&gt;&gt;&gt; print(datetime.utcfromtimestamp(1543435561.1202424).strftime('%Y-%m-%d %H:%M:%S'))        
+<span class="linenr">15: </span>2018-11-28 20:06:01
+<span class="linenr">16: </span>&gt;&gt;&gt; print(datetime.utcfromtimestamp(1543435561.1202424).strftime('%Y-%m-%d %H:%M'))
+<span class="linenr">17: </span>2018-11-28 20:06
+<span class="linenr">18: </span>&gt;&gt;&gt; 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9f7ee0b" class="outline-3">
+<h3 id="org9f7ee0b">ftplib</h3>
+<div class="outline-text-3" id="text-org9f7ee0b">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b7dae3" class="outline-3">
+<h3 id="org9b7dae3">pprint</h3>
+<div class="outline-text-3" id="text-org9b7dae3">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>&gt;&gt;&gt; help('pprint')
+<span class="linenr"> 2: </span>Help on module pprint:
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>NAME
+<span class="linenr"> 5: </span>    pprint - Support to pretty-print lists, tuples, &amp; dictionaries recursively.
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>import pprint
+<span class="linenr"> 8: </span>pp = pprint.PrettyPrinter(indent=4)
+<span class="linenr"> 9: </span>pp.pprint(objects)
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>pp.pprint(objects['responseData']['results'])
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75c8290" class="outline-3">
+<h3 id="org75c8290">json</h3>
+<div class="outline-text-3" id="text-org75c8290">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>&gt;&gt;&gt; help('json')
+<span class="linenr">2: </span>Help on package json:
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>json.load()  ; takes a file like object with a read() method,
+<span class="linenr">5: </span>json.loads() ; takes a string ; returns a dict
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6384041" class="outline-3">
+<h3 id="org6384041">sqlite</h3>
+<div class="outline-text-3" id="text-org6384041">
+<div class="org-src-container">
+<pre class="src src-python">
+Help on package sqlite3:
+
+NAME
+    sqlite3
+
+FILE
+    /usr/lib64/python2.7/sqlite3/__init__.py
+
+https://docs.python.org/2/library/sqlite3.html
+
+<span style="color: #00ffff;">import</span> sqlite3
+
+<span style="color: #00ffff;">def</span> <span style="color: #87cefa;">printProfile</span>(skypeDB):
+    <span style="color: #eedd82;">conn</span> = sqlite3.connect(skypeDB)
+    <span style="color: #eedd82;">c</span> = conn.cursor()
+    c.execute(<span style="color: #ffa07a;">"SELECT fullname, skypename, city, country, \</span>
+<span style="color: #ffa07a;">datetime(profile_timestamp,'unixepoch') FROM Accounts;"</span>)
+    <span style="color: #00ffff;">for</span> row <span style="color: #00ffff;">in</span> c:
+        <span style="color: #00ffff;">print</span> <span style="color: #ffa07a;">'[*] -- Found Account --'</span>
+        <span style="color: #00ffff;">print</span> <span style="color: #ffa07a;">'[+] User           : '</span>+<span style="color: #b0c4de;">str</span>(row[0])
+        <span style="color: #00ffff;">print</span> <span style="color: #ffa07a;">'[+] Skype Username : '</span>+<span style="color: #b0c4de;">str</span>(row[1])
+        <span style="color: #00ffff;">print</span> <span style="color: #ffa07a;">'[+] Location       : '</span>+<span style="color: #b0c4de;">str</span>(row[2])+<span style="color: #ffa07a;">','</span>+<span style="color: #b0c4de;">str</span>(row[3])
+        <span style="color: #00ffff;">print</span> <span style="color: #ffa07a;">'[+] Profile Date   : '</span>+<span style="color: #b0c4de;">str</span>(row[4])
+
+<span style="color: #00ffff;">def</span> <span style="color: #87cefa;">printContacts</span>(skypeDB):
+
+&gt;&gt;&gt; <span style="color: #00ffff;">for</span> row <span style="color: #00ffff;">in</span> c.execute(<span style="color: #ffa07a;">'SELECT tbl_name FROM sqlite_master WHERE type=="table"'</span>):
+        <span style="color: #00ffff;">print</span>(row)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2e5f680" class="outline-3">
+<h3 id="org2e5f680">pyperclip</h3>
+<div class="outline-text-3" id="text-org2e5f680">
+<div class="org-src-container">
+<pre class="src src-text">Help on package pyperclip:
+
+NAME
+    pyperclip - Pyperclip
+
+DESCRIPTION
+    A cross-platform clipboard module for Python. (only handles plain text for now)
+    By Al Sweigart al@inventwithpython.com
+    BSD License
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org96380aa" class="outline-3">
+<h3 id="org96380aa">re</h3>
+<div class="outline-text-3" id="text-org96380aa">
+<div class="org-src-container">
+<pre class="src src-text">Help on module re:
+
+NAME
+    re - Support for regular expressions (RE).
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdef96a4" class="outline-2">
+<h2 id="orgdef96a4">i/o</h2>
+<div class="outline-text-2" id="text-orgdef96a4">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span>read write from file &amp; screen
+<span class="linenr"> 3: </span>redirect stdin, stdout and stderr
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>print(portlist) 
+<span class="linenr"> 6: </span>print portlist
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>read from file
+<span class="linenr"> 9: </span> &gt;&gt;&gt; def checkVulns(banner):
+<span class="linenr">10: </span>  ...     f = open("vuln_banners.txt",'r')
+<span class="linenr">11: </span>  ...     for line in f.readlines():
+<span class="linenr">12: </span>  ...             if line.strip('\n') in banner:
+<span class="linenr">13: </span>  ...                     print "[+] Server is vulnerable: "+banner.strip('\n')
+<span class="linenr">14: </span>  ... 
+<span class="linenr">15: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org900eaad" class="outline-2">
+<h2 id="org900eaad">casting</h2>
+<div class="outline-text-2" id="text-org900eaad">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5f96e1" class="outline-2">
+<h2 id="orgf5f96e1">emacs setup</h2>
+<div class="outline-text-2" id="text-orgf5f96e1">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>- python.el ; built-in
+<span class="linenr"> 2: </span>  - inferior shell
+<span class="linenr"> 3: </span>  - skeletons
+<span class="linenr"> 4: </span>  - debugging with pdb
+<span class="linenr"> 5: </span>  - editing
+<span class="linenr"> 6: </span>- yasnippet
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>other modes
+<span class="linenr"> 9: </span>- python-mode
+<span class="linenr">10: </span>- elpy
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>- other shells
+<span class="linenr">13: </span>- ipython
+<span class="linenr">14: </span>- pypy is default. CHECK
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>;; to switch to python3
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>(setq python-shell-interpreter "python3")
+<span class="linenr">19: </span>"python3"
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>(setq python-shell-completion-native-disabled-interpreters '("python3"))
+<span class="linenr">22: </span>("python3")
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>;; 
+<span class="linenr">26: </span>- how to set emacs to 4 spaces per tab?
+<span class="linenr">27: </span>
+<span class="linenr">28: </span>    (add-hook 'python-mode-hook
+<span class="linenr">29: </span>            (lambda ()
+<span class="linenr">30: </span>                    (setq-default indent-tabs-mode t)
+<span class="linenr">31: </span>                    (setq-default tab-width 4)
+<span class="linenr">32: </span>                    (setq-default py-indent-tabs-mode t)
+<span class="linenr">33: </span>                    (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>;; 
+<span class="linenr">36: </span>(add-hook 'python-mode-hook
+<span class="linenr">37: </span>                  (lambda ()
+<span class="linenr">38: </span>                        (setq-default tab-width 4)))
+<span class="linenr">39: </span>
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>(setq tab-width 4)
+<span class="linenr">42: </span>4
+<span class="linenr">43: </span>(custom-set-variables
+<span class="linenr">44: </span> '(python-guess-indent nil)
+<span class="linenr">45: </span> '(python-indent-offset 2))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org693a0ae" class="outline-2">
+<h2 id="org693a0ae">debugging</h2>
+<div class="outline-text-2" id="text-org693a0ae">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>
+<span class="linenr">2: </span>pdb
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>python3 -m pdb hello.py
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc775da" class="outline-2">
+<h2 id="orgcc775da">python shell</h2>
+<div class="outline-text-2" id="text-orgcc775da">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>- how to run a script from the python shell?
+<span class="linenr"> 2: </span>- clear the screen?
+<span class="linenr"> 3: </span>- print current version
+<span class="linenr"> 4: </span>- dir() will give you the &lt;list&gt; of in scope variables
+<span class="linenr"> 5: </span>  - &gt;&gt;&gt; help('dir')
+<span class="linenr"> 6: </span>  - Help on built-in function dir in module __builtin__:
+<span class="linenr"> 7: </span>  - If called without an argument, return the names in the current scope.
+<span class="linenr"> 8: </span>- With python 3 interpreter the history is written to
+<span class="linenr"> 9: </span>  ~/.python_history
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>clear variable
+<span class="linenr">12: </span>dir() ; list
+<span class="linenr">13: </span>del ; delete
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org01d4a07" class="outline-2">
+<h2 id="org01d4a07">classes</h2>
+<div class="outline-text-2" id="text-org01d4a07">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>classes
+<span class="linenr">2: </span>
+<span class="linenr">3: </span>__DOUBLE UNDER__
+<span class="linenr">4: </span>https://dbader.org/blog/python-dunder-methods ; good tutorial
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49914e1" class="outline-2">
+<h2 id="org49914e1">help</h2>
+<div class="outline-text-2" id="text-org49914e1">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>  help('crypt')
+<span class="linenr"> 2: </span>  help('sys')
+<span class="linenr"> 3: </span>  help('zipfile')
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>print(portlist) 
+<span class="linenr"> 6: </span>print portlist
+<span class="linenr"> 7: </span>type(portlist)
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>2.7 library
+<span class="linenr">10: </span>https://docs.python.org/2/library/index.html
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>3.4 is installed on my machine
+<span class="linenr">14: </span>https://docs.python.org/3.5/library/index.html
+<span class="linenr">15: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbe8218d" class="outline-2">
+<h2 id="orgbe8218d">escapes</h2>
+<div class="outline-text-2" id="text-orgbe8218d">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>'\n&#8217;
+<span class="linenr">2: </span>\r
+<span class="linenr">3: </span>\ ; continue to the next line
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org28c567e" class="outline-2">
+<h2 id="org28c567e">find out</h2>
+<div class="outline-text-2" id="text-org28c567e">
+<p>
+difference between ' and "
+</p>
+<ul class="org-ul">
+<li>using , creates tuples</li>
+</ul>
+
+<p>
+dot source
+</p>
+
+<p>
+linting and style
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga031677" class="outline-2">
+<h2 id="orga031677">comparison operators</h2>
+<div class="outline-text-2" id="text-orga031677">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>== equality
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>not
+<span class="linenr"> 4: </span>help('TRUTHVALUE')
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>Operator Meaning
+<span class="linenr"> 7: </span>==       Equal to
+<span class="linenr"> 8: </span>!=       Not equal to
+<span class="linenr"> 9: </span>&lt;        Less than
+<span class="linenr">10: </span>&gt;        Greater than
+<span class="linenr">11: </span>&lt;=       Less than or equal to
+<span class="linenr">12: </span>&gt;=       Greater than or equal to
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0504186" class="outline-2">
+<h2 id="org0504186">3rd party modules</h2>
+<div class="outline-text-2" id="text-org0504186">
+</div>
+<div id="outline-container-org8619789" class="outline-3">
+<h3 id="org8619789">installing</h3>
+<div class="outline-text-3" id="text-org8619789">
+<p>
+python2 -m pip install mechanize
+</p>
+
+<ul class="org-ul">
+<li>pip3 install pyinstaller</li>
+<li>pip3 install &#x2013;upgrade</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga428c1d" class="outline-3">
+<h3 id="orga428c1d">examples</h3>
+<div class="outline-text-3" id="text-orga428c1d">
+<ul class="org-ul">
+<li>violent python
+<ul class="org-ul">
+<li>Pexpect
+<ul class="org-ul">
+<li><a href="http://pexpect.sourceforge.net">http://pexpect.sourceforge.net</a></li>
+<li>Pexpect has the ability to interact with programs, watch for
+expected outputs, and then respond based on expected outputs.</li>
+</ul></li>
+<li>mechanize
+<ul class="org-ul">
+<li><a href="http://wwwsearch.sourceforge.net/mechanize/">http://wwwsearch.sourceforge.net/mechanize/</a></li>
+</ul></li>
+<li>PYPDF
+<ul class="org-ul">
+<li><a href="http://pybrary.net/pyPdf/">http://pybrary.net/pyPdf/</a></li>
+</ul></li>
+<li><a href="http://www.crummy.com/software/BeautifulSoup/">http://www.crummy.com/software/BeautifulSoup/</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3f9922c" class="outline-2">
+<h2 id="org3f9922c">differences between python2 and python3</h2>
+<div class="outline-text-2" id="text-org3f9922c">
+<p>
+must enclose print statement in () in 3
+</p>
+
+<p>
+string formatting. use .format instead of %
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea4a39f" class="outline-2">
+<h2 id="orgea4a39f">web libraries</h2>
+<div class="outline-text-2" id="text-orgea4a39f">
+<ul class="org-ul">
+<li>python2
+<ul class="org-ul">
+<li>urllib2
+<ul class="org-ul">
+<li>urllib2 - An extensible library for opening URLs using a variety of protocols</li>
+<li>/usr/lib64/python2.7/urllib2.py</li>
+</ul></li>
+<li>mechanize
+<ul class="org-ul">
+<li>/usr/lib/python2.7/site-packages/mechanize/__init__.py</li>
+</ul></li>
+</ul></li>
+
+<li>python3
+<ul class="org-ul">
+<li>urllib.request - An extensible library for opening URLs using a variety of protocols</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcf25472" class="outline-2">
+<h2 id="orgcf25472">idle3</h2>
+<div class="outline-text-2" id="text-orgcf25472">
+<ul class="org-ul">
+<li>how to view an object in the shell?</li>
+<li>inspect memory addresses?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd7cb166" class="outline-2">
+<h2 id="orgd7cb166">how to</h2>
+<div class="outline-text-2" id="text-orgd7cb166">
+</div>
+<div id="outline-container-orgf7a24ab" class="outline-3">
+<h3 id="orgf7a24ab">read function from file in shell</h3>
+<div class="outline-text-3" id="text-orgf7a24ab">
+<pre class="example">
+&gt;&gt;&gt; q = PriorityQueue()
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'module' object is not callable
+&gt;&gt;&gt; PriorityQueue
+&lt;module 'PriorityQueue' from '/home/janowah/PriorityQueue.py'&gt;
+
+&gt;&gt;&gt; import PriorityQueue ; wrong
+
+&gt;&gt;&gt; PriorityQueue ; check
+&lt;class 'PriorityQueue.PriorityQueue'&gt;
+
+doesn't work for data
+
+from mylib.py import myfunction
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf0df5b" class="outline-2">
+<h2 id="orgbf0df5b">docstrings</h2>
+<div class="outline-text-2" id="text-orgbf0df5b">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span>- action word. verb.
+<span class="linenr"> 3: </span>- select * from x
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>single line 
+<span class="linenr"> 6: </span>""" """
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>multiline
+<span class="linenr"> 9: </span>""" abc
+<span class="linenr">10: </span>def ghi
+<span class="linenr">11: </span>"""
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>&gt;&gt;&gt; readMaster.__doc__
+<span class="linenr">14: </span>&gt;&gt;&gt; print(readMaster.__doc__)
+<span class="linenr">15: </span>None
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfab5d28" class="outline-2">
+<h2 id="orgfab5d28">modules</h2>
+<div class="outline-text-2" id="text-orgfab5d28">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr">1: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0bb587a" class="outline-2">
+<h2 id="org0bb587a">notes on this document</h2>
+<div class="outline-text-2" id="text-org0bb587a">
+<div class="org-src-container">
+<pre class="src src-text"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span>ALL
+<span class="linenr"> 3: </span>  help('if')
+<span class="linenr"> 4: </span>  - simple example of usage
+<span class="linenr"> 5: </span>  - link to the online documentation
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>DATA
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>- crud for data types
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>FLOW
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>modules/ packages
+<span class="linenr">15: </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

@@ -60,3 +60,4 @@ q. what is the default behaviour?
 - register
 - union
 - volatile
+- restrict ; >99

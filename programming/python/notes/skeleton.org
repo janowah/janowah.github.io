@@ -1,0 +1,1066 @@
+#+title: my python index
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* simple data types
+
+** int
+
+#+BEGIN_SRC text -n :tangle int.txt :padline no
+class int in module __builtin__:
+<type 'int'>
+help('int')
+
+postive and negative numbers
+#+END_SRC
+
+** float
+
+#+BEGIN_SRC text -n :tangle float.txt :padline no
+real numbers
+
+class float in module __builtin__:
+help('float')
+<type 'float'>
+#+END_SRC
+
+** bool
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+  class bool in module __builtin__:
+  - booleans
+  <type 'bool'>
+  help('bool')
+#+END_SRC
+
+** str
+
+#+BEGIN_SRC text -n :tangle str.txt :padline no
+  class str in module __builtin__:
+  <type 'str'>
+  help('str')
+
+  - http://docs.python.org/library/string.html
+
+  - methods
+        - upper()
+        - lower()
+        - replace() ; Replace(old,new) print banner.replace('FreeFloat','Ability')
+        - find() ; offset where the first occurrence of the substring occurs
+
+  - interpolation/ concatenation
+  print "[+] Checking for "+banner+" on port "+str(port)
+  print "[+] There are "+str(pos)+" ports to scan before 80."
+  "+str(services['ftp'])
+
+  STRING FORMATTING
+
+  https://realpython.com/python-string-formatting/ ; good overview
+
+  NEW STYLE STRING FORMATTING
+
+  https://docs.python.org/3/library/string.html#string-formatting
+
+  PRINTF-STYLE STRING FORMATTING
+
+  https://docs.python.org/3/library/stdtypes.html#old-string-formatting
+
+  %% to escape %
+  \ ; new line?
+  %x hex
+  %r ; string version of objects
+
+  substitions
+  - create a dictionary with substitutions
+    - dctSub = {'foo':'bar'}
+  - create here string with placeholders
+    - %(foo)s
+  - print (hereString % dctSub)
+
+  gotchas
+  - variables are case senstive
+  - must be a match for every substitution
+  - by default doesn't ignore errors
+
+  %s %s %s % (a,b,c) ; why use this format? in loops?
+#+END_SRC
+
+* complex data types
+
+** tuple
+
+#+BEGIN_SRC text -n :tangle lists.txt :padline no
+  >>> p = (4, 5)
+  >>> type(p)
+  <type 'tuple'>
+
+  - immutable. can't ever change
+  - round brackets parentheses and commas (,)
+
+  - can access the variables in a tuple by index
+
+  >>> tupA = os.path.split(cc1)
+  >>> tupA
+  ('/home/janowah', '.emacs')
+  >>> tupA[1]
+  '.emacs'
+  >>> tupA[0]
+  '/home/janowah'
+  >>> varA = tupA[1]
+  >>> varA
+  '.emacs'
+#+END_SRC
+
+** list
+
+#+BEGIN_SRC text -n :tangle lists.txt :padline no
+  list. array?
+
+  <type 'list'>
+  class list in module __builtin__:
+  help('list')
+
+  append
+  insert
+  remove
+  pop
+  .count
+
+  - appending .append(21)
+  - inserting
+  - removing .remove(443)
+  - popping
+  - indexing .index(80)
+
+  >>> portList.index(80) ; only first if more than one.
+  0
+  - counting  len(portList)
+  - sorting .sort() ; low to high. modifies original
+  - reversing
+
+  portList.reverse()
+  portList
+  [80, 25, 21]
+
+  - contains?
+
+  EXAMPLE
+
+  CREATE
+  - portList = []
+
+  READ
+  - portList[1]
+    - 80
+
+  UPDATE (left to right)
+  add new elements
+  - portList.append(21)
+  - portList
+    - [21]
+  - portList.append(80)
+  - portList
+    - [21, 80]
+  - portList.append(443)
+  - portList
+    - [21, 80, 443]
+  - portList.append(25)
+  - portList
+    - [21, 80, 443, 25]
+
+  - portList.insert(0,21)
+  - portList
+    - [21, 80, 25]
+
+  modify existing elements
+  - portList[1] = 32
+    - portList
+    - [21, 32, 25]
+
+  DELETE
+  remove elements. 
+
+  - del to remove an element by index
+    - del portList[0]
+  - pop() to remove it by index if you need the returned value
+    - var = portList.pop(1)
+    - var
+      - 80
+  - remove() to delete an element by value
+    - portList.remove(443)
+    - portList
+      - [21, 80, 25]
+
+  INDEX (first element is 0)
+  >>> portList.index(21)
+  0
+  >>> portList.index(80)
+  1
+
+  portList = []
+  portList.append(80)
+  print portList
+    [21, 80, 443, 25]
+
+  contain integers, strings etc.
+
+  square brackets and commas [,]
+
+  comparing lists
+  - a = ['cat', 'dog', 'cow']
+  - b = ['cow', 'horse', 'cat']
+  - set(a) & set(b)
+  - set(a) - set(b)
+  - set(b) - set(a)
+
+  set(a).intersection(b) # both
+  set(b).union(b)        # join
+  set(b).difference(a)   # diff
+#+END_SRC
+
+** dict
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+<type 'dict'>
+class dict in module __builtin__:
+help('dict')
+
+dictionary. hashtable
+
+- curly brackets, commas and colons {:,}
+
+- .keys() ; <list> of all keys in the dictionary
+- .items() ; entire <list> of items in the dictionary
+
+services = {'ftp':21,'ssh':22,'smtp':25,'http':80}
+
+cc_res['sha1']
+#+END_SRC
+
+** set
+
+#+BEGIN_SRC text
+  >>> type(b)
+  <class 'set'>
+#+END_SRC
+
+* flow control
+** if
+
+#+BEGIN_SRC text -n :tangle if.txt :padline no
+The ``if`` statement
+********************
+
+help('if')
+
+if ("FreeFloat Ftp Server (Version 1.00)" in ans):
+...     print "[+] FreeFloat FTP Server is vulnerable."
+#+END_SRC
+
+** if else
+
+#+BEGIN_SRC text -n :tangle if-else.txt :padline no
+if ("FreeFloat Ftp Server (Version 1.00)" in ans):
+...     print "[+] FreeFloat FTP Server is vulnerable."
+else:
+...     print "[-] FTP Server is not vulnerable."
+#+END_SRC
+
+** if elif else
+
+#+BEGIN_SRC text -n :tangle if-elif-else.txt :padline no
+>>> if ("FreeFloat Ftp Server (Version 1.00)" in ans):
+...     print "[+] FreeFloat FTP Server is vulnerable."
+... elif ("3Com 3CDaemon FTP Server Version 2.0" in banner):
+...     print "[+] 3CDaemon FTP Server is vulnerable."
+... elif ("Ability Server 2.34" in banner):
+...     print "[+] Ability FTP Server is vulnerable."
+... elif ("Sami FTP Server 2.0.2" in banner):
+...     print "[+] Sami FTP Server is vulnerable."
+... else:
+...     print "[-] FTP Server is not vulnerable."
+... 
+[-] FTP Server is not vulnerable.
+#+END_SRC
+
+** try except
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+>>> try:
+  ...     print "[+] 1337/0 = "+str(1337/0)
+  ... except:
+  ...     print "[-] Error. "
+  ... 
+  [-] Error.
+
+
+  >>> try:
+  ...     print "[+] 1337/0 = "+str(1337/0)
+  ... except Exception, e:
+  ...     print "[-] Error = "+str(e)
+  ...
+  [-] Error = integer division or modulo by zero
+  >>>
+#+END_SRC
+
+** not
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+  if not (True):
+  ...    print('a')
+  ... else:
+  ...    print('b')
+  ... 
+  b
+  >>> if (True):
+  ...    print('a')
+  ... else:
+  ...    print('b')
+  ... 
+#+END_SRC
+
+** foreach (enumerate)
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+my_list = [1,2,3]
+for member in my_list:
+    member = 42
+print my_list
+
+Output:
+
+    [1, 2, 3]
+
+If you want to change a list containing immutable types, you need to do something like:
+
+my_list = [1,2,3]
+for ndx, member in enumerate(my_list):
+    my_list[ndx] += 42
+print my_list
+
+Output:
+
+    [43, 44, 45]
+
+#+END_SRC
+
+* looping
+
+Related help topics: break, continue, while
+
+** for
+
+#+BEGIN_SRC text -n :tangle for.txt :padline no
+The ``for`` statement
+help('for')
+
+>>> for x in range(1,255):
+  ...     print "192.168.95."+str(x)
+
+<list>
+for port in portList:
+  ...     print port
+
+nested
+for x in range(1,255):
+  ...     for port in portList:
+  ...             print "[+] Checking 192.168.95."\
+  ...             +str(x)+": "+str(port)
+
+for i in reversed(array):
+...     print(i)
+#+END_SRC
+
+
+** while
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+#+END_SRC
+
+* functions
+
+#+BEGIN_SRC text -n :tangle functions.txt :padline no
+  help('def')
+
+  Function definitions
+  ,********************
+
+  A function definition defines a user-defined function object 
+
+  naming
+  functions.  can't use _ or -
+
+
+  def retBanner(ip, port):
+
+   def main():
+  if __name__ == '__main__':
+            main()
+
+  MAIN
+  good article on main()
+  https://www.journaldev.com/17752/python-main-function
+#+END_SRC
+
+* built-in functions
+
+** open
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+help('open')
+
+- what type of object is the file handle? fileObj?
+  - methods
+    - .read()
+    - .readlines()
+    - .write() 
+    - .close()
+  - modes
+    - w open for writing
+    - a append
+    - r read only?
+
+>>> test2.name
+'python.org'
+>>> test2.mode
+'r'
+>>> test2.newlines
+>>> test2.encoding
+'UTF-8'
+#+END_SRC
+
+* modules (built-in)
+
+all require and import statment
+
+** socket ; networking
+
+#+BEGIN_SRC text -n :angle socket.txt :padline no
+>>> help('socket')
+Help on module socket:
+
+http://docs.Python.org/library/socket.html.
+
+>>> import socket
+  >>> socket.setdefaulttimeout(2)
+  >>> s = socket.socket()
+  >>> s.connect(("ftp.ncftp.com",21))
+  >>> ans = s.recv(1024)
+  >>> print ans
+  220 ProFTPD Server (ncftpd.com's FTP Server) [209.197.102.38]
+
+socket.gethostbyname(hostname) – This function takes a hostname such
+as www.syngress.com and returns an IPv4 address format such as
+69.163.177.2.
+socket.gethostbyaddr(ip address) – This function takes an IPv4 address
+and returns a triple containing the hostname, alternative list of
+host names, and a list of IPv4/v6 addresses for the same interface
+on the host.
+socket.socket([family[, type[, proto]]]) – This function creates an
+instance of a new socket given the family. Options for the socket
+family are AF_INET, AF_INET6, or AF_UNIX. Additionally, the socket
+can be specified as SOCK_STREAM for a TCP socket or SOCK_DGRAM for
+a UDP socket. Finally, the protocol number is usually zero and is
+omitted in most cases.
+socket.create_connection(address[, timeout[, source_address]]) – This
+function takes a 2-tuple (host, port) and returns an instance of a
+network socket. Additi
+
+#+END_SRC
+
+** sys
+
+#+BEGIN_SRC text -n :tangle sys.txt :padline no
+>>> help('sys')
+Help on built-in module sys:
+
+
+The built-in sys module provides access to objects used or maintained
+by the Python interpreter. This includes flags, version, max sizes of
+integers, available modules, path hooks, location of standard
+error/in/out, and command line arguments called by the
+interpreter.
+
+http://docs.python.org/library/sys.
+
+help('sys')
+
+;; read command line arguments
+import sys
+  if len(sys.argv)==2:
+      filename = sys.argv[1]
+      print "[+] Reading Vulnerabilities From: "+filename
+
+sys.argv[1]
+#+END_SRC
+
+** os
+
+#+BEGIN_SRC text -n :tangle os.txt :padline no
+  >>> help('os')
+  Help on module os:
+
+
+  The built-in OS module provides a wealth of OS routines for Mac, NT,
+  or Posix operating systems. This module allows the program to
+  independently interact with the OS environment, file-system, user
+  database, and permissions
+
+  BASIC
+
+  - os.getcwd()
+    - --> '/home/homer'
+  - os.listdir()
+    - os.listdir('.') --> ['python.txt', 'temp']  
+  - os.chdir()
+    - os.chdir('temp')
+    - os.chdir('../')
+  - os.makedirs() ; mkdir -p
+    - os.makedirs('temp')
+
+  TESTS
+
+  - os.path.isabs('.') ; tests if absolute path
+    - --> False
+    - os.path.isabs('/home/') --> True
+  - os.path.exists
+    - os.path.exists('/home') --> True
+    - os.path.exists('.') --> True
+  - os.path.isdir
+    - os.path.isdir(".") --> True
+  - os.path.isfile
+    - os.path.isfile('../python.sha1') --> True
+
+  PATH
+
+  - os.path.join()
+    - os.path.join('abc','def') --> 'abc/def'
+  - os.path.abspath('.') ; returns absolute path of current directory. no ~ expansion
+  - os.path.relpath ; returns location in relation to each other
+    - os.path.relpath('/home/janowah/','/home/janowah/.emacs.d') --> '..'
+    - os.path.relpath('/home/janowah/.emacs.d','/home/janowah/') --> '.emacs.d'
+  - os.path.basename(path) ; returns filename. starting from the right until first /
+    - os.path.basename('/home/janowah/.emacs') --> '.emacs'
+  - os.path.dirname('/home/janowah/.emacs') ; path
+    - os.path.dirname(cc1) --> '/home/janowah'
+  - os.path.split(calcFilePath) ; splits file from path. splits at last /
+    - os.path.split('/home/janowah/.emacs') --> ('/home/janowah', '.emacs')
+  - os.path.sep ; returns seperator '/' in linux
+  - os.path.getsize() ; works for files
+    - os.path.getsize('../python.sha1') --> 655
+  - os.path.expanduser('~/Desktop') ; does ~ expansion
+    - --> '/home/homer/Desktop'
+  - os.path.getmtime(x)
+    - os.path.getmtime('temp1') --> 1548964347.251015
+    - os.path.getmtime('../python.sha1') --> 1500027376.061472
+
+  IDIOMS
+
+  os.walk(directory)
+
+  >>> for root, dirs, files in os.walk('0-new-projects'):
+  ...     print(files)
+
+  this will print a list of all the files
+
+  >>> for root, dirs, files in os.walk('../files/0-publish'):
+  ...     for f in files:
+  ...         path = "%s/%s" % (root,f)
+  ...         print(path)
+  
+
+  >>> for root, dirs, files in os.walk('./'):
+  ...     print(files)
+  ... 
+  ['11.py', 'cc-deep.py']
+  >>> for root, dirs, files in os.walk('./'):
+  ...     print(dirs)
+  ... 
+  []
+  >>> for root, dirs, files in os.walk('./'):
+  ...     print(root)
+  ... 
+  ./
+  >>>
+
+  if not os.path.isfile(filename):  return True if not a file, else False
+  if not os.access(filename, os.R_OK):
+
+  os.system('ls') or os.system("ls")
+
+  delete empty directories?
+
+  if not os.listdir(dir):
+  os.rmdir(dir)
+
+  >>> if (os.listdir('/home/homer/Desktop/empty')):
+  ...    print('true')
+  ... else:
+  ...    print('false')
+  ... 
+  false
+  >>> if not (os.listdir('/home/homer/Desktop/empty')):
+  ...    print('true')
+  ... else:
+  ...    print('false')
+  ... 
+  true
+  >>> 
+#+END_SRC
+
+** crypt
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+>>> help('crypt')
+Help on module crypt:
+
+#+END_SRC
+
+** zipfile
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+>>> help('zipfile')
+Help on module zipfile:
+
+#+END_SRC
+
+** threading
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+>>> help('threading')
+Help on module threading:
+
+from threading  Thread
+#+END_SRC
+
+** optparse
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+>>> help('optparse')
+Help on module optparse:
+
+NAME
+    optparse - A powerful, extensible, and easy-to-use option parser.
+
+#+END_SRC
+
+** shelve
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+>>> help('shelve')
+saving variables to a file
+
+Help on module shelve:
+
+NAME
+    shelve - Manage shelves of pickled objects.
+
+#+END_SRC
+
+** glob
+
+#+BEGIN_SRC text -n :angle glob.txt :padline no
+>>> help('glob')
+Help on module glob:
+
+NAME
+    glob - Filename globbing utility.
+
+
+
+from glob import glob
+glob("/path/to/directory/*/")
+
+from glob import glob
+paths = glob('*/')
+#+END_SRC
+
+** date time
+
+#+BEGIN_SRC text -n :tangle datetime.txt :padline no
+>>> help('datetime')
+Help on module datetime:
+
+NAME
+    datetime - Fast implementation of the datetime type.
+
+from datetime import datetime
+
+>>> os.path.getmtime('python.org') ; modified time
+1543435561.1202424
+>>> os.path.getctime('python.org') ; created time. no use in *nix
+1543435561.1202424
+
+>>> print(datetime.utcfromtimestamp(1543435561.1202424).strftime('%Y-%m-%d %H:%M:%S'))        
+2018-11-28 20:06:01
+>>> print(datetime.utcfromtimestamp(1543435561.1202424).strftime('%Y-%m-%d %H:%M'))
+2018-11-28 20:06
+>>> 
+#+END_SRC
+
+** ftplib
+
+#+BEGIN_SRC text -n :tangle datetime.txt :padline no
+
+#+END_SRC
+
+** pprint
+
+#+BEGIN_SRC text -n :tangle pprint.txt :padline no
+  >>> help('pprint')
+  Help on module pprint:
+
+  NAME
+      pprint - Support to pretty-print lists, tuples, & dictionaries recursively.
+
+  import pprint
+  pp = pprint.PrettyPrinter(indent=4)
+  pp.pprint(objects)
+
+  pp.pprint(objects['responseData']['results'])
+#+END_SRC
+
+** json
+
+#+BEGIN_SRC text -n :tangle json.txt :padline no
+  >>> help('json')
+  Help on package json:
+
+  json.load()  ; takes a file like object with a read() method,
+  json.loads() ; takes a string ; returns a dict
+#+END_SRC
+
+** sqlite
+
+#+BEGIN_SRC python
+
+Help on package sqlite3:
+
+NAME
+    sqlite3
+
+FILE
+    /usr/lib64/python2.7/sqlite3/__init__.py
+
+https://docs.python.org/2/library/sqlite3.html
+
+import sqlite3
+
+def printProfile(skypeDB):
+    conn = sqlite3.connect(skypeDB)
+    c = conn.cursor()
+    c.execute("SELECT fullname, skypename, city, country, \
+datetime(profile_timestamp,'unixepoch') FROM Accounts;")
+    for row in c:
+        print '[*] -- Found Account --'
+        print '[+] User           : '+str(row[0])
+        print '[+] Skype Username : '+str(row[1])
+        print '[+] Location       : '+str(row[2])+','+str(row[3])
+        print '[+] Profile Date   : '+str(row[4])
+
+def printContacts(skypeDB):
+
+>>> for row in c.execute('SELECT tbl_name FROM sqlite_master WHERE type=="table"'):
+	print(row)
+#+END_SRC
+
+** pyperclip
+
+#+BEGIN_SRC text
+  Help on package pyperclip:
+
+  NAME
+      pyperclip - Pyperclip
+
+  DESCRIPTION
+      A cross-platform clipboard module for Python. (only handles plain text for now)
+      By Al Sweigart al@inventwithpython.com
+      BSD License
+#+END_SRC    
+
+** re
+
+#+BEGIN_SRC text
+  Help on module re:
+
+  NAME
+      re - Support for regular expressions (RE).
+#+END_SRC
+
+* i/o
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+read write from file & screen
+redirect stdin, stdout and stderr
+
+print(portlist) 
+print portlist
+
+read from file
+ >>> def checkVulns(banner):
+  ...     f = open("vuln_banners.txt",'r')
+  ...     for line in f.readlines():
+  ...             if line.strip('\n') in banner:
+  ...                     print "[+] Server is vulnerable: "+banner.strip('\n')
+  ... 
+
+#+END_SRC
+
+* casting
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+#+END_SRC
+
+* emacs setup
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+  - python.el ; built-in
+    - inferior shell
+    - skeletons
+    - debugging with pdb
+    - editing
+  - yasnippet
+
+  other modes
+  - python-mode
+  - elpy
+
+  - other shells
+  - ipython
+  - pypy is default. CHECK
+
+  ;; to switch to python3
+
+  (setq python-shell-interpreter "python3")
+  "python3"
+
+  (setq python-shell-completion-native-disabled-interpreters '("python3"))
+  ("python3")
+
+
+  ;; 
+  - how to set emacs to 4 spaces per tab?
+
+      (add-hook 'python-mode-hook
+              (lambda ()
+                      (setq-default indent-tabs-mode t)
+                      (setq-default tab-width 4)
+                      (setq-default py-indent-tabs-mode t)
+                      (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
+  ;; 
+  (add-hook 'python-mode-hook
+                    (lambda ()
+                          (setq-default tab-width 4)))
+
+
+  (setq tab-width 4)
+  4
+  (custom-set-variables
+   '(python-guess-indent nil)
+   '(python-indent-offset 2))
+#+END_SRC
+
+* debugging
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+pdb
+
+python3 -m pdb hello.py
+#+END_SRC
+
+* python shell
+
+#+BEGIN_SRC text -n :tangle shell.txt :padline no
+  - how to run a script from the python shell?
+  - clear the screen?
+  - print current version
+  - dir() will give you the <list> of in scope variables
+    - >>> help('dir')
+    - Help on built-in function dir in module __builtin__:
+    - If called without an argument, return the names in the current scope.
+  - With python 3 interpreter the history is written to
+    ~/.python_history
+
+  clear variable
+  dir() ; list
+  del ; delete
+#+END_SRC
+
+* classes
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+  classes
+
+  __DOUBLE UNDER__
+  https://dbader.org/blog/python-dunder-methods ; good tutorial
+#+END_SRC
+
+* help
+
+#+BEGIN_SRC text -n :tangle help.txt :padline no
+  help('crypt')
+  help('sys')
+  help('zipfile')
+
+print(portlist) 
+print portlist
+type(portlist)
+
+2.7 library
+https://docs.python.org/2/library/index.html
+
+
+3.4 is installed on my machine
+https://docs.python.org/3.5/library/index.html
+
+#+END_SRC
+
+* escapes
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+  '\n’
+  \r
+  \ ; continue to the next line
+#+END_SRC
+
+* find out
+
+difference between ' and "
+- using , creates tuples
+
+dot source
+
+linting and style
+
+* comparison operators
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+  == equality
+
+  not
+  help('TRUTHVALUE')
+
+  Operator Meaning
+  ==       Equal to
+  !=       Not equal to
+  <        Less than
+  >        Greater than
+  <=       Less than or equal to
+  >=       Greater than or equal to
+#+END_SRC
+
+* 3rd party modules
+
+** installing
+
+python2 -m pip install mechanize
+
+- pip3 install pyinstaller
+- pip3 install --upgrade
+
+** examples
+- violent python
+  - Pexpect
+    - http://pexpect.sourceforge.net
+    - Pexpect has the ability to interact with programs, watch for
+      expected outputs, and then respond based on expected outputs.
+  - mechanize
+    - http://wwwsearch.sourceforge.net/mechanize/
+  - PYPDF
+    - http://pybrary.net/pyPdf/
+  - http://www.crummy.com/software/BeautifulSoup/
+
+* differences between python2 and python3
+
+must enclose print statement in () in 3
+
+string formatting. use .format instead of %
+
+* web libraries
+
+- python2
+  - urllib2
+    - urllib2 - An extensible library for opening URLs using a variety of protocols
+    - /usr/lib64/python2.7/urllib2.py
+  - mechanize
+    - /usr/lib/python2.7/site-packages/mechanize/__init__.py
+
+- python3
+  - urllib.request - An extensible library for opening URLs using a variety of protocols
+* idle3
+
+- how to view an object in the shell?
+- inspect memory addresses?
+
+* how to
+
+** read function from file in shell
+
+#+BEGIN_EXAMPLE
+  >>> q = PriorityQueue()
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  TypeError: 'module' object is not callable
+  >>> PriorityQueue
+  <module 'PriorityQueue' from '/home/janowah/PriorityQueue.py'>
+
+  >>> import PriorityQueue ; wrong
+
+  >>> PriorityQueue ; check
+  <class 'PriorityQueue.PriorityQueue'>
+
+  doesn't work for data
+
+  from mylib.py import myfunction
+#+END_EXAMPLE
+
+* docstrings
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+- action word. verb.
+- select * from x
+
+single line 
+""" """
+
+multiline
+""" abc
+def ghi
+"""
+
+>>> readMaster.__doc__
+>>> print(readMaster.__doc__)
+None
+#+END_SRC
+
+* modules
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+#+END_SRC
+
+* notes on this document
+
+#+BEGIN_SRC text -n :angle xxx.txt :padline no
+
+ALL
+  help('if')
+  - simple example of usage
+  - link to the online documentation
+
+DATA
+
+- crud for data types
+
+
+FLOW
+
+modules/ packages
+
+#+END_SRC

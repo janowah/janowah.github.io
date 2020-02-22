@@ -14,5 +14,6 @@
   - [[file:notes/types.html][types]]
   - [[file:notes/c-keywords.html][keywords]]
   - print
+  - [[file:notes/libraries.html][libraries]]
 
 [[../programming.html][back]]

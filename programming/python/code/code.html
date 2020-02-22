@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>code</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css" >
+pre.example {background-color: #ffffff;}
+pre.src-python {background-color: #ffffff;}
+</style>
+</head>
+<body>
+<div id="content">
+<h1 class="title">code</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5fe3569">Chapter 2 - Flow Control</a>
+<ul>
+<li><a href="#org6139367">vampire.py</a></li>
+<li><a href="#orgb068cb6">vampire2.py</a></li>
+<li><a href="#orgd46c4d7">littleKid.py</a></li>
+<li><a href="#orge77e845">swordfish.py</a></li>
+<li><a href="#org1c0de86">fiveTimes.py</a></li>
+<li><a href="#orgf0f8741">printRandom.py</a></li>
+<li><a href="#org7e7e832">exitExample.py</a></li>
+</ul>
+</li>
+<li><a href="#org566dfb0">Chapter 3 - Functions</a>
+<ul>
+<li><a href="#org68b742d">helloFunc.py</a></li>
+<li><a href="#org6d989d8">helloFunc2.py</a></li>
+<li><a href="#org17d5f9b">magic8Ball.py</a></li>
+<li><a href="#orgcf59ec3">zeroDivide.py</a></li>
+<li><a href="#org3e0f612">guessTheNumber.py</a></li>
+<li><a href="#org1ca7206">sameName2.py</a></li>
+<li><a href="#org8289c16">sameName3.py</a></li>
+<li><a href="#orgd19ddaa">sameName4.py</a></li>
+<li><a href="#org88b808a">sameName.py</a></li>
+</ul>
+</li>
+<li><a href="#org15b0d75">Chapter 4 - Lists</a>
+<ul>
+<li><a href="#org2c2f519">allMyCats1.py</a></li>
+<li><a href="#org290611f">allMyCats2.py</a></li>
+<li><a href="#org3dd4c4c">myPets.py</a></li>
+<li><a href="#org453ea1f">magic8Ball2.py</a></li>
+<li><a href="#org6e8502b">passingReference.py</a></li>
+</ul>
+</li>
+<li><a href="#org1b10d88">Chapter 5 - Dictionaries and Structuring Data</a>
+<ul>
+<li><a href="#org8e0c97c">birthdays.py</a></li>
+<li><a href="#org30566e8">characterCount.py</a></li>
+<li><a href="#org14f2aa2">prettyCharacterCount.py</a></li>
+<li><a href="#orgaa966c1">ticTacToe.py</a></li>
+<li><a href="#org24ec7b7">inventory.py</a></li>
+</ul>
+</li>
+<li><a href="#orgb5c923b">Chapter 6 - Manipulating Strings</a>
+<ul>
+<li><a href="#org2e35eff">catnapping.py</a></li>
+<li><a href="#org582d3fd">validateInput.py</a></li>
+<li><a href="#org08be3d9">picnicTable.py</a></li>
+<li><a href="#orgce60e3e">pw.py</a></li>
+<li><a href="#org414faeb">bulletPointAdder.py</a></li>
+</ul>
+</li>
+<li><a href="#orge01db14">Chapter 7 - Pattern Matching with Regular Expressions</a>
+<ul>
+<li><a href="#orgaccf996">isPhoneNumber.py</a></li>
+<li><a href="#org64a4ae1">phoneAndEmail.py</a></li>
+</ul>
+</li>
+<li><a href="#orge9505f7">Chapter 8 - Reading and Writing Files</a>
+<ul>
+<li><a href="#org935ce4c">randomQuizGenerator.py</a></li>
+<li><a href="#orgb2fefc0">mcb.pyw</a></li>
+</ul>
+</li>
+<li><a href="#orgcac5aae">Chapter 10 - Debugging</a>
+<ul>
+<li><a href="#orgf1c3bd2">boxPrint.py</a></li>
+<li><a href="#orgb8e1319">buggyAddingProgram.py</a></li>
+<li><a href="#org1e4fbd0">coinFlip.py</a></li>
+<li><a href="#org3d610a6">errorExample.py</a></li>
+<li><a href="#org690d561">factorialLog.py</a></li>
+</ul>
+</li>
+<li><a href="#org9297566">chapter 12 - Working with Excel Spreadsheets</a>
+<ul>
+<li><a href="#org5fb6897">Opening Excel Documents with OpenPyXL</a></li>
+<li><a href="#orgb25e4aa">Getting Sheets from the Workbook</a></li>
+<li><a href="#orge400f90">Getting Cells from the Sheets</a></li>
+<li><a href="#orgccb9f2c">Converting Between Column Letters and Numbers</a></li>
+<li><a href="#orgc5b26af">Getting Rows and Columns from the Sheets</a></li>
+<li><a href="#orgee05491">Project: Reading Data from a Spreadsheet</a>
+<ul>
+<li><a href="#org0111cca">readCensusExcel.py</a></li>
+</ul>
+</li>
+<li><a href="#org9e88c51">Creating and Saving Excel Documents</a></li>
+<li><a href="#orgf8f1ee3">Creating and Removing Sheets</a></li>
+<li><a href="#orgd1e98a5">Writing Values to Cells</a></li>
+<li><a href="#orga3d7cf2">Project: Updating a Spreadsheet</a>
+<ul>
+<li><a href="#orgc229c70">updateProduce.py</a></li>
+</ul>
+</li>
+<li><a href="#orgc5f5ebe">Adjusting Rows and Columns</a>
+<ul>
+<li><a href="#orgd836bc5">Setting Row Height and Column Width</a></li>
+<li><a href="#org203c307">Merging and Unmerging Cells</a></li>
+</ul>
+</li>
+<li><a href="#org5310ef1">Freeze Panes</a>
+<ul>
+<li><a href="#orgb36a33c">Table 12-3: Frozen Pane Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5fe3569" class="outline-2">
+<h2 id="org5fe3569">Chapter 2 - Flow Control</h2>
+<div class="outline-text-2" id="text-org5fe3569">
+</div>
+<div id="outline-container-org6139367" class="outline-3">
+<h3 id="org6139367">vampire.py</h3>
+<div class="outline-text-3" id="text-org6139367">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">if</span> name == <span style="color: #848ea9;">'Alice'</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Hi, Alice.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &lt; 12:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You are not Alice, kiddo.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &gt; 2000:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Unlike you, Alice is not an undead, immortal vampire.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &gt; 100:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You are not Alice, grannie.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb068cb6" class="outline-3">
+<h3 id="orgb068cb6">vampire2.py</h3>
+<div class="outline-text-3" id="text-orgb068cb6">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">if</span> name == <span style="color: #848ea9;">'Alice'</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Hi, Alice.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &lt; 12:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You are not Alice, kiddo.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &gt; 100:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You are not Alice, grannie.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &gt; 2000:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Unlike you, Alice is not an undead, immortal vampire.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd46c4d7" class="outline-3">
+<h3 id="orgd46c4d7">littleKid.py</h3>
+<div class="outline-text-3" id="text-orgd46c4d7">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">if</span> name == <span style="color: #848ea9;">'Alice'</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Hi, Alice.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">elif</span> age &lt; 12:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You are not Alice, kiddo.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">else</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You are neither Alice nor a little kid.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge77e845" class="outline-3">
+<h3 id="orge77e845">swordfish.py</h3>
+<div class="outline-text-3" id="text-orge77e845">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">swordfish.py WORKS. case sensitive.</span>
+
+<span style="color: #56b4e9; font-weight: bold;">while</span> <span style="color: #d55e00; font-weight: bold;">True</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Who are you?'</span>)
+    <span style="color: #e69f00; font-weight: bold;">name</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> name != <span style="color: #848ea9;">'Joe'</span>:
+        <span style="color: #56b4e9; font-weight: bold;">continue</span>
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Hello, Joe. What is the password? (It is a fish.)'</span>)
+    <span style="color: #e69f00; font-weight: bold;">password</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> password == <span style="color: #848ea9;">'swordfish'</span>:
+        <span style="color: #56b4e9; font-weight: bold;">break</span>
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Access granted.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1c0de86" class="outline-3">
+<h3 id="org1c0de86">fiveTimes.py</h3>
+<div class="outline-text-3" id="text-org1c0de86">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">fiveTimes.py FOR LOOP. WORKS</span>
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'My name is'</span>)
+<span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(5):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Jimmy Five Times ('</span> + <span style="color: #0072b2;">str</span>(i) + <span style="color: #848ea9;">')'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0f8741" class="outline-3">
+<h3 id="orgf0f8741">printRandom.py</h3>
+<div class="outline-text-3" id="text-orgf0f8741">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">printRandom.py. random. WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> random
+<span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(5):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(random.randint(1, 10))
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e7e832" class="outline-3">
+<h3 id="org7e7e832">exitExample.py</h3>
+<div class="outline-text-3" id="text-org7e7e832">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">exitExample.py. EXIT. WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> sys
+
+<span style="color: #56b4e9; font-weight: bold;">while</span> <span style="color: #d55e00; font-weight: bold;">True</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Type exit to exit.'</span>)
+    <span style="color: #e69f00; font-weight: bold;">response</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> response == <span style="color: #848ea9;">'exit'</span>:
+        sys.<span style="color: #d55e00; font-weight: bold;">exit</span>()
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'You typed '</span> + response + <span style="color: #848ea9;">'.'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org566dfb0" class="outline-2">
+<h2 id="org566dfb0">Chapter 3 - Functions</h2>
+<div class="outline-text-2" id="text-org566dfb0">
+</div>
+<div id="outline-container-org68b742d" class="outline-3">
+<h3 id="org68b742d">helloFunc.py</h3>
+<div class="outline-text-3" id="text-org68b742d">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">helloFunc.py. functions. WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">hello</span>():
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Howdy!'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Howdy!!!'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Hello there.'</span>)
+
+hello()
+hello()
+hello()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d989d8" class="outline-3">
+<h3 id="org6d989d8">helloFunc2.py</h3>
+<div class="outline-text-3" id="text-org6d989d8">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">helloFunc2.py. function arguments. WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">hello</span>(name):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Hello '</span> + name)
+
+hello(<span style="color: #848ea9;">'Alice'</span>)
+hello(<span style="color: #848ea9;">'Bob'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17d5f9b" class="outline-3">
+<h3 id="org17d5f9b">magic8Ball.py</h3>
+<div class="outline-text-3" id="text-org17d5f9b">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">magic8Ball.py. WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> random
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">getAnswer</span>(answerNumber):
+    <span style="color: #56b4e9; font-weight: bold;">if</span> answerNumber == 1:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'It is certain'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 2:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'It is decidedly so'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 3:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'Yes'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 4:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'Reply hazy try again'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 5:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'Ask again later'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 6:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'Concentrate and ask again'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 7:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'My reply is no'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 8:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'Outlook not so good'</span>
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> answerNumber == 9:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #848ea9;">'Very doubtful'</span>
+
+<span style="color: #e69f00; font-weight: bold;">r</span> = random.randint(1, 9)
+<span style="color: #e69f00; font-weight: bold;">fortune</span> = getAnswer(r)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(fortune)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcf59ec3" class="outline-3">
+<h3 id="orgcf59ec3">zeroDivide.py</h3>
+<div class="outline-text-3" id="text-orgcf59ec3">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">zeroDivide.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">example of bad code</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Exception Handling</span>
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">def spam(divideBy):</span>
+  <span style="color: #009e73; font-style: italic;">#  </span><span style="color: #009e73; font-style: italic;">return 42 / divideBy</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">spam</span>(divideBy):
+    <span style="color: #56b4e9; font-weight: bold;">try</span>:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> 42 / divideBy
+    <span style="color: #56b4e9; font-weight: bold;">except</span> <span style="color: #0072b2; font-weight: bold;">ZeroDivisionError</span>:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Error: Invalid argument.'</span>)
+
+<span style="color: #56b4e9; font-weight: bold;">print</span>(spam(2))
+<span style="color: #56b4e9; font-weight: bold;">print</span>(spam(12))
+<span style="color: #56b4e9; font-weight: bold;">print</span>(spam(0))
+<span style="color: #56b4e9; font-weight: bold;">print</span>(spam(1))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e0f612" class="outline-3">
+<h3 id="org3e0f612">guessTheNumber.py</h3>
+<div class="outline-text-3" id="text-org3e0f612">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">guessTheNumber.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">A Short Program: Guess the Number</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">This is a guess the number game.</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> random
+<span style="color: #e69f00; font-weight: bold;">secretNumber</span> = random.randint(1, 20)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'I am thinking of a number between 1 and 20.'</span>)
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Ask the player to guess 6 times.</span>
+<span style="color: #56b4e9; font-weight: bold;">for</span> guessesTaken <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(1, 7):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Take a guess.'</span>)
+    <span style="color: #e69f00; font-weight: bold;">guess</span> = <span style="color: #0072b2;">int</span>(<span style="color: #0072b2;">input</span>())
+
+    <span style="color: #56b4e9; font-weight: bold;">if</span> guess &lt; secretNumber:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Your guess is too low.'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> guess &gt; secretNumber:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Your guess is too high.'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">else</span>:
+        <span style="color: #56b4e9; font-weight: bold;">break</span> <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">This condition is the correct guess!</span>
+
+<span style="color: #56b4e9; font-weight: bold;">if</span> guess == secretNumber:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Good job! You guessed my number in '</span> + <span style="color: #0072b2;">str</span>(guessesTaken) + <span style="color: #848ea9;">' guesses!'</span>)
+<span style="color: #56b4e9; font-weight: bold;">else</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Nope. The number I was thinking of was '</span> + <span style="color: #0072b2;">str</span>(secretNumber))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1ca7206" class="outline-3">
+<h3 id="org1ca7206">sameName2.py</h3>
+<div class="outline-text-3" id="text-org1ca7206">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">sameName2.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">The global Statement</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">spam</span>():
+    <span style="color: #56b4e9; font-weight: bold;">global</span> eggs
+    <span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'spam'</span>
+
+<span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'global'</span>
+spam()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(eggs)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8289c16" class="outline-3">
+<h3 id="org8289c16">sameName3.py</h3>
+<div class="outline-text-3" id="text-org8289c16">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">sameName3.py</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">spam</span>():
+    <span style="color: #56b4e9; font-weight: bold;">global</span> eggs
+    <span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'spam'</span> <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">this is the global</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">bacon</span>():
+    <span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'bacon'</span> <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">this is a localw</span>
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">ham</span>():
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(eggs) <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">this is the global</span>
+
+<span style="color: #e69f00; font-weight: bold;">eggs</span> = 42 <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">this is the global</span>
+spam()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(eggs)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd19ddaa" class="outline-3">
+<h3 id="orgd19ddaa">sameName4.py</h3>
+<div class="outline-text-3" id="text-orgd19ddaa">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">sameName4.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">example of bad code</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">spam</span>():
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(eggs) <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">ERROR!</span>
+    <span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'spam local'</span>
+
+<span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'global'</span>
+spam()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org88b808a" class="outline-3">
+<h3 id="org88b808a">sameName.py</h3>
+<div class="outline-text-3" id="text-org88b808a">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">sameName.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Local and Global Variables with the Same Name</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">spam</span>():
+    <span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'spam local'</span>
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(eggs)     <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">prints 'spam local'</span>
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">bacon</span>():
+    <span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'bacon local'</span>
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(eggs) <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">prints 'bacon local'</span>
+    spam()
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(eggs) <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">prints 'bacon local'</span>
+<span style="color: #e69f00; font-weight: bold;">eggs</span> = <span style="color: #848ea9;">'global'</span>
+bacon()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(eggs) <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">prints 'global'</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15b0d75" class="outline-2">
+<h2 id="org15b0d75">Chapter 4 - Lists</h2>
+<div class="outline-text-2" id="text-org15b0d75">
+</div>
+<div id="outline-container-org2c2f519" class="outline-3">
+<h3 id="org2c2f519">allMyCats1.py</h3>
+<div class="outline-text-3" id="text-org2c2f519">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">allMyCats1.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Working with Lists</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat 1:'</span>)
+<span style="color: #e69f00; font-weight: bold;">catName1</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat 2:'</span>)
+<span style="color: #e69f00; font-weight: bold;">catName2</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat 3:'</span>)
+<span style="color: #e69f00; font-weight: bold;">catName3</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat 4:'</span>)
+<span style="color: #e69f00; font-weight: bold;">catName4</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat 5:'</span>)
+<span style="color: #e69f00; font-weight: bold;">catName5</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat 6:'</span>)
+<span style="color: #e69f00; font-weight: bold;">catName6</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'The cat names are:'</span>)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(catName1 + <span style="color: #848ea9;">' '</span> + catName2 + <span style="color: #848ea9;">' '</span> + catName3 + <span style="color: #848ea9;">' '</span> + catName4 + <span style="color: #848ea9;">' '</span> +
+catName5 + <span style="color: #848ea9;">' '</span> + catName6)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org290611f" class="outline-3">
+<h3 id="org290611f">allMyCats2.py</h3>
+<div class="outline-text-3" id="text-org290611f">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">allMyCats2.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Working with Lists</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #e69f00; font-weight: bold;">catNames</span> = []
+<span style="color: #56b4e9; font-weight: bold;">while</span> <span style="color: #d55e00; font-weight: bold;">True</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the name of cat '</span> + <span style="color: #0072b2;">str</span>(<span style="color: #0072b2;">len</span>(catNames) + 1) +
+    <span style="color: #848ea9;">' (Or enter nothing to stop.):'</span>)
+    <span style="color: #e69f00; font-weight: bold;">name</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> name == <span style="color: #848ea9;">''</span>:
+        <span style="color: #56b4e9; font-weight: bold;">break</span>
+    <span style="color: #e69f00; font-weight: bold;">catNames</span> = catNames + [name] <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">list concatenation</span>
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'The cat names are:'</span>)
+<span style="color: #56b4e9; font-weight: bold;">for</span> name <span style="color: #56b4e9; font-weight: bold;">in</span> catNames:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">' '</span> + name)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3dd4c4c" class="outline-3">
+<h3 id="org3dd4c4c">myPets.py</h3>
+<div class="outline-text-3" id="text-org3dd4c4c">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">myPets.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">The in and not in Operators</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #e69f00; font-weight: bold;">myPets</span> = [<span style="color: #848ea9;">'Zophie'</span>, <span style="color: #848ea9;">'Pooka'</span>, <span style="color: #848ea9;">'Fat-tail'</span>]
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter a pet name:'</span>)
+<span style="color: #e69f00; font-weight: bold;">name</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">if</span> name <span style="color: #56b4e9; font-weight: bold;">not</span> <span style="color: #56b4e9; font-weight: bold;">in</span> myPets:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'I do not have a pet named '</span> + name)
+<span style="color: #56b4e9; font-weight: bold;">else</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(name + <span style="color: #848ea9;">' is my pet.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org453ea1f" class="outline-3">
+<h3 id="org453ea1f">magic8Ball2.py</h3>
+<div class="outline-text-3" id="text-org453ea1f">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">magic8Ball2.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Example Program: Magic 8 Ball with a List</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> random
+
+<span style="color: #e69f00; font-weight: bold;">messages</span> = [<span style="color: #848ea9;">'It is certain'</span>,
+    <span style="color: #848ea9;">'It is decidedly so'</span>,
+    <span style="color: #848ea9;">'Yes definitely'</span>,
+    <span style="color: #848ea9;">'Reply hazy try again'</span>,
+    <span style="color: #848ea9;">'Ask again later'</span>,
+    <span style="color: #848ea9;">'Concentrate and ask again'</span>,
+    <span style="color: #848ea9;">'My reply is no'</span>,
+    <span style="color: #848ea9;">'Outlook not so good'</span>,
+    <span style="color: #848ea9;">'Very doubtful'</span>]
+
+<span style="color: #56b4e9; font-weight: bold;">print</span>(messages[random.randint(0, <span style="color: #0072b2;">len</span>(messages) - 1)])
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e8502b" class="outline-3">
+<h3 id="org6e8502b">passingReference.py</h3>
+<div class="outline-text-3" id="text-org6e8502b">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">passingReference.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Passing References</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">eggs</span>(someParameter):
+    someParameter.append(<span style="color: #848ea9;">'Hello'</span>)
+
+<span style="color: #e69f00; font-weight: bold;">spam</span> = [1, 2, 3]
+eggs(spam)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(spam)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b10d88" class="outline-2">
+<h2 id="org1b10d88">Chapter 5 - Dictionaries and Structuring Data</h2>
+<div class="outline-text-2" id="text-org1b10d88">
+</div>
+<div id="outline-container-org8e0c97c" class="outline-3">
+<h3 id="org8e0c97c">birthdays.py</h3>
+<div class="outline-text-3" id="text-org8e0c97c">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">birthdays.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Dictionaries vs. Lists</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #e69f00; font-weight: bold;">birthdays</span> = {<span style="color: #848ea9;">'Alice'</span>: <span style="color: #848ea9;">'Apr 1'</span>, <span style="color: #848ea9;">'Bob'</span>: <span style="color: #848ea9;">'Dec 12'</span>, <span style="color: #848ea9;">'Carol'</span>: <span style="color: #848ea9;">'Mar 4'</span>}
+
+<span style="color: #56b4e9; font-weight: bold;">while</span> <span style="color: #d55e00; font-weight: bold;">True</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter a name: (blank to quit)'</span>)
+    <span style="color: #e69f00; font-weight: bold;">name</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> name == <span style="color: #848ea9;">''</span>:
+        <span style="color: #56b4e9; font-weight: bold;">break</span>
+
+    <span style="color: #56b4e9; font-weight: bold;">if</span> name <span style="color: #56b4e9; font-weight: bold;">in</span> birthdays:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(birthdays[name] + <span style="color: #848ea9;">' is the birthday of '</span> + name)
+    <span style="color: #56b4e9; font-weight: bold;">else</span>:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'I do not have birthday information for '</span> + name)
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'What is their birthday?'</span>)
+        <span style="color: #e69f00; font-weight: bold;">bday</span> = <span style="color: #0072b2;">input</span>()
+        <span style="color: #e69f00; font-weight: bold;">birthdays</span>[name] = bday
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Birthday database updated.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org30566e8" class="outline-3">
+<h3 id="org30566e8">characterCount.py</h3>
+<div class="outline-text-3" id="text-org30566e8">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">characterCount.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">The setdefault() Method</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #e69f00; font-weight: bold;">message</span> = <span style="color: #848ea9;">'It was a bright cold day in April, and the clocks were striking thirteen.'</span>
+<span style="color: #e69f00; font-weight: bold;">count</span> = {}
+
+<span style="color: #56b4e9; font-weight: bold;">for</span> character <span style="color: #56b4e9; font-weight: bold;">in</span> message:
+    count.setdefault(character, 0)
+    <span style="color: #e69f00; font-weight: bold;">count</span>[character] = count[character] + 1
+<span style="color: #56b4e9; font-weight: bold;">print</span>(count)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org14f2aa2" class="outline-3">
+<h3 id="org14f2aa2">prettyCharacterCount.py</h3>
+<div class="outline-text-3" id="text-org14f2aa2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">prettyCharacterCount.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Pretty Printing</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> pprint
+<span style="color: #e69f00; font-weight: bold;">message</span> = <span style="color: #848ea9;">'It was a bright cold day in April, and the clocks were striking thirteen.'</span>
+<span style="color: #e69f00; font-weight: bold;">count</span> = {}
+
+<span style="color: #56b4e9; font-weight: bold;">for</span> character <span style="color: #56b4e9; font-weight: bold;">in</span> message:
+    count.setdefault(character, 0)
+    <span style="color: #e69f00; font-weight: bold;">count</span>[character] = count[character] + 1
+
+pprint.pprint(count)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa966c1" class="outline-3">
+<h3 id="orgaa966c1">ticTacToe.py</h3>
+<div class="outline-text-3" id="text-orgaa966c1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">ticTacToe.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">A Tic-Tac-Toe Board</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS but not functional</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">http://nostarch.com/automatestuff/ for full version</span>
+
+<span style="color: #e69f00; font-weight: bold;">theBoard</span> = {<span style="color: #848ea9;">'top-L'</span>: <span style="color: #848ea9;">' '</span>, <span style="color: #848ea9;">'top-M'</span>: <span style="color: #848ea9;">' '</span>, <span style="color: #848ea9;">'top-R'</span>: <span style="color: #848ea9;">' '</span>,
+<span style="color: #848ea9;">'mid-L'</span>: <span style="color: #848ea9;">' '</span>, <span style="color: #848ea9;">'mid-M'</span>: <span style="color: #848ea9;">' '</span>, <span style="color: #848ea9;">'mid-R'</span>: <span style="color: #848ea9;">' '</span>,
+<span style="color: #848ea9;">'low-L'</span>: <span style="color: #848ea9;">' '</span>, <span style="color: #848ea9;">'low-M'</span>: <span style="color: #848ea9;">' '</span>, <span style="color: #848ea9;">'low-R'</span>: <span style="color: #848ea9;">' '</span>}
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">printBoard</span>(board):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(board[<span style="color: #848ea9;">'top-L'</span>] + <span style="color: #848ea9;">'|'</span> + board[<span style="color: #848ea9;">'top-M'</span>] + <span style="color: #848ea9;">'|'</span> + board[<span style="color: #848ea9;">'top-R'</span>])
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'-+-+-'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(board[<span style="color: #848ea9;">'mid-L'</span>] + <span style="color: #848ea9;">'|'</span> + board[<span style="color: #848ea9;">'mid-M'</span>] + <span style="color: #848ea9;">'|'</span> + board[<span style="color: #848ea9;">'mid-R'</span>])
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'-+-+-'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(board[<span style="color: #848ea9;">'low-L'</span>] + <span style="color: #848ea9;">'|'</span> + board[<span style="color: #848ea9;">'low-M'</span>] + <span style="color: #848ea9;">'|'</span> + board[<span style="color: #848ea9;">'low-R'</span>])
+<span style="color: #e69f00; font-weight: bold;">turn</span> = <span style="color: #848ea9;">'X'</span>
+<span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(9):
+    printBoard(theBoard)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Turn for '</span> + turn + <span style="color: #848ea9;">'. Move on which space?'</span>)
+    <span style="color: #e69f00; font-weight: bold;">move</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #e69f00; font-weight: bold;">theBoard</span>[move] = turn
+    <span style="color: #56b4e9; font-weight: bold;">if</span> turn == <span style="color: #848ea9;">'X'</span>:
+        <span style="color: #e69f00; font-weight: bold;">turn</span> = <span style="color: #848ea9;">'O'</span>
+    <span style="color: #56b4e9; font-weight: bold;">else</span>:
+        <span style="color: #e69f00; font-weight: bold;">turn</span> = <span style="color: #848ea9;">'X'</span>
+
+printBoard(theBoard)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24ec7b7" class="outline-3">
+<h3 id="org24ec7b7">inventory.py</h3>
+<div class="outline-text-3" id="text-org24ec7b7">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">inventory.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Practice Projects</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS. incomplete</span>
+
+<span style="color: #e69f00; font-weight: bold;">stuff</span> = {<span style="color: #848ea9;">'rope'</span>: 1, <span style="color: #848ea9;">'torch'</span>: 6, <span style="color: #848ea9;">'gold coin'</span>: 42, <span style="color: #848ea9;">'dagger'</span>: 1, <span style="color: #848ea9;">'arrow'</span>: 12}
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">displayInventory</span>(inventory):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">"Inventory:"</span>)
+    <span style="color: #e69f00; font-weight: bold;">item_total</span> = 0
+    <span style="color: #56b4e9; font-weight: bold;">for</span> k, v <span style="color: #56b4e9; font-weight: bold;">in</span> inventory.items():
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #0072b2;">str</span>(v) + <span style="color: #848ea9;">' '</span> + k)
+        <span style="color: #e69f00; font-weight: bold;">item_total</span> += v
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">"Total number of items: "</span> + <span style="color: #0072b2;">str</span>(item_total))
+displayInventory(stuff)
+
+<span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">def addToInventory(inventory, addedItems):</span>
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">your code goes here</span>
+
+<span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">inv = {'gold coin': 42, 'rope': 1}</span>
+<span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']</span>
+<span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">inv = addToInventory(inv, dragonLoot)</span>
+<span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">displayInventory(inv)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb5c923b" class="outline-2">
+<h2 id="orgb5c923b">Chapter 6 - Manipulating Strings</h2>
+<div class="outline-text-2" id="text-orgb5c923b">
+</div>
+<div id="outline-container-org2e35eff" class="outline-3">
+<h3 id="org2e35eff">catnapping.py</h3>
+<div class="outline-text-3" id="text-org2e35eff">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">catnapping.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Multiline Strings with Triple Quotes</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'''Dear Alice,</span>
+
+<span style="color: #848ea9;">Eve's cat has been arrested for catnapping, cat burglary, and extortion.</span>
+
+<span style="color: #848ea9;">Sincerely,</span>
+<span style="color: #848ea9;">Bob'''</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org582d3fd" class="outline-3">
+<h3 id="org582d3fd">validateInput.py</h3>
+<div class="outline-text-3" id="text-org582d3fd">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">validateInput.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">The isX String Methods</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">while</span> <span style="color: #d55e00; font-weight: bold;">True</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter your age:'</span>)
+    <span style="color: #e69f00; font-weight: bold;">age</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> age.isdecimal():
+        <span style="color: #56b4e9; font-weight: bold;">break</span>
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Please enter a number for your age.'</span>)
+
+<span style="color: #56b4e9; font-weight: bold;">while</span> <span style="color: #d55e00; font-weight: bold;">True</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Select a new password (letters and numbers only):'</span>)
+    <span style="color: #e69f00; font-weight: bold;">password</span> = <span style="color: #0072b2;">input</span>()
+    <span style="color: #56b4e9; font-weight: bold;">if</span> password.isalnum():
+        <span style="color: #56b4e9; font-weight: bold;">break</span>
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Passwords can only have letters and numbers.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org08be3d9" class="outline-3">
+<h3 id="org08be3d9">picnicTable.py</h3>
+<div class="outline-text-3" id="text-org08be3d9">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">picnicTable.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Justifying Text with rjust(), ljust(), and center()</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">printPicnic</span>(itemsDict, leftWidth, rightWidth):
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'PICNIC ITEMS'</span>.center(leftWidth + rightWidth, <span style="color: #848ea9;">'-'</span>))
+    <span style="color: #56b4e9; font-weight: bold;">for</span> k, v <span style="color: #56b4e9; font-weight: bold;">in</span> itemsDict.items():
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(k.ljust(leftWidth, <span style="color: #848ea9;">'.'</span>) + <span style="color: #0072b2;">str</span>(v).rjust(rightWidth))
+
+<span style="color: #e69f00; font-weight: bold;">picnicItems</span> = {<span style="color: #848ea9;">'sandwiches'</span>: 4, <span style="color: #848ea9;">'apples'</span>: 12, <span style="color: #848ea9;">'cups'</span>: 4, <span style="color: #848ea9;">'cookies'</span>: 8000}
+printPicnic(picnicItems, 12, 5)
+printPicnic(picnicItems, 20, 6)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce60e3e" class="outline-3">
+<h3 id="orgce60e3e">pw.py</h3>
+<div class="outline-text-3" id="text-orgce60e3e">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">pw.py - An insecure password locker program.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Project: Password Locker</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">install pyperclip module</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Pyperclip could not find a copy/paste mechanism for your system.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">yum install xclip</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #e69f00; font-weight: bold;">PASSWORDS</span> = {<span style="color: #848ea9;">'email'</span>: <span style="color: #848ea9;">'F7minlBDDuvMJuxESSKHFhTxFtjVB6'</span>,
+             <span style="color: #848ea9;">'blog'</span>: <span style="color: #848ea9;">'VmALvQyKAxiVH5G8v01if1MLZF3sdt'</span>,
+             <span style="color: #848ea9;">'luggage'</span>: <span style="color: #848ea9;">'12345'</span>}
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> sys, pyperclip
+<span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #0072b2;">len</span>(sys.argv) &lt; 2:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Usage: py pw.py [account] - copy account password'</span>)
+    sys.<span style="color: #d55e00; font-weight: bold;">exit</span>()
+
+<span style="color: #e69f00; font-weight: bold;">account</span> = sys.argv[1]   <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">first command line arg is the account name</span>
+
+<span style="color: #56b4e9; font-weight: bold;">if</span> account <span style="color: #56b4e9; font-weight: bold;">in</span> PASSWORDS:
+    pyperclip.copy(PASSWORDS[account])
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Password for '</span> + account + <span style="color: #848ea9;">' copied to clipboard.'</span>)
+<span style="color: #56b4e9; font-weight: bold;">else</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'There is no account named '</span> + account)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org414faeb" class="outline-3">
+<h3 id="org414faeb">bulletPointAdder.py</h3>
+<div class="outline-text-3" id="text-org414faeb">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">bulletPointAdder.py - Adds Wikipedia bullet points to the start</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">of each line of text on the clipboard.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Project: Adding Bullets to Wiki Markup</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">WORKS</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> pyperclip
+<span style="color: #e69f00; font-weight: bold;">text</span> = pyperclip.paste()
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Separate lines and add stars.</span>
+<span style="color: #e69f00; font-weight: bold;">lines</span> = text.split(<span style="color: #848ea9;">'\n'</span>)
+<span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(<span style="color: #0072b2;">len</span>(lines)):    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">loop through all indexes for "lines" list</span>
+    <span style="color: #e69f00; font-weight: bold;">lines</span>[i] = <span style="color: #848ea9;">'* '</span> + lines[i] <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">add star to each string in "lines" list</span>
+<span style="color: #e69f00; font-weight: bold;">text</span> = <span style="color: #848ea9;">'\n'</span>.join(lines)
+pyperclip.copy(text)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge01db14" class="outline-2">
+<h2 id="orge01db14">Chapter 7 - Pattern Matching with Regular Expressions</h2>
+<div class="outline-text-2" id="text-orge01db14">
+</div>
+<div id="outline-container-orgaccf996" class="outline-3">
+<h3 id="orgaccf996">isPhoneNumber.py</h3>
+<div class="outline-text-3" id="text-orgaccf996">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">isPhoneNumber.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">works</span>
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">isPhoneNumber</span>(text):
+    <span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #0072b2;">len</span>(text) != 12:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">False</span>
+    <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(0, 3):
+        <span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #56b4e9; font-weight: bold;">not</span> text[i].isdecimal():
+            <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">False</span>
+    <span style="color: #56b4e9; font-weight: bold;">if</span> text[3] != <span style="color: #848ea9;">'-'</span>:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">False</span>
+    <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(4, 7):
+        <span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #56b4e9; font-weight: bold;">not</span> text[i].isdecimal():
+            <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">False</span>
+    <span style="color: #56b4e9; font-weight: bold;">if</span> text[7] != <span style="color: #848ea9;">'-'</span>:
+        <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">False</span>
+    <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(8, 12):
+        <span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #56b4e9; font-weight: bold;">not</span> text[i].isdecimal():
+            <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">False</span>
+    <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">True</span>
+
+
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'415-555-4242 is a phone number:'</span>)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(isPhoneNumber(<span style="color: #848ea9;">'415-555-4242'</span>))
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Moshi moshi is a phone number:'</span>)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(isPhoneNumber(<span style="color: #848ea9;">'Moshi moshi'</span>))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org64a4ae1" class="outline-3">
+<h3 id="org64a4ae1">phoneAndEmail.py</h3>
+<div class="outline-text-3" id="text-org64a4ae1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">works</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">usage: python3.4 ./phoneAndEmail.py</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">copy https://www.nostarch.com/contactus.htm to the clipboard</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> pyperclip, re
+
+<span style="color: #e69f00; font-weight: bold;">phoneRegex</span> = re.<span style="color: #0072b2;">compile</span>(r<span style="color: #848ea9;">'''(</span>
+<span style="color: #848ea9;">    (\d{3}|\(\d{3}\))?                 # area code        </span>
+<span style="color: #848ea9;">    (\s|-|\.)?                         # separator        </span>
+<span style="color: #848ea9;">    (\d{3})                            # first 3 digits   </span>
+<span style="color: #848ea9;">    (\s|-|\.)                          # separator        </span>
+<span style="color: #848ea9;">    (\d{4})                            # last 4 digits    </span>
+<span style="color: #848ea9;">    (\s*(ext|x|ext.)\s*(\d{2,5}))?     # extension      </span>
+<span style="color: #848ea9;">    )'''</span>, re.VERBOSE)
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Create email regex.</span>
+<span style="color: #e69f00; font-weight: bold;">emailRegex</span> = re.<span style="color: #0072b2;">compile</span>(r<span style="color: #848ea9;">'''(</span>
+<span style="color: #848ea9;">    [a-zA-Z0-9._%+-]+    # username</span>
+<span style="color: #848ea9;">    @                    # @ symbol</span>
+<span style="color: #848ea9;">    [a-zA-Z0-9.-]+       # domain name</span>
+<span style="color: #848ea9;">    (\.[a-zA-Z]{2,4})    # dot-something</span>
+<span style="color: #848ea9;">    )'''</span>, re.VERBOSE)
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Find matches in clipboard text.</span>
+<span style="color: #e69f00; font-weight: bold;">text</span> = <span style="color: #0072b2;">str</span>(pyperclip.paste())
+<span style="color: #e69f00; font-weight: bold;">matches</span> = []
+<span style="color: #56b4e9; font-weight: bold;">for</span> groups <span style="color: #56b4e9; font-weight: bold;">in</span> phoneRegex.findall(text):
+    <span style="color: #e69f00; font-weight: bold;">phoneNum</span> = <span style="color: #848ea9;">'-'</span>.join([groups[1], groups[3], groups[5]])
+    <span style="color: #56b4e9; font-weight: bold;">if</span> groups[8] != <span style="color: #848ea9;">''</span>:
+        <span style="color: #e69f00; font-weight: bold;">phoneNum</span> += <span style="color: #848ea9;">' x'</span> + groups[8]
+    matches.append(phoneNum)
+<span style="color: #56b4e9; font-weight: bold;">for</span> groups <span style="color: #56b4e9; font-weight: bold;">in</span> emailRegex.findall(text):
+    matches.append(groups[0])
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Copy results to the clipboard.</span>
+<span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #0072b2;">len</span>(matches) &gt; 0:
+    pyperclip.copy(<span style="color: #848ea9;">'\n'</span>.join(matches))
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Copied to clipboard:'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'\n'</span>.join(matches))
+<span style="color: #56b4e9; font-weight: bold;">else</span>:
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'No phone numbers or email addresses found.'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge9505f7" class="outline-2">
+<h2 id="orge9505f7">Chapter 8 - Reading and Writing Files</h2>
+<div class="outline-text-2" id="text-orge9505f7">
+</div>
+<div id="outline-container-org935ce4c" class="outline-3">
+<h3 id="org935ce4c">randomQuizGenerator.py</h3>
+<div class="outline-text-3" id="text-org935ce4c">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">randomQuizGenerator.py - Creates quizzes with questions and answers in</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">random order, along with the answer key.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">works</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> random
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">The quiz data. Keys are states and values are their capitals.</span>
+<span style="color: #e69f00; font-weight: bold;">capitals</span> = {<span style="color: #848ea9;">'Alabama'</span>: <span style="color: #848ea9;">'Montgomery'</span>, <span style="color: #848ea9;">'Alaska'</span>: <span style="color: #848ea9;">'Juneau'</span>,
+            <span style="color: #848ea9;">'Arizona'</span>: <span style="color: #848ea9;">'Phoenix'</span>,<span style="color: #848ea9;">'Arkansas'</span>: <span style="color: #848ea9;">'Little Rock'</span>,
+            <span style="color: #848ea9;">'California'</span>: <span style="color: #848ea9;">'Sacramento'</span>, <span style="color: #848ea9;">'Colorado'</span>: <span style="color: #848ea9;">'Denver'</span>,
+            <span style="color: #848ea9;">'Connecticut'</span>: <span style="color: #848ea9;">'Hartford'</span>, <span style="color: #848ea9;">'Delaware'</span>: <span style="color: #848ea9;">'Dover'</span>,
+            <span style="color: #848ea9;">'Florida'</span>: <span style="color: #848ea9;">'Tallahassee'</span>,<span style="color: #848ea9;">'Georgia'</span>: <span style="color: #848ea9;">'Atlanta'</span>,
+            <span style="color: #848ea9;">'Hawaii'</span>: <span style="color: #848ea9;">'Honolulu'</span>, <span style="color: #848ea9;">'Idaho'</span>: <span style="color: #848ea9;">'Boise'</span>,
+            <span style="color: #848ea9;">'Illinois'</span>:<span style="color: #848ea9;">'Springfield'</span>, <span style="color: #848ea9;">'Indiana'</span>: <span style="color: #848ea9;">'Indianapolis'</span>,
+            <span style="color: #848ea9;">'Iowa'</span>: <span style="color: #848ea9;">'Des Moines'</span>, <span style="color: #848ea9;">'Kansas'</span>:<span style="color: #848ea9;">'Topeka'</span>,
+            <span style="color: #848ea9;">'Kentucky'</span>: <span style="color: #848ea9;">'Frankfort'</span>, <span style="color: #848ea9;">'Louisiana'</span>: <span style="color: #848ea9;">'Baton Rouge'</span>,
+            <span style="color: #848ea9;">'Maine'</span>:<span style="color: #848ea9;">'Augusta'</span>, <span style="color: #848ea9;">'Maryland'</span>: <span style="color: #848ea9;">'Annapolis'</span>,
+            <span style="color: #848ea9;">'Massachusetts'</span>: <span style="color: #848ea9;">'Boston'</span>, <span style="color: #848ea9;">'Michigan'</span>:<span style="color: #848ea9;">'Lansing'</span>,
+            <span style="color: #848ea9;">'Minnesota'</span>: <span style="color: #848ea9;">'Saint Paul'</span>, <span style="color: #848ea9;">'Mississippi'</span>: <span style="color: #848ea9;">'Jackson'</span>,
+            <span style="color: #848ea9;">'Missouri'</span>:<span style="color: #848ea9;">'Jefferson City'</span>, <span style="color: #848ea9;">'Montana'</span>: <span style="color: #848ea9;">'Helena'</span>,
+            <span style="color: #848ea9;">'Nebraska'</span>: <span style="color: #848ea9;">'Lincoln'</span>, <span style="color: #848ea9;">'Nevada'</span>:<span style="color: #848ea9;">'Carson City'</span>,
+            <span style="color: #848ea9;">'New Hampshire'</span>: <span style="color: #848ea9;">'Concord'</span>, <span style="color: #848ea9;">'New Jersey'</span>: <span style="color: #848ea9;">'Trenton'</span>,
+            <span style="color: #848ea9;">'New Mexico'</span>: <span style="color: #848ea9;">'Santa Fe'</span>, <span style="color: #848ea9;">'New York'</span>: <span style="color: #848ea9;">'Albany'</span>,
+            <span style="color: #848ea9;">'North Carolina'</span>: <span style="color: #848ea9;">'Raleigh'</span>,<span style="color: #848ea9;">'North Dakota'</span>: <span style="color: #848ea9;">'Bismarck'</span>,
+            <span style="color: #848ea9;">'Ohio'</span>: <span style="color: #848ea9;">'Columbus'</span>, <span style="color: #848ea9;">'Oklahoma'</span>: <span style="color: #848ea9;">'Oklahoma City'</span>,
+            <span style="color: #848ea9;">'Oregon'</span>: <span style="color: #848ea9;">'Salem'</span>, <span style="color: #848ea9;">'Pennsylvania'</span>: <span style="color: #848ea9;">'Harrisburg'</span>,
+            <span style="color: #848ea9;">'Rhode Island'</span>: <span style="color: #848ea9;">'Providence'</span>,<span style="color: #848ea9;">'South Carolina'</span>: <span style="color: #848ea9;">'Columbia'</span>,
+            <span style="color: #848ea9;">'South Dakota'</span>: <span style="color: #848ea9;">'Pierre'</span>, <span style="color: #848ea9;">'Tennessee'</span>:<span style="color: #848ea9;">'Nashville'</span>,
+            <span style="color: #848ea9;">'Texas'</span>: <span style="color: #848ea9;">'Austin'</span>, <span style="color: #848ea9;">'Utah'</span>: <span style="color: #848ea9;">'Salt Lake City'</span>,
+            <span style="color: #848ea9;">'Vermont'</span>:<span style="color: #848ea9;">'Montpelier'</span>, <span style="color: #848ea9;">'Virginia'</span>: <span style="color: #848ea9;">'Richmond'</span>,
+            <span style="color: #848ea9;">'Washington'</span>: <span style="color: #848ea9;">'Olympia'</span>, <span style="color: #848ea9;">'WestVirginia'</span>: <span style="color: #848ea9;">'Charleston'</span>,
+            <span style="color: #848ea9;">'Wisconsin'</span>: <span style="color: #848ea9;">'Madison'</span>, <span style="color: #848ea9;">'Wyoming'</span>: <span style="color: #848ea9;">'Cheyenne'</span>}
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Generate 35 quiz files.</span>
+
+<span style="color: #56b4e9; font-weight: bold;">for</span> quizNum <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(35):
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Create the quiz and answer key files.</span>
+    <span style="color: #e69f00; font-weight: bold;">quizFile</span> = <span style="color: #0072b2;">open</span>(<span style="color: #848ea9;">'capitalsquiz%s.txt'</span> % (quizNum + 1), <span style="color: #848ea9;">'w'</span>)
+    <span style="color: #e69f00; font-weight: bold;">answerKeyFile</span> = <span style="color: #0072b2;">open</span>(<span style="color: #848ea9;">'capitalsquiz_answers%s.txt'</span> % (quizNum + 1), <span style="color: #848ea9;">'w'</span>)
+
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Write out the header for the quiz.</span>
+    quizFile.write(<span style="color: #848ea9;">'Name:\n\nDate:\n\nPeriod:\n\n'</span>)
+    quizFile.write((<span style="color: #848ea9;">' '</span> * 20) + <span style="color: #848ea9;">'State Capitals Quiz (Form %s)'</span> % (quizNum + 1))
+    quizFile.write(<span style="color: #848ea9;">'\n\n'</span>)
+
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Shuffle the order of the states.</span>
+    <span style="color: #e69f00; font-weight: bold;">states</span> = <span style="color: #0072b2;">list</span>(capitals.keys())
+    random.shuffle(states)
+
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Loop through all 50 states, making a question for each.</span>
+    <span style="color: #56b4e9; font-weight: bold;">for</span> questionNum <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(50):
+
+        <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Get right and wrong answers.</span>
+        <span style="color: #e69f00; font-weight: bold;">correctAnswer</span> = capitals[states[questionNum]]
+        <span style="color: #e69f00; font-weight: bold;">wrongAnswers</span> = <span style="color: #0072b2;">list</span>(capitals.values())
+        <span style="color: #56b4e9; font-weight: bold;">del</span> wrongAnswers[wrongAnswers.index(correctAnswer)]
+        <span style="color: #e69f00; font-weight: bold;">wrongAnswers</span> = random.sample(wrongAnswers, 3)
+        <span style="color: #e69f00; font-weight: bold;">answerOptions</span> = wrongAnswers + [correctAnswer]
+        random.shuffle(answerOptions)
+
+        <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Write the question and the answer options to the quiz file.</span>
+        quizFile.write(<span style="color: #848ea9;">'%s. What is the capital of %s?\n'</span> % (questionNum + 1,
+            states[questionNum]))
+        <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(4):
+            quizFile.write(<span style="color: #848ea9;">'%s. %s\n'</span> % (<span style="color: #848ea9;">'ABCD'</span>[i], answerOptions[i]))
+        quizFile.write(<span style="color: #848ea9;">'\n'</span>)
+
+        <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Write the answer key to a file.</span>
+        answerKeyFile.write(<span style="color: #848ea9;">'%s. %s\n'</span> % (questionNum + 1, <span style="color: #848ea9;">'ABCD'</span>[
+            answerOptions.index(correctAnswer)]))
+quizFile.close()
+answerKeyFile.close()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb2fefc0" class="outline-3">
+<h3 id="orgb2fefc0">mcb.pyw</h3>
+<div class="outline-text-3" id="text-orgb2fefc0">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">mcb.pyw - Saves and loads pieces of text to the clipboard.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Usage: py.exe mcb.pyw save &lt;keyword&gt; - Saves clipboard to keyword.</span>
+<span style="color: #009e73; font-style: italic;">#        </span><span style="color: #009e73; font-style: italic;">py.exe mcb.pyw &lt;keyword&gt; - Loads keyword to clipboard.</span>
+<span style="color: #009e73; font-style: italic;">#        </span><span style="color: #009e73; font-style: italic;">py.exe mcb.pyw list - Loads all keywords to clipboard.</span>
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">works but check what is going on</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> shelve, pyperclip, sys
+
+<span style="color: #e69f00; font-weight: bold;">mcbShelf</span> = shelve.<span style="color: #0072b2;">open</span>(<span style="color: #848ea9;">'mcb'</span>)
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Save clipboard content.</span>
+<span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #0072b2;">len</span>(sys.argv) == 3 <span style="color: #56b4e9; font-weight: bold;">and</span> sys.argv[1].lower() == <span style="color: #848ea9;">'save'</span>:
+    mcbShelf[sys.argv[2]] = pyperclip.paste()
+<span style="color: #56b4e9; font-weight: bold;">elif</span> <span style="color: #0072b2;">len</span>(sys.argv) == 2:
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">List keywords and load content.</span>
+    <span style="color: #56b4e9; font-weight: bold;">if</span> sys.argv[1].lower() == <span style="color: #848ea9;">'list'</span>:
+        pyperclip.copy(<span style="color: #0072b2;">str</span>(<span style="color: #0072b2;">list</span>(mcbShelf.keys())))
+    <span style="color: #56b4e9; font-weight: bold;">elif</span> sys.argv[1] <span style="color: #56b4e9; font-weight: bold;">in</span> mcbShelf:
+        pyperclip.copy(mcbShelf[sys.argv[1]])
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcac5aae" class="outline-2">
+<h2 id="orgcac5aae">Chapter 10 - Debugging</h2>
+<div class="outline-text-2" id="text-orgcac5aae">
+</div>
+<div id="outline-container-orgf1c3bd2" class="outline-3">
+<h3 id="orgf1c3bd2">boxPrint.py</h3>
+<div class="outline-text-3" id="text-orgf1c3bd2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">boxPrint</span>(symbol, width, height):
+    <span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #0072b2;">len</span>(symbol) != 1:
+        <span style="color: #56b4e9; font-weight: bold;">raise</span> <span style="color: #0072b2; font-weight: bold;">Exception</span>(<span style="color: #848ea9;">'Symbol must be a single character string.'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">if</span> width &lt;= 2:
+        <span style="color: #56b4e9; font-weight: bold;">raise</span> <span style="color: #0072b2; font-weight: bold;">Exception</span>(<span style="color: #848ea9;">'Width must be greater than 2.'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">if</span> height &lt;= 2:
+        <span style="color: #56b4e9; font-weight: bold;">raise</span> <span style="color: #0072b2; font-weight: bold;">Exception</span>(<span style="color: #848ea9;">'Height must be greater than 2.'</span>)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(symbol * width)
+    <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(height - 2):
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(symbol + (<span style="color: #848ea9;">' '</span> * (width - 2)) + symbol)
+    <span style="color: #56b4e9; font-weight: bold;">print</span>(symbol * width)
+
+<span style="color: #56b4e9; font-weight: bold;">for</span> sym, w, h <span style="color: #56b4e9; font-weight: bold;">in</span> ((<span style="color: #848ea9;">'*'</span>, 4, 4), (<span style="color: #848ea9;">'O'</span>, 20, 5), (<span style="color: #848ea9;">'x'</span>, 1, 3), (<span style="color: #848ea9;">'ZZ'</span>, 3, 3)):
+    <span style="color: #56b4e9; font-weight: bold;">try</span>:
+        boxPrint(sym, w, h)
+    <span style="color: #56b4e9; font-weight: bold;">except</span> <span style="color: #0072b2; font-weight: bold;">Exception</span> <span style="color: #56b4e9; font-weight: bold;">as</span> err:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'An exception happened: '</span> + <span style="color: #0072b2;">str</span>(err))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb8e1319" class="outline-3">
+<h3 id="orgb8e1319">buggyAddingProgram.py</h3>
+<div class="outline-text-3" id="text-orgb8e1319">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the first number to add:'</span>)
+<span style="color: #e69f00; font-weight: bold;">first</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the second number to add:'</span>)
+<span style="color: #e69f00; font-weight: bold;">second</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Enter the third number to add:'</span>)
+<span style="color: #e69f00; font-weight: bold;">third</span> = <span style="color: #0072b2;">input</span>()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'The sum is '</span> + first + second + third)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e4fbd0" class="outline-3">
+<h3 id="org1e4fbd0">coinFlip.py</h3>
+<div class="outline-text-3" id="text-org1e4fbd0">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">import</span> random
+<span style="color: #e69f00; font-weight: bold;">heads</span> = 0
+<span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(1, 1001):
+    <span style="color: #56b4e9; font-weight: bold;">if</span> random.randint(0, 1) == 1:
+        <span style="color: #e69f00; font-weight: bold;">heads</span> = heads + 1
+    <span style="color: #56b4e9; font-weight: bold;">if</span> i == 500:
+        <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Halfway done!'</span>)
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Heads came up '</span> + <span style="color: #0072b2;">str</span>(heads) + <span style="color: #848ea9;">' times.'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d610a6" class="outline-3">
+<h3 id="org3d610a6">errorExample.py</h3>
+<div class="outline-text-3" id="text-org3d610a6">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">spam</span>():
+    bacon()
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">bacon</span>():
+    <span style="color: #56b4e9; font-weight: bold;">raise</span> <span style="color: #0072b2; font-weight: bold;">Exception</span>(<span style="color: #848ea9;">'This is the error message.'</span>)
+
+spam()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org690d561" class="outline-3">
+<h3 id="org690d561">factorialLog.py</h3>
+<div class="outline-text-3" id="text-org690d561">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #56b4e9; font-weight: bold;">import</span> logging
+logging.basicConfig(level=logging.DEBUG, <span style="color: #0072b2;">format</span>=<span style="color: #848ea9;">' %(asctime)s - %(levelname)s - %(message)s'</span>)
+logging.debug(<span style="color: #848ea9;">'Start of program'</span>)
+
+<span style="color: #56b4e9; font-weight: bold;">def</span> <span style="color: #d55e00;">factorial</span>(n):
+    logging.debug(<span style="color: #848ea9;">'Start of factorial(%s%%)'</span> % (n))
+    <span style="color: #e69f00; font-weight: bold;">total</span> = 1
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">for i in range(n + 1):</span>
+    <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(1, n + 1):    
+        <span style="color: #e69f00; font-weight: bold;">total</span> *= i
+        logging.debug(<span style="color: #848ea9;">'i is '</span> + <span style="color: #0072b2;">str</span>(i) + <span style="color: #848ea9;">', total is '</span> + <span style="color: #0072b2;">str</span>(total))
+    logging.debug(<span style="color: #848ea9;">'End of factorial(%s%%)'</span> % (n))
+    <span style="color: #56b4e9; font-weight: bold;">return</span> total
+
+<span style="color: #56b4e9; font-weight: bold;">print</span>(factorial(5))
+logging.debug(<span style="color: #848ea9;">'End of program'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9297566" class="outline-2">
+<h2 id="org9297566">chapter 12 - Working with Excel Spreadsheets</h2>
+<div class="outline-text-2" id="text-org9297566">
+</div>
+<div id="outline-container-org5fb6897" class="outline-3">
+<h3 id="org5fb6897">Opening Excel Documents with OpenPyXL</h3>
+<div class="outline-text-3" id="text-org5fb6897">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #0072b2;">type</span>(wb)
+&lt;<span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #848ea9;">'openpyxl.workbook.workbook.Workbook'</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb25e4aa" class="outline-3">
+<h3 id="orgb25e4aa">Getting Sheets from the Workbook</h3>
+<div class="outline-text-3" id="text-orgb25e4aa">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #0072b2;">type</span>(wb)
+&lt;<span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #848ea9;">'openpyxl.workbook.workbook.Workbook'</span>&gt;
+&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'Sheet1'</span>, <span style="color: #848ea9;">'Sheet2'</span>, <span style="color: #848ea9;">'Sheet3'</span>]
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet3'</span>)
+&gt;&gt;&gt; sheet
+&lt;Worksheet <span style="color: #848ea9;">"Sheet3"</span>&gt;
+&gt;&gt;&gt; <span style="color: #0072b2;">type</span>(sheet)
+&lt;<span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #848ea9;">'openpyxl.worksheet.worksheet.Worksheet'</span>&gt;
+&gt;&gt;&gt; sheet.title
+<span style="color: #848ea9;">'Sheet3'</span>
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">anotherSheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; anotherSheet
+&lt;Worksheet <span style="color: #848ea9;">"Sheet1"</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge400f90" class="outline-3">
+<h3 id="orge400f90">Getting Cells from the Sheets</h3>
+<div class="outline-text-3" id="text-orge400f90">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet1'</span>)
+&gt;&gt;&gt; sheet[<span style="color: #848ea9;">'A1'</span>]
+&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.A1&gt;
+&gt;&gt;&gt; sheet[<span style="color: #848ea9;">'A1'</span>].value
+datetime.datetime(2015, 4, 5, 13, 34, 2)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">c</span> = sheet[<span style="color: #848ea9;">'B1'</span>]
+&gt;&gt;&gt; c.value
+<span style="color: #848ea9;">'Apples'</span>
+&gt;&gt;&gt; <span style="color: #848ea9;">'Row '</span> + <span style="color: #0072b2;">str</span>(c.row) + <span style="color: #848ea9;">', Column '</span> + c.column + <span style="color: #848ea9;">' is '</span> + c.value
+<span style="color: #848ea9;">'Row 1, Column B is Apples'</span>
+&gt;&gt;&gt; <span style="color: #848ea9;">'Cell '</span> + c.coordinate + <span style="color: #848ea9;">' is '</span> + c.value
+<span style="color: #848ea9;">'Cell B1 is Apples'</span>
+&gt;&gt;&gt; sheet[<span style="color: #848ea9;">'C1'</span>].value
+73
+&gt;&gt;&gt; 
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; sheet.cell(row=1, column=2)
+&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B1&gt;
+&gt;&gt;&gt; sheet.cell(row=1, column=2).value
+<span style="color: #848ea9;">'Apples'</span>
+&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(1, 8, 2):
+...     <span style="color: #56b4e9; font-weight: bold;">print</span>(i, sheet.cell(row=i, column=2).value)
+... 
+1 Apples
+3 Pears
+5 Apples
+7 Strawberries
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet1'</span>)
+&gt;&gt;&gt; sheet.max_row
+7
+&gt;&gt;&gt; sheet.max_column
+3
+&gt;&gt;&gt; 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgccb9f2c" class="outline-3">
+<h3 id="orgccb9f2c">Converting Between Column Letters and Numbers</h3>
+<div class="outline-text-3" id="text-orgccb9f2c">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">from</span> openpyxl.utils <span style="color: #56b4e9; font-weight: bold;">import</span> get_column_letter, column_index_from_string
+&gt;&gt;&gt; get_column_letter(1)
+<span style="color: #848ea9;">'A'</span>
+&gt;&gt;&gt; get_column_letter(2)
+<span style="color: #848ea9;">'B'</span>
+&gt;&gt;&gt; get_column_letter(27)
+<span style="color: #848ea9;">'AA'</span>
+&gt;&gt;&gt; get_column_letter(900)
+<span style="color: #848ea9;">'AHP'</span>
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet1'</span>)
+&gt;&gt;&gt; get_column_letter(sheet.max_column)
+<span style="color: #848ea9;">'C'</span>
+&gt;&gt;&gt; column_index_from_string(<span style="color: #848ea9;">'A'</span>)
+1
+&gt;&gt;&gt; column_index_from_string(<span style="color: #848ea9;">'AA'</span>)
+27
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc5b26af" class="outline-3">
+<h3 id="orgc5b26af">Getting Rows and Columns from the Sheets</h3>
+<div class="outline-text-3" id="text-orgc5b26af">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet1'</span>)
+&gt;&gt;&gt; <span style="color: #0072b2;">tuple</span>(sheet[<span style="color: #848ea9;">'A1'</span>:<span style="color: #848ea9;">'C3'</span>])
+((&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.A1&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B1&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.C1&gt;), (&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.A2&gt;, 
+&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B2&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.C2&gt;), (&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.A3&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B3&gt;, 
+&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.C3&gt;))
+&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">for</span> rowOfCellObjects <span style="color: #56b4e9; font-weight: bold;">in</span> sheet[<span style="color: #848ea9;">'A1'</span>:<span style="color: #848ea9;">'C3'</span>]:
+...     <span style="color: #56b4e9; font-weight: bold;">for</span> cellObj <span style="color: #56b4e9; font-weight: bold;">in</span> rowOfCellObjects:
+...         <span style="color: #56b4e9; font-weight: bold;">print</span>(cellObj.coordinate, cellObj.value)
+...     <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'--- END OF ROW ---'</span>)
+... 
+A1 2015-04-05 13:34:02
+B1 Apples
+C1 73
+--- END OF ROW ---
+A2 2015-04-05 03:41:23
+B2 Cherries
+C2 85
+--- END OF ROW ---
+A3 2015-04-06 12:46:51
+B3 Pears
+C3 14
+--- END OF ROW ---
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; <span style="color: #0072b2;">list</span>(sheet.columns)[1]
+(&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B1&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B2&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B3&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B4&gt;, 
+&lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B5&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B6&gt;, &lt;Cell <span style="color: #848ea9;">'Sheet1'</span>.B7&gt;)
+&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">for</span> cellObj <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">list</span>(sheet.columns)[1]:
+...     <span style="color: #56b4e9; font-weight: bold;">print</span>(cellObj.value)
+... 
+Apples
+Cherries
+Pears
+Oranges
+Apples
+Bananas
+Strawberries
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgee05491" class="outline-3">
+<h3 id="orgee05491">Project: Reading Data from a Spreadsheet</h3>
+<div class="outline-text-3" id="text-orgee05491">
+<p>
+<code>censuspopdata.xlsx</code>
+</p>
+</div>
+
+<div id="outline-container-org0111cca" class="outline-4">
+<h4 id="org0111cca">readCensusExcel.py</h4>
+<div class="outline-text-4" id="text-org0111cca">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">readCensusExcel.py - Tabulates population and number of census tracts for</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">each county.</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl, pprint
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Opening workbook...'</span>)
+<span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'censuspopdata.xlsx'</span>)
+<span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Population by Census Tract'</span>)
+<span style="color: #e69f00; font-weight: bold;">countyData</span> = {}
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Fill in countyData with each county's population and tracts.</span>
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Reading rows...'</span>)
+<span style="color: #56b4e9; font-weight: bold;">for</span> row <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(2, sheet.max_row + 1):
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Each row in the spreadsheet has data for one census tract.</span>
+    <span style="color: #e69f00; font-weight: bold;">state</span> = sheet[<span style="color: #848ea9;">'B'</span> + <span style="color: #0072b2;">str</span>(row)].value
+    <span style="color: #e69f00; font-weight: bold;">county</span> = sheet[<span style="color: #848ea9;">'C'</span> + <span style="color: #0072b2;">str</span>(row)].value
+    <span style="color: #e69f00; font-weight: bold;">pop</span> = sheet[<span style="color: #848ea9;">'D'</span> + <span style="color: #0072b2;">str</span>(row)].value
+
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Make sure the key for this state exists.</span>
+    countyData.setdefault(state, {})
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Make sure the key for this county in this state exists.</span>
+    countyData[state].setdefault(county, {<span style="color: #848ea9;">'tracts'</span>: 0, <span style="color: #848ea9;">'pop'</span>: 0})
+
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Each row represents one census tract, so increment by one.</span>
+    countyData[state][county][<span style="color: #848ea9;">'tracts'</span>] += 1
+    <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Increase the county pop by the pop in this census tract.</span>
+    countyData[state][county][<span style="color: #848ea9;">'pop'</span>] += <span style="color: #0072b2;">int</span>(pop)
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Open a new text file and write the contents of countyData to it.</span>
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Writing results...'</span>)
+<span style="color: #e69f00; font-weight: bold;">resultFile</span> = <span style="color: #0072b2;">open</span>(<span style="color: #848ea9;">'census2010.py'</span>, <span style="color: #848ea9;">'w'</span>)
+resultFile.write(<span style="color: #848ea9;">'allData = '</span> + pprint.pformat(countyData))
+resultFile.close()
+<span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'Done.'</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> census2010
+&gt;&gt;&gt; census2010.allData[<span style="color: #848ea9;">'AK'</span>][<span style="color: #848ea9;">'Anchorage'</span>]
+{<span style="color: #848ea9;">'pop'</span>: 291826, <span style="color: #848ea9;">'tracts'</span>: 55}
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">anchoragePop</span> = census2010.allData[<span style="color: #848ea9;">'AK'</span>][<span style="color: #848ea9;">'Anchorage'</span>][<span style="color: #848ea9;">'pop'</span>]
+&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">print</span>(<span style="color: #848ea9;">'The 2010 population of Anchorage was '</span> + <span style="color: #0072b2;">str</span>(anchoragePop))
+The 2010 population of Anchorage was 291826
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9e88c51" class="outline-3">
+<h3 id="org9e88c51">Creating and Saving Excel Documents</h3>
+<div class="outline-text-3" id="text-org9e88c51">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.Workbook()
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'Sheet'</span>]
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; sheet.title
+<span style="color: #848ea9;">'Sheet'</span>
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet.title</span> = <span style="color: #848ea9;">'Spam Bacon Eggs Sheet'</span>
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'Spam Bacon Eggs Sheet'</span>]
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'example.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet.title</span> = <span style="color: #848ea9;">'Spam Spam Spam'</span>
+&gt;&gt;&gt; wb.save(<span style="color: #848ea9;">'example_copy.xlsx'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf8f1ee3" class="outline-3">
+<h3 id="orgf8f1ee3">Creating and Removing Sheets</h3>
+<div class="outline-text-3" id="text-orgf8f1ee3">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.Workbook()
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'Sheet'</span>]
+&gt;&gt;&gt; wb.create_sheet()
+&lt;Worksheet <span style="color: #848ea9;">"Sheet1"</span>&gt;
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'Sheet'</span>, <span style="color: #848ea9;">'Sheet1'</span>]
+&gt;&gt;&gt; wb.create_sheet(index=0, title=<span style="color: #848ea9;">'First Sheet'</span>)
+&lt;Worksheet <span style="color: #848ea9;">"First Sheet"</span>&gt;
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'First Sheet'</span>, <span style="color: #848ea9;">'Sheet'</span>, <span style="color: #848ea9;">'Sheet1'</span>]
+&gt;&gt;&gt; wb.create_sheet(index=2, title=<span style="color: #848ea9;">'Middle Sheet'</span>)
+&lt;Worksheet <span style="color: #848ea9;">"Middle Sheet"</span>&gt;
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'First Sheet'</span>, <span style="color: #848ea9;">'Sheet'</span>, <span style="color: #848ea9;">'Middle Sheet'</span>, <span style="color: #848ea9;">'Sheet1'</span>]
+&gt;&gt;&gt; wb.remove_sheet(wb.get_sheet_by_name(<span style="color: #848ea9;">'Middle Sheet'</span>))
+&gt;&gt;&gt; wb.remove_sheet(wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet1'</span>))
+&gt;&gt;&gt; wb.get_sheet_names()
+[<span style="color: #848ea9;">'First Sheet'</span>, <span style="color: #848ea9;">'Sheet'</span>]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd1e98a5" class="outline-3">
+<h3 id="orgd1e98a5">Writing Values to Cells</h3>
+<div class="outline-text-3" id="text-orgd1e98a5">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.Workbook()
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span>[<span style="color: #848ea9;">'A1'</span>] = <span style="color: #848ea9;">'Hello world!'</span>
+&gt;&gt;&gt; sheet[<span style="color: #848ea9;">'A1'</span>].value
+<span style="color: #848ea9;">'Hello world!'</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga3d7cf2" class="outline-3">
+<h3 id="orga3d7cf2">Project: Updating a Spreadsheet</h3>
+<div class="outline-text-3" id="text-orga3d7cf2">
+<p>
+<code>produceSales.xlsx</code>
+</p>
+</div>
+
+<div id="outline-container-orgc229c70" class="outline-4">
+<h4 id="orgc229c70">updateProduce.py</h4>
+<div class="outline-text-4" id="text-orgc229c70">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #009e73; font-style: italic;">#</span><span style="color: #009e73; font-style: italic;">! python3</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">updateProduce.py - Corrects costs in produce sales spreadsheet.</span>
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">works</span>
+
+<span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+
+<span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'produceSales.xlsx'</span>)
+<span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_sheet_by_name(<span style="color: #848ea9;">'Sheet'</span>)
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">The produce types and their updated prices</span>
+<span style="color: #e69f00; font-weight: bold;">PRICE_UPDATES</span> = {<span style="color: #848ea9;">'Garlic'</span>: 3.07,
+                 <span style="color: #848ea9;">'Celery'</span>: 1.19,
+                 <span style="color: #848ea9;">'Lemon'</span>: 1.27}
+
+<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">Loop through the rows and update the prices.</span>
+<span style="color: #56b4e9; font-weight: bold;">for</span> rowNum <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span>(2, sheet.max_row): <span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">skip the first row</span>
+    <span style="color: #e69f00; font-weight: bold;">produceName</span> = sheet.cell(row=rowNum, column=1).value
+    <span style="color: #56b4e9; font-weight: bold;">if</span> produceName <span style="color: #56b4e9; font-weight: bold;">in</span> PRICE_UPDATES:
+        sheet.cell(row=rowNum, column=2)<span style="color: #e69f00; font-weight: bold;">.value</span> = PRICE_UPDATES[produceName]
+
+wb.save(<span style="color: #848ea9;">'updatedProduceSales.xlsx'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc5f5ebe" class="outline-3">
+<h3 id="orgc5f5ebe">Adjusting Rows and Columns</h3>
+<div class="outline-text-3" id="text-orgc5f5ebe">
+</div>
+<div id="outline-container-orgd836bc5" class="outline-4">
+<h4 id="orgd836bc5">Setting Row Height and Column Width</h4>
+<div class="outline-text-4" id="text-orgd836bc5">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.Workbook()
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span>[<span style="color: #848ea9;">'A1'</span>] = <span style="color: #848ea9;">'Tall row'</span>
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span>[<span style="color: #848ea9;">'B2'</span>] = <span style="color: #848ea9;">'Wide column'</span>
+&gt;&gt;&gt; sheet.row_dimensions[1]<span style="color: #e69f00; font-weight: bold;">.height</span> = 70
+&gt;&gt;&gt; sheet.column_dimensions[<span style="color: #848ea9;">'B'</span>]<span style="color: #e69f00; font-weight: bold;">.width</span> = 20
+&gt;&gt;&gt; wb.save(<span style="color: #848ea9;">'dimensions.xlsx'</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org203c307" class="outline-4">
+<h4 id="org203c307">Merging and Unmerging Cells</h4>
+<div class="outline-text-4" id="text-org203c307">
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.Workbook()
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; sheet.merge_cells(<span style="color: #848ea9;">'A1:D3'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span>[<span style="color: #848ea9;">'A1'</span>] = <span style="color: #848ea9;">'Twelve cells merged together.'</span>
+&gt;&gt;&gt; sheet.merge_cells(<span style="color: #848ea9;">'C5:D5'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span>[<span style="color: #848ea9;">'C5'</span>] = <span style="color: #848ea9;">'Two merged cells.'</span>
+&gt;&gt;&gt; wb.save(<span style="color: #848ea9;">'merged.xlsx'</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'merged.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; sheet.unmerge_cells(<span style="color: #848ea9;">'A1:D3'</span>)
+&gt;&gt;&gt; sheet.unmerge_cells(<span style="color: #848ea9;">'C5:D5'</span>)
+&gt;&gt;&gt; wb.save(<span style="color: #848ea9;">'merged.xlsx'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5310ef1" class="outline-3">
+<h3 id="org5310ef1">Freeze Panes</h3>
+<div class="outline-text-3" id="text-org5310ef1">
+</div>
+<div id="outline-container-orgb36a33c" class="outline-4">
+<h4 id="orgb36a33c">Table 12-3: Frozen Pane Examples</h4>
+<div class="outline-text-4" id="text-orgb36a33c">
+<pre class="example">
+| freeze_panes setting                                   | Rows and columns frozen   |
+|--------------------------------------------------------+---------------------------|
+| sheet.freeze_panes = 'A2'                              | Row 1                     |
+| sheet.freeze_panes = 'B1'                              | Column A                  |
+| sheet.freeze_panes = 'C1'                              | Columns A and B           |
+| sheet.freeze_panes = 'C2'                              | Row 1 and columns A and B |
+| sheet.freeze_panes = 'A1' or sheet.freeze_panes = None | No frozen panes           |
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #56b4e9; font-weight: bold;">import</span> openpyxl
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">wb</span> = openpyxl.load_workbook(<span style="color: #848ea9;">'produceSales.xlsx'</span>)
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet</span> = wb.get_active_sheet()
+&gt;&gt;&gt; <span style="color: #e69f00; font-weight: bold;">sheet.freeze_panes</span> = <span style="color: #848ea9;">'A2'</span>
+&gt;&gt;&gt; wb.save(<span style="color: #848ea9;">'freezeExample.xlsx'</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

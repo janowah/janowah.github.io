@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>libraries</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">libraries</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org15d4939">summary</a></li>
+<li><a href="#orgc971803">ctype.h - character types</a></li>
+<li><a href="#org884435d">math.h - mathematical declarations</a></li>
+<li><a href="#org872dc56">stdarg.h - handle variable argument list</a></li>
+<li><a href="#orgd5b17b9">stdio.h - standard buffered input/output</a></li>
+<li><a href="#orgd49915f">stdlib.h - standard library definitions</a></li>
+<li><a href="#orgf7c7970">string.h - string operations</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org15d4939" class="outline-2">
+<h2 id="org15d4939">summary</h2>
+<div class="outline-text-2" id="text-org15d4939">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;ctype.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;math.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdarg.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdio.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;stdlib.h&gt;</span>
+<span style="color: #0072b2;">#include</span> <span style="color: #848ea9;">&lt;string.h&gt;</span>
+
+
+<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #d55e00;">strdup</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #e69f00; font-weight: bold;">s</span>);
+man strdup
+<span style="color: #0072b2; font-weight: bold;">man</span> <span style="color: #e69f00; font-weight: bold;">string</span>.h
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc971803" class="outline-2">
+<h2 id="orgc971803">ctype.h - character types</h2>
+<div class="outline-text-2" id="text-orgc971803">
+<p>
+<code>#include &lt;ctype.h&gt;</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isalnum</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isalpha</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isascii</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isblank</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">iscntrl</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isdigit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isgraph</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">islower</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isprint</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">ispunct</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isspace</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isupper</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">isxdigit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">toascii</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">tolower</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>   <span style="color: #d55e00;">toupper</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org884435d" class="outline-2">
+<h2 id="org884435d">math.h - mathematical declarations</h2>
+<div class="outline-text-2" id="text-org884435d">
+<p>
+<code>#include &lt;math.h&gt;</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">acos</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">acosf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">acosh</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">acoshf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">acoshl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">acosl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">asin</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">asinf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">asinh</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">asinhf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">asinhl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">asinl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">atan</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">atan2</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">atan2f</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">atan2l</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">atanf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">atanh</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">atanhf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">atanhl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">atanl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">cbrt</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">cbrtf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">cbrtl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">ceil</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">ceilf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">ceill</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">copysign</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">copysignf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">copysignl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">cos</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">cosf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">cosh</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">coshf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">coshl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">cosl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">erf</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">erfc</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">erfcf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">erfcl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">erff</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">erfl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">exp</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">exp2</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">exp2f</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">exp2l</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">expf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">expl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">expm1</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">expm1f</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">expm1l</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">fabs</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">fabsf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">fabsl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">fdim</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">fdimf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">fdiml</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">floor</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">floorf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">floorl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">fma</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">fmaf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">fmal</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">fmax</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">fmaxf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">fmaxl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">fmin</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">fminf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">fminl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">fmod</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">fmodf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">fmodl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">frexp</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">frexpf</span>(<span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">value</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">frexpl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">value</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">hypot</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">hypotf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">hypotl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>         <span style="color: #d55e00;">ilogb</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>         <span style="color: #d55e00;">ilogbf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>         <span style="color: #d55e00;">ilogbl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">j0</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">j1</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">jn</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">ldexp</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">ldexpf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">ldexpl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">lgamma</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">lgammaf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">lgammal</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>   <span style="color: #d55e00;">llrint</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>   <span style="color: #d55e00;">llrintf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>   <span style="color: #d55e00;">llrintl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>   <span style="color: #d55e00;">llround</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>   <span style="color: #d55e00;">llroundf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>   <span style="color: #d55e00;">llroundl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">log</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">log10</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">log10f</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">log10l</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">log1p</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">log1pf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">log1pl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">log2</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">log2f</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">log2l</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">logb</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">logbf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">logbl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">logf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">logl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>        <span style="color: #d55e00;">lrint</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>        <span style="color: #d55e00;">lrintf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>        <span style="color: #d55e00;">lrintl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>        <span style="color: #d55e00;">lround</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>        <span style="color: #d55e00;">lroundf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>        <span style="color: #d55e00;">lroundl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">modf</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span> *);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">modff</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">modfl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> *);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">nan</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">nanf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">nanl</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">nearbyint</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">nearbyintf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">nearbyintl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">nextafter</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">nextafterf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">nextafterl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">nexttoward</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">nexttowardf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">nexttowardl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">pow</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">powf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">powl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">remainder</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">remainderf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">remainderl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">remquo</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">remquof</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">remquol</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">rint</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">rintf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">rintl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">round</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">roundf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">roundl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">scalb</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">scalbln</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">scalblnf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">long</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">scalblnl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">long</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">scalbn</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">scalbnf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">scalbnl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">sin</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">sinf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">sinh</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">sinhf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">sinhl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">sinl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">sqrt</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">sqrtf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">sqrtl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">tan</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">tanf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">tanh</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">tanhf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">tanhl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">tanl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">tgamma</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">tgammaf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">tgammal</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">trunc</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>       <span style="color: #d55e00;">truncf</span>(<span style="color: #0072b2; font-weight: bold;">float</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">truncl</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">y0</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">y1</span>(<span style="color: #0072b2; font-weight: bold;">double</span>);
+<span style="color: #0072b2; font-weight: bold;">double</span>      <span style="color: #d55e00;">yn</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">double</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org872dc56" class="outline-2">
+<h2 id="org872dc56">stdarg.h - handle variable argument list</h2>
+<div class="outline-text-2" id="text-org872dc56">
+<p>
+<code>#include &lt;stdarg.h&gt;</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">va_start</span>(<span style="color: #0072b2; font-weight: bold;">va_list</span> <span style="color: #e69f00; font-weight: bold;">ap</span>, argN);
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">va_copy</span>(<span style="color: #0072b2; font-weight: bold;">va_list</span> <span style="color: #e69f00; font-weight: bold;">dest</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span> <span style="color: #e69f00; font-weight: bold;">src</span>);
+<span style="color: #0072b2; font-weight: bold;">type</span> <span style="color: #d55e00;">va_arg</span>(<span style="color: #0072b2; font-weight: bold;">va_list</span> <span style="color: #e69f00; font-weight: bold;">ap</span>, <span style="color: #0072b2; font-weight: bold;">type</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">va_end</span>(<span style="color: #0072b2; font-weight: bold;">va_list</span> <span style="color: #e69f00; font-weight: bold;">ap</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd5b17b9" class="outline-2">
+<h2 id="orgd5b17b9">stdio.h - standard buffered input/output</h2>
+<div class="outline-text-2" id="text-orgd5b17b9">
+<p>
+<code>#include &lt;stdio.h&gt;</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span>     <span style="color: #d55e00;">clearerr</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">ctermid</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fclose</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">FILE</span>    *<span style="color: #d55e00;">fdopen</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">feof</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">ferror</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fflush</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fgetc</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fgetpos</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">fpos_t</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">fgets</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fileno</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+
+<span style="color: #0072b2; font-weight: bold;">void</span>     <span style="color: #d55e00;">flockfile</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">FILE</span>    *<span style="color: #d55e00;">fopen</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fprintf</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, ...);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fputc</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fputs</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">size_t</span>   <span style="color: #d55e00;">fread</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">FILE</span>    *<span style="color: #d55e00;">freopen</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>,
+                   <span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fscanf</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, ...);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fseek</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *, <span style="color: #0072b2; font-weight: bold;">long</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fseeko</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *, <span style="color: #0072b2; font-weight: bold;">off_t</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">fsetpos</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">fpos_t</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span>     <span style="color: #d55e00;">ftell</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">off_t</span>    <span style="color: #d55e00;">ftello</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">ftrylockfile</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">void</span>     <span style="color: #d55e00;">funlockfile</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">size_t</span>   <span style="color: #d55e00;">fwrite</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">getc</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">getchar</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">getc_unlocked</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">getchar_unlocked</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">gets</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">pclose</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>     <span style="color: #d55e00;">perror</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">FILE</span>    *<span style="color: #d55e00;">popen</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">printf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, ...);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">putc</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">putchar</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">putc_unlocked</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">putchar_unlocked</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">puts</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">remove</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">rename</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">void</span>     <span style="color: #d55e00;">rewind</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">scanf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, ...);
+<span style="color: #0072b2; font-weight: bold;">void</span>     <span style="color: #d55e00;">setbuf</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">setvbuf</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">snprintf</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, ...);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">sprintf</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, ...);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">sscanf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span> ...);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">tempnam</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">FILE</span>    *<span style="color: #d55e00;">tmpfile</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">tmpnam</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">ungetc</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">FILE</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vfprintf</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vfscanf</span>(<span style="color: #0072b2; font-weight: bold;">FILE</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vprintf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vscanf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vsnprintf</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, size_t, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, va_list;
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vsprintf</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">vsscanf</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">va_list</span> <span style="color: #e69f00; font-weight: bold;">arg</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd49915f" class="outline-2">
+<h2 id="orgd49915f">stdlib.h - standard library definitions</h2>
+<div class="outline-text-2" id="text-orgd49915f">
+<p>
+<code>#include &lt;stdlib.h&gt;</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">_Exit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">a64l</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">abort</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">abs</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">atexit</span>(<span style="color: #0072b2; font-weight: bold;">void</span> (*)(<span style="color: #0072b2; font-weight: bold;">void</span>));
+<span style="color: #0072b2; font-weight: bold;">double</span>        <span style="color: #d55e00;">atof</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">atoi</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">atol</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>     <span style="color: #d55e00;">atoll</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">void</span>         *<span style="color: #d55e00;">bsearch</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>,
+                           <span style="color: #0072b2; font-weight: bold;">int</span> (*)(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *));
+<span style="color: #0072b2; font-weight: bold;">void</span>         *<span style="color: #d55e00;">calloc</span>(<span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">div_t</span>         <span style="color: #d55e00;">div</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>        <span style="color: #d55e00;">drand48</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">ecvt</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>); (LEGACY )
+<span style="color: #0072b2; font-weight: bold;">double</span>        <span style="color: #d55e00;">erand48</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">short</span>[3]);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">exit</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">fcvt</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>); (LEGACY )
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">free</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">gcvt</span>(<span style="color: #0072b2; font-weight: bold;">double</span>, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *); (LEGACY )
+
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">getenv</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">getsubopt</span>(<span style="color: #0072b2; font-weight: bold;">char</span> **, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">const</span> *, <span style="color: #0072b2; font-weight: bold;">char</span> **);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">grantpt</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">initstate</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">jrand48</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">short</span>[3]);
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">l64a</span>(<span style="color: #0072b2; font-weight: bold;">long</span>);
+
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">labs</span>(<span style="color: #0072b2; font-weight: bold;">long</span>);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">lcong48</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">short</span>[7]);
+
+<span style="color: #0072b2; font-weight: bold;">ldiv_t</span>        <span style="color: #d55e00;">ldiv</span>(<span style="color: #0072b2; font-weight: bold;">long</span>, <span style="color: #0072b2; font-weight: bold;">long</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>     <span style="color: #d55e00;">llabs</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>);
+<span style="color: #0072b2; font-weight: bold;">lldiv_t</span>       <span style="color: #d55e00;">lldiv</span>(<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>, <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>);
+
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">lrand48</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>         *<span style="color: #d55e00;">malloc</span>(<span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">mblen</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">size_t</span>        <span style="color: #d55e00;">mbstowcs</span>(<span style="color: #0072b2; font-weight: bold;">wchar_t</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">mbtowc</span>(<span style="color: #0072b2; font-weight: bold;">wchar_t</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">mktemp</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *); (LEGACY )
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">mkstemp</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">mrand48</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">nrand48</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">short</span>[3]);
+
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">posix_memalign</span>(<span style="color: #0072b2; font-weight: bold;">void</span> **, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">posix_openpt</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">ptsname</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">putenv</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">qsort</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>, <span style="color: #0072b2; font-weight: bold;">int</span> (*)(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *,
+                           <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *));
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">rand</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">rand_r</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span> *);
+
+
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">random</span>(<span style="color: #0072b2; font-weight: bold;">void</span>);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>         *<span style="color: #d55e00;">realloc</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">realpath</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">short</span> <span style="color: #d55e00;">seed48</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">short</span>[3]);
+
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">setenv</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">int</span>);
+
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">setkey</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">char</span>         *<span style="color: #d55e00;">setstate</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">srand</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span>);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">srand48</span>(<span style="color: #0072b2; font-weight: bold;">long</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span>          <span style="color: #d55e00;">srandom</span>(<span style="color: #0072b2; font-weight: bold;">unsigned</span>);
+
+<span style="color: #0072b2; font-weight: bold;">double</span>        <span style="color: #d55e00;">strtod</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">float</span>         <span style="color: #d55e00;">strtof</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span>          <span style="color: #d55e00;">strtol</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">double</span>   <span style="color: #d55e00;">strtold</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>     <span style="color: #d55e00;">strtoll</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #d55e00;">strtoul</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">unsigned</span> <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #0072b2; font-weight: bold;">long</span>
+                    <span style="color: #d55e00;">strtoull</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">char</span> **<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">system</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">unlockpt</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">unsetenv</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">size_t</span>        <span style="color: #d55e00;">wcstombs</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">wchar_t</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>           <span style="color: #d55e00;">wctomb</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">wchar_t</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf7c7970" class="outline-2">
+<h2 id="orgf7c7970">string.h - string operations</h2>
+<div class="outline-text-2" id="text-orgf7c7970">
+<p>
+<code>#include &lt;string.h&gt;</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #0072b2; font-weight: bold;">void</span>    *<span style="color: #d55e00;">memccpy</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+
+<span style="color: #0072b2; font-weight: bold;">void</span>    *<span style="color: #d55e00;">memchr</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">memcmp</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span>    *<span style="color: #d55e00;">memcpy</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span>    *<span style="color: #d55e00;">memmove</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">void</span>    *<span style="color: #d55e00;">memset</span>(<span style="color: #0072b2; font-weight: bold;">void</span> *, <span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strcat</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strchr</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">strcmp</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">strcoll</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strcpy</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+<span style="color: #0072b2; font-weight: bold;">size_t</span>   <span style="color: #d55e00;">strcspn</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strdup</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strerror</span>(<span style="color: #0072b2; font-weight: bold;">int</span>);
+
+<span style="color: #0072b2; font-weight: bold;">int</span>     *<span style="color: #d55e00;">strerror_r</span>(<span style="color: #0072b2; font-weight: bold;">int</span>, <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+
+<span style="color: #0072b2; font-weight: bold;">size_t</span>   <span style="color: #d55e00;">strlen</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strncat</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">int</span>      <span style="color: #d55e00;">strncmp</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strncpy</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strpbrk</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strrchr</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">int</span>);
+<span style="color: #0072b2; font-weight: bold;">size_t</span>   <span style="color: #d55e00;">strspn</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strstr</span>(<span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *);
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strtok</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>);
+
+<span style="color: #0072b2; font-weight: bold;">char</span>    *<span style="color: #d55e00;">strtok_r</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *, <span style="color: #0072b2; font-weight: bold;">char</span> **);
+
+<span style="color: #0072b2; font-weight: bold;">size_t</span>   <span style="color: #d55e00;">strxfrm</span>(<span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #56b4e9; font-weight: bold;">const</span> <span style="color: #0072b2; font-weight: bold;">char</span> *<span style="color: #56b4e9; font-weight: bold;">restrict</span>, <span style="color: #0072b2; font-weight: bold;">size_t</span>);
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

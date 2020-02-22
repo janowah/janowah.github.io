@@ -1,0 +1,495 @@
+#+title: libraries
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* summary
+
+#+BEGIN_SRC c
+  #include <ctype.h>
+  #include <math.h>
+  #include <stdarg.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+
+
+  char *strdup(const char *s);
+  man strdup
+  man string.h
+#+END_SRC
+
+* ctype.h - character types
+
+=#include <ctype.h>=
+
+#+BEGIN_SRC c
+  int   isalnum(int);
+  int   isalpha(int);
+
+  int   isascii(int);
+
+  int   isblank(int);
+  int   iscntrl(int);
+  int   isdigit(int);
+  int   isgraph(int);
+  int   islower(int);
+  int   isprint(int);
+  int   ispunct(int);
+  int   isspace(int);
+  int   isupper(int);
+  int   isxdigit(int);
+
+  int   toascii(int);
+
+  int   tolower(int);
+  int   toupper(int);
+#+END_SRC
+
+* math.h - mathematical declarations
+
+=#include <math.h>=
+
+#+BEGIN_SRC c
+  double      acos(double);
+  float       acosf(float);
+  double      acosh(double);
+  float       acoshf(float);
+  long double acoshl(long double);
+  long double acosl(long double);
+  double      asin(double);
+  float       asinf(float);
+  double      asinh(double);
+  float       asinhf(float);
+  long double asinhl(long double);
+  long double asinl(long double);
+  double      atan(double);
+  double      atan2(double, double);
+  float       atan2f(float, float);
+  long double atan2l(long double, long double);
+  float       atanf(float);
+  double      atanh(double);
+  float       atanhf(float);
+  long double atanhl(long double);
+  long double atanl(long double);
+  double      cbrt(double);
+  float       cbrtf(float);
+  long double cbrtl(long double);
+  double      ceil(double);
+  float       ceilf(float);
+  long double ceill(long double);
+  double      copysign(double, double);
+  float       copysignf(float, float);
+  long double copysignl(long double, long double);
+  double      cos(double);
+  float       cosf(float);
+  double      cosh(double);
+  float       coshf(float);
+  long double coshl(long double);
+  long double cosl(long double);
+  double      erf(double);
+  double      erfc(double);
+  float       erfcf(float);
+  long double erfcl(long double);
+  float       erff(float);
+  long double erfl(long double);
+  double      exp(double);
+  double      exp2(double);
+  float       exp2f(float);
+  long double exp2l(long double);
+  float       expf(float);
+  long double expl(long double);
+  double      expm1(double);
+  float       expm1f(float);
+  long double expm1l(long double);
+  double      fabs(double);
+  float       fabsf(float);
+  long double fabsl(long double);
+  double      fdim(double, double);
+  float       fdimf(float, float);
+  long double fdiml(long double, long double);
+  double      floor(double);
+  float       floorf(float);
+  long double floorl(long double);
+  double      fma(double, double, double);
+  float       fmaf(float, float, float);
+  long double fmal(long double, long double, long double);
+  double      fmax(double, double);
+  float       fmaxf(float, float);
+  long double fmaxl(long double, long double);
+  double      fmin(double, double);
+  float       fminf(float, float);
+  long double fminl(long double, long double);
+  double      fmod(double, double);
+  float       fmodf(float, float);
+  long double fmodl(long double, long double);
+  double      frexp(double, int *);
+  float       frexpf(float value, int *);
+  long double frexpl(long double value, int *);
+  double      hypot(double, double);
+  float       hypotf(float, float);
+  long double hypotl(long double, long double);
+  int         ilogb(double);
+  int         ilogbf(float);
+  int         ilogbl(long double);
+
+  double      j0(double);
+  double      j1(double);
+  double      jn(int, double);
+
+  double      ldexp(double, int);
+  float       ldexpf(float, int);
+  long double ldexpl(long double, int);
+  double      lgamma(double);
+  float       lgammaf(float);
+  long double lgammal(long double);
+  long long   llrint(double);
+  long long   llrintf(float);
+  long long   llrintl(long double);
+  long long   llround(double);
+  long long   llroundf(float);
+  long long   llroundl(long double);
+  double      log(double);
+  double      log10(double);
+  float       log10f(float);
+  long double log10l(long double);
+  double      log1p(double);
+  float       log1pf(float);
+  long double log1pl(long double);
+  double      log2(double);
+  float       log2f(float);
+  long double log2l(long double);
+  double      logb(double);
+  float       logbf(float);
+  long double logbl(long double);
+  float       logf(float);
+  long double logl(long double);
+  long        lrint(double);
+  long        lrintf(float);
+  long        lrintl(long double);
+  long        lround(double);
+  long        lroundf(float);
+  long        lroundl(long double);
+  double      modf(double, double *);
+  float       modff(float, float *);
+  long double modfl(long double, long double *);
+  double      nan(const char *);
+  float       nanf(const char *);
+  long double nanl(const char *);
+  double      nearbyint(double);
+  float       nearbyintf(float);
+  long double nearbyintl(long double);
+  double      nextafter(double, double);
+  float       nextafterf(float, float);
+  long double nextafterl(long double, long double);
+  double      nexttoward(double, long double);
+  float       nexttowardf(float, long double);
+  long double nexttowardl(long double, long double);
+  double      pow(double, double);
+  float       powf(float, float);
+  long double powl(long double, long double);
+  double      remainder(double, double);
+  float       remainderf(float, float);
+  long double remainderl(long double, long double);
+  double      remquo(double, double, int *);
+  float       remquof(float, float, int *);
+  long double remquol(long double, long double, int *);
+  double      rint(double);
+  float       rintf(float);
+  long double rintl(long double);
+  double      round(double);
+  float       roundf(float);
+  long double roundl(long double);
+
+  double      scalb(double, double);
+
+  double      scalbln(double, long);
+  float       scalblnf(float, long);
+  long double scalblnl(long double, long);
+  double      scalbn(double, int);
+  float       scalbnf(float, int);
+  long double scalbnl(long double, int);
+  double      sin(double);
+  float       sinf(float);
+  double      sinh(double);
+  float       sinhf(float);
+  long double sinhl(long double);
+  long double sinl(long double);
+  double      sqrt(double);
+  float       sqrtf(float);
+  long double sqrtl(long double);
+  double      tan(double);
+  float       tanf(float);
+  double      tanh(double);
+  float       tanhf(float);
+  long double tanhl(long double);
+  long double tanl(long double);
+  double      tgamma(double);
+  float       tgammaf(float);
+  long double tgammal(long double);
+  double      trunc(double);
+  float       truncf(float);
+  long double truncl(long double);
+
+  double      y0(double);
+  double      y1(double);
+  double      yn(int, double);
+#+END_SRC
+
+* stdarg.h - handle variable argument list
+
+=#include <stdarg.h>=
+
+#+BEGIN_SRC c
+  void va_start(va_list ap, argN);
+  void va_copy(va_list dest, va_list src);
+  type va_arg(va_list ap, type);
+  void va_end(va_list ap);
+#+END_SRC
+
+* stdio.h - standard buffered input/output
+
+=#include <stdio.h>=
+
+#+BEGIN_SRC c
+  void     clearerr(FILE *);
+
+  char    *ctermid(char *);
+
+  int      fclose(FILE *);
+
+  FILE    *fdopen(int, const char *);
+
+  int      feof(FILE *);
+  int      ferror(FILE *);
+  int      fflush(FILE *);
+  int      fgetc(FILE *);
+  int      fgetpos(FILE *restrict, fpos_t *restrict);
+  char    *fgets(char *restrict, int, FILE *restrict);
+
+  int      fileno(FILE *);
+
+
+  void     flockfile(FILE *);
+
+  FILE    *fopen(const char *restrict, const char *restrict);
+  int      fprintf(FILE *restrict, const char *restrict, ...);
+  int      fputc(int, FILE *);
+  int      fputs(const char *restrict, FILE *restrict);
+  size_t   fread(void *restrict, size_t, size_t, FILE *restrict);
+  FILE    *freopen(const char *restrict, const char *restrict,
+                     FILE *restrict);
+  int      fscanf(FILE *restrict, const char *restrict, ...);
+  int      fseek(FILE *, long, int);
+
+  int      fseeko(FILE *, off_t, int);
+
+  int      fsetpos(FILE *, const fpos_t *);
+  long     ftell(FILE *);
+
+  off_t    ftello(FILE *);
+
+
+  int      ftrylockfile(FILE *);
+  void     funlockfile(FILE *);
+
+  size_t   fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+  int      getc(FILE *);
+  int      getchar(void);
+
+  int      getc_unlocked(FILE *);
+  int      getchar_unlocked(void);
+
+  char    *gets(char *);
+
+  int      pclose(FILE *);
+
+  void     perror(const char *);
+
+  FILE    *popen(const char *, const char *);
+
+  int      printf(const char *restrict, ...);
+  int      putc(int, FILE *);
+  int      putchar(int);
+
+  int      putc_unlocked(int, FILE *);
+  int      putchar_unlocked(int);
+
+  int      puts(const char *);
+  int      remove(const char *);
+  int      rename(const char *, const char *);
+  void     rewind(FILE *);
+  int      scanf(const char *restrict, ...);
+  void     setbuf(FILE *restrict, char *restrict);
+  int      setvbuf(FILE *restrict, char *restrict, int, size_t);
+  int      snprintf(char *restrict, size_t, const char *restrict, ...);
+  int      sprintf(char *restrict, const char *restrict, ...);
+  int      sscanf(const char *restrict, const char *restrict, int ...);
+
+  char    *tempnam(const char *, const char *);
+
+  FILE    *tmpfile(void);
+  char    *tmpnam(char *);
+  int      ungetc(int, FILE *);
+  int      vfprintf(FILE *restrict, const char *restrict, va_list);
+  int      vfscanf(FILE *restrict, const char *restrict, va_list);
+  int      vprintf(const char *restrict, va_list);
+  int      vscanf(const char *restrict, va_list);
+  int      vsnprintf(char *restrict, size_t, const char *restrict, va_list;
+  int      vsprintf(char *restrict, const char *restrict, va_list);
+  int      vsscanf(const char *restrict, const char *restrict, va_list arg);
+#+END_SRC
+
+* stdlib.h - standard library definitions
+
+=#include <stdlib.h>=
+
+#+BEGIN_SRC c
+  void          _Exit(int);
+
+  long          a64l(const char *);
+
+  void          abort(void);
+  int           abs(int);
+  int           atexit(void (*)(void));
+  double        atof(const char *);
+  int           atoi(const char *);
+  long          atol(const char *);
+  long long     atoll(const char *);
+  void         *bsearch(const void *, const void *, size_t, size_t,
+                             int (*)(const void *, const void *));
+  void         *calloc(size_t, size_t);
+  div_t         div(int, int);
+
+  double        drand48(void);
+  char         *ecvt(double, int, int *restrict, int *restrict); (LEGACY )
+  double        erand48(unsigned short[3]);
+
+  void          exit(int);
+
+  char         *fcvt(double, int, int *restrict, int *restrict); (LEGACY )
+
+  void          free(void *);
+
+  char         *gcvt(double, int, char *); (LEGACY )
+
+  char         *getenv(const char *);
+
+  int           getsubopt(char **, char *const *, char **);
+  int           grantpt(int);
+  char         *initstate(unsigned, char *, size_t);
+  long          jrand48(unsigned short[3]);
+  char         *l64a(long);
+
+  long          labs(long);
+
+  void          lcong48(unsigned short[7]);
+
+  ldiv_t        ldiv(long, long);
+  long long     llabs(long long);
+  lldiv_t       lldiv(long long, long long);
+
+  long          lrand48(void);
+
+  void         *malloc(size_t);
+  int           mblen(const char *, size_t);
+  size_t        mbstowcs(wchar_t *restrict, const char *restrict, size_t);
+  int           mbtowc(wchar_t *restrict, const char *restrict, size_t);
+
+  char         *mktemp(char *); (LEGACY )
+  int           mkstemp(char *);
+  long          mrand48(void);
+  long          nrand48(unsigned short[3]);
+
+
+  int           posix_memalign(void **, size_t, size_t);
+
+
+  int           posix_openpt(int);
+  char         *ptsname(int);
+  int           putenv(char *);
+
+  void          qsort(void *, size_t, size_t, int (*)(const void *,
+                             const void *));
+  int           rand(void);
+
+  int           rand_r(unsigned *);
+
+
+  long          random(void);
+
+  void         *realloc(void *, size_t);
+
+  char         *realpath(const char *restrict, char *restrict);
+  unsigned short seed48(unsigned short[3]);
+
+
+  int           setenv(const char *, const char *, int);
+
+
+  void          setkey(const char *);
+  char         *setstate(const char *);
+
+  void          srand(unsigned);
+
+  void          srand48(long);
+  void          srandom(unsigned);
+
+  double        strtod(const char *restrict, char **restrict);
+  float         strtof(const char *restrict, char **restrict);
+  long          strtol(const char *restrict, char **restrict, int);
+  long double   strtold(const char *restrict, char **restrict);
+  long long     strtoll(const char *restrict, char **restrict, int);
+  unsigned long strtoul(const char *restrict, char **restrict, int);
+  unsigned long long
+                      strtoull(const char *restrict, char **restrict, int);
+  int           system(const char *);
+
+  int           unlockpt(int);
+
+
+  int           unsetenv(const char *);
+
+  size_t        wcstombs(char *restrict, const wchar_t *restrict, size_t);
+  int           wctomb(char *, wchar_t);
+#+END_SRC
+
+* string.h - string operations
+
+=#include <string.h>=
+
+#+BEGIN_SRC c
+  void    *memccpy(void *restrict, const void *restrict, int, size_t);
+
+  void    *memchr(const void *, int, size_t);
+  int      memcmp(const void *, const void *, size_t);
+  void    *memcpy(void *restrict, const void *restrict, size_t);
+  void    *memmove(void *, const void *, size_t);
+  void    *memset(void *, int, size_t);
+  char    *strcat(char *restrict, const char *restrict);
+  char    *strchr(const char *, int);
+  int      strcmp(const char *, const char *);
+  int      strcoll(const char *, const char *);
+  char    *strcpy(char *restrict, const char *restrict);
+  size_t   strcspn(const char *, const char *);
+
+  char    *strdup(const char *);
+
+  char    *strerror(int);
+
+  int     *strerror_r(int, char *, size_t);
+
+  size_t   strlen(const char *);
+  char    *strncat(char *restrict, const char *restrict, size_t);
+  int      strncmp(const char *, const char *, size_t);
+  char    *strncpy(char *restrict, const char *restrict, size_t);
+  char    *strpbrk(const char *, const char *);
+  char    *strrchr(const char *, int);
+  size_t   strspn(const char *, const char *);
+  char    *strstr(const char *, const char *);
+  char    *strtok(char *restrict, const char *restrict);
+
+  char    *strtok_r(char *, const char *, char **);
+
+  size_t   strxfrm(char *restrict, const char *restrict, size_t);
+
+#+END_SRC
+

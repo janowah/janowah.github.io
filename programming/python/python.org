@@ -3,7 +3,13 @@
 
 - [[file:setup.html][setup]]
 - [[file:books.html][books]]
-- [[file:code.html][code]]
+- code
+  - [[file:code/code.html][automate]]
+  - crash course
+  - violent
+- notes
+  - [[file:notes/skeleton.html][skeleton]]
+  - virtual environments
 - [[file:crash-course.html][crash-course]]
 
 [[file:../programming.html][back]]
