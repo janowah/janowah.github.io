@@ -11,6 +11,12 @@ chmod - change file mode bits
 chmod 775 somedir/
 chmod 775 ./textfile.txt
 chmod -R 775 ./ ; recursive
+
+644 for files       ; -rw-r--r--.
+755 for directories ; drwxr-xr-x.
+
+find ./ -type d -print0 | xargs -0 chmod 755
+find ./ -type f -print0 | xargs -0 chmod 644
 </pre>
 <a href="./fileutils.html">back</a>
 </body>

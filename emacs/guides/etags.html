@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>etags</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">etags</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb4ef7e2">make tags</a></li>
+<li><a href="#org80cf57e">use tags?</a></li>
+<li><a href="#org508dfb2">switches</a></li>
+<li><a href="#org8ff23ec">mark</a></li>
+<li><a href="#orge5592bc">help</a></li>
+<li><a href="#org3559004">how to</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb4ef7e2" class="outline-2">
+<h2 id="orgb4ef7e2">make tags</h2>
+<div class="outline-text-2" id="text-orgb4ef7e2">
+<pre class="example">
+etags -R * ; this didn't work for sub directory
+etags -R *.c
+etags ./*{.c,.h}
+
+$etags hello.cpp
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org80cf57e" class="outline-2">
+<h2 id="org80cf57e">use tags?</h2>
+<div class="outline-text-2" id="text-org80cf57e">
+<pre class="example">
+load
+visit-tags-table
+
+M-. ; xref-find-definitions
+M-, ; xref-pop-marker-stack
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org508dfb2" class="outline-2">
+<h2 id="org508dfb2">switches</h2>
+<div class="outline-text-2" id="text-org508dfb2">
+<pre class="example">
+-R, --no-regex
+
+Don't do any more regexp matching on the following files.  May be
+freely intermixed with filenames and the --regex option.
+
+-e (emacs?)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8ff23ec" class="outline-2">
+<h2 id="org8ff23ec">mark</h2>
+<div class="outline-text-2" id="text-org8ff23ec">
+<pre class="example">
+C-x C-SPC runs the command pop-global-mark
+C-u C-SPC local
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge5592bc" class="outline-2">
+<h2 id="orge5592bc">help</h2>
+<div class="outline-text-2" id="text-orge5592bc">
+<pre class="example">
+etags --help
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3559004" class="outline-2">
+<h2 id="org3559004">how to</h2>
+<div class="outline-text-2" id="text-org3559004">
+<ul class="org-ul">
+<li>include the standard library (or just the functions that i'm using)</li>
+<li>even to just get the prototype</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sh">find /usr/include/ -type f -name <span style="color: #66cccc;">\*</span>.h <span style="color: #66cccc;">\</span>
+     -exec etags --append -o ~/Desktop/INCLUDE_TAGS {<span style="color: #66cccc;">\}</span> <span style="color: #66cccc;">\;</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

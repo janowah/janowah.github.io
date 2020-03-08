@@ -1,0 +1,57 @@
+#+title: etags
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:t
+
+* make tags
+
+#+BEGIN_EXAMPLE
+  etags -R * ; this didn't work for sub directory
+  etags -R *.c
+  etags ./*{.c,.h}
+
+  $etags hello.cpp
+#+END_EXAMPLE
+
+* use tags?
+
+#+BEGIN_EXAMPLE
+  load
+  visit-tags-table
+
+  M-. ; xref-find-definitions
+  M-, ; xref-pop-marker-stack
+#+END_EXAMPLE
+
+* switches
+
+#+BEGIN_EXAMPLE
+  -R, --no-regex
+
+  Don't do any more regexp matching on the following files.  May be
+  freely intermixed with filenames and the --regex option.
+
+  -e (emacs?)
+#+END_EXAMPLE
+
+* mark
+
+#+BEGIN_EXAMPLE
+  C-x C-SPC runs the command pop-global-mark
+  C-u C-SPC local
+#+END_EXAMPLE
+
+* help
+
+#+BEGIN_EXAMPLE
+  etags --help
+#+END_EXAMPLE
+
+* how to
+
+- include the standard library (or just the functions that i'm using)
+- even to just get the prototype
+
+#+BEGIN_SRC sh
+  find /usr/include/ -type f -name \*.h \
+       -exec etags --append -o ~/Desktop/INCLUDE_TAGS {\} \;
+#+END_SRC
+
