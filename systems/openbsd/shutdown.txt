@@ -9,8 +9,12 @@
   shutdown -p now
 #+END_EXAMPLE
 
-halt
+* reboot
 
-reboot
+#+BEGIN_EXAMPLE
+  shutdown -r now
+#+END_EXAMPLE
 
 poweroff
+
+halt

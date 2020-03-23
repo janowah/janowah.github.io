@@ -90,18 +90,44 @@
 ** Concurrent Systems
 
 - Concurrent Systems: Operating Systems
+  - 2nd edition
   - Jean Bacon
   - Addison Wesley
-  - 2nd edition
   - 1998
-  - 0201177676
+  - /ISBN-10: 0-201-17767-6/
+  - /ISBN-13: 978-0-201-17767-1/
 
 - Inside Windows NT
-  - Helen Custer
+  - Second Edition
+  - David A. Solomon, Helen Custer
   - Microsoft Press
-  - Microsoft Press, c1993.
-  - 155615481x
-  - 978-1556154812
+  - /ISBN-10: 978-1-57231-677-5/
+  - /ISBN-13: 1-57231-677-2/
+
+- Java An Object Orientated Language
+  - Michael Smith
+  - McGraw-Hill
+  - /ISBN-10: 0-07-709460-3/
+  - /ISBN-13: 978-0-07-709460-7/
+
+- Beginning Java
+  - Ivor Horton
+  - Wrox
+  - /ISBN-10: 1-86100-027-8/
+  - /ISBN-13: 978-1-86100-027-9/
+
+- Java in a Nutshell
+  - David Flanagan
+  - O'Reilly
+  - /ISBN-10: 1-56592-262-X/
+  - /ISBN-13: 978-1-56592-262-4/
+
+# - Inside Windows NT
+# - Helen Custer
+# - Microsoft Press
+# - Microsoft Press, c1993.
+# - 155615481x
+# - 978-1556154812
 
 ** maths
 
