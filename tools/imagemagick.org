@@ -1,0 +1,60 @@
+#+title: ImageMagick
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* tools
+
+#+BEGIN_EXAMPLE
+  - ImageMagick(1) :: ImageMagick - is a free software suite for the
+                      creation, modification and display of bitmap
+                      images.
+
+  - identify(1) :: describes the format and characteristics of one or
+                   more image files.
+
+  - convert(1) :: convert between image formats as well as resize an
+                  image, blur, crop, despeckle, dither, draw on, flip,
+                  join, re-sample, and much more.
+
+  - mogrify(1) ::  mogrify - resize an image, blur, crop, despeckle,
+                  dither, draw on, flip, join, re- sample, and much
+                  more. Mogrify overwrites the original image file,
+                  whereas, con‐ vert(1) writes to a different image
+                  file.
+#+END_EXAMPLE
+
+* identify
+
+#+BEGIN_EXAMPLE
+  identify -format "%w x %h :%x x %y" out.jpg
+#+END_EXAMPLE
+
+* convert
+
+#+BEGIN_EXAMPLE
+  # resample
+  convert  2000-02-07-1.jpg -resample 150x150 out2.jpg
+  convert  2000-02-07-1.jpg -resample 300x300 out1.jpg
+  convert  2000-02-07-1.jpg -resample 300x300 out1.jpg
+  convert  2000-02-07-1.jpg -resample 400x300 out.jpg
+  convert -resample 400x300 2000-02-07-1.jpg 
+
+  # make pdf
+  convert *.jpg 150-out.pdf
+  convert *.jpg 300-out.pdf
+#+END_EXAMPLE
+
+* mogrify
+
+#+BEGIN_EXAMPLE
+  mogrify -path ../150/ -resample 150x150 *.jpg
+  mogrify -path ../150/ -resample 300x300 *.jpg
+  mogrify -path 150/ -resample 300x300 *.jpg
+  mogrify -path output/ -resize 300 *.jpg
+#+END_EXAMPLE
+
+* compare
+
+#+BEGIN_EXAMPLE
+  compare -compose src ./-000.jpg ../150/01_2000-10-09-1.jpg diff.jpg
+#+END_EXAMPLE
+

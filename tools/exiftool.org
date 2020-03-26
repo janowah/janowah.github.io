@@ -1,0 +1,12 @@
+#+title: exiftool
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+EXIFTOOL(1)
+
+exiftool - Read and write meta information in files
+
+exiftool --help
+man exiftool
+exiftool -a -u -g1 a.jpg
+exiftool -a -u -g1 licence-back.png 
+exiftool -a -u -g1 licence-front.png 

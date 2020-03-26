@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ImageMagick</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">ImageMagick</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org774e2d8">tools</a></li>
+<li><a href="#org140e61e">identify</a></li>
+<li><a href="#org6e7dd67">convert</a></li>
+<li><a href="#orgf0b0236">mogrify</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org774e2d8" class="outline-2">
+<h2 id="org774e2d8">tools</h2>
+<div class="outline-text-2" id="text-org774e2d8">
+<pre class="example">
+- ImageMagick(1) :: ImageMagick - is a free software suite for the
+                    creation, modification and display of bitmap
+                    images.
+
+- identify(1) :: describes the format and characteristics of one or
+                 more image files.
+
+- convert(1) :: convert between image formats as well as resize an
+                image, blur, crop, despeckle, dither, draw on, flip,
+                join, re-sample, and much more.
+
+- mogrify(1) ::  mogrify - resize an image, blur, crop, despeckle,
+                dither, draw on, flip, join, re- sample, and much
+                more. Mogrify overwrites the original image file,
+                whereas, con‐ vert(1) writes to a different image
+                file.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org140e61e" class="outline-2">
+<h2 id="org140e61e">identify</h2>
+<div class="outline-text-2" id="text-org140e61e">
+<pre class="example">
+identify -format "%w x %h :%x x %y" out.jpg
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6e7dd67" class="outline-2">
+<h2 id="org6e7dd67">convert</h2>
+<div class="outline-text-2" id="text-org6e7dd67">
+<pre class="example">
+# resample
+convert  2000-02-07-1.jpg -resample 150x150 out2.jpg
+convert  2000-02-07-1.jpg -resample 300x300 out1.jpg
+convert  2000-02-07-1.jpg -resample 300x300 out1.jpg
+convert  2000-02-07-1.jpg -resample 400x300 out.jpg
+convert -resample 400x300 2000-02-07-1.jpg 
+
+# make pdf
+convert *.jpg 150-out.pdf
+convert *.jpg 300-out.pdf
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf0b0236" class="outline-2">
+<h2 id="orgf0b0236">mogrify</h2>
+<div class="outline-text-2" id="text-orgf0b0236">
+<pre class="example">
+mogrify -path ../150/ -resample 150x150 *.jpg
+mogrify -path ../150/ -resample 300x300 *.jpg
+mogrify -path 150/ -resample 300x300 *.jpg
+mogrify -path output/ -resize 300 *.jpg
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

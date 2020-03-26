@@ -1,0 +1,39 @@
+#+title: wget
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* SWITCHES
+
+#+BEGIN_EXAMPLE
+  -r  --recursive
+  -np --no-parent
+  -nH --no-host-directories
+  -nd --no-directories
+  -m  --mirror
+  -c  --continue
+  -R rejlist --reject rejlist
+  -U  --user-agent=agent-string
+  -p --page-requisites ; off by default
+
+  –no-check-certificate ; https websites
+  --timestamping
+#+END_EXAMPLE
+
+* EXAMPLES
+
+#+BEGIN_EXAMPLE
+
+wget -r -nH -nd -np -R index.html* http://example.com/
+
+  wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
+  wget -r -np --timestamping --user=homer --ask-password https://example.com
+
+  wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com/files
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  wget -r -np --user=jack --ask-password http://192.168.1.10/media/USB/files/EDUCATION/tcd/4c05-digital-signal-processing-1/lecture-notes/
+
+  this mirrors folder structure
+  need -r to download files
+#+END_EXAMPLE
+

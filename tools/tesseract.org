@@ -1,0 +1,7 @@
+#+title: tesseract
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  tesseract image.tif text.txt
+#+END_EXAMPLE
+

@@ -1,35 +1,70 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>wget</title>
+<meta name="generator" content="Org mode" />
 </head>
 <body>
-<h1>wget</h1>
+<div id="content">
+<h1 class="title">wget</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf60f4d8">SWITCHES</a></li>
+<li><a href="#org22a0f53">EXAMPLES</a></li>
+</ul>
+</div>
+</div>
 
-<pre>
-wget -r -nH -nd -np -R index.html* http://example.com/
-  
-SWITCHES
+<div id="outline-container-orgf60f4d8" class="outline-2">
+<h2 id="orgf60f4d8">SWITCHES</h2>
+<div class="outline-text-2" id="text-orgf60f4d8">
+<pre class="example">
+  -r  --recursive
+  -np --no-parent
+  -nH --no-host-directories
+  -nd --no-directories
+  -m  --mirror
+  -c  --continue
+  -R rejlist --reject rejlist
+  -U  --user-agent=agent-string
+  -p --page-requisites ; off by default
 
--r  --recursive
--np --no-parent
--nH --no-host-directories
--nd --no-directories
--m  --mirror
--c  --continue
--R rejlist --reject rejlist
--U  --user-agent=agent-string
--p --page-requisites ; off by default
-
-–no-check-certificate ; https websites
-
-EXAMPLES
-
-wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
-wget -r -np --timestamping --user=homer --ask-password https://example.com
-
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com/files
+  –no-check-certificate ; https websites
+--timestamping
 </pre>
-<a href="./tools.html">back</a>
+</div>
+</div>
+
+<div id="outline-container-org22a0f53" class="outline-2">
+<h2 id="org22a0f53">EXAMPLES</h2>
+<div class="outline-text-2" id="text-org22a0f53">
+<pre class="example">
+
+wget -r -nH -nd -np -R index.html* http://example.com/
+
+  wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
+  wget -r -np --timestamping --user=homer --ask-password https://example.com
+
+  wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com/files
+</pre>
+
+<pre class="example">
+wget -r -np --user=jack --ask-password http://192.168.1.10/media/USB/files/EDUCATION/tcd/4c05-digital-signal-processing-1/lecture-notes/
+
+this mirrors folder structure
+need -r to download files
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>
