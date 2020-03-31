@@ -3,15 +3,16 @@
 micro
 =====
 
-| size GB | make                 | contents  | location |    |
-|---------+----------------------+-----------+----------+----|
-|       2 | transcend            | data      | m-phone  |    |
-|       4 | co4g                 | libreelec | rpi      |  4 |
-|       8 | sandisk              | centos    | rpi      |  4 |
-|      16 | tdk                  | blank     | box      | 10 |
-|      32 | sandisk ultra        | blank     | box      | 10 |
-|      64 | sandisk              | data      | s-phone  | 10 |
-|      64 | sandisk extreme plus | data      | walkman  |  3 |
+| size GB | make                 | contents  | location | class |
+|---------+----------------------+-----------+----------+-------|
+|       2 | transcend            | data      | m-phone  |       |
+|       4 | co4g                 | libreelec | rpi      |     4 |
+|       8 | sandisk              | centos    | rpi      |     4 |
+|      16 | tdk                  | centos 7  | box      |    10 |
+|      16 | integral             | centos 7  | box      |    10 |
+|      32 | sandisk ultra        | data      | box      |    10 |
+|      64 | sandisk              | data      | s-phone  |    10 |
+|      64 | sandisk extreme plus | data      | walkman  |     3 |
 
 standard
 ========

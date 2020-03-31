@@ -6,19 +6,28 @@
 ** mp3 players
 
 *** sony NW-A45
+
 - capacity: 16GB
+
 *** sony NWZ-E585
+
 - capacity: 16GB
 - power: 5V
+
 *** sony NWZ-E444
+
 - capacity: 8GB
 - url
+
 *** sony good
+
 *** sony stick
+
 - capacity: 512MB
+
 *** cowon
 
-** ipods
+** iPod
 
 issues
 - have to use itunes
@@ -27,35 +36,50 @@ issues
 - doesn't support flac
 
 *** Apple iPod Touch - 3rd Gen
+
 - capacity: 32GB
 - model: A1318
 - power:
+
 *** Apple iPod 5th Gen
+
 - capacity: 30GB
 - model: A1136  
 - power 5-30V 1A Max
+
 *** Apple iPod Classic 4th Gen
+
 - capacity: 20GB
 - model: A1099
 - power 5-30V 1A Max
 
-** minidisc
+** MiniDisc
+
+- MZ-N710 Net MD Walkman
+- MZ-R900 Recording MD Walkman
+
 ** discman
 ** walkman
 
 * ereader
+
 - kindle
 - sony ereader
 
 * phones
+
 ** motorola
+
 - model: Moto G4
 - serial:
 - os: android 7.0
 - capacity:
   - ram 2GB
   - rom 16GB
+
 ** samsung
+
 - model: GT-18190N
 - os: android 4
+
 ** nokia

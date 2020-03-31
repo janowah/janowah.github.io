@@ -58,6 +58,7 @@
     - 2000
 
 ** Data Networks
+
 - Computer Networks
   - 4th Edition
   - Andrew Tanenbaum
@@ -216,12 +217,19 @@ kreysig
   - Prentice-Hall
 
 * 2nd year
+
 ** Computer Programming and Problem Solving
-- Object Orientated Software in C++, M Smith, Chapman Hall
-- C++ How To Program, H Deitel & P Deitel, Prentice Hall
+
+- /Object Orientated Software in C++/
+  - M Smith
+  - Chapman Hall
+- C++ How To Program
+  - H Deitel & P Deitel
+  - Prentice Hall
 
 ** applied maths
-- Dynamics: Engineering Mechanics 
+
+- /Dynamics: Engineering Mechanics/
   - 4th Edition
   - J. L. Meriam, L. G. Kraige
   - ISBN-13: 978-0471597674 
@@ -234,8 +242,23 @@ kreysig
   - Tom W B Kibble, Frank H Berkshire
 
 * 1st year
+
 ** maths
-- elementary linear algebra anton 6th
-- calculus thomas and finney 9th
+
+- /Elementary Linear Algebra/
+  - 7th edition
+  - Howard Anton
+  - Wiley
+  - c1994
+  - /ISBN-10: 0-471-58742-7/
+  - /ISBN-13: 978-0-471-58742-2/
+
+- /Calculus and Analytic Geometry/
+  - 9th edition
+  - thomas and finney
+  - Addison Wesley
+  - 
+  - /ISBN-10: 0-201-40015-4/
+  - /ISBN-13: 978-0-201-40015-1/
 
 [[./books.html][back]]
