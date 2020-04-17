@@ -3,5 +3,9 @@
 
 #+BEGIN_EXAMPLE
   tesseract image.tif text.txt
+
+  # save selected pages as high-res images and ocr
+  pdftopng -f 1 -l 10 -r 600 foo.pdf png/
+  for filename in *; do tesseract "$filename" "$filename"; done
 #+END_EXAMPLE
 

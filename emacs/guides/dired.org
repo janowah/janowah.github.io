@@ -47,5 +47,6 @@
 * copy marked filenames
 
 - w ; dired-copy-filename-as-kill
+- C-u 0 w ; absolute file name
 
 [[../guides.html][back]]

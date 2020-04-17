@@ -5,19 +5,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>tesseract</title>
+<title>hard disks</title>
 <meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
-<h1 class="title">tesseract</h1>
-<pre class="example">
-tesseract image.tif text.txt
+<h1 class="title">hard disks</h1>
 
-# save selected pages as high-res images and ocr
-pdftopng -f 1 -l 10 -r 600 foo.pdf png/
-for filename in *; do tesseract "$filename" "$filename"; done
+<div id="outline-container-orgb4afe1b" class="outline-2">
+<h2 id="orgb4afe1b">smartctl(8)</h2>
+<div class="outline-text-2" id="text-orgb4afe1b">
+<p>
+Control and Monitor Utility for SMART Disks
+</p>
+
+<pre class="example">
+smartctl -a ; --all
+smartctl -i ; --info
 </pre>
+</div>
+</div>
+
+<div id="outline-container-orgc60350a" class="outline-2">
+<h2 id="orgc60350a">badblocks(8)</h2>
+<div class="outline-text-2" id="text-orgc60350a">
+<p>
+search a device for bad blocks
+</p>
+
+<pre class="example">
+badblocks
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="validation"></p>

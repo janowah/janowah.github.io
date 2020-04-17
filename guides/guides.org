@@ -1,0 +1,12 @@
+#+title: guides
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+- [[file:linux-console.html][linux console]]
+- [[file:compare-directories.html][compare directories]]
+- [[file:secure-wipe.html][secure wipe]]
+- [[file:apache.html][apache]]
+- [[file:android.html][android]]
+- [[file:hard-disks.html][hard disks]]
+- [[file:hardware.html][hardware]]
+
+[[file:~/janowah/index.html][back]]

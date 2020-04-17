@@ -1,0 +1,11 @@
+#+title: hardware
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* lshw(1)
+
+list hardware
+
+#+BEGIN_EXAMPLE
+  lshw 
+  lshw -short
+#+END_EXAMPLE

@@ -15,23 +15,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8de9f55">insert subdirectories</a></li>
-<li><a href="#org1f5c777">find</a></li>
-<li><a href="#org8befaeb">shell commands</a></li>
-<li><a href="#org2c14876">replace text across multiple marked files</a></li>
-<li><a href="#orgfb868f5">diff using a shell command</a></li>
-<li><a href="#org14f9858">using dired diff</a></li>
-<li><a href="#orgaa35f69">show the modification times of files</a></li>
-<li><a href="#org33a69d3">open file using default application</a></li>
-<li><a href="#org75d52cf">copy marked filenames</a></li>
+<li><a href="#orgadd0699">insert subdirectories</a></li>
+<li><a href="#org367465e">find</a></li>
+<li><a href="#org7990aa0">shell commands</a></li>
+<li><a href="#orgf2f68b9">replace text across multiple marked files</a></li>
+<li><a href="#orge879bbf">diff using a shell command</a></li>
+<li><a href="#org2c19835">using dired diff</a></li>
+<li><a href="#org09c40be">show the modification times of files</a></li>
+<li><a href="#orgef32143">open file using default application</a></li>
+<li><a href="#orgf96a4d5">copy marked filenames</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org8de9f55" class="outline-2">
-<h2 id="org8de9f55">insert subdirectories</h2>
-<div class="outline-text-2" id="text-org8de9f55">
+<div id="outline-container-orgadd0699" class="outline-2">
+<h2 id="orgadd0699">insert subdirectories</h2>
+<div class="outline-text-2" id="text-orgadd0699">
 <ul class="org-ul">
 <li>i     ; dired-maybe-insert-subdir</li>
 <li>C-u k ; dired-do-kill-lines</li>
@@ -39,9 +39,9 @@
 </div>
 </div>
 
-<div id="outline-container-org1f5c777" class="outline-2">
-<h2 id="org1f5c777">find</h2>
-<div class="outline-text-2" id="text-org1f5c777">
+<div id="outline-container-org367465e" class="outline-2">
+<h2 id="org367465e">find</h2>
+<div class="outline-text-2" id="text-org367465e">
 <ul class="org-ul">
 <li>find-name-dired</li>
 <li>find-grep-dired</li>
@@ -49,9 +49,9 @@
 </div>
 </div>
 
-<div id="outline-container-org8befaeb" class="outline-2">
-<h2 id="org8befaeb">shell commands</h2>
-<div class="outline-text-2" id="text-org8befaeb">
+<div id="outline-container-org7990aa0" class="outline-2">
+<h2 id="org7990aa0">shell commands</h2>
+<div class="outline-text-2" id="text-org7990aa0">
 <ul class="org-ul">
 <li>! dired-do-shell-command</li>
 <li>rsync -avt * ~/Desktop ; rsync marked files. locks emacs.</li>
@@ -59,9 +59,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2c14876" class="outline-2">
-<h2 id="org2c14876">replace text across multiple marked files</h2>
-<div class="outline-text-2" id="text-org2c14876">
+<div id="outline-container-orgf2f68b9" class="outline-2">
+<h2 id="orgf2f68b9">replace text across multiple marked files</h2>
+<div class="outline-text-2" id="text-orgf2f68b9">
 <ul class="org-ul">
 <li>Q ; dired-do-find-regexp-and-replace</li>
 <li>save in ibuffer using S</li>
@@ -69,9 +69,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgfb868f5" class="outline-2">
-<h2 id="orgfb868f5">diff using a shell command</h2>
-<div class="outline-text-2" id="text-orgfb868f5">
+<div id="outline-container-orge879bbf" class="outline-2">
+<h2 id="orge879bbf">diff using a shell command</h2>
+<div class="outline-text-2" id="text-orge879bbf">
 <ol class="org-ol">
 <li>mark two files
 <ul class="org-ul">
@@ -82,9 +82,9 @@
 </div>
 </div>
 
-<div id="outline-container-org14f9858" class="outline-2">
-<h2 id="org14f9858">using dired diff</h2>
-<div class="outline-text-2" id="text-org14f9858">
+<div id="outline-container-org2c19835" class="outline-2">
+<h2 id="org2c19835">using dired diff</h2>
+<div class="outline-text-2" id="text-org2c19835">
 <ol class="org-ol">
 <li>the file where the cursor is is the first file</li>
 <li>=</li>
@@ -93,29 +93,30 @@
 </div>
 </div>
 
-<div id="outline-container-orgaa35f69" class="outline-2">
-<h2 id="orgaa35f69">show the modification times of files</h2>
-<div class="outline-text-2" id="text-orgaa35f69">
+<div id="outline-container-org09c40be" class="outline-2">
+<h2 id="org09c40be">show the modification times of files</h2>
+<div class="outline-text-2" id="text-org09c40be">
 <pre class="example">
 ! ls -la --time-style=long-iso * ; all marked files
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org33a69d3" class="outline-2">
-<h2 id="org33a69d3">open file using default application</h2>
-<div class="outline-text-2" id="text-org33a69d3">
+<div id="outline-container-orgef32143" class="outline-2">
+<h2 id="orgef32143">open file using default application</h2>
+<div class="outline-text-2" id="text-orgef32143">
 <ul class="org-ul">
 <li>W ; browse-url-of-dired-file</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org75d52cf" class="outline-2">
-<h2 id="org75d52cf">copy marked filenames</h2>
-<div class="outline-text-2" id="text-org75d52cf">
+<div id="outline-container-orgf96a4d5" class="outline-2">
+<h2 id="orgf96a4d5">copy marked filenames</h2>
+<div class="outline-text-2" id="text-orgf96a4d5">
 <ul class="org-ul">
 <li>w ; dired-copy-filename-as-kill</li>
+<li>C-u 0 w ; absolute file name</li>
 </ul>
 
 <p>

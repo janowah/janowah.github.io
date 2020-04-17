@@ -1,0 +1,20 @@
+#+title: hard disks
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* smartctl(8)
+
+Control and Monitor Utility for SMART Disks
+
+#+BEGIN_EXAMPLE
+  smartctl -a ; --all
+  smartctl -i ; --info
+#+END_EXAMPLE
+
+* badblocks(8)
+
+search a device for bad blocks
+
+#+BEGIN_EXAMPLE
+  badblocks
+#+END_EXAMPLE
+
