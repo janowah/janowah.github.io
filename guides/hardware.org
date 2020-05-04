@@ -9,3 +9,9 @@ list hardware
   lshw 
   lshw -short
 #+END_EXAMPLE
+
+* lsscsi 
+* lspci
+* lsblk
+* lscpu
+

@@ -6,17 +6,19 @@
 * PKG_PATH variable
 
 ** set the package path
-#+BEGIN_EXAMPLE
-pkg_path
-# export PKG_PATH=http://ftp.heanet.ie/pub/OpenBSD/$(uname -r)/packages/$(machine -a)/
 
-/etc/installurl
+#+BEGIN_EXAMPLE
+  pkg_path
+  # export PKG_PATH=http://ftp.heanet.ie/pub/OpenBSD/$(uname -r)/packages/$(machine -a)/
+
+  /etc/installurl
 #+END_EXAMPLE
 
 ** add PKG_PATH to =/root/.profile=
+
 - =export PKG_PATH=https://mirror.bytemark.co.uk/pub/OpenBSD/6.2/packages/amd64/=
 - =. $HOME/.profile= ; dot source
-- =echo PKG_PATH= ; test
+- =echo $PKG_PATH= ; test
 
 * commands 
 
@@ -26,11 +28,13 @@ pkg_path
 - pkg_check
 
 * install
+
 - =pkg_add -v emacs=
   - =emacs-24.5p2-no_x11=
 - =mc=
 
 * updating 
+
 #+BEGIN_EXAMPLE
   commands
   - pkg_info      ; see what's installed
@@ -45,6 +49,12 @@ pkg_path
 * find out
 
 - how to check the installed packages history?
+  - =pkg_info mz=
+    - m ; manual
+    - z ; fuzzy listing
+
+- pkg_info -mz >file
+- pkg_add -l file
 
 [[./openbsd.html][back]]
 

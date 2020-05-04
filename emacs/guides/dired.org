@@ -1,7 +1,6 @@
 #+title: dired
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:t
 
-
 * insert subdirectories
   
 - i     ; dired-maybe-insert-subdir
@@ -48,5 +47,24 @@
 
 - w ; dired-copy-filename-as-kill
 - C-u 0 w ; absolute file name
+
+* default target directory
+
+change default target directory from current to next window
+
+#+BEGIN_SRC elisp
+  (setq dired-dwim-target t)
+
+  M-: eval-expression
+  (setq dired-dwim-target t)
+  (setq dired-dwim-target nil)
+#+END_SRC
+
+* compression
+
+#+BEGIN_SRC elisp
+  Z ; dired-do-compress
+  c ; dired-do-compress-to
+#+END_SRC
 
 [[../guides.html][back]]

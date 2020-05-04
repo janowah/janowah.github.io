@@ -19,7 +19,7 @@
       (fill-region (point-min) (point-max))))
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; xx-ascii ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; ’ ‘ –  …
+  ;; “ ” ’ ‘ –  …
 
   (defun xx-ascii ()
     "asciify quotation characters"
@@ -38,8 +38,53 @@
       (while (search-forward-regexp "‘" nil t)
         (replace-match "'"))
       (goto-char (point-min))
+      (while (search-forward-regexp "–" t)
+        (replace-match "-"))
+      (goto-char (point-min))
       (while (search-forward-regexp "…" nil t)
         (replace-match "..."))))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; xx-months ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (defun xx-months ()
+    "enumerate months"
+    (interactive)
+    (let ((case-fold-search t))
+      (goto-char (point-min))
+      (while (search-forward-regexp "January" nil t)
+        (replace-match "01"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "February" nil t)
+        (replace-match "02"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "March" nil t)
+        (replace-match "03"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "April" nil t)
+        (replace-match "04"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "May" nil t)
+        (replace-match "05"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "June" nil t)
+        (replace-match "06"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "July" nil t)
+        (replace-match "07"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "August" nil t)
+        (replace-match "08"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "September" nil t)
+        (replace-match "09"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "October" nil t)
+        (replace-match "10"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "November" nil t)
+        (replace-match "11"))
+      (goto-char (point-min))
+      (while (search-forward-regexp "December" nil t)
+        (replace-match "12"))))
 #+END_SRC
 
 [[../setup.html][back]]

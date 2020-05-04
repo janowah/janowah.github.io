@@ -13,6 +13,30 @@
   %D: 1998
   %N: 0201314525
   %P: 720
+
+  %T: Expert C Programming
+  %A: Peter van der Linden
+  %D: 1994
+  %N: 9780131774292
+  %P: 384
+
+  %T: Head First C
+  %A: David Griffiths and Dawn Griffiths 
+  %D: 2012
+  %N: 978-1-449-39991-7
+  %P:
+
+  %T: Practical C Programming 3e
+  %A: Steve Oualline
+  %D: 
+  %N: 978-1-56592-306-5
+  %P:
+
+  %T: C: A Reference Manual 5e
+  %A: Samuel Harbison and Guy Steele
+  %D: 2002
+  %N: 978-0-13-089592-9
+  %P: 560
 #+END_EXAMPLE
 
 [[./c.html][back]]

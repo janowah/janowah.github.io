@@ -3,20 +3,22 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>software</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">software</h1>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">PKG_PATH variable</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">set the package path</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org428a355" class="outline-2">
+<h2 id="org428a355">PKG_PATH variable</h2>
+<div class="outline-text-2" id="text-org428a355">
+</div>
+<div id="outline-container-orgac16b4a" class="outline-3">
+<h3 id="orgac16b4a">set the package path</h3>
+<div class="outline-text-3" id="text-orgac16b4a">
 <pre class="example">
 pkg_path
 # export PKG_PATH=http://ftp.heanet.ie/pub/OpenBSD/$(uname -r)/packages/$(machine -a)/
@@ -26,56 +28,46 @@ pkg_path
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">add PKG_PATH to <code>/root/.profile</code></h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgfa6f8f0" class="outline-3">
+<h3 id="orgfa6f8f0">add PKG_PATH to <code>/root/.profile</code></h3>
+<div class="outline-text-3" id="text-orgfa6f8f0">
 <ul class="org-ul">
-<li><code>export PKG_PATH=https://mirror.bytemark.co.uk/pub/OpenBSD/6.2/packages/amd64/</code>
-</li>
-<li><code>. $HOME/.profile</code> ; dot source
-</li>
-<li><code>echo PKG_PATH</code> ; test
-</li>
+<li><code>export PKG_PATH=https://mirror.bytemark.co.uk/pub/OpenBSD/6.2/packages/amd64/</code></li>
+<li><code>. $HOME/.profile</code> ; dot source</li>
+<li><code>echo $PKG_PATH</code> ; test</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">commands</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org116c2e3" class="outline-2">
+<h2 id="org116c2e3">commands</h2>
+<div class="outline-text-2" id="text-org116c2e3">
 <ul class="org-ul">
-<li>pkg_add
-</li>
-<li>pkg_info
-</li>
-<li>pkg_delete
-</li>
-<li>pkg_check
-</li>
+<li>pkg_add</li>
+<li>pkg_info</li>
+<li>pkg_delete</li>
+<li>pkg_check</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">install</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org1645b86" class="outline-2">
+<h2 id="org1645b86">install</h2>
+<div class="outline-text-2" id="text-org1645b86">
 <ul class="org-ul">
 <li><code>pkg_add -v emacs</code>
 <ul class="org-ul">
-<li><code>emacs-24.5p2-no_x11</code>
-</li>
-</ul>
-</li>
-<li><code>mc</code>
-</li>
+<li><code>emacs-24.5p2-no_x11</code></li>
+</ul></li>
+<li><code>mc</code></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">updating</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgcfe86aa" class="outline-2">
+<h2 id="orgcfe86aa">updating</h2>
+<div class="outline-text-2" id="text-orgcfe86aa">
 <pre class="example">
 commands
 - pkg_info      ; see what's installed
@@ -87,16 +79,25 @@ commands
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">remove</h2>
+<div id="outline-container-org43dde49" class="outline-2">
+<h2 id="org43dde49">remove</h2>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">find out</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org92d4809" class="outline-2">
+<h2 id="org92d4809">find out</h2>
+<div class="outline-text-2" id="text-org92d4809">
 <ul class="org-ul">
 <li>how to check the installed packages history?
-</li>
+<ul class="org-ul">
+<li><code>pkg_info mz</code>
+<ul class="org-ul">
+<li>m ; manual</li>
+<li>z ; fuzzy listing</li>
+</ul></li>
+</ul></li>
+
+<li>pkg_info -mz &gt;file</li>
+<li>pkg_add -l file</li>
 </ul>
 
 <p>
