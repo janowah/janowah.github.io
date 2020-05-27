@@ -1,0 +1,14 @@
+#+title: objdump(1)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=objdump - display information from object files=
+
+#+BEGIN_EXAMPLE
+  provide disassembled assembly instructions and their addresses
+
+  objdump -j .text -d mul.o -M intel
+  objdump -j .data -s hello_world
+
+  -t, --syms ; Print the symbol table entries of the file.
+  --demangle ; overloaded methods
+#+END_EXAMPLE

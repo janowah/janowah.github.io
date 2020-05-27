@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>gcc(1)</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">gcc(1)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6abbf00">examples</a></li>
+<li><a href="#org530ac6c">options</a></li>
+<li><a href="#org7d6b177">options for directory search</a></li>
+<li><a href="#org9ee59b9">options for linking</a></li>
+<li><a href="#org7696769">stages</a></li>
+<li><a href="#org6fe9ea1">switches</a></li>
+<li><a href="#org40233b7">optimisation</a></li>
+<li><a href="#org30a279d">m68k asm</a></li>
+</ul>
+</div>
+</div>
+<p>
+<code>gcc - GNU project C and C++ compiler</code>
+</p>
+
+<div id="outline-container-org6abbf00" class="outline-2">
+<h2 id="org6abbf00">examples</h2>
+<div class="outline-text-2" id="text-org6abbf00">
+<pre class="example">
+gcc foo.c bar.c
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org530ac6c" class="outline-2">
+<h2 id="org530ac6c">options</h2>
+<div class="outline-text-2" id="text-org530ac6c">
+<pre class="example">
+-g    ; debug
+-o    ; output file.  default a.out
+-Wall ; all warnings
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7d6b177" class="outline-2">
+<h2 id="org7d6b177">options for directory search</h2>
+<div class="outline-text-2" id="text-org7d6b177">
+<pre class="example">
+-Idir ; Add the directory dir to the head of the list of directories
+        to be searched for header files.
+
+-Ldir ; Add directory dir to the list of directories to be searched
+        for l.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9ee59b9" class="outline-2">
+<h2 id="org9ee59b9">options for linking</h2>
+<div class="outline-text-2" id="text-org9ee59b9">
+<pre class="example">
+-l      ; search library when linking
+          eg. -lXYZ which would auto expand to libXYZ.
+
+-static ; don't link with shared libraries.
+
+-shared -fPIC ; Produce a shared object which can then be linked with
+                other objects to form an executable.
+
+-fpic ; Generate position-independent code (PIC) suitable for use in a
+        shared library (-fPIC m68k)
+
+-nostartfiles ; Don't use the standard system startup files when
+                linking.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7696769" class="outline-2">
+<h2 id="org7696769">stages</h2>
+<div class="outline-text-2" id="text-org7696769">
+<pre class="example">
+-E ; run preprocessor, don't compile
+-c ; compile, don't link.  produces object files .o
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6fe9ea1" class="outline-2">
+<h2 id="org6fe9ea1">switches</h2>
+<div class="outline-text-2" id="text-org6fe9ea1">
+<pre class="example">
+-lm
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org40233b7" class="outline-2">
+<h2 id="org40233b7">optimisation</h2>
+<div class="outline-text-2" id="text-org40233b7">
+<pre class="example">
+-O1 ; optimisation
+
+gcc --help=optimizers
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org30a279d" class="outline-2">
+<h2 id="org30a279d">m68k asm</h2>
+<div class="outline-text-2" id="text-org30a279d">
+<pre class="example">
+m68k-linux-gnu-gcc -S -march=68010 recursion.c
+m68k-linux-gnu-gcc -E -march=68010 recursion.c
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

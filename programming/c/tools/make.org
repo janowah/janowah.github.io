@@ -1,0 +1,10 @@
+#+title: make(1)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=make - GNU make utility to maintain groups of programs=
+
+#+BEGIN_EXAMPLE
+  - the file should be called Makefile
+  - make -d foo
+    - where foo the final target in the Makefile
+#+END_EXAMPLE

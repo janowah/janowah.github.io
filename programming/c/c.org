@@ -6,6 +6,7 @@
 - [[file:linting.html][linting]]
 - [[file:books.html][books]]
 - [[file:help.html][help]]
+- [[file:tools.html][tools]]
 - code
   - [[file:code/c-lang.html][c lang]]
   - [[file:code/algorithms.html][algorithms]]

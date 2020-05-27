@@ -1,0 +1,9 @@
+#+title: ld(1)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=ld - The GNU linker=
+
+#+BEGIN_EXAMPLE
+  Finding symbols to be placed into a final executable and relocating
+  addresses are the main job of the linker
+#+END_EXAMPLE

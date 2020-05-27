@@ -1,6 +1,8 @@
 #+title: Non Fiction
 #+options: num:nil ^:nil creator:nil author:nil creator:nil
 
+- Operation Mincemeat / Ben MacIntyre
+- The Spy and the Traitor / Ben MacIntyre
 - A Monk's Guide to a Clean House and Mind / Shoukei Matsumoto
 - Prisoners Of Geography / Tim Marshall
 - Fear and Loathing: On the Campaign Trail '72 / Hunter S. Thompson

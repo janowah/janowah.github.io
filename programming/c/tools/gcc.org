@@ -1,0 +1,75 @@
+#+title: gcc(1)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=gcc - GNU project C and C++ compiler=
+
+* examples
+
+#+BEGIN_EXAMPLE
+  gcc foo.c bar.c
+#+END_EXAMPLE
+
+* options
+
+#+BEGIN_EXAMPLE
+  -g    ; debug
+  -o    ; output file.  default a.out
+  -Wall ; all warnings
+#+END_EXAMPLE
+
+* options for directory search
+
+#+BEGIN_EXAMPLE
+  -Idir ; Add the directory dir to the head of the list of directories
+          to be searched for header files.
+
+  -Ldir ; Add directory dir to the list of directories to be searched
+          for l.
+#+END_EXAMPLE
+
+* options for linking
+
+#+BEGIN_EXAMPLE
+  -l      ; search library when linking
+            eg. -lXYZ which would auto expand to libXYZ.
+
+  -static ; don't link with shared libraries.
+
+  -shared -fPIC ; Produce a shared object which can then be linked with
+                  other objects to form an executable.
+
+  -fpic ; Generate position-independent code (PIC) suitable for use in a
+          shared library (-fPIC m68k)
+
+  -nostartfiles ; Don't use the standard system startup files when
+                  linking.
+#+END_EXAMPLE
+
+* stages 
+
+#+BEGIN_EXAMPLE
+  -E ; run preprocessor, don't compile
+  -c ; compile, don't link.  produces object files .o
+#+END_EXAMPLE
+
+* switches
+
+#+BEGIN_EXAMPLE
+  -lm
+#+END_EXAMPLE
+
+* optimisation
+
+#+BEGIN_EXAMPLE
+  -O1 ; optimisation
+
+  gcc --help=optimizers
+#+END_EXAMPLE
+
+* m68k asm
+
+#+BEGIN_EXAMPLE
+  m68k-linux-gnu-gcc -S -march=68010 recursion.c
+  m68k-linux-gnu-gcc -E -march=68010 recursion.c
+#+END_EXAMPLE
+

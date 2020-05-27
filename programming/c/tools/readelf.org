@@ -1,0 +1,15 @@
+#+title: readelf(1)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=readelf - Displays information about ELF files=
+
+#+BEGIN_EXAMPLE
+  readelf -s <object file>
+
+  -s
+  --symbols
+  --syms
+  Displays the entries in symbol table section of the file, if it has one.
+
+  -w
+#+END_EXAMPLE

@@ -1,0 +1,23 @@
+#+title: nm(1)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=nm - list symbols from object files=
+
+#+BEGIN_EXAMPLE
+  address / type / symbol name
+
+  addresses are placeholders in object files, and final in
+  executables. (0000000000000000)
+
+  T text. name of symbols (functions or variables)
+  U undefined.  referenced or used in this object code/executable, but
+  it’s value wasn’t defined here
+
+  - this can be used to get a list of all functions used in a file
+
+  $ nm foo.o
+                   U fgets
+  0000000000000000 T main
+                   U printf
+                   U stdin
+#+END_EXAMPLE

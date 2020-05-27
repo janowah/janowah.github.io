@@ -1,0 +1,4 @@
+#+title: ldconfig(8)
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+=ldconfig - configure dynamic linker run-time bindings=
