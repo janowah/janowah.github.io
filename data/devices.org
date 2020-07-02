@@ -59,7 +59,23 @@ issues
 - MZ-R900 Recording MD Walkman
 
 ** discman
+
+- Philips AX2500 Portable CD Player
+
 ** walkman
+
+- Panasonic RQ-CR55
+- Panasonic RQ-V80
+- Sony WM-FX16
+- Sony WM-FX10
+
+** hifi
+
+- Marantz PM4400 Stereo Amplifier
+- Marantz CD5400 CD Player
+- Yamaha TX-396L Natural Sound AM/FM Stereo Tuner
+- Wharfedale Diamond 9.1 Speakers
+- Stanton STR8-60 Direct Drive Turntable
 
 * ereader
 
