@@ -12,7 +12,7 @@
   | d | 80GB  | pc        | blank                     | ide       | 3.5" | Samsung           | 2006-09-xx |      |
   |---+-------+-----------+---------------------------+-----------+------+-------------------+------------+------|
   | e | 250GB | pc        | centos 7                  | sata      | 3.5" | WD                | 2009-02-18 | xfs  |
-  | f | 500GB | press     | *unallocated*             | sata      | 3.5" | Seagate           | 2009-02-17 | -    |
+  | f | 500GB | press     | *unallocated*             | sata      | 3.5" | Seagate Barracuda | 2009-02-17 | -    |
   | g | 320GB | press     | -                         | sata      | 3.5" | WD Caviar Blue    | 2009-03-05 | 0    |
   | h | 1TB   | server    | data                      | sata      | 3.5" | Samsung           | 2009-07-xx | ext4 |
   | i | 320GB | press     | windows 10 self-build x64 | sata      | 3.5" | WD Caviar Blue    | 2009-09-24 | ntfs |
