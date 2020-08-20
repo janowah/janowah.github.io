@@ -31,7 +31,7 @@ wget -r -nH -nd -np -R index.html* http://example.com/
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
-  wget -r -np --user=jack --ask-password http://192.168.1.10/media/USB/files/EDUCATION/tcd/4c05-digital-signal-processing-1/lecture-notes/
+  wget -r -np --user=homer --ask-password http://example.com/
 
   this mirrors folder structure
   need -r to download files

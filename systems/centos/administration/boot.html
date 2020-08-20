@@ -15,42 +15,36 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgeeb26b3">boot sequence</a></li>
-<li><a href="#org06608fd">notes</a></li>
+<li><a href="#org9df112b">boot sequence</a></li>
+<li><a href="#orgecc388f">notes</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgeeb26b3" class="outline-2">
-<h2 id="orgeeb26b3">boot sequence</h2>
-<div class="outline-text-2" id="text-orgeeb26b3">
+<div id="outline-container-org9df112b" class="outline-2">
+<h2 id="org9df112b">boot sequence</h2>
+<div class="outline-text-2" id="text-org9df112b">
 <p>
 <code>bios/uefi (ROM. POST) &gt; device (hdd etc.) &gt; mbr/gpt &gt; grub2 &gt; kernel &gt; systemd (first process)</code>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org06608fd" class="outline-2">
-<h2 id="org06608fd">notes</h2>
-<div class="outline-text-2" id="text-org06608fd">
-<p>
-uefi. tpm - trusted platform module
-first stage grub2 is on mbr/gpt
-/boot is normally first partition.
-</p>
+<div id="outline-container-orgecc388f" class="outline-2">
+<h2 id="orgecc388f">notes</h2>
+<div class="outline-text-2" id="text-orgecc388f">
 <ul class="org-ul">
+<li>uefi. tpm - trusted platform module</li>
+<li>first stage grub2 is on mbr/gpt</li>
+<li><code>/boot</code> is normally first partition.</li>
 <li>historically bios couldn't find bootloader unless in first 1024 cylinders</li>
-</ul>
-<p>
-MBR max 2TB per disk. GPT no limit
-only uefi can boot gpt
-grub2 e to edit, c to open command prompt
-edit grub2. e &gt; ^linux16
- add systemd.unit=emergency.target C-x ; to start emergency target
-type exit to return to default target (mutliuser or graphical target)
-systemctl reboot
-</p>
-<ul class="org-ul">
+<li>MBR max 2TB per disk. GPT no limit</li>
+<li>only uefi can boot gpt</li>
+<li>grub2 e to edit, c to open command prompt</li>
+<li>edit grub2. e <code>&gt; ^linux16</code></li>
+<li>add systemd.unit=emergency.target C-x ; to start emergency target</li>
+<li>type exit to return to default target (mutliuser or graphical target)</li>
+<li><code>systemctl reboot</code></li>
 <li>append <code>systemd.unit=name.target</code> to end of kernel command line</li>
 <li><code>systemd.unit=multi-user.target</code></li>
 <li>systemd.unit=rescue.target ; recovery shell</li>

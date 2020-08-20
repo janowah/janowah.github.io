@@ -15,35 +15,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf60f4d8">SWITCHES</a></li>
-<li><a href="#org22a0f53">EXAMPLES</a></li>
+<li><a href="#org0968b66">SWITCHES</a></li>
+<li><a href="#orgb4223eb">EXAMPLES</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf60f4d8" class="outline-2">
-<h2 id="orgf60f4d8">SWITCHES</h2>
-<div class="outline-text-2" id="text-orgf60f4d8">
+<div id="outline-container-org0968b66" class="outline-2">
+<h2 id="org0968b66">SWITCHES</h2>
+<div class="outline-text-2" id="text-org0968b66">
 <pre class="example">
-  -r  --recursive
-  -np --no-parent
-  -nH --no-host-directories
-  -nd --no-directories
-  -m  --mirror
-  -c  --continue
-  -R rejlist --reject rejlist
-  -U  --user-agent=agent-string
-  -p --page-requisites ; off by default
+-r  --recursive
+-np --no-parent
+-nH --no-host-directories
+-nd --no-directories
+-m  --mirror
+-c  --continue
+-R rejlist --reject rejlist
+-U  --user-agent=agent-string
+-p --page-requisites ; off by default
 
-  –no-check-certificate ; https websites
+–no-check-certificate ; https websites
 --timestamping
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org22a0f53" class="outline-2">
-<h2 id="org22a0f53">EXAMPLES</h2>
-<div class="outline-text-2" id="text-org22a0f53">
+<div id="outline-container-orgb4223eb" class="outline-2">
+<h2 id="orgb4223eb">EXAMPLES</h2>
+<div class="outline-text-2" id="text-orgb4223eb">
 <pre class="example">
 
 wget -r -nH -nd -np -R index.html* http://example.com/
@@ -55,7 +55,7 @@ wget -r -nH -nd -np -R index.html* http://example.com/
 </pre>
 
 <pre class="example">
-wget -r -np --user=jack --ask-password http://192.168.1.10/media/USB/files/EDUCATION/tcd/4c05-digital-signal-processing-1/lecture-notes/
+wget -r -np --user=homer --ask-password http://example.com/
 
 this mirrors folder structure
 need -r to download files

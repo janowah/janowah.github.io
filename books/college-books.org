@@ -74,7 +74,7 @@
   - 4th Edition
   - Fred Halsall
   - Addison-Wesley, 1995.
-  - ISBN 0201-565064 
+  - ISBN 0201-565064
 - Telecommunications Primer: Signals, Building Blocks, and Networks
   - E. Bryan Carne
   - Prentice Hall, 1995.
@@ -86,6 +86,106 @@
 
 * 4th year
 
+** Digital Signal Processing 1
+
+- Fundamentals of Digital Signal Processing
+  - Lonnie C. Ludeman
+  - Wiley
+  - 1986
+  - ISBN-10: 0-471-60363-5
+  - ISBN-13: 978-0-471-60363-4
+
+** Digital Signal Processing 2
+
+** Telecommunications
+
+** Digital Communications
+
+- Electromagnetic Waves
+  - David H. Staelin, Ann W. Morgenthaler, Jin Au Kong 
+  - Prentice Hall
+  - 1994
+  - 0-13-176868-9
+  - 978-0-13-176868-0
+- The Classical Theory of Fields. Vol. 2
+  - L. D. Landau, E. M. Lifshitz
+  - Butterworth-Heinemann.
+  - 4th ed.
+  - 1975
+  - ISBN-13: 978-0-7506-2768-9
+- Information Theory and Reliable Communication
+  - Robert G. Gallager
+  - Wiley
+  - 1968
+  - ISBN-10: 0471290483
+  - ISBN-13: 978-0471290483
+- Basic Concepts in Information Theory and Coding
+  - Solomon W. Golomb, Robert E. Peile, Robert A. Scholtz
+- Elements of Information Theory
+  - Thomas M. Cover, Joy A. Thomas
+  - Wiley
+- Information Theory
+  - Robert Ash
+- Information Theory and Coding
+  - Norman Abramson
+  - McGraw-Hill
+  - 1963
+- Introduction to Digital Communication
+  - Rodger E. Ziemer, Roger W. Peterson
+- Error Control Coding: Fundamentals and Applications
+  - Shu Lin, Daniel J. Costello
+  - 1982
+- Digital Transmission of Information
+  - Richard E. Blahut
+  - Addison Wesley
+  - 1990
+  - ISBN-10: 020106880X
+  - ISBN-13: 978-0201068801
+- Digital Communication
+  - Edward A. Lee, David G. Messerschmitt
+  - Kluwer Academic Publishers
+  - 1994
+- Digital Communications
+  - John G. Proakis
+  - McGraw-Hill
+- An Introduction to Digital Communications
+  - Jack Kurzweil
+  - Wiley
+- Probability, Random Variables and Stochastic Processes
+  - Athanasios Papoulis
+- Signal Analysis
+  - Athanasios Papoulis
+- Communication Systems Engineering
+  - John G. Proakis, Masoud Salehi
+- An Introduction to Statistical Communication Theory
+  - David Middleton
+
+** Networking
+
+- Computer Networks
+  - Andrew S. Tanenbaum
+  - Prentice Hall
+  - 3rd Edition
+- Data Communications, Computer Networks and Open Systems
+  - Fred Halsall
+  - Addison Wesley
+  - 4th Edition
+- Data and Computer Communications
+  - William Stallings
+  - Prentice Hall
+  - 5th Edition
+- Electronic Payment Systems
+  - Donal O'Mahoney, Michael Peirce, Hitesh Tewari
+  - Artech House
+- Internetworking with TCP/IP Volume One
+  - Douglas E. Comer
+  - Prentice Hall
+  - 3rd Edition
+- Concurrent Programming in Erlang
+  - Joe Armstrong
+  - 2nd Edition
+
+** Microprocessor Systems
 
 * 3rd year
 
@@ -181,7 +281,7 @@ kreysig
   - John Hennessey & David Patterson
 - High Performance Computer Architecture
   - 3rd Edition
-  - Harold S Stone 
+  - Harold S Stone
 - Computer Architecture and Design
   - AJ Van De Goor
 
@@ -233,7 +333,7 @@ kreysig
 - /Dynamics: Engineering Mechanics/
   - 4th Edition
   - J. L. Meriam, L. G. Kraige
-  - ISBN-13: 978-0471597674 
+  - ISBN-13: 978-0471597674
 - Engineering Mechanics: Dynamics
   - 2nd Edition
   - William F. Riley, Leroy D. Sturges
@@ -258,7 +358,7 @@ kreysig
   - 9th edition
   - thomas and finney
   - Addison Wesley
-  - 
+  -
   - /ISBN-10: 0-201-40015-4/
   - /ISBN-13: 978-0-201-40015-1/
 
