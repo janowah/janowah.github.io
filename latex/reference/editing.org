@@ -1,0 +1,46 @@
+#+title: editing
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* text commands
+
+  - =\bf=  ; boldface
+  - =\em=  ; italics
+  - =\tt=
+  - =\cal= ; calligraphic mode; only affects uppercase letters and
+    digits.
+  - size
+    - \tiny
+    - \large
+    - \Large
+    - \Huge
+    - \normalsize
+
+* quotations
+
+  - =` '=
+  - =`` ''=
+
+* dashes
+
+  - {\tt - -} to get --  ; m-dash
+  - {\tt - - - } to get ---
+
+* how to
+
+  - symbols
+    - \pounds , \%, \$, \{ \}
+    - escape \%
+      - & $ # % _ { } ^ ~ \
+      - \backslash$
+* other
+
+  - \\
+
+* coloured text
+
+* special words
+
+  - \LaTeX\/
+  - \TeX\/
+
+[[file:../latex.html][back]]

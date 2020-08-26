@@ -3,43 +3,94 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>paragraphs</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">paragraphs</h1>
-<div class="org-src-container">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org805fd3c">don't indent</a></li>
+<li><a href="#org20d698c">don't indent, increase seperation</a></li>
+<li><a href="#orgfbb4ab4">line spacing</a></li>
+<li><a href="#org4aea573">variables</a></li>
+<li><a href="#org42599a5">NOTES</a></li>
+</ul>
+</div>
+</div>
 
+<div id="outline-container-org805fd3c" class="outline-2">
+<h2 id="org805fd3c">don't indent</h2>
+<div class="outline-text-2" id="text-org805fd3c">
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #696969;">\noindent</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20d698c" class="outline-2">
+<h2 id="org20d698c">don't indent, increase seperation</h2>
+<div class="outline-text-2" id="text-org20d698c">
+<div class="org-src-container">
 <pre class="src src-tex"><span style="color: #a020f0;">\usepackage</span>{<span style="color: #0000ff;">parskip</span>}
 
-<span style="color: #b22222;">% </span><span style="color: #b22222;">% Make paragraphs not indented at the first line, but spaced apart</span>
-<span style="color: #b22222;">% </span><span style="color: #b22222;">% slightly:</span>
+<span style="color: #b22222;">% </span><span style="color: #b22222;">Make paragraphs not indented at the first line, but spaced apart</span>
+<span style="color: #b22222;">% </span><span style="color: #b22222;">slightly:</span>
+
 <span style="color: #b22222;">% </span><span style="color: #b22222;">\setlength</span><span style="color: #b22222;">{</span><span style="color: #b22222;">\parindent</span><span style="color: #b22222;">}{0mm}</span>
 <span style="color: #b22222;">% </span><span style="color: #b22222;">\setlength</span><span style="color: #b22222;">{</span><span style="color: #b22222;">\parskip</span><span style="color: #b22222;">}{</span><span style="color: #b22222;">\medskipamount</span><span style="color: #b22222;">}</span>
 </pre>
 </div>
+</div>
+</div>
 
-<p>
-NOTES
-</p>
+<div id="outline-container-orgfbb4ab4" class="outline-2">
+<h2 id="orgfbb4ab4">line spacing</h2>
+<div class="outline-text-2" id="text-orgfbb4ab4">
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #b22222;">% </span><span style="color: #b22222;">this command sets the spacing between lines.  2.0 is double spacing,</span>
+<span style="color: #b22222;">% </span><span style="color: #b22222;">default is?</span>
+
+<span style="color: #a020f0;">\renewcommand</span>{<span style="color: #0000ff;">\baselinestretch</span>}{<span style="color: #0000ff;">1.3</span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4aea573" class="outline-2">
+<h2 id="org4aea573">variables</h2>
+<div class="outline-text-2" id="text-org4aea573">
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #b22222;">%</span><span style="color: #b22222;">\setlength</span><span style="color: #b22222;">{</span><span style="color: #b22222;">\parskip</span><span style="color: #b22222;">}{0pt}</span>
+<span style="color: #b22222;">%</span><span style="color: #b22222;">\setlength</span><span style="color: #b22222;">{</span><span style="color: #b22222;">\parsep</span><span style="color: #b22222;">}{2pt}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org42599a5" class="outline-2">
+<h2 id="org42599a5">NOTES</h2>
+<div class="outline-text-2" id="text-org42599a5">
 <ul class="org-ul">
-<li>default is to justify the first paragraph and indent the rest.
-</li>
+<li>default is to justify the first paragraph and indent the rest.</li>
 <li>adjust
 <ul class="org-ul">
-<li>spacing between paragraphs
-</li>
-<li>indenting the first line
-</li>
-</ul>
-</li>
+<li>spacing between paragraphs</li>
+<li>indenting the first line</li>
+</ul></li>
 </ul>
 
 <p>
 <a href="../latex.html">back</a>
 </p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="validation"></p>

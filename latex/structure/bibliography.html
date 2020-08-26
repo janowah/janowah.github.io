@@ -3,33 +3,44 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>bibliography</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">bibliography</h1>
 <div class="org-src-container">
-
 <pre class="src src-tex"><span style="color: #b22222;">% </span><span style="color: #b22222;">reference</span>
 <span style="color: #a020f0;">\cite</span>{<span style="color: #008b8b;">Knuth86</span>}
+
+<span style="color: #b22222;">% </span><span style="color: #b22222;">with leading space</span>
+- ~<span style="color: #a020f0;">\cite</span>{<span style="color: #008b8b;">Knuth86</span>}
+
+<span style="color: #b22222;">% </span><span style="color: #b22222;">don't cite</span>
+- <span style="color: #a020f0;">\nocite</span>{<span style="color: #008b8b;">Knuth86</span>}
 </pre>
 </div>
 
 <div class="org-src-container">
-
 <pre class="src src-tex"><span style="color: #b22222;">% </span><span style="color: #b22222;">put this at end of document</span>
 <span style="color: #a020f0;">\begin</span>{<span style="color: #0000ff;">thebibliography</span>}{9}
-<span style="color: #696969;">\bibitem</span>{Knuth86}Donald E. Knuth:
+<span style="color: #a020f0;">\bibitem</span>{<span style="color: #228b22;">Knuth86</span>}Donald E. Knuth:
   The <span style="color: #a020f0;">\TeX</span> book. Ad<span style="color: #ff0000; font-weight: bold;">\-</span>dison-Wesley, 1986. 
-<span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">thebibliography</span>}
+<span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">thebibliography</span>} 
 </pre>
 </div>
 
 <div class="org-src-container">
-
 <pre class="src src-tex"><span style="color: #a020f0;">\nocite</span>{<span style="color: #008b8b;">*</span>}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #b22222;">% </span><span style="color: #b22222;">This command allows you to rename the "Reference" list at the end of</span>
+<span style="color: #b22222;">% </span><span style="color: #b22222;">the document</span>
+<span style="color: #a020f0;">\renewcommand</span>{<span style="color: #0000ff;">\refname</span>}{<span style="color: #0000ff;">Bibliography</span>}
 </pre>
 </div>
 

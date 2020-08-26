@@ -1,6 +1,26 @@
 #+title: fonts
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-nfo
+* default
+
+#+BEGIN_SRC tex
+  \usepackage{lmodern}
+  \usepackage[T1]{fontenc}
+  \usepackage{textcomp}
+#+END_SRC
+
+* palatino
+
+#+BEGIN_SRC tex
+  \usepackage[T1]{fontenc}
+  \usepackage{pxfonts}
+#+END_SRC
+
+* times
+
+#+BEGIN_SRC tex
+  \usepackage[T1]{fontenc}
+  \usepackage{txfonts}
+#+END_SRC
 
 [[file:../latex.html][back]]

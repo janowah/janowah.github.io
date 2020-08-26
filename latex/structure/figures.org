@@ -1,0 +1,40 @@
+#+title: figures
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* full width
+
+#+BEGIN_SRC tex
+  \begin{figure}[h]
+    \begin{minipage}{\textwidth}
+      \centering \epsfig{file=foo.eps,width=\linewidth}
+      \caption{Foo}
+      \label{foo}
+    \end{minipage}
+  \end{figure}
+#+END_SRC
+
+* 75%
+
+#+BEGIN_SRC tex
+  \centering \epsfig{file=foo.eps,width=0.75\linewidth}
+#+END_SRC
+
+* side by side
+
+#+BEGIN_SRC tex
+    \begin{figure}[h]
+      \begin{minipage}{0.45\textwidth}
+        \centering \epsfig{file= bar.eps,width=\linewidth}
+        \caption{"Bar"}
+        \label{bar}
+      \end{minipage}
+      \hspace*{0.5cm}
+      \begin{minipage}{0.45\textwidth}
+        \centering \epsfig{file = baz.eps,width = \linewidth}
+        \caption{Baz}
+        \label{baz}
+      \end{minipage}
+    \end{figure}
+#+END_SRC
+
+[[file:../latex.html][back]]

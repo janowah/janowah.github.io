@@ -23,4 +23,20 @@
   ,#+LATEX: \end{samepage}
 #+END_SRC
 
+* input/ include files
+
+#+BEGIN_SRC tex
+  % input command
+  \input{filename}
+
+  % include command
+  \include{filename}  % starts a new page
+#+END_SRC
+
+* print the value of a variable
+
+#+BEGIN_SRC tex
+  \typeout{The text height is \the\textheight}
+#+END_SRC
+
 [[./latex.html][back]]

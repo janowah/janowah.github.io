@@ -1,0 +1,8 @@
+#+title: boxes
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  \fbox{Text in here}  %put some text in a box
+#+END_SRC
+
+[[file:../latex.html][back]]

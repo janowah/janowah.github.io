@@ -1,0 +1,13 @@
+#+title: horizontal line
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  \begin{center}
+    \rule{0.8\textwidth}{1mm} % 80% textwidth
+  \end{center}
+
+  \rule{width}{height}
+  \hrule % if you want a thin line that spans the width of the page.
+#+END_SRC
+
+[[file:../latex.html][back]]

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>figures</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">figures</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgff4ebdb">full width</a></li>
+<li><a href="#org49fd9f3">75%</a></li>
+<li><a href="#orgbbb905e">side by side</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgff4ebdb" class="outline-2">
+<h2 id="orgff4ebdb">full width</h2>
+<div class="outline-text-2" id="text-orgff4ebdb">
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #a020f0;">\begin</span>{<span style="color: #0000ff;">figure</span>}[h]
+  <span style="color: #a020f0;">\begin</span>{<span style="color: #0000ff;">minipage</span>}{<span style="color: #696969;">\textwidth</span>}
+    <span style="color: #a020f0;">\centering</span> <span style="color: #696969;">\epsfig</span>{file=foo.eps,width=<span style="color: #696969;">\linewidth</span>}
+    <span style="color: #a020f0;">\caption</span>{<span style="color: #228b22;">Foo</span>}
+    <span style="color: #a020f0;">\label</span>{<span style="color: #008b8b;">foo</span>}
+  <span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">minipage</span>}
+<span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">figure</span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49fd9f3" class="outline-2">
+<h2 id="org49fd9f3">75%</h2>
+<div class="outline-text-2" id="text-org49fd9f3">
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #a020f0;">\centering</span> <span style="color: #696969;">\epsfig</span>{file=foo.eps,width=0.75<span style="color: #696969;">\linewidth</span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbbb905e" class="outline-2">
+<h2 id="orgbbb905e">side by side</h2>
+<div class="outline-text-2" id="text-orgbbb905e">
+<div class="org-src-container">
+<pre class="src src-tex"><span style="color: #a020f0;">\begin</span>{<span style="color: #0000ff;">figure</span>}[h]
+  <span style="color: #a020f0;">\begin</span>{<span style="color: #0000ff;">minipage</span>}{0.45<span style="color: #696969;">\textwidth</span>}
+    <span style="color: #a020f0;">\centering</span> <span style="color: #696969;">\epsfig</span>{file= bar.eps,width=<span style="color: #696969;">\linewidth</span>}
+    <span style="color: #a020f0;">\caption</span>{<span style="color: #228b22;">"Bar"</span>}
+    <span style="color: #a020f0;">\label</span>{<span style="color: #008b8b;">bar</span>}
+  <span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">minipage</span>}
+  <span style="color: #a020f0;">\hspace</span><span style="color: #a020f0;">*</span>{<span style="color: #0000ff;">0.5cm</span>}
+  <span style="color: #a020f0;">\begin</span>{<span style="color: #0000ff;">minipage</span>}{0.45<span style="color: #696969;">\textwidth</span>}
+    <span style="color: #a020f0;">\centering</span> <span style="color: #696969;">\epsfig</span>{file = baz.eps,width = <span style="color: #696969;">\linewidth</span>}
+    <span style="color: #a020f0;">\caption</span>{<span style="color: #228b22;">Baz</span>}
+    <span style="color: #a020f0;">\label</span>{<span style="color: #008b8b;">baz</span>}
+  <span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">minipage</span>}
+<span style="color: #a020f0;">\end</span>{<span style="color: #0000ff;">figure</span>}
+</pre>
+</div>
+
+<p>
+<a href="../latex.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

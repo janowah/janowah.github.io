@@ -1,0 +1,25 @@
+#+title: spacing
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* horizontal
+
+#+BEGIN_SRC tex
+  \^~~
+  \hspace{width}
+#+END_SRC
+
+* vertical
+
+#+BEGIN_SRC tex
+  \vspace{width}
+  \vspace*{2.0cm}
+  \vspace*{0.5cm}
+#+END_SRC
+
+* notes
+
+- default The space is then inserted at the end of the current line.
+- If you want the space to occur exactly where you put it then use *
+    as in =\hspace*{width}=
+
+[[file:../latex.html][back]]

@@ -1,0 +1,10 @@
+#+title: cross references
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  ~\ref{refer}
+
+  \label{refer} % sections
+#+END_SRC
+
+[[file:../latex.html][back]]

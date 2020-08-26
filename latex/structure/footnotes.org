@@ -11,6 +11,11 @@
 * format
 
 #+BEGIN_SRC tex
+  \thanks{}   % footnote in title
+  \footnote{}
+#+END_SRC
+
+#+BEGIN_SRC tex
   Microsoft Visual Studio\footnote{\label{4}The environment within which
   one influential vendor’s set of native Windows development tools
   reside.}.

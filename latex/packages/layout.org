@@ -1,0 +1,14 @@
+#+title: layout
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC tex
+  % print the current page layout
+
+  \usepackage{layout}
+
+  \begin{center}
+    \layout
+  \end{center}
+#+END_SRC
+
+[[file:../latex.html][back]]

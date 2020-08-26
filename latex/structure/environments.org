@@ -1,15 +1,42 @@
 #+title: environments
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-- verbatim
-- center
-- enumerate
-- itemize
-- abstract
-- document
-- verse
-- quotation
-- quote
-- align*
+#+BEGIN_SRC tex
+  % verbatim
+  \begin{verbatim}
+  \end{verbatim}
+
+  % inline
+  \verb+chapter1.tex+
+  \verb+typewriter+ or \verb@typewriter@ ; same characters
+
+  \begin{center}
+  \end{center}
+
+  \begin{enumerate}
+  \end{enumerate}
+
+  \begin{itemize}
+  \end{itemize}
+
+  \begin{abstract}
+  \end{abstract}
+
+  \begin{document}
+  \end{document}
+
+  \begin{verse}
+  \end{verse}
+
+  \begin{quotation}
+  \end{quotation}
+
+  \begin{quote}
+  \end{quote}
+
+  \begin{align*}
+  \end{align*}
+#+END_SRC
+
 
 [[file:../latex.html][back]]

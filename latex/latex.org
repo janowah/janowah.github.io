@@ -11,6 +11,7 @@
 - [[file:preamble/documents.html][documents]]
 - [[file:preamble/margins.html][margins]]
 - [[file:preamble/fonts.html][fonts]]
+- [[file:preamble/variables.html][variables]]
 
 * structure
 
@@ -19,12 +20,19 @@
 - [[file:structure/tables.html][tables]]
 - [[file:structure/environments.html][environments]]
 - [[file:structure/footnotes.html][footnotes]]
+- [[file:structure/figures.html][figures]]
+- [[file:structure/boxes.html][boxes]]
+- [[file:structure/cross-references.html][cross references]]
+- [[file:structure/document-commands.html][document commands]]
+- [[file:structure/spacing.html][spacing]]
+- [[file:structure/horizontal-line.html][horizontal line]]
 - [[file:structure/bibliography.html][bibliography]]
 - [[file:structure/bibtex.html][bibtex]]
   - [[file:structure/bibtex-templates.html][bibtex-templates]]
 
 * reference
 
+- [[file:reference/editing.html][editing]]
 - [[file:reference/cheatsheet.html][cheatsheet]]
 - [[file:reference/greek.html][greek]]
 - [[file:reference/maths.html][maths]]
@@ -37,6 +45,7 @@
 - [[file:packages/hyperref.html][hyperref]]
 - [[file:packages/natbib.html][natbib]]
 - [[file:packages/package-list.html][package-list]]
+- [[file:packages/layout.html][layout]]
   
 * emacs
 

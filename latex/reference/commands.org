@@ -1,48 +1,22 @@
 #+title: commands
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-#+BEGIN_SRC tex
-  \usepackage
-#+END_SRC
-
 * adjust variables
 
-- \setlength
-- \renewcommand
-- \newcommand
-- \addtolength
-- \renewenvironment
+#+BEGIN_SRC tex
+  \setlength{}
+  \renewcommand{}
+  \newcommand{}
+  \addtolength{}
+  \renewenvironment{}
+#+END_SRC
 
 * command parameters
 
-- {}
-- []
-
-* other
-
-\pagestyle ?
-
-- \documentclass
-- \begin
-- \end
-
-* title commands
-
-- \title
-- \author
-- \date
-
-* labels
-
-- \label
-- \caption
-
-* font sizes
-
-- \huge
-- \large 
-- \normalsize
-- \tiny 
+#+BEGIN_SRC tex
+  {}
+  []
+#+END_SRC
 
 * structure
 
@@ -53,17 +27,5 @@
 - \subsection
 - \subsubsection
 - \section*{Assignment 1}
-
-** document
-
-- \maketitle
-- \tableofcontents
-- \include
-- \pagebreak
-- \appendix
-
-* references
-
-\footnote
 
 [[file:../latex.html][back]]

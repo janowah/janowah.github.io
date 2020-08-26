@@ -1,0 +1,10 @@
+#+title: variables
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_SRC tex
+  \title{}
+  \author{}
+  \date{}
+#+END_SRC
+
+[[file:../latex.html][back]]

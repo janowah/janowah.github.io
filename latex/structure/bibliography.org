@@ -4,6 +4,12 @@
 #+BEGIN_SRC tex
   % reference
   \cite{Knuth86}
+
+  % with leading space
+  - ~\cite{Knuth86}
+
+  % don't cite
+  - \nocite{Knuth86}
 #+END_SRC
 
 #+BEGIN_SRC tex
@@ -16,6 +22,12 @@
 
 #+BEGIN_SRC tex
 \nocite{*}
+#+END_SRC
+
+#+BEGIN_SRC tex
+  % This command allows you to rename the "Reference" list at the end of
+  % the document
+  \renewcommand{\refname}{Bibliography}
 #+END_SRC
 
 [[file:../latex.html][back]]
