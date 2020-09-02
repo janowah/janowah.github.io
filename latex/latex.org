@@ -38,6 +38,7 @@
 - [[file:reference/maths.html][maths]]
 - [[file:reference/commands.html][commands]]
 - [[file:reference/lorem-ipsum.html][lorem-ipsum]]
+- [[file:reference/books.html][books]]
 
 * packages
 

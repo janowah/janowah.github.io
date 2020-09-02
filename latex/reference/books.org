@@ -1,0 +1,20 @@
+#+title: books
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  %T: LaTeX A Document Preparation System 2nd edition
+  %A: Leslie Lamport
+  %D: 1994
+  %N: 978-0-201-52983-8
+  %P: 288
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  %T: The LaTeX Companion 2nd edition
+  %A: Frank Mittelbach
+  %D: 2004
+  %N: 978-0-201-36299-2
+  %P: 1120
+#+END_EXAMPLE
+
+[[file:../latex.html][back]]
