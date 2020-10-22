@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>x11</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">x11</h1>
+
+<div id="outline-container-orge34dc31" class="outline-2">
+<h2 id="orge34dc31">commands</h2>
+<div class="outline-text-2" id="text-orge34dc31">
+<ul class="org-ul">
+<li>XENODM(1) ; X Display Manager</li>
+<li>XRANDR(1) ; primitive command line interface to RandR extension</li>
+<li>STARTX(1) ; startx - initialize an X session</li>
+<li>XSETROOT(1) ; xsetroot - root window parameter setting utility for X
+<ul class="org-ul">
+<li>background</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgf2447d4" class="outline-2">
+<h2 id="orgf2447d4">tasks</h2>
+<div class="outline-text-2" id="text-orgf2447d4">
+<ul class="org-ul">
+<li>enable gui login</li>
+<li>from terminal</li>
+</ul>
+<ul class="org-ul">
+<li>screen resolution</li>
+<li>drivers</li>
+<li>troubleshooting</li>
+<li>logs</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org63cd421" class="outline-2">
+<h2 id="org63cd421">from faq</h2>
+<div class="outline-text-2" id="text-org63cd421">
+<pre class="example">
+xenodm(1)
+-&gt; /etc/X11/xenodm/Xsession
+   -&gt; $HOME/.xsession
+</pre>
+</div>
+
+<div id="outline-container-orgadd3385" class="outline-3">
+<h3 id="orgadd3385">$HOME/.xsession</h3>
+<div class="outline-text-3" id="text-orgadd3385">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #e090d7;">export</span> <span style="color: #fcaf3e;">ENV</span>=$<span style="color: #fcaf3e;">HOME</span>/.kshrc
+xsetroot -solid grey &amp;
+xterm -bg black -fg white +sb &amp;
+cwm
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c39211" class="outline-2">
+<h2 id="org0c39211">startx</h2>
+<div class="outline-text-2" id="text-org0c39211">
+<pre class="example">
+$(HOME)/.xinitrc ; Client to run.  Typically a shell script which runs many programs in the background.
+
+$(HOME)/.xserverrc; Server to run.  The default is X.
+
+/etc/X11/xinit/xinitrc ;  Client to run if the user has no .xinitrc file.
+
+/etc/X11/xinit/xserverrc ; Server to run if the user has no .xserverrc file.
+</pre>
+
+<p>
+<a href="./openbsd.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

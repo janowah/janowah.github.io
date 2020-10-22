@@ -3,38 +3,77 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>disks</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">disks</h1>
-<ul class="org-ul">
-<li>files
-<ul class="org-ul">
-<li>/etc/fstab
-</li>
-</ul>
-</li>
-<li>commands
-<ul class="org-ul">
-<li>df -h
-</li>
-<li>mount
-</li>
-<li>mount -a
-</li>
-<li>umount
-</li>
-</ul>
-</li>
-</ul>
 
+<div id="outline-container-orgc99c7d6" class="outline-2">
+<h2 id="orgc99c7d6">files</h2>
+<div class="outline-text-2" id="text-orgc99c7d6">
+<ul class="org-ul">
+<li><code>/etc/fstab</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org219c1af" class="outline-2">
+<h2 id="org219c1af">commands</h2>
+<div class="outline-text-2" id="text-org219c1af">
+<ul class="org-ul">
+<li>DF(1) ; display free disk space
+<ul class="org-ul">
+<li><code>df -h</code></li>
+</ul></li>
+<li>FSTAB(5) ; static information about the filesystems</li>
+<li>MOUNT(8) ; mount file systems
+<ul class="org-ul">
+<li><code>mount</code></li>
+<li><code>mount -a</code></li>
+</ul></li>
+<li>UMOUNT(8) ; unmount file systems</li>
+<li>FDISK(8) ; partition table maintenance program</li>
+<li>DISKLABEL(8) ; read and write disk pack label</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf192a20" class="outline-2">
+<h2 id="orgf192a20">flags</h2>
+<div class="outline-text-2" id="text-orgf192a20">
 <p>
-what do the flags mean?
+Q. what do the flags mean?
 </p>
+</div>
+</div>
 
+<div id="outline-container-org360be40" class="outline-2">
+<h2 id="org360be40">fstab</h2>
+<div class="outline-text-2" id="text-org360be40">
+</div>
+<div id="outline-container-org42e874b" class="outline-3">
+<h3 id="org42e874b">fields</h3>
+<div class="outline-text-3" id="text-org42e874b">
+<pre class="example">
+fs_spec fs_file fs_vfstype fs_mntops fs_freq fs_passno
+
+1) fs_spec	; block special device or remote filesystem 
+2) fs_file	; mount point
+3) fs_vfstype	; type
+4) fs_mntops	; mount options
+5) fs_freq	; dump(8) frequency, in days 
+6) fs_passno	; pass number on parallel fsck
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf6e30ab" class="outline-3">
+<h3 id="orgf6e30ab">example</h3>
+<div class="outline-text-3" id="text-orgf6e30ab">
 <pre class="example">
 # cat /etc/fstab
 c29addbc5c66bb1c.b none swap sw
@@ -48,7 +87,13 @@ c29addbc5c66bb1c.j /usr/obj ffs rw,nodev,nosuid 1 2
 c29addbc5c66bb1c.i /usr/src ffs rw,nodev,nosuid 1 2
 c29addbc5c66bb1c.e /var ffs rw,nodev 1 2
 </pre>
+</div>
+</div>
+</div>
 
+<div id="outline-container-orgb00152d" class="outline-2">
+<h2 id="orgb00152d">df</h2>
+<div class="outline-text-2" id="text-orgb00152d">
 <pre class="example">
 # df -h
 Filesystem     Size    Used   Avail Capacity  Mounted on
@@ -62,10 +107,29 @@ Filesystem     Size    Used   Avail Capacity  Mounted on
 /dev/wd0i      1.2G    2.0K    1.2G     0%    /usr/src
 /dev/wd0e      1.6G    225M    1.3G    14%    /var
 </pre>
+</div>
+</div>
+
+<div id="outline-container-orga8933c6" class="outline-2">
+<h2 id="orga8933c6">mount(8) options</h2>
+<div class="outline-text-2" id="text-orga8933c6">
+<pre class="example">
+- nodev     ; Do not interpret character or block special devices on the file system.
+- nosuid    ; Do not allow set-user-identifier or set-group-identifier bits to take effect.
+- ro        ; read-only
+- rq        ; read/write with quotas
+- rw        ; read-write
+- sw        ; swap device
+- wxallowed ; Processes that ask for memory writeable plus executable
+- auto/noauto
+- net
+</pre>
 
 <p>
 <a href="./openbsd.html">back</a>
 </p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="validation"></p>

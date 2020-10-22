@@ -3,15 +3,42 @@
 #+title: disks
 #+options: num:nil ^:nil creator:nil author:nil creator:nil toc:nil timestamp:nil
 
-- files
-  - /etc/fstab
-- commands
-  - df -h
-  - mount
-  - mount -a
-  - umount
+* files
 
-what do the flags mean?
+- =/etc/fstab=
+
+* commands
+
+- DF(1) ; display free disk space
+  - =df -h=
+- FSTAB(5) ; static information about the filesystems
+- MOUNT(8) ; mount file systems
+  - =mount=
+  - =mount -a=
+- UMOUNT(8) ; unmount file systems
+- FDISK(8) ; partition table maintenance program
+- DISKLABEL(8) ; read and write disk pack label
+
+* flags
+
+Q. what do the flags mean?
+
+* fstab
+
+** fields
+
+#+BEGIN_EXAMPLE
+  fs_spec fs_file fs_vfstype fs_mntops fs_freq fs_passno
+
+  1) fs_spec	; block special device or remote filesystem 
+  2) fs_file	; mount point
+  3) fs_vfstype	; type
+  4) fs_mntops	; mount options
+  5) fs_freq	; dump(8) frequency, in days 
+  6) fs_passno	; pass number on parallel fsck
+#+END_EXAMPLE
+
+** example
 
 #+BEGIN_EXAMPLE
   # cat /etc/fstab
@@ -27,6 +54,8 @@ what do the flags mean?
   c29addbc5c66bb1c.e /var ffs rw,nodev 1 2
 #+END_EXAMPLE
 
+* df
+
 #+BEGIN_EXAMPLE
   # df -h
   Filesystem     Size    Used   Avail Capacity  Mounted on
@@ -39,6 +68,20 @@ what do the flags mean?
   /dev/wd0j      3.4G    2.0K    3.3G     0%    /usr/obj
   /dev/wd0i      1.2G    2.0K    1.2G     0%    /usr/src
   /dev/wd0e      1.6G    225M    1.3G    14%    /var
+#+END_EXAMPLE
+
+* mount(8) options
+
+#+BEGIN_EXAMPLE
+  - nodev     ; Do not interpret character or block special devices on the file system.
+  - nosuid    ; Do not allow set-user-identifier or set-group-identifier bits to take effect.
+  - ro        ; read-only
+  - rq        ; read/write with quotas
+  - rw        ; read-write
+  - sw        ; swap device
+  - wxallowed ; Processes that ask for memory writeable plus executable
+  - auto/noauto
+  - net
 #+END_EXAMPLE
 
 [[./openbsd.html][back]]
