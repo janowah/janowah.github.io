@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>php-fpm</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">php-fpm</h1>
+<p>
+<code>php-fpm.service - The PHP FastCGI Process Manager</code>
+</p>
+
+<div id="outline-container-org58c9a35" class="outline-2">
+<h2 id="org58c9a35">install</h2>
+<div class="outline-text-2" id="text-org58c9a35">
+<pre class="example">
+dnf install php-mbstring php-xmlrpc php-soap php-gd php-mysqlnd
+php-xml php-intl php-ldap
+
+php php-cli php-common php-fpm
+
+php-json!!!
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9dfe8b2" class="outline-2">
+<h2 id="org9dfe8b2">configuration</h2>
+<div class="outline-text-2" id="text-org9dfe8b2">
+<pre class="example">
+/etc/php-fpm.conf
+/etc/php-fpm.d/www.conf
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4bd9c32" class="outline-2">
+<h2 id="org4bd9c32">systemd</h2>
+<div class="outline-text-2" id="text-org4bd9c32">
+<pre class="example">
+systemctl status php-fpm
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org95a7c62" class="outline-2">
+<h2 id="org95a7c62">log</h2>
+<div class="outline-text-2" id="text-org95a7c62">
+<pre class="example">
+/var/log/php-fpm/error.log
+/var/log/php-fpm/www-error.log
+</pre>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

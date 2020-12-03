@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>wordpress</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">wordpress</h1>
+
+<div id="outline-container-orgb8290d0" class="outline-2">
+<h2 id="orgb8290d0">services</h2>
+<div class="outline-text-2" id="text-orgb8290d0">
+<pre class="example">
+httpd
+mariadb
+php-fpm
+firewalld
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0fc9447" class="outline-2">
+<h2 id="org0fc9447">install</h2>
+<div class="outline-text-2" id="text-org0fc9447">
+</div>
+<div id="outline-container-orgb0e5e03" class="outline-3">
+<h3 id="orgb0e5e03">httpd</h3>
+<div class="outline-text-3" id="text-orgb0e5e03">
+<p>
+mkdir
+</p>
+
+<pre class="example">
+mkdir -p /var/www/foo
+cd /var/www/foo
+wget https://wordpress.org/latest.tar.gz
+tar zxf latest.tar.gz
+cp -a wordpress public_html
+chown -R homer public_html
+</pre>
+</div>
+
+<div id="outline-container-org295fba3" class="outline-4">
+<h4 id="org295fba3">httpd.conf</h4>
+<div class="outline-text-4" id="text-org295fba3">
+<div class="org-src-container">
+<pre class="src src-conf-space"><span style="color: #a0522d;">&lt;VirtualHost</span> *:80&gt;
+<span style="color: #a0522d;">ServerAdmin</span> webmaster@tehinterweb.net
+<span style="color: #a0522d;">ServerName</span> apachetest.tehinterweb.net
+<span style="color: #a0522d;">ServerAlias</span> www.apachetest.tehinterweb.net
+<span style="color: #a0522d;">DocumentRoot</span> /var/www/apachetest.tehinterweb.net/www/public_html
+<span style="color: #a0522d;">Options</span> ExecCGI FollowSymLinks
+<span style="color: #a0522d;">&lt;/VirtualHost&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb2ad6a" class="outline-3">
+<h3 id="orgdb2ad6a">mariadb</h3>
+<div class="outline-text-3" id="text-orgdb2ad6a">
+<pre class="example">
+root@apache:~# mysql -u debian-sys-maint -p
+mysql&gt; create database wordpress;
+mysql&gt; create user 'wordpress'@'localhost' identified by 'supersecretpassword';
+mysql&gt; grant all on wordpress.* to 'wordpress'@'localhost';
+mysql&gt; quit;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf385add" class="outline-2">
+<h2 id="orgf385add">setup</h2>
+<div class="outline-text-2" id="text-orgf385add">
+<pre class="example">
+Site Title:
+Username:
+Password:
+Email:
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbb47de4" class="outline-2">
+<h2 id="orgbb47de4">selinux</h2>
+</div>
+
+<div id="outline-container-org44f1fbf" class="outline-2">
+<h2 id="org44f1fbf">help</h2>
+<div class="outline-text-2" id="text-org44f1fbf">
+<ul class="org-ul">
+<li><a href="https://wordpress.org/support/article/hardening-wordpress/">https://wordpress.org/support/article/hardening-wordpress/</a></li>
+<li><a href="https://wordpress.org/support/article/changing-file-permissions/">https://wordpress.org/support/article/changing-file-permissions/</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

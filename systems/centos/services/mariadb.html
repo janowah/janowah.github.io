@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mariadb</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">mariadb</h1>
+<p>
+<code>mariadb.service - MariaDB 10.3 database server</code>
+</p>
+
+<div id="outline-container-org9864f5e" class="outline-2">
+<h2 id="org9864f5e">install</h2>
+<div class="outline-text-2" id="text-org9864f5e">
+<pre class="example">
+dnf install mariadb-server
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgfd4a825" class="outline-2">
+<h2 id="orgfd4a825">configuration</h2>
+<div class="outline-text-2" id="text-orgfd4a825">
+<pre class="example">
+/etc/my.cnf.d/mariadb-server.cnf
+/etc/my.cnf
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org07095b5" class="outline-2">
+<h2 id="org07095b5">systemd</h2>
+<div class="outline-text-2" id="text-org07095b5">
+<pre class="example">
+systemctl start mariadb.service
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbf14d7b" class="outline-2">
+<h2 id="orgbf14d7b">binarys</h2>
+<div class="outline-text-2" id="text-orgbf14d7b">
+<pre class="example">
+mysqld (8) - the MariaDB server
+mysql_secure_installation (1) - improve MariaDB installation security
+mysql (1) - the MariaDB command-line tool (SQL shell)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org05fefa2" class="outline-2">
+<h2 id="org05fefa2">logging</h2>
+<div class="outline-text-2" id="text-org05fefa2">
+<pre class="example">
+/var/log/mariadb
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgaa856b1" class="outline-2">
+<h2 id="orgaa856b1">firewalld</h2>
+<div class="outline-text-2" id="text-orgaa856b1">
+<ul class="org-ul">
+<li>what port does it run on?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcab42f3" class="outline-2">
+<h2 id="orgcab42f3">help</h2>
+<div class="outline-text-2" id="text-orgcab42f3">
+<ul class="org-ul">
+<li><a href="https://mariadb.com/kb/">https://mariadb.com/kb/</a></li>
+<li><a href="https://mariadb.com/kb/en/library/systemd/">https://mariadb.com/kb/en/library/systemd/</a></li>
+</ul>
+
+<p>
+<a href="../centos.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

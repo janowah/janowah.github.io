@@ -1,0 +1,37 @@
+#+title: php-fpm
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+=php-fpm.service - The PHP FastCGI Process Manager=
+
+* install
+
+#+BEGIN_EXAMPLE
+  dnf install php-mbstring php-xmlrpc php-soap php-gd php-mysqlnd
+  php-xml php-intl php-ldap
+
+  php php-cli php-common php-fpm
+
+  php-json!!!
+#+END_EXAMPLE
+
+* configuration
+
+#+BEGIN_EXAMPLE
+  /etc/php-fpm.conf
+  /etc/php-fpm.d/www.conf
+#+END_EXAMPLE
+
+* systemd
+
+#+BEGIN_EXAMPLE
+  systemctl status php-fpm
+#+END_EXAMPLE
+
+* log
+
+#+BEGIN_EXAMPLE
+  /var/log/php-fpm/error.log
+  /var/log/php-fpm/www-error.log
+#+END_EXAMPLE
+
+[[file:../centos.html][back]]

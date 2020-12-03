@@ -18,13 +18,15 @@
   - kickstart
 - services
   - [[file:services/apache.html][httpd ; apache]]
-  - mariadb
+  - [[file:services/mariadb.html][mariadb ; mysql]]
   - [[file:services/samba.html][smb, nmb ; samba]]
+  - [[file:services/php-fpm.html][php-fpm]]
   - sshd
   - nginx
   - [[file:services/vsftpd.html][vsftpd]]
   - nfs-server
   - [[file:services/openvpn.html][openvpn]]
+  - wireguard
 - software
   - [[file:software/yum.html][yum]]
   - rpm
@@ -36,6 +38,9 @@
 - desktop
   - [[file:desktop/fonts.html][fonts]]
   - customisations
+- applications
+  - [[file:applications/wordpress.html][wordpress]]
+  - nextcloud
 
 [[../systems.html][back]]
 

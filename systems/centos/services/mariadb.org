@@ -1,0 +1,48 @@
+#+title: mariadb
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+=mariadb.service - MariaDB 10.3 database server=
+
+* install
+
+#+BEGIN_EXAMPLE
+  dnf install mariadb-server
+#+END_EXAMPLE
+
+* configuration
+
+#+BEGIN_EXAMPLE
+  /etc/my.cnf.d/mariadb-server.cnf
+  /etc/my.cnf
+#+END_EXAMPLE
+
+* systemd
+
+#+BEGIN_EXAMPLE
+  systemctl start mariadb.service
+#+END_EXAMPLE
+
+* binarys
+
+#+BEGIN_EXAMPLE
+  mysqld (8) - the MariaDB server
+  mysql_secure_installation (1) - improve MariaDB installation security
+  mysql (1) - the MariaDB command-line tool (SQL shell)
+#+END_EXAMPLE
+
+* logging
+
+#+BEGIN_EXAMPLE
+  /var/log/mariadb
+#+END_EXAMPLE
+
+* firewalld
+
+- what port does it run on?
+
+* help
+
+- https://mariadb.com/kb/
+- https://mariadb.com/kb/en/library/systemd/
+
+[[file:../centos.html][back]]

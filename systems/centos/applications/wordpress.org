@@ -1,0 +1,65 @@
+#+title: wordpress
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* services
+
+#+BEGIN_EXAMPLE
+  httpd
+  mariadb
+  php-fpm
+  firewalld
+#+END_EXAMPLE
+
+* install
+
+** httpd
+
+mkdir
+
+#+BEGIN_EXAMPLE
+  mkdir -p /var/www/foo
+  cd /var/www/foo
+  wget https://wordpress.org/latest.tar.gz
+  tar zxf latest.tar.gz
+  cp -a wordpress public_html
+  chown -R homer public_html
+#+END_EXAMPLE
+
+*** httpd.conf
+
+#+BEGIN_SRC conf-space
+  <VirtualHost *:80>
+  ServerAdmin webmaster@tehinterweb.net
+  ServerName apachetest.tehinterweb.net
+  ServerAlias www.apachetest.tehinterweb.net
+  DocumentRoot /var/www/apachetest.tehinterweb.net/www/public_html
+  Options ExecCGI FollowSymLinks
+  </VirtualHost>
+#+END_SRC
+
+** mariadb
+
+#+BEGIN_EXAMPLE
+  root@apache:~# mysql -u debian-sys-maint -p
+  mysql> create database wordpress;
+  mysql> create user 'wordpress'@'localhost' identified by 'supersecretpassword';
+  mysql> grant all on wordpress.* to 'wordpress'@'localhost';
+  mysql> quit;
+#+END_EXAMPLE
+
+* setup
+
+#+BEGIN_EXAMPLE
+  Site Title:
+  Username:
+  Password:
+  Email:
+#+END_EXAMPLE
+
+* selinux
+
+* help
+
+- https://wordpress.org/support/article/hardening-wordpress/
+- https://wordpress.org/support/article/changing-file-permissions/
+
