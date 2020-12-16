@@ -2,5 +2,10 @@
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 - [[file:books.html][books]]
+- code
+- [[file:lint.html][lint]]
+- [[file:tools.html][tools]]
+- notes
+  - [[file:keywords.html][keywords]]
 
 [[../programming.html][back]]

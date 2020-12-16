@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lint</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">lint</h1>
+
+<div id="outline-container-org57a9ad4" class="outline-2">
+<h2 id="org57a9ad4">checkstyle</h2>
+<div class="outline-text-2" id="text-org57a9ad4">
+<pre class="example">
+java -jar ~/checkstyle-*-all.jar -c /google_checks.xml foo.java
+
+alias
+
+alias cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org81203c6" class="outline-2">
+<h2 id="org81203c6">emacs</h2>
+<div class="outline-text-2" id="text-org81203c6">
+</div>
+<div id="outline-container-org6f80982" class="outline-3">
+<h3 id="org6f80982">google-c-style.el</h3>
+<div class="outline-text-3" id="text-org6f80982">
+<div class="org-src-container">
+<pre class="src src-elisp">google-c-style.el
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5409359" class="outline-3">
+<h3 id="org5409359">hooks</h3>
+<div class="outline-text-3" id="text-org5409359">
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #009e73; font-style: italic;">;; </span><span style="color: #009e73; font-style: italic;">Also works for Java.</span>
+(autoload 'google-set-c-style <span style="color: #848ea9;">"google-c-style"</span>)
+(autoload 'google-make-newline-indent <span style="color: #848ea9;">"google-c-style"</span>)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+</pre>
+</div>
+
+<p>
+<a href="./java.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

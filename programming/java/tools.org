@@ -1,0 +1,78 @@
+#+title: tools
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* java(1)
+
+Launches a Java application.
+
+#+BEGIN_EXAMPLE
+  java foo
+  java -version
+#+END_EXAMPLE
+
+* javac(1)
+
+Reads Java class and interface definitions and compiles them into
+bytecode and class files.
+
+#+BEGIN_EXAMPLE
+  javac foo.java
+
+  javac -Xlint:all foo.java 
+
+  Switches
+  -Xlint:all // Enables all recommended warnings
+#+END_EXAMPLE
+
+* javap(1)
+
+Disassembles one or more class files.
+
+#+BEGIN_EXAMPLE
+  javap -p foo.class
+  javap -p foo
+  javap -p 'foo$bar' // inner class
+
+  switches
+  -p // Shows all classes and members.
+#+END_EXAMPLE
+
+* javadoc(1)
+
+Generates HTML pages of API documentation from Java source files.
+
+* jdb(1)
+
+Finds and fixes bugs in Java platform programs.
+
+* jdeps(1)
+
+Java class dependency analyzer.
+
+#+BEGIN_EXAMPLE
+  jdeps -v StringConverter.class 
+
+  switches
+  -v // verbose
+  -cp
+#+END_EXAMPLE
+
+* appletviewer(1)
+
+Runs applets outside of a web browser.
+
+=appletviewer foo.html=
+
+#+BEGIN_SRC html
+  <html>
+  <body>
+    <applet
+      code = "MyApplet.class"
+      width = 500
+      height = 400>
+    </applet>
+  </body>
+  </html>
+#+END_SRC
+
+[[./java.html][back]]

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>tools</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">tools</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org30159d2">java(1)</a></li>
+<li><a href="#orgabf51b9">javac(1)</a></li>
+<li><a href="#org3f1e014">javap(1)</a></li>
+<li><a href="#org6c5ad96">javadoc(1)</a></li>
+<li><a href="#org5fc760a">jdb(1)</a></li>
+<li><a href="#org025f1ab">jdeps(1)</a></li>
+<li><a href="#org0b63c16">appletviewer(1)</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30159d2" class="outline-2">
+<h2 id="org30159d2">java(1)</h2>
+<div class="outline-text-2" id="text-org30159d2">
+<p>
+Launches a Java application.
+</p>
+
+<pre class="example">
+java foo
+java -version
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgabf51b9" class="outline-2">
+<h2 id="orgabf51b9">javac(1)</h2>
+<div class="outline-text-2" id="text-orgabf51b9">
+<p>
+Reads Java class and interface definitions and compiles them into
+bytecode and class files.
+</p>
+
+<pre class="example">
+javac foo.java
+
+javac -Xlint:all foo.java 
+
+Switches
+-Xlint:all // Enables all recommended warnings
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3f1e014" class="outline-2">
+<h2 id="org3f1e014">javap(1)</h2>
+<div class="outline-text-2" id="text-org3f1e014">
+<p>
+Disassembles one or more class files.
+</p>
+
+<pre class="example">
+javap -p foo.class
+javap -p foo
+javap -p 'foo$bar' // inner class
+
+switches
+-p // Shows all classes and members.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6c5ad96" class="outline-2">
+<h2 id="org6c5ad96">javadoc(1)</h2>
+<div class="outline-text-2" id="text-org6c5ad96">
+<p>
+Generates HTML pages of API documentation from Java source files.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fc760a" class="outline-2">
+<h2 id="org5fc760a">jdb(1)</h2>
+<div class="outline-text-2" id="text-org5fc760a">
+<p>
+Finds and fixes bugs in Java platform programs.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org025f1ab" class="outline-2">
+<h2 id="org025f1ab">jdeps(1)</h2>
+<div class="outline-text-2" id="text-org025f1ab">
+<p>
+Java class dependency analyzer.
+</p>
+
+<pre class="example">
+jdeps -v StringConverter.class 
+
+switches
+-v // verbose
+-cp
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0b63c16" class="outline-2">
+<h2 id="org0b63c16">appletviewer(1)</h2>
+<div class="outline-text-2" id="text-org0b63c16">
+<p>
+Runs applets outside of a web browser.
+</p>
+
+<p>
+<code>appletviewer foo.html</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #d55e00;">html</span>&gt;
+&lt;<span style="color: #d55e00;">body</span>&gt;
+  &lt;<span style="color: #d55e00;">applet</span>
+    code = <span style="color: #848ea9;">"MyApplet.class"</span>
+    width = 500
+    height = 400&gt;
+  &lt;/<span style="color: #d55e00;">applet</span>&gt;
+&lt;/<span style="color: #d55e00;">body</span>&gt;
+&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+
+<p>
+<a href="./java.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

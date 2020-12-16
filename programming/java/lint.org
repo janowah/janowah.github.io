@@ -1,0 +1,32 @@
+#+title: lint
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* checkstyle
+
+#+BEGIN_EXAMPLE
+  java -jar ~/checkstyle-*-all.jar -c /google_checks.xml foo.java
+
+  alias
+
+  alias cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
+#+END_EXAMPLE
+
+* emacs
+
+** google-c-style.el
+
+#+BEGIN_SRC elisp
+  google-c-style.el
+#+END_SRC
+
+** hooks
+
+#+BEGIN_SRC elisp
+  ;; Also works for Java.
+  (autoload 'google-set-c-style "google-c-style")
+  (autoload 'google-make-newline-indent "google-c-style")
+  (add-hook 'c-mode-common-hook 'google-set-c-style)
+  (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+#+END_SRC
+
+[[./java.html][back]]
