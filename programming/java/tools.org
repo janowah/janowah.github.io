@@ -18,7 +18,7 @@ bytecode and class files.
 #+BEGIN_EXAMPLE
   javac foo.java
 
-  javac -Xlint:all foo.java 
+  javac -Xlint:all foo.java
 
   Switches
   -Xlint:all // Enables all recommended warnings
@@ -50,7 +50,7 @@ Finds and fixes bugs in Java platform programs.
 Java class dependency analyzer.
 
 #+BEGIN_EXAMPLE
-  jdeps -v StringConverter.class 
+  jdeps -v StringConverter.class
 
   switches
   -v // verbose
@@ -74,5 +74,20 @@ Runs applets outside of a web browser.
   </body>
   </html>
 #+END_SRC
+
+* jar(1)
+
+Manipulates Java Archive (JAR) files.
+
+#+BEGIN_EXAMPLE
+  jar vcf bar.jar foo.java
+
+  jar -cvf foo.war *  
+
+  switches
+  v verbose
+  c create
+  f file
+#+END_EXAMPLE
 
 [[./java.html][back]]

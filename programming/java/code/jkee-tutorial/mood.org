@@ -1,0 +1,257 @@
+#+title: mood
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* =MoodServlet.java=
+
+#+BEGIN_SRC java -n :bangle MoodServlet.java :padline no
+package mood;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/report")
+public class MoodServlet extends HttpServlet {
+  private static final long serialVersionUID = 18925377774889413L;
+
+  /** 
+   * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+   *  methods.
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  protected void processRequest(HttpServletRequest request,
+                                HttpServletResponse response)
+      throws ServletException, IOException {
+
+    response.setContentType("text/html;charset=UTF-8");
+
+    try (PrintWriter out = response.getWriter()) {
+      out.println("<html lang=\"en\">");
+      out.println("<head>");
+      out.println("<title>Servlet MoodServlet</title>");
+      out.println("</head>");
+      out.println("<body>");
+      out.println("<h1>Servlet MoodServlet at "
+                  + request.getContextPath() + "</h1>");
+      String mood = (String) request.getAttribute("mood");
+      out.println("<p>Duke's mood is: " + mood + "</p>");
+      switch (mood) {
+        case "sleepy":
+          out.println("<img src=\"resources/images/duke.snooze.gif\" "
+                      + "alt=\"Duke sleeping\"/><br/>");
+          break;
+        case "alert":
+          out.println("<img src=\"resources/images/duke.waving.gif\" "
+                      + "alt=\"Duke waving\"/><br/>");
+          break;
+        case "hungry":
+          out.println("<img src=\"resources/images/duke.cookies.gif\" "
+                      + "alt=\"Duke with cookies\"/><br/>");
+          break;
+        case "lethargic":
+          out.println("<img src=\"resources/images/duke.handsOnHips.gif\" "
+                      + "alt=\"Duke with hands on hips\"/><br/>");
+          break;
+        case "thoughtful":
+          out.println("<img src=\"resources/images/duke.pensive.gif\" "
+                      + "alt=\"Duke thinking\"/><br/>");
+          break;
+        default:
+          out.println("<img src=\"resources/images/duke.thumbsup.gif\" "
+                      + "alt=\"Duke with thumbs-up gesture\"/><br/>");
+          break;
+      }
+      out.println("</body>");
+      out.println("</html>");
+    }
+  }
+
+  
+  /** 
+   * Handles the HTTP <code>GET</code> method.
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+    response.setContentType("text/html;charset=UTF-8");
+    processRequest(request, response);
+  }
+
+
+  /** 
+   * Handles the HTTP <code>POST</code> method.
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    
+    processRequest(request, response);
+  }
+
+
+  /** 
+   * Returns a short description of the servlet.
+   * @return a String containing servlet description
+   */
+  @Override
+  public String getServletInfo() {
+    return "Short description";
+  }
+
+
+}
+#+END_SRC
+
+* =SimpleServletListener.java=
+
+#+BEGIN_SRC java -n :bangle SimpleServletListener.java :padline no
+package mood;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletContextAttributeEvent;
+import javax.servlet.ServletContextAttributeListener;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+/**
+ * Web application lifecycle listener.
+ */
+@WebListener()
+public class SimpleServletListener implements ServletContextListener,
+                                   ServletContextAttributeListener {
+
+  static final Logger log =
+      Logger.getLogger("mood.web.SimpleServletListener");
+
+  @Override
+  public void contextInitialized(ServletContextEvent sce) {
+    log.info("Context initialized");
+  }
+
+  @Override
+  public void contextDestroyed(ServletContextEvent sce) {
+    log.info("Context destroyed");
+  }
+
+  @Override
+  public void attributeAdded(ServletContextAttributeEvent event) {
+    log.log(Level.INFO, "Attribute {0} has been added, with value: {1}", 
+            new Object[]{event.getName(), event.getValue()});
+  }
+
+  @Override
+  public void attributeRemoved(ServletContextAttributeEvent event) {
+    log.log(Level.INFO, "Attribute {0} has been removed", 
+            event.getName());
+  }
+
+  @Override
+  public void attributeReplaced(ServletContextAttributeEvent event) {
+    log.log(Level.INFO, "Attribute {0} has been replaced, with value: {1}", 
+            new Object[]{event.getName(), event.getValue()});
+  }
+}
+#+END_SRC
+
+* =TimeOfDayFilter.java=
+
+#+BEGIN_SRC java -n :bangle TimeOfDayFilter.java :padline no
+package mood;
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
+
+@WebFilter(
+    filterName = "TimeOfDayFilter",
+    urlPatterns = {"/*"},
+    initParams = {@WebInitParam(name = "mood", value = "awake")}
+)
+public class TimeOfDayFilter implements Filter {
+
+  String mood = null;
+
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {
+    mood = filterConfig.getInitParameter("mood");
+  }
+
+  @Override
+  public void doFilter(ServletRequest req,
+                       ServletResponse res,
+                       FilterChain chain) throws IOException, ServletException {
+    Calendar cal = GregorianCalendar.getInstance();
+    switch (cal.get(Calendar.HOUR_OF_DAY)) {
+      case 23:
+      case 24:
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+        mood = "sleepy";
+        break;
+      case 7:
+      case 13:
+      case 18:
+        mood = "hungry";
+        break;
+      case 8:
+      case 9:
+      case 10:
+      case 12:
+      case 14:
+      case 16:
+      case 17:
+        mood = "alert";
+        break;
+      case 11:
+      case 15:
+        mood = "in need of coffee";
+        break;
+      case 19:
+      case 20:
+      case 21:
+        mood = "thoughtful";
+        break;
+      case 22:
+        mood = "lethargic";
+        break;
+    }
+    req.setAttribute("mood", mood);
+    chain.doFilter(req, res);
+  }
+
+  @Override
+  public void destroy() {
+  }
+}
+#+END_SRC
+

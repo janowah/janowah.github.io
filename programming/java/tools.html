@@ -15,20 +15,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org30159d2">java(1)</a></li>
-<li><a href="#orgabf51b9">javac(1)</a></li>
-<li><a href="#org3f1e014">javap(1)</a></li>
-<li><a href="#org6c5ad96">javadoc(1)</a></li>
-<li><a href="#org5fc760a">jdb(1)</a></li>
-<li><a href="#org025f1ab">jdeps(1)</a></li>
-<li><a href="#org0b63c16">appletviewer(1)</a></li>
+<li><a href="#org04cd9d5">java(1)</a></li>
+<li><a href="#org458aca9">javac(1)</a></li>
+<li><a href="#org2b1fa8d">javap(1)</a></li>
+<li><a href="#org86b1922">javadoc(1)</a></li>
+<li><a href="#org09b6c56">jdb(1)</a></li>
+<li><a href="#org10d8b26">jdeps(1)</a></li>
+<li><a href="#org65ef12c">appletviewer(1)</a></li>
+<li><a href="#orgfb3c81f">jar(1)</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org30159d2" class="outline-2">
-<h2 id="org30159d2">java(1)</h2>
-<div class="outline-text-2" id="text-org30159d2">
+<div id="outline-container-org04cd9d5" class="outline-2">
+<h2 id="org04cd9d5">java(1)</h2>
+<div class="outline-text-2" id="text-org04cd9d5">
 <p>
 Launches a Java application.
 </p>
@@ -40,9 +41,9 @@ java -version
 </div>
 </div>
 
-<div id="outline-container-orgabf51b9" class="outline-2">
-<h2 id="orgabf51b9">javac(1)</h2>
-<div class="outline-text-2" id="text-orgabf51b9">
+<div id="outline-container-org458aca9" class="outline-2">
+<h2 id="org458aca9">javac(1)</h2>
+<div class="outline-text-2" id="text-org458aca9">
 <p>
 Reads Java class and interface definitions and compiles them into
 bytecode and class files.
@@ -51,7 +52,7 @@ bytecode and class files.
 <pre class="example">
 javac foo.java
 
-javac -Xlint:all foo.java 
+javac -Xlint:all foo.java
 
 Switches
 -Xlint:all // Enables all recommended warnings
@@ -59,9 +60,9 @@ Switches
 </div>
 </div>
 
-<div id="outline-container-org3f1e014" class="outline-2">
-<h2 id="org3f1e014">javap(1)</h2>
-<div class="outline-text-2" id="text-org3f1e014">
+<div id="outline-container-org2b1fa8d" class="outline-2">
+<h2 id="org2b1fa8d">javap(1)</h2>
+<div class="outline-text-2" id="text-org2b1fa8d">
 <p>
 Disassembles one or more class files.
 </p>
@@ -77,33 +78,33 @@ switches
 </div>
 </div>
 
-<div id="outline-container-org6c5ad96" class="outline-2">
-<h2 id="org6c5ad96">javadoc(1)</h2>
-<div class="outline-text-2" id="text-org6c5ad96">
+<div id="outline-container-org86b1922" class="outline-2">
+<h2 id="org86b1922">javadoc(1)</h2>
+<div class="outline-text-2" id="text-org86b1922">
 <p>
 Generates HTML pages of API documentation from Java source files.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5fc760a" class="outline-2">
-<h2 id="org5fc760a">jdb(1)</h2>
-<div class="outline-text-2" id="text-org5fc760a">
+<div id="outline-container-org09b6c56" class="outline-2">
+<h2 id="org09b6c56">jdb(1)</h2>
+<div class="outline-text-2" id="text-org09b6c56">
 <p>
 Finds and fixes bugs in Java platform programs.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org025f1ab" class="outline-2">
-<h2 id="org025f1ab">jdeps(1)</h2>
-<div class="outline-text-2" id="text-org025f1ab">
+<div id="outline-container-org10d8b26" class="outline-2">
+<h2 id="org10d8b26">jdeps(1)</h2>
+<div class="outline-text-2" id="text-org10d8b26">
 <p>
 Java class dependency analyzer.
 </p>
 
 <pre class="example">
-jdeps -v StringConverter.class 
+jdeps -v StringConverter.class
 
 switches
 -v // verbose
@@ -112,9 +113,9 @@ switches
 </div>
 </div>
 
-<div id="outline-container-org0b63c16" class="outline-2">
-<h2 id="org0b63c16">appletviewer(1)</h2>
-<div class="outline-text-2" id="text-org0b63c16">
+<div id="outline-container-org65ef12c" class="outline-2">
+<h2 id="org65ef12c">appletviewer(1)</h2>
+<div class="outline-text-2" id="text-org65ef12c">
 <p>
 Runs applets outside of a web browser.
 </p>
@@ -124,17 +125,37 @@ Runs applets outside of a web browser.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-html">&lt;<span style="color: #d55e00;">html</span>&gt;
-&lt;<span style="color: #d55e00;">body</span>&gt;
-  &lt;<span style="color: #d55e00;">applet</span>
-    code = <span style="color: #848ea9;">"MyApplet.class"</span>
+<pre class="src src-html">&lt;<span style="color: #fce94f;">html</span>&gt;
+&lt;<span style="color: #fce94f;">body</span>&gt;
+  &lt;<span style="color: #fce94f;">applet</span>
+    code = <span style="color: #e9b96e;">"MyApplet.class"</span>
     width = 500
     height = 400&gt;
-  &lt;/<span style="color: #d55e00;">applet</span>&gt;
-&lt;/<span style="color: #d55e00;">body</span>&gt;
-&lt;/<span style="color: #d55e00;">html</span>&gt;
+  &lt;/<span style="color: #fce94f;">applet</span>&gt;
+&lt;/<span style="color: #fce94f;">body</span>&gt;
+&lt;/<span style="color: #fce94f;">html</span>&gt;
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-orgfb3c81f" class="outline-2">
+<h2 id="orgfb3c81f">jar(1)</h2>
+<div class="outline-text-2" id="text-orgfb3c81f">
+<p>
+Manipulates Java Archive (JAR) files.
+</p>
+
+<pre class="example">
+jar vcf bar.jar foo.java
+
+jar -cvf foo.war *  
+
+switches
+v verbose
+c create
+f file
+</pre>
 
 <p>
 <a href="./java.html">back</a>

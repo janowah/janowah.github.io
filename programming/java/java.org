@@ -2,7 +2,7 @@
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
 - [[file:books.html][books]]
-- code
+- [[file:code/code.html][code]]
 - [[file:lint.html][lint]]
 - [[file:tools.html][tools]]
 - notes
