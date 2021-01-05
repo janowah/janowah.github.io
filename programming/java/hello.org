@@ -1,0 +1,46 @@
+#+Title: hello
+#+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+#+HTML_HEAD: <style type="text/css" >
+#+HTML_HEAD_EXTRA: p { max-width: 70ch; }
+#+HTML_HEAD_EXTRA: </style>
+
+* Example 1 Compile a Simple Program
+
+This example shows how to compile the =Hello.java= source file
+in the greetings directory. The class defined in =Hello.java=
+is called =greetings.Hello=. The greetings directory is the
+package directory both for the source file and the class
+file and is underneath the current directory. This makes it
+possible to use the default user class path. It also makes
+it unnecessary to specify a separate destination directory
+with the =-d= option.
+
+The source code in =Hello.java=:
+
+#+BEGIN_SRC java
+  package greetings;
+
+  public class Hello {
+    public static void main(String[] args) {
+      for (int i = 0; i < args.length; i++) {
+        System.out.println("Hello " + args[i]);
+      }
+    }
+  }
+#+END_SRC
+
+Compile greetings.Hello:
+
+=javac greetings/Hello.java=
+
+Run greetings.Hello:
+
+#+BEGIN_EXAMPLE
+  java greetings.Hello World Universe Everyone
+  Hello World
+  Hello Universe
+  Hello Everyone
+#+END_EXAMPLE
+
+[[./java.html][back]]

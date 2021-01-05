@@ -1,0 +1,710 @@
+#+title: The Java 8 Basic Tutorial
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+HTML_HEAD: <style type="text/css" >
+#+HTML_HEAD_EXTRA: p { max-width: 70ch; }
+#+HTML_HEAD_EXTRA: </style>
+
+* Getting Started =getStarted= 5
+
+An introduction to Java technology and lessons on installing Java
+development software and using it to create a simple program.
+
+#+BEGIN_EXAMPLE
+  1) QandE/HelloWorldApp2.java
+  2) QandE/Useless.java
+  3) QandE/FirstClass.java
+  4) QandE/SecondClass.java
+  5) application/examples/HelloWorldApp.java
+#+END_EXAMPLE
+
+* Learning the Java Language =java= 167
+
+Lessons describing the essential concepts and features of the Java
+Programming Language.
+
+** Object-Oriented Programming Concepts =concepts=
+
+teaches you the core concepts behind object-oriented programming:
+objects, messages, classes, and inheritance. This lesson ends by
+showing you how these concepts translate into code. Feel free to skip
+this lesson if you are already familiar with object-oriented
+programming.
+
+#+BEGIN_EXAMPLE
+  - java/concepts/examples/BicycleDemo.java
+  - java/concepts/examples/Bicycle.java
+#+END_EXAMPLE
+
+** Language Basics =nutsandbolts=
+
+describes the traditional features of the language, including
+variables, arrays, data types, operators, and control flow.
+
+#+BEGIN_EXAMPLE
+  - java/nutsandbolts/QandE/NestedIf.java
+  - java/nutsandbolts/examples/ArithmeticDemo.java
+  - java/nutsandbolts/examples/BitDemo.java
+  - java/nutsandbolts/examples/ComparisonDemo.java
+  - java/nutsandbolts/examples/ContinueDemo.java
+  - java/nutsandbolts/examples/ForDemo.java
+  - java/nutsandbolts/examples/MultiDimArrayDemo.java
+  - java/nutsandbolts/examples/SwitchDemo2.java
+  - java/nutsandbolts/examples/ArrayDemo.java
+  - java/nutsandbolts/examples/BreakWithLabelDemo.java
+  - java/nutsandbolts/examples/ConditionalDemo2.java
+  - java/nutsandbolts/examples/EnhancedForDemo.java
+  - java/nutsandbolts/examples/SwitchDemo.java
+  - java/nutsandbolts/examples/WhileDemo.java
+  - java/nutsandbolts/examples/ArrayCopyDemo.java
+  - java/nutsandbolts/examples/BlockDemo.java
+  - java/nutsandbolts/examples/ConcatDemo.java
+  - java/nutsandbolts/examples/ContinueWithLabelDemo.java
+  - java/nutsandbolts/examples/IfElseDemo.java
+  - java/nutsandbolts/examples/PrePostDemo.java
+  - java/nutsandbolts/examples/SwitchDemoFallThrough.java
+  - java/nutsandbolts/examples/ArrayCopyOfDemo.java
+  - java/nutsandbolts/examples/BreakDemo.java
+  - java/nutsandbolts/examples/ConditionalDemo1.java
+  - java/nutsandbolts/examples/DoWhileDemo.java
+  - java/nutsandbolts/examples/InstanceofDemo.java
+  - java/nutsandbolts/examples/StringSwitchDemo.java
+  - java/nutsandbolts/examples/UnaryDemo.java
+#+END_EXAMPLE
+
+** Classes and Objects =javaOO=
+
+describes how to write the classes from which objects are created, and
+how to create and use the objects.
+
+#+BEGIN_EXAMPLE
+  - java/javaOO/QandE/IdentifyMyParts.java
+  - java/javaOO/QandE/Point.java
+  - java/javaOO/QandE/SomethingIsRight.java
+  - java/javaOO/QandE/DataStructure.java
+  - java/javaOO/QandE/NumberHolderDisplay.java
+  - java/javaOO/QandE/Rectangle.java
+  - java/javaOO/QandE/Class1.java
+  - java/javaOO/QandE/Problem.java
+  - java/javaOO/QandE/SomethingIsWrong.java
+  - java/javaOO/QandE/Class2.java
+  - java/javaOO/QandE/NumberHolder.java
+  - java/javaOO/QandE/ProblemSolved.java
+  - java/javaOO/examples/AClass.java
+  - java/javaOO/examples/AlienCreatureTwo.java
+  - java/javaOO/examples/Card2.java
+  - java/javaOO/examples/Class1.java
+  - java/javaOO/examples/Day.java
+  - java/javaOO/examples/DisplayDeck.java
+  - java/javaOO/examples/HelloWorldAnonymousClasses.java
+  - java/javaOO/examples/MethodReferencesTest.java
+  - java/javaOO/examples/Problem.java
+  - java/javaOO/examples/RosterTest.java
+  - java/javaOO/examples/StackOfInts.java
+  - java/javaOO/examples/Suit.java
+  - java/javaOO/examples/two/AlphaTwo.java
+  - java/javaOO/examples/two/DeltaTwo.java
+  - java/javaOO/examples/AlienCreatureOne.java
+  - java/javaOO/examples/Card.java
+  - java/javaOO/examples/Cats.java
+  - java/javaOO/examples/DataStructure.java
+  - java/javaOO/examples/Deck3.java
+  - java/javaOO/examples/FillerTest.java
+  - java/javaOO/examples/Point.java
+  - java/javaOO/examples/Rectangle.java
+  - java/javaOO/examples/Stack2.java
+  - java/javaOO/examples/Subclass.java
+  - java/javaOO/examples/one/DeltaOne.java
+  - java/javaOO/examples/one/Alpha.java
+  - java/javaOO/examples/AbstractClassTest.java
+  - java/javaOO/examples/Animal.java
+  - java/javaOO/examples/Card3.java
+  - java/javaOO/examples/Class2.java
+  - java/javaOO/examples/Deck.java
+  - java/javaOO/examples/DisplayDeck2.java
+  - java/javaOO/examples/LambdaScopeTest.java
+  - java/javaOO/examples/Person.java
+  - java/javaOO/examples/ProblemSolved.java
+  - java/javaOO/examples/ShadowTest.java
+  - java/javaOO/examples/StackTest.java
+  - java/javaOO/examples/Superclass.java
+  - java/javaOO/examples/AlienCreature.java
+  - java/javaOO/examples/Calculator.java
+  - java/javaOO/examples/Cat.java
+  - java/javaOO/examples/CreateObjectDemo.java
+  - java/javaOO/examples/Deck2.java
+  - java/javaOO/examples/EnumTest.java
+  - java/javaOO/examples/LocalClassExample.java
+  - java/javaOO/examples/Planet.java
+  - java/javaOO/examples/Rank.java
+  - java/javaOO/examples/Stack.java
+  - java/javaOO/examples/StackTest2.java
+#+END_EXAMPLE
+
+** Annotations =no-code=
+
+are a form of metadata and provide information for the compiler. This
+lesson describes where and how to use annotations in a program
+effectively.
+
+** Interfaces and Inheritance =IandI=
+
+describes interfaces—what they are, why you would want to write one,
+and how to write one. This section also describes the way in which you
+can derive one class from another. That is, how a subclass can inherit
+fields and methods from a superclass. You will learn that all classes
+are derived from the Object class, and how to modify the methods that
+a subclass inherits from superclasses.
+
+#+BEGIN_EXAMPLE
+  - java/IandI/examples/CharSequenceDemo.java
+  - java/IandI/examples/MountainBike.java
+  - java/IandI/examples/Relatable.java
+  - java/IandI/examples/defaultmethods/Card.java
+  - java/IandI/examples/defaultmethods/SortByRankThenSuit.java
+  - java/IandI/examples/defaultmethods/TimeClient.java
+  - java/IandI/examples/defaultmethods/SimpleTimeClient.java
+  - java/IandI/examples/defaultmethods/TestSimpleTimeClient.java
+  - java/IandI/examples/defaultmethods/Deck.java
+  - java/IandI/examples/defaultmethods/SortFunction.java
+  - java/IandI/examples/defaultmethods/PlayingCard.java
+  - java/IandI/examples/defaultmethods/StandardDeck.java
+  - java/IandI/examples/Card2.java
+  - java/IandI/examples/RectanglePlus.java
+  - java/IandI/examples/TimeClient.java
+  - java/IandI/examples/Bicycle.java
+  - java/IandI/examples/Deck.java
+  - java/IandI/examples/Point.java
+  - java/IandI/examples/RoadBike.java
+  - java/IandI/examples/Card.java
+  - java/IandI/examples/DisplayDeck.java
+  - java/IandI/examples/Rectangle.java
+  - java/IandI/examples/TestBikes.java
+#+END_EXAMPLE
+
+** Numbers and Strings =data=
+
+This lesson describes how to use Number and String objects The lesson
+also shows you how to format data for output.
+
+#+BEGIN_EXAMPLE
+  - java/data/QandE/Adder.java
+  - java/data/QandE/FPAdder.java
+  - java/data/QandE/ThisHappens.java
+  - java/data/QandE/ComputeResult.java
+  - java/data/QandE/MinVariablesDemo.java
+  - java/data/QandE/Anagram.java
+  - java/data/QandE/WhatHappens.java
+  - java/data/QandE/ComputeInitials.java
+  - java/data/QandE/MaxVariablesDemo.java
+  - java/data/examples/ArrayOfArraysDemo.java
+  - java/data/examples/BostonAccentDemo.java
+  - java/data/examples/Filename.java
+  - java/data/examples/MinDemo.java
+  - java/data/examples/Rectangle.java
+  - java/data/examples/SimplePoint.java
+  - java/data/examples/StringsDemo.java
+  - java/data/examples/Unboxing.java
+  - java/data/examples/ArrayDemo.java
+  - java/data/examples/BasicMathDemo.java
+  - java/data/examples/ExponentialDemo.java
+  - java/data/examples/Point.java
+  - java/data/examples/ReverseStringTest.java
+  - java/data/examples/StringDemo.java
+  - java/data/examples/TrigonometricDemo.java
+  - java/data/examples/Anagram.java
+  - java/data/examples/ArrayOfArraysDemo2.java
+  - java/data/examples/CharacterDemo.java
+  - java/data/examples/FilenameDemo.java
+  - java/data/examples/NumberDemo.java
+  - java/data/examples/RegionMatchesDemo.java
+  - java/data/examples/SimpleRectangle.java
+  - java/data/examples/TestFormat.java
+  - java/data/examples/ValueOfDemo.java
+  - java/data/examples/ArrayCopyDemo.java
+  - java/data/examples/ArrayOfStringsDemo.java
+  - java/data/examples/DecimalFormatDemo.java
+  - java/data/examples/InsertDemo.java
+  - java/data/examples/Palindrome.java
+  - java/data/examples/ReverseString.java
+  - java/data/examples/StringBuilderDemo.java
+  - java/data/examples/ToStringDemo.java
+#+END_EXAMPLE
+
+** Generics =generics=
+
+are a powerful feature of the Java programming language. They improve
+the type safety of your code, making more of your bugs detectable at
+compile time.
+
+#+BEGIN_EXAMPLE
+  - java/generics/examples/CountVowels.java
+  - java/generics/examples/WildcardErrorBad.java
+  - java/generics/examples/BoxDemo.java
+  - java/generics/examples/WildcardError.java
+  - java/generics/examples/WildcardFixed.java
+  - java/generics/examples/Box.java
+  - java/generics/examples/MultiplicationTable.java
+#+END_EXAMPLE
+
+** Packages =package=
+
+are a feature of the Java programming language that help you to
+organize and structure your classes and their relationships to one
+another.
+
+#+BEGIN_EXAMPLE
+  - java/package/QandE/question/Server.java
+  - java/package/QandE/question/Client.java
+  - java/package/QandE/question/Utilities.java
+  - java/package/QandE/TimeClient.java
+  - java/package/QandE/CharSequenceDemo.java
+#+END_EXAMPLE
+
+* Essential Java Classes =essential= 87
+
+Lessons on exceptions, basic input/output, concurrency, regular
+expressions, and the platform environment.
+
+** Exceptions =exceptions=
+
+explains the exception mechanism and how it is used to handle errors
+and other exceptional conditions. This lesson describes what an
+exception is, how to throw and catch exceptions, what to do with an
+exception once it has been caught, and how to use the exception class
+hierarchy.
+
+#+BEGIN_EXAMPLE
+  - exceptions/examples/InputFileDeclared.java
+  - exceptions/examples/ListOfNumbersDeclared.java
+  - exceptions/examples/InputFile.java
+  - exceptions/examples/ListOfNumbers2.java
+  - exceptions/examples/InputFileTest.java
+  - exceptions/examples/ListOfNumbersTest.java
+  - exceptions/examples/Cat.java
+  - exceptions/examples/ListOfNumbers.java
+#+END_EXAMPLE
+
+** Basic I/O =io=
+
+covers the Java platform classes used for basic input and output. It
+focuses primarily on I/O Streams, a powerful concept that greatly
+simplifies I/O operations. The lesson also looks at Serialization,
+which lets a program write whole objects out to streams and read them
+back again. Then the lesson looks at some file system operations,
+including random access files. Finally, it touchs briefly on the
+advanced features of the New I/O API.
+
+#+BEGIN_EXAMPLE
+  - io/QandE/CountLetter.java
+  - io/QandE/FindInt.java
+  - io/examples/Adler32.java
+  - io/examples/CardWriter.java
+  - io/examples/CheckedDataOutput.java
+  - io/examples/CheckedOutputStream.java
+  - io/examples/Chmod.java
+  - io/examples/CopyLines.java
+  - io/examples/FileType.java
+  - io/examples/PrintfStuff.java
+  - io/examples/Root2.java
+  - io/examples/Standard.java
+  - io/examples/CardReader.java
+  - io/examples/CheckedDataInput.java
+  - io/examples/CheckedInputStream.java
+  - io/examples/Checksum.java
+  - io/examples/CopyCharacters.java
+  - io/examples/Email.java
+  - io/examples/ListOfFiles.java
+  - io/examples/PrintStuff.java
+  - io/examples/Root.java
+  - io/examples/SortThread.java
+  - io/examples/BufferedCopy.java
+  - io/examples/CheckedDIDemo.java
+  - io/examples/CheckedIODemo.java
+  - io/examples/CheckedRAFDemo.java
+  - io/examples/Copy.java
+  - io/examples/DataStreams.java
+  - io/examples/Find.java
+  - io/examples/ObjectStreams.java
+  - io/examples/ReverseThread.java
+  - io/examples/ScanSum.java
+  - io/examples/WatchDir.java
+  - io/examples/Card3.java
+  - io/examples/CheckedDITest.java
+  - io/examples/CheckedIOTest.java
+  - io/examples/CheckedRAFTest.java
+  - io/examples/CopyBytes.java
+  - io/examples/DiskUsage.java
+  - io/examples/Format.java
+  - io/examples/Password.java
+  - io/examples/RhymingWords.java
+  - io/examples/ScanXan.java
+  - io/examples/Xdd.java
+#+END_EXAMPLE
+
+** Concurrency =concurrency=
+
+explains how to write applications that perform multiple tasks
+simultaneously. The Java platform is designed from the ground up to
+support concurrent programming, with basic concurrency support in the
+Java programming language and the Java class libraries. Since version
+5.0, the Java platform has also included high-level concurrency
+APIs. This lesson introduces the platform's basic concurrency support
+and summarizes some of the high-level APIs in the java.util.concurrent
+packages.
+
+#+BEGIN_EXAMPLE
+  - concurrency/QandE/Consumer.java
+  - concurrency/QandE/Producer.java
+  - concurrency/QandE/BadThreads.java
+  - concurrency/QandE/ProducerConsumerExample.java
+  - concurrency/examples/Deadlock.java
+  - concurrency/examples/HelloThread.java
+  - concurrency/examples/ProducerConsumerExample.java
+  - concurrency/examples/SynchronizedCounter.java
+  - concurrency/examples/Counter.java
+  - concurrency/examples/HelloRunnable.java
+  - concurrency/examples/Producer.java
+  - concurrency/examples/SleepMessages.java
+  - concurrency/examples/AtomicCounter.java
+  - concurrency/examples/Drop.java
+  - concurrency/examples/ImmutableRGB.java
+  - concurrency/examples/Safelock.java
+  - concurrency/examples/SynchronizedRGB.java
+  - concurrency/examples/Consumer.java
+  - concurrency/examples/ForkBlur.java
+  - concurrency/examples/SimpleThreads.java
+#+END_EXAMPLE
+
+** The Platform Environment =environment=
+
+is defined by the underlying operating system, the Java virtual
+machine, the class libraries, and various configuration data supplied
+when the application is launched. This lesson describes some of the
+APIs an application uses to examine and configure its platform
+environment.
+
+#+BEGIN_EXAMPLE
+  - environment/QandE/PersistentEcho.java
+  - environment/examples/Echo.java
+  - environment/examples/PassEnv.java
+  - environment/examples/Env.java
+  - environment/examples/PropertiesTest.java
+  - environment/examples/EnvMap.java
+#+END_EXAMPLE
+
+** Regular Expressions =regex=
+
+are a way to describe a set of strings based on common characteristics
+shared by each string in the set. They can be used to search, edit, or
+manipulate text and data. Regular expressions vary in complexity, but
+once you understand the basics of how they're constructed, you'll be
+able to decipher (or create) any regular expression. This lesson
+teaches the regular expression syntax supported by the java.util.regex
+API, and presents several working examples to illustrate how the
+various objects interact.
+
+#+BEGIN_EXAMPLE
+  - regex/examples/RegexDemo.java
+  - regex/examples/ReplaceDemo2.java
+  - regex/examples/MatchesLooking.java
+  - regex/examples/ReplaceDemo.java
+  - regex/examples/RegexTestHarness.java
+  - regex/examples/SplitDemo.java
+  - regex/examples/MatcherDemo.java
+  - regex/examples/RegexTestHarness2.java
+  - regex/examples/SplitDemo2.java
+#+END_EXAMPLE
+
+* Collections =collections= 21
+
+Lessons on using and extending the Java Collections Framework.
+
+Introduction tells you what collections are, and how they'll make your
+job easier and your programs better. You'll learn about the core
+elements that comprise the Collections Framework: interfaces,
+implementations and algorithms.
+
+** Interfaces =interfaces=
+
+Interfaces describes the core collection interfaces, which are the
+heart and soul of the Java Collections Framework. You'll learn general
+guidelines for effective use of these interfaces, including when to
+use which interface. You'll also learn idioms for each interface that
+will help you get the most out of the interfaces.
+
+#+BEGIN_EXAMPLE
+  - interfaces/QandE/ListTrim.java
+  - interfaces/QandE/Ran.java
+  - interfaces/QandE/FindDups.java
+  - interfaces/examples/Deal.java
+  - interfaces/examples/Shuffle.java
+  - interfaces/examples/ArrayDequeSample.java
+  - interfaces/examples/Freq.java
+  - interfaces/examples/OysterMonths.java
+  - interfaces/examples/FindDups.java
+  - interfaces/examples/Name.java
+  - interfaces/examples/Anagrams.java
+  - interfaces/examples/FindDups2.java
+  - interfaces/examples/NameSort.java
+#+END_EXAMPLE
+
+** Aggregate Operations =streams=
+
+iterate over collections on your behalf, which enable you to write
+more concise and efficient code that process elements stored in
+collections.
+
+#+BEGIN_EXAMPLE
+  - streams/examples/Averager.java
+  - streams/examples/Person.java
+  - streams/examples/ParallelismExamples.java
+  - streams/examples/BulkDataOperationsExamples.java
+  - streams/examples/ReductionExamples.java
+#+END_EXAMPLE
+
+
+- algorithms
+- custom-implementations
+- implementations
+  - FileList.java
+- interfaces
+  - Anagrams.java
+  - ArrayDequeSample.java
+  - Deal.java
+  - dictionary.txt
+  - FindDups2.java
+  - FindDups.java
+  - Freq.java
+  - Name.java
+  - NameSort.java
+  - OysterMonths.java
+  - Shuffle.java
+  - FindDups.java
+  - ListTrim.java
+  - Ran.java
+- interoperability
+- intro
+- streams
+  - Averager.java
+  - BulkDataOperationsExamples.java
+  - ParallelismExamples.java
+  - Person.java
+  - ReductionExamples.java
+
+** Implementations =implementations=
+
+describes the JDK's general-purpose collection implementations and
+tells you when to use which implementation. You'll also learn about
+the wrapper implementations, which add functionality to
+general-purpose implementations.
+
+#+BEGIN_EXAMPLE
+  - implementations/QandE/FileList.java
+#+END_EXAMPLE
+
+** Algorithms =algorithms=
+
+Algorithms describes the polymorphic algorithms provided by the JDK to
+operate on collections. With any luck you'll never have to write your
+own sort routine again!
+
+#+BEGIN_EXAMPLE
+  - algorithms/examples/Anagrams2.java
+  - algorithms/examples/Sort.java
+#+END_EXAMPLE
+
+*** =Sort=
+
+#+BEGIN_EXAMPLE
+$ javac -Xlint Sort.java 
+$ java Sort i walk the line
+  [i, line, the, walk]
+#+END_EXAMPLE
+
+**** =Sort.java=
+
+#+BEGIN_SRC java -n :angle Sort.java :padline no
+  import java.util.Arrays;
+  import java.util.Collections;
+  import java.util.List;
+
+  public class Sort {
+    public static void main(String[] args) {
+      List<String> list = Arrays.asList(args);
+      Collections.sort(list);
+      System.out.println(list);
+    }
+  }
+#+END_SRC
+
+*** =Anagrams2.java=
+
+#+BEGIN_EXAMPLE
+  $ javac -Xlint Anagrams2.java 
+  $ java Anagrams2 dictionary.txt 8
+#+END_EXAMPLE
+
+#+BEGIN_SRC java -n :tangle Anagrams2.java :padline no
+  import java.io.File;
+  import java.io.IOException;
+  import java.io.PrintStream;
+  import java.util.ArrayList;
+  import java.util.Arrays;
+  import java.util.Collection;
+  import java.util.Collections;
+  import java.util.Comparator;
+  import java.util.HashMap;
+  import java.util.Iterator;
+  import java.util.List;
+  import java.util.Map;
+  import java.util.Scanner;
+
+  public class Anagrams2 {
+  
+    public static void main(String[] args) {
+      int minGroupSize = Integer.parseInt(args[1]);
+
+      // Read words from file and put into simulated multimap
+      Map<String, List<String>> m
+          = new HashMap<String, List<String>>();
+      try {
+        Scanner s = new Scanner(new File(args[0]));
+        while (s.hasNext()) {
+          String word = s.next();
+          String alpha = alphabetize(word);
+          List<String> l = m.get(alpha);
+          if (l == null) {
+            m.put(alpha, l = new ArrayList<String>());
+          }
+          l.add(word);
+        }
+      } catch (IOException e) {
+        System.err.println(e);
+        System.exit(1);
+      }
+
+      // Make a List of all permutation groups above size threshold
+      List<List<String>> winners = new ArrayList<List<String>>();
+      for (List<String> l : m.values()) {
+        if (l.size() >= minGroupSize) {
+          winners.add(l);
+        }
+      }
+
+      // Sort permutation groups according to size
+      Collections.sort(winners, new Comparator<List<String>>() {
+          public int compare(List<String> o1, List<String> o2) {
+            return o2.size() - o1.size();
+          }
+        });
+
+      // Print permutation groups
+      for (List<String> l : winners) {
+        System.out.println(l.size() + ": " + l);
+      }
+    }
+
+    private static String alphabetize(String s) {
+      char[] a = s.toCharArray();
+      Arrays.sort(a);
+      return new String(a);
+    }
+  }
+#+END_SRC
+
+* Date-Time APIs =datetime= 14
+
+How to use the java.time pages to write date and time code.
+
+#+BEGIN_EXAMPLE
+  1) iso/QandE/ListMondays.java
+  2) iso/QandE/MonthsInYear.java
+  3) iso/QandE/FridayThirteenQuery.java
+  4) iso/QandE/Superstitious.java
+  5) iso/examples/FamilyBirthdays.java
+  6) iso/examples/NextPayday.java
+  7) iso/examples/TimeZoneId.java
+  8) iso/examples/CheckDate.java
+  9) iso/examples/StringConverter.java
+  10) iso/examples/FamilyVacations.java
+  11) iso/examples/Parse.java
+  12) iso/examples/Birthday.java
+  13) iso/examples/Flight.java
+  14) iso/examples/PaydayAdjuster.java
+#+END_EXAMPLE
+
+** date
+
+- Birthday
+- CheckDate
+- Flight
+- parse
+- pay
+- StringConverter
+- TimeZoneId
+
+* Deployment =deployment= 44
+
+How to package applications and applets using JAR files, and deploy
+them using Java Web Start and Java Plug-in.
+
+#+BEGIN_EXAMPLE
+  1) applet/examples/QuoteServerThread.java
+  2) applet/examples/applet_AppletWithParameters/src/AppletTakesParams.java
+  3) applet/examples/applet_ComponentArch_DynamicTreeDemo/src/appletComponentArch/DynamicTree.java
+  4) applet/examples/applet_ComponentArch_DynamicTreeDemo/src/appletComponentArch/DynamicTreeApplet.java
+  5) applet/examples/applet_ComponentArch_DynamicTreeDemo/src/appletComponentArch/DynamicTreePanel.java
+  6) applet/examples/applet_Draggable/src/MenuItemChooser.java
+  7) applet/examples/applet_Draggable/src/MenuItem.java
+  8) applet/examples/applet_Draggable/src/MenuChooserApplet.java
+  9) applet/examples/applet_GetApplets/src/GetApplets.java
+  10) applet/examples/applet_HelloWorld/src/HelloWorld.java
+  11) applet/examples/applet_InvokingAppletMethodsFromJavaScript/src/jstojava/MathApplet.java
+  12) applet/examples/applet_InvokingAppletMethodsFromJavaScript/src/jstojava/DateHelper.java
+  13) applet/examples/applet_InvokingAppletMethodsFromJavaScript/src/jstojava/Calculator.java
+  14) applet/examples/applet_InvokingJavaScriptFromApplet/src/javatojs/DataSummaryApplet.java
+  15) applet/examples/applet_InvokingJavaScriptFromApplet/src/javatojs/DomUtil.java
+  16) applet/examples/applet_SenderReceiver/src/Receiver.java
+  17) applet/examples/applet_SenderReceiver/src/Sender.java
+  18) applet/examples/applet_ShowDocument/src/ShowDocument.java
+  19) applet/examples/applet_Simple/src/Simple.java
+  20) applet/examples/applet_StatusAndCallback/src/DrawingApplet.java
+  21) applet/examples/applet_TraversingDOM/src/DOMDump.java
+  22) applet/examples/QuoteServer.java
+  23) applet/examples/QuoteClientApplet.java
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  1. doingMoreWithRIA/examples/applet_AccessingCookies/src/CookieAccessor.java
+  2. doingMoreWithRIA/examples/applet_AccessingCookies/src/CookieApplet.java
+  3. doingMoreWithRIA/examples/applet_JNLP_API/src/TextEditor.java
+  4. doingMoreWithRIA/examples/applet_JNLP_API/src/FileHandler.java
+  5. doingMoreWithRIA/examples/applet_JNLP_API/src/TextEditorApplet.java
+  6. doingMoreWithRIA/examples/applet_PropertiesAndVMArgs/src/PropertiesArgsDemoApplet.java
+  7. jar/examples/JarRunner.java
+  8. jar/examples/JarClassLoader.java
+  9. selfContainedApps/examples/packager_DynamicTreeDemo/src/webstartComponentArch/DynamicTreePanel.java
+  10. selfContainedApps/examples/packager_DynamicTreeDemo/src/webstartComponentArch/DynamicTree.java
+  11. selfContainedApps/examples/packager_DynamicTreeDemo/src/webstartComponentArch/DynamicTreeApplication.java
+  12. selfContainedApps/examples/packager_FileAssociations/src/sample/fa/ScriptRunnerApplicationMac.java
+  13. selfContainedApps/examples/packager_FileAssociations/src/sample/fa/ScriptRunnerApplication.java
+  14. selfContainedApps/examples/packager_MultipleLaunchers/src/webstartComponentArch/DynamicTree.java
+  15. selfContainedApps/examples/packager_MultipleLaunchers/src/webstartComponentArch/DynamicTreeApplication.java
+  16. selfContainedApps/examples/packager_MultipleLaunchers/src/webstartComponentArch/DynamicTreePanel.java
+  17. selfContainedApps/examples/packager_MultipleLaunchers/src/sample/fa/ScriptRunnerApplicationMac.java
+  18. selfContainedApps/examples/packager_MultipleLaunchers/src/sample/fa/ScriptRunnerApplication.java
+  19. webstart/examples/webstart_ComponentArch_DynamicTreeDemo/src/webstartComponentArch/DynamicTree.java
+  20. webstart/examples/webstart_ComponentArch_DynamicTreeDemo/src/webstartComponentArch/DynamicTreeApplication.java
+  21. webstart/examples/webstart_ComponentArch_DynamicTreeDemo/src/webstartComponentArch/DynamicTreePanel.java
+#+END_EXAMPLE
+  
+* Preparation for Java Programming Language Certification =extra/certification= 0
+
+List of available training and tutorial resources.
+
+
+
+
+
+

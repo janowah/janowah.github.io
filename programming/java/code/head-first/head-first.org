@@ -1,4 +1,24 @@
-#+title: Head First
+#+title: Head First Java
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+1. Breaking the Surface: /a quick dip/
+2. A Trip to Objectville: /yes, there will be objects/
+3. Know Your Variables: /primitives and references/
+4. How Objects Behave: /object state affects method behavior/
+5. Extra-Strength Methods: /flow control, operations, and more/
+6. Using the Java Library: /so you don’t have to write it all yourself/
+7. Better Living in Objectville: /planning for the future/
+8. Serious Polymorphism: /exploiting abstract classes and interfaces/
+9. Life and Death of an Object: /constructors and memory management/
+10. Numbers Matter: /math, formatting, wrappers, and statics/
+11. Risky Behavior: /exception handling/
+12. A Very Graphic Story: /intro to GUI, event handling, and inner classes/
+13. Work on Your Swing: /layout managers and components/
+14. Saving Objects: /serialization and I/O/
+15. Make a Connection: /networking sockets and multithreading/
+16. Data Structures: /collections and generics/
+17. Release Your Code: /packaging and deployment/
+18. Distributed Computing: /RMI with a dash of servlets, EJB, and Jini/
+19. Appendix A: /Final code kitchen/
 
 [[../code.html][back]]

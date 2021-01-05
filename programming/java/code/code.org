@@ -5,9 +5,11 @@
   - [[file:oop/oop.html][oop]]
   - [[file:beginning/beginning.html][beginning]]
   - [[file:head-first/head-first.html][head-first]]
+  - [[file:think-java/think-java.html][think-java]]
   - tutorial
-    - basic
-    - specialized
+    - [[file:tutorial/basic/java-8-basic-tutorial.html][basic]]
+    - [[file:tutorial/specialized/java-8-specialized-tutorial.html][specialized]]
+  - [[file:practical/practical.org][practical]]
 - jkee
   - [[file:ssd/ssd.html][ssd]]
   - [[file:jkee-tutorial/jkee-tutorial.html][tutorial]]

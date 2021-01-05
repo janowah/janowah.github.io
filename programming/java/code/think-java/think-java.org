@@ -1,0 +1,2828 @@
+#+title: Think Java
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+# book: Java SE Development Kit 8
+
+* 01 The way of the program
+
+** =Hello.java=
+
+#+BEGIN_SRC java -n :bangle Hello.java :padline no
+  public class Hello {
+
+    public static void main(String[] args) {
+      // generate some simple output
+      System.out.println("Hello, World!");
+    }
+  }
+#+END_SRC
+
+** =Goodbye.java=
+
+#+BEGIN_EXAMPLE
+  $ javac Goodbye.java 
+  $ java Goodbye
+
+  Goodbye, cruel world
+#+END_EXAMPLE
+
+#+BEGIN_SRC java -n :bangle Goodbye.java :padline no
+  /** Example program that demonstrates print vs println. */
+  public class Goodbye {
+
+    /** Prints a greeting. */
+    public static void main(String[] args) {
+      System.out.print("Goodbye, "); // note the space
+      System.out.println("cruel world");
+    }
+  }
+#+END_SRC
+
+* 02 Variables and operators
+
+** =ch02/Variables.java=
+
+#+BEGIN_SRC java -n :bangle Variables.java :padline no
+  /** Examples from Chapter 2. */
+  public class Variables {
+
+    public static void main(String[] args) {
+
+      String message;
+      int x;
+
+      String firstName;
+      String lastName;
+      int hour, minute;
+
+      message = "Hello!"; // give message the value "Hello!"
+      hour = 11; // assign the value 11 to hour
+      minute = 59; // set minute to 59
+
+      message = "123"; // legal
+      // message = 123;    // not legal
+
+      String message2 = "Hello!";
+      int hour2 = 11;
+      int minute2 = 59;
+
+      int a = 5;
+      int b = a; // a and b are now equal
+      a = 3; // a and b are no longer equal
+
+      String firstLine = "Hello, again!";
+      System.out.println(firstLine);
+
+      System.out.print("The value of firstLine is ");
+      System.out.println(firstLine);
+
+      System.out.print("The current time is ");
+      System.out.print(hour);
+      System.out.print(":");
+      System.out.print(minute);
+      System.out.println(".");
+
+      System.out.print("Number of minutes since midnight: ");
+      System.out.println(hour * 60 + minute);
+
+      System.out.print("Fraction of the hour that has passed: ");
+      System.out.println(minute / 60);
+
+      System.out.print("Percent of the hour that has passed: ");
+      System.out.println(minute * 100 / 60);
+
+      double pi;
+      pi = 3.14159;
+
+      double minute3 = 59.0;
+      System.out.print("Fraction of the hour that has passed: ");
+      System.out.println(minute3 / 60.0);
+
+      double y = 1.0 / 3.0; // correct
+
+      System.out.println(0.1 * 10);
+      System.out.println(0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1);
+
+      double balance = 123.45; // potential rounding error
+      int balance2 = 12345; // total number of cents
+
+      System.out.println(1 + 2 + "Hello");
+      // the output is 3Hello
+
+      System.out.println("Hello" + 1 + 2);
+      // the output is Hello12
+
+      System.out.println(17 * 3);
+      System.out.println(hour * 60 + minute);
+
+      int percentage;
+      percentage = (minute * 100) / 60;
+
+      hour = minute + 1; // correct
+      // minute + 1 = hour;  // compiler error
+    }
+  }
+#+END_SRC
+
+* 03 Input and output
+
+** =ch03/Input.java=
+
+#+BEGIN_SRC java -n :bangle Input.java :padline no
+  /** Examples from Chapter 3. */
+  public class Input {
+
+    public static void main(String[] args) {
+      System.out.println(System.out);
+
+      System.out.print(4.0 / 3.0);
+      System.out.printf("Four thirds = %.3f", 4.0 / 3.0);
+
+      double pi = 3.14159;
+      double x = (int) pi * 20.0;
+    }
+  }
+#+END_SRC
+
+** =ch03/ScannerBug.java=
+
+#+BEGIN_SRC java -n :bangle ScannerBug.java :padline no
+  import java.util.Scanner;
+
+  /** Demonstrates a common problem using Scanner. */
+  public class ScannerBug {
+
+    public static void main(String[] args) {
+      String name;
+      int age;
+      Scanner in = new Scanner(System.in);
+
+      System.out.print("What is your name? ");
+      name = in.nextLine();
+      System.out.print("What is your age? ");
+      age = in.nextInt();
+      System.out.printf("Hello %s, age %d\n", name, age);
+
+      System.out.print("What is your age? ");
+      age = in.nextInt();
+      System.out.print("What is your name? ");
+      name = in.nextLine();
+      System.out.printf("Hello %s, age %d\n", name, age);
+    }
+  }
+#+END_SRC
+
+** =ch03/Echo.java=
+
+#+BEGIN_SRC java -n :bangle Echo.java :padline no
+  import java.util.Scanner;
+
+  public class Echo {
+
+    public static void main(String[] args) {
+      String line;
+      Scanner in = new Scanner(System.in);
+
+      System.out.print("Type something: ");
+      line = in.nextLine();
+      System.out.println("You said: " + line);
+
+      System.out.print("Type something else: ");
+      line = in.nextLine();
+      System.out.println("You also said: " + line);
+    }
+  }
+#+END_SRC
+
+** =ch03/Convert.java=
+
+#+BEGIN_SRC java -n :bangle Convert.java :padline no
+  import java.util.Scanner;
+
+  /** Converts centimeters to feet and inches. */
+  public class Convert {
+
+    public static void main(String[] args) {
+      double cm;
+      int feet, inches, remainder;
+      final double CM_PER_INCH = 2.54;
+      final int IN_PER_FOOT = 12;
+      Scanner in = new Scanner(System.in);
+
+      // prompt the user and get the value
+      System.out.print("Exactly how many cm? ");
+      cm = in.nextDouble();
+
+      // convert and output the result
+      inches = (int) (cm / CM_PER_INCH);
+      feet = inches / IN_PER_FOOT;
+      remainder = inches % IN_PER_FOOT;
+      System.out.printf("%.2f cm = %d ft, %d in\n", cm, feet, remainder);
+    }
+  }
+#+END_SRC
+
+** =ch03/GuessStarter.java=
+
+#+BEGIN_SRC java -n :bangle GuessStarter.java :padline no
+  import java.util.Random;
+
+  /** Starter code for the "Guess My Number" exercise. */
+  public class GuessStarter {
+
+    public static void main(String[] args) {
+      // pick a random number
+      Random random = new Random();
+      int number = random.nextInt(100) + 1;
+      System.out.println(number);
+    }
+  }
+#+END_SRC
+
+* 04 Void methods
+
+** =ch04/Methods.java=
+
+#+BEGIN_SRC java -n :bangle Methods.java :padline no
+  /** Examples from Chapter 4. */
+  public class Methods {
+
+    public static void main(String[] args) {
+      double root = Math.sqrt(17.0);
+      double angle = 1.5;
+      double height = Math.sin(angle);
+
+      double degrees = 90;
+      double angle2 = degrees / 180.0 * Math.PI;
+      double radians = Math.toRadians(180.0);
+      double degrees2 = Math.toDegrees(Math.PI);
+      long x = Math.round(Math.PI * 20.0);
+
+      double x2 = Math.cos(angle + Math.PI / 2.0);
+      double x3 = Math.exp(Math.log(10.0));
+      double x4 = Math.pow(2.0, 10.0);
+    }
+  }
+#+END_SRC
+
+** =ch04/NewLine.java=
+
+#+BEGIN_SRC java -n :bangle NewLine.java :padline no
+  public class NewLine {
+
+    public static void newLine() {
+      System.out.println();
+    }
+
+    public static void threeLine() {
+      newLine();
+      newLine();
+      newLine();
+    }
+
+    public static void main(String[] args) {
+      System.out.println("First line.");
+      threeLine();
+      System.out.println("Second line.");
+    }
+  }
+#+END_SRC
+
+** =ch04/PrintTwice.java=
+
+#+BEGIN_SRC java -n :bangle PrintTwice.java :padline no
+  public class PrintTwice {
+
+    public static void printTwice(String s) {
+      System.out.println(s);
+      System.out.println(s);
+    }
+
+    public static void main(String[] args) {
+      printTwice("Don't make me say this twice!");
+    }
+  }
+#+END_SRC
+
+** =ch04/PrintTime.java=
+
+#+BEGIN_SRC java -n :bangle PrintTime.java :padline no
+  public class PrintTime {
+
+    public static void printTime(int hour, int minute) {
+      System.out.print(hour);
+      System.out.print(":");
+      System.out.println(minute);
+    }
+
+    public static void main(String[] args) {
+      int hour = 11;
+      int minute = 59;
+      printTime(hour, minute);
+    }
+  }
+#+END_SRC
+
+** =ch04/Exercise.java=
+
+#+BEGIN_SRC java -n :bangle Exercise.java :padline no
+  public class Exercise {
+
+    public static void zoop() {
+      baffle();
+      System.out.print("You wugga ");
+      baffle();
+    }
+
+    public static void main(String[] args) {
+      System.out.print("No, I ");
+      zoop();
+      System.out.print("I ");
+      baffle();
+    }
+
+    public static void baffle() {
+      System.out.print("wug");
+      ping();
+    }
+
+    public static void ping() {
+      System.out.println(".");
+    }
+  }
+#+END_SRC
+
+* 05 Conditionals and logic
+
+** =ch05/Conditional.java=
+
+#+BEGIN_SRC java -n :bangle Conditional.java :padline no
+  /** Examples from Chapter 5. */
+  public class Conditional {
+
+    public static void main(String[] args) {
+      String fruit1 = "Apple";
+      String fruit2 = "Orange";
+      System.out.println(fruit1.equals(fruit2));
+
+      int x = 17;
+      int n = 18;
+
+      if (x > 0) {
+        System.out.println("x is positive");
+      }
+
+      if (x % 2 == 0) {
+        System.out.println("x is even");
+      } else {
+        System.out.println("x is odd");
+      }
+
+      if (x > 0) {
+        System.out.println("x is positive");
+      } else if (x < 0) {
+        System.out.println("x is negative");
+      } else {
+        System.out.println("x is zero");
+      }
+
+      if (x == 0) {
+        System.out.println("x is zero");
+      } else {
+        if (x > 0) {
+          System.out.println("x is positive");
+        } else {
+          System.out.println("x is negative");
+        }
+      }
+
+      boolean evenFlag = (n % 2 == 0); // true if n is even
+      boolean positiveFlag = (x > 0); // true if x is positive
+
+      if (evenFlag) {
+        System.out.println("n was even when I checked it");
+      }
+
+      if (!evenFlag) {
+        System.out.println("n was odd when I checked it");
+      }
+    }
+  }
+#+END_SRC
+
+** =ch05/Logarithm.java=
+
+#+BEGIN_SRC java -n :bangle Logarithm.java :padline no
+  import java.util.Scanner;
+
+  public class Logarithm {
+
+    public static void main(String[] args) {
+      System.out.println("printLogarithm");
+      printLogarithm(3.0);
+
+      Scanner in = new Scanner(System.in);
+
+      System.out.println("scandouble");
+      scanDouble(in);
+
+      System.out.println("scandouble2");
+      scanDouble2(in);
+    }
+
+    public static void printLogarithm(double x) {
+      if (x <= 0.0) {
+        System.err.println("Error: x must be positive.");
+        return;
+      }
+      double result = Math.log(x);
+      System.out.println("The log of x is " + result);
+    }
+
+    public static void scanDouble(Scanner in) {
+      System.out.print("Enter a number: ");
+      double x = in.nextDouble();
+      printLogarithm(x);
+    }
+
+    public static void scanDouble2(Scanner in) {
+      System.out.print("Enter a number: ");
+      if (!in.hasNextDouble()) {
+        String word = in.next();
+        System.err.println(word + " is not a number");
+        return;
+      }
+      double x = in.nextDouble();
+      printLogarithm(x);
+    }
+  }
+#+END_SRC
+
+** =ch05/Recursion.java=
+
+#+BEGIN_SRC java -n :bangle Recursion.java :padline no
+  public class Recursion {
+
+    public static void main(String[] args) {
+      System.out.println("countdown");
+      countdown(3);
+
+      System.out.println("countup");
+      countup(3);
+
+      System.out.println("newLine");
+      newLine();
+
+      System.out.println("nLines");
+      nLines(3);
+
+      System.out.println("threeLine");
+      threeLine();
+
+      System.out.println("displayBinary");
+      displayBinary(23);
+      System.out.println();
+    }
+
+    public static void countdown(int n) {
+      if (n == 0) {
+        System.out.println("Blastoff!");
+      } else {
+        System.out.println(n);
+        countdown(n - 1);
+      }
+    }
+
+    public static void newLine() {
+      System.out.println();
+    }
+
+    public static void threeLine() {
+      newLine();
+      newLine();
+      newLine();
+    }
+
+    public static void nLines(int n) {
+      if (n > 0) {
+        System.out.println();
+        nLines(n - 1);
+      }
+    }
+
+    public static void forever(String s) {
+      System.out.println(s);
+      forever(s);
+    }
+
+    public static void countup(int n) {
+      if (n == 0) {
+        System.out.println("Blastoff!");
+      } else {
+        countup(n - 1);
+        System.out.println(n);
+      }
+    }
+
+    public static void displayBinary(int value) {
+      if (value > 0) {
+        displayBinary(value / 2);
+        System.out.print(value % 2);
+      }
+    }
+  }
+#+END_SRC
+
+** =ch05/Buzz.java=
+
+#+BEGIN_SRC java -n :bangle Buzz.java :padline no
+  public class Buzz {
+
+    public static void baffle(String blimp) {
+      System.out.println(blimp);
+      zippo("ping", -5);
+    }
+
+    public static void zippo(String quince, int flag) {
+      if (flag < 0) {
+        System.out.println(quince + " zoop");
+      } else {
+        System.out.println("ik");
+        baffle(quince);
+        System.out.println("boo-wa-ha-ha");
+      }
+    }
+
+    public static void main(String[] args) {
+      zippo("rattle", 13);
+    }
+  }
+#+END_SRC
+
+** =ch05/Exercise.java=
+
+#+BEGIN_SRC java -n :bangle Exercise.java :padline no
+  public class Exercise {
+
+    public static void zoop(String fred, int bob) {
+      System.out.println(fred);
+      if (bob == 5) {
+        ping("not ");
+      } else {
+        System.out.println("!");
+      }
+    }
+
+    public static void main(String[] args) {
+      int bizz = 5;
+      int buzz = 2;
+      zoop("just for", bizz);
+      clink(2 * buzz);
+    }
+
+    public static void clink(int fork) {
+      System.out.print("It's ");
+      zoop("breakfast ", fork);
+    }
+
+    public static void ping(String strangStrung) {
+      System.out.println("any " + strangStrung + "more ");
+    }
+  }
+#+END_SRC
+
+* 06 Value methods
+
+** =ch06/Series.java=
+
+#+BEGIN_SRC java -n :bangle Series.java :padline no
+  /** Examples from Chapter 6. */
+  public class Series {
+
+    public static void countup(int n) {
+      if (n == 0) {
+        System.out.println("Blastoff!");
+      } else {
+        countup(n - 1);
+        System.out.println(n);
+      }
+    }
+
+    public static double calculateArea(double radius) {
+      double result = Math.PI * radius * radius;
+      return result;
+    }
+
+    public static double calculateArea2(double radius) {
+      return Math.PI * radius * radius;
+    }
+
+    public static double absoluteValue(double x) {
+      if (x < 0) {
+        return -x;
+      } else {
+        return x;
+      }
+    }
+
+    public static double distance(double x1, double y1, double x2, double y2) {
+      double dx = x2 - x1;
+      double dy = y2 - y1;
+      System.out.println("dx is " + dx);
+      System.out.println("dy is " + dy);
+      return 0.0;
+    }
+
+    public static double distance2(double x1, double y1, double x2, double y2) {
+      double dx = x2 - x1;
+      double dy = y2 - y1;
+      double dsquared = dx * dx + dy * dy;
+      System.out.println("dsquared is " + dsquared);
+      return 0.0;
+    }
+
+    public static double distance3(double x1, double y1, double x2, double y2) {
+      double dx = x2 - x1;
+      double dy = y2 - y1;
+      double dsquared = dx * dx + dy * dy;
+      double result = Math.sqrt(dsquared);
+      return result;
+    }
+
+    public static double circleArea(double xc, double yc, double xp, double yp) {
+      double radius = distance(xc, yc, xp, yp);
+      double area = calculateArea(radius);
+      return area;
+    }
+
+    public static double calculateArea(double xc, double yc, double xp, double yp) {
+      return calculateArea(distance(xc, yc, xp, yp));
+    }
+
+    /**
+     ,* Tests whether x is a single digit integer.
+     ,*
+     ,* @param x the integer to test
+     ,* @return true if x has one digit, false otherwise
+     ,*/
+    public static boolean isSingleDigit(int x) {
+      if (x > -10 && x < 10) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public static boolean isSingleDigit2(int x) {
+      return x > -10 && x < 10;
+    }
+
+    public static int factorial(int n) {
+      if (n == 0) {
+        return 1;
+      }
+      int recurse = factorial(n - 1);
+      int result = n * recurse;
+      return result;
+    }
+
+    public static int fibonacci(int n) {
+      if (n == 1 || n == 2) {
+        return 1;
+      }
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+      countup(3);
+      System.out.println("Have a nice day.");
+
+      System.out.println("calculateArea");
+      System.out.println(calculateArea(3.0));
+
+      System.out.println("calculateArea2");
+      System.out.println(calculateArea2(3.0));
+
+      System.out.println("circleArea");
+      System.out.println(circleArea(1.0, 2.0, 4.0, 6.0));
+
+      System.out.println("calculateArea with 4 doubles");
+      System.out.println(calculateArea(1.0, 2.0, 4.0, 6.0));
+
+      System.out.println("absolute value");
+      System.out.println(absoluteValue(-2));
+
+      System.out.println("distance");
+      System.out.println(distance(1.0, 2.0, 4.0, 6.0));
+
+      System.out.println("distance2");
+      System.out.println(distance2(1.0, 2.0, 4.0, 6.0));
+
+      System.out.println("distance3");
+      System.out.println(distance3(1.0, 2.0, 4.0, 6.0));
+
+      System.out.println(isSingleDigit(2));
+      boolean bigFlag = !isSingleDigit2(17);
+
+      int z = 9;
+      if (isSingleDigit(z)) {
+        System.out.println("z is small");
+      } else {
+        System.out.println("z is big");
+      }
+
+      System.out.println("factorial");
+      System.out.println(factorial(3));
+
+      System.out.println("fibonacci");
+      System.out.println(fibonacci(3));
+    }
+  }
+#+END_SRC
+
+** =ch06/Recursive.java=
+
+#+BEGIN_SRC java -n :bangle Recursive.java :padline no
+  public class Recursive {
+
+    public static void main(String[] args) {
+      System.out.println(prod(1, 4));
+    }
+
+    public static int prod(int m, int n) {
+      if (m == n) {
+        return n;
+      } else {
+        int recurse = prod(m, n - 1);
+        int result = n * recurse;
+        return result;
+      }
+    }
+  }
+#+END_SRC
+
+** =ch06/Exercise.java=
+
+#+BEGIN_SRC java -n :bangle Exercise.java :padline no
+  public class Exercise {
+
+    public static void main(String[] args) {
+      boolean flag1 = isHoopy(202);
+      boolean flag2 = isFrabjuous(202);
+      System.out.println(flag1);
+      System.out.println(flag2);
+      if (flag1 && flag2) {
+        System.out.println("ping!");
+      }
+      if (flag1 || flag2) {
+        System.out.println("pong!");
+      }
+    }
+
+    public static boolean isHoopy(int x) {
+      boolean hoopyFlag;
+      if (x % 2 == 0) {
+        hoopyFlag = true;
+      } else {
+        hoopyFlag = false;
+      }
+      return hoopyFlag;
+    }
+
+    public static boolean isFrabjuous(int x) {
+      boolean frabjuousFlag;
+      if (x > 0) {
+        frabjuousFlag = true;
+      } else {
+        frabjuousFlag = false;
+      }
+      return frabjuousFlag;
+    }
+  }
+#+END_SRC
+
+* 07 Loops
+
+** =ch07/Loops.java=
+
+#+BEGIN_SRC java -n :bangle Loops.java :padline no
+  /** Examples from Chapter 7. */
+  public class Loops {
+
+    public static void countdown(int n) {
+      while (n > 0) {
+        System.out.println(n);
+        n = n - 1;
+      }
+      System.out.println("Blastoff!");
+    }
+
+    public static void sequence(int n) {
+      while (n != 1) {
+        System.out.println(n);
+        if (n % 2 == 0) { // n is even
+          n = n / 2;
+        } else { // n is odd
+          n = n * 3 + 1;
+        }
+      }
+    }
+
+    public static void main(String[] args) {
+      System.out.println("countdown");
+      countdown(3);
+
+      System.out.println("sequence");
+      sequence(10);
+    }
+  }
+#+END_SRC
+
+** =ch07/Tables.java=
+
+#+BEGIN_SRC java -n :bangle Tables.java :padline no
+  /** Generating tables; encapsulation and generalization. */
+  public class Tables {
+
+    public static void example() {
+      int i = 1;
+      while (i < 10) {
+        double x = i;
+        System.out.println(x + "   " + Math.log(x));
+        i = i + 1;
+      }
+    }
+
+    public static void example2() {
+      int i = 1;
+      while (i < 10) {
+        double x = i;
+        System.out.println(x + "   " + Math.log(x) / Math.log(2));
+        i = i + 1;
+      }
+    }
+
+    public static void example3() {
+      final double LOG2 = Math.log(2);
+      int i = 1;
+      while (i < 100) {
+        double x = i;
+        System.out.println(x + "   " + Math.log(x) / LOG2);
+        i = i * 2;
+      }
+    }
+
+    public static void example4() {
+      int i = 1;
+      while (i <= 6) {
+        System.out.printf("%4d", 2 * i);
+        i = i + 1;
+      }
+      System.out.println();
+    }
+
+    public static void printRow() {
+      int i = 1;
+      while (i <= 6) {
+        System.out.printf("%4d", 2 * i);
+        i = i + 1;
+      }
+      System.out.println();
+    }
+
+    public static void printRow2(int n) {
+      int i = 1;
+      while (i <= 6) {
+        System.out.printf("%4d", n * i);
+        i = i + 1;
+      }
+      System.out.println();
+    }
+
+    public static void example5() {
+      int i = 1;
+      while (i <= 6) {
+        printRow2(i);
+        i = i + 1;
+      }
+    }
+
+    public static void printTable() {
+      int i = 1;
+      while (i <= 6) {
+        printRow2(i);
+        i = i + 1;
+      }
+    }
+
+    public static void printTable2(int rows) {
+      int i = 1;
+      while (i <= rows) {
+        printRow2(i);
+        i = i + 1;
+      }
+    }
+
+    public static void printRow3(int n, int cols) {
+      int i = 1;
+      while (i <= cols) {
+        System.out.printf("%4d", n * i);
+        i = i + 1;
+      }
+      System.out.println();
+    }
+
+    public static void printTable3(int rows) {
+      int i = 1;
+      while (i <= rows) {
+        printRow3(i, rows);
+        i = i + 1;
+      }
+    }
+
+    public static void printTable4(int rows) {
+      for (int i = 1; i <= rows; i = i + 1) {
+        printRow3(i, rows);
+      }
+    }
+
+    public static void printRow4(int n, int cols) {
+      int i;
+      for (i = 1; i <= cols; i = i + 1) {
+        System.out.printf("%4d", n * i);
+      }
+      System.out.println(i);
+    }
+
+    public static void main(String[] args) {
+      System.out.println("example");
+      example();
+
+      System.out.println("example2");
+      example2();
+
+      System.out.println("example3");
+      example3();
+
+      System.out.println("example4");
+      example4();
+
+      System.out.println("example5");
+      example5();
+
+      System.out.println("printRow");
+      printRow();
+
+      System.out.println("printRow2");
+      printRow2(6);
+
+      System.out.println("printTable");
+      printTable();
+
+      System.out.println("printTable2");
+      printTable2(6);
+
+      System.out.println("printRow3");
+      printRow3(6, 6);
+
+      System.out.println("printTable3");
+      printTable3(6);
+
+      System.out.println("printRow4");
+      printRow4(6, 6);
+
+      System.out.println("printTable4");
+      printTable4(6);
+    }
+  }
+#+END_SRC
+
+** =ch07/Validate.java=
+
+#+BEGIN_SRC java -n :bangle Validate.java :padline no
+  import java.util.Scanner;
+
+  /** Do-while, break, and continue. */
+  public class Validate {
+
+    public static double scanDouble() {
+      Scanner in = new Scanner(System.in);
+      boolean okay;
+      do {
+        System.out.print("Enter a number: ");
+        if (in.hasNextDouble()) {
+          okay = true;
+        } else {
+          okay = false;
+          String word = in.next();
+          System.err.println(word + " is not a number");
+        }
+      } while (!okay);
+      double x = in.nextDouble();
+      return x;
+    }
+
+    public static double scanDouble2() {
+      Scanner in = new Scanner(System.in);
+      while (true) {
+        System.out.print("Enter a number: ");
+        if (in.hasNextDouble()) {
+          break;
+        }
+        String word = in.next();
+        System.err.println(word + " is not a number");
+      }
+      double x = in.nextDouble();
+      return x;
+    }
+
+    public static double addNumbers() {
+      Scanner in = new Scanner(System.in);
+      int x = -1;
+      int sum = 0;
+      while (x != 0) {
+        x = in.nextInt();
+        if (x <= 0) {
+          continue;
+        }
+        System.out.println("Adding " + x);
+        sum += x;
+      }
+      return sum;
+    }
+  }
+#+END_SRC
+
+** =ch07/Exercise.java=
+
+#+BEGIN_SRC java -n :bangle Exercise.java :padline no
+  public class Exercise {
+
+    public static void main(String[] args) {
+      loop(10);
+    }
+
+    public static void loop(int n) {
+      int i = n;
+      while (i > 1) {
+        System.out.println(i);
+        if (i % 2 == 0) {
+          i = i / 2;
+        } else {
+          i = i + 1;
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* 08 Arrays
+
+** =ch08/ArrayExamples.java=
+
+#+BEGIN_SRC java -n :bangle ArrayExamples.java :padline no
+  import java.util.Arrays;
+
+  /** Demonstrates uses of arrays. */
+  public class ArrayExamples {
+
+    /** Example code from Chapter 8. */
+    public static void main(String[] args) {
+      int size = 10;
+      int[] counts = new int[4];
+      double[] values = new double[size];
+
+      counts[0] = 7;
+      counts[1] = counts[0] * 2;
+      counts[2]++;
+      counts[3] -= 60;
+
+      // traversal with a while loop
+      int j = 0;
+      while (j < 4) {
+        System.out.println(counts[j]);
+        j++;
+      }
+
+      // traversal with a for loop
+      for (int i = 0; i < 4; i++) {
+        System.out.println(counts[i]);
+      }
+
+      int[] array = {1, 2, 3, 4};
+      printArray(array);
+
+      // printing an array as an object
+      System.out.println(array);
+
+      // printing with Arrays class
+      System.out.println(Arrays.toString(array));
+
+      // copying an array
+      double[] a = {1.0, 2.0, 3.0};
+      double[] b = new double[a.length];
+      for (int i = 0; i < a.length; i++) {
+        b[i] = a[i];
+      }
+
+      // copying with Arrays class
+      double[] c = Arrays.copyOf(a, a.length);
+
+      // traversal
+      for (int i = 0; i < a.length; i++) {
+        a[i] = Math.pow(a[i], 2.0);
+      }
+
+      // search
+      int index = search(a, 2.0);
+      System.out.println("index = " + index);
+
+      // reduce
+      double total = sum(a);
+      System.out.println("total = " + total);
+    }
+
+    /** Prints the elements of an array. */
+    public static void printArray(int[] array) {
+      System.out.print("{" + array[0]);
+      for (int i = 1; i < array.length; i++) {
+        System.out.print(", " + array[i]);
+      }
+      System.out.println("}");
+    }
+
+    /** Returns the index of the target in the array, or -1 if not found. */
+    public static int search(double[] a, double target) {
+      for (int i = 0; i < a.length; i++) {
+        if (a[i] == target) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    /** Returns the total of the elements in an array. */
+    public static double sum(double[] a) {
+      double total = 0.0;
+      for (int i = 0; i < a.length; i++) {
+        total += a[i];
+      }
+      return total;
+    }
+  }
+#+END_SRC
+
+** =ch08/Fruit.java=
+
+#+BEGIN_SRC java -n :bangle Fruit.java :padline no
+  /** Fruit exercise. */
+  public class Fruit {
+
+    public static int banana(int[] a) {
+      int kiwi = 1;
+      int i = 0;
+      while (i < a.length) {
+        kiwi = kiwi * a[i];
+        i++;
+      }
+      return kiwi;
+    }
+
+    public static int grapefruit(int[] a, int grape) {
+      for (int i = 0; i < a.length; i++) {
+        if (a[i] == grape) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    public static int pineapple(int[] a, int apple) {
+      int pear = 0;
+      for (int pine : a) {
+        if (pine == apple) {
+          pear++;
+        }
+      }
+      return pear;
+    }
+  }
+#+END_SRC
+
+** =ch08/Histogram.java=
+
+#+BEGIN_SRC java -n :bangle Histogram.java :padline no
+  import java.util.Random;
+
+  /** Example code related to histograms. */
+  public class Histogram {
+
+    /** Returns an array of random integers. */
+    public static int[] randomArray(int size) {
+      Random random = new Random();
+      int[] a = new int[size];
+      for (int i = 0; i < a.length; i++) {
+        a[i] = random.nextInt(100);
+      }
+      return a;
+    }
+
+    /** Computes the number of array elements in [low, high). */
+    public static int inRange(int[] a, int low, int high) {
+      int count = 0;
+      for (int i = 0; i < a.length; i++) {
+        if (a[i] >= low && a[i] < high) {
+          count++;
+        }
+      }
+      return count;
+    }
+
+    public static void main(String[] args) {
+      int numValues = 8;
+      int[] array = randomArray(numValues);
+      ArrayExamples.printArray(array);
+
+      int[] scores = randomArray(30);
+      int a = inRange(scores, 90, 100);
+      int b = inRange(scores, 80, 90);
+      int c = inRange(scores, 70, 80);
+      int d = inRange(scores, 60, 70);
+      int f = inRange(scores, 0, 60);
+
+      // making a histogram
+      int[] counts = new int[100];
+      for (int i = 0; i < scores.length; i++) {
+        int index = scores[i];
+        counts[index]++;
+      }
+
+      // histogram with enhanced for loop
+      counts = new int[100];
+      for (int score : scores) {
+        counts[score]++;
+      }
+    }
+  }
+#+END_SRC
+
+** =ch08/MakeDubMus.java=
+
+#+BEGIN_SRC java -n :bangle MakeDubMus.java :padline no
+  /** Stack diagram exercise. */
+  public class MakeDubMus {
+
+    public static int[] make(int n) {
+      int[] a = new int[n];
+      for (int i = 0; i < n; i++) {
+        a[i] = i + 1;
+      }
+      return a;
+    }
+
+    public static void dub(int[] jub) {
+      for (int i = 0; i < jub.length; i++) {
+        jub[i] *= 2;
+      }
+    }
+
+    public static int mus(int[] zoo) {
+      int fus = 0;
+      for (int i = 0; i < zoo.length; i++) {
+        fus += zoo[i];
+      }
+      return fus;
+    }
+
+    public static void main(String[] args) {
+      int[] bob = make(5);
+      dub(bob);
+      System.out.println(mus(bob));
+    }
+  }
+#+END_SRC
+
+* 09 Strings and things
+
+** =ch09/StringsThings.java=
+
+#+BEGIN_SRC java -n :bangle StringsThings.java :padline no
+  /** Demonstates uses of Strings. */
+  public class StringsThings {
+
+    public static void main(String[] args) {
+
+      // Characters
+
+      String fruit = "banana";
+      char letter0 = fruit.charAt(0);
+
+      if (letter0 == 'a') {
+        System.out.println('?');
+      }
+
+      System.out.print("Roman alphabet: ");
+      for (char c = 'A'; c <= 'Z'; c++) {
+        System.out.print(c);
+      }
+      System.out.println();
+
+      System.out.print("Greek alphabet: ");
+      for (int i = 913; i <= 937; i++) {
+        System.out.print((char) i);
+      }
+      System.out.println();
+
+      // Strings are immutable
+
+      String name = "Alan Turing";
+      String upperName = name.toUpperCase();
+
+      String text = "Computer Science is fun!";
+      text = text.replace("Computer Science", "CS");
+
+      // String traversal
+
+      for (int i = 0; i < fruit.length(); i++) {
+        char letter = fruit.charAt(i);
+        System.out.println(letter);
+      }
+
+      for (char letter : fruit.toCharArray()) {
+        System.out.println(letter);
+      }
+
+      int length = fruit.length();
+      char last = fruit.charAt(length - 1); // correct
+
+      System.out.println(reverse(fruit));
+
+      // Substrings
+
+      System.out.println(fruit.substring(0));
+      System.out.println(fruit.substring(2));
+      System.out.println(fruit.substring(6));
+
+      System.out.println(fruit.substring(0, 3));
+      System.out.println(fruit.substring(2, 5));
+      System.out.println(fruit.substring(6, 6));
+
+      // The indexOf method
+
+      int index = fruit.indexOf('a');
+      int index2 = fruit.indexOf('a', 2);
+
+      // String comparison
+
+      String name1 = "Alan Turing";
+      String name2 = "Ada Lovelace";
+      if (name1.equals(name2)) {
+        System.out.println("The names are the same.");
+      }
+
+      int diff = name1.compareTo(name2);
+      if (diff == 0) {
+        System.out.println("The names are the same.");
+      } else if (diff < 0) {
+        System.out.println("name1 comes before name2.");
+      } else if (diff > 0) {
+        System.out.println("name2 comes before name1.");
+      }
+
+      // Wrapper classes
+
+      String str = "12345";
+      int num = Integer.parseInt(str);
+
+      num = 12345;
+      str = Integer.toString(num);
+    }
+
+    /** Reverses a string, returns a new String. */
+    public static String reverse(String s) {
+      String r = "";
+      for (int i = s.length() - 1; i >= 0; i--) {
+        r = r + s.charAt(i);
+      }
+      return r;
+    }
+  }
+#+END_SRC
+
+** =ch09/Format.java=
+
+#+BEGIN_SRC java -n :bangle Format.java :padline no
+  /** Example using the String.format method. */
+  public class Format {
+
+    /**
+     ,* Returns a time string in 12-hour format.
+     ,*
+     ,* @param hour between 0 and 23
+     ,* @param minute between 0 and 59
+     ,*/
+    public static String timeString(int hour, int minute) {
+      String ampm;
+      if (hour < 12) {
+        ampm = "AM";
+        if (hour == 0) {
+          hour = 12; // midnight
+        }
+      } else {
+        ampm = "PM";
+        hour = hour - 12;
+      }
+      return String.format("%02d:%02d %s", hour, minute, ampm);
+    }
+
+    public static void main(String[] args) {
+      System.out.println(timeString(0, 0));
+      System.out.println(timeString(7, 30));
+      System.out.println(timeString(12, 5));
+      System.out.println(timeString(23, 59));
+    }
+  }
+#+END_SRC
+
+** =ch09/Max.java=
+
+#+BEGIN_SRC java -n :bangle Max.java :padline no
+  import java.util.Arrays;
+
+  /** Demonstrates command-line arguments. */
+  public class Max {
+
+    /** Converts args to integers and prints the max. */
+    public static void main(String[] args) {
+      System.out.println(Arrays.toString(args));
+
+      int max = Integer.MIN_VALUE;
+      for (String arg : args) {
+        int value = Integer.parseInt(arg);
+        if (value > max) {
+          max = value;
+        }
+      }
+      System.out.println("The max is " + max);
+    }
+  }
+#+END_SRC
+
+** =ch09/Recurse.java=
+
+#+BEGIN_SRC java -n :bangle Recurse.java :padline no
+  /** Recursion exercise. */
+  public class Recurse {
+
+    /** Returns the first character of the given String. */
+    public static char first(String s) {
+      return s.charAt(0);
+    }
+
+    /** Returns all but the first letter of the given String. */
+    public static String rest(String s) {
+      return s.substring(1);
+    }
+
+    /** Returns all but the first and last letter of the String. */
+    public static String middle(String s) {
+      return s.substring(1, s.length() - 1);
+    }
+
+    /** Returns the length of the given String. */
+    public static int length(String s) {
+      return s.length();
+    }
+  }
+#+END_SRC
+
+** =ch09/Exercise.java=
+
+#+BEGIN_SRC java -n :bangle Exercise.java :padline no
+  /** Exercise on encapsulation and generalization. */
+  public class Exercise {
+
+    public static void main(String[] args) {
+      String s = "((3 + 7) * 2)";
+      int count = 0;
+
+      for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        if (c == '(') {
+          count++;
+        } else if (c == ')') {
+          count--;
+        }
+      }
+
+      System.out.println(count);
+    }
+  }
+#+END_SRC
+
+* 10 Objects
+
+** =ch10/PointRect.java=
+
+#+BEGIN_SRC java -n :bangle PointRect.java :padline no
+  import java.awt.Point;
+  import java.awt.Rectangle;
+
+  /** Demonstates use of Point and Rectangle classes. */
+  public class PointRect {
+
+    public static void main(String[] args) {
+      Point blank;
+      blank = new Point(3, 4);
+      System.out.println(blank);
+
+      int x = blank.x;
+      System.out.println(blank.x + ", " + blank.y);
+      int sum = blank.x * blank.x + blank.y * blank.y;
+
+      Rectangle box = new Rectangle(0, 0, 100, 200);
+      moveRect(box, 50, 100);
+      System.out.println(box);
+      box.translate(50, 100);
+
+      Rectangle box1 = new Rectangle(0, 0, 100, 200);
+      Rectangle box2 = box1;
+
+      System.out.println(box2.width);
+      box1.grow(50, 50);
+      System.out.println(box2.width);
+    }
+
+    /** Prints the attributes of a Point object. */
+    public static void printPoint(Point p) {
+      System.out.println("(" + p.x + ", " + p.y + ")");
+    }
+
+    /** Computes the distance between two points. */
+    public static double distance(Point p1, Point p2) {
+      int dx = p2.x - p1.x;
+      int dy = p2.y - p1.y;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    /** Finds the center of a Rectangle and returns a new Point. */
+    public static Point findCenter(Rectangle box) {
+      int x = box.x + box.width / 2;
+      int y = box.y + box.height / 2;
+      return new Point(x, y);
+    }
+
+    /** Moves a Rectangle by modifying the x and y attributes. */
+    public static void moveRect(Rectangle box, int dx, int dy) {
+      box.x = box.x + dx;
+      box.y = box.y + dy;
+    }
+
+    /** Exercise on returning objects. */
+    public static void exercise2() {
+      Point blank = new Point(5, 8);
+
+      Rectangle rect = new Rectangle(0, 2, 4, 4);
+      Point center = findCenter(rect);
+
+      double dist = distance(center, blank);
+      System.out.println(dist);
+    }
+
+    /** Exercise on aliasing. */
+    public static void exercise3() {
+      Rectangle box1 = new Rectangle(2, 4, 7, 9);
+      Point p1 = findCenter(box1);
+      printPoint(p1);
+
+      box1.grow(1, 1);
+      Point p2 = findCenter(box1);
+      printPoint(p2);
+    }
+  }
+#+END_SRC
+
+** =ch10/Pow.java=
+
+#+BEGIN_SRC java -n :bangle Pow.java :padline no
+  /** BigInteger exercise. */
+  public class Pow {
+
+    /** Integer exponentiation. */
+    public static int pow(int x, int n) {
+      if (n == 0) return 1;
+
+      // find x to the n/2 recursively
+      int t = pow(x, n / 2);
+
+      // if n is even, the result is t squared
+      // if n is odd, the result is t squared times x
+      if (n % 2 == 0) {
+        return t * t;
+      } else {
+        return t * t * x;
+      }
+    }
+  }
+#+END_SRC
+
+** =ch10/Riddle.java=
+
+#+BEGIN_SRC java -n :bangle Riddle.java :padline no
+  import java.awt.Point;
+
+  /** Exercise on passing objects as parameters. */
+  public class Riddle {
+
+    public static int riddle(int x, Point p) {
+      x = x + 7;
+      return x + p.x + p.y;
+    }
+
+    public static void main(String[] args) {
+      int x = 5;
+      Point blank = new Point(1, 2);
+
+      System.out.println(riddle(x, blank));
+      System.out.println(x);
+      System.out.println(blank.x);
+      System.out.println(blank.y);
+    }
+  }
+#+END_SRC
+
+* 11 Classes
+
+** =ch11/Time.java=
+
+#+BEGIN_SRC java -n :bangle Time.java :padline no
+  /** Represents a time of day. */
+  public class Time {
+
+    private int hour;
+    private int minute;
+    private double second;
+
+    /** Construct a Time object with default values. */
+    public Time() {
+      this.hour = 0;
+      this.minute = 0;
+      this.second = 0.0;
+    }
+
+    /** Construct a Time object with given values. */
+    public Time(int hour, int minute, double second) {
+      this.hour = hour;
+      this.minute = minute;
+      this.second = second;
+    }
+
+    /** Prints the time in a simple format. */
+    public static void printTime(Time t) {
+      System.out.print(t.hour);
+      System.out.print(":");
+      System.out.println(t.minute);
+      System.out.print(":");
+      System.out.println(t.second);
+    }
+
+    /** Returns a String representation of the time. */
+    public String toString() {
+      return String.format("%02d:%02d:%04.1f\n", this.hour, this.minute, this.second);
+    }
+
+    /** Tests whether two times are equivalent. */
+    public boolean equals(Time that) {
+      return this.hour == that.hour && this.minute == that.minute && this.second == that.second;
+    }
+
+    /** Adds two Times and returns a new Time object (static method). */
+    public static Time add(Time t1, Time t2) {
+      Time sum = new Time();
+      sum.hour = t1.hour + t2.hour;
+      sum.minute = t1.minute + t2.minute;
+      sum.second = t1.second + t2.second;
+      return sum;
+    }
+
+    /** Adds two Times and returns a new Time object (instance method). */
+    public Time add(Time t2) {
+      Time sum = new Time();
+      sum.hour = this.hour + t2.hour;
+      sum.minute = this.minute + t2.minute;
+      sum.second = this.second + t2.second;
+
+      if (sum.second >= 60.0) {
+        sum.second -= 60.0;
+        sum.minute += 1;
+      }
+      if (sum.minute >= 60) {
+        sum.minute -= 60;
+        sum.hour += 1;
+      }
+      return sum;
+    }
+
+    /** Adds the given number of seconds to this object (modifier). */
+    public void increment(double seconds) {
+      this.second += seconds;
+      while (this.second >= 60.0) {
+        this.second -= 60.0;
+        this.minute += 1;
+      }
+      while (this.minute >= 60) {
+        this.minute -= 60;
+        this.hour += 1;
+      }
+    }
+  }
+#+END_SRC
+
+** =ch11/TimeClient.java=
+
+#+BEGIN_SRC java -n :bangle TimeClient.java :padline no
+  /** Class that uses Time objects. */
+  public class TimeClient {
+
+    public static void main(String[] args) {
+      Time time = new Time(11, 59, 59.9);
+      System.out.println(time);
+
+      // cannot access private variables from another class
+      // System.out.println(time.hour);
+
+      String s = time.toString();
+      System.out.println(s);
+
+      Time time1 = new Time(9, 30, 0.0);
+      Time time2 = time1;
+      Time time3 = new Time(9, 30, 0.0);
+
+      System.out.println(time1 == time2);
+      System.out.println(time1 == time3);
+      System.out.println(time1.equals(time2));
+      System.out.println(time1.equals(time3));
+
+      Time startTime = new Time(18, 50, 0.0);
+      Time runningTime = new Time(2, 16, 0.0);
+      Time endTime = Time.add(startTime, runningTime);
+
+      // using the instance method
+      endTime = startTime.add(runningTime);
+    }
+  }
+#+END_SRC
+
+* 12 Arrays of objects
+
+** =ch12/Card.java=
+
+#+BEGIN_SRC java -n :bangle Card.java :padline no
+  /** A standard playing card. */
+  public class Card {
+
+    public static final String[] RANKS = {
+      null, "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    public static final String[] SUITS = {"Clubs", "Diamonds", "Hearts", "Spades"};
+
+    private final int rank;
+
+    private final int suit;
+
+    /** Constructs a card of the given rank and suit. */
+    public Card(int rank, int suit) {
+      this.rank = rank;
+      this.suit = suit;
+    }
+
+    /**
+     ,* Returns a negative integer if this card comes before the given card, zero if the two cards are
+     ,* equal, or a positive integer if this card comes after the card.
+     ,*/
+    public int compareTo(Card that) {
+      if (this.suit < that.suit) {
+        return -1;
+      }
+      if (this.suit > that.suit) {
+        return 1;
+      }
+      if (this.rank < that.rank) {
+        return -1;
+      }
+      if (this.rank > that.rank) {
+        return 1;
+      }
+      return 0;
+    }
+
+    /** Returns true if the given card has the same rank AND same suit; otherwise returns false. */
+    public boolean equals(Card that) {
+      return this.rank == that.rank && this.suit == that.suit;
+    }
+
+    /** Gets the card's rank. */
+    public int getRank() {
+      return this.rank;
+    }
+
+    /** Gets the card's suit. */
+    public int getSuit() {
+      return this.suit;
+    }
+
+    /** Returns the card's index in a sorted deck of 52 cards. */
+    public int position() {
+      return this.suit * 13 + this.rank - 1;
+    }
+
+    /** Returns a string representation of the card. */
+    public String toString() {
+      return RANKS[this.rank] + " of " + SUITS[this.suit];
+    }
+  }
+#+END_SRC
+
+** =ch12/CardTable.java=
+
+#+BEGIN_SRC java -n :bangle CardTable.java :padline no
+  import java.awt.Canvas;
+  import java.awt.Color;
+  import java.awt.Graphics;
+  import java.awt.Image;
+  import javax.swing.ImageIcon;
+  import javax.swing.JFrame;
+
+  public class CardTable extends Canvas {
+
+    private Image[][] images;
+    private int cardWidth, cardHeight;
+
+    /** Creates a CardTable. cardset is the name of the folder that contains the card images. */
+    public CardTable(String cardset) {
+      setBackground(new Color(0x088A4B));
+
+      // create a 2-D array of card images
+      images = new Image[14][4];
+      String suits = "cdhs";
+
+      for (int suit = 0; suit <= 3; suit++) {
+        char c = suits.charAt(suit);
+
+        for (int rank = 1; rank <= 13; rank++) {
+          String s = String.format("%s/%02d%c.gif", cardset, rank, c);
+          images[rank][suit] = new ImageIcon(s).getImage();
+        }
+      }
+
+      // get the width and height of the cards and set the size of
+      // the frame accordingly
+      cardWidth = images[1][1].getWidth(null);
+      cardHeight = images[1][1].getHeight(null);
+
+      // set the size temporarily to get the insets
+      setTableSize(14, 4);
+    }
+
+    /** Sets the table size. x and y are in units of card width/height. */
+    public void setTableSize(double x, double y) {
+      setSize((int) (x * cardWidth), (int) (y * cardHeight));
+    }
+
+    /** Draws a card at the given coordinates. x and y are in units of card width/height. */
+    public void drawCard(Graphics g, int rank, int suit, double x, double y) {
+      Image image = images[rank][suit];
+      g.drawImage(image, (int) (x * cardWidth), (int) (y * cardHeight), null);
+    }
+
+    /** Special method invoked when the Frame needs to be drawn. */
+    public void paint(Graphics g) {
+      for (int rank = 1; rank <= 13; rank++) {
+        for (int suit = 0; suit <= 3; suit++) {
+          double x = rank - 1 + suit / 5.0;
+          double y = suit / 2.0;
+          drawCard(g, rank, suit, x, y);
+        }
+      }
+    }
+
+    public static void main(String[] args) {
+      // make the frame
+      JFrame frame = new JFrame("Card Table");
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      // add the CardTable
+      String cardset = "cardset-oxymoron";
+      Canvas canvas = new CardTable(cardset);
+      frame.getContentPane().add(canvas);
+
+      // show the frame
+      frame.pack();
+      frame.setVisible(true);
+    }
+  }
+#+END_SRC
+
+** =ch12/Search.java=
+
+#+BEGIN_SRC java -n :bangle Search.java :padline no
+  /** Search algorithms for arrays of cards. */
+  public class Search {
+
+    /** Make an array of 52 cards. */
+    public static Card[] makeDeck() {
+      Card[] cards = new Card[52];
+      int index = 0;
+      for (int suit = 0; suit <= 3; suit++) {
+        for (int rank = 1; rank <= 13; rank++) {
+          cards[index] = new Card(rank, suit);
+          index++;
+        }
+      }
+      return cards;
+    }
+
+    /** Displays the given deck of cards. */
+    public static void printDeck(Card[] cards) {
+      for (int i = 0; i < cards.length; i++) {
+        System.out.println(cards[i]);
+      }
+    }
+
+    /** Sequential search. */
+    public static int search(Card[] cards, Card target) {
+      for (int i = 0; i < cards.length; i++) {
+        if (cards[i].equals(target)) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    /** Binary search (iterative version). */
+    public static int binarySearch(Card[] cards, Card target) {
+      int low = 0;
+      int high = cards.length - 1;
+      while (low <= high) {
+        System.out.println(low + ", " + high);
+
+        int mid = (low + high) / 2; // step 1
+        int comp = cards[mid].compareTo(target);
+
+        if (comp == 0) { // step 2
+          return mid;
+        } else if (comp < 0) { // step 3
+          low = mid + 1;
+        } else { // step 4
+          high = mid - 1;
+        }
+      }
+      return -1;
+    }
+
+    /** Binary search (recursive version). */
+    public static int binarySearch(Card[] cards, Card target, int low, int high) {
+      System.out.println(low + ", " + high);
+
+      if (high < low) {
+        return -1;
+      }
+      int mid = (low + high) / 2; // step 1
+      int comp = cards[mid].compareTo(target);
+
+      if (comp == 0) { // step 2
+        return mid;
+      } else if (comp < 0) { // step 3
+        return binarySearch(cards, target, mid + 1, high);
+      } else { // step 4
+        return binarySearch(cards, target, low, mid - 1);
+      }
+    }
+
+    /** Demonstrates how to call the search methods. */
+    public static void main(String[] args) {
+      Card[] cards = makeDeck();
+      Card jack = new Card(11, 0);
+      Card fake = new Card(15, 1);
+
+      System.out.println("Sequential search");
+      System.out.println(search(cards, jack));
+      System.out.println();
+
+      System.out.println("Binary search");
+      System.out.println(binarySearch(cards, jack));
+      System.out.println();
+
+      System.out.println("Failed binary search");
+      System.out.println(binarySearch(cards, fake));
+      System.out.println();
+
+      System.out.println("Recursive binary search");
+      System.out.println(binarySearch(cards, jack, 0, 51));
+      System.out.println();
+    }
+  }
+#+END_SRC
+
+* 13 Objects of arrays
+
+** =ch13/Deck.java=
+
+#+BEGIN_SRC java -n :bangle Deck.java :padline no
+  import java.util.Arrays;
+
+  /** A deck of playing cards (of fixed size). */
+  public class Deck {
+
+    private Card[] cards;
+
+    /** Constructs a standard deck of 52 cards. */
+    public Deck() {
+      this.cards = new Card[52];
+      int index = 0;
+      for (int suit = 0; suit <= 3; suit++) {
+        for (int rank = 1; rank <= 13; rank++) {
+          this.cards[index] = new Card(rank, suit);
+          index++;
+        }
+      }
+    }
+
+    /** Constructs a deck of n cards (null). */
+    public Deck(int n) {
+      this.cards = new Card[n];
+    }
+
+    /** Gets the internal cards array. */
+    public Card[] getCards() {
+      return this.cards;
+    }
+
+    /** Displays each of the cards in the deck. */
+    public void print() {
+      for (int i = 0; i < this.cards.length; i++) {
+        System.out.println(this.cards[i]);
+      }
+    }
+
+    /** Returns a string representation of the deck. */
+    public String toString() {
+      return Arrays.toString(this.cards);
+    }
+
+    /** Chooses a random number between low and high, including both. */
+    public int randomInt(int low, int high) {
+      return 0;
+    }
+
+    /** Swaps the cards at indexes i and j. */
+    public void swapCards(int i, int j) {}
+
+    /** Randomly permutes the array of cards. */
+    public void shuffle() {}
+
+    /** Finds the index of the lowest card between low and high inclusive. */
+    public int indexLowest(int low, int high) {
+      return 0;
+    }
+
+    /** Sorts the cards (in place) using selection sort. */
+    public void selectionSort() {}
+
+    /** Returns a subset of the cards in the deck. */
+    public Deck subdeck(int low, int high) {
+      Deck sub = new Deck(high - low + 1);
+      for (int i = 0; i < sub.cards.length; i++) {
+        sub.cards[i] = this.cards[low + i];
+      }
+      return sub;
+    }
+
+    /** Combines two previously sorted subdecks. */
+    public static Deck merge(Deck d1, Deck d2) {
+      return null;
+    }
+
+    /** Returns a sorted copy of the deck using merge sort. */
+    public Deck mergeSort() {
+      return this;
+    }
+
+    /** Reorders the cards (in place) using insertion sort. */
+    public void insertionSort() {}
+  }
+#+END_SRC
+
+** =ch13/Test.java=
+
+#+BEGIN_SRC java -n :bangle Test.java :padline no
+  /** Test sorting algorithms for decks of cards. */
+  public class Test {
+
+    /** Checks that the deck is sorted. */
+    public static void checkSorted(Deck deck) {
+      Card[] cards = deck.getCards();
+      for (int i = 0; i < cards.length - 1; i++) {
+        if (cards[i].compareTo(cards[i + 1]) >= 0) {
+          System.out.println("Card #" + i + " not sorted!");
+        }
+      }
+    }
+
+    /** Demonstrates how to call the sorting methods. */
+    public static void main(String[] args) {
+      Deck deck;
+
+      System.out.println("Testing selection...");
+      deck = new Deck();
+      deck.shuffle();
+      deck.selectionSort();
+      checkSorted(deck);
+
+      System.out.println("Testing mergesort...");
+      deck = new Deck();
+      deck.shuffle();
+      deck = deck.mergeSort();
+      checkSorted(deck);
+
+      System.out.println("Testing insertion...");
+      deck = new Deck();
+      deck.shuffle();
+      deck.insertionSort();
+      checkSorted(deck);
+    }
+  }
+#+END_SRC
+
+** =ch13/Card.java=
+
+#+BEGIN_SRC java -n :bangle Card.java :padline no
+  /** A standard playing card. */
+  public class Card {
+
+    public static final String[] RANKS = {
+      null, "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    public static final String[] SUITS = {"Clubs", "Diamonds", "Hearts", "Spades"};
+
+    private final int rank;
+
+    private final int suit;
+
+    /** Constructs a card of the given rank and suit. */
+    public Card(int rank, int suit) {
+      this.rank = rank;
+      this.suit = suit;
+    }
+
+    /**
+     ,* Returns a negative integer if this card comes before the given card, zero if the two cards are
+     ,* equal, or a positive integer if this card comes after the card.
+     ,*/
+    public int compareTo(Card that) {
+      if (this.suit < that.suit) {
+        return -1;
+      }
+      if (this.suit > that.suit) {
+        return 1;
+      }
+      if (this.rank < that.rank) {
+        return -1;
+      }
+      if (this.rank > that.rank) {
+        return 1;
+      }
+      return 0;
+    }
+
+    /** Returns true if the given card has the same rank AND same suit; otherwise returns false. */
+    public boolean equals(Card that) {
+      return this.rank == that.rank && this.suit == that.suit;
+    }
+
+    /** Gets the card's rank. */
+    public int getRank() {
+      return this.rank;
+    }
+
+    /** Gets the card's suit. */
+    public int getSuit() {
+      return this.suit;
+    }
+
+    /** Returns the card's index in a sorted deck of 52 cards. */
+    public int position() {
+      return this.suit * 13 + this.rank - 1;
+    }
+
+    /** Returns a string representation of the card. */
+    public String toString() {
+      return RANKS[this.rank] + " of " + SUITS[this.suit];
+    }
+  }
+#+END_SRC
+
+* 14 Objects of objects
+
+** =ch14/CardCollection.java=
+
+#+BEGIN_SRC java -n :tangle CardCollection.java :padline no
+  import java.util.ArrayList;
+  import java.util.Random;
+
+  /** A collection of playing cards. */
+  public class CardCollection {
+
+    private String label;
+    private ArrayList<Card> cards;
+
+    /** Constructs an empty collection. */
+    public CardCollection(String label) {
+      this.label = label;
+      this.cards = new ArrayList<Card>();
+    }
+
+    /** Returns the label of the card collection. */
+    public String getLabel() {
+      return label;
+    }
+
+    /** Adds the given card to the collection. */
+    public void addCard(Card card) {
+      cards.add(card);
+    }
+
+    /** Removes and returns the card with the given index. */
+    public Card popCard(int i) {
+      return cards.remove(i);
+    }
+
+    /** Removes and returns the last card. */
+    public Card popCard() {
+      int i = size() - 1;
+      return popCard(i);
+    }
+
+    /** Returns the number of cards. */
+    public int size() {
+      return cards.size();
+    }
+
+    /** True if the collection is empty, false otherwise. */
+    public boolean empty() {
+      return cards.size() == 0;
+    }
+
+    /** Moves n cards from this collection to the given collection. */
+    public void deal(CardCollection that, int n) {
+      for (int i = 0; i < n; i++) {
+        Card card = popCard();
+        that.addCard(card);
+      }
+    }
+
+    /** Moves all remaining cards to the given collection. */
+    public void dealAll(CardCollection that) {
+      int n = size();
+      deal(that, n);
+    }
+
+    /** Returns the card with the given index. */
+    public Card getCard(int i) {
+      return cards.get(i);
+    }
+
+    /** Returns the last card. */
+    public Card last() {
+      int i = size() - 1;
+      return cards.get(i);
+    }
+
+    /** Swaps the cards at indexes i and j. */
+    public void swapCards(int i, int j) {
+      Card temp = cards.get(i);
+      cards.set(i, cards.get(j));
+      cards.set(j, temp);
+    }
+
+    /** Randomly permute the cards. */
+    public void shuffle() {
+      Random random = new Random();
+      for (int i = size() - 1; i > 0; i--) {
+        int j = random.nextInt(i);
+        swapCards(i, j);
+      }
+    }
+
+    /** Returns a string representation of the card collection. */
+    public String toString() {
+      return label + ": " + cards.toString();
+    }
+  }
+#+END_SRC
+
+** =ch14/Deck.java=
+
+#+BEGIN_SRC java -n :tangle Deck.java :padline no
+  /** A deck of playing cards. */
+  public class Deck extends CardCollection {
+
+    /** Constructs a standard deck of 52 cards. */
+    public Deck(String label) {
+      super(label);
+
+      for (int suit = 0; suit <= 3; suit++) {
+        for (int rank = 1; rank <= 13; rank++) {
+          addCard(new Card(rank, suit));
+        }
+      }
+    }
+  }
+#+END_SRC
+
+** =ch14/Eights.java=
+
+#+BEGIN_SRC java -n :tangle Eights.java :padline no
+  import java.util.Scanner;
+
+  /**
+   ,* Simulates a game of Crazy Eights. See https://en.wikipedia.org/wiki/Crazy_Eights for basic play
+   ,* and scoring rules.
+   ,*/
+  public class Eights {
+
+    private Player one;
+    private Player two;
+    private Hand drawPile;
+    private Hand discardPile;
+    private Scanner in;
+
+    /** Initializes the state of the game. */
+    public Eights() {
+      Deck deck = new Deck("Deck");
+      deck.shuffle();
+
+      // deal cards to each player
+      int handSize = 5;
+      one = new Player("Allen");
+      deck.deal(one.getHand(), handSize);
+
+      two = new Player("Chris");
+      deck.deal(two.getHand(), handSize);
+
+      // turn one card face up
+      discardPile = new Hand("Discards");
+      deck.deal(discardPile, 1);
+
+      // put the rest of the deck face down
+      drawPile = new Hand("Draw pile");
+      deck.dealAll(drawPile);
+
+      // create the scanner we'll use to wait for the user
+      in = new Scanner(System.in);
+    }
+
+    /** Returns true if either hand is empty. */
+    public boolean isDone() {
+      return one.getHand().empty() || two.getHand().empty();
+    }
+
+    /** Moves cards from the discard pile to the draw pile and shuffles. */
+    public void reshuffle() {
+      // save the top card
+      Card prev = discardPile.popCard();
+
+      // move the rest of the cards
+      discardPile.dealAll(drawPile);
+
+      // put the top card back
+      discardPile.addCard(prev);
+
+      // shuffle the draw pile
+      drawPile.shuffle();
+    }
+
+    /** Returns a card from the draw pile. */
+    public Card draw() {
+      if (drawPile.empty()) {
+        reshuffle();
+      }
+      return drawPile.popCard();
+    }
+
+    /** Switches players. */
+    public Player nextPlayer(Player current) {
+      if (current == one) {
+        return two;
+      } else {
+        return one;
+      }
+    }
+
+    /** Displays the state of the game. */
+    public void displayState() {
+      one.display();
+      two.display();
+      discardPile.display();
+      System.out.print("Draw pile: ");
+      System.out.println(drawPile.size() + " cards");
+    }
+
+    /** Waits for the user to press enter. */
+    public void waitForUser() {
+      in.nextLine();
+    }
+
+    /** One player takes a turn. */
+    public void takeTurn(Player player) {
+      Card prev = discardPile.last();
+      Card next = player.play(this, prev);
+      discardPile.addCard(next);
+
+      System.out.println(player.getName() + " plays " + next);
+      System.out.println();
+    }
+
+    /** Plays the game. */
+    public void playGame() {
+      Player player = one;
+
+      // keep playing until there's a winner
+      while (!isDone()) {
+        displayState();
+        waitForUser();
+        takeTurn(player);
+        player = nextPlayer(player);
+      }
+
+      // display the final score
+      one.displayScore();
+      two.displayScore();
+    }
+
+    /** Creates the game and runs it. */
+    public static void main(String[] args) {
+      Eights game = new Eights();
+      game.playGame();
+    }
+  }
+#+END_SRC
+
+** =ch14/Hand.java=
+
+#+BEGIN_SRC java -n :tangle Hand.java :padline no
+  /** A hand of playing cards. */
+  public class Hand extends CardCollection {
+
+    /** Constructs an empty hand. */
+    public Hand(String label) {
+      super(label);
+    }
+
+    /** Prints the label and cards. */
+    public void display() {
+      System.out.println(getLabel() + ": ");
+      for (int i = 0; i < size(); i++) {
+        System.out.println(getCard(i));
+      }
+      System.out.println();
+    }
+  }
+#+END_SRC
+
+** =ch14/Player.java=
+
+#+BEGIN_SRC java -n :tangle Player.java :padline no
+  /** A player in a game of crazy eights. */
+  public class Player {
+
+    private String name;
+    private Hand hand;
+
+    /** Constructs a player with an empty hand. */
+    public Player(String name) {
+      this.name = name;
+      this.hand = new Hand(name);
+    }
+
+    /** Gets the player's name. */
+    public String getName() {
+      return name;
+    }
+
+    /** Gets the player's hand. */
+    public Hand getHand() {
+      return hand;
+    }
+
+    /** Removes and returns a legal card from the player's hand. */
+    public Card play(Eights eights, Card prev) {
+      Card card = searchForMatch(prev);
+      if (card == null) {
+        card = drawForMatch(eights, prev);
+      }
+      return card;
+    }
+
+    /** Searches the player's hand for a matching card. */
+    public Card searchForMatch(Card prev) {
+      for (int i = 0; i < hand.size(); i++) {
+        Card card = hand.getCard(i);
+        if (cardMatches(card, prev)) {
+          return hand.popCard(i);
+        }
+      }
+      return null;
+    }
+
+    /** Draws cards until a match is found. */
+    public Card drawForMatch(Eights eights, Card prev) {
+      while (true) {
+        Card card = eights.draw();
+        System.out.println(name + " draws " + card);
+        if (cardMatches(card, prev)) {
+          return card;
+        }
+        hand.addCard(card);
+      }
+    }
+
+    /** Checks whether two cards match. */
+    public static boolean cardMatches(Card card1, Card card2) {
+      if (card1.getSuit() == card2.getSuit()) {
+        return true;
+      }
+      if (card1.getRank() == card2.getRank()) {
+        return true;
+      }
+      if (card1.getRank() == 8) {
+        return true;
+      }
+      return false;
+    }
+
+    /** Calculates the player's score (penalty points). */
+    public int score() {
+      int sum = 0;
+      for (int i = 0; i < hand.size(); i++) {
+        Card card = hand.getCard(i);
+        int rank = card.getRank();
+        if (rank == 8) {
+          sum -= 20;
+        } else if (rank > 10) {
+          sum -= 10;
+        } else {
+          sum -= rank;
+        }
+      }
+      return sum;
+    }
+
+    /** Displays the player's hand. */
+    public void display() {
+      hand.display();
+    }
+
+    /** Displays the player's name and score. */
+    public void displayScore() {
+      System.out.println(name + " has " + score() + " points");
+    }
+  }
+#+END_SRC
+
+** =ch14/Test.java=
+
+#+BEGIN_SRC java -n :tangle Test.java :padline no
+  /** Test code for Deck and Hand. */
+  public class Test {
+
+    public static void main(String[] args) {
+      Deck deck = new Deck("Deck");
+      deck.shuffle();
+
+      Hand hand = new Hand("Hand");
+      deck.deal(hand, 5);
+      hand.display();
+
+      Hand drawPile = new Hand("Draw Pile");
+      deck.dealAll(drawPile);
+      System.out.printf("Draw Pile has %d cards.\n", drawPile.size());
+    }
+  }
+#+END_SRC
+
+** =ch14/Card.java=
+
+#+BEGIN_SRC java -n :tangle Card.java :padline no
+  /** A standard playing card. */
+  public class Card {
+
+    public static final String[] RANKS = {
+      null, "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    public static final String[] SUITS = {"Clubs", "Diamonds", "Hearts", "Spades"};
+
+    private final int rank;
+
+    private final int suit;
+
+    /** Constructs a card of the given rank and suit. */
+    public Card(int rank, int suit) {
+      this.rank = rank;
+      this.suit = suit;
+    }
+
+    /**
+     ,* Returns a negative integer if this card comes before the given card, zero if the two cards are
+     ,* equal, or a positive integer if this card comes after the card.
+     ,*/
+    public int compareTo(Card that) {
+      if (this.suit < that.suit) {
+        return -1;
+      }
+      if (this.suit > that.suit) {
+        return 1;
+      }
+      if (this.rank < that.rank) {
+        return -1;
+      }
+      if (this.rank > that.rank) {
+        return 1;
+      }
+      return 0;
+    }
+
+    /** Returns true if the given card has the same rank AND same suit; otherwise returns false. */
+    public boolean equals(Card that) {
+      return this.rank == that.rank && this.suit == that.suit;
+    }
+
+    /** Gets the card's rank. */
+    public int getRank() {
+      return this.rank;
+    }
+
+    /** Gets the card's suit. */
+    public int getSuit() {
+      return this.suit;
+    }
+
+    /** Returns the card's index in a sorted deck of 52 cards. */
+    public int position() {
+      return this.suit * 13 + this.rank - 1;
+    }
+
+    /** Returns a string representation of the card. */
+    public String toString() {
+      return RANKS[this.rank] + " of " + SUITS[this.suit];
+    }
+  }
+#+END_SRC
+
+* app
+
+** =ap01/Series.java=
+
+#+BEGIN_SRC java -n :tangle Series.java :padline no
+  /** Example method from Chapter 6. */
+  public class Series {
+
+    public static int fibonacci(int n) {
+      if (n == 1 || n == 2) {
+        return 1;
+      }
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+      if (fibonacci(1) != 1) {
+        System.err.println("fibonacci(1) is incorrect");
+      }
+      if (fibonacci(2) != 1) {
+        System.err.println("fibonacci(2) is incorrect");
+      }
+      if (fibonacci(3) != 2) {
+        System.err.println("fibonacci(3) is incorrect");
+      }
+    }
+  }
+#+END_SRC
+
+** TODO =ap01/SeriesTest.java=
+
+#+BEGIN_SRC java -n :bangle SeriesTest.java :padline no
+  import junit.framework.TestCase;
+
+  /** Example JUnit test from Appendix A. */
+  public class SeriesTest extends TestCase {
+
+    public void testFibonacci() {
+      assertEquals(1, Series.fibonacci(1));
+      assertEquals(1, Series.fibonacci(2));
+      assertEquals(2, Series.fibonacci(3));
+    }
+  }
+#+END_SRC
+
+** =ap02/Drawing.java=
+
+#+BEGIN_SRC java -n :tangle Drawing.java :padline no
+  import java.awt.Canvas;
+  import java.awt.Graphics;
+  import javax.swing.JFrame;
+
+  public class Drawing extends Canvas {
+
+    public static void main(String[] args) {
+      JFrame frame = new JFrame("My Drawing");
+      Canvas drawing = new Drawing();
+      drawing.setSize(400, 400);
+      frame.add(drawing);
+      frame.pack();
+      frame.setVisible(true);
+    }
+
+    public void paint(Graphics g) {
+      g.fillOval(100, 100, 200, 200);
+    }
+  }
+#+END_SRC
+
+** =ap02/Mickey.java=
+
+#+BEGIN_SRC java -n :tangle Mickey.java :padline no
+  import java.awt.Canvas;
+  import java.awt.Color;
+  import java.awt.Graphics;
+  import java.awt.Rectangle;
+  import javax.swing.JFrame;
+
+  public class Mickey extends Canvas {
+
+    public static void main(String[] args) {
+      JFrame frame = new JFrame("Mickey Mouse");
+      Canvas canvas = new Mickey();
+      canvas.setSize(400, 400);
+      canvas.setBackground(Color.white);
+      frame.add(canvas);
+      frame.pack();
+      frame.setVisible(true);
+    }
+
+    public void paint(Graphics g) {
+      Rectangle bb = new Rectangle(100, 100, 200, 200);
+      mickey(g, bb);
+    }
+
+    public void boxOval(Graphics g, Rectangle bb) {
+      g.fillOval(bb.x, bb.y, bb.width, bb.height);
+    }
+
+    public void mickey(Graphics g, Rectangle bb) {
+      boxOval(g, bb);
+
+      int dx = bb.width / 2;
+      int dy = bb.height / 2;
+      Rectangle half = new Rectangle(bb.x, bb.y, dx, dy);
+
+      half.translate(-dx / 2, -dy / 2);
+      boxOval(g, half);
+
+      half.translate(dx * 2, 0);
+      boxOval(g, half);
+    }
+  }
+#+END_SRC
+
+** =ap02/Moire.java=
+
+#+BEGIN_SRC java -n :tangle Moire.java :padline no
+  import java.awt.Canvas;
+  import java.awt.Color;
+  import java.awt.Graphics;
+  import javax.swing.JFrame;
+
+  public class Moire extends Canvas {
+
+    public static void main(String[] args) {
+      JFrame frame = new JFrame("Moire Pattern");
+      Canvas canvas = new Moire();
+      canvas.setSize(400, 400);
+      canvas.setBackground(Color.white);
+      frame.add(canvas);
+      frame.pack();
+      frame.setVisible(true);
+    }
+
+    public void paint(Graphics g) {
+      int i = 90;
+      while (i < getWidth()) {
+        g.drawOval(0, 0, i, i);
+        i = i + 3;
+      }
+    }
+  }
+#+END_SRC

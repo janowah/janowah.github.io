@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>hello</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css" >
+p { max-width: 70ch; }
+</style>
+</head>
+<body>
+<div id="content">
+<h1 class="title">hello</h1>
+
+<div id="outline-container-org8981b25" class="outline-2">
+<h2 id="org8981b25">Example 1 Compile a Simple Program</h2>
+<div class="outline-text-2" id="text-org8981b25">
+<p>
+This example shows how to compile the <code>Hello.java</code> source file
+in the greetings directory. The class defined in <code>Hello.java</code>
+is called <code>greetings.Hello</code>. The greetings directory is the
+package directory both for the source file and the class
+file and is underneath the current directory. This makes it
+possible to use the default user class path. It also makes
+it unnecessary to specify a separate destination directory
+with the <code>-d</code> option.
+</p>
+
+<p>
+The source code in <code>Hello.java</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #8b0000;">package</span> <span style="color: #cd0000;">greetings</span>;
+
+<span style="color: #8b0000;">public</span> <span style="color: #8b0000;">class</span> <span style="color: #4682b4;">Hello</span> {
+  <span style="color: #8b0000;">public</span> <span style="color: #8b0000;">static</span> <span style="color: #4682b4;">void</span> <span style="color: #8b2323;">main</span>(<span style="color: #4682b4;">String</span>[] <span style="color: #8b008b;">args</span>) {
+    <span style="color: #8b0000;">for</span> (<span style="color: #4682b4;">int</span> <span style="color: #8b008b;">i</span> = 0; i &lt; args.<span style="color: #4682b4;">length</span>; i++) {
+      System.out.println(<span style="color: #008b00;">"Hello "</span> + args[i]);
+    }
+  }
+}
+</pre>
+</div>
+
+<p>
+Compile greetings.Hello:
+</p>
+
+<p>
+<code>javac greetings/Hello.java</code>
+</p>
+
+<p>
+Run greetings.Hello:
+</p>
+
+<pre class="example">
+java greetings.Hello World Universe Everyone
+Hello World
+Hello Universe
+Hello Everyone
+</pre>
+
+<p>
+<a href="./java.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

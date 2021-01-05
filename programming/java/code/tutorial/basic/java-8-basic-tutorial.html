@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Java 8 Basic Tutorial</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css" >
+p { max-width: 70ch; }
+</style>
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Java 8 Basic Tutorial</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4f61a1e">Getting Started <code>getStarted</code> 5</a></li>
+<li><a href="#orga798b89">Learning the Java Language <code>java</code> 167</a>
+<ul>
+<li><a href="#org3152153">Object-Oriented Programming Concepts <code>concepts</code></a></li>
+<li><a href="#org51fc85f">Language Basics <code>nutsandbolts</code></a></li>
+<li><a href="#org9dbabe1">Classes and Objects <code>javaOO</code></a></li>
+<li><a href="#orgbae0d92">Annotations <code>no-code</code></a></li>
+<li><a href="#orgfede26c">Interfaces and Inheritance <code>IandI</code></a></li>
+<li><a href="#orga411ed5">Numbers and Strings <code>data</code></a></li>
+<li><a href="#org1d0f941">Generics <code>generics</code></a></li>
+<li><a href="#org3f5d921">Packages <code>package</code></a></li>
+</ul>
+</li>
+<li><a href="#org91d184f">Essential Java Classes <code>essential</code> 87</a>
+<ul>
+<li><a href="#orga75b774">Exceptions <code>exceptions</code></a></li>
+<li><a href="#org42eafaf">Basic I/O <code>io</code></a></li>
+<li><a href="#org653ef4d">Concurrency <code>concurrency</code></a></li>
+<li><a href="#orgabf6ee0">The Platform Environment <code>environment</code></a></li>
+<li><a href="#orgc44474a">Regular Expressions <code>regex</code></a></li>
+</ul>
+</li>
+<li><a href="#org41a6434">Collections <code>collections</code> 21</a>
+<ul>
+<li><a href="#org12e2909">Interfaces <code>interfaces</code></a></li>
+<li><a href="#org4f58855">Aggregate Operations <code>streams</code></a></li>
+<li><a href="#org995b7bd">Implementations <code>implementations</code></a></li>
+<li><a href="#org332c5fc">Algorithms <code>algorithms</code></a>
+<ul>
+<li><a href="#org2437aa3"><code>Sort</code></a></li>
+<li><a href="#org0a32822"><code>Anagrams2.java</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga4bfbf7">Date-Time APIs <code>datetime</code> 14</a>
+<ul>
+<li><a href="#org33b3775">date</a></li>
+</ul>
+</li>
+<li><a href="#orgfd7450a">Deployment <code>deployment</code> 44</a></li>
+<li><a href="#org479ec15">Preparation for Java Programming Language Certification <code>extra/certification</code> 0</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4f61a1e" class="outline-2">
+<h2 id="org4f61a1e">Getting Started <code>getStarted</code> 5</h2>
+<div class="outline-text-2" id="text-org4f61a1e">
+<p>
+An introduction to Java technology and lessons on installing Java
+development software and using it to create a simple program.
+</p>
+
+<pre class="example">
+1) QandE/HelloWorldApp2.java
+2) QandE/Useless.java
+3) QandE/FirstClass.java
+4) QandE/SecondClass.java
+5) application/examples/HelloWorldApp.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga798b89" class="outline-2">
+<h2 id="orga798b89">Learning the Java Language <code>java</code> 167</h2>
+<div class="outline-text-2" id="text-orga798b89">
+<p>
+Lessons describing the essential concepts and features of the Java
+Programming Language.
+</p>
+</div>
+
+<div id="outline-container-org3152153" class="outline-3">
+<h3 id="org3152153">Object-Oriented Programming Concepts <code>concepts</code></h3>
+<div class="outline-text-3" id="text-org3152153">
+<p>
+teaches you the core concepts behind object-oriented programming:
+objects, messages, classes, and inheritance. This lesson ends by
+showing you how these concepts translate into code. Feel free to skip
+this lesson if you are already familiar with object-oriented
+programming.
+</p>
+
+<pre class="example">
+- java/concepts/examples/BicycleDemo.java
+- java/concepts/examples/Bicycle.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org51fc85f" class="outline-3">
+<h3 id="org51fc85f">Language Basics <code>nutsandbolts</code></h3>
+<div class="outline-text-3" id="text-org51fc85f">
+<p>
+describes the traditional features of the language, including
+variables, arrays, data types, operators, and control flow.
+</p>
+
+<pre class="example">
+- java/nutsandbolts/QandE/NestedIf.java
+- java/nutsandbolts/examples/ArithmeticDemo.java
+- java/nutsandbolts/examples/BitDemo.java
+- java/nutsandbolts/examples/ComparisonDemo.java
+- java/nutsandbolts/examples/ContinueDemo.java
+- java/nutsandbolts/examples/ForDemo.java
+- java/nutsandbolts/examples/MultiDimArrayDemo.java
+- java/nutsandbolts/examples/SwitchDemo2.java
+- java/nutsandbolts/examples/ArrayDemo.java
+- java/nutsandbolts/examples/BreakWithLabelDemo.java
+- java/nutsandbolts/examples/ConditionalDemo2.java
+- java/nutsandbolts/examples/EnhancedForDemo.java
+- java/nutsandbolts/examples/SwitchDemo.java
+- java/nutsandbolts/examples/WhileDemo.java
+- java/nutsandbolts/examples/ArrayCopyDemo.java
+- java/nutsandbolts/examples/BlockDemo.java
+- java/nutsandbolts/examples/ConcatDemo.java
+- java/nutsandbolts/examples/ContinueWithLabelDemo.java
+- java/nutsandbolts/examples/IfElseDemo.java
+- java/nutsandbolts/examples/PrePostDemo.java
+- java/nutsandbolts/examples/SwitchDemoFallThrough.java
+- java/nutsandbolts/examples/ArrayCopyOfDemo.java
+- java/nutsandbolts/examples/BreakDemo.java
+- java/nutsandbolts/examples/ConditionalDemo1.java
+- java/nutsandbolts/examples/DoWhileDemo.java
+- java/nutsandbolts/examples/InstanceofDemo.java
+- java/nutsandbolts/examples/StringSwitchDemo.java
+- java/nutsandbolts/examples/UnaryDemo.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9dbabe1" class="outline-3">
+<h3 id="org9dbabe1">Classes and Objects <code>javaOO</code></h3>
+<div class="outline-text-3" id="text-org9dbabe1">
+<p>
+describes how to write the classes from which objects are created, and
+how to create and use the objects.
+</p>
+
+<pre class="example">
+- java/javaOO/QandE/IdentifyMyParts.java
+- java/javaOO/QandE/Point.java
+- java/javaOO/QandE/SomethingIsRight.java
+- java/javaOO/QandE/DataStructure.java
+- java/javaOO/QandE/NumberHolderDisplay.java
+- java/javaOO/QandE/Rectangle.java
+- java/javaOO/QandE/Class1.java
+- java/javaOO/QandE/Problem.java
+- java/javaOO/QandE/SomethingIsWrong.java
+- java/javaOO/QandE/Class2.java
+- java/javaOO/QandE/NumberHolder.java
+- java/javaOO/QandE/ProblemSolved.java
+- java/javaOO/examples/AClass.java
+- java/javaOO/examples/AlienCreatureTwo.java
+- java/javaOO/examples/Card2.java
+- java/javaOO/examples/Class1.java
+- java/javaOO/examples/Day.java
+- java/javaOO/examples/DisplayDeck.java
+- java/javaOO/examples/HelloWorldAnonymousClasses.java
+- java/javaOO/examples/MethodReferencesTest.java
+- java/javaOO/examples/Problem.java
+- java/javaOO/examples/RosterTest.java
+- java/javaOO/examples/StackOfInts.java
+- java/javaOO/examples/Suit.java
+- java/javaOO/examples/two/AlphaTwo.java
+- java/javaOO/examples/two/DeltaTwo.java
+- java/javaOO/examples/AlienCreatureOne.java
+- java/javaOO/examples/Card.java
+- java/javaOO/examples/Cats.java
+- java/javaOO/examples/DataStructure.java
+- java/javaOO/examples/Deck3.java
+- java/javaOO/examples/FillerTest.java
+- java/javaOO/examples/Point.java
+- java/javaOO/examples/Rectangle.java
+- java/javaOO/examples/Stack2.java
+- java/javaOO/examples/Subclass.java
+- java/javaOO/examples/one/DeltaOne.java
+- java/javaOO/examples/one/Alpha.java
+- java/javaOO/examples/AbstractClassTest.java
+- java/javaOO/examples/Animal.java
+- java/javaOO/examples/Card3.java
+- java/javaOO/examples/Class2.java
+- java/javaOO/examples/Deck.java
+- java/javaOO/examples/DisplayDeck2.java
+- java/javaOO/examples/LambdaScopeTest.java
+- java/javaOO/examples/Person.java
+- java/javaOO/examples/ProblemSolved.java
+- java/javaOO/examples/ShadowTest.java
+- java/javaOO/examples/StackTest.java
+- java/javaOO/examples/Superclass.java
+- java/javaOO/examples/AlienCreature.java
+- java/javaOO/examples/Calculator.java
+- java/javaOO/examples/Cat.java
+- java/javaOO/examples/CreateObjectDemo.java
+- java/javaOO/examples/Deck2.java
+- java/javaOO/examples/EnumTest.java
+- java/javaOO/examples/LocalClassExample.java
+- java/javaOO/examples/Planet.java
+- java/javaOO/examples/Rank.java
+- java/javaOO/examples/Stack.java
+- java/javaOO/examples/StackTest2.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgbae0d92" class="outline-3">
+<h3 id="orgbae0d92">Annotations <code>no-code</code></h3>
+<div class="outline-text-3" id="text-orgbae0d92">
+<p>
+are a form of metadata and provide information for the compiler. This
+lesson describes where and how to use annotations in a program
+effectively.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfede26c" class="outline-3">
+<h3 id="orgfede26c">Interfaces and Inheritance <code>IandI</code></h3>
+<div class="outline-text-3" id="text-orgfede26c">
+<p>
+describes interfaces—what they are, why you would want to write one,
+and how to write one. This section also describes the way in which you
+can derive one class from another. That is, how a subclass can inherit
+fields and methods from a superclass. You will learn that all classes
+are derived from the Object class, and how to modify the methods that
+a subclass inherits from superclasses.
+</p>
+
+<pre class="example">
+- java/IandI/examples/CharSequenceDemo.java
+- java/IandI/examples/MountainBike.java
+- java/IandI/examples/Relatable.java
+- java/IandI/examples/defaultmethods/Card.java
+- java/IandI/examples/defaultmethods/SortByRankThenSuit.java
+- java/IandI/examples/defaultmethods/TimeClient.java
+- java/IandI/examples/defaultmethods/SimpleTimeClient.java
+- java/IandI/examples/defaultmethods/TestSimpleTimeClient.java
+- java/IandI/examples/defaultmethods/Deck.java
+- java/IandI/examples/defaultmethods/SortFunction.java
+- java/IandI/examples/defaultmethods/PlayingCard.java
+- java/IandI/examples/defaultmethods/StandardDeck.java
+- java/IandI/examples/Card2.java
+- java/IandI/examples/RectanglePlus.java
+- java/IandI/examples/TimeClient.java
+- java/IandI/examples/Bicycle.java
+- java/IandI/examples/Deck.java
+- java/IandI/examples/Point.java
+- java/IandI/examples/RoadBike.java
+- java/IandI/examples/Card.java
+- java/IandI/examples/DisplayDeck.java
+- java/IandI/examples/Rectangle.java
+- java/IandI/examples/TestBikes.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga411ed5" class="outline-3">
+<h3 id="orga411ed5">Numbers and Strings <code>data</code></h3>
+<div class="outline-text-3" id="text-orga411ed5">
+<p>
+This lesson describes how to use Number and String objects The lesson
+also shows you how to format data for output.
+</p>
+
+<pre class="example">
+- java/data/QandE/Adder.java
+- java/data/QandE/FPAdder.java
+- java/data/QandE/ThisHappens.java
+- java/data/QandE/ComputeResult.java
+- java/data/QandE/MinVariablesDemo.java
+- java/data/QandE/Anagram.java
+- java/data/QandE/WhatHappens.java
+- java/data/QandE/ComputeInitials.java
+- java/data/QandE/MaxVariablesDemo.java
+- java/data/examples/ArrayOfArraysDemo.java
+- java/data/examples/BostonAccentDemo.java
+- java/data/examples/Filename.java
+- java/data/examples/MinDemo.java
+- java/data/examples/Rectangle.java
+- java/data/examples/SimplePoint.java
+- java/data/examples/StringsDemo.java
+- java/data/examples/Unboxing.java
+- java/data/examples/ArrayDemo.java
+- java/data/examples/BasicMathDemo.java
+- java/data/examples/ExponentialDemo.java
+- java/data/examples/Point.java
+- java/data/examples/ReverseStringTest.java
+- java/data/examples/StringDemo.java
+- java/data/examples/TrigonometricDemo.java
+- java/data/examples/Anagram.java
+- java/data/examples/ArrayOfArraysDemo2.java
+- java/data/examples/CharacterDemo.java
+- java/data/examples/FilenameDemo.java
+- java/data/examples/NumberDemo.java
+- java/data/examples/RegionMatchesDemo.java
+- java/data/examples/SimpleRectangle.java
+- java/data/examples/TestFormat.java
+- java/data/examples/ValueOfDemo.java
+- java/data/examples/ArrayCopyDemo.java
+- java/data/examples/ArrayOfStringsDemo.java
+- java/data/examples/DecimalFormatDemo.java
+- java/data/examples/InsertDemo.java
+- java/data/examples/Palindrome.java
+- java/data/examples/ReverseString.java
+- java/data/examples/StringBuilderDemo.java
+- java/data/examples/ToStringDemo.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1d0f941" class="outline-3">
+<h3 id="org1d0f941">Generics <code>generics</code></h3>
+<div class="outline-text-3" id="text-org1d0f941">
+<p>
+are a powerful feature of the Java programming language. They improve
+the type safety of your code, making more of your bugs detectable at
+compile time.
+</p>
+
+<pre class="example">
+- java/generics/examples/CountVowels.java
+- java/generics/examples/WildcardErrorBad.java
+- java/generics/examples/BoxDemo.java
+- java/generics/examples/WildcardError.java
+- java/generics/examples/WildcardFixed.java
+- java/generics/examples/Box.java
+- java/generics/examples/MultiplicationTable.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3f5d921" class="outline-3">
+<h3 id="org3f5d921">Packages <code>package</code></h3>
+<div class="outline-text-3" id="text-org3f5d921">
+<p>
+are a feature of the Java programming language that help you to
+organize and structure your classes and their relationships to one
+another.
+</p>
+
+<pre class="example">
+- java/package/QandE/question/Server.java
+- java/package/QandE/question/Client.java
+- java/package/QandE/question/Utilities.java
+- java/package/QandE/TimeClient.java
+- java/package/QandE/CharSequenceDemo.java
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org91d184f" class="outline-2">
+<h2 id="org91d184f">Essential Java Classes <code>essential</code> 87</h2>
+<div class="outline-text-2" id="text-org91d184f">
+<p>
+Lessons on exceptions, basic input/output, concurrency, regular
+expressions, and the platform environment.
+</p>
+</div>
+
+<div id="outline-container-orga75b774" class="outline-3">
+<h3 id="orga75b774">Exceptions <code>exceptions</code></h3>
+<div class="outline-text-3" id="text-orga75b774">
+<p>
+explains the exception mechanism and how it is used to handle errors
+and other exceptional conditions. This lesson describes what an
+exception is, how to throw and catch exceptions, what to do with an
+exception once it has been caught, and how to use the exception class
+hierarchy.
+</p>
+
+<pre class="example">
+- exceptions/examples/InputFileDeclared.java
+- exceptions/examples/ListOfNumbersDeclared.java
+- exceptions/examples/InputFile.java
+- exceptions/examples/ListOfNumbers2.java
+- exceptions/examples/InputFileTest.java
+- exceptions/examples/ListOfNumbersTest.java
+- exceptions/examples/Cat.java
+- exceptions/examples/ListOfNumbers.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org42eafaf" class="outline-3">
+<h3 id="org42eafaf">Basic I/O <code>io</code></h3>
+<div class="outline-text-3" id="text-org42eafaf">
+<p>
+covers the Java platform classes used for basic input and output. It
+focuses primarily on I/O Streams, a powerful concept that greatly
+simplifies I/O operations. The lesson also looks at Serialization,
+which lets a program write whole objects out to streams and read them
+back again. Then the lesson looks at some file system operations,
+including random access files. Finally, it touchs briefly on the
+advanced features of the New I/O API.
+</p>
+
+<pre class="example">
+- io/QandE/CountLetter.java
+- io/QandE/FindInt.java
+- io/examples/Adler32.java
+- io/examples/CardWriter.java
+- io/examples/CheckedDataOutput.java
+- io/examples/CheckedOutputStream.java
+- io/examples/Chmod.java
+- io/examples/CopyLines.java
+- io/examples/FileType.java
+- io/examples/PrintfStuff.java
+- io/examples/Root2.java
+- io/examples/Standard.java
+- io/examples/CardReader.java
+- io/examples/CheckedDataInput.java
+- io/examples/CheckedInputStream.java
+- io/examples/Checksum.java
+- io/examples/CopyCharacters.java
+- io/examples/Email.java
+- io/examples/ListOfFiles.java
+- io/examples/PrintStuff.java
+- io/examples/Root.java
+- io/examples/SortThread.java
+- io/examples/BufferedCopy.java
+- io/examples/CheckedDIDemo.java
+- io/examples/CheckedIODemo.java
+- io/examples/CheckedRAFDemo.java
+- io/examples/Copy.java
+- io/examples/DataStreams.java
+- io/examples/Find.java
+- io/examples/ObjectStreams.java
+- io/examples/ReverseThread.java
+- io/examples/ScanSum.java
+- io/examples/WatchDir.java
+- io/examples/Card3.java
+- io/examples/CheckedDITest.java
+- io/examples/CheckedIOTest.java
+- io/examples/CheckedRAFTest.java
+- io/examples/CopyBytes.java
+- io/examples/DiskUsage.java
+- io/examples/Format.java
+- io/examples/Password.java
+- io/examples/RhymingWords.java
+- io/examples/ScanXan.java
+- io/examples/Xdd.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org653ef4d" class="outline-3">
+<h3 id="org653ef4d">Concurrency <code>concurrency</code></h3>
+<div class="outline-text-3" id="text-org653ef4d">
+<p>
+explains how to write applications that perform multiple tasks
+simultaneously. The Java platform is designed from the ground up to
+support concurrent programming, with basic concurrency support in the
+Java programming language and the Java class libraries. Since version
+5.0, the Java platform has also included high-level concurrency
+APIs. This lesson introduces the platform's basic concurrency support
+and summarizes some of the high-level APIs in the java.util.concurrent
+packages.
+</p>
+
+<pre class="example">
+- concurrency/QandE/Consumer.java
+- concurrency/QandE/Producer.java
+- concurrency/QandE/BadThreads.java
+- concurrency/QandE/ProducerConsumerExample.java
+- concurrency/examples/Deadlock.java
+- concurrency/examples/HelloThread.java
+- concurrency/examples/ProducerConsumerExample.java
+- concurrency/examples/SynchronizedCounter.java
+- concurrency/examples/Counter.java
+- concurrency/examples/HelloRunnable.java
+- concurrency/examples/Producer.java
+- concurrency/examples/SleepMessages.java
+- concurrency/examples/AtomicCounter.java
+- concurrency/examples/Drop.java
+- concurrency/examples/ImmutableRGB.java
+- concurrency/examples/Safelock.java
+- concurrency/examples/SynchronizedRGB.java
+- concurrency/examples/Consumer.java
+- concurrency/examples/ForkBlur.java
+- concurrency/examples/SimpleThreads.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgabf6ee0" class="outline-3">
+<h3 id="orgabf6ee0">The Platform Environment <code>environment</code></h3>
+<div class="outline-text-3" id="text-orgabf6ee0">
+<p>
+is defined by the underlying operating system, the Java virtual
+machine, the class libraries, and various configuration data supplied
+when the application is launched. This lesson describes some of the
+APIs an application uses to examine and configure its platform
+environment.
+</p>
+
+<pre class="example">
+- environment/QandE/PersistentEcho.java
+- environment/examples/Echo.java
+- environment/examples/PassEnv.java
+- environment/examples/Env.java
+- environment/examples/PropertiesTest.java
+- environment/examples/EnvMap.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc44474a" class="outline-3">
+<h3 id="orgc44474a">Regular Expressions <code>regex</code></h3>
+<div class="outline-text-3" id="text-orgc44474a">
+<p>
+are a way to describe a set of strings based on common characteristics
+shared by each string in the set. They can be used to search, edit, or
+manipulate text and data. Regular expressions vary in complexity, but
+once you understand the basics of how they're constructed, you'll be
+able to decipher (or create) any regular expression. This lesson
+teaches the regular expression syntax supported by the java.util.regex
+API, and presents several working examples to illustrate how the
+various objects interact.
+</p>
+
+<pre class="example">
+- regex/examples/RegexDemo.java
+- regex/examples/ReplaceDemo2.java
+- regex/examples/MatchesLooking.java
+- regex/examples/ReplaceDemo.java
+- regex/examples/RegexTestHarness.java
+- regex/examples/SplitDemo.java
+- regex/examples/MatcherDemo.java
+- regex/examples/RegexTestHarness2.java
+- regex/examples/SplitDemo2.java
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41a6434" class="outline-2">
+<h2 id="org41a6434">Collections <code>collections</code> 21</h2>
+<div class="outline-text-2" id="text-org41a6434">
+<p>
+Lessons on using and extending the Java Collections Framework.
+</p>
+
+<p>
+Introduction tells you what collections are, and how they'll make your
+job easier and your programs better. You'll learn about the core
+elements that comprise the Collections Framework: interfaces,
+implementations and algorithms.
+</p>
+</div>
+
+<div id="outline-container-org12e2909" class="outline-3">
+<h3 id="org12e2909">Interfaces <code>interfaces</code></h3>
+<div class="outline-text-3" id="text-org12e2909">
+<p>
+Interfaces describes the core collection interfaces, which are the
+heart and soul of the Java Collections Framework. You'll learn general
+guidelines for effective use of these interfaces, including when to
+use which interface. You'll also learn idioms for each interface that
+will help you get the most out of the interfaces.
+</p>
+
+<pre class="example">
+- interfaces/QandE/ListTrim.java
+- interfaces/QandE/Ran.java
+- interfaces/QandE/FindDups.java
+- interfaces/examples/Deal.java
+- interfaces/examples/Shuffle.java
+- interfaces/examples/ArrayDequeSample.java
+- interfaces/examples/Freq.java
+- interfaces/examples/OysterMonths.java
+- interfaces/examples/FindDups.java
+- interfaces/examples/Name.java
+- interfaces/examples/Anagrams.java
+- interfaces/examples/FindDups2.java
+- interfaces/examples/NameSort.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4f58855" class="outline-3">
+<h3 id="org4f58855">Aggregate Operations <code>streams</code></h3>
+<div class="outline-text-3" id="text-org4f58855">
+<p>
+iterate over collections on your behalf, which enable you to write
+more concise and efficient code that process elements stored in
+collections.
+</p>
+
+<pre class="example">
+- streams/examples/Averager.java
+- streams/examples/Person.java
+- streams/examples/ParallelismExamples.java
+- streams/examples/BulkDataOperationsExamples.java
+- streams/examples/ReductionExamples.java
+</pre>
+
+
+<ul class="org-ul">
+<li>algorithms</li>
+<li>custom-implementations</li>
+<li>implementations
+<ul class="org-ul">
+<li>FileList.java</li>
+</ul></li>
+<li>interfaces
+<ul class="org-ul">
+<li>Anagrams.java</li>
+<li>ArrayDequeSample.java</li>
+<li>Deal.java</li>
+<li>dictionary.txt</li>
+<li>FindDups2.java</li>
+<li>FindDups.java</li>
+<li>Freq.java</li>
+<li>Name.java</li>
+<li>NameSort.java</li>
+<li>OysterMonths.java</li>
+<li>Shuffle.java</li>
+<li>FindDups.java</li>
+<li>ListTrim.java</li>
+<li>Ran.java</li>
+</ul></li>
+<li>interoperability</li>
+<li>intro</li>
+<li>streams
+<ul class="org-ul">
+<li>Averager.java</li>
+<li>BulkDataOperationsExamples.java</li>
+<li>ParallelismExamples.java</li>
+<li>Person.java</li>
+<li>ReductionExamples.java</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org995b7bd" class="outline-3">
+<h3 id="org995b7bd">Implementations <code>implementations</code></h3>
+<div class="outline-text-3" id="text-org995b7bd">
+<p>
+describes the JDK's general-purpose collection implementations and
+tells you when to use which implementation. You'll also learn about
+the wrapper implementations, which add functionality to
+general-purpose implementations.
+</p>
+
+<pre class="example">
+- implementations/QandE/FileList.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org332c5fc" class="outline-3">
+<h3 id="org332c5fc">Algorithms <code>algorithms</code></h3>
+<div class="outline-text-3" id="text-org332c5fc">
+<p>
+Algorithms describes the polymorphic algorithms provided by the JDK to
+operate on collections. With any luck you'll never have to write your
+own sort routine again!
+</p>
+
+<pre class="example">
+- algorithms/examples/Anagrams2.java
+- algorithms/examples/Sort.java
+</pre>
+</div>
+
+<div id="outline-container-org2437aa3" class="outline-4">
+<h4 id="org2437aa3"><code>Sort</code></h4>
+<div class="outline-text-4" id="text-org2437aa3">
+<pre class="example">
+$ javac -Xlint Sort.java 
+$ java Sort i walk the line
+  [i, line, the, walk]
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><a id="org1817021"></a><code>Sort.java</code><br />
+<div class="outline-text-5" id="text-org1817021">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Collections</span>;
+<span class="linenr"> 3: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">List</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #8b0000;">public</span> <span style="color: #8b0000;">class</span> <span style="color: #4682b4;">Sort</span> {
+<span class="linenr"> 6: </span>  <span style="color: #8b0000;">public</span> <span style="color: #8b0000;">static</span> <span style="color: #4682b4;">void</span> <span style="color: #8b2323;">main</span>(<span style="color: #4682b4;">String</span>[] <span style="color: #8b008b;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt; <span style="color: #8b008b;">list</span> = Arrays.asList(args);
+<span class="linenr"> 8: </span>    Collections.sort(list);
+<span class="linenr"> 9: </span>    System.out.println(list);
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>}
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org0a32822" class="outline-4">
+<h4 id="org0a32822"><code>Anagrams2.java</code></h4>
+<div class="outline-text-4" id="text-org0a32822">
+<pre class="example">
+$ javac -Xlint Anagrams2.java 
+$ java Anagrams2 dictionary.txt 8
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">io</span>.<span style="color: #4682b4;">File</span>;
+<span class="linenr"> 2: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">io</span>.<span style="color: #4682b4;">IOException</span>;
+<span class="linenr"> 3: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">io</span>.<span style="color: #4682b4;">PrintStream</span>;
+<span class="linenr"> 4: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">ArrayList</span>;
+<span class="linenr"> 5: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Arrays</span>;
+<span class="linenr"> 6: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Collection</span>;
+<span class="linenr"> 7: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Collections</span>;
+<span class="linenr"> 8: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Comparator</span>;
+<span class="linenr"> 9: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">HashMap</span>;
+<span class="linenr">10: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Iterator</span>;
+<span class="linenr">11: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">List</span>;
+<span class="linenr">12: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Map</span>;
+<span class="linenr">13: </span><span style="color: #8b0000;">import</span> <span style="color: #cd0000;">java</span>.<span style="color: #cd0000;">util</span>.<span style="color: #4682b4;">Scanner</span>;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span><span style="color: #8b0000;">public</span> <span style="color: #8b0000;">class</span> <span style="color: #4682b4;">Anagrams2</span> {
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>  <span style="color: #8b0000;">public</span> <span style="color: #8b0000;">static</span> <span style="color: #4682b4;">void</span> <span style="color: #8b2323;">main</span>(<span style="color: #4682b4;">String</span>[] <span style="color: #8b008b;">args</span>) {
+<span class="linenr">18: </span>    <span style="color: #4682b4;">int</span> <span style="color: #8b008b;">minGroupSize</span> = Integer.parseInt(args[1]);
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    <span style="color: #00008b;">// </span><span style="color: #00008b;">Read words from file and put into simulated multimap</span>
+<span class="linenr">21: </span>    <span style="color: #4682b4;">Map</span>&lt;<span style="color: #4682b4;">String</span>, <span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt;&gt; <span style="color: #8b008b;">m</span>
+<span class="linenr">22: </span>        = <span style="color: #8b0000;">new</span> <span style="color: #4682b4;">HashMap</span>&lt;<span style="color: #4682b4;">String</span>, <span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt;&gt;();
+<span class="linenr">23: </span>    <span style="color: #8b0000;">try</span> {
+<span class="linenr">24: </span>      <span style="color: #4682b4;">Scanner</span> <span style="color: #8b008b;">s</span> = <span style="color: #8b0000;">new</span> <span style="color: #4682b4;">Scanner</span>(<span style="color: #8b0000;">new</span> <span style="color: #4682b4;">File</span>(args[0]));
+<span class="linenr">25: </span>      <span style="color: #8b0000;">while</span> (s.hasNext()) {
+<span class="linenr">26: </span>        <span style="color: #4682b4;">String</span> <span style="color: #8b008b;">word</span> = s.next();
+<span class="linenr">27: </span>        <span style="color: #4682b4;">String</span> <span style="color: #8b008b;">alpha</span> = alphabetize(word);
+<span class="linenr">28: </span>        <span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt; <span style="color: #8b008b;">l</span> = m.get(alpha);
+<span class="linenr">29: </span>        <span style="color: #8b0000;">if</span> (l == <span style="color: #cd0000;">null</span>) {
+<span class="linenr">30: </span>          m.put(alpha, l = <span style="color: #8b0000;">new</span> <span style="color: #4682b4;">ArrayList</span>&lt;<span style="color: #4682b4;">String</span>&gt;());
+<span class="linenr">31: </span>        }
+<span class="linenr">32: </span>        l.add(word);
+<span class="linenr">33: </span>      }
+<span class="linenr">34: </span>    } <span style="color: #8b0000;">catch</span> (<span style="color: #4682b4;">IOException</span> <span style="color: #8b008b;">e</span>) {
+<span class="linenr">35: </span>      System.err.println(e);
+<span class="linenr">36: </span>      System.exit(1);
+<span class="linenr">37: </span>    }
+<span class="linenr">38: </span>
+<span class="linenr">39: </span>    <span style="color: #00008b;">// </span><span style="color: #00008b;">Make a List of all permutation groups above size threshold</span>
+<span class="linenr">40: </span>    <span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt;&gt; <span style="color: #8b008b;">winners</span> = <span style="color: #8b0000;">new</span> <span style="color: #4682b4;">ArrayList</span>&lt;<span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt;&gt;();
+<span class="linenr">41: </span>    <span style="color: #8b0000;">for</span> (<span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt; <span style="color: #8b2323;">l</span> : m.values()) {
+<span class="linenr">42: </span>      <span style="color: #8b0000;">if</span> (l.size() &gt;= minGroupSize) {
+<span class="linenr">43: </span>        winners.add(l);
+<span class="linenr">44: </span>      }
+<span class="linenr">45: </span>    }
+<span class="linenr">46: </span>
+<span class="linenr">47: </span>    <span style="color: #00008b;">// </span><span style="color: #00008b;">Sort permutation groups according to size</span>
+<span class="linenr">48: </span>    Collections.sort(winners, <span style="color: #8b0000;">new</span> <span style="color: #4682b4;">Comparator</span>&lt;<span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt;&gt;() {
+<span class="linenr">49: </span>        <span style="color: #8b0000;">public</span> <span style="color: #4682b4;">int</span> <span style="color: #8b2323;">compare</span>(<span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt; <span style="color: #8b008b;">o1</span>, <span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt; <span style="color: #8b008b;">o2</span>) {
+<span class="linenr">50: </span>          <span style="color: #8b0000;">return</span> o2.size() - o1.size();
+<span class="linenr">51: </span>        }
+<span class="linenr">52: </span>      });
+<span class="linenr">53: </span>
+<span class="linenr">54: </span>    <span style="color: #00008b;">// </span><span style="color: #00008b;">Print permutation groups</span>
+<span class="linenr">55: </span>    <span style="color: #8b0000;">for</span> (<span style="color: #4682b4;">List</span>&lt;<span style="color: #4682b4;">String</span>&gt; <span style="color: #8b008b;">l</span> : winners) {
+<span class="linenr">56: </span>      System.out.println(l.size() + <span style="color: #008b00;">": "</span> + l);
+<span class="linenr">57: </span>    }
+<span class="linenr">58: </span>  }
+<span class="linenr">59: </span>
+<span class="linenr">60: </span>  <span style="color: #8b0000;">private</span> <span style="color: #8b0000;">static</span> <span style="color: #4682b4;">String</span> <span style="color: #8b2323;">alphabetize</span>(<span style="color: #4682b4;">String</span> <span style="color: #8b008b;">s</span>) {
+<span class="linenr">61: </span>    <span style="color: #4682b4;">char</span>[] <span style="color: #8b008b;">a</span> = s.toCharArray();
+<span class="linenr">62: </span>    Arrays.sort(a);
+<span class="linenr">63: </span>    <span style="color: #8b0000;">return</span> <span style="color: #8b0000;">new</span> <span style="color: #4682b4;">String</span>(a);
+<span class="linenr">64: </span>  }
+<span class="linenr">65: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga4bfbf7" class="outline-2">
+<h2 id="orga4bfbf7">Date-Time APIs <code>datetime</code> 14</h2>
+<div class="outline-text-2" id="text-orga4bfbf7">
+<p>
+How to use the java.time pages to write date and time code.
+</p>
+
+<pre class="example">
+1) iso/QandE/ListMondays.java
+2) iso/QandE/MonthsInYear.java
+3) iso/QandE/FridayThirteenQuery.java
+4) iso/QandE/Superstitious.java
+5) iso/examples/FamilyBirthdays.java
+6) iso/examples/NextPayday.java
+7) iso/examples/TimeZoneId.java
+8) iso/examples/CheckDate.java
+9) iso/examples/StringConverter.java
+10) iso/examples/FamilyVacations.java
+11) iso/examples/Parse.java
+12) iso/examples/Birthday.java
+13) iso/examples/Flight.java
+14) iso/examples/PaydayAdjuster.java
+</pre>
+</div>
+
+<div id="outline-container-org33b3775" class="outline-3">
+<h3 id="org33b3775">date</h3>
+<div class="outline-text-3" id="text-org33b3775">
+<ul class="org-ul">
+<li>Birthday</li>
+<li>CheckDate</li>
+<li>Flight</li>
+<li>parse</li>
+<li>pay</li>
+<li>StringConverter</li>
+<li>TimeZoneId</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd7450a" class="outline-2">
+<h2 id="orgfd7450a">Deployment <code>deployment</code> 44</h2>
+<div class="outline-text-2" id="text-orgfd7450a">
+<p>
+How to package applications and applets using JAR files, and deploy
+them using Java Web Start and Java Plug-in.
+</p>
+
+<pre class="example">
+1) applet/examples/QuoteServerThread.java
+2) applet/examples/applet_AppletWithParameters/src/AppletTakesParams.java
+3) applet/examples/applet_ComponentArch_DynamicTreeDemo/src/appletComponentArch/DynamicTree.java
+4) applet/examples/applet_ComponentArch_DynamicTreeDemo/src/appletComponentArch/DynamicTreeApplet.java
+5) applet/examples/applet_ComponentArch_DynamicTreeDemo/src/appletComponentArch/DynamicTreePanel.java
+6) applet/examples/applet_Draggable/src/MenuItemChooser.java
+7) applet/examples/applet_Draggable/src/MenuItem.java
+8) applet/examples/applet_Draggable/src/MenuChooserApplet.java
+9) applet/examples/applet_GetApplets/src/GetApplets.java
+10) applet/examples/applet_HelloWorld/src/HelloWorld.java
+11) applet/examples/applet_InvokingAppletMethodsFromJavaScript/src/jstojava/MathApplet.java
+12) applet/examples/applet_InvokingAppletMethodsFromJavaScript/src/jstojava/DateHelper.java
+13) applet/examples/applet_InvokingAppletMethodsFromJavaScript/src/jstojava/Calculator.java
+14) applet/examples/applet_InvokingJavaScriptFromApplet/src/javatojs/DataSummaryApplet.java
+15) applet/examples/applet_InvokingJavaScriptFromApplet/src/javatojs/DomUtil.java
+16) applet/examples/applet_SenderReceiver/src/Receiver.java
+17) applet/examples/applet_SenderReceiver/src/Sender.java
+18) applet/examples/applet_ShowDocument/src/ShowDocument.java
+19) applet/examples/applet_Simple/src/Simple.java
+20) applet/examples/applet_StatusAndCallback/src/DrawingApplet.java
+21) applet/examples/applet_TraversingDOM/src/DOMDump.java
+22) applet/examples/QuoteServer.java
+23) applet/examples/QuoteClientApplet.java
+</pre>
+
+<pre class="example">
+1. doingMoreWithRIA/examples/applet_AccessingCookies/src/CookieAccessor.java
+2. doingMoreWithRIA/examples/applet_AccessingCookies/src/CookieApplet.java
+3. doingMoreWithRIA/examples/applet_JNLP_API/src/TextEditor.java
+4. doingMoreWithRIA/examples/applet_JNLP_API/src/FileHandler.java
+5. doingMoreWithRIA/examples/applet_JNLP_API/src/TextEditorApplet.java
+6. doingMoreWithRIA/examples/applet_PropertiesAndVMArgs/src/PropertiesArgsDemoApplet.java
+7. jar/examples/JarRunner.java
+8. jar/examples/JarClassLoader.java
+9. selfContainedApps/examples/packager_DynamicTreeDemo/src/webstartComponentArch/DynamicTreePanel.java
+10. selfContainedApps/examples/packager_DynamicTreeDemo/src/webstartComponentArch/DynamicTree.java
+11. selfContainedApps/examples/packager_DynamicTreeDemo/src/webstartComponentArch/DynamicTreeApplication.java
+12. selfContainedApps/examples/packager_FileAssociations/src/sample/fa/ScriptRunnerApplicationMac.java
+13. selfContainedApps/examples/packager_FileAssociations/src/sample/fa/ScriptRunnerApplication.java
+14. selfContainedApps/examples/packager_MultipleLaunchers/src/webstartComponentArch/DynamicTree.java
+15. selfContainedApps/examples/packager_MultipleLaunchers/src/webstartComponentArch/DynamicTreeApplication.java
+16. selfContainedApps/examples/packager_MultipleLaunchers/src/webstartComponentArch/DynamicTreePanel.java
+17. selfContainedApps/examples/packager_MultipleLaunchers/src/sample/fa/ScriptRunnerApplicationMac.java
+18. selfContainedApps/examples/packager_MultipleLaunchers/src/sample/fa/ScriptRunnerApplication.java
+19. webstart/examples/webstart_ComponentArch_DynamicTreeDemo/src/webstartComponentArch/DynamicTree.java
+20. webstart/examples/webstart_ComponentArch_DynamicTreeDemo/src/webstartComponentArch/DynamicTreeApplication.java
+21. webstart/examples/webstart_ComponentArch_DynamicTreeDemo/src/webstartComponentArch/DynamicTreePanel.java
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org479ec15" class="outline-2">
+<h2 id="org479ec15">Preparation for Java Programming Language Certification <code>extra/certification</code> 0</h2>
+<div class="outline-text-2" id="text-org479ec15">
+<p>
+List of available training and tutorial resources.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

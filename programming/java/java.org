@@ -1,11 +1,15 @@
 #+Title: java
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
+- [[file:hello.html][hello]]
 - [[file:books.html][books]]
 - [[file:code/code.html][code]]
 - [[file:lint.html][lint]]
+- debugging
 - [[file:tools.html][tools]]
+  - experimental
 - notes
   - [[file:keywords.html][keywords]]
+- references
 
 [[../programming.html][back]]

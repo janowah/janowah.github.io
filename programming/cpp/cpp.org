@@ -1,6 +1,7 @@
 #+Title: Cpp 
 #+OPTIONS: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
+- books
 - [[file:cpp-quick-guide.html][quick guide]]
 - [[file:problem-solving.html][problem solving]]
 - [[file:cpp-quick-notes.html][quick notes]]
