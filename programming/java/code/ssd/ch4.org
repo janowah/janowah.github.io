@@ -1,0 +1,755 @@
+#+title: Chapter 4. Java Servlets
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+=javac -classpath /usr/share/java/tomcat-servlet-api.jar *.java=
+
+* ex02 (read parameters from configuration file)
+
+Context Init Params
+
+- ContextExample
+
+- http://localhost:8080/proj/
+
+** =ContextExample.java=
+
+#+BEGIN_SRC java -n :bangle ContextExample.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class ContextExample extends HttpServlet {
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
+
+      // Grab the Parameters from the web.xml
+      String fn = getInitParameter("firstname");
+      String ln = getInitParameter("lastname");
+
+      out.println("<HTML><HEAD><TITLE>Context Init Params</TITLE></HEAD>");
+      out.println("<BODY><H1>Hello ");
+      out.println(fn + " " + ln + "</H1></BODY></HTML>");
+      out.close();
+    }
+  }
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+  <?xml version="1.0" encoding="ISO-8859-1"?>
+  <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+           version="2.4">
+
+    <display-name>Examples</display-name>
+    <description>Servlet Examples</description>
+
+    <servlet>
+      <servlet-name>ConEx</servlet-name>
+      <servlet-class>ContextExample</servlet-class>
+      <init-param>
+        <param-name>firstname</param-name>
+        <param-value>Homer</param-value>
+        <description>An example init param</description>
+      </init-param>
+      <init-param>
+        <param-name>lastname</param-name>
+        <param-value>Simpson</param-value>
+        <description>Another example init param</description>
+      </init-param>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>ConEx</servlet-name>
+      <url-pattern>/</url-pattern>
+    </servlet-mapping>
+  </web-app>
+#+END_SRC
+
+* ex03 (form sends get request)
+
+Form Example
+
+- form.html
+- http://localhost:8080/proj/form.html
+- http://localhost:8080/proj/servlet/FormServlet?firstname=a&surname=b&age=22
+- http://localhost:8080/proj/servlet/FormServlet?firstname=John+P&surname=b&age
+
+#+BEGIN_EXAMPLE
+  WEB-INF/classes/FormServlet.class
+  WEB-INF/web.xml
+  form.html
+#+END_EXAMPLE
+
+** =FormServlet.java=
+
+#+BEGIN_SRC java -n :bangle FormServlet.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class FormServlet extends HttpServlet {
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException {
+
+      res.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+      out.println("<HTML><HEAD><TITLE>Form Example</TITLE></HEAD>");
+      out.println("<BODY><H1>Hello " + req.getParameter("firstname")
+                  + " " + req.getParameter("surname") + "</H1>");
+      out.println("You are " + req.getParameter("age") + " years old!");
+      out.println("</BODY></HTML>");
+      out.close();
+    }
+  }
+#+END_SRC
+
+** =form.html=
+
+form.html sends get request to servlet
+
+#+BEGIN_SRC html -n :bangle form.html :padline no
+  <html>
+    <head>
+      <title>Basic Format</title>
+    </head>
+    <body>
+      <h2>Please fill out this form:</h2>
+
+      <form action="http://localhost:8080/proj/servlet/FormServlet"
+            method="get"
+            name="myform"><br>
+        <label>Firstname:
+          <input name="firstname">
+        </label><br>
+        <label>Surname:
+          <input name="surname">
+        </label><br>
+        <label>Age:
+          <input name="age">
+        </label><br>
+        <input type="submit" value="Submit Form">
+        <input type="reset" value="Reset">
+      </form>
+
+    </body>
+  </html>
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+  <web-app>
+    <display-name>Examples</display-name>
+    <description>Servlet Examples</description>
+    <servlet>
+      <servlet-name>FormServlet</servlet-name>
+      <servlet-class>FormServlet</servlet-class>
+      <init-param>
+        <param-name>firstname</param-name>
+        <param-value>Homer</param-value>
+        <description>An example init param</description>
+      </init-param>
+      <init-param>
+        <param-name>lastname</param-name>
+        <param-value>Simpson</param-value>
+        <description>Another example init param</description>
+      </init-param>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>FormServlet</servlet-name>
+      <url-pattern>/servlet/FormServlet</url-pattern>
+    </servlet-mapping>
+  </web-app>
+#+END_SRC
+
+* ex04 (Form using POST)
+
+- http://localhost:8080/proj/form2.html
+
+#+BEGIN_EXAMPLE
+  WEB-INF/classes/FormServlet2.class
+  WEB-INF/web.xml
+  form2.html
+#+END_EXAMPLE
+
+** =form2.html=
+
+#+BEGIN_SRC html -n :bangle form2.html :padline no
+  <html>
+    <head>
+      <title>Basic Format</title>
+    </head>
+    <body>
+      <h2>Please fill out this form:</h2>
+      <FORM METHOD="POST"
+            ACTION="http://localhost:8080/proj/servlet/FormServlet2"
+            name="myform"><BR>
+        Firstname: <input NAME="firstname"><BR>
+        Surname: <input NAME="surname"><BR>
+        Age: <input NAME="age"><BR>
+        <BR>
+        <input TYPE="submit" value="Submit Form">
+        <input TYPE="reset" value="Reset">
+      </form>
+    </body>
+  </html>
+#+END_SRC
+
+** =FormServlet2.java=
+
+#+BEGIN_SRC java -n :bangle FormServlet2.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class FormServlet2 extends HttpServlet {
+    public void doPost(HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException {
+
+      res.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+
+      out.println("<HTML><HEAD><TITLE>Form using POST</TITLE></HEAD>");
+      out.println("<BODY><H1>Hello " + req.getParameter("firstname")
+                  + " " + req.getParameter("surname") + "</H1>");
+      out.println("You are " + req.getParameter("age") + " years old!");
+      out.println("<BR><BR>Example uses the POST method - look at the URL!!");
+      out.println("</BODY></HTML>");
+      out.close();
+    }
+  }
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+  <?xml version="1.0" encoding="ISO-8859-1"?>
+  <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+           version="2.4">
+
+    <display-name></display-name>
+    <description></description>
+
+    <servlet>
+      <servlet-name>FormServlet2</servlet-name>
+      <servlet-class>FormServlet2</servlet-class>
+      <!-- <init-param> -->
+      <!--   <param-name></param-name> -->
+      <!--   <param-value></param-value> -->
+      <!--   <description></description> -->
+      <!-- </init-param> -->
+      <!-- <init-param> -->
+      <!--   <param-name></param-name> -->
+      <!--   <param-value></param-value> -->
+      <!--   <description></description> -->
+      <!-- </init-param> -->
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>FormServlet2</servlet-name>
+      <url-pattern>/servlet/FormServlet2</url-pattern>
+    </servlet-mapping>
+  </web-app>
+#+END_SRC
+
+* ex05 (Server-Side Include Example)
+
+- http://localhost:8080/proj/gettime.shtml
+- http://localhost:8080/proj/servlet/GetTime?format=long
+- http://localhost:8080/proj/servlet/GetTime?format=short
+
+#+BEGIN_EXAMPLE
+need to allow ssi
+/etc/tomcat/web.xml
+uncomment ssi
+
+
+  /etc/tomcat/context.xml
+
+  --- <Context>
+  +++ <Context privileged="true">
+#+END_EXAMPLE
+
+** =gettime.shtml=
+
+#+BEGIN_SRC html -n :bangle gettime.shtml :padline no
+  <html>
+    <head>
+      <title>Server-Side Include Example</title>
+    </head>
+    <body>
+      The current time (long version) is:
+      <!--#include virtual="/proj/servlet/GetTime?format=long" -->
+    <br>
+    <br>
+    And the current time (short version) is:
+    <!--#include virtual="/proj/servlet/GetTime?format=short" -->
+    <br>
+    <br>And we can write standard html or even include other servlets
+    anywhere in this page!
+    </body>
+  </html>
+#+END_SRC
+
+** =GetTime.java=
+
+#+BEGIN_SRC java -n :bangle GetTime.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import java.text.DateFormat;
+  import java.util.Date;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class GetTime extends HttpServlet {
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException {
+      res.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+      DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+      Date currentDate = new Date();
+      // Check for null in case the initial parameter isn't set - will default sho
+      if (req.getParameter("format") != null) {
+        // if we set it to long, otherwise it will remain as short
+        if (req.getParameter("format").equals("long")) {
+          df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+        }
+      }
+      out.println(df.format(currentDate));
+      out.close();
+    }
+  }
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	 version="2.4">
+
+  <display-name></display-name>
+  <description></description>
+
+  <servlet>
+    <servlet-name>GetTime</servlet-name>
+    <servlet-class>GetTime</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>GetTime</servlet-name>
+    <url-pattern>/servlet/GetTime</url-pattern>
+  </servlet-mapping>
+</web-app>
+#+END_SRC
+
+* ex06 (Hidden Forms Example)
+
+** =hidden_example.html=
+
+#+BEGIN_SRC html -n :bangle hidden_example.html :padline no
+<html>
+<head>
+<title>Example to Demonstrate Hidden Fields</title>
+</head>
+<body>
+<H2>Please choose a Username:</H2>
+<FORM METHOD="POST" ACTION="http://localhost:8080/ex6/servlet/HiddenServlet1"
+      name="myform">
+<BR>Username: <INPUT NAME="username">
+<BR><BR>
+<INPUT TYPE="submit" value="Submit Form">
+<INPUT TYPE="reset" value="Reset">
+<BR><BR>No hidden variables are passed at this early stage
+- we will actually pass them in the output of
+the HiddenServlet1 output.
+</body>
+</html>
+
+#+END_SRC
+
+** =HiddenServlet1.java=
+
+#+BEGIN_SRC java -n :bangle HiddenServlet1.java :padline no
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class HiddenServlet1 extends HttpServlet {
+  public void doPost(HttpServletRequest req, HttpServletResponse res)
+      throws ServletException, IOException {
+    res.setContentType("text/html");
+    PrintWriter out = res.getWriter();
+
+    String uname = req.getParameter("username");
+    out.println("<HTML><HEAD><TITLE>Hidden Forms Example</TITLE></HEAD>");
+    out.println("<BODY><H1>You have selected username= " + uname + "</H1>");
+    out.println("<FORM METHOD=\"POST\" ACTION=\"http://localhost:8080/ex7/servlet/HiddenServlet2\" name=\"myform\">");
+    out.println("<BR>Now enter your favourite colour: ");
+    out.println("<INPUT NAME=\"colour\">");
+
+    // However, we also want to keep track of which user is on the system
+    out.println("<INPUT TYPE=hidden NAME=\"username\" VALUE=\"" + uname + "");
+    out.println("<BR><BR><INPUT TYPE=submit value=\"Submit Form\">");
+    out.println("<INPUT TYPE=reset value=\"Reset\">");
+    out.println("</BODY></HTML>");
+    out.close();
+  }
+}
+
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	 version="2.4">
+
+  <display-name></display-name>
+  <description></description>
+
+  <servlet>
+    <servlet-name>HiddenServlet1</servlet-name>
+    <servlet-class>HiddenServlet1</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HiddenServlet1</servlet-name>
+    <url-pattern>/servlet/HiddenServlet1</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+#+END_SRC
+
+* ex07 (Hidden Forms Example)
+
+** =hidden_example.html=
+
+#+BEGIN_SRC html -n :bangle hidden_example.html :padline no
+<html>
+<head>
+<title>Example to Demonstrate Hidden Fields</title>
+</head>
+<body>
+<H2>Please choose a Username:</H2>
+<FORM METHOD="POST" ACTION="http://localhost:8080/ex7/servlet/HiddenServlet2"
+      name="myform">
+<BR>Username: <INPUT NAME="username">
+<BR><BR>
+<INPUT TYPE="submit" value="Submit Form">
+<INPUT TYPE="reset" value="Reset">
+<BR><BR>No hidden variables are passed at this early stage
+- we will actually pass them in the output of
+the HiddenServlet1 output.
+</body>
+</html>
+
+#+END_SRC
+
+** =HiddenServlet2.java=
+
+#+BEGIN_SRC java -n :bangle HiddenServlet2.java :padline no
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class HiddenServlet2 extends HttpServlet {
+  public void doPost(HttpServletRequest req, HttpServletResponse res)
+      throws ServletException, IOException {
+
+    res.setContentType("text/html");
+    PrintWriter out = res.getWriter();
+    String uname = req.getParameter("username");
+    String colour = req.getParameter("colour");
+    out.println("<HTML><HEAD><TITLE>Hidden Forms Example</TITLE></HEAD>");
+    out.println("<BODY><H1>You have selected username = " + uname + "</H1>");
+    out.println("<BR><BR><H1>You have selected colour = " + colour + "</H1>");
+    out.println("<BR><BR>Read the notes to explain what this example shows!:");
+    out.println("</BODY></HTML>");
+    out.close();
+  }
+}
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	 version="2.4">
+
+  <display-name></display-name>
+  <description></description>
+
+  <servlet>
+    <servlet-name>HiddenServlet2</servlet-name>
+    <servlet-class>HiddenServlet2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HiddenServlet2</servlet-name>
+    <url-pattern>/servlet/HiddenServlet2</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+#+END_SRC
+
+* ex08 (URL Rewriting Example)
+
+http://localhost:8080/proj/servlet/URLRewriting
+
+** =URLRewriting.java=
+
+#+BEGIN_SRC java -n :bangle URLRewriting.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class URLRewriting extends HttpServlet {
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException {
+      res.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+      String sessionID;
+      out.println("<HTML><HEAD><TITLE>URL Rewriting Example</TITLE></HEAD>");
+      out.println("<BODY><H1>URL Rewriting Example</H1>");
+
+      if (req.getParameter("sessionid") == null) {
+        out.println("SessionID not set - generating unique sessionID");
+        sessionID = generateSessionID() + "";
+      } else {
+        out.println("SessionID passed!");
+        sessionID = req.getParameter("sessionid");
+      }
+
+      out.println("<BR><BR>SessionID = " + sessionID);
+      out.println("<BR><BR>So now what is the difference between selecting to ");
+      out.println(" Refresh the page (before clicking the link) vs clicking ");
+      out.println("<A href=\"/proj/servlet/URLRewriting?sessionid=" + sessionID
+                  + "\">this link</A>, which is URL Rewritten?");
+      out.println("</BODY></HTML>");
+      out.close();
+    }
+
+    private long generateSessionID() {
+      return System.currentTimeMillis();
+    }
+  }
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+  <?xml version="1.0" encoding="ISO-8859-1"?>
+  <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+           version="2.4">
+
+    <display-name></display-name>
+    <description></description>
+
+    <servlet>
+      <servlet-name>URLRewriting</servlet-name>
+      <servlet-class>URLRewriting</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>URLRewriting</servlet-name>
+      <url-pattern>/servlet/URLRewriting</url-pattern>
+    </servlet-mapping>
+  </web-app>
+#+END_SRC
+
+* ex09 (Persistent Cookies)
+
+** =CookieCount.java=
+
+#+BEGIN_SRC java -n :bangle CookieCount.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.Cookie;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class CookieCount extends HttpServlet {
+  
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException {
+    
+      res.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+      String sessionID;
+      int countint = 0;
+
+      out.println("<HTML><HEAD><TITLE>Persistent Cookies</TITLE></HEAD>");
+      out.println("<BODY><H1>Persistent Cookies Example</H1>");
+
+      // First we grab all our cookies
+      Cookie[] cookies = req.getCookies();
+      if (cookies != null) {
+        for (int i=0; i< cookies.length; i++) {
+          String name = cookies[i].getName();
+          String value = cookies[i].getValue();
+          out.println("<BR><BR>Name: " + name);
+          out.println("<BR>Value: " + value);
+
+          // Let's make the servlet count the number of accesses!
+          if (name.equals("count")) {
+            countint = (new Integer(value)).intValue();
+            countint++;
+            Cookie cookie = new Cookie("count", countint + "");
+            cookie.setMaxAge(3600);
+            res.addCookie(cookie);
+            out.println("<BR><BR>You have accesse" + countint + " times!");
+          }
+        }
+      } else {
+        // If cookies is null, there are no cookies yet, so make them
+        out.println("<BR>No cookie set - Adding Cookie now - set in future!");
+        Cookie idCookie = new Cookie("sessionid", generateSessionID() + "");
+        idCookie.setMaxAge(3600);
+        // Sets the cookie livespan to be one ho
+        res.addCookie(idCookie);
+        Cookie countCookie = new Cookie("count", "0");
+        countCookie.setMaxAge(3600);
+        res.addCookie(countCookie);
+        // quick cookie addition
+      }
+
+      out.println("</BODY></HTML>");
+      out.close();
+    }
+
+    private long generateSessionID() {
+      return System.currentTimeMillis();
+    }
+  }
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+  <?xml version="1.0" encoding="ISO-8859-1"?>
+  <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+           version="2.4">
+
+    <display-name></display-name>
+    <description></description>
+
+    <servlet>
+      <servlet-name>CookieCount</servlet-name>
+      <servlet-class>CookieCount</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>CookieCount</servlet-name>
+      <url-pattern>/servlet/CookieCount</url-pattern>
+    </servlet-mapping>
+  </web-app>
+#+END_SRC
+
+* ex10 (Session Tracking Example)
+
+** =SessionCount.java=
+
+#+BEGIN_SRC java -n :bangle SessionCount.java :padline no
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import javax.servlet.http.HttpSession;
+
+  public class SessionCount extends HttpServlet {
+  
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException {
+    
+      res.setContentType("text/html");
+      PrintWriter out = res.getWriter();
+      // Get the current session or create one
+      HttpSession session = req.getSession(true);
+      out.println("<HTML>\n<HEAD>\n<TITLE>Session Tracking Example</TITLE></HEAD>");
+      out.println("<BODY><H1>Session Tracking Example</H1>");
+      out.println("<BR>Session ID = " + session.getId());
+
+      // casting as an Integer count.value is a user selected name
+      Integer count = (Integer) session.getAttribute("count.value");
+
+      // If count is null this means that no value yet bound to this
+      // session
+      if (count == null) {
+        count = new Integer(1);
+      } else { // Otherwise we read in the current value, increment it and put it back
+        count = new Integer(count.intValue() + 1);
+      }
+
+      session.setAttribute("count.value", count);
+      out.println("<BR><BR>You have visited this page " + count + " time(s)");
+      out.println("<BR><BR>Refresh the page to watch counter rise. ");
+      out.println("Try opening another browser and loading this page - result?");
+      out.println("</BODY></HTML>");
+      out.close();
+    }
+  }
+#+END_SRC
+
+** =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	 version="2.4">
+
+  <display-name></display-name>
+  <description></description>
+
+  <servlet>
+    <servlet-name>SessionCount</servlet-name>
+    <servlet-class>SessionCount</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SessionCount</servlet-name>
+    <url-pattern>/servlet/SessionCount</url-pattern>
+  </servlet-mapping>
+</web-app>
+#+END_SRC

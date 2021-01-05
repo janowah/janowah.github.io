@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 5. jsp</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Chapter 5. jsp</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org82059f9">1) HelloWorld.jsp</a>
+<ul>
+<li><a href="#org68602f2"><code>HelloWorld.jsp</code></a></li>
+</ul>
+</li>
+<li><a href="#org4c0b808">2) SimpleBean.java</a>
+<ul>
+<li><a href="#org0b69cc7"><code>SimpleBean.java</code></a></li>
+<li><a href="#org5b167cf"><code>SimpleBean.jsp</code></a></li>
+</ul>
+</li>
+<li><a href="#orgbbaa38d">3) DateTime.jsp</a>
+<ul>
+<li><a href="#org0ff7057"><code>DateTime.jsp</code></a></li>
+</ul>
+</li>
+<li><a href="#org5aa697c">4) JSPInclude.jsp</a>
+<ul>
+<li><a href="#org51b6021"><code>JSPInclude.jsp</code></a></li>
+</ul>
+</li>
+<li><a href="#orgfaa035f">5) simpleform.jsp</a>
+<ul>
+<li><a href="#org226a3e3"><code>SimpleForm.jsp</code></a></li>
+</ul>
+</li>
+<li><a href="#org48e629d">6) Comparison.jsp</a>
+<ul>
+<li><a href="#org9245446"><code>Comparison.jsp</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org82059f9" class="outline-2">
+<h2 id="org82059f9">1) HelloWorld.jsp</h2>
+<div class="outline-text-2" id="text-org82059f9">
+</div>
+<div id="outline-container-org68602f2" class="outline-3">
+<h3 id="org68602f2"><code>HelloWorld.jsp</code></h3>
+<div class="outline-text-3" id="text-org68602f2">
+<div class="org-src-container">
+<pre class="src src-mhtml">&lt;<span style="color: #d55e00;">html</span>&gt;
+  &lt;<span style="color: #d55e00;">head</span>&gt;&lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">JSP Hello World Example</span>&lt;/<span style="color: #d55e00;">title</span>&gt;&lt;/<span style="color: #d55e00;">head</span>&gt;
+  &lt;<span style="color: #d55e00;">body</span>&gt;
+    &lt;<span style="color: #d55e00;">h1</span>&gt;
+      &lt;% out.println(<span style="color: #848ea9;">"Hello World!"</span>); %&gt;
+    &lt;/<span style="color: #d55e00;">h1</span>&gt;
+  &lt;/<span style="color: #d55e00;">body</span>&gt;
+&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c0b808" class="outline-2">
+<h2 id="org4c0b808">2) SimpleBean.java</h2>
+<div class="outline-text-2" id="text-org4c0b808">
+</div>
+<div id="outline-container-org0b69cc7" class="outline-3">
+<h3 id="org0b69cc7"><code>SimpleBean.java</code></h3>
+<div class="outline-text-3" id="text-org0b69cc7">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #56b4e9; font-weight: bold;">package</span> <span style="color: #d55e00; font-weight: bold;">homer</span>;
+
+<span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">SimpleBean</span> {
+
+  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">message</span> = <span style="color: #848ea9;">"No message specified"</span>;
+
+  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getMessage</span>() {
+    <span style="color: #56b4e9; font-weight: bold;">return</span>(message);
+  }
+
+  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">setMessage</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">message</span>) {
+    <span style="color: #56b4e9; font-weight: bold;">this</span>.message = message;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5b167cf" class="outline-3">
+<h3 id="org5b167cf"><code>SimpleBean.jsp</code></h3>
+<div class="outline-text-3" id="text-org5b167cf">
+<div class="org-src-container">
+<pre class="src src-mhtml">&lt;<span style="color: #d55e00;">html</span>&gt;
+  &lt;<span style="color: #d55e00;">head</span>&gt;
+    &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Reusing JavaBeans in JSP</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+  &lt;/<span style="color: #d55e00;">head</span>&gt;
+  &lt;<span style="color: #d55e00;">body</span>&gt;
+    &lt;<span style="color: #d55e00;">center</span>&gt;
+      &lt;<span style="color: #0072b2;">jsp</span>:<span style="color: #d55e00;">useBean</span> <span style="color: #e69f00; font-weight: bold;">id</span>=<span style="color: #848ea9;">"test"</span> <span style="color: #e69f00; font-weight: bold;">class</span>=<span style="color: #848ea9;">"homer.SimpleBean"</span> /&gt;
+      &lt;<span style="color: #0072b2;">jsp</span>:<span style="color: #d55e00;">setProperty</span> <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"test"</span>
+                       <span style="color: #e69f00; font-weight: bold;">property</span>=<span style="color: #848ea9;">"message"</span>
+                       <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Hello World!"</span> /&gt;
+      &lt;<span style="color: #d55e00;">h1</span>&gt;Message:
+        &lt;<span style="color: #0072b2;">jsp</span>:<span style="color: #d55e00;">getProperty</span> <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"test"</span> <span style="color: #e69f00; font-weight: bold;">property</span>=<span style="color: #848ea9;">"message"</span> /&gt;
+      &lt;/<span style="color: #d55e00;">h1</span>&gt;
+  &lt;/<span style="color: #d55e00;">body</span>&gt;
+&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbbaa38d" class="outline-2">
+<h2 id="orgbbaa38d">3) DateTime.jsp</h2>
+<div class="outline-text-2" id="text-orgbbaa38d">
+</div>
+<div id="outline-container-org0ff7057" class="outline-3">
+<h3 id="org0ff7057"><code>DateTime.jsp</code></h3>
+<div class="outline-text-3" id="text-org0ff7057">
+<div class="org-src-container">
+<pre class="src src-mhtml">&lt;%@ page <span style="color: #e69f00; font-weight: bold;">import</span>=<span style="color: #848ea9;">"java.util.*"</span> %&gt;
+&lt;<span style="color: #d55e00;">h1</span>&gt;The current date and time:
+  &lt;%= (new java.util.Date()).toLocaleString() %&gt;
+&lt;/<span style="color: #d55e00;">h1</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5aa697c" class="outline-2">
+<h2 id="org5aa697c">4) JSPInclude.jsp</h2>
+<div class="outline-text-2" id="text-org5aa697c">
+</div>
+<div id="outline-container-org51b6021" class="outline-3">
+<h3 id="org51b6021"><code>JSPInclude.jsp</code></h3>
+<div class="outline-text-3" id="text-org51b6021">
+<div class="org-src-container">
+<pre class="src src-mhtml">&lt;<span style="color: #d55e00;">html</span>&gt;
+  &lt;<span style="color: #d55e00;">head</span>&gt;
+    &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">JSP Include Example</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+  &lt;/<span style="color: #d55e00;">head</span>&gt;
+  &lt;<span style="color: #d55e00;">body</span>&gt;
+    This is the main page, which includes the following:&lt;<span style="color: #d55e00;">br</span>&gt;&lt;<span style="color: #d55e00;">br</span>&gt;
+    &lt;%@ include <span style="color: #e69f00; font-weight: bold;">file</span>=<span style="color: #848ea9;">"DateTime.jsp"</span> %&gt;
+  &lt;/<span style="color: #d55e00;">body</span>&gt;
+&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfaa035f" class="outline-2">
+<h2 id="orgfaa035f">5) simpleform.jsp</h2>
+<div class="outline-text-2" id="text-orgfaa035f">
+</div>
+<div id="outline-container-org226a3e3" class="outline-3">
+<h3 id="org226a3e3"><code>SimpleForm.jsp</code></h3>
+<div class="outline-text-3" id="text-org226a3e3">
+<div class="org-src-container">
+<pre class="src src-mhtml">&lt;<span style="color: #d55e00;">html</span>&gt;
+  &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">JSP Form Example</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+  &lt;<span style="color: #d55e00;">body</span>&gt;
+    &lt;%
+    out.println(<span style="color: #848ea9;">"Your value for parameter A = "</span> + request.getParameter(<span style="color: #848ea9;">"a"</span>));
+    out.println(<span style="color: #848ea9;">"&lt;BR&gt;Your value for parameter B = "</span> + request.getParameter(<span style="color: #848ea9;">"b"</span>));
+    %&gt;
+  &lt;/<span style="color: #d55e00;">body</span>&gt;
+&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org48e629d" class="outline-2">
+<h2 id="org48e629d">6) Comparison.jsp</h2>
+<div class="outline-text-2" id="text-org48e629d">
+</div>
+<div id="outline-container-org9245446" class="outline-3">
+<h3 id="org9245446"><code>Comparison.jsp</code></h3>
+<div class="outline-text-3" id="text-org9245446">
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #d55e00;">html</span>&gt;
+  &lt;<span style="color: #d55e00;">head</span>&gt;
+    &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">String Comparison JSP</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+  &lt;/<span style="color: #d55e00;">head</span>&gt;
+  &lt;<span style="color: #d55e00;">body</span>&gt;
+    &lt;%! String stringA = null; %&gt;
+    &lt;%! String stringB = null; %&gt;
+    &lt;% if (request.getParameter(<span style="color: #848ea9;">"stringA"</span>) == null) {
+        // display form
+        out.println(<span style="color: #848ea9;">"&lt;BR&gt;Please enter the two strings for comparison:&lt;BR&gt;"</span>);
+        out.println(<span style="color: #848ea9;">"&lt;FORM METHOD=POST ACTION=\"</span>Comparison.jsp\<span style="color: #848ea9;">" name=myform&gt;"</span>);
+        out.println(<span style="color: #848ea9;">"&lt;BR&gt;First String: &lt;INPUT NAME=\"</span>stringA\<span style="color: #848ea9;">"&gt;"</span>);
+        out.println(<span style="color: #848ea9;">"&lt;BR&gt;Second String: &lt;INPUT NAME=\"</span>stringB\<span style="color: #848ea9;">"&gt;"</span>);
+        out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;&lt;INPUT TYPE=\"</span>submit\<span style="color: #848ea9;">" value=\"</span>Submit Form\<span style="color: #848ea9;">"&gt;"</span>);
+        out.println(<span style="color: #848ea9;">"&lt;INPUT TYPE=\"</span>reset\<span style="color: #848ea9;">" value=\"</span>Reset\<span style="color: #848ea9;">"&gt;"</span>);
+    } else {
+        // The parameters exist so do the comparison
+        stringA = request.getParameter(<span style="color: #848ea9;">"stringA"</span>);
+        stringB = request.getParameter(<span style="color: #848ea9;">"stringB"</span>);
+        if (stringA.equals(stringB)) {
+            out.println(<span style="color: #848ea9;">"&lt;BR&gt;The two strings &lt;B&gt;</span><span style="color: #848ea9; font-weight: bold;">ARE</span><span style="color: #848ea9;">&lt;/B&gt; identical!"</span>);
+        } else {
+            out.println(<span style="color: #848ea9;">"&lt;BR&gt;The two strings &lt;B&gt;</span><span style="color: #848ea9; font-weight: bold;">ARE NOT</span><span style="color: #848ea9;">&lt;/B&gt; identical!"</span>);
+        }
+    }
+    %&gt;
+  &lt;/<span style="color: #d55e00;">body</span>&gt;
+&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

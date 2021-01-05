@@ -12,26 +12,37 @@
 <div id="content">
 <h1 class="title">lint</h1>
 
-<div id="outline-container-org57a9ad4" class="outline-2">
-<h2 id="org57a9ad4">checkstyle</h2>
-<div class="outline-text-2" id="text-org57a9ad4">
+<div id="outline-container-org98ce971" class="outline-2">
+<h2 id="org98ce971">checkstyle</h2>
+<div class="outline-text-2" id="text-org98ce971">
 <pre class="example">
 java -jar ~/checkstyle-*-all.jar -c /google_checks.xml foo.java
 
 alias
-
-alias cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
+cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org81203c6" class="outline-2">
-<h2 id="org81203c6">emacs</h2>
-<div class="outline-text-2" id="text-org81203c6">
+<div id="outline-container-org1d21e5e" class="outline-2">
+<h2 id="org1d21e5e">google-java-format</h2>
+<div class="outline-text-2" id="text-org1d21e5e">
+<pre class="example">
+java -jar ~/google-java-format-1.7-all-deps.jar foo.java
+
+alias
+jf='java -jar /home/foo/google-java-format-1.7-all-deps.jar'
+</pre>
 </div>
-<div id="outline-container-org6f80982" class="outline-3">
-<h3 id="org6f80982">google-c-style.el</h3>
-<div class="outline-text-3" id="text-org6f80982">
+</div>
+
+<div id="outline-container-orgb5082e8" class="outline-2">
+<h2 id="orgb5082e8">emacs</h2>
+<div class="outline-text-2" id="text-orgb5082e8">
+</div>
+<div id="outline-container-orgebaa5de" class="outline-3">
+<h3 id="orgebaa5de">google-c-style.el</h3>
+<div class="outline-text-3" id="text-orgebaa5de">
 <div class="org-src-container">
 <pre class="src src-elisp">google-c-style.el
 </pre>
@@ -39,13 +50,13 @@ alias cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
 </div>
 </div>
 
-<div id="outline-container-org5409359" class="outline-3">
-<h3 id="org5409359">hooks</h3>
-<div class="outline-text-3" id="text-org5409359">
+<div id="outline-container-org7e4ea03" class="outline-3">
+<h3 id="org7e4ea03">hooks</h3>
+<div class="outline-text-3" id="text-org7e4ea03">
 <div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #009e73; font-style: italic;">;; </span><span style="color: #009e73; font-style: italic;">Also works for Java.</span>
-(autoload 'google-set-c-style <span style="color: #848ea9;">"google-c-style"</span>)
-(autoload 'google-make-newline-indent <span style="color: #848ea9;">"google-c-style"</span>)
+<pre class="src src-elisp"><span style="color: #00008b;">;; </span><span style="color: #00008b;">Also works for Java.</span>
+(autoload 'google-set-c-style <span style="color: #008b00;">"google-c-style"</span>)
+(autoload 'google-make-newline-indent <span style="color: #008b00;">"google-c-style"</span>)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 </pre>

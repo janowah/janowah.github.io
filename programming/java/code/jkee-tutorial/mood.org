@@ -1,6 +1,26 @@
 #+title: mood
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
+* layout
+
+#+BEGIN_EXAMPLE
+  .
+  ├── resources
+  │   └── images
+  │       ├── duke.cookies.gif
+  │       ├── duke.handsOnHips.gif
+  │       ├── duke.pensive.gif
+  │       ├── duke.snooze.gif
+  │       ├── duke.thumbsup.gif
+  │       └── duke.waving.gif
+  └── WEB-INF
+      └── classes
+          └── mood
+              ├── MoodServlet.class
+              ├── SimpleServletListener.class
+              └── TimeOfDayFilter.class
+#+END_EXAMPLE
+
 * =MoodServlet.java=
 
 #+BEGIN_SRC java -n :bangle MoodServlet.java :padline no

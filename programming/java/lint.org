@@ -7,8 +7,16 @@
   java -jar ~/checkstyle-*-all.jar -c /google_checks.xml foo.java
 
   alias
+  cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
+#+END_EXAMPLE
 
-  alias cs='java -jar /home/foo/checkstyle-*-all.jar -c /google_checks.xml'
+* google-java-format
+
+#+BEGIN_EXAMPLE
+  java -jar ~/google-java-format-1.7-all-deps.jar foo.java
+
+  alias
+  jf='java -jar /home/foo/google-java-format-1.7-all-deps.jar'
 #+END_EXAMPLE
 
 * emacs

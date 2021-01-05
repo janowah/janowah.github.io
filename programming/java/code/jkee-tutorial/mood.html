@@ -15,16 +15,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgba3b5cb"><code>MoodServlet.java</code></a></li>
-<li><a href="#org6af2cfb"><code>SimpleServletListener.java</code></a></li>
-<li><a href="#org126dec6"><code>TimeOfDayFilter.java</code></a></li>
+<li><a href="#orgaab8205">layout</a></li>
+<li><a href="#org3afc2e6"><code>MoodServlet.java</code></a></li>
+<li><a href="#org20baa5f"><code>SimpleServletListener.java</code></a></li>
+<li><a href="#org9664b4d"><code>TimeOfDayFilter.java</code></a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgba3b5cb" class="outline-2">
-<h2 id="orgba3b5cb"><code>MoodServlet.java</code></h2>
-<div class="outline-text-2" id="text-orgba3b5cb">
+<div id="outline-container-orgaab8205" class="outline-2">
+<h2 id="orgaab8205">layout</h2>
+<div class="outline-text-2" id="text-orgaab8205">
+<pre class="example">
+.
+├── resources
+│   └── images
+│       ├── duke.cookies.gif
+│       ├── duke.handsOnHips.gif
+│       ├── duke.pensive.gif
+│       ├── duke.snooze.gif
+│       ├── duke.thumbsup.gif
+│       └── duke.waving.gif
+└── WEB-INF
+    └── classes
+        └── mood
+            ├── MoodServlet.class
+            ├── SimpleServletListener.class
+            └── TimeOfDayFilter.class
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3afc2e6" class="outline-2">
+<h2 id="org3afc2e6"><code>MoodServlet.java</code></h2>
+<div class="outline-text-2" id="text-org3afc2e6">
 <div class="org-src-container">
 <pre class="src src-java"><span class="linenr">  1: </span><span style="color: #56b4e9; font-weight: bold;">package</span> <span style="color: #d55e00; font-weight: bold;">mood</span>;
 <span class="linenr">  2: </span>
@@ -143,9 +167,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6af2cfb" class="outline-2">
-<h2 id="org6af2cfb"><code>SimpleServletListener.java</code></h2>
-<div class="outline-text-2" id="text-org6af2cfb">
+<div id="outline-container-org20baa5f" class="outline-2">
+<h2 id="org20baa5f"><code>SimpleServletListener.java</code></h2>
+<div class="outline-text-2" id="text-org20baa5f">
 <div class="org-src-container">
 <pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">package</span> <span style="color: #d55e00; font-weight: bold;">mood</span>;
 <span class="linenr"> 2: </span>
@@ -200,9 +224,9 @@
 </div>
 </div>
 
-<div id="outline-container-org126dec6" class="outline-2">
-<h2 id="org126dec6"><code>TimeOfDayFilter.java</code></h2>
-<div class="outline-text-2" id="text-org126dec6">
+<div id="outline-container-org9664b4d" class="outline-2">
+<h2 id="org9664b4d"><code>TimeOfDayFilter.java</code></h2>
+<div class="outline-text-2" id="text-org9664b4d">
 <div class="org-src-container">
 <pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">package</span> <span style="color: #d55e00; font-weight: bold;">mood</span>;
 <span class="linenr"> 2: </span>

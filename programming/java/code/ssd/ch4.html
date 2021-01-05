@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 4. Java Servlets</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Chapter 4. Java Servlets</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgbd62709">ex02 (read parameters from configuration file)</a>
+<ul>
+<li><a href="#org0583b97"><code>ContextExample.java</code></a></li>
+<li><a href="#orgbc00c88"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org1630f2b">ex03 (form sends get request)</a>
+<ul>
+<li><a href="#orgacb3dd3"><code>FormServlet.java</code></a></li>
+<li><a href="#orgf016887"><code>form.html</code></a></li>
+<li><a href="#org73719ba"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org2210f1c">ex04 (Form using POST)</a>
+<ul>
+<li><a href="#org959a606"><code>form2.html</code></a></li>
+<li><a href="#org7197dbf"><code>FormServlet2.java</code></a></li>
+<li><a href="#orge4e9768"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org6369be2">ex05 (Server-Side Include Example)</a>
+<ul>
+<li><a href="#orgf08a0a6"><code>gettime.shtml</code></a></li>
+<li><a href="#orgf61d4f3"><code>GetTime.java</code></a></li>
+<li><a href="#org2bec59a"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org7432c3d">ex06 (Hidden Forms Example)</a>
+<ul>
+<li><a href="#orgaadd3f7"><code>hidden_example.html</code></a></li>
+<li><a href="#org918466a"><code>HiddenServlet1.java</code></a></li>
+<li><a href="#orgf98806f"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org90d1dd8">ex07 (Hidden Forms Example)</a>
+<ul>
+<li><a href="#orgd014c40"><code>hidden_example.html</code></a></li>
+<li><a href="#org3d908d7"><code>HiddenServlet2.java</code></a></li>
+<li><a href="#org8678d74"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org41405b2">ex08 (URL Rewriting Example)</a>
+<ul>
+<li><a href="#org5061641"><code>URLRewriting.java</code></a></li>
+<li><a href="#orgf5fe0ec"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#org2d5debf">ex09 (Persistent Cookies)</a>
+<ul>
+<li><a href="#orgf042115"><code>CookieCount.java</code></a></li>
+<li><a href="#orga4eabff"><code>web.xml</code></a></li>
+</ul>
+</li>
+<li><a href="#orgbd11d91">ex10 (Session Tracking Example)</a>
+<ul>
+<li><a href="#orga42f1be"><code>SessionCount.java</code></a></li>
+<li><a href="#org9d15a68"><code>web.xml</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<code>javac -classpath /usr/share/java/tomcat-servlet-api.jar *.java</code>
+</p>
+
+<div id="outline-container-orgbd62709" class="outline-2">
+<h2 id="orgbd62709">ex02 (read parameters from configuration file)</h2>
+<div class="outline-text-2" id="text-orgbd62709">
+<p>
+Context Init Params
+</p>
+
+<ul class="org-ul">
+<li>ContextExample</li>
+
+<li><a href="http://localhost:8080/proj/">http://localhost:8080/proj/</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org0583b97" class="outline-3">
+<h3 id="org0583b97"><code>ContextExample.java</code></h3>
+<div class="outline-text-3" id="text-org0583b97">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ContextExample</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doGet</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">request</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">response</span>)
+<span class="linenr">11: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">12: </span>    response.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = response.getWriter();
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Grab the Parameters from the web.xml</span>
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">fn</span> = getInitParameter(<span style="color: #848ea9;">"firstname"</span>);
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">ln</span> = getInitParameter(<span style="color: #848ea9;">"lastname"</span>);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Context Init Params&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">20: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;Hello "</span>);
+<span class="linenr">21: </span>    out.println(fn + <span style="color: #848ea9;">" "</span> + ln + <span style="color: #848ea9;">"&lt;/H1&gt;&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">22: </span>    out.close();
+<span class="linenr">23: </span>  }
+<span class="linenr">24: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc00c88" class="outline-3">
+<h3 id="orgbc00c88"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-orgbc00c88">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;Examples&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;Servlet Examples&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;ConEx&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;ContextExample&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>    &lt;<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">14: </span>      &lt;<span style="color: #d55e00;">param-name</span>&gt;firstname&lt;/<span style="color: #d55e00;">param-name</span>&gt;
+<span class="linenr">15: </span>      &lt;<span style="color: #d55e00;">param-value</span>&gt;Homer&lt;/<span style="color: #d55e00;">param-value</span>&gt;
+<span class="linenr">16: </span>      &lt;<span style="color: #d55e00;">description</span>&gt;An example init param&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr">17: </span>    &lt;/<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">18: </span>    &lt;<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">19: </span>      &lt;<span style="color: #d55e00;">param-name</span>&gt;lastname&lt;/<span style="color: #d55e00;">param-name</span>&gt;
+<span class="linenr">20: </span>      &lt;<span style="color: #d55e00;">param-value</span>&gt;Simpson&lt;/<span style="color: #d55e00;">param-value</span>&gt;
+<span class="linenr">21: </span>      &lt;<span style="color: #d55e00;">description</span>&gt;Another example init param&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr">22: </span>    &lt;/<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">23: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">26: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;ConEx&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">27: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">28: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">29: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1630f2b" class="outline-2">
+<h2 id="org1630f2b">ex03 (form sends get request)</h2>
+<div class="outline-text-2" id="text-org1630f2b">
+<p>
+Form Example
+</p>
+
+<ul class="org-ul">
+<li>form.html</li>
+<li><a href="http://localhost:8080/proj/form.html">http://localhost:8080/proj/form.html</a></li>
+<li><a href="http://localhost:8080/proj/servlet/FormServlet?firstname=a&amp;surname=b&amp;age=22">http://localhost:8080/proj/servlet/FormServlet?firstname=a&amp;surname=b&amp;age=22</a></li>
+<li><a href="http://localhost:8080/proj/servlet/FormServlet?firstname=John+P&amp;surname=b&amp;age">http://localhost:8080/proj/servlet/FormServlet?firstname=John+P&amp;surname=b&amp;age</a></li>
+</ul>
+
+<pre class="example">
+WEB-INF/classes/FormServlet.class
+WEB-INF/web.xml
+form.html
+</pre>
+</div>
+
+<div id="outline-container-orgacb3dd3" class="outline-3">
+<h3 id="orgacb3dd3"><code>FormServlet.java</code></h3>
+<div class="outline-text-3" id="text-orgacb3dd3">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FormServlet</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doGet</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr">10: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">14: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Form Example&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">15: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;Hello "</span> + req.getParameter(<span style="color: #848ea9;">"firstname"</span>)
+<span class="linenr">16: </span>                + <span style="color: #848ea9;">" "</span> + req.getParameter(<span style="color: #848ea9;">"surname"</span>) + <span style="color: #848ea9;">"&lt;/H1&gt;"</span>);
+<span class="linenr">17: </span>    out.println(<span style="color: #848ea9;">"You are "</span> + req.getParameter(<span style="color: #848ea9;">"age"</span>) + <span style="color: #848ea9;">" years old!"</span>);
+<span class="linenr">18: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">19: </span>    out.close();
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf016887" class="outline-3">
+<h3 id="orgf016887"><code>form.html</code></h3>
+<div class="outline-text-3" id="text-orgf016887">
+<p>
+form.html sends get request to servlet
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html"><span class="linenr"> 1: </span>&lt;<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr"> 2: </span>  &lt;<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 3: </span>    &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Basic Format</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+<span class="linenr"> 4: </span>  &lt;/<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 5: </span>  &lt;<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr"> 6: </span>    &lt;<span style="color: #d55e00;">h2</span>&gt;<span style="font-weight: bold; font-style: italic; text-decoration: underline;">Please fill out this form:</span>&lt;/<span style="color: #d55e00;">h2</span>&gt;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    &lt;<span style="color: #d55e00;">form</span> <span style="color: #e69f00; font-weight: bold;">action</span>=<span style="color: #848ea9;">"http://localhost:8080/proj/servlet/FormServlet"</span>
+<span class="linenr"> 9: </span>          <span style="color: #e69f00; font-weight: bold;">method</span>=<span style="color: #848ea9;">"get"</span>
+<span class="linenr">10: </span>          <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"myform"</span>&gt;&lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr">11: </span>      &lt;<span style="color: #d55e00;">label</span>&gt;Firstname:
+<span class="linenr">12: </span>        &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"firstname"</span>&gt;
+<span class="linenr">13: </span>      &lt;/<span style="color: #d55e00;">label</span>&gt;&lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr">14: </span>      &lt;<span style="color: #d55e00;">label</span>&gt;Surname:
+<span class="linenr">15: </span>        &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"surname"</span>&gt;
+<span class="linenr">16: </span>      &lt;/<span style="color: #d55e00;">label</span>&gt;&lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr">17: </span>      &lt;<span style="color: #d55e00;">label</span>&gt;Age:
+<span class="linenr">18: </span>        &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"age"</span>&gt;
+<span class="linenr">19: </span>      &lt;/<span style="color: #d55e00;">label</span>&gt;&lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr">20: </span>      &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">type</span>=<span style="color: #848ea9;">"submit"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Submit Form"</span>&gt;
+<span class="linenr">21: </span>      &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">type</span>=<span style="color: #848ea9;">"reset"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Reset"</span>&gt;
+<span class="linenr">22: </span>    &lt;/<span style="color: #d55e00;">form</span>&gt;
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>  &lt;/<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr">25: </span>&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73719ba" class="outline-3">
+<h3 id="org73719ba"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-org73719ba">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span>&lt;<span style="color: #d55e00;">web-app</span>&gt;
+<span class="linenr"> 2: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;Examples&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 3: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;Servlet Examples&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 4: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr"> 5: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;FormServlet&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr"> 6: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;FormServlet&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr"> 7: </span>    &lt;<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr"> 8: </span>      &lt;<span style="color: #d55e00;">param-name</span>&gt;firstname&lt;/<span style="color: #d55e00;">param-name</span>&gt;
+<span class="linenr"> 9: </span>      &lt;<span style="color: #d55e00;">param-value</span>&gt;Homer&lt;/<span style="color: #d55e00;">param-value</span>&gt;
+<span class="linenr">10: </span>      &lt;<span style="color: #d55e00;">description</span>&gt;An example init param&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr">11: </span>    &lt;/<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">13: </span>      &lt;<span style="color: #d55e00;">param-name</span>&gt;lastname&lt;/<span style="color: #d55e00;">param-name</span>&gt;
+<span class="linenr">14: </span>      &lt;<span style="color: #d55e00;">param-value</span>&gt;Simpson&lt;/<span style="color: #d55e00;">param-value</span>&gt;
+<span class="linenr">15: </span>      &lt;<span style="color: #d55e00;">description</span>&gt;Another example init param&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr">16: </span>    &lt;/<span style="color: #d55e00;">init-param</span>&gt;
+<span class="linenr">17: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">18: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;FormServlet&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">20: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/FormServlet&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">21: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">22: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2210f1c" class="outline-2">
+<h2 id="org2210f1c">ex04 (Form using POST)</h2>
+<div class="outline-text-2" id="text-org2210f1c">
+<ul class="org-ul">
+<li><a href="http://localhost:8080/proj/form2.html">http://localhost:8080/proj/form2.html</a></li>
+</ul>
+
+<pre class="example">
+WEB-INF/classes/FormServlet2.class
+WEB-INF/web.xml
+form2.html
+</pre>
+</div>
+
+<div id="outline-container-org959a606" class="outline-3">
+<h3 id="org959a606"><code>form2.html</code></h3>
+<div class="outline-text-3" id="text-org959a606">
+<div class="org-src-container">
+<pre class="src src-html"><span class="linenr"> 1: </span>&lt;<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr"> 2: </span>  &lt;<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 3: </span>    &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Basic Format</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+<span class="linenr"> 4: </span>  &lt;/<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 5: </span>  &lt;<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr"> 6: </span>    &lt;<span style="color: #d55e00;">h2</span>&gt;<span style="font-weight: bold; font-style: italic; text-decoration: underline;">Please fill out this form:</span>&lt;/<span style="color: #d55e00;">h2</span>&gt;
+<span class="linenr"> 7: </span>    &lt;<span style="color: #d55e00;">FORM</span> <span style="color: #e69f00; font-weight: bold;">METHOD</span>=<span style="color: #848ea9;">"POST"</span>
+<span class="linenr"> 8: </span>          <span style="color: #e69f00; font-weight: bold;">ACTION</span>=<span style="color: #848ea9;">"http://localhost:8080/proj/servlet/FormServlet2"</span>
+<span class="linenr"> 9: </span>          <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"myform"</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">10: </span>      Firstname: &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">NAME</span>=<span style="color: #848ea9;">"firstname"</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">11: </span>      Surname: &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">NAME</span>=<span style="color: #848ea9;">"surname"</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">12: </span>      Age: &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">NAME</span>=<span style="color: #848ea9;">"age"</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">13: </span>      &lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">14: </span>      &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">TYPE</span>=<span style="color: #848ea9;">"submit"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Submit Form"</span>&gt;
+<span class="linenr">15: </span>      &lt;<span style="color: #d55e00;">input</span> <span style="color: #e69f00; font-weight: bold;">TYPE</span>=<span style="color: #848ea9;">"reset"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Reset"</span>&gt;
+<span class="linenr">16: </span>    &lt;/<span style="color: #d55e00;">form</span>&gt;
+<span class="linenr">17: </span>  &lt;/<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr">18: </span>&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7197dbf" class="outline-3">
+<h3 id="org7197dbf"><code>FormServlet2.java</code></h3>
+<div class="outline-text-3" id="text-org7197dbf">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FormServlet2</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doPost</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr">10: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Form using POST&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">16: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;Hello "</span> + req.getParameter(<span style="color: #848ea9;">"firstname"</span>)
+<span class="linenr">17: </span>                + <span style="color: #848ea9;">" "</span> + req.getParameter(<span style="color: #848ea9;">"surname"</span>) + <span style="color: #848ea9;">"&lt;/H1&gt;"</span>);
+<span class="linenr">18: </span>    out.println(<span style="color: #848ea9;">"You are "</span> + req.getParameter(<span style="color: #848ea9;">"age"</span>) + <span style="color: #848ea9;">" years old!"</span>);
+<span class="linenr">19: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;Example uses the POST method - look at the URL!!"</span>);
+<span class="linenr">20: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">21: </span>    out.close();
+<span class="linenr">22: </span>  }
+<span class="linenr">23: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge4e9768" class="outline-3">
+<h3 id="orge4e9768"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-orge4e9768">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;FormServlet2&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;FormServlet2&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>    <span style="color: #009e73; font-style: italic;">&lt;!-- </span><span style="color: #009e73; font-style: italic;">&lt;init-param&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">14: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--   </span><span style="color: #009e73; font-style: italic;">&lt;param-name&gt;&lt;/param-name&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">15: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--   </span><span style="color: #009e73; font-style: italic;">&lt;param-value&gt;&lt;/param-value&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">16: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--   </span><span style="color: #009e73; font-style: italic;">&lt;description&gt;&lt;/description&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">17: </span>    <span style="color: #009e73; font-style: italic;">&lt;!-- </span><span style="color: #009e73; font-style: italic;">&lt;/init-param&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">18: </span>    <span style="color: #009e73; font-style: italic;">&lt;!-- </span><span style="color: #009e73; font-style: italic;">&lt;init-param&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">19: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--   </span><span style="color: #009e73; font-style: italic;">&lt;param-name&gt;&lt;/param-name&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">20: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--   </span><span style="color: #009e73; font-style: italic;">&lt;param-value&gt;&lt;/param-value&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">21: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--   </span><span style="color: #009e73; font-style: italic;">&lt;description&gt;&lt;/description&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">22: </span>    <span style="color: #009e73; font-style: italic;">&lt;!-- </span><span style="color: #009e73; font-style: italic;">&lt;/init-param&gt; </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">23: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">26: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;FormServlet2&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">27: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/FormServlet2&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">28: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">29: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6369be2" class="outline-2">
+<h2 id="org6369be2">ex05 (Server-Side Include Example)</h2>
+<div class="outline-text-2" id="text-org6369be2">
+<ul class="org-ul">
+<li><a href="http://localhost:8080/proj/gettime.shtml">http://localhost:8080/proj/gettime.shtml</a></li>
+<li><a href="http://localhost:8080/proj/servlet/GetTime?format=long">http://localhost:8080/proj/servlet/GetTime?format=long</a></li>
+<li><a href="http://localhost:8080/proj/servlet/GetTime?format=short">http://localhost:8080/proj/servlet/GetTime?format=short</a></li>
+</ul>
+
+<pre class="example">
+need to allow ssi
+/etc/tomcat/web.xml
+uncomment ssi
+
+
+  /etc/tomcat/context.xml
+
+  --- &lt;Context&gt;
+  +++ &lt;Context privileged="true"&gt;
+</pre>
+</div>
+
+<div id="outline-container-orgf08a0a6" class="outline-3">
+<h3 id="orgf08a0a6"><code>gettime.shtml</code></h3>
+<div class="outline-text-3" id="text-orgf08a0a6">
+<div class="org-src-container">
+<pre class="src src-html"><span class="linenr"> 1: </span>&lt;<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr"> 2: </span>  &lt;<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 3: </span>    &lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Server-Side Include Example</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+<span class="linenr"> 4: </span>  &lt;/<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 5: </span>  &lt;<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr"> 6: </span>    The current time (long version) is:
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">&lt;!--</span><span style="color: #009e73; font-style: italic;">#include virtual="/proj/servlet/GetTime?format=long" </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr"> 9: </span>  &lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr">10: </span>  And the current time (short version) is:
+<span class="linenr">11: </span>  <span style="color: #009e73; font-style: italic;">&lt;!--</span><span style="color: #009e73; font-style: italic;">#include virtual="/proj/servlet/GetTime?format=short" </span><span style="color: #009e73; font-style: italic;">--&gt;</span>
+<span class="linenr">12: </span>  &lt;<span style="color: #d55e00;">br</span>&gt;
+<span class="linenr">13: </span>  &lt;<span style="color: #d55e00;">br</span>&gt;And we can write standard html or even include other servlets
+<span class="linenr">14: </span>  anywhere in this page!
+<span class="linenr">15: </span>  &lt;/<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr">16: </span>&lt;/<span style="color: #d55e00;">html</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf61d4f3" class="outline-3">
+<h3 id="orgf61d4f3"><code>GetTime.java</code></h3>
+<div class="outline-text-3" id="text-orgf61d4f3">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">text</span>.<span style="color: #0072b2; font-weight: bold;">DateFormat</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Date</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 7: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">GetTime</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr">11: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doGet</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">13: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">DateFormat</span> <span style="color: #e69f00; font-weight: bold;">df</span> = DateFormat.getDateTimeInstance(<span style="color: #d55e00; font-weight: bold;">DateFormat</span>.SHORT, <span style="color: #d55e00; font-weight: bold;">DateFormat</span>.SHORT);
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">Date</span> <span style="color: #e69f00; font-weight: bold;">currentDate</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Date</span>();
+<span class="linenr">17: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Check for null in case the initial parameter isn't set - will default sho</span>
+<span class="linenr">18: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (req.getParameter(<span style="color: #848ea9;">"format"</span>) != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">19: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">if we set it to long, otherwise it will remain as short</span>
+<span class="linenr">20: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (req.getParameter(<span style="color: #848ea9;">"format"</span>).equals(<span style="color: #848ea9;">"long"</span>)) {
+<span class="linenr">21: </span>        df = DateFormat.getDateTimeInstance(<span style="color: #d55e00; font-weight: bold;">DateFormat</span>.LONG, <span style="color: #d55e00; font-weight: bold;">DateFormat</span>.LONG);
+<span class="linenr">22: </span>      }
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>    out.println(df.format(currentDate));
+<span class="linenr">25: </span>    out.close();
+<span class="linenr">26: </span>  }
+<span class="linenr">27: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2bec59a" class="outline-3">
+<h3 id="org2bec59a"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-org2bec59a">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;GetTime&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;GetTime&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">16: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;GetTime&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">17: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/GetTime&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">18: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7432c3d" class="outline-2">
+<h2 id="org7432c3d">ex06 (Hidden Forms Example)</h2>
+<div class="outline-text-2" id="text-org7432c3d">
+</div>
+<div id="outline-container-orgaadd3f7" class="outline-3">
+<h3 id="orgaadd3f7"><code>hidden_example.html</code></h3>
+<div class="outline-text-3" id="text-orgaadd3f7">
+<div class="org-src-container">
+<pre class="src src-html"><span class="linenr"> 1: </span>&lt;<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 3: </span>&lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Example to Demonstrate Hidden Fields</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+<span class="linenr"> 4: </span>&lt;/<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 5: </span>&lt;<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr"> 6: </span>&lt;<span style="color: #d55e00;">H2</span>&gt;<span style="font-weight: bold; font-style: italic; text-decoration: underline;">Please choose a Username:</span>&lt;/<span style="color: #d55e00;">H2</span>&gt;
+<span class="linenr"> 7: </span>&lt;<span style="color: #d55e00;">FORM</span> <span style="color: #e69f00; font-weight: bold;">METHOD</span>=<span style="color: #848ea9;">"POST"</span> <span style="color: #e69f00; font-weight: bold;">ACTION</span>=<span style="color: #848ea9;">"http://localhost:8080/ex6/servlet/HiddenServlet1"</span>
+<span class="linenr"> 8: </span>      <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"myform"</span>&gt;
+<span class="linenr"> 9: </span>&lt;<span style="color: #d55e00;">BR</span>&gt;Username: &lt;<span style="color: #d55e00;">INPUT</span> <span style="color: #e69f00; font-weight: bold;">NAME</span>=<span style="color: #848ea9;">"username"</span>&gt;
+<span class="linenr">10: </span>&lt;<span style="color: #d55e00;">BR</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">11: </span>&lt;<span style="color: #d55e00;">INPUT</span> <span style="color: #e69f00; font-weight: bold;">TYPE</span>=<span style="color: #848ea9;">"submit"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Submit Form"</span>&gt;
+<span class="linenr">12: </span>&lt;<span style="color: #d55e00;">INPUT</span> <span style="color: #e69f00; font-weight: bold;">TYPE</span>=<span style="color: #848ea9;">"reset"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Reset"</span>&gt;
+<span class="linenr">13: </span>&lt;<span style="color: #d55e00;">BR</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;No hidden variables are passed at this early stage
+<span class="linenr">14: </span>- we will actually pass them in the output of
+<span class="linenr">15: </span>the HiddenServlet1 output.
+<span class="linenr">16: </span>&lt;/<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr">17: </span>&lt;/<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr">18: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org918466a" class="outline-3">
+<h3 id="org918466a"><code>HiddenServlet1.java</code></h3>
+<div class="outline-text-3" id="text-org918466a">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.*;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.*;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.*;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">HiddenServlet1</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doPost</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr"> 8: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr"> 9: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">uname</span> = req.getParameter(<span style="color: #848ea9;">"username"</span>);
+<span class="linenr">13: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Hidden Forms Example&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">14: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;You have selected username= "</span> + uname + <span style="color: #848ea9;">"&lt;/H1&gt;"</span>);
+<span class="linenr">15: </span>    out.println(<span style="color: #848ea9;">"&lt;FORM METHOD=\"POST\" ACTION=\"http://localhost:8080/ex7/servlet/HiddenServlet2\" name=\"myform\"&gt;"</span>);
+<span class="linenr">16: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;Now enter your favourite colour: "</span>);
+<span class="linenr">17: </span>    out.println(<span style="color: #848ea9;">"&lt;INPUT NAME=\"colour\"&gt;"</span>);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">However, we also want to keep track of which user is on the system</span>
+<span class="linenr">20: </span>    out.println(<span style="color: #848ea9;">"&lt;INPUT TYPE=hidden NAME=\"username\" VALUE=\""</span> + uname + <span style="color: #848ea9;">""</span>);
+<span class="linenr">21: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;&lt;INPUT TYPE=submit value=\"Submit Form\"&gt;"</span>);
+<span class="linenr">22: </span>    out.println(<span style="color: #848ea9;">"&lt;INPUT TYPE=reset value=\"Reset\"&gt;"</span>);
+<span class="linenr">23: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">24: </span>    out.close();
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+<span class="linenr">27: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf98806f" class="outline-3">
+<h3 id="orgf98806f"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-orgf98806f">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;HiddenServlet1&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;HiddenServlet1&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">16: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;HiddenServlet1&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">17: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/HiddenServlet1&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">18: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+<span class="linenr">20: </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org90d1dd8" class="outline-2">
+<h2 id="org90d1dd8">ex07 (Hidden Forms Example)</h2>
+<div class="outline-text-2" id="text-org90d1dd8">
+</div>
+<div id="outline-container-orgd014c40" class="outline-3">
+<h3 id="orgd014c40"><code>hidden_example.html</code></h3>
+<div class="outline-text-3" id="text-orgd014c40">
+<div class="org-src-container">
+<pre class="src src-html"><span class="linenr"> 1: </span>&lt;<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 3: </span>&lt;<span style="color: #d55e00;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Example to Demonstrate Hidden Fields</span>&lt;/<span style="color: #d55e00;">title</span>&gt;
+<span class="linenr"> 4: </span>&lt;/<span style="color: #d55e00;">head</span>&gt;
+<span class="linenr"> 5: </span>&lt;<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr"> 6: </span>&lt;<span style="color: #d55e00;">H2</span>&gt;<span style="font-weight: bold; font-style: italic; text-decoration: underline;">Please choose a Username:</span>&lt;/<span style="color: #d55e00;">H2</span>&gt;
+<span class="linenr"> 7: </span>&lt;<span style="color: #d55e00;">FORM</span> <span style="color: #e69f00; font-weight: bold;">METHOD</span>=<span style="color: #848ea9;">"POST"</span> <span style="color: #e69f00; font-weight: bold;">ACTION</span>=<span style="color: #848ea9;">"http://localhost:8080/ex7/servlet/HiddenServlet2"</span>
+<span class="linenr"> 8: </span>      <span style="color: #e69f00; font-weight: bold;">name</span>=<span style="color: #848ea9;">"myform"</span>&gt;
+<span class="linenr"> 9: </span>&lt;<span style="color: #d55e00;">BR</span>&gt;Username: &lt;<span style="color: #d55e00;">INPUT</span> <span style="color: #e69f00; font-weight: bold;">NAME</span>=<span style="color: #848ea9;">"username"</span>&gt;
+<span class="linenr">10: </span>&lt;<span style="color: #d55e00;">BR</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;
+<span class="linenr">11: </span>&lt;<span style="color: #d55e00;">INPUT</span> <span style="color: #e69f00; font-weight: bold;">TYPE</span>=<span style="color: #848ea9;">"submit"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Submit Form"</span>&gt;
+<span class="linenr">12: </span>&lt;<span style="color: #d55e00;">INPUT</span> <span style="color: #e69f00; font-weight: bold;">TYPE</span>=<span style="color: #848ea9;">"reset"</span> <span style="color: #e69f00; font-weight: bold;">value</span>=<span style="color: #848ea9;">"Reset"</span>&gt;
+<span class="linenr">13: </span>&lt;<span style="color: #d55e00;">BR</span>&gt;&lt;<span style="color: #d55e00;">BR</span>&gt;No hidden variables are passed at this early stage
+<span class="linenr">14: </span>- we will actually pass them in the output of
+<span class="linenr">15: </span>the HiddenServlet1 output.
+<span class="linenr">16: </span>&lt;/<span style="color: #d55e00;">body</span>&gt;
+<span class="linenr">17: </span>&lt;/<span style="color: #d55e00;">html</span>&gt;
+<span class="linenr">18: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3d908d7" class="outline-3">
+<h3 id="org3d908d7"><code>HiddenServlet2.java</code></h3>
+<div class="outline-text-3" id="text-org3d908d7">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.*;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.*;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.*;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">HiddenServlet2</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doPost</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr"> 7: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">uname</span> = req.getParameter(<span style="color: #848ea9;">"username"</span>);
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">colour</span> = req.getParameter(<span style="color: #848ea9;">"colour"</span>);
+<span class="linenr">13: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Hidden Forms Example&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">14: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;You have selected username = "</span> + uname + <span style="color: #848ea9;">"&lt;/H1&gt;"</span>);
+<span class="linenr">15: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;&lt;H1&gt;You have selected colour = "</span> + colour + <span style="color: #848ea9;">"&lt;/H1&gt;"</span>);
+<span class="linenr">16: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;Read the notes to explain what this example shows!:"</span>);
+<span class="linenr">17: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">18: </span>    out.close();
+<span class="linenr">19: </span>  }
+<span class="linenr">20: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8678d74" class="outline-3">
+<h3 id="org8678d74"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-org8678d74">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;HiddenServlet2&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;HiddenServlet2&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">16: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;HiddenServlet2&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">17: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/HiddenServlet2&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">18: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+<span class="linenr">20: </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41405b2" class="outline-2">
+<h2 id="org41405b2">ex08 (URL Rewriting Example)</h2>
+<div class="outline-text-2" id="text-org41405b2">
+<p>
+<a href="http://localhost:8080/proj/servlet/URLRewriting">http://localhost:8080/proj/servlet/URLRewriting</a>
+</p>
+</div>
+
+<div id="outline-container-org5061641" class="outline-3">
+<h3 id="org5061641"><code>URLRewriting.java</code></h3>
+<div class="outline-text-3" id="text-org5061641">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">URLRewriting</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doGet</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr">10: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">11: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">sessionID</span>;
+<span class="linenr">14: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;URL Rewriting Example&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">15: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;URL Rewriting Example&lt;/H1&gt;"</span>);
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (req.getParameter(<span style="color: #848ea9;">"sessionid"</span>) == <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">18: </span>      out.println(<span style="color: #848ea9;">"SessionID not set - generating unique sessionID"</span>);
+<span class="linenr">19: </span>      sessionID = generateSessionID() + <span style="color: #848ea9;">""</span>;
+<span class="linenr">20: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">21: </span>      out.println(<span style="color: #848ea9;">"SessionID passed!"</span>);
+<span class="linenr">22: </span>      sessionID = req.getParameter(<span style="color: #848ea9;">"sessionid"</span>);
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;SessionID = "</span> + sessionID);
+<span class="linenr">26: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;So now what is the difference between selecting to "</span>);
+<span class="linenr">27: </span>    out.println(<span style="color: #848ea9;">" Refresh the page (before clicking the link) vs clicking "</span>);
+<span class="linenr">28: </span>    out.println(<span style="color: #848ea9;">"&lt;A href=\"/proj/servlet/URLRewriting?sessionid="</span> + sessionID
+<span class="linenr">29: </span>                + <span style="color: #848ea9;">"\"&gt;this link&lt;/A&gt;, which is URL Rewritten?"</span>);
+<span class="linenr">30: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">31: </span>    out.close();
+<span class="linenr">32: </span>  }
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #d55e00;">generateSessionID</span>() {
+<span class="linenr">35: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> System.currentTimeMillis();
+<span class="linenr">36: </span>  }
+<span class="linenr">37: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5fe0ec" class="outline-3">
+<h3 id="orgf5fe0ec"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-orgf5fe0ec">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;URLRewriting&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;URLRewriting&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">16: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;URLRewriting&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">17: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/URLRewriting&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">18: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d5debf" class="outline-2">
+<h2 id="org2d5debf">ex09 (Persistent Cookies)</h2>
+<div class="outline-text-2" id="text-org2d5debf">
+</div>
+<div id="outline-container-orgf042115" class="outline-3">
+<h3 id="orgf042115"><code>CookieCount.java</code></h3>
+<div class="outline-text-3" id="text-orgf042115">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">Cookie</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 7: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">CookieCount</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doGet</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">sessionID</span>;
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">countint</span> = 0;
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Persistent Cookies&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">20: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;Persistent Cookies Example&lt;/H1&gt;"</span>);
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">First we grab all our cookies</span>
+<span class="linenr">23: </span>    <span style="color: #0072b2; font-weight: bold;">Cookie</span>[] <span style="color: #e69f00; font-weight: bold;">cookies</span> = req.getCookies();
+<span class="linenr">24: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (cookies != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">25: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>=0; i&lt; cookies.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr">26: </span>        <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">name</span> = cookies[i].getName();
+<span class="linenr">27: </span>        <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">value</span> = cookies[i].getValue();
+<span class="linenr">28: </span>        out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;Name: "</span> + name);
+<span class="linenr">29: </span>        out.println(<span style="color: #848ea9;">"&lt;BR&gt;Value: "</span> + value);
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>        <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Let's make the servlet count the number of accesses!</span>
+<span class="linenr">32: </span>        <span style="color: #56b4e9; font-weight: bold;">if</span> (name.equals(<span style="color: #848ea9;">"count"</span>)) {
+<span class="linenr">33: </span>          countint = (<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Integer</span>(value)).intValue();
+<span class="linenr">34: </span>          countint++;
+<span class="linenr">35: </span>          <span style="color: #0072b2; font-weight: bold;">Cookie</span> <span style="color: #e69f00; font-weight: bold;">cookie</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Cookie</span>(<span style="color: #848ea9;">"count"</span>, countint + <span style="color: #848ea9;">""</span>);
+<span class="linenr">36: </span>          cookie.setMaxAge(3600);
+<span class="linenr">37: </span>          res.addCookie(cookie);
+<span class="linenr">38: </span>          out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;You have accesse"</span> + countint + <span style="color: #848ea9;">" times!"</span>);
+<span class="linenr">39: </span>        }
+<span class="linenr">40: </span>      }
+<span class="linenr">41: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">42: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">If cookies is null, there are no cookies yet, so make them</span>
+<span class="linenr">43: </span>      out.println(<span style="color: #848ea9;">"&lt;BR&gt;No cookie set - Adding Cookie now - set in future!"</span>);
+<span class="linenr">44: </span>      <span style="color: #0072b2; font-weight: bold;">Cookie</span> <span style="color: #e69f00; font-weight: bold;">idCookie</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Cookie</span>(<span style="color: #848ea9;">"sessionid"</span>, generateSessionID() + <span style="color: #848ea9;">""</span>);
+<span class="linenr">45: </span>      idCookie.setMaxAge(3600);
+<span class="linenr">46: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Sets the cookie livespan to be one ho</span>
+<span class="linenr">47: </span>      res.addCookie(idCookie);
+<span class="linenr">48: </span>      <span style="color: #0072b2; font-weight: bold;">Cookie</span> <span style="color: #e69f00; font-weight: bold;">countCookie</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Cookie</span>(<span style="color: #848ea9;">"count"</span>, <span style="color: #848ea9;">"0"</span>);
+<span class="linenr">49: </span>      countCookie.setMaxAge(3600);
+<span class="linenr">50: </span>      res.addCookie(countCookie);
+<span class="linenr">51: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">quick cookie addition</span>
+<span class="linenr">52: </span>    }
+<span class="linenr">53: </span>
+<span class="linenr">54: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">55: </span>    out.close();
+<span class="linenr">56: </span>  }
+<span class="linenr">57: </span>
+<span class="linenr">58: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #d55e00;">generateSessionID</span>() {
+<span class="linenr">59: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> System.currentTimeMillis();
+<span class="linenr">60: </span>  }
+<span class="linenr">61: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga4eabff" class="outline-3">
+<h3 id="orga4eabff"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-orga4eabff">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;CookieCount&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;CookieCount&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">16: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;CookieCount&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">17: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/CookieCount&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">18: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbd11d91" class="outline-2">
+<h2 id="orgbd11d91">ex10 (Session Tracking Example)</h2>
+<div class="outline-text-2" id="text-orgbd11d91">
+</div>
+<div id="outline-container-orga42f1be" class="outline-3">
+<h3 id="orga42f1be"><code>SessionCount.java</code></h3>
+<div class="outline-text-3" id="text-orga42f1be">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">PrintWriter</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #0072b2; font-weight: bold;">ServletException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServlet</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span>;
+<span class="linenr"> 7: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">javax</span>.<span style="color: #d55e00; font-weight: bold;">servlet</span>.<span style="color: #d55e00; font-weight: bold;">http</span>.<span style="color: #0072b2; font-weight: bold;">HttpSession</span>;
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">SessionCount</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">HttpServlet</span> {
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">doGet</span>(<span style="color: #0072b2; font-weight: bold;">HttpServletRequest</span> <span style="color: #e69f00; font-weight: bold;">req</span>, <span style="color: #0072b2; font-weight: bold;">HttpServletResponse</span> <span style="color: #e69f00; font-weight: bold;">res</span>)
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">ServletException</span>, <span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    res.setContentType(<span style="color: #848ea9;">"text/html"</span>);
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">PrintWriter</span> <span style="color: #e69f00; font-weight: bold;">out</span> = res.getWriter();
+<span class="linenr">16: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Get the current session or create one</span>
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">HttpSession</span> <span style="color: #e69f00; font-weight: bold;">session</span> = req.getSession(<span style="color: #d55e00; font-weight: bold;">true</span>);
+<span class="linenr">18: </span>    out.println(<span style="color: #848ea9;">"&lt;HTML&gt;\n&lt;HEAD&gt;\n&lt;TITLE&gt;Session Tracking Example&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);
+<span class="linenr">19: </span>    out.println(<span style="color: #848ea9;">"&lt;BODY&gt;&lt;H1&gt;Session Tracking Example&lt;/H1&gt;"</span>);
+<span class="linenr">20: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;Session ID = "</span> + session.getId());
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">casting as an Integer count.value is a user selected name</span>
+<span class="linenr">23: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">count</span> = (<span style="color: #0072b2; font-weight: bold;">Integer</span>) session.getAttribute(<span style="color: #848ea9;">"count.value"</span>);
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">If count is null this means that no value yet bound to this</span>
+<span class="linenr">26: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">session</span>
+<span class="linenr">27: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (count == <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">28: </span>      count = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Integer</span>(1);
+<span class="linenr">29: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> { <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Otherwise we read in the current value, increment it and put it back</span>
+<span class="linenr">30: </span>      count = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Integer</span>(count.intValue() + 1);
+<span class="linenr">31: </span>    }
+<span class="linenr">32: </span>
+<span class="linenr">33: </span>    session.setAttribute(<span style="color: #848ea9;">"count.value"</span>, count);
+<span class="linenr">34: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;You have visited this page "</span> + count + <span style="color: #848ea9;">" time(s)"</span>);
+<span class="linenr">35: </span>    out.println(<span style="color: #848ea9;">"&lt;BR&gt;&lt;BR&gt;Refresh the page to watch counter rise. "</span>);
+<span class="linenr">36: </span>    out.println(<span style="color: #848ea9;">"Try opening another browser and loading this page - result?"</span>);
+<span class="linenr">37: </span>    out.println(<span style="color: #848ea9;">"&lt;/BODY&gt;&lt;/HTML&gt;"</span>);
+<span class="linenr">38: </span>    out.close();
+<span class="linenr">39: </span>  }
+<span class="linenr">40: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9d15a68" class="outline-3">
+<h3 id="org9d15a68"><code>web.xml</code></h3>
+<div class="outline-text-3" id="text-org9d15a68">
+<div class="org-src-container">
+<pre class="src src-xml"><span class="linenr"> 1: </span><span style="color: #848ea9;">&lt;?</span><span style="color: #56b4e9; font-weight: bold;">xml</span><span style="color: #848ea9;"> </span><span style="color: #848ea9;">version="1.0" encoding="ISO-8859-1"</span><span style="color: #848ea9;">?&gt;</span>
+<span class="linenr"> 2: </span>&lt;<span style="color: #d55e00;">web-app</span> <span style="color: #0072b2;">xmlns</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee"</span>
+<span class="linenr"> 3: </span>         <span style="color: #0072b2;">xmlns</span>:<span style="color: #e69f00; font-weight: bold;">xsi</span>=<span style="color: #848ea9;">"http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="linenr"> 4: </span>         <span style="color: #0072b2;">xsi</span>:<span style="color: #e69f00; font-weight: bold;">schemaLocation</span>=<span style="color: #848ea9;">"http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</span>
+<span class="linenr"> 5: </span>         <span style="color: #e69f00; font-weight: bold;">version</span>=<span style="color: #848ea9;">"2.4"</span>&gt;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  &lt;<span style="color: #d55e00;">display-name</span>&gt;&lt;/<span style="color: #d55e00;">display-name</span>&gt;
+<span class="linenr"> 8: </span>  &lt;<span style="color: #d55e00;">description</span>&gt;&lt;/<span style="color: #d55e00;">description</span>&gt;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  &lt;<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">11: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;SessionCount&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">12: </span>    &lt;<span style="color: #d55e00;">servlet-class</span>&gt;SessionCount&lt;/<span style="color: #d55e00;">servlet-class</span>&gt;
+<span class="linenr">13: </span>  &lt;/<span style="color: #d55e00;">servlet</span>&gt;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  &lt;<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">16: </span>    &lt;<span style="color: #d55e00;">servlet-name</span>&gt;SessionCount&lt;/<span style="color: #d55e00;">servlet-name</span>&gt;
+<span class="linenr">17: </span>    &lt;<span style="color: #d55e00;">url-pattern</span>&gt;/servlet/SessionCount&lt;/<span style="color: #d55e00;">url-pattern</span>&gt;
+<span class="linenr">18: </span>  &lt;/<span style="color: #d55e00;">servlet-mapping</span>&gt;
+<span class="linenr">19: </span>&lt;/<span style="color: #d55e00;">web-app</span>&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

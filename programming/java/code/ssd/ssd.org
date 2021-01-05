@@ -1,4 +1,10 @@
 #+title: ssd
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
+- xml
+- [[file:ch4.html][servlets]]
+- [[file:ch5.html][jsp]]
+- databases
+- jdbc
+
 [[../code.html][back]]

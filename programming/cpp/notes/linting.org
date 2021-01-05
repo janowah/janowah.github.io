@@ -1,8 +1,20 @@
 #+title: linting
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-=cpplint.py=
+* cpplint
 
-=python2 ~/cpplint.py ~/Desktop/main.cpp=
+#+BEGIN_EXAMPLE
+  cpplint.py
+
+  python2 ~/cpplint.py ~/Desktop/main.cpp
+#+END_EXAMPLE
+
+* clang-format
+
+#+BEGIN_EXAMPLE
+  clang-format -style=google foo.cpp
+
+  clang-format -style=google -dump-config
+#+END_EXAMPLE
 
 [[./notes.html][back]]

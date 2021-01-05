@@ -1,0 +1,165 @@
+#+title: hello2-basicauth
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* =/etc/tomcat/tomcat-users.xml=
+
+#+BEGIN_SRC xml
+  <tomcat-users>
+    <role rolename="TutorialUser"/>
+    <user username="homer" password="password" roles="TutorialUser" />
+  </tomcat-users>
+#+END_SRC
+
+* layout
+
+#+BEGIN_EXAMPLE
+  .
+  ├── resources
+  │   └── images
+  │       └── duke.waving.gif
+  └── WEB-INF
+      ├── classes
+      │   ├── GreetingServlet.class
+      │   └── ResponseServlet.class
+      └── web.xml
+#+END_EXAMPLE
+
+* =web.xml=
+
+#+BEGIN_SRC xml -n :bangle web.xml :padline no
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Servlet Security Example</display-name>
+
+  <!-- Authentication Method Configuration -->
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>default</realm-name>
+  </login-config>
+
+  <!-- Security roles referenced by this web application -->  
+  <security-role>                                           
+    <role-name>TutorialUser</role-name>                            
+  </security-role>               
+</web-app>
+
+#+END_SRC
+
+* =GreetingServlet.java=
+
+#+BEGIN_SRC java -n :bangle GreetingServlet.java :padline no
+// package jakarta.tutorial.hello2_basicauth;
+// transportGuarantee = TransportGuarantee.CONFIDENTIAL,
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.ServletSecurity;
+import javax.servlet.annotation.ServletSecurity.TransportGuarantee;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(name = "GreetingServlet", urlPatterns = {"/greeting"})
+@ServletSecurity(@HttpConstraint(rolesAllowed = {"TutorialUser"}))
+public class GreetingServlet extends HttpServlet {
+
+  /** 
+   * Handles the HTTP <code>GET</code> method.
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  @Override
+  protected void doGet(HttpServletRequest request,
+                       HttpServletResponse response)
+      throws ServletException, IOException {
+
+    response.setContentType("text/html");
+    response.setBufferSize(8192);
+    try (PrintWriter out = response.getWriter()) {
+      out.println("<html lang=\"en\">");
+      out.println("  <head>");
+      out.println("    <title>Hello</title></head>");
+      out.println("  <body>");
+      out.println("    <img src=\"resources/images/duke.waving.gif\" alt=\"Duke waving his hand\">");
+      out.println("    <form method=\"get\">");
+      out.println("      <h2>Hello, my name is Duke. What's yours?</h2>");
+      out.println("      <input title=\"My name is: \" type=\"text\" name=\"username\" size=\"25\"/>");
+      out.println("      <p></p>");
+      out.println("      <input type=\"submit\" value=\"Submit\"/>");
+      out.println("      <input type=\"reset\" value=\"Reset\"/>");
+      out.println("    </form>");
+
+      String username = request.getParameter("username");
+      if (username != null && username.length() > 0) {
+        RequestDispatcher dispatcher =
+            getServletContext().getRequestDispatcher("/response");
+
+        if (dispatcher != null) {
+          dispatcher.include(request, response);
+        }
+      }
+      out.println("  </body>");
+      out.println("</html>");
+    }
+  }
+
+  /**
+   * Returns a short description of the servlet.
+   * @return a String containing servlet description
+   */
+  @Override
+  public String getServletInfo() {
+    return "The Hello servlet says hello to an authenticated user.";
+  }
+
+}
+#+END_SRC
+
+* =ResponseServlet.java=
+
+#+BEGIN_SRC java -n :bangle ResponseServlet.java :padline no
+// package jakarta.tutorial.hello2_basicauth;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * This simple HTTP Servlet responds to the GET
+ * method of the HTTP protocol.
+ */
+@WebServlet(name="ResponseServlet", urlPatterns={"/response"})
+public class ResponseServlet extends HttpServlet {
+
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+    PrintWriter out = response.getWriter();
+
+    // then write the data of the response
+    String username = request.getParameter("username");
+    if (username != null && username.length() > 0) {
+      out.println("    <h2>Hello, " + username + "!</h2>");
+    }
+  }
+
+  @Override
+  public String getServletInfo() {
+    return "The Response servlet says hello.";
+
+  }
+}
+#+END_SRC

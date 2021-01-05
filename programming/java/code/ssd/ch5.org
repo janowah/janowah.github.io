@@ -1,0 +1,136 @@
+#+title: Chapter 5. jsp
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+* 1) HelloWorld.jsp
+
+** =HelloWorld.jsp=
+
+#+BEGIN_SRC mhtml HelloWorld.jsp
+  <html>
+    <head><title>JSP Hello World Example</title></head>
+    <body>
+      <h1>
+        <% out.println("Hello World!"); %>
+      </h1>
+    </body>
+  </html>
+#+END_SRC
+
+* 2) SimpleBean.java
+
+** =SimpleBean.java=
+
+#+BEGIN_SRC java
+  package homer;
+
+  public class SimpleBean {
+
+    private String message = "No message specified";
+
+    public String getMessage() {
+      return(message);
+    }
+
+    public void setMessage(String message) {
+      this.message = message;
+    }
+  }
+#+END_SRC
+
+** =SimpleBean.jsp=
+
+#+BEGIN_SRC mhtml SimpleBean.jsp
+  <html>
+    <head>
+      <title>Reusing JavaBeans in JSP</title>
+    </head>
+    <body>
+      <center>
+        <jsp:useBean id="test" class="homer.SimpleBean" />
+        <jsp:setProperty name="test"
+                         property="message"
+                         value="Hello World!" />
+        <h1>Message:
+          <jsp:getProperty name="test" property="message" />
+        </h1>
+    </body>
+  </html>
+#+END_SRC
+
+* 3) DateTime.jsp
+
+** =DateTime.jsp=
+
+#+BEGIN_SRC mhtml DateTime.jsp
+  <%@ page import="java.util.*" %>
+  <h1>The current date and time:
+    <%= (new java.util.Date()).toLocaleString() %>
+  </h1>
+#+END_SRC
+
+* 4) JSPInclude.jsp
+
+** =JSPInclude.jsp=
+
+#+BEGIN_SRC mhtml JSPInclude.jsp
+  <html>
+    <head>
+      <title>JSP Include Example</title>
+    </head>
+    <body>
+      This is the main page, which includes the following:<br><br>
+      <%@ include file="DateTime.jsp" %>
+    </body>
+  </html>
+#+END_SRC
+
+* 5) simpleform.jsp
+
+** =SimpleForm.jsp=
+
+#+BEGIN_SRC mhtml SimpleForm.jsp
+  <html>
+    <title>JSP Form Example</title>
+    <body>
+      <%
+      out.println("Your value for parameter A = " + request.getParameter("a"));
+      out.println("<BR>Your value for parameter B = " + request.getParameter("b"));
+      %>
+    </body>
+  </html>
+#+END_SRC
+
+* 6) Comparison.jsp
+
+** =Comparison.jsp=
+
+#+BEGIN_SRC html :bangle -n Comparison.jsp 
+    <html>
+      <head>
+        <title>String Comparison JSP</title>
+      </head>
+      <body>
+        <%! String stringA = null; %>
+        <%! String stringB = null; %>
+        <% if (request.getParameter("stringA") == null) {
+            // display form
+            out.println("<BR>Please enter the two strings for comparison:<BR>");
+            out.println("<FORM METHOD=POST ACTION=\"Comparison.jsp\" name=myform>");
+            out.println("<BR>First String: <INPUT NAME=\"stringA\">");
+            out.println("<BR>Second String: <INPUT NAME=\"stringB\">");
+            out.println("<BR><BR><INPUT TYPE=\"submit\" value=\"Submit Form\">");
+            out.println("<INPUT TYPE=\"reset\" value=\"Reset\">");
+        } else {
+            // The parameters exist so do the comparison
+            stringA = request.getParameter("stringA");
+            stringB = request.getParameter("stringB");
+            if (stringA.equals(stringB)) {
+                out.println("<BR>The two strings <B>ARE</B> identical!");
+            } else {
+                out.println("<BR>The two strings <B>ARE NOT</B> identical!");
+            }
+        }
+        %>
+      </body>
+    </html>
+#+END_SRC
