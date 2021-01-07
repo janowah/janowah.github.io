@@ -28,4 +28,5 @@
 - [[./deployment.html][Deployment]]
 - [[file:java-8-basic-tutorial.html][toc]]
 
-[[file:~/janowah/programming/java/code/code.html][back]]
+[[../../code.html][back]]
+
