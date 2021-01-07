@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Implementations</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Implementations</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7982837"><code>implementations/FileList.java</code></a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7982837" class="outline-2">
+<h2 id="org7982837"><code>implementations/FileList.java</code></h2>
+<div class="outline-text-2" id="text-org7982837">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">BufferedReader</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">File</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">FileReader</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 7: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Random</span>;
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FileList</span> {
+<span class="linenr">10: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">11: </span>    <span style="color: #56b4e9; font-weight: bold;">final</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">assumedLineLength</span> = 50;
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">File</span> <span style="color: #e69f00; font-weight: bold;">file</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">File</span>(args[0]);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt; <span style="color: #e69f00; font-weight: bold;">fileList</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt;((<span style="color: #0072b2; font-weight: bold;">int</span>) (file.length() / assumedLineLength) * 2);
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">BufferedReader</span> <span style="color: #e69f00; font-weight: bold;">reader</span> = <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">lineCount</span> = 0;
+<span class="linenr">16: </span>    <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">17: </span>      reader = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">BufferedReader</span>(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">FileReader</span>(file));
+<span class="linenr">18: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">line</span> = reader.readLine(); line != <span style="color: #d55e00; font-weight: bold;">null</span>; line = reader.readLine()) {
+<span class="linenr">19: </span>        fileList.add(line);
+<span class="linenr">20: </span>        lineCount++;
+<span class="linenr">21: </span>      }
+<span class="linenr">22: </span>    } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">23: </span>      System.err.format(<span style="color: #848ea9;">"Could not read %s: %s%n"</span>, file, e);
+<span class="linenr">24: </span>      System.exit(1);
+<span class="linenr">25: </span>    } <span style="color: #56b4e9; font-weight: bold;">finally</span> {
+<span class="linenr">26: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (reader != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">27: </span>        <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">28: </span>          reader.close();
+<span class="linenr">29: </span>        } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">30: </span>          ;
+<span class="linenr">31: </span>        }
+<span class="linenr">32: </span>      }
+<span class="linenr">33: </span>    }
+<span class="linenr">34: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">repeats</span> = Integer.parseInt(args[1]);
+<span class="linenr">35: </span>    <span style="color: #0072b2; font-weight: bold;">Random</span> <span style="color: #e69f00; font-weight: bold;">random</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Random</span>();
+<span class="linenr">36: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; <span style="color: #0072b2; font-weight: bold;">repeats</span>; i++) {
+<span class="linenr">37: </span>      System.out.format(<span style="color: #848ea9;">"%d: %s%n"</span>, i, fileList.get(random.nextInt(lineCount - 1)));
+<span class="linenr">38: </span>    }
+<span class="linenr">39: </span>  }
+<span class="linenr">40: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

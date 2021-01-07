@@ -1,0 +1,31 @@
+#+title: The Java 8 Basic Tutorial
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+#+OPTIONS: broken-links:mark
+
+- [[./getStarted.html][Getting Started]]
+- [[./java.html][Learning the Java Language]]
+  - [[./concepts.html][Object-Oriented Programming Concepts]]
+  - [[./nutsandbolts.html][Language Basics]]
+  - [[./javaOO.html][Classes and Objects]]
+  - [[./IandI.html][Interfaces and Inheritance]]
+  - [[./data.html][Numbers and Strings]]
+  - [[./generics.html][Generics]]
+  - [[./package.html][Packages]]
+- [[./essential.html][Essential Java Classes]]
+  - [[./exceptions.html][Exceptions]]
+  - [[./io.html][Basic I/O]]
+  - [[./concurrency.html][Concurrency]]
+  - [[./environment.html][The Platform Environment]]
+  - [[./regex.html][Regular Expressions]]
+- Collections
+  - [[./interfaces.html][Interfaces]]
+  - [[./streams.html][Aggregate Operations]]
+  - [[./implementations.html][Implementations]]
+  - [[./algorithms.html][Algorithms]]
+- [[./datetime.html][Date-Time APIs]]
+  - date
+- [[./deployment.html][Deployment]]
+- [[file:java-8-basic-tutorial.html][toc]]
+
+[[file:~/janowah/programming/java/code/code.html][back]]

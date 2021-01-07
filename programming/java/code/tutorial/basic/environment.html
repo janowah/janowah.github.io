@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Platform Environment</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Platform Environment</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd28171f"><code>environment/Echo.java</code></a></li>
+<li><a href="#orga5ddd09"><code>environment/Env.java</code></a></li>
+<li><a href="#orgfd3e5fb"><code>environment/EnvMap.java</code></a></li>
+<li><a href="#org01c69cf"><code>environment/PassEnv.java</code></a></li>
+<li><a href="#orgf55b6c9"><code>environment/PersistentEcho.java</code></a></li>
+<li><a href="#org28a1a17"><code>environment/PropertiesTest.java</code></a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd28171f" class="outline-2">
+<h2 id="orgd28171f"><code>environment/Echo.java</code></h2>
+<div class="outline-text-2" id="text-orgd28171f">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Echo</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">s</span> : args) {
+<span class="linenr">4: </span>      System.out.println(s);
+<span class="linenr">5: </span>    }
+<span class="linenr">6: </span>  }
+<span class="linenr">7: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga5ddd09" class="outline-2">
+<h2 id="orga5ddd09"><code>environment/Env.java</code></h2>
+<div class="outline-text-2" id="text-orga5ddd09">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Env</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">env</span> : args) {
+<span class="linenr"> 4: </span>      <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">value</span> = System.getenv(env);
+<span class="linenr"> 5: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (value != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr"> 6: </span>        System.out.format(<span style="color: #848ea9;">"%s=%s%n"</span>, env, value);
+<span class="linenr"> 7: </span>      } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr"> 8: </span>        System.out.format(<span style="color: #848ea9;">"%s is"</span> + <span style="color: #848ea9;">" not assigned.%n"</span>, env);
+<span class="linenr"> 9: </span>      }
+<span class="linenr">10: </span>    }
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd3e5fb" class="outline-2">
+<h2 id="orgfd3e5fb"><code>environment/EnvMap.java</code></h2>
+<div class="outline-text-2" id="text-orgfd3e5fb">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Map</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">EnvMap</span> {
+<span class="linenr"> 4: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>, <span style="color: #0072b2; font-weight: bold;">String</span>&gt; <span style="color: #e69f00; font-weight: bold;">env</span> = System.getenv();
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">envName</span> : env.keySet()) {
+<span class="linenr"> 7: </span>      System.out.format(<span style="color: #848ea9;">"%s=%s%n"</span>, envName, env.get(envName));
+<span class="linenr"> 8: </span>    }
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org01c69cf" class="outline-2">
+<h2 id="org01c69cf"><code>environment/PassEnv.java</code></h2>
+<div class="outline-text-2" id="text-org01c69cf">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Map</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">PassEnv</span> {
+<span class="linenr"> 4: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span> {
+<span class="linenr"> 5: </span>    System.out.println(System.getProperty(<span style="color: #848ea9;">"java.class.path"</span>));
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">ProcessBuilder</span> <span style="color: #e69f00; font-weight: bold;">pb</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ProcessBuilder</span>(<span style="color: #848ea9;">"java"</span>, <span style="color: #848ea9;">"Env"</span>, <span style="color: #848ea9;">"DRAGONBALLS"</span>);
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>, <span style="color: #0072b2; font-weight: bold;">String</span>&gt; <span style="color: #e69f00; font-weight: bold;">env</span> = pb.environment();
+<span class="linenr"> 8: </span>    env.put(<span style="color: #848ea9;">"DRAGONBALLS"</span>, <span style="color: #848ea9;">"7"</span>);
+<span class="linenr"> 9: </span>    pb.start();
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf55b6c9" class="outline-2">
+<h2 id="orgf55b6c9"><code>environment/PersistentEcho.java</code></h2>
+<div class="outline-text-2" id="text-orgf55b6c9">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">FileInputStream</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">FileOutputStream</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Properties</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">PersistentEcho</span> {
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">argString</span> = <span style="color: #848ea9;">""</span>;
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #e69f00; font-weight: bold;">notProperty</span> = <span style="color: #d55e00; font-weight: bold;">true</span>;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Are there arguments?  If so retrieve them.</span>
+<span class="linenr">12: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (args.length &gt; 0) {
+<span class="linenr">13: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">arg</span> : args) {
+<span class="linenr">14: </span>        argString += arg + <span style="color: #848ea9;">" "</span>;
+<span class="linenr">15: </span>      }
+<span class="linenr">16: </span>      argString = argString.trim();
+<span class="linenr">17: </span>    }
+<span class="linenr">18: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">No arguments, is there an environment variable?  If so,</span>
+<span class="linenr">19: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">retrieve it.</span>
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">else</span> <span style="color: #56b4e9; font-weight: bold;">if</span> ((argString = System.getenv(<span style="color: #848ea9;">"PERSISTENTECHO"</span>)) != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">21: </span>    }
+<span class="linenr">22: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">No environment variable either. Retrieve property value.</span>
+<span class="linenr">23: </span>    <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">24: </span>      notProperty = <span style="color: #d55e00; font-weight: bold;">false</span>;
+<span class="linenr">25: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Set argString to null.  If it's still null after we exit the</span>
+<span class="linenr">26: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">try block, we've failed to retrieve the property value.</span>
+<span class="linenr">27: </span>      argString = <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">28: </span>      <span style="color: #0072b2; font-weight: bold;">FileInputStream</span> <span style="color: #e69f00; font-weight: bold;">fileInputStream</span> = <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">29: </span>      <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">30: </span>        fileInputStream = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">FileInputStream</span>(<span style="color: #848ea9;">"PersistentEcho.txt"</span>);
+<span class="linenr">31: </span>        <span style="color: #0072b2; font-weight: bold;">Properties</span> <span style="color: #e69f00; font-weight: bold;">inProperties</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Properties</span>();
+<span class="linenr">32: </span>        inProperties.load(fileInputStream);
+<span class="linenr">33: </span>        argString = inProperties.getProperty(<span style="color: #848ea9;">"argString"</span>);
+<span class="linenr">34: </span>      } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">35: </span>        System.err.println(<span style="color: #848ea9;">"Can't read property file."</span>);
+<span class="linenr">36: </span>        System.exit(1);
+<span class="linenr">37: </span>      } <span style="color: #56b4e9; font-weight: bold;">finally</span> {
+<span class="linenr">38: </span>        <span style="color: #56b4e9; font-weight: bold;">if</span> (fileInputStream != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">39: </span>          <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">40: </span>            fileInputStream.close();
+<span class="linenr">41: </span>          } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">42: </span>          }
+<span class="linenr">43: </span>          ;
+<span class="linenr">44: </span>        }
+<span class="linenr">45: </span>      }
+<span class="linenr">46: </span>    }
+<span class="linenr">47: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (argString == <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">48: </span>      System.err.println(<span style="color: #848ea9;">"Couldn't find argString property"</span>);
+<span class="linenr">49: </span>      System.exit(1);
+<span class="linenr">50: </span>    }
+<span class="linenr">51: </span>
+<span class="linenr">52: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Somehow, we got the value. Echo it already!</span>
+<span class="linenr">53: </span>    System.out.println(argString);
+<span class="linenr">54: </span>
+<span class="linenr">55: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">If we didn't retrieve the value from the property, save it in</span>
+<span class="linenr">56: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">the property.</span>
+<span class="linenr">57: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (notProperty) {
+<span class="linenr">58: </span>      <span style="color: #0072b2; font-weight: bold;">Properties</span> <span style="color: #e69f00; font-weight: bold;">outProperties</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Properties</span>();
+<span class="linenr">59: </span>      outProperties.setProperty(<span style="color: #848ea9;">"argString"</span>, argString);
+<span class="linenr">60: </span>      <span style="color: #0072b2; font-weight: bold;">FileOutputStream</span> <span style="color: #e69f00; font-weight: bold;">fileOutputStream</span> = <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">61: </span>      <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">62: </span>        fileOutputStream = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">FileOutputStream</span>(<span style="color: #848ea9;">"PersistentEcho.txt"</span>);
+<span class="linenr">63: </span>        outProperties.store(fileOutputStream, <span style="color: #848ea9;">"PersistentEcho properties"</span>);
+<span class="linenr">64: </span>      } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">65: </span>      } <span style="color: #56b4e9; font-weight: bold;">finally</span> {
+<span class="linenr">66: </span>        <span style="color: #56b4e9; font-weight: bold;">if</span> (fileOutputStream != <span style="color: #d55e00; font-weight: bold;">null</span>) {
+<span class="linenr">67: </span>          <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">68: </span>            fileOutputStream.close();
+<span class="linenr">69: </span>          } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">70: </span>          }
+<span class="linenr">71: </span>          ;
+<span class="linenr">72: </span>        }
+<span class="linenr">73: </span>      }
+<span class="linenr">74: </span>    }
+<span class="linenr">75: </span>  }
+<span class="linenr">76: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org28a1a17" class="outline-2">
+<h2 id="org28a1a17"><code>environment/PropertiesTest.java</code></h2>
+<div class="outline-text-2" id="text-org28a1a17">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">FileInputStream</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Properties</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">PropertiesTest</span> {
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">Exception</span> {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">set up new properties object from file "myProperties.txt"</span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">FileInputStream</span> <span style="color: #e69f00; font-weight: bold;">propFile</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">FileInputStream</span>(<span style="color: #848ea9;">"myProperties.txt"</span>);
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">Properties</span> <span style="color: #e69f00; font-weight: bold;">p</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Properties</span>(System.getProperties());
+<span class="linenr">10: </span>    p.load(propFile);
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">set the system properties</span>
+<span class="linenr">13: </span>    System.setProperties(p);
+<span class="linenr">14: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">display new properties</span>
+<span class="linenr">15: </span>    System.getProperties().list(System.out);
+<span class="linenr">16: </span>  }
+<span class="linenr">17: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

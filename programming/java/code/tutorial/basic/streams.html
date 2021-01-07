@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aggregate Operations</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Aggregate Operations</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4750eb6"><code>streams/Averager.java</code></a></li>
+<li><a href="#org3c2eba3"><code>streams/BulkDataOperationsExamples.java</code></a></li>
+<li><a href="#orgd99eb40"><code>streams/ParallelismExamples.java</code></a></li>
+<li><a href="#org3367813"><code>streams/Person.java</code></a></li>
+<li><a href="#org53ccf79"><code>streams/ReductionExamples.java</code></a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4750eb6" class="outline-2">
+<h2 id="org4750eb6"><code>streams/Averager.java</code></h2>
+<div class="outline-text-2" id="text-org4750eb6">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">function</span>.<span style="color: #0072b2; font-weight: bold;">IntConsumer</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Averager</span> <span style="color: #56b4e9; font-weight: bold;">implements</span> <span style="color: #0072b2; font-weight: bold;">IntConsumer</span> {
+<span class="linenr"> 4: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">total</span> = 0;
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">count</span> = 0;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">average</span>() {
+<span class="linenr"> 8: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> count &gt; 0 ? ((<span style="color: #0072b2; font-weight: bold;">double</span>) total) / count : 0;
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">accept</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>) {
+<span class="linenr">12: </span>    total += i;
+<span class="linenr">13: </span>    count++;
+<span class="linenr">14: </span>  }
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">combine</span>(<span style="color: #0072b2; font-weight: bold;">Averager</span> <span style="color: #e69f00; font-weight: bold;">other</span>) {
+<span class="linenr">17: </span>    total += other.total;
+<span class="linenr">18: </span>    count += other.count;
+<span class="linenr">19: </span>  }
+<span class="linenr">20: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c2eba3" class="outline-2">
+<h2 id="org3c2eba3"><code>streams/BulkDataOperationsExamples.java</code></h2>
+<div class="outline-text-2" id="text-org3c2eba3">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">BulkDataOperationsExamples</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>... <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create sample data</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; <span style="color: #e69f00; font-weight: bold;">roster</span> = Person.createRoster();
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">1. Print names of members, for-each loop</span>
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    System.out.println(<span style="color: #848ea9;">"Members of the collection (for-each loop):"</span>);
+<span class="linenr">14: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">p</span> : roster) {
+<span class="linenr">15: </span>      System.out.println(p.getName());
+<span class="linenr">16: </span>    }
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">2. Print names of members, forEach operation</span>
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    System.out.println(<span style="color: #848ea9;">"Members of the collection (bulk data operations):"</span>);
+<span class="linenr">21: </span>    roster.stream().forEach(e -&gt; System.out.println(e.getName()));
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">3. Print names of male members, forEach operation</span>
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    System.out.println(<span style="color: #848ea9;">"Male members of the collection (bulk data operations):"</span>);
+<span class="linenr">26: </span>    roster.stream()
+<span class="linenr">27: </span>        .filter(e -&gt; e.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE)
+<span class="linenr">28: </span>        .forEach(e -&gt; System.out.println(e.getName()));
+<span class="linenr">29: </span>
+<span class="linenr">30: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">4. Print names of male members, for-each loop</span>
+<span class="linenr">31: </span>
+<span class="linenr">32: </span>    System.out.println(<span style="color: #848ea9;">"Male members of the collection (for-each loop):"</span>);
+<span class="linenr">33: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">p</span> : roster) {
+<span class="linenr">34: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (p.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE) {
+<span class="linenr">35: </span>        System.out.println(p.getName());
+<span class="linenr">36: </span>      }
+<span class="linenr">37: </span>    }
+<span class="linenr">38: </span>
+<span class="linenr">39: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">5. Get average age of male members of the collection:</span>
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">average</span> =
+<span class="linenr">42: </span>        roster.stream()
+<span class="linenr">43: </span>            .filter(p -&gt; p.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE)
+<span class="linenr">44: </span>            .mapToInt(Person::getAge)
+<span class="linenr">45: </span>            .average()
+<span class="linenr">46: </span>            .getAsDouble();
+<span class="linenr">47: </span>
+<span class="linenr">48: </span>    System.out.println(<span style="color: #848ea9;">"Average age of male members (bulk data operations): "</span> + average);
+<span class="linenr">49: </span>  }
+<span class="linenr">50: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd99eb40" class="outline-2">
+<h2 id="orgd99eb40"><code>streams/ParallelismExamples.java</code></h2>
+<div class="outline-text-2" id="text-orgd99eb40">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">  1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr">  2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr">  3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Collections</span>;
+<span class="linenr">  4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Comparator</span>;
+<span class="linenr">  5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr">  6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Map</span>;
+<span class="linenr">  7: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">concurrent</span>.<span style="color: #0072b2; font-weight: bold;">ConcurrentMap</span>;
+<span class="linenr">  8: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">stream</span>.*;
+<span class="linenr">  9: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">stream</span>.<span style="color: #0072b2; font-weight: bold;">Collectors</span>;
+<span class="linenr"> 10: </span>
+<span class="linenr"> 11: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ParallelismExamples</span> {
+<span class="linenr"> 12: </span>
+<span class="linenr"> 13: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>... <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 14: </span>
+<span class="linenr"> 15: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create sample data</span>
+<span class="linenr"> 16: </span>
+<span class="linenr"> 17: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; <span style="color: #e69f00; font-weight: bold;">roster</span> = Person.createRoster();
+<span class="linenr"> 18: </span>
+<span class="linenr"> 19: </span>    System.out.println(<span style="color: #848ea9;">"Contents of roster:"</span>);
+<span class="linenr"> 20: </span>    roster.stream().forEach(p -&gt; p.printPerson());
+<span class="linenr"> 21: </span>    System.out.println();
+<span class="linenr"> 22: </span>
+<span class="linenr"> 23: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">1. Average age of male members in parallel</span>
+<span class="linenr"> 24: </span>
+<span class="linenr"> 25: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">average</span> =
+<span class="linenr"> 26: </span>        roster
+<span class="linenr"> 27: </span>            .parallelStream()
+<span class="linenr"> 28: </span>            .filter(p -&gt; p.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE)
+<span class="linenr"> 29: </span>            .mapToInt(Person::getAge)
+<span class="linenr"> 30: </span>            .average()
+<span class="linenr"> 31: </span>            .getAsDouble();
+<span class="linenr"> 32: </span>
+<span class="linenr"> 33: </span>    System.out.println(<span style="color: #848ea9;">"Average age of male members in parallel: "</span> + average);
+<span class="linenr"> 34: </span>
+<span class="linenr"> 35: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">2. Concurrent reduction example</span>
+<span class="linenr"> 36: </span>
+<span class="linenr"> 37: </span>    <span style="color: #0072b2; font-weight: bold;">ConcurrentMap</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">byGenderParallel</span> =
+<span class="linenr"> 38: </span>        roster.parallelStream().collect(Collectors.groupingByConcurrent(Person::getGender));
+<span class="linenr"> 39: </span>
+<span class="linenr"> 40: </span>    List&lt;<span style="color: #d55e00; font-weight: bold;">Map</span>.<span style="color: #0072b2; font-weight: bold;">Entry</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt;&gt;&gt; <span style="color: #0072b2; font-weight: bold;">byGenderList</span> =
+<span class="linenr"> 41: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;(byGenderParallel.entrySet());
+<span class="linenr"> 42: </span>
+<span class="linenr"> 43: </span>    System.out.println(<span style="color: #848ea9;">"Group members by gender:"</span>);
+<span class="linenr"> 44: </span>    byGenderList.stream()
+<span class="linenr"> 45: </span>        .forEach(
+<span class="linenr"> 46: </span>            e -&gt; {
+<span class="linenr"> 47: </span>              System.out.println(<span style="color: #848ea9;">"Gender: "</span> + e.getKey());
+<span class="linenr"> 48: </span>              e.getValue().stream().map(Person::getName).forEach(f -&gt; System.out.println(f));
+<span class="linenr"> 49: </span>            });
+<span class="linenr"> 50: </span>
+<span class="linenr"> 51: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">3. Examples of ordering and parallelism</span>
+<span class="linenr"> 52: </span>
+<span class="linenr"> 53: </span>    System.out.println(<span style="color: #848ea9;">"Examples of ordering and parallelism:"</span>);
+<span class="linenr"> 54: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span>[] <span style="color: #e69f00; font-weight: bold;">intArray</span> = {1, 2, 3, 4, 5, 6, 7, 8};
+<span class="linenr"> 55: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">listOfIntegers</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;(Arrays.asList(intArray));
+<span class="linenr"> 56: </span>
+<span class="linenr"> 57: </span>    System.out.println(<span style="color: #848ea9;">"listOfIntegers:"</span>);
+<span class="linenr"> 58: </span>    listOfIntegers.stream().forEach(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr"> 59: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr"> 60: </span>
+<span class="linenr"> 61: </span>    System.out.println(<span style="color: #848ea9;">"listOfIntegers sorted in reverse order:"</span>);
+<span class="linenr"> 62: </span>    <span style="color: #0072b2; font-weight: bold;">Comparator</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">normal</span> = Integer::compare;
+<span class="linenr"> 63: </span>    <span style="color: #0072b2; font-weight: bold;">Comparator</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">reversed</span> = normal.reversed();
+<span class="linenr"> 64: </span>    Collections.sort(listOfIntegers, reversed);
+<span class="linenr"> 65: </span>    listOfIntegers.stream().forEach(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr"> 66: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr"> 67: </span>
+<span class="linenr"> 68: </span>    System.out.println(<span style="color: #848ea9;">"Parallel stream"</span>);
+<span class="linenr"> 69: </span>    listOfIntegers.parallelStream().forEach(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr"> 70: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr"> 71: </span>
+<span class="linenr"> 72: </span>    System.out.println(<span style="color: #848ea9;">"Another parallel stream:"</span>);
+<span class="linenr"> 73: </span>    listOfIntegers.parallelStream().forEach(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr"> 74: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr"> 75: </span>
+<span class="linenr"> 76: </span>    System.out.println(<span style="color: #848ea9;">"With forEachOrdered:"</span>);
+<span class="linenr"> 77: </span>    listOfIntegers.parallelStream().forEachOrdered(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr"> 78: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr"> 79: </span>
+<span class="linenr"> 80: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">4. Example of interference</span>
+<span class="linenr"> 81: </span>
+<span class="linenr"> 82: </span>    <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr"> 83: </span>      <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt; <span style="color: #e69f00; font-weight: bold;">listOfStrings</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;(Arrays.asList(<span style="color: #848ea9;">"one"</span>, <span style="color: #848ea9;">"two"</span>));
+<span class="linenr"> 84: </span>
+<span class="linenr"> 85: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">This will fail as the peek operation will attempt to add the</span>
+<span class="linenr"> 86: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">string "three" to the source after the terminal operation has</span>
+<span class="linenr"> 87: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">commenced.</span>
+<span class="linenr"> 88: </span>
+<span class="linenr"> 89: </span>      <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">concatenatedString</span> =
+<span class="linenr"> 90: </span>          listOfStrings.stream()
+<span class="linenr"> 91: </span>
+<span class="linenr"> 92: </span>              <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Don't do this! Interference occurs here.</span>
+<span class="linenr"> 93: </span>              .peek(s -&gt; listOfStrings.add(<span style="color: #848ea9;">"three"</span>))
+<span class="linenr"> 94: </span>              .reduce((a, b) -&gt; a + <span style="color: #848ea9;">" "</span> + b)
+<span class="linenr"> 95: </span>              .get();
+<span class="linenr"> 96: </span>
+<span class="linenr"> 97: </span>      System.out.println(<span style="color: #848ea9;">"Concatenated string: "</span> + concatenatedString);
+<span class="linenr"> 98: </span>
+<span class="linenr"> 99: </span>    } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">Exception</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">100: </span>      System.out.println(<span style="color: #848ea9;">"Exception caught: "</span> + e.toString());
+<span class="linenr">101: </span>    }
+<span class="linenr">102: </span>
+<span class="linenr">103: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">5. Stateful lambda expressions examples</span>
+<span class="linenr">104: </span>
+<span class="linenr">105: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">serialStorage</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;();
+<span class="linenr">106: </span>
+<span class="linenr">107: </span>    System.out.println(<span style="color: #848ea9;">"Serial stream:"</span>);
+<span class="linenr">108: </span>    listOfIntegers.stream()
+<span class="linenr">109: </span>
+<span class="linenr">110: </span>        <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Don't do this! It uses a stateful lambda expression.</span>
+<span class="linenr">111: </span>        .map(
+<span class="linenr">112: </span>            e -&gt; {
+<span class="linenr">113: </span>              serialStorage.add(e);
+<span class="linenr">114: </span>              <span style="color: #56b4e9; font-weight: bold;">return</span> e;
+<span class="linenr">115: </span>            })
+<span class="linenr">116: </span>        .forEachOrdered(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr">117: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr">118: </span>
+<span class="linenr">119: </span>    serialStorage.stream().forEachOrdered(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr">120: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr">121: </span>
+<span class="linenr">122: </span>    System.out.println(<span style="color: #848ea9;">"Parallel stream:"</span>);
+<span class="linenr">123: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">parallelStorage</span> = Collections.synchronizedList(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;());
+<span class="linenr">124: </span>    listOfIntegers
+<span class="linenr">125: </span>        .parallelStream()
+<span class="linenr">126: </span>
+<span class="linenr">127: </span>        <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Don't do this! It uses a stateful lambda expression.</span>
+<span class="linenr">128: </span>        .map(
+<span class="linenr">129: </span>            e -&gt; {
+<span class="linenr">130: </span>              parallelStorage.add(e);
+<span class="linenr">131: </span>              <span style="color: #56b4e9; font-weight: bold;">return</span> e;
+<span class="linenr">132: </span>            })
+<span class="linenr">133: </span>        .forEachOrdered(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr">134: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr">135: </span>
+<span class="linenr">136: </span>    parallelStorage.stream().forEachOrdered(e -&gt; System.out.print(e + <span style="color: #848ea9;">" "</span>));
+<span class="linenr">137: </span>    System.out.println(<span style="color: #848ea9;">""</span>);
+<span class="linenr">138: </span>  }
+<span class="linenr">139: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3367813" class="outline-2">
+<h2 id="org3367813"><code>streams/Person.java</code></h2>
+<div class="outline-text-2" id="text-org3367813">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">time</span>.<span style="color: #0072b2; font-weight: bold;">LocalDate</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">time</span>.<span style="color: #d55e00; font-weight: bold;">chrono</span>.<span style="color: #0072b2; font-weight: bold;">IsoChronology</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Person</span> {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">enum</span> <span style="color: #0072b2; font-weight: bold;">Sex</span> {
+<span class="linenr"> 9: </span>    <span style="color: #e69f00; font-weight: bold;">MALE</span>,
+<span class="linenr">10: </span>    <span style="color: #e69f00; font-weight: bold;">FEMALE</span>
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>  <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">name</span>;
+<span class="linenr">14: </span>  <span style="color: #0072b2; font-weight: bold;">LocalDate</span> <span style="color: #e69f00; font-weight: bold;">birthday</span>;
+<span class="linenr">15: </span>  <span style="color: #0072b2; font-weight: bold;">Sex</span> <span style="color: #e69f00; font-weight: bold;">gender</span>;
+<span class="linenr">16: </span>  <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">emailAddress</span>;
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>  <span style="color: #d55e00;">Person</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">nameArg</span>, <span style="color: #0072b2; font-weight: bold;">LocalDate</span> <span style="color: #e69f00; font-weight: bold;">birthdayArg</span>, <span style="color: #0072b2; font-weight: bold;">Sex</span> <span style="color: #e69f00; font-weight: bold;">genderArg</span>, <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">emailArg</span>) {
+<span class="linenr">19: </span>    name = nameArg;
+<span class="linenr">20: </span>    birthday = birthdayArg;
+<span class="linenr">21: </span>    gender = genderArg;
+<span class="linenr">22: </span>    emailAddress = emailArg;
+<span class="linenr">23: </span>  }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">getAge</span>() {
+<span class="linenr">26: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> birthday.until(<span style="color: #d55e00; font-weight: bold;">IsoChronology</span>.INSTANCE.dateNow()).getYears();
+<span class="linenr">27: </span>  }
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">printPerson</span>() {
+<span class="linenr">30: </span>    System.out.println(name + <span style="color: #848ea9;">", "</span> + <span style="color: #56b4e9; font-weight: bold;">this</span>.getAge());
+<span class="linenr">31: </span>  }
+<span class="linenr">32: </span>
+<span class="linenr">33: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">Sex</span> <span style="color: #d55e00;">getGender</span>() {
+<span class="linenr">34: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> gender;
+<span class="linenr">35: </span>  }
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getName</span>() {
+<span class="linenr">38: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> name;
+<span class="linenr">39: </span>  }
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getEmailAddress</span>() {
+<span class="linenr">42: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> emailAddress;
+<span class="linenr">43: </span>  }
+<span class="linenr">44: </span>
+<span class="linenr">45: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">LocalDate</span> <span style="color: #d55e00;">getBirthday</span>() {
+<span class="linenr">46: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> birthday;
+<span class="linenr">47: </span>  }
+<span class="linenr">48: </span>
+<span class="linenr">49: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">compareByAge</span>(<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">a</span>, <span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">b</span>) {
+<span class="linenr">50: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> a.birthday.compareTo(b.birthday);
+<span class="linenr">51: </span>  }
+<span class="linenr">52: </span>
+<span class="linenr">53: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; <span style="color: #d55e00;">createRoster</span>() {
+<span class="linenr">54: </span>
+<span class="linenr">55: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; <span style="color: #e69f00; font-weight: bold;">roster</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;();
+<span class="linenr">56: </span>    roster.add(
+<span class="linenr">57: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(
+<span class="linenr">58: </span>            <span style="color: #848ea9;">"Fred"</span>, <span style="color: #d55e00; font-weight: bold;">IsoChronology</span>.INSTANCE.date(1980, 6, 20), <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE, <span style="color: #848ea9;">"fred@example.com"</span>));
+<span class="linenr">59: </span>    roster.add(
+<span class="linenr">60: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(
+<span class="linenr">61: </span>            <span style="color: #848ea9;">"Jane"</span>,
+<span class="linenr">62: </span>            <span style="color: #d55e00; font-weight: bold;">IsoChronology</span>.INSTANCE.date(1990, 7, 15),
+<span class="linenr">63: </span>            <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.FEMALE,
+<span class="linenr">64: </span>            <span style="color: #848ea9;">"jane@example.com"</span>));
+<span class="linenr">65: </span>    roster.add(
+<span class="linenr">66: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(
+<span class="linenr">67: </span>            <span style="color: #848ea9;">"George"</span>,
+<span class="linenr">68: </span>            <span style="color: #d55e00; font-weight: bold;">IsoChronology</span>.INSTANCE.date(1991, 8, 13),
+<span class="linenr">69: </span>            <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE,
+<span class="linenr">70: </span>            <span style="color: #848ea9;">"george@example.com"</span>));
+<span class="linenr">71: </span>    roster.add(
+<span class="linenr">72: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(
+<span class="linenr">73: </span>            <span style="color: #848ea9;">"Bob"</span>, <span style="color: #d55e00; font-weight: bold;">IsoChronology</span>.INSTANCE.date(2000, 9, 12), <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE, <span style="color: #848ea9;">"bob@example.com"</span>));
+<span class="linenr">74: </span>
+<span class="linenr">75: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> roster;
+<span class="linenr">76: </span>  }
+<span class="linenr">77: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org53ccf79" class="outline-2">
+<h2 id="org53ccf79"><code>streams/ReductionExamples.java</code></h2>
+<div class="outline-text-2" id="text-org53ccf79">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">  1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr">  2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr">  3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Map</span>;
+<span class="linenr">  4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">function</span>.*;
+<span class="linenr">  5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">stream</span>.<span style="color: #0072b2; font-weight: bold;">Collectors</span>;
+<span class="linenr">  6: </span>
+<span class="linenr">  7: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ReductionExamples</span> {
+<span class="linenr">  8: </span>
+<span class="linenr">  9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>... <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 10: </span>
+<span class="linenr"> 11: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create sample data</span>
+<span class="linenr"> 12: </span>
+<span class="linenr"> 13: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; <span style="color: #e69f00; font-weight: bold;">roster</span> = Person.createRoster();
+<span class="linenr"> 14: </span>
+<span class="linenr"> 15: </span>    System.out.println(<span style="color: #848ea9;">"Contents of roster:"</span>);
+<span class="linenr"> 16: </span>
+<span class="linenr"> 17: </span>    roster.stream().forEach(p -&gt; p.printPerson());
+<span class="linenr"> 18: </span>
+<span class="linenr"> 19: </span>    System.out.println();
+<span class="linenr"> 20: </span>
+<span class="linenr"> 21: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">1. Average age of male members, average operation</span>
+<span class="linenr"> 22: </span>
+<span class="linenr"> 23: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">average</span> =
+<span class="linenr"> 24: </span>        roster.stream()
+<span class="linenr"> 25: </span>            .filter(p -&gt; p.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE)
+<span class="linenr"> 26: </span>            .mapToInt(Person::getAge)
+<span class="linenr"> 27: </span>            .average()
+<span class="linenr"> 28: </span>            .getAsDouble();
+<span class="linenr"> 29: </span>
+<span class="linenr"> 30: </span>    System.out.println(<span style="color: #848ea9;">"Average age (bulk data operations): "</span> + average);
+<span class="linenr"> 31: </span>
+<span class="linenr"> 32: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">2. Sum of ages with sum operation</span>
+<span class="linenr"> 33: </span>
+<span class="linenr"> 34: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">totalAge</span> = roster.stream().mapToInt(Person::getAge).sum();
+<span class="linenr"> 35: </span>
+<span class="linenr"> 36: </span>    System.out.println(<span style="color: #848ea9;">"Sum of ages (sum operation): "</span> + totalAge);
+<span class="linenr"> 37: </span>
+<span class="linenr"> 38: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">3. Sum of ages with reduce(identity, accumulator)</span>
+<span class="linenr"> 39: </span>
+<span class="linenr"> 40: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">totalAgeReduce</span> = roster.stream().map(Person::getAge).reduce(0, (a, b) -&gt; a + b);
+<span class="linenr"> 41: </span>
+<span class="linenr"> 42: </span>    System.out.println(<span style="color: #848ea9;">"Sum of ages with reduce(identity, accumulator): "</span> + totalAgeReduce);
+<span class="linenr"> 43: </span>
+<span class="linenr"> 44: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">4. Average of male members with collect operation</span>
+<span class="linenr"> 45: </span>
+<span class="linenr"> 46: </span>    <span style="color: #0072b2; font-weight: bold;">Averager</span> <span style="color: #e69f00; font-weight: bold;">averageCollect</span> =
+<span class="linenr"> 47: </span>        roster.stream()
+<span class="linenr"> 48: </span>            .filter(p -&gt; p.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE)
+<span class="linenr"> 49: </span>            .map(Person::getAge)
+<span class="linenr"> 50: </span>            .collect(Averager::<span style="color: #56b4e9; font-weight: bold;">new</span>, Averager::accept, Averager::combine);
+<span class="linenr"> 51: </span>
+<span class="linenr"> 52: </span>    System.out.println(<span style="color: #848ea9;">"Average age of male members: "</span> + averageCollect.average());
+<span class="linenr"> 53: </span>
+<span class="linenr"> 54: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">5. Names of male members with collect operation</span>
+<span class="linenr"> 55: </span>
+<span class="linenr"> 56: </span>    System.out.println(<span style="color: #848ea9;">"Names of male members with collect operation: "</span>);
+<span class="linenr"> 57: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt; <span style="color: #e69f00; font-weight: bold;">namesOfMaleMembersCollect</span> =
+<span class="linenr"> 58: </span>        roster.stream()
+<span class="linenr"> 59: </span>            .filter(p -&gt; p.getGender() == <span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #d55e00; font-weight: bold;">Sex</span>.MALE)
+<span class="linenr"> 60: </span>            .map(p -&gt; p.getName())
+<span class="linenr"> 61: </span>            .collect(Collectors.toList());
+<span class="linenr"> 62: </span>
+<span class="linenr"> 63: </span>    namesOfMaleMembersCollect.stream().forEach(p -&gt; System.out.println(p));
+<span class="linenr"> 64: </span>
+<span class="linenr"> 65: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">6. Group members by gender</span>
+<span class="linenr"> 66: </span>
+<span class="linenr"> 67: </span>    System.out.println(<span style="color: #848ea9;">"Members by gender:"</span>);
+<span class="linenr"> 68: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">byGender</span> =
+<span class="linenr"> 69: </span>        roster.stream().collect(Collectors.groupingBy(Person::getGender));
+<span class="linenr"> 70: </span>
+<span class="linenr"> 71: </span>    List&lt;<span style="color: #d55e00; font-weight: bold;">Map</span>.<span style="color: #0072b2; font-weight: bold;">Entry</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt;&gt;&gt; <span style="color: #0072b2; font-weight: bold;">byGenderList</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;(byGender.entrySet());
+<span class="linenr"> 72: </span>
+<span class="linenr"> 73: </span>    byGenderList.stream()
+<span class="linenr"> 74: </span>        .forEach(
+<span class="linenr"> 75: </span>            e -&gt; {
+<span class="linenr"> 76: </span>              System.out.println(<span style="color: #848ea9;">"Gender: "</span> + e.getKey());
+<span class="linenr"> 77: </span>              e.getValue().stream().map(Person::getName).forEach(f -&gt; System.out.println(f));
+<span class="linenr"> 78: </span>            });
+<span class="linenr"> 79: </span>
+<span class="linenr"> 80: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">7. Group names by gender</span>
+<span class="linenr"> 81: </span>
+<span class="linenr"> 82: </span>    System.out.println(<span style="color: #848ea9;">"Names by gender:"</span>);
+<span class="linenr"> 83: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">namesByGender</span> =
+<span class="linenr"> 84: </span>        roster.stream()
+<span class="linenr"> 85: </span>            .collect(
+<span class="linenr"> 86: </span>                Collectors.groupingBy(
+<span class="linenr"> 87: </span>                    Person::getGender, Collectors.mapping(Person::getName, Collectors.toList())));
+<span class="linenr"> 88: </span>
+<span class="linenr"> 89: </span>    List&lt;<span style="color: #d55e00; font-weight: bold;">Map</span>.<span style="color: #0072b2; font-weight: bold;">Entry</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt;&gt;&gt; <span style="color: #0072b2; font-weight: bold;">namesByGenderList</span> =
+<span class="linenr"> 90: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;(namesByGender.entrySet());
+<span class="linenr"> 91: </span>
+<span class="linenr"> 92: </span>    namesByGenderList.stream()
+<span class="linenr"> 93: </span>        .forEach(
+<span class="linenr"> 94: </span>            e -&gt; {
+<span class="linenr"> 95: </span>              System.out.println(<span style="color: #848ea9;">"Gender: "</span> + e.getKey());
+<span class="linenr"> 96: </span>              e.getValue().stream().forEach(f -&gt; System.out.println(f));
+<span class="linenr"> 97: </span>            });
+<span class="linenr"> 98: </span>
+<span class="linenr"> 99: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">8. Total age by gender</span>
+<span class="linenr">100: </span>
+<span class="linenr">101: </span>    System.out.println(<span style="color: #848ea9;">"Total age by gender:"</span>);
+<span class="linenr">102: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">totalAgeByGender</span> =
+<span class="linenr">103: </span>        roster.stream()
+<span class="linenr">104: </span>            .collect(
+<span class="linenr">105: </span>                Collectors.groupingBy(
+<span class="linenr">106: </span>                    Person::getGender, Collectors.reducing(0, Person::getAge, Integer::sum)));
+<span class="linenr">107: </span>
+<span class="linenr">108: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #d55e00; font-weight: bold;">Map</span>.<span style="color: #0072b2; font-weight: bold;">Entry</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">totalAgeByGenderList</span> =
+<span class="linenr">109: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;(totalAgeByGender.entrySet());
+<span class="linenr">110: </span>
+<span class="linenr">111: </span>    totalAgeByGenderList.stream()
+<span class="linenr">112: </span>        .forEach(e -&gt; System.out.println(<span style="color: #848ea9;">"Gender: "</span> + e.getKey() + <span style="color: #848ea9;">", Total Age: "</span> + e.getValue()));
+<span class="linenr">113: </span>
+<span class="linenr">114: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">9. Average age by gender</span>
+<span class="linenr">115: </span>
+<span class="linenr">116: </span>    System.out.println(<span style="color: #848ea9;">"Average age by gender:"</span>);
+<span class="linenr">117: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">Double</span>&gt; <span style="color: #e69f00; font-weight: bold;">averageAgeByGender</span> =
+<span class="linenr">118: </span>        roster.stream()
+<span class="linenr">119: </span>            .collect(
+<span class="linenr">120: </span>                Collectors.groupingBy(Person::getGender, Collectors.averagingInt(Person::getAge)));
+<span class="linenr">121: </span>
+<span class="linenr">122: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #d55e00; font-weight: bold;">Map</span>.<span style="color: #0072b2; font-weight: bold;">Entry</span>&lt;<span style="color: #d55e00; font-weight: bold;">Person</span>.<span style="color: #0072b2; font-weight: bold;">Sex</span>, <span style="color: #0072b2; font-weight: bold;">Double</span>&gt; <span style="color: #d55e00;">e</span> : averageAgeByGender.entrySet()) {
+<span class="linenr">123: </span>      System.out.println(e.getKey() + <span style="color: #848ea9;">": "</span> + e.getValue());
+<span class="linenr">124: </span>    }
+<span class="linenr">125: </span>  }
+<span class="linenr">126: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

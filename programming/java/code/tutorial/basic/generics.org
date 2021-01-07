@@ -1,0 +1,181 @@
+#+title: Generics
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+# 5
+
+* =generics/BoxDemo.java=
+
+#+BEGIN_SRC java -n :bangle BoxDemo.java :padline no
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class BoxDemo {
+
+  public static <U> void addBox(U u, java.util.List<Box<U>> boxes) {
+    Box<U> box = new Box<>();
+    box.set(u);
+    boxes.add(box);
+  }
+
+  public static <U> void outputBoxes(java.util.List<Box<U>> boxes) {
+    int counter = 0;
+    for (Box<U> box : boxes) {
+      U boxContents = box.get();
+      System.out.println("Box #" + counter + " contains [" + boxContents.toString() + "]");
+      counter++;
+    }
+  }
+
+  public static void main(String[] args) {
+    java.util.ArrayList<Box<Integer>> listOfIntegerBoxes = new java.util.ArrayList<>();
+    BoxDemo.<Integer>addBox(Integer.valueOf(10), listOfIntegerBoxes);
+    BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
+    BoxDemo.addBox(Integer.valueOf(30), listOfIntegerBoxes);
+    BoxDemo.outputBoxes(listOfIntegerBoxes);
+  }
+}
+#+END_SRC
+
+* =generics/Box.java=
+
+#+BEGIN_SRC java -n :bangle Box.java :padline no
+/**
+ * Generic version of the Box class.
+ *
+ * @param <T> the type of value being boxed
+ */
+public class Box<T> {
+
+  private T t; // T stands for "Type"
+
+  public void set(T t) {
+    this.t = t;
+  }
+
+  public T get() {
+    return t;
+  }
+}
+#+END_SRC
+
+* =generics/CountVowels.java=
+
+#+BEGIN_SRC java -n :bangle CountVowels.java :padline no
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class CountVowels {
+
+  public static void main(String[] args) {
+
+    if (args.length < 1) {
+      System.err.println("Usage: java CountVowels <word1 word2 ...>");
+      System.exit(1);
+    }
+
+    Map<String, Integer> msi = new HashMap<>();
+
+    for (String s : args) {
+      int vowelCount = 0;
+      int length = s.length();
+      for (int i = 0; i < length; ++i) if (isVowel(s.charAt(i))) ++vowelCount;
+
+      msi.put(s, vowelCount);
+    }
+
+    Set<String> words = msi.keySet();
+    for (String wd : words) System.out.println(wd + ": " + msi.get(wd));
+  }
+
+  public static boolean isVowel(char c) {
+    return c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'i' || c == 'I' || c == 'o'
+        || c == 'O' || c == 'u' || c == 'U';
+  }
+}
+#+END_SRC
+
+* =generics/MultiplicationTable.java=
+
+#+BEGIN_SRC java -n :bangle MultiplicationTable.java :padline no
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+public class MultiplicationTable {
+
+  public static void main(String[] args) throws Exception {
+
+    int begin = 1, end = 9;
+
+    if (args.length == 2) {
+      begin = Integer.parseInt(args[0]);
+      end = Integer.parseInt(args[1]);
+    }
+
+    SortedMap<Integer, List<Integer>> mt = multTable(begin, end);
+    printMultiplicationTable(mt);
+    System.out.println();
+  }
+
+  public static SortedMap<Integer, List<Integer>> multTable(int begin, int end) {
+
+    if (begin < 0 || end < 0 || begin > end) return null;
+
+    SortedMap<Integer, List<Integer>> mt = new TreeMap<>();
+
+    for (int i = begin; i <= end; ++i) {
+      List<Integer> li = new ArrayList<>();
+      for (int k = begin; k <= end; ++k) li.add(i * k);
+
+      mt.put(i, li);
+    }
+
+    return mt;
+  }
+
+  public static void printMultiplicationTable(SortedMap<Integer, List<Integer>> mt) {
+
+    Set<Integer> keys = mt.keySet();
+    Integer[] iKeys = keys.toArray(new Integer[0]);
+    Integer last = iKeys[iKeys.length - 1];
+    int width = Integer.toString(last * last).length() + 1;
+    String fmt = "%" + width + "d";
+
+    System.out.printf("%" + width + "s", "");
+    for (Integer k : keys) System.out.printf(fmt, k);
+    System.out.println();
+
+    for (Integer k : keys) {
+      System.out.printf(fmt, k);
+
+      List<Integer> li = mt.get(k);
+      for (Integer i : li) System.out.printf(fmt, i);
+      System.out.println();
+    }
+  }
+}
+#+END_SRC
+
+* =generics/WildcardFixed.java=
+
+#+BEGIN_SRC java -n :bangle WildcardFixed.java :padline no
+import java.util.List;
+
+public class WildcardFixed {
+
+  void foo(List<?> i) {
+    fooHelper(i);
+  }
+
+  private <T> void fooHelper(List<T> l) {
+    l.set(0, l.get(0));
+  }
+}
+#+END_SRC
+

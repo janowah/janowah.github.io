@@ -1,0 +1,959 @@
+#+title: Numbers and Strings
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+# 40
+
+* =data/Adder.java=
+
+#+BEGIN_SRC java -n :bangle Adder.java :padline no
+public class Adder {
+  public static void main(String[] args) {
+    int numArgs = args.length;
+
+    // this program requires at least two arguments on the command line
+    if (numArgs < 2) {
+      System.out.println("This program requires two command-line arguments.");
+    } else {
+      int sum = 0;
+
+      for (int i = 0; i < numArgs; i++) {
+        sum += Integer.valueOf(args[i]).intValue();
+      }
+
+      // print the sum
+      System.out.println(sum);
+    }
+  }
+}
+#+END_SRC
+
+* =data/Anagram.java=
+
+#+BEGIN_SRC java -n :bangle Anagram.java :padline no
+public class Anagram {
+
+  /**
+   * Tests whether the passed-in strings are anagrams -- containing the exact same number of each
+   * letter. Punctuation, case, and order don't matter.
+   *
+   * @return true if the strings are anagrams; otherwise, false
+   */
+  public static boolean areAnagrams(String string1, String string2) {
+
+    String workingCopy1 = removeJunk(string1);
+    String workingCopy2 = removeJunk(string2);
+
+    workingCopy1 = workingCopy1.toLowerCase();
+    workingCopy2 = workingCopy2.toLowerCase();
+
+    workingCopy1 = sort(workingCopy1);
+    workingCopy2 = sort(workingCopy2);
+
+    return workingCopy1.equals(workingCopy2);
+  }
+
+  /**
+   * Removes punctuation & spaces -- everything except letters from the passed-in string.
+   *
+   * @return a stripped copy of the passed-in string
+   */
+  protected static String removeJunk(String string) {
+    int i;
+    int len = string.length();
+    StringBuilder dest = new StringBuilder(len);
+    char c;
+
+    for (i = (len - 1); i >= 0; i--) {
+      c = string.charAt(i);
+      if (Character.isLetter(c)) {
+        dest.append(c);
+      }
+    }
+
+    return dest.toString();
+  }
+
+  /**
+   * Sorts the passed-in string.
+   *
+   * @return a sorted copy of the passed-in string
+   */
+  protected static String sort(String string) {
+    char[] charArray = string.toCharArray();
+
+    java.util.Arrays.sort(charArray);
+
+    return new String(charArray);
+  }
+
+  public static void main(String[] args) {
+    String string1 = "Cosmo and Laine:";
+    String string2 = "Maid, clean soon!";
+
+    System.out.println();
+    System.out.println("Testing whether the following " + "strings are anagrams:");
+    System.out.println("    String 1: " + string1);
+    System.out.println("    String 2: " + string2);
+    System.out.println();
+
+    if (areAnagrams(string1, string2)) {
+      System.out.println("They ARE anagrams!");
+    } else {
+      System.out.println("They are NOT anagrams!");
+    }
+    System.out.println();
+  }
+}
+#+END_SRC
+
+* =data/ArrayCopyDemo.java=
+
+#+BEGIN_SRC java -n :bangle ArrayCopyDemo.java :padline no
+public class ArrayCopyDemo {
+  public static void main(String[] args) {
+    char[] copyFrom = {'d', 'e', 'c', 'a', 'f', 'f', 'e', 'i', 'n', 'a', 't', 'e', 'd'};
+    char[] copyTo = new char[7];
+
+    System.arraycopy(copyFrom, 2, copyTo, 0, 7);
+    System.out.println(new String(copyTo));
+  }
+}
+#+END_SRC
+
+* =data/ArrayDemo.java=
+
+#+BEGIN_SRC java -n :bangle ArrayDemo.java :padline no
+public class ArrayDemo {
+  public static void main(String[] args) {
+    int[] anArray; // declare an array of integers
+
+    anArray = new int[10]; // create an array of integers
+
+    // assign a value to each array element and print
+    for (int i = 0; i < anArray.length; i++) {
+      anArray[i] = i;
+      System.out.print(anArray[i] + " ");
+    }
+    System.out.println();
+  }
+}
+#+END_SRC
+
+* =data/ArrayOfArraysDemo2.java=
+
+#+BEGIN_SRC java -n :bangle ArrayOfArraysDemo2.java :padline no
+public class ArrayOfArraysDemo2 {
+  public static void main(String[] args) {
+    int[][] aMatrix = new int[4][];
+
+    // populate matrix
+    for (int i = 0; i < aMatrix.length; i++) {
+      aMatrix[i] = new int[5]; // create sub-array
+      for (int j = 0; j < aMatrix[i].length; j++) {
+        aMatrix[i][j] = i + j;
+      }
+    }
+
+    // print matrix
+    for (int i = 0; i < aMatrix.length; i++) {
+      for (int j = 0; j < aMatrix[i].length; j++) {
+        System.out.print(aMatrix[i][j] + " ");
+      }
+      System.out.println();
+    }
+  }
+}
+#+END_SRC
+
+* =data/ArrayOfArraysDemo.java=
+
+#+BEGIN_SRC java -n :bangle ArrayOfArraysDemo.java :padline no
+public class ArrayOfArraysDemo {
+  public static void main(String[] args) {
+    String[][] cartoons = {
+      {"Flintstones", "Fred", "Wilma", "Pebbles", "Dino"},
+      {"Rubbles", "Barney", "Betty", "Bam Bam"},
+      {"Jetsons", "George", "Jane", "Elroy", "Judy", "Rosie", "Astro"},
+      {"Scooby Doo Gang", "Scooby Doo", "Shaggy", "Velma", "Fred", "Daphne"}
+    };
+
+    for (int i = 0; i < cartoons.length; i++) {
+      System.out.print(cartoons[i][0] + ": ");
+      for (int j = 1; j < cartoons[i].length; j++) {
+        System.out.print(cartoons[i][j] + " ");
+      }
+      System.out.println();
+    }
+  }
+}
+#+END_SRC
+
+* =data/ArrayOfStringsDemo.java=
+
+#+BEGIN_SRC java -n :bangle ArrayOfStringsDemo.java :padline no
+public class ArrayOfStringsDemo {
+  public static void main(String[] args) {
+    String[] anArray = {"String One", "String Two", "String Three"};
+
+    for (String s : anArray) {
+      System.out.println(s.toLowerCase());
+    }
+  }
+}
+#+END_SRC
+
+* =data/BasicMathDemo.java=
+
+#+BEGIN_SRC java -n :bangle BasicMathDemo.java :padline no
+public class BasicMathDemo {
+  public static void main(String[] args) {
+    double a = -191.635;
+    double b = 43.74;
+    int c = 16, d = 45;
+
+    System.out.printf("The absolute value " + "of %.3f is %.3f%n", a, Math.abs(a));
+
+    System.out.printf("The ceiling of " + "%.2f is %.0f%n", b, Math.ceil(b));
+
+    System.out.printf("The floor of " + "%.2f is %.0f%n", b, Math.floor(b));
+
+    System.out.printf("The rint of %.2f " + "is %.0f%n", b, Math.rint(b));
+
+    System.out.printf("The max of %d and " + "%d is %d%n", c, d, Math.max(c, d));
+
+    System.out.printf("The min of of %d " + "and %d is %d%n", c, d, Math.min(c, d));
+  }
+}
+#+END_SRC
+
+* =data/BostonAccentDemo.java=
+
+#+BEGIN_SRC java -n :bangle BostonAccentDemo.java :padline no
+public class BostonAccentDemo {
+  private static void bostonAccent(String sentence) {
+    char r = 'r';
+    char h = 'h';
+    String translatedSentence = sentence.replace(r, h);
+    System.out.println(translatedSentence);
+  }
+
+  public static void main(String[] args) {
+    String translateThis = "Park the car in Harvard yard.";
+    bostonAccent(translateThis);
+  }
+}
+#+END_SRC
+
+* =data/CharacterDemo.java=
+
+#+BEGIN_SRC java -n :bangle CharacterDemo.java :padline no
+public class CharacterDemo {
+  public static void main(String args[]) {
+    Character a = new Character('a');
+    Character a2 = new Character('a');
+    Character b = new Character('b');
+
+    int difference = a.compareTo(b);
+
+    if (difference == 0) {
+      System.out.println("a is equal to b.");
+    } else if (difference < 0) {
+      System.out.println("a is less than b.");
+    } else if (difference > 0) {
+      System.out.println("a is greater than b.");
+    }
+
+    System.out.println("a is " + ((a.equals(a2)) ? "equal" : "not equal") + " to a2.");
+
+    System.out.println(
+        "The character "
+            + a.toString()
+            + " is "
+            + (Character.isUpperCase(a.charValue()) ? "upper" : "lower")
+            + "case.");
+  }
+}
+#+END_SRC
+
+* =data/ComputeInitials.java=
+
+#+BEGIN_SRC java -n :bangle ComputeInitials.java :padline no
+public class ComputeInitials {
+  public static void main(String[] args) {
+    String myName = "Fred F. Flintstone";
+    StringBuffer myInitials = new StringBuffer();
+    int length = myName.length();
+
+    for (int i = 0; i < length; i++) {
+      if (Character.isUpperCase(myName.charAt(i))) {
+        myInitials.append(myName.charAt(i));
+      }
+    }
+    System.out.println("My initials are: " + myInitials);
+  }
+}
+#+END_SRC
+
+* =data/ComputeResult.java=
+
+#+BEGIN_SRC java -n :bangle ComputeResult.java :padline no
+public class ComputeResult {
+  public static void main(String[] args) {
+    String original = "software";
+    StringBuilder result = new StringBuilder("hi");
+    int index = original.indexOf('a');
+
+    /*1*/ result.setCharAt(0, original.charAt(0));
+    /*2*/ result.setCharAt(1, original.charAt(original.length() - 1));
+    /*3*/ result.insert(1, original.charAt(4));
+    /*4*/ result.append(original.substring(1, 4));
+    /*5*/ result.insert(3, (original.substring(index, index + 2) + " "));
+
+    System.out.println(result);
+  }
+}
+#+END_SRC
+
+* =data/DecimalFormatDemo.java=
+
+#+BEGIN_SRC java -n :bangle DecimalFormatDemo.java :padline no
+import java.text.DecimalFormat;
+
+public class DecimalFormatDemo {
+
+  public static void customFormat(String pattern, double value) {
+    DecimalFormat myFormatter = new DecimalFormat(pattern);
+    String output = myFormatter.format(value);
+    System.out.println(value + "  " + pattern + "  " + output);
+  }
+
+  public static void main(String[] args) {
+
+    customFormat("###,###.###", 123456.789);
+    customFormat("###.##", 123456.789);
+    customFormat("000000.000", 123.78);
+    customFormat("$###,###.###", 12345.67);
+  }
+}
+#+END_SRC
+
+* =data/ExponentialDemo.java=
+
+#+BEGIN_SRC java -n :bangle ExponentialDemo.java :padline no
+public class ExponentialDemo {
+  public static void main(String[] args) {
+    double x = 11.635;
+    double y = 2.76;
+
+    System.out.printf("The value of " + "e is %.4f%n", Math.E);
+
+    System.out.printf("exp(%.3f) " + "is %.3f%n", x, Math.exp(x));
+
+    System.out.printf("log(%.3f) is " + "%.3f%n", x, Math.log(x));
+
+    System.out.printf("pow(%.3f, %.3f) " + "is %.3f%n", x, y, Math.pow(x, y));
+
+    System.out.printf("sqrt(%.3f) is " + "%.3f%n", x, Math.sqrt(x));
+  }
+}
+#+END_SRC
+
+* =data/FilenameDemo.java=
+
+#+BEGIN_SRC java -n :bangle FilenameDemo.java :padline no
+public class FilenameDemo {
+  public static void main(String[] args) {
+    final String FPATH = "/home/user/index.html";
+    Filename myHomePage = new Filename(FPATH, '/', '.');
+    System.out.println("Extension = " + myHomePage.extension());
+    System.out.println("Filename = " + myHomePage.filename());
+    System.out.println("Path = " + myHomePage.path());
+  }
+}
+#+END_SRC
+
+* =data/Filename.java=
+
+#+BEGIN_SRC java -n :bangle Filename.java :padline no
+public class Filename {
+  private String fullPath;
+  private char pathSeparator;
+  private char extensionSeparator;
+
+  public Filename(String str, char sep, char ext) {
+    fullPath = str;
+    pathSeparator = sep;
+    extensionSeparator = ext;
+  }
+
+  public String extension() {
+    int dot = fullPath.lastIndexOf(extensionSeparator);
+    return fullPath.substring(dot + 1);
+  }
+
+  // gets filename without extension
+  public String filename() {
+    int dot = fullPath.lastIndexOf(extensionSeparator);
+    int sep = fullPath.lastIndexOf(pathSeparator);
+    return fullPath.substring(sep + 1, dot);
+  }
+
+  public String path() {
+    int sep = fullPath.lastIndexOf(pathSeparator);
+    return fullPath.substring(0, sep);
+  }
+}
+#+END_SRC
+
+* =data/FPAdder.java=
+
+#+BEGIN_SRC java -n :bangle FPAdder.java :padline no
+import java.text.DecimalFormat;
+
+public class FPAdder {
+  public static void main(String[] args) {
+
+    int numArgs = args.length;
+
+    // this program requires at least two arguments on the command line
+    if (numArgs < 2) {
+      System.out.println("This program requires two command-line arguments.");
+    } else {
+      double sum = 0.0;
+
+      for (int i = 0; i < numArgs; i++) {
+        sum += Double.valueOf(args[i]).doubleValue();
+      }
+
+      // format the sum
+      DecimalFormat myFormatter = new DecimalFormat("###,###.##");
+      String output = myFormatter.format(sum);
+
+      // print the sum
+      System.out.println(output);
+    }
+  }
+}
+#+END_SRC
+
+* =data/InsertDemo.java=
+
+#+BEGIN_SRC java -n :bangle InsertDemo.java :padline no
+public class InsertDemo {
+  public static void main(String[] args) {
+    StringBuffer palindrome = new StringBuffer("A man, a plan, a canal; Panama.");
+    palindrome.insert(15, "a cat, ");
+    System.out.println(palindrome);
+  }
+}
+#+END_SRC
+
+* =data/MaxVariablesDemo.java=
+
+#+BEGIN_SRC java -n :bangle MaxVariablesDemo.java :padline no
+public class MaxVariablesDemo {
+  public static void main(String args[]) {
+
+    // integers
+    byte largestByte = Byte.MAX_VALUE;
+    short largestShort = Short.MAX_VALUE;
+    int largestInteger = Integer.MAX_VALUE;
+    long largestLong = Long.MAX_VALUE;
+
+    // real numbers
+    float largestFloat = Float.MAX_VALUE;
+    double largestDouble = Double.MAX_VALUE;
+
+    // other primitive types
+    char aChar = 'S';
+    boolean aBoolean = true;
+
+    // Display them all.
+    System.out.println("The largest byte value is " + largestByte + ".");
+    System.out.println("The largest short value is " + largestShort + ".");
+    System.out.println("The largest integer value is " + largestInteger + ".");
+    System.out.println("The largest long value is " + largestLong + ".");
+
+    System.out.println("The largest float value is " + largestFloat + ".");
+    System.out.println("The largest double value is " + largestDouble + ".");
+
+    if (Character.isUpperCase(aChar)) {
+      System.out.println("The character " + aChar + " is uppercase.");
+    } else {
+      System.out.println("The character " + aChar + " is lowercase.");
+    }
+    System.out.println("The value of aBoolean is " + aBoolean + ".");
+  }
+}
+#+END_SRC
+
+* =data/MinDemo.java=
+
+#+BEGIN_SRC java -n :bangle MinDemo.java :padline no
+public class MinDemo {
+  public static void main(String[] args) {
+
+    double enrollmentPrice = 45.875;
+    double closingPrice = 54.375;
+
+    System.out.println("Your purchase price is: $" + Math.min(enrollmentPrice, closingPrice));
+  }
+}
+#+END_SRC
+
+* =data/MinVariablesDemo.java=
+
+#+BEGIN_SRC java -n :bangle MinVariablesDemo.java :padline no
+public class MinVariablesDemo {
+  public static void main(String args[]) {
+
+    // integers
+    byte smallestByte = Byte.MIN_VALUE;
+    short smallestShort = Short.MIN_VALUE;
+    int smallestInteger = Integer.MIN_VALUE;
+    long smallestLong = Long.MIN_VALUE;
+
+    // real numbers
+    float smallestFloat = Float.MIN_VALUE;
+    double smallestDouble = Double.MIN_VALUE;
+
+    // display them all
+    System.out.println("The smallest byte value is " + smallestByte);
+    System.out.println("The smallest short value is " + smallestShort);
+    System.out.println("The smallest integer value is " + smallestInteger);
+    System.out.println("The smallest long value is " + smallestLong);
+
+    System.out.println("The smallest float value is " + smallestFloat);
+    System.out.println("The smallest double value is " + smallestDouble);
+  }
+}
+#+END_SRC
+
+* =data/NumberDemo.java=
+
+#+BEGIN_SRC java -n :bangle NumberDemo.java :padline no
+public class NumberDemo {
+  public static void main(String args[]) {
+    Float floatOne = new Float(14.78f - 13.78f);
+    Float floatTwo = Float.valueOf("1.0");
+    Double doubleOne = new Double(1.0);
+
+    int difference = floatOne.compareTo(floatTwo);
+
+    if (difference == 0) {
+      System.out.println("floatOne is equal to floatTwo.");
+    } else if (difference < 0) {
+      System.out.println("floatOne is less than floatTwo.");
+    } else if (difference > 0) {
+      System.out.println("floatOne is greater than floatTwo.");
+    }
+
+    System.out.println(
+        "floatOne is " + ((floatOne.equals(doubleOne)) ? "equal" : "not equal") + " to doubleOne.");
+  }
+}
+#+END_SRC
+
+* =data/Palindrome.java=
+
+#+BEGIN_SRC java -n :bangle Palindrome.java :padline no
+public class Palindrome {
+
+  public static boolean isPalindrome(String stringToTest) {
+    String workingCopy = removeJunk(stringToTest);
+    String reversedCopy = reverse(workingCopy);
+
+    return reversedCopy.equalsIgnoreCase(workingCopy);
+  }
+
+  protected static String removeJunk(String string) {
+    int i, len = string.length();
+    StringBuilder dest = new StringBuilder(len);
+    char c;
+
+    for (i = (len - 1); i >= 0; i--) {
+      c = string.charAt(i);
+      if (Character.isLetterOrDigit(c)) {
+        dest.append(c);
+      }
+    }
+
+    return dest.toString();
+  }
+
+  protected static String reverse(String string) {
+    StringBuilder sb = new StringBuilder(string);
+
+    return sb.reverse().toString();
+  }
+
+  public static void main(String[] args) {
+    String string = "Madam, I'm Adam.";
+
+    System.out.println();
+    System.out.println("Testing whether the following " + "string is a palindrome:");
+    System.out.println("    " + string);
+    System.out.println();
+
+    if (isPalindrome(string)) {
+      System.out.println("It IS a palindrome!");
+    } else {
+      System.out.println("It is NOT a palindrome!");
+    }
+    System.out.println();
+  }
+}
+#+END_SRC
+
+* =data/Point.java=
+
+#+BEGIN_SRC java -n :bangle Point.java :padline no
+public class Point {
+  public int x = 0;
+  public int y = 0;
+  // a constructor!
+  public Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+#+END_SRC
+
+* =data/Rectangle.java=
+
+#+BEGIN_SRC java -n :bangle Rectangle.java :padline no
+public class Rectangle {
+  /** The width of this rectangle. */
+  public int width;
+
+  /** The height of this rectangle. */
+  public int height;
+
+  /** The origin (lower-left corner) of this rectangle. */
+  public Point origin;
+
+  /**
+   * Creates a rectangle with the specified size. The origin is (0, 0).
+   *
+   * @param w width of the rectangle
+   * @param h height of the rectangle
+   */
+  public Rectangle(int w, int h) {
+    this(new Point(0, 0), w, h);
+  }
+
+  /**
+   * Creates a rectangle with the specified origin and size.
+   *
+   * @param p origin of the rectangle
+   * @param w width of the rectangle
+   * @param h height of the rectangle
+   */
+  public Rectangle(Point p, int w, int h) {
+    origin = p;
+    width = w;
+    height = h;
+  }
+
+  /** Moves the rectangle to the specified origin. */
+  public void move(int x, int y) {
+    origin.x = x;
+    origin.y = y;
+  }
+
+  /** Returns the computed area of the rectangle. */
+  public int area() {
+    return width * height;
+  }
+}
+#+END_SRC
+
+* =data/RegionMatchesDemo.java=
+
+#+BEGIN_SRC java -n :bangle RegionMatchesDemo.java :padline no
+public class RegionMatchesDemo {
+  public static void main(String[] args) {
+    String searchMe = "Green Eggs and Ham";
+    String findMe = "Eggs";
+    int searchMeLength = searchMe.length();
+    int findMeLength = findMe.length();
+    boolean foundIt = false;
+    for (int i = 0; i <= (searchMeLength - findMeLength); i++) {
+      if (searchMe.regionMatches(i, findMe, 0, findMeLength)) {
+        foundIt = true;
+        System.out.println(searchMe.substring(i, i + findMeLength));
+        break;
+      }
+    }
+    if (!foundIt) System.out.println("No match found.");
+  }
+}
+#+END_SRC
+
+* =data/ReverseString.java=
+
+#+BEGIN_SRC java -n :bangle ReverseString.java :padline no
+public class ReverseString {
+  public static String reverseIt(String source) {
+    int i, len = source.length();
+    StringBuffer dest = new StringBuffer(len);
+
+    for (i = (len - 1); i >= 0; i--) dest.append(source.charAt(i));
+    return dest.toString();
+  }
+}
+#+END_SRC
+
+* =data/ReverseStringTest.java=
+
+#+BEGIN_SRC java -n :bangle ReverseStringTest.java :padline no
+public class ReverseStringTest {
+  public static void main(String[] args) {
+    String str = "What's going on?";
+    System.out.println(ReverseString.reverseIt(str));
+  }
+}
+#+END_SRC
+
+* =data/SimplePoint.java=
+
+#+BEGIN_SRC java -n :bangle SimplePoint.java :padline no
+public class SimplePoint {
+  public int x = 0;
+  public int y = 0;
+}
+#+END_SRC
+
+* =data/SimpleRectangle.java=
+
+#+BEGIN_SRC java -n :bangle SimpleRectangle.java :padline no
+public class SimpleRectangle {
+  public int width = 0;
+  public int height = 0;
+  public SimplePoint origin = new SimplePoint();
+}
+#+END_SRC
+
+* =data/StringBuilderDemo.java=
+
+#+BEGIN_SRC java -n :bangle StringBuilderDemo.java :padline no
+public class StringBuilderDemo {
+  public static void main(String[] args) {
+    String palindrome = "Dot saw I was Tod";
+
+    StringBuilder sb = new StringBuilder(palindrome);
+
+    sb.reverse(); // reverse it
+
+    System.out.println(sb);
+  }
+}
+#+END_SRC
+
+* =data/StringDemo.java=
+
+#+BEGIN_SRC java -n :bangle StringDemo.java :padline no
+public class StringDemo {
+  public static void main(String[] args) {
+    String palindrome = "Dot saw I was Tod";
+    int len = palindrome.length();
+    char[] tempCharArray = new char[len];
+    char[] charArray = new char[len];
+
+    // put original string in an
+    // array of chars
+    for (int i = 0; i < len; i++) {
+      tempCharArray[i] = palindrome.charAt(i);
+    }
+
+    // reverse array of chars
+    for (int j = 0; j < len; j++) {
+      charArray[j] = tempCharArray[len - 1 - j];
+    }
+
+    String reversePalindrome = new String(charArray);
+    System.out.println(reversePalindrome);
+  }
+}
+#+END_SRC
+
+* =data/StringsDemo.java=
+
+#+BEGIN_SRC java -n :bangle StringsDemo.java :padline no
+public class StringsDemo {
+  public static void main(String[] args) {
+    String palindrome = "Dot saw I was Tod";
+    int len = palindrome.length();
+    StringBuilder dest = new StringBuilder(len);
+    for (int i = (len - 1); i >= 0; i--) {
+      dest.append(palindrome.charAt(i));
+    }
+    System.out.format("%s%n", dest.toString());
+  }
+}
+#+END_SRC
+
+* =data/TestFormat.java=
+
+#+BEGIN_SRC java -n :bangle TestFormat.java :padline no
+import java.util.Calendar;
+import java.util.Locale;
+
+public class TestFormat {
+
+  public static void main(String[] args) {
+    long n = 461012;
+    System.out.format("%d%n", n);
+    System.out.format("%08d%n", n);
+    System.out.format("%+8d%n", n);
+    System.out.format("%,8d%n", n);
+    System.out.format("%+,8d%n%n", n);
+
+    double pi = Math.PI;
+    System.out.format("%f%n", pi);
+    System.out.format("%.3f%n", pi);
+    System.out.format("%10.3f%n", pi);
+    System.out.format("%-10.3f%n", pi);
+    System.out.format(Locale.FRANCE, "%-10.4f%n%n", pi);
+
+    Calendar c = Calendar.getInstance();
+    System.out.format("%tB %te, %tY%n", c, c, c);
+    System.out.format("%tl:%tM %tp%n", c, c, c);
+    System.out.format("%tD%n", c);
+  }
+}
+#+END_SRC
+
+* =data/ThisHappens.java=
+
+#+BEGIN_SRC java -n :bangle ThisHappens.java :padline no
+public class ThisHappens {
+  public static void main(String[] args) {
+    StringBuffer[] stringBuffers = new StringBuffer[10];
+
+    for (int i = 0; i < stringBuffers.length; i++) {
+      stringBuffers[i] = new StringBuffer();
+      stringBuffers[i].append("StringBuffer at index " + i);
+    }
+  }
+}
+#+END_SRC
+
+* =data/ToStringDemo.java=
+
+#+BEGIN_SRC java -n :bangle ToStringDemo.java :padline no
+public class ToStringDemo {
+
+  public static void main(String[] args) {
+    double d = 858.48;
+    String s = Double.toString(d);
+
+    int dot = s.indexOf('.');
+
+    System.out.println(dot + " digits " + "before decimal point.");
+    System.out.println((s.length() - dot - 1) + " digits after decimal point.");
+  }
+}
+#+END_SRC
+
+* =data/TrigonometricDemo.java=
+
+#+BEGIN_SRC java -n :bangle TrigonometricDemo.java :padline no
+public class TrigonometricDemo {
+  public static void main(String[] args) {
+    double degrees = 45.0;
+    double radians = Math.toRadians(degrees);
+
+    System.out.format("The value of pi " + "is %.4f%n", Math.PI);
+
+    System.out.format("The sine of %.1f " + "degrees is %.4f%n", degrees, Math.sin(radians));
+
+    System.out.format("The cosine of %.1f " + "degrees is %.4f%n", degrees, Math.cos(radians));
+
+    System.out.format("The tangent of %.1f " + "degrees is %.4f%n", degrees, Math.tan(radians));
+
+    System.out.format(
+        "The arcsine of %.4f " + "is %.4f degrees %n",
+        Math.sin(radians), Math.toDegrees(Math.asin(Math.sin(radians))));
+
+    System.out.format(
+        "The arccosine of %.4f " + "is %.4f degrees %n",
+        Math.cos(radians), Math.toDegrees(Math.acos(Math.cos(radians))));
+
+    System.out.format(
+        "The arctangent of %.4f " + "is %.4f degrees %n",
+        Math.tan(radians), Math.toDegrees(Math.atan(Math.tan(radians))));
+  }
+}
+#+END_SRC
+
+* =data/Unboxing.java=
+
+#+BEGIN_SRC java -n :bangle Unboxing.java :padline no
+import java.util.ArrayList;
+import java.util.List;
+
+public class Unboxing {
+
+  public static void main(String[] args) {
+
+    Integer i = new Integer(-8);
+
+    // 1. Unboxing through method invocation
+    int absVal = absoluteValue(i);
+    System.out.println("absolute value of " + i + " = " + absVal);
+
+    List<Double> ld = new ArrayList<>();
+    ld.add(3.1416); // PI is autoboxed through method invocation.
+
+    // 2. Unboxing through assignment
+    double phi = ld.get(0);
+    System.out.println("phi = " + phi);
+  }
+
+  public static int absoluteValue(int i) {
+    return (i < 0) ? -i : i;
+  }
+}
+#+END_SRC
+
+* =data/ValueOfDemo.java=
+
+#+BEGIN_SRC java -n :bangle ValueOfDemo.java :padline no
+public class ValueOfDemo {
+  public static void main(String[] args) {
+
+    // this program requires two
+    // arguments on the command line
+    if (args.length == 2) {
+      // convert strings to numbers
+      float a = (Float.valueOf(args[0])).floatValue();
+      float b = (Float.valueOf(args[1])).floatValue();
+
+      // do some arithmetic
+      System.out.println("a + b = " + (a + b));
+      System.out.println("a - b = " + (a - b));
+      System.out.println("a * b = " + (a * b));
+      System.out.println("a / b = " + (a / b));
+      System.out.println("a % b = " + (a % b));
+    } else {
+      System.out.println("This program " + "requires two command-line arguments.");
+    }
+  }
+}
+#+END_SRC
+
+* =data/WhatHappens.java=
+
+#+BEGIN_SRC java -n :bangle WhatHappens.java :padline no
+//
+public class WhatHappens {
+  public static void main(String[] args) {
+    StringBuffer[] stringBuffers = new StringBuffer[10];
+
+    for (int i = 0; i < stringBuffers.length; i++) {
+      stringBuffers[i].append("StringBuffer at index " + i);
+    }
+  }
+}
+#+END_SRC

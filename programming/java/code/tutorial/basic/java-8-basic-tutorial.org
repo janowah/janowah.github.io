@@ -702,9 +702,3 @@ them using Java Web Start and Java Plug-in.
 * Preparation for Java Programming Language Certification =extra/certification= 0
 
 List of available training and tutorial resources.
-
-
-
-
-
-

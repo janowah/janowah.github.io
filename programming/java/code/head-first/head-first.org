@@ -1,24 +1,4035 @@
 #+title: Head First Java
-#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
-1. Breaking the Surface: /a quick dip/
-2. A Trip to Objectville: /yes, there will be objects/
-3. Know Your Variables: /primitives and references/
-4. How Objects Behave: /object state affects method behavior/
-5. Extra-Strength Methods: /flow control, operations, and more/
-6. Using the Java Library: /so you don’t have to write it all yourself/
-7. Better Living in Objectville: /planning for the future/
-8. Serious Polymorphism: /exploiting abstract classes and interfaces/
-9. Life and Death of an Object: /constructors and memory management/
-10. Numbers Matter: /math, formatting, wrappers, and statics/
-11. Risky Behavior: /exception handling/
-12. A Very Graphic Story: /intro to GUI, event handling, and inner classes/
-13. Work on Your Swing: /layout managers and components/
-14. Saving Objects: /serialization and I/O/
-15. Make a Connection: /networking sockets and multithreading/
-16. Data Structures: /collections and generics/
-17. Release Your Code: /packaging and deployment/
-18. Distributed Computing: /RMI with a dash of servlets, EJB, and Jini/
-19. Appendix A: /Final code kitchen/
+* 01 Breaking the Surface: /a quick dip/
 
-[[../code.html][back]]
+** =BeerSong.java=
+
+#+BEGIN_SRC java -n :bangle BeerSong.java :padline no
+  // package chap01;
+
+  public class BeerSong {
+
+    public static void main(String[] args) {
+
+      int beerNum = 99;
+      String word = "bottles";
+
+      while (beerNum > 0) {
+        if (beerNum == 1) {
+          word = "bottle";
+        }
+
+        System.out.println(beerNum + " " + word + " of beer on the wall");
+        System.out.println(beerNum + " " + word + " of beer");
+        System.out.println("Take one down.");
+        System.out.println("Pass it around.");
+        beerNum = beerNum - 1;
+
+        if (beerNum > 0) {
+          System.out.println(beerNum +  " " + word + " of beer on the wall");
+        } else {
+          System.out.println("No more bottles of beer on the wall");
+        }
+      }
+    }
+  
+  }
+#+END_SRC
+
+** =PhraseOMatic.java=
+
+#+BEGIN_SRC java -n :bangle PhraseOMatic.java :padline no
+  // package chap01;
+
+  public class PhraseOMatic {
+  
+    public static void main(String[] args) {
+
+      String[] wordListOne = {"24/7", "multi-Tier", "30,000 foot", "B-to-B",
+                              "win-win", "front-end", "web-based", "pervasive",
+                              "smart", "six-sigma", "critical-path", "dynamic"};
+      String[] wordListTwo = {"empowered", "sticky", "value-added", "oriented",
+                              "centric", "distributed", "clustered", "branded",
+                              "outside-the-box", "positioned", "networked", 
+                              "focused", "leveraged", "aligned", "targeted",
+                              "shared", "cooperative", "accelerated"};
+      String[] wordListThree = {"process", "tipping-point", "solution",
+                                "architecture", "core competency", "strategy",
+                                "mindshare", "portal", "space", "vision", "paradigm",
+                                "mission"};
+      int oneLength = wordListOne.length;
+      int twoLength = wordListTwo.length;
+      int threeLength = wordListThree.length;
+      int rand1 = (int) (Math.random() * oneLength);
+      int rand2 = (int) (Math.random() * twoLength);
+      int rand3 = (int) (Math.random() * threeLength);
+
+      String phrase = wordListOne[rand1] + " " + wordListTwo[rand2] + " "
+          + wordListThree[rand3];
+      System.out.println("What we need is a " + phrase);
+    }
+
+  }
+#+END_SRC
+
+* 02 A Trip to Objectville: /yes, there will be objects/
+
+** =Player.java=
+
+#+BEGIN_SRC java -n :bangle Player.java :padline no
+  // package chap02;
+
+  public class Player {
+
+    int number = 0;
+
+    public void guess() {
+      number = (int) (Math.random() * 10);
+      System.out.println("I'm guessing " + number);
+    }
+  }
+#+END_SRC
+
+** =GuessGame.java=
+
+#+BEGIN_SRC java -n :bangle GuessGame.java :padline no
+  // package chap02;
+
+  public class GuessGame {
+
+    Player p1;
+    Player p2;
+    Player p3;
+
+    public void startGame() {
+
+      p1 = new Player();
+      p2 = new Player();
+      p3 = new Player();
+      int guessp1 = 0;
+      int guessp2 = 0;
+      int guessp3 = 0;
+      boolean p1isRight = false;
+      boolean p2isRight = false;
+      boolean p3isRight = false;
+      int targetNumber = (int) (Math.random() * 10);
+      System.out.println("I'm thinking of a number between 0 and 9...");
+
+      while (true) {
+        System.out.println("Number to guess is " + targetNumber);
+
+        p1.guess();
+        p2.guess();
+        p3.guess();
+
+        guessp1 = p1.number;
+        System.out.println("Player one guessed " + guessp1);
+        guessp2 = p2.number;
+        System.out.println("Player two guessed " + guessp2);
+        guessp3 = p3.number;
+        System.out.println("Player three guessed " + guessp3);
+
+        if (guessp1 == targetNumber) {
+          p1isRight = true;
+        }
+        if (guessp2 == targetNumber) {
+          p2isRight = true;
+        }
+        if (guessp3 == targetNumber) {
+          p3isRight = true;
+        }
+
+        if (p1isRight || p2isRight || p3isRight) {
+          System.out.println("We have a winner!");
+          System.out.println("Player one got it right? " + p1isRight);
+          System.out.println("Player two got it right? " + p2isRight);
+          System.out.println("Player three got it right? " + p3isRight);
+          System.out.println("Game is over");
+          break;
+        } else {
+          System.out.println("Players will have to try again.");
+        }
+      }
+    }
+
+  }
+#+END_SRC
+
+** =GameLauncher.java=
+
+#+BEGIN_SRC java -n :bangle GameLauncher.java :padline no
+  // package chap02;
+
+  public class GameLauncher {
+
+    public static void main (String[] args) {
+      GuessGame game = new GuessGame();
+      game.startGame();
+    }
+
+  }
+#+END_SRC
+
+* 03 Know Your Variables: /primitives and references/
+
+** =Dog.java=
+
+#+BEGIN_SRC java -n :bangle Dog.java :padline no
+  // package chap03;
+
+  public class Dog {
+
+    String name;
+
+    public static void main(String[] args) {
+      Dog dog1 = new Dog();
+      dog1.bark();
+      dog1.name = "Bart";
+
+      Dog[] myDogs = new Dog[3];
+      myDogs[0] = new Dog();
+      myDogs[1] = new Dog();
+      myDogs[2] = dog1;
+
+      myDogs[0].name = "Fred";
+      myDogs[1].name = "Marge";
+
+      System.out.print("last dogs name is ");
+      System.out.println(myDogs[2].name);
+
+      int x = 0;
+      while (x < myDogs.length) {
+        myDogs[x].bark();
+        x = x + 1;
+      }
+    }
+
+    public void bark() {
+      System.out.println(name + " says Ruff!");
+    }
+
+    public void eat() {
+    }
+
+    public void chaseCat() {
+    }
+  
+  }
+#+END_SRC
+
+* 04 How Objects Behave: /object state affects method behavior/
+
+** =Foo.java=
+
+#+BEGIN_SRC java -n :bangle Foo.java :padline no
+  package chap04;
+
+  // this shouldn't compile
+  public class Foo {
+    public void go() {
+      int x = 0; // added initialization after verified that it doesn't
+                 // compile without it -Tyler Boone
+      int z = x + 3;
+    }
+  }
+#+END_SRC
+
+** =GoodDogTestDrive.java=
+
+#+BEGIN_SRC java -n :bangle GoodDogTestDrive.java :padline no
+  // package chap04;
+
+  public class GoodDogTestDrive {
+
+    public static void main(String[] args) {
+      GoodDog one = new GoodDog();
+      one.setSize(70);
+      GoodDog two = new GoodDog();
+      two.setSize(8);
+      System.out.println("Dog one: " + one.getSize());
+      System.out.println("Dog two: " + two.getSize());
+      one.bark();
+      two.bark();
+    }
+  }
+
+  class GoodDog {
+    private int size;
+
+    public int getSize() {
+      return size;
+    }
+
+    public void setSize(int s) { 
+      size = s;
+    }
+
+    void bark() {
+      if (size > 60) {
+        System.out.println("Wooof! Wooof!");
+      } else if (size > 60) {
+        System.out.println("Ruff! Ruff!");
+      } else {
+        System.out.println("Yip! Yip!");
+      }
+    }
+
+  }
+#+END_SRC
+
+** =PoorDogTestDrive.java=
+
+#+BEGIN_SRC java -n :bangle PoorDogTestDrive.java :padline no
+  // package chap04;
+
+  public class PoorDogTestDrive {
+  
+    public static void main(String[] args) {
+      PoorDog one = new PoorDog();
+      System.out.println("Dog size is " + one.getSize());
+      System.out.println("Dog name is " + one.getName());
+    }
+  }
+
+  class PoorDog {
+    private int size;
+    private String name;
+
+    public int getSize() {
+      return size;
+    }
+
+    public String getName() {
+      return name;
+    }
+  }
+#+END_SRC
+
+* 05 Extra-Strength Methods: /flow control, operations, and more/
+
+** =Game.java=
+
+#+BEGIN_SRC java -n :bangle Game.java :padline no
+  // package chap05;
+
+  // import helpers.GameHelper;
+  // import GameHelper;
+
+  import java.util.Scanner;
+
+  public class Game {
+
+    public static void main(String[] args) {
+      int numOfGuesses = 0;
+      GameHelper helper = new GameHelper();
+
+      SimpleDotCom theDotCom = new SimpleDotCom();
+      int randomNum = (int) (Math.random() * 5);
+
+      int[] locations = {randomNum, randomNum + 1, randomNum + 2};
+      theDotCom.setLocationCells(locations);
+      boolean isAlive = true;
+
+      while (isAlive == true) {
+        String guess = helper.getUserInput("enter a number");
+        String result = theDotCom.checkYourself(guess);
+        numOfGuesses++;
+
+        if (result.equals("kill")) {
+          isAlive = false;
+          System.out.println("You took " + numOfGuesses + " guesses");
+        }
+      }
+    }
+
+  }
+#+END_SRC
+
+** =GameHelper.java=
+
+#+BEGIN_SRC java -n :bangle GameHelper.java :padline no
+  // package chap05;
+
+  import java.io.BufferedReader;
+  import java.io.IOException;
+  import java.io.InputStreamReader;
+  import java.util.ArrayList;
+
+  public class GameHelper {
+
+    private static final String alphabet = "abcdefg";
+    private int gridLength = 7;
+    private int gridSize = 49;
+    private int [] grid = new int[gridSize];
+    private int comCount = 0;
+
+    public String getUserInput(String prompt) {
+      String inputLine = null;
+      System.out.print(prompt + "  ");
+      try {
+        BufferedReader is = new BufferedReader(
+            new InputStreamReader(System.in));
+        inputLine = is.readLine();
+        if (inputLine.length() == 0) {
+          return null;
+        }
+      } catch (IOException e) {
+        System.out.println("IOException: " + e);
+      }
+      return inputLine.toLowerCase();
+    }
+  
+    public ArrayList<String> placeDotCom(int comSize) { // line 19
+      ArrayList<String> alphaCells = new ArrayList<String>();
+      String [] alphacoords = new String [comSize];     // holds 'f6' type coords
+      String temp = null;                               // temporary String for concat
+      int [] coords = new int[comSize];                 // current candidate coords
+      int attempts = 0;                                 // current attempts counter
+      boolean success = false;                          // flag = found a good location ?
+      int location = 0;                                 // current starting location
+
+      comCount++;                                       // nth dot com to place
+      int incr = 1;                                     // set horizontal increment
+      if ((comCount % 2) == 1) {                        // if odd dot com  (place vertically)
+        incr = gridLength;                              // set vertical increment
+      }
+
+      while (!success & attempts++ < 200) {             // main search loop  (32)
+        location = (int) (Math.random() * gridSize);    // get random starting point
+        //System.out.print(" try " + location);
+        int x = 0;                                      // nth position in dotcom to place
+        success = true;                                 // assume success
+        while (success && x < comSize) {                // look for adjacent unused spots
+          if (grid[location] == 0) {                    // if not already used
+            coords[x++] = location;                     // save location
+            location += incr;                           // try 'next' adjacent
+            if (location >= gridSize) {                 // out of bounds - 'bottom'
+              success = false;                          // failure
+            }
+            if (x > 0 & (location % gridLength == 0)) { // out of bounds - right edge
+              success = false;                          // failure
+            }
+          } else {                                      // found already used location
+            // System.out.print(" used " + location);  
+            success = false;                            // failure
+          }
+        }
+      }                                                 // end while
+
+      int x = 0;                                        // turn good location into alpha coords
+      int row = 0;
+      int column = 0;
+      // System.out.println("\n");
+      while (x < comSize) {
+        grid[coords[x]] = 1;                            // mark master grid pts. as 'used'
+        row = (int) (coords[x] / gridLength);           // get row value
+        column = coords[x] % gridLength;                // get numeric column value
+        temp = String.valueOf(alphabet.charAt(column)); // convert to alpha
+
+        alphaCells.add(temp.concat(Integer.toString(row)));
+        x++;
+        // System.out.print("  coord "+x+" = " + alphaCells.get(x-1));
+
+      }
+      // System.out.println("\n");
+
+      return alphaCells;
+    }
+
+  }
+#+END_SRC
+
+** =SimpleDotCom.java=
+
+#+BEGIN_SRC java -n :bangle SimpleDotCom.java :padline no
+  // package chap05;
+
+  public class SimpleDotCom {
+    int[] locationCells;
+    int numOfHits = 0;
+
+    public void setLocationCells(int[] locs) {
+      locationCells = locs;
+    }
+
+    public String checkYourself(String stringGuess) {
+      int guess = Integer.parseInt(stringGuess);
+      String result = "miss";
+      for (int cell: locationCells) {
+        if (guess == cell) {
+          result = "hit";
+          numOfHits++;
+          break;
+        }
+      }
+      if (numOfHits == locationCells.length) {
+        result = "kill";
+      }
+      System.out.println(result);
+      return result;
+    }
+
+  }
+#+END_SRC
+
+** =SimpleDotComTester.java=
+
+#+BEGIN_SRC java -n :bangle SimpleDotComTester.java :padline no
+  // package chap05;
+
+  public class SimpleDotComTester {
+
+    public static void main(String[] args) {
+      SimpleDotCom dot = new SimpleDotCom();
+      int[] locations = {2, 3, 4};
+      dot.setLocationCells(locations);
+      String userGuess = "2";
+      String result = dot.checkYourself(userGuess);
+    }
+
+  }
+#+END_SRC
+
+* TODO 06 Using the Java Library: /so you don’t have to write it all yourself/
+
+** =DotCom.java=
+
+#+BEGIN_SRC java -n :bangle DotCom.java :padline no
+  // package chap06;
+
+  import java.util.ArrayList;
+
+  public class DotCom {
+
+    private ArrayList<String> locationCells;
+
+    public void setLocationCells(ArrayList<String> loc) {
+      locationCells = loc;
+    }
+
+    public String checkYourself(String userInput) {
+      String result = "miss";
+      int index = locationCells.indexOf(userInput);
+      if (index >= 0) {
+        locationCells.remove(index);
+        if (locationCells.isEmpty()) {
+          result = "kill";
+        } else {
+          result = "hit";
+        }
+      }
+      return result;
+    }
+
+    //TODO:  all the following code was added and should have been included in the book
+    private String name;
+  
+    public void setName(String string) {
+      name = string;
+    }
+  
+  }
+#+END_SRC
+
+** =DotComBust.java=
+
+#+BEGIN_SRC java -n :bangle DotComBust.java :padline no
+  // package chap06;
+  // import helpers.GameHelper;
+
+  import java.util.ArrayList;
+  import java.util.Iterator;
+
+  public class DotComBust {
+
+    private GameHelper helper = new GameHelper();
+    private ArrayList<DotCom> dotComsList = new ArrayList<DotCom>();
+    private int numOfGuesses = 0;
+
+    private void setUpGame() {
+      DotCom one = new DotCom();
+      one.setName("Pets.com");
+      DotCom two = new DotCom();
+      two.setName("eToys.com");
+      DotCom three = new DotCom();
+      three.setName("Go2.com");
+      dotComsList.add(one);
+      dotComsList.add(two);
+      dotComsList.add(three);
+
+      System.out.println("Your goal is to sink three dot coms.");
+      System.out.println("Pets.com, eToys.com, Go2.com");
+      System.out.println("Try to sink them all in the fewest number of guesses");
+
+      for (DotCom dotComSet : dotComsList) {
+        ArrayList<String> newLocation = helper.placeDotCom(3);
+        dotComSet.setLocationCells(newLocation);
+      }
+    }
+
+    private void startPlaying() {
+      while (!dotComsList.isEmpty()) {
+        String userGuess = helper.getUserInput("Enter a guess");
+        checkUserGuess(userGuess);
+      }
+      finishGame();
+    }
+
+    private void checkUserGuess(String userGuess) {
+      numOfGuesses++;
+      String result = "miss";
+
+      for (DotCom dotComToTest : dotComsList) {
+        result = dotComToTest.checkYourself(userGuess);
+        if (result.equals("hit")) {
+          break;
+        }
+        if (result.equals("kill")) {
+          dotComsList.remove(dotComToTest);
+          break;
+        }
+      }
+      System.out.println(result);
+    }
+
+    private void finishGame() {
+      System.out.println("All Dot Coms are dead!  Your stock is now worthless");
+      if (numOfGuesses <= 18) {
+        System.out.println("It only took you " + numOfGuesses + " guesses");
+        System.out.println("You got out before your options sank.");
+      } else {
+        System.out.println("Took you long enough. " + numOfGuesses + " guesses.");
+        System.out.println("Fish are dancing with your options.");
+      }
+    }
+
+    public static void main(String[] args) {
+      DotComBust game = new DotComBust();
+      game.setUpGame();
+      game.startPlaying();
+    }
+
+  }
+#+END_SRC
+
+** =GameHelper.java=
+
+chapter 5
+
+* 07 Better Living in Objectville: /planning for the future/
+
+** =TestBoat.java=
+
+#+BEGIN_SRC java -n :bangle TestBoat.java :padline no
+  // package chap07;
+
+  public class TestBoat {
+  
+    public static void main(String[] args) {
+      Boat b1 = new Boat();
+      Sailboat b2 = new Sailboat();
+      Rowboat b3 = new Rowboat();
+      b2.setLength(32);
+      b1.move();
+      b3.move();
+      b2.move();
+    }
+  }
+
+  class Boat {
+    private int length;
+
+    public void setLength(int len) {
+      length = len;
+    }
+
+    public int getLength() {
+      return length;
+    }
+
+    public void move() {
+      System.out.print("drift ");
+    }
+
+  }
+
+  class Rowboat extends Boat {
+
+    public void rowTheBoat() {
+      System.out.print("stroke natasha");
+    }
+
+  }
+
+  class Sailboat extends Boat {
+
+    public void move() {
+      System.out.print("hoist sail ");
+    }
+
+  }
+#+END_SRC
+
+* 08 Serious Polymorphism: /exploiting abstract classes and interfaces/
+
+** =Of76.java=
+
+#+BEGIN_SRC java -n :bangle Of76.java :padline no
+  // package chap08;
+
+  public class Of76 extends Clowns {
+    public static void main(String[] args) {
+      Nose[] i = new Nose[3];
+      i[0] = new Acts();
+      i[1] = new Clowns();
+      i[2] = new Of76();
+      for (int x = 0; x < 3; x++) {
+        System.out.println(i[x].iMethod() + " " + i[x].getClass());
+      }
+    }
+  }
+
+  interface Nose {
+
+    public int iMethod();
+
+  }
+
+  abstract class Picasso implements Nose {
+
+    public int iMethod() {
+      return 7;
+    }
+
+  }
+
+  class Clowns extends Picasso {
+  }
+
+  class Acts extends Picasso {
+
+    public int iMethod() {
+      return 5;
+    }
+
+  }
+#+END_SRC
+
+* 09 Life and Death of an Object: /constructors and memory management/
+
+** =TestLifeSupportSim.java=
+
+#+BEGIN_SRC java -n :bangle TestLifeSupportSim.java :padline no
+  // package chap09;
+
+  import java.util.ArrayList;
+
+  public class TestLifeSupportSim {
+
+    public static void main(String[] args) {
+
+      ArrayList<SimUnit> aList = new ArrayList<SimUnit>();
+      V2Radiator v2 = new V2Radiator(aList);
+      V3Radiator v3 = new V3Radiator(aList);
+
+      for (int z = 0; z < 20; z++) {
+        RetentionBot ret = new RetentionBot(aList);
+      }
+
+      //adding this to make sure the power is correct:
+      int totalPower = 0;
+      for (Object o : aList) {
+        totalPower += ((SimUnit) o).powerUse();
+      }
+      System.out.println("Total power: " + totalPower);
+    }
+
+  }
+
+  class V2Radiator {
+
+    V2Radiator(ArrayList<SimUnit> list) {
+      System.out.println("making a v2 radiator");
+      for (int x = 0; x < 5; x++) {
+        list.add(new SimUnit("V2Radiator"));
+      }
+    }
+
+  }
+
+  class V3Radiator extends V2Radiator {
+
+    V3Radiator(ArrayList<SimUnit> list) {
+      super(list);
+      for (int g = 0; g < 10; g++) {
+        list.add(new SimUnit("V3Radiator"));
+      }
+    }
+
+  }
+
+  class RetentionBot {
+
+    RetentionBot(ArrayList<SimUnit> rlist) {
+      rlist.add(new SimUnit("Retention"));
+    }
+
+  }
+
+  class SimUnit {
+
+    String botType;
+
+    SimUnit(String type) {
+      botType = type;
+    }
+
+    int powerUse() {
+      if ("Retention".equals(botType)) {
+        return 2;
+      } else {
+        return 4;
+      }
+
+    }
+
+  }
+#+END_SRC
+
+* 10 Numbers Matter: /math, formatting, wrappers, and statics/
+
+** =FullMoons.java=
+
+#+BEGIN_SRC java -n :bangle FullMoons.java :padline no
+  // package chap10;
+
+  import java.util.Calendar;
+
+  import static java.lang.System.out;
+
+  public class FullMoons {
+  
+    static int DAY_IM = 1000 * 60 * 60 * 24;
+
+    public static void main(String[] args) {
+      Calendar c = Calendar.getInstance();
+      // c.set(2004, 0, 7, 15, 40);
+      c.set(2020, 0, 7, 15, 40);
+      long day1 = c.getTimeInMillis();
+      for (int x = 0; x < 60; x++) {
+        day1 += (DAY_IM * 29.52); //TODO: added this last semi-colon
+        c.setTimeInMillis(day1);
+        out.println(String.format("full moon on %tc", c));
+      }
+    }
+
+  }
+#+END_SRC
+
+* 11 Risky Behavior: /exception handling/
+
+** =MiniMiniMusicApp.java=
+
+#+BEGIN_SRC java -n :bangle MiniMiniMusicApp.java :padline no
+  // package chap11;
+
+  import javax.sound.midi.MidiEvent;
+  import javax.sound.midi.MidiMessage;
+  import javax.sound.midi.MidiSystem;
+  import javax.sound.midi.Sequence;
+  import javax.sound.midi.Sequencer;
+  import javax.sound.midi.ShortMessage;
+  import javax.sound.midi.Track;
+
+  public class MiniMiniMusicApp {   // this is the first one
+
+    public static void main(String[] args) {
+      MiniMiniMusicApp mini = new MiniMiniMusicApp();
+      mini.play();
+    }
+
+    public void play() {
+
+      try {
+
+        // make (and open) a sequencer, make a sequence and track
+
+        Sequencer sequencer = MidiSystem.getSequencer();         
+        sequencer.open();
+
+        Sequence seq = new Sequence(Sequence.PPQ, 4);
+        Track track = seq.createTrack();     
+
+        // now make two midi events (containing a midi message)
+        MidiEvent event = null;
+
+        // first make the message
+        // then stick the message into a midi event 
+        // and add the event to the track
+
+        ShortMessage a = new ShortMessage();
+        a.setMessage(144, 1, 44, 100);
+        MidiEvent noteOn = new MidiEvent(a, 1); // <-- means at tick one, the above event happens
+        track.add(noteOn);
+
+        ShortMessage b = new ShortMessage();
+        b.setMessage(128, 1, 44, 100);
+        MidiEvent noteOff = new MidiEvent(b, 16); // <-- means at tick one, the above event happens
+        track.add(noteOff);
+
+        // add the events to the track
+
+        // add the sequence to the sequencer, set timing, and start
+        sequencer.setSequence(seq);
+
+        sequencer.start();
+        // new
+        Thread.sleep(1000);
+        sequencer.close();
+        System.exit(0);
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    } // close play
+
+  } // close class
+#+END_SRC
+
+** =MiniMiniMusicCmdLine.java=
+
+#+BEGIN_SRC java -n :bangle MiniMiniMusicCmdLine.java :padline no
+  // package chap11;
+
+  import javax.sound.midi.MidiEvent;
+  import javax.sound.midi.MidiMessage;
+  import javax.sound.midi.MidiSystem;
+  import javax.sound.midi.Sequence;
+  import javax.sound.midi.Sequencer;
+  import javax.sound.midi.ShortMessage;
+  import javax.sound.midi.Track;
+
+  public class MiniMiniMusicCmdLine {   // this is the first one
+
+    public static void main(String[] args) {
+
+      MiniMiniMusicCmdLine mini = new MiniMiniMusicCmdLine();
+      if (args.length < 2) {
+        System.out.println("Don't forget the instrument and note args");
+      } else {
+        int instrument = Integer.parseInt(args[0]);
+        int note = Integer.parseInt(args[1]);
+        mini.play(instrument, note);
+      }
+    }
+
+    public void play(int instrument, int note) {
+
+      try {
+
+        Sequencer player = MidiSystem.getSequencer();         
+        player.open();
+
+        Sequence seq = new Sequence(Sequence.PPQ, 4);         
+        Track track = seq.createTrack();  
+
+        MidiEvent event = null;
+
+        ShortMessage first = new ShortMessage();
+        first.setMessage(192, 1, instrument, 0);
+        MidiEvent changeInstrument = new MidiEvent(first, 1); 
+        track.add(changeInstrument);
+
+
+        ShortMessage a = new ShortMessage();
+        a.setMessage(144, 1, note, 100);
+        MidiEvent noteOn = new MidiEvent(a, 1); 
+        track.add(noteOn);
+
+        ShortMessage b = new ShortMessage();
+        b.setMessage(128, 1, note, 100);
+        MidiEvent noteOff = new MidiEvent(b, 16); 
+        track.add(noteOff);
+        player.setSequence(seq); 
+        player.start();
+        // new
+        Thread.sleep(5000);
+        player.close();
+        System.exit(0);
+
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    } // close play
+
+  } // close class
+#+END_SRC
+
+* 12 A Very Graphic Story: /intro to GUI, event handling, and inner classes/
+
+** =Animate.java=
+
+#+BEGIN_SRC java -n :bangle Animate.java :padline no
+  // package chap12;
+
+  import java.awt.Color;
+  import java.awt.Component;
+  import java.awt.Container;
+  import java.awt.Graphics;
+  import javax.swing.JFrame;
+  import javax.swing.JPanel;
+
+  public class Animate {
+
+    int x = 1;
+    int y = 1;
+
+    public static void main(String[] args) {
+      Animate gui = new Animate();
+      gui.go();
+    }
+
+    public void go() {
+
+      JFrame frame = new JFrame();
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      MyDrawP drawP = new MyDrawP();
+      frame.getContentPane().add(drawP);
+      frame.setSize(500,270);
+      frame.setVisible(true);
+      for (int i = 0; i < 124; i++,x++,y++) {
+        x++;
+        drawP.repaint();
+        try {
+          Thread.sleep(50);
+        } catch (Exception ex) {
+        }
+      }
+    }
+
+    class MyDrawP extends JPanel {
+
+      public void paintComponent(Graphics g) {
+        g.setColor(Color.white);
+        g.fillRect(0,0,500,250);
+        g.setColor(Color.blue);
+        g.fillRect(x,y,500 - x * 2, 250 - y * 2);
+      }
+
+    }
+
+  }
+#+END_SRC
+
+** =MiniMusicPlayer3.java=
+
+#+BEGIN_SRC java -n :bangle MiniMusicPlayer3.java :padline no
+  // package chap12;
+
+  import java.awt.Color;
+  import java.awt.Container;
+  import java.awt.Graphics;
+  import java.awt.Graphics2D;
+  import javax.sound.midi.ControllerEventListener;
+  import javax.sound.midi.MidiEvent;
+  import javax.sound.midi.MidiMessage;
+  import javax.sound.midi.MidiSystem;
+  import javax.sound.midi.Sequence;
+  import javax.sound.midi.Sequencer;
+  import javax.sound.midi.ShortMessage;
+  import javax.sound.midi.Track;
+  import javax.swing.JFrame;
+  import javax.swing.JPanel;
+
+  // this one plays random music with it, but only because there is a listener.
+
+  public class MiniMusicPlayer3 {
+
+    static JFrame f = new JFrame("My First Music Video");
+    static MyDrawPanel ml;
+
+    public static void main(String[] args) {
+      MiniMusicPlayer3 mini = new MiniMusicPlayer3();
+      mini.go();
+    }
+
+    public void setUpGui() {
+      ml = new MyDrawPanel();
+      f.setContentPane(ml);
+      f.setBounds(30, 30, 300, 300);
+      f.setVisible(true);
+    }
+
+    public void go() {
+      setUpGui();
+
+      try {
+        // make (and open) a sequencer, make a sequence and track
+        Sequencer sequencer = MidiSystem.getSequencer();         
+        sequencer.open();
+
+        sequencer.addControllerEventListener(ml, new int[] {127});
+        Sequence seq = new Sequence(Sequence.PPQ, 4);
+        Track track = seq.createTrack();     
+
+        // now make two midi events (containing a midi message)
+
+        int r = 0;
+        for (int i = 0; i < 60; i += 4) {
+
+          r = (int) ((Math.random() * 50) + 1);
+
+          track.add(makeEvent(144,1,r,100,i));
+
+          track.add(makeEvent(176,1,127,0,i));
+
+          track.add(makeEvent(128,1,r,100,i + 2));
+        } // end loop
+
+        // add the events to the track            
+        // add the sequence to the sequencer, set timing, and start
+
+        sequencer.setSequence(seq);
+
+        sequencer.start();
+        sequencer.setTempoInBPM(120);
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    } // close go
+
+
+    public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+      MidiEvent event = null;
+      try {
+        ShortMessage a = new ShortMessage();
+        a.setMessage(comd, chan, one, two);
+        event = new MidiEvent(a, tick);
+
+      } catch (Exception e) {
+      }
+      return event;
+    }
+
+    class MyDrawPanel extends JPanel implements ControllerEventListener {
+
+      // only if we got an event do we want to paint
+      boolean msg = false;
+
+      public void controlChange(ShortMessage event) {
+        msg = true;       
+        repaint();         
+      }
+
+      public void paintComponent(Graphics g) {
+        if (msg) {
+
+          Graphics2D g2 = (Graphics2D) g;
+
+          int r = (int) (Math.random() * 250);
+          int gr = (int) (Math.random() * 250);
+          int b = (int) (Math.random() * 250);
+
+          g.setColor(new Color(r,gr,b));
+
+          int ht = (int) ((Math.random() * 120) + 10);
+          int width = (int) ((Math.random() * 120) + 10);
+
+          int x = (int) ((Math.random() * 40) + 10);
+          int y = (int) ((Math.random() * 40) + 10);
+
+          g.fillRect(x,y,ht, width);
+          msg = false;
+
+        } // close if
+      } // close method
+    }  // close inner class
+
+  } // close class
+#+END_SRC
+
+** =SimpleAnimation.java=
+
+#+BEGIN_SRC java -n :bangle SimpleAnimation.java :padline no
+  // package chap12;
+
+  import java.awt.Color;
+  import java.awt.Component;
+  import java.awt.Container;
+  import java.awt.Graphics;
+  import javax.swing.JFrame;
+  import javax.swing.JPanel;
+
+  public class SimpleAnimation {
+
+    int x = 70;
+    int y = 70;
+
+    public static void main(String[] args) {
+      SimpleAnimation gui = new SimpleAnimation();
+      gui.go();
+    }
+
+    public void go() {
+      JFrame frame = new JFrame();
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      MyDrawPanel drawPanel = new MyDrawPanel();
+      frame.getContentPane().add(drawPanel);
+      frame.setSize(300,300);
+      frame.setVisible(true);
+      for (int i = 0; i < 130; i++) {
+        x++;
+        y++;
+        drawPanel.repaint();
+        try {
+          Thread.sleep(50);
+        } catch (Exception ex) {
+        }
+      }
+    } // close go() method
+
+    class MyDrawPanel extends JPanel {
+      public void paintComponent(Graphics g) {
+        g.setColor(Color.white);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.setColor(Color.green);
+        g.fillOval(x,y,40,40);
+      }
+
+    } // close inner class
+
+  } // close outer class
+#+END_SRC
+
+** =TwoButtons.java=
+
+#+BEGIN_SRC java -n :bangle TwoButtons.java :padline no
+  // package chap12;
+
+  import java.awt.BorderLayout;
+  import java.awt.Color;
+  import java.awt.Component;
+  import java.awt.Container;
+  import java.awt.Graphics;
+  import java.awt.event.ActionEvent;
+  import java.awt.event.ActionListener;
+  import javax.swing.JButton;
+  import javax.swing.JFrame;
+  import javax.swing.JLabel;
+  import javax.swing.JPanel;
+
+  public class TwoButtons {
+
+    JFrame frame;
+    JLabel label;
+
+    public static void main(String[] args) {
+      TwoButtons gui = new TwoButtons();
+      gui.go();
+    }
+
+    public void go() {
+      frame = new JFrame();
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      JButton labelButton = new JButton("Change Label");
+      labelButton.addActionListener(new LabelButtonListener());
+
+      JButton colorButton = new JButton("Change Circle");
+      colorButton.addActionListener(new ColorButtonListener());
+
+      label = new JLabel("I'm a label");
+      MyDrawPanel drawPanel = new MyDrawPanel();
+
+      frame.getContentPane().add(BorderLayout.SOUTH, colorButton);
+      frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
+      frame.getContentPane().add(BorderLayout.EAST, labelButton);
+      frame.getContentPane().add(BorderLayout.WEST, label);
+
+      frame.setSize(420,300);
+      frame.setVisible(true);
+    }
+
+    class LabelButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent event) {
+        label.setText("Ouch!");
+      }
+    } // close inner class
+
+    class ColorButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent event) {
+        frame.repaint();
+      }
+    }  // close inner class
+
+  }
+
+  class MyDrawPanel extends JPanel {
+
+    public void paintComponent(Graphics g) {
+
+      g.fillRect(0,0,this.getWidth(), this.getHeight());
+
+      // make random colors to fill with
+      int red = (int) (Math.random() * 255);
+      int green = (int) (Math.random() * 255);
+      int blue = (int) (Math.random() * 255);
+
+      Color randomColor = new Color(red, green, blue);
+      g.setColor(randomColor);
+      g.fillOval(70,70,100,100);
+    }
+
+  }
+#+END_SRC
+
+* 13 Work on Your Swing: /layout managers and components/
+
+** =BeatBox.java=
+
+#+BEGIN_SRC java -n :bangle BeatBox.java :padline no
+  // package chap13;
+  // chapter 13
+
+  import java.awt.BorderLayout;
+  import java.awt.Component;
+  import java.awt.Container;
+  import java.awt.GridLayout;
+  import java.awt.Label;
+  import java.awt.LayoutManager;
+  import java.awt.event.ActionEvent;
+  import java.awt.event.ActionListener;
+  import java.util.ArrayList;
+  import javax.sound.midi.MidiEvent;
+  import javax.sound.midi.MidiMessage;
+  import javax.sound.midi.MidiSystem;
+  import javax.sound.midi.Sequence;
+  import javax.sound.midi.Sequencer;
+  import javax.sound.midi.ShortMessage;
+  import javax.sound.midi.Track;
+  import javax.swing.BorderFactory;
+  import javax.swing.Box;
+  import javax.swing.BoxLayout;
+  import javax.swing.JButton;
+  import javax.swing.JCheckBox;
+  import javax.swing.JFrame;
+  import javax.swing.JPanel;
+  import javax.swing.border.Border;
+
+  public class BeatBox {
+
+    JPanel mainPanel;
+    ArrayList<JCheckBox> checkboxList;
+    Sequencer sequencer;
+    Sequence sequence;
+    Track track;
+    JFrame theFrame;
+
+    String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat",
+                                "Acoustic Snare", "Crash Cymbal", "Hand Clap", 
+                                "High Tom", "Hi Bongo", "Maracas", "Whistle",
+                                "Low Conga", "Cowbell", "Vibraslap", "Low-mid Tom",
+                                "High Agogo", "Open Hi Conga"};
+    int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
+
+    public static void main(String[] args) {
+      new BeatBox().buildGUI();
+    }
+
+    public void buildGUI() {
+      theFrame = new JFrame("Cyber BeatBox");
+      theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      BorderLayout layout = new BorderLayout();
+      JPanel background = new JPanel(layout);
+      background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+      checkboxList = new ArrayList<JCheckBox>();
+      Box buttonBox = new Box(BoxLayout.Y_AXIS);
+
+      JButton start = new JButton("Start");
+      start.addActionListener(new MyStartListener());
+      buttonBox.add(start);         
+
+      JButton stop = new JButton("Stop");
+      stop.addActionListener(new MyStopListener());
+      buttonBox.add(stop);
+
+      JButton upTempo = new JButton("Tempo Up");
+      upTempo.addActionListener(new MyUpTempoListener());
+      buttonBox.add(upTempo);
+
+      JButton downTempo = new JButton("Tempo Down");
+      downTempo.addActionListener(new MyDownTempoListener());
+      buttonBox.add(downTempo);
+
+      Box nameBox = new Box(BoxLayout.Y_AXIS);
+      for (int i = 0; i < 16; i++) {
+        nameBox.add(new Label(instrumentNames[i]));
+      }
+
+      background.add(BorderLayout.EAST, buttonBox);
+      background.add(BorderLayout.WEST, nameBox);
+
+      theFrame.getContentPane().add(background);
+
+      GridLayout grid = new GridLayout(16,16);
+      grid.setVgap(1);
+      grid.setHgap(2);
+      mainPanel = new JPanel(grid);
+      background.add(BorderLayout.CENTER, mainPanel);
+
+      for (int i = 0; i < 256; i++) {                    
+        JCheckBox c = new JCheckBox();
+        c.setSelected(false);
+        checkboxList.add(c);
+        mainPanel.add(c);            
+      } // end loop
+
+      setUpMidi();
+
+      theFrame.setBounds(50,50,300,300);
+      theFrame.pack();
+      theFrame.setVisible(true);
+    } // close method
+
+
+    public void setUpMidi() {
+      try {
+        sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        sequence = new Sequence(Sequence.PPQ,4);
+        track = sequence.createTrack();
+        sequencer.setTempoInBPM(120);
+
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } // close method
+
+    public void buildTrackAndStart() {
+      int[] trackList = null;
+
+      sequence.deleteTrack(track);
+      track = sequence.createTrack();
+
+      for (int i = 0; i < 16; i++) {
+        trackList = new int[16];
+
+        int key = instruments[i];   
+
+        for (int j = 0; j < 16; j++) {         
+          JCheckBox jc = (JCheckBox) checkboxList.get(j + (16 * i));
+          if (jc.isSelected()) {
+            trackList[j] = key;
+          } else {
+            trackList[j] = 0;
+          }                    
+        } // close inner loop
+
+        makeTracks(trackList);
+        track.add(makeEvent(176,1,127,0,16));  
+      } // close outer
+
+      track.add(makeEvent(192,9,1,0,15));      
+      try {
+        sequencer.setSequence(sequence); 
+        sequencer.setLoopCount(sequencer.LOOP_CONTINUOUSLY);                   
+        sequencer.start();
+        sequencer.setTempoInBPM(120);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } // close buildTrackAndStart method
+
+
+    public class MyStartListener implements ActionListener {
+      public void actionPerformed(ActionEvent a) {
+        buildTrackAndStart();
+      }
+    } // close inner class
+
+    public class MyStopListener implements ActionListener {
+      public void actionPerformed(ActionEvent a) {
+        sequencer.stop();
+      }
+    } // close inner class
+
+    public class MyUpTempoListener implements ActionListener {
+      public void actionPerformed(ActionEvent a) {
+        float tempoFactor = sequencer.getTempoFactor(); 
+        sequencer.setTempoFactor((float)(tempoFactor * 1.03));
+      }
+    } // close inner class
+
+    public class MyDownTempoListener implements ActionListener {
+      public void actionPerformed(ActionEvent a) {
+        float tempoFactor = sequencer.getTempoFactor();
+        sequencer.setTempoFactor((float)(tempoFactor * .97));
+      }
+    } // close inner class
+
+    public void makeTracks(int[] list) {        
+
+      for (int i = 0; i < 16; i++) {
+        int key = list[i];
+
+        if (key != 0) {
+          track.add(makeEvent(144,9,key, 100, i));
+          track.add(makeEvent(128,9,key, 100, i + 1));
+        }
+      }
+    }
+
+    public  MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+      MidiEvent event = null;
+      try {
+        ShortMessage a = new ShortMessage();
+        a.setMessage(comd, chan, one, two);
+        event = new MidiEvent(a, tick);
+
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      return event;
+    }
+
+  } // close class
+#+END_SRC
+
+* TODO 14 Saving Objects: /serialization and I/O/
+
+** =chap14/BeatBoxSaveOnly.java=
+
+#+BEGIN_SRC java -n :bangle chap14/BeatBoxSaveOnly.java :padline no
+package chap14;
+// chapter 14
+
+import java.awt.*;
+import javax.swing.*;
+import java.io.*;
+import javax.sound.midi.*;
+import java.util.*;
+import java.awt.event.*;
+
+
+public class BeatBoxSaveOnly {  // implements MetaEventListener 
+
+      JPanel mainPanel;
+      ArrayList<JCheckBox> checkboxList;
+      // int bpm = 120;
+      Sequencer sequencer;
+      Sequence sequence;
+      Sequence mySequence = null;
+      Track track;
+      JFrame theFrame;
+
+      String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", 
+         "Open Hi-Hat","Acoustic Snare", "Crash Cymbal", "Hand Clap", 
+         "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga", 
+         "Cowbell", "Vibraslap", "Low-mid Tom", "High Agogo", 
+         "Open Hi Conga"};
+      int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
+    
+
+      public static void main (String[] args) {
+        new BeatBoxSaveOnly().buildGUI();
+      }
+
+      public void buildGUI() {
+          theFrame = new JFrame("Cyber BeatBox");
+          theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          BorderLayout layout = new BorderLayout();
+          JPanel background = new JPanel(layout);
+          background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+          checkboxList = new ArrayList<JCheckBox>();
+          Box buttonBox = new Box(BoxLayout.Y_AXIS);
+
+          JButton start = new JButton("Start");
+          start.addActionListener(new MyStartListener());
+          buttonBox.add(start);
+          
+          
+          JButton stop = new JButton("Stop");
+          stop.addActionListener(new MyStopListener());
+          buttonBox.add(stop);
+
+          JButton upTempo = new JButton("Tempo Up");
+          upTempo.addActionListener(new MyUpTempoListener());
+          buttonBox.add(upTempo);
+
+           JButton downTempo = new JButton("Tempo Down");
+          downTempo.addActionListener(new MyDownTempoListener());
+          buttonBox.add(downTempo);
+
+          JButton saveIt = new JButton("Serialize It");  // new button
+          saveIt.addActionListener(new MySendListener());
+          buttonBox.add(saveIt);
+
+          JButton restore = new JButton("Restore");     // new button
+          restore.addActionListener(new MyReadInListener());
+          buttonBox.add(restore);
+
+          Box nameBox = new Box(BoxLayout.Y_AXIS);
+          for (int i = 0; i < 16; i++) {
+              nameBox.add(new Label(instrumentNames[i]));
+          }
+        
+          background.add(BorderLayout.EAST, buttonBox);
+          background.add(BorderLayout.WEST, nameBox);
+
+          theFrame.getContentPane().add(background);
+          
+          GridLayout grid = new GridLayout(16,16);
+          grid.setVgap(1);
+          grid.setHgap(2);
+          mainPanel = new JPanel(grid);
+          background.add(BorderLayout.CENTER, mainPanel);
+
+
+          for (int i = 0; i < 256; i++) {                    
+                JCheckBox c = new JCheckBox();
+                c.setSelected(false);
+                checkboxList.add(c);
+                mainPanel.add(c);            
+          } // end loop
+
+          setUpMidi();
+
+          theFrame.setBounds(50,50,300,300);
+          theFrame.pack();
+          theFrame.setVisible(true);
+        } // close method
+
+
+     public void setUpMidi() {
+       try {
+        sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        // sequencer.addMetaEventListener(this);
+        sequence = new Sequence(Sequence.PPQ,4);
+        track = sequence.createTrack();
+        sequencer.setTempoInBPM(120);
+        
+       } catch(Exception e) {e.printStackTrace();}
+    } // close method
+/*
+     public class MyCheckBoxListener implements ItemListener {
+        public void itemStateChanged(ItemEvent ev) {      
+           // might add real-time removal or addition, probably not because of timing
+        }
+     } // close inner class
+*/
+
+     public void buildTrackAndStart() {
+        // this will hold the instruments for each vertical column,
+        // in other words, each tick (may have multiple instruments)
+        int[] trackList = null;
+     
+        sequence.deleteTrack(track);
+        track = sequence.createTrack();
+        
+
+      for (int i = 0; i < 16; i++) {
+         trackList = new int[16];
+
+         int key = instruments[i];
+
+         for (int j = 0; j < 16; j++ ) {         
+               JCheckBox jc = (JCheckBox) checkboxList.get(j + (16*i));
+               
+              if ( jc.isSelected()) {
+                 trackList[j] = key;
+              } else {
+                 trackList[j] = 0;
+              }       
+          } // close inner
+
+       makeTracks(trackList);
+     } // close outer
+
+     track.add(makeEvent(192,9,1,0,15)); // - so we always go to full 16 beats 
+               
+   
+      
+       try {
+           
+           sequencer.setSequence(sequence);  
+           sequencer.setLoopCount(sequencer.LOOP_CONTINUOUSLY);                  
+           sequencer.start();
+           sequencer.setTempoInBPM(120);
+       } catch(Exception e) {e.printStackTrace();}
+ 
+      } // close method
+            
+//============================================================== inner class listeners           
+       
+      public class MyStartListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+             buildTrackAndStart();
+         }
+      }
+
+    public class MyStopListener implements ActionListener {
+       public void actionPerformed(ActionEvent a) {
+           sequencer.stop();
+       }
+    }
+
+    public class MyUpTempoListener implements ActionListener {
+       public void actionPerformed(ActionEvent a) {
+            float tempoFactor = sequencer.getTempoFactor();
+            sequencer.setTempoFactor((float)(tempoFactor * 1.03));
+       }
+    }
+
+    public class MyDownTempoListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+            float tempoFactor = sequencer.getTempoFactor();
+            sequencer.setTempoFactor((float)(tempoFactor * .97));
+        }
+    }
+
+    public class MySendListener implements ActionListener {    // new - save
+       public void actionPerformed(ActionEvent a) {
+          // make an arraylist of just the STATE of the checkboxes
+         boolean[] checkboxState = new boolean[256];
+
+         for (int i = 0; i < 256; i++) {
+             JCheckBox check = (JCheckBox) checkboxList.get(i);
+             if (check.isSelected()) {
+                checkboxState[i] = true;
+             }
+          }
+
+         try {
+            FileOutputStream fileStream = new FileOutputStream(
+                new File("Checkbox.ser"));
+            ObjectOutputStream os = new ObjectOutputStream(fileStream);
+            os.writeObject(checkboxState);
+         } catch(Exception ex) {
+             ex.printStackTrace();
+         }
+
+       } // close method
+     } // close inner class
+
+
+
+    public class MyReadInListener implements ActionListener {  // new - restore
+        public void actionPerformed(ActionEvent a) {
+          // read in the thing
+
+          boolean[] checkboxState = null;
+          try {
+              FileInputStream fileIn = new FileInputStream(
+                  new File("Checkbox.ser"));
+              ObjectInputStream is = new ObjectInputStream(fileIn);
+              checkboxState = (boolean[]) is.readObject();
+
+          } catch(Exception ex) {ex.printStackTrace();}
+
+              // now reset the sequence to be this
+          for (int i = 0; i < 256; i++) {
+             JCheckBox check = (JCheckBox) checkboxList.get(i);
+             if (checkboxState[i]) {
+                check.setSelected(true);
+             } else {
+                check.setSelected(false);
+             }
+         } 
+
+       
+
+        // now stop sequence and restart
+        sequencer.stop(); 
+        buildTrackAndStart();
+      } // close method
+  } // close inner class
+
+
+//==============================================================       
+
+     public void makeTracks(int[] list) {
+
+         for (int i = 0; i < 16; i++) {
+           int key = list[i];
+
+           if (key != 0) {
+               track.add(makeEvent(144,9,key, 100, i));
+               track.add(makeEvent(128,9,key, 100, i + 1));
+           }
+         }
+      }
+        
+
+
+     public  MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+          MidiEvent event = null;
+          try {
+            ShortMessage a = new ShortMessage();
+            a.setMessage(comd, chan, one, two);
+            event = new MidiEvent(a, tick);
+            
+            }catch(Exception e) { }
+          return event;
+       }
+
+/*
+        public void meta(MetaMessage message) {
+            if (message.getType() == 47) {
+                sequencer.start();
+                sequencer.setTempoInBPM(bpm);
+            }
+       }
+*/
+
+
+   } // close class
+
+        
+             
+          
+          
+          #+END_SRC
+
+** =chap14/DungeonTest.java=
+
+#+BEGIN_SRC java -n :bangle chap14/DungeonTest.java :padline no
+package chap14;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class DungeonTest
+{
+    public static void main(String[] args) {
+        DungeonGame d = new DungeonGame();
+        System.out.println(d.getX() + d.getY() + d.getZ());
+        try {
+            FileOutputStream fos = new FileOutputStream("dg.ser");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(d);
+            oos.close();
+            FileInputStream fis = new FileInputStream("dg.ser");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            d = (DungeonGame) ois.readObject();
+            ois.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println(d.getX() + d.getY() + d.getZ());
+    }
+}
+
+
+class DungeonGame implements Serializable {
+    public int x = 3;
+    transient long y= 4;
+    private short z = 5;
+    int getX() {
+        return x;
+    }
+    long getY() {
+        return y;
+    }
+    short getZ() {
+        return z;
+    }
+}
+#+END_SRC
+
+** =chap14/GameCharacter.java=
+
+#+BEGIN_SRC java -n :bangle chap14/GameCharacter.java :padline no
+package chap14;
+
+import java.io.Serializable;
+
+public class GameCharacter implements Serializable
+{
+    int power;
+    String type;
+    String[] weapons;
+    
+    public GameCharacter(int p, String t, String[] w)
+    {
+        power = p;
+        type = t;
+        weapons = w;
+    }
+    
+    public int getPower() {
+        return power;
+    }
+    
+    public String getType() {
+        return type;
+    }
+    
+    public String getWeapons() {
+        String weaponList = "";
+        for (int i = 0; i < weapons.length; i++)
+        {
+            weaponList += weapons[i] + " ";
+        }
+        return weaponList;
+    }
+}
+#+END_SRC
+
+** =chap14/GameSaverTest.java=
+
+#+BEGIN_SRC java -n :bangle chap14/GameSaverTest.java :padline no
+package chap14;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+
+public class GameSaverTest
+{
+    public static void main (String[] args) {
+        GameCharacter one = new GameCharacter(50, "Elf", new String[] {"bow", "sword", "dust"});
+        GameCharacter two = new GameCharacter(200, "Troll", new String[] {"bare hands", "big axe"});
+        GameCharacter three = new GameCharacter(120, "Magician", new String[] {"spells", "invisibility"});
+        
+        try {
+            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("Game.ser"));
+            os.writeObject(one);
+            os.writeObject(two);
+            os.writeObject(three);
+            os.close();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        one = null;
+        two = null;
+        three = null;
+        
+        try {
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream("Game.ser"));
+            GameCharacter oneRestore = (GameCharacter) is.readObject();
+            GameCharacter twoRestore = (GameCharacter) is.readObject();
+            GameCharacter threeRestore = (GameCharacter) is.readObject();
+            
+            System.out.println("One's type: " + oneRestore.getType());
+            System.out.println("Two's type: " + twoRestore.getType());
+            System.out.println("Three's type: " + threeRestore.getType());
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+#+END_SRC
+
+** =chap14/QuizCard.java=
+
+#+BEGIN_SRC java -n :bangle chap14/QuizCard.java :padline no
+package chap14;
+import java.io.*;
+
+public class QuizCard implements Serializable {
+
+     private String uniqueID;
+     private String category;
+     private String question;
+     private String answer;
+     private String hint;
+
+     public QuizCard(String q, String a) {
+         question = q;
+         answer = a;
+    }
+     
+
+     public void setUniqueID(String id) {
+        uniqueID = id;
+     }
+
+     public String getUniqueID() {
+        return uniqueID;
+     }
+
+     public void setCategory(String c) {
+        category = c;
+     }
+
+     public String getCategory() {
+         return category;
+     }
+     
+     public void setQuestion(String q) {
+        question = q;
+     }
+
+     public String getQuestion() {
+        return question;
+     }
+
+     public void setAnswer(String a) {
+        answer = a;
+     }
+
+     public String getAnswer() {
+        return answer;
+     }
+
+     public void setHint(String h) {
+        hint = h;
+     }
+ 
+     public String getHint() {
+        return hint;
+     }
+
+}     
+
+#+END_SRC
+
+** =chap14/QuizCardBuilder.java=
+
+#+BEGIN_SRC java -n :bangle chap14/QuizCardBuilder.java :padline no
+package chap14;
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+
+public class QuizCardBuilder {
+
+    private JTextArea question;
+    private JTextArea answer;
+    private ArrayList cardList;
+    private JFrame frame;
+    
+    // additional, bonus method not found in any book!
+
+    public static void main (String[] args) {
+       QuizCardBuilder builder = new QuizCardBuilder();
+       builder.go();
+    }
+    
+    public void go() {
+        // build gui
+        frame = new JFrame("Quiz Card Builder");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // title bar
+        JPanel mainPanel = new JPanel();
+        Font bigFont = new Font("sanserif", Font.BOLD, 24);
+        question = new JTextArea(6,20);
+        question.setLineWrap(true);
+        question.setWrapStyleWord(true);
+        question.setFont(bigFont);
+       
+        JScrollPane qScroller = new JScrollPane(question);
+        qScroller.setVerticalScrollBarPolicy(
+                  ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        qScroller.setHorizontalScrollBarPolicy(
+                  ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        answer = new JTextArea(6,20);
+        answer.setLineWrap(true);
+        answer.setWrapStyleWord(true);
+        answer.setFont(bigFont);
+       
+        JScrollPane aScroller = new JScrollPane(answer);
+        aScroller.setVerticalScrollBarPolicy(
+                  ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        aScroller.setHorizontalScrollBarPolicy(
+                  ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        JButton nextButton = new JButton("Next Card");
+        cardList = new ArrayList();
+        JLabel qLabel = new JLabel("Question:");
+        JLabel aLabel = new JLabel("Answer:");
+        
+        mainPanel.add(qLabel);
+        mainPanel.add(qScroller);
+        mainPanel.add(aLabel);
+        mainPanel.add(aScroller);
+        mainPanel.add(nextButton);
+        nextButton.addActionListener(new NextCardListener());
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem newMenuItem = new JMenuItem("New");
+        
+        JMenuItem saveMenuItem = new JMenuItem("Save");
+        newMenuItem.addActionListener(new NewMenuListener());
+        saveMenuItem.addActionListener(new SaveMenuListener());
+
+        fileMenu.add(newMenuItem);
+        fileMenu.add(saveMenuItem);
+        menuBar.add(fileMenu);
+        frame.setJMenuBar(menuBar);
+    
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        frame.setSize(500,600);
+        frame.setVisible(true);        
+    }
+
+
+    public class NextCardListener implements ActionListener {
+       public void actionPerformed(ActionEvent ev) {
+          QuizCard card = new QuizCard(question.getText(), answer.getText());
+          cardList.add(card);
+          clearCard();
+          
+        }
+     }
+
+     public class SaveMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
+           QuizCard card = new QuizCard(question.getText(), answer.getText());
+           cardList.add(card);
+       
+           JFileChooser fileSave = new JFileChooser();
+           fileSave.showSaveDialog(frame);
+           saveFile(fileSave.getSelectedFile());
+        }
+     }
+
+    public class NewMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
+           cardList.clear();
+           clearCard();           
+        }
+    }
+
+    
+    private void clearCard() {
+       question.setText("");
+       answer.setText("");
+       question.requestFocus();
+    }
+
+    private void saveFile(File file) {
+         
+       try {
+          BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+          Iterator cardIterator = cardList.iterator();
+          while (cardIterator.hasNext()) {
+             QuizCard card = (QuizCard) cardIterator.next();
+             writer.write(card.getQuestion() + "/");
+             writer.write(card.getAnswer() + "\n");
+          }
+         writer.close();
+
+
+       } catch(IOException ex) {
+           System.out.println("couldn't write the cardList out");
+           ex.printStackTrace();
+       }
+       
+    } // close method
+}
+       
+           
+          
+          
+       #+END_SRC
+
+** =chap14/QuizCardReader.java=
+
+#+BEGIN_SRC java -n :bangle chap14/QuizCardReader.java :padline no
+package chap14;
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+
+public class QuizCardReader {
+
+    private JTextArea display;
+    private JTextArea answer;
+    private ArrayList cardList;
+    private QuizCard currentCard;
+    private Iterator cardIterator;
+    private JFrame frame;
+    private JButton nextButton;
+    private boolean isShowAnswer;
+
+    // additional, bonus method not found in any book!
+
+    public static void main (String[] args) {
+       QuizCardReader qReader = new QuizCardReader();
+       qReader.go();
+    }
+    
+    public void go() {
+
+        frame = new JFrame("Quiz Card Player");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel mainPanel = new JPanel();
+        Font bigFont = new Font("sanserif", Font.BOLD, 24);
+
+        display = new JTextArea(9,20);
+        display.setFont(bigFont);
+        display.setLineWrap(true);
+        display.setWrapStyleWord(true);
+        display.setEditable(false);
+       
+        JScrollPane qScroller = new JScrollPane(display);
+        qScroller.setVerticalScrollBarPolicy(
+              ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        qScroller.setHorizontalScrollBarPolicy(
+              ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+      
+        nextButton = new JButton("Show Question");
+        
+        mainPanel.add(qScroller);
+        mainPanel.add(nextButton);
+        nextButton.addActionListener(new NextCardListener());
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        
+        JMenuItem loadMenuItem = new JMenuItem("Load card set");
+            
+        loadMenuItem.addActionListener(new OpenMenuListener());
+            
+        fileMenu.add(loadMenuItem);
+        
+        menuBar.add(fileMenu);
+        frame.setJMenuBar(menuBar);
+    
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        frame.setSize(500,600);
+        frame.setVisible(true);        
+    } // close go
+
+
+   public class NextCardListener implements ActionListener {
+       public void actionPerformed(ActionEvent ev) {
+          if (isShowAnswer) {
+             // show the answer because they've seen the question
+             display.setText(currentCard.getAnswer());
+             nextButton.setText("Next Card");
+             isShowAnswer = false;
+          } else {
+              // show the next question
+             if (cardIterator.hasNext()) {
+                
+                showNextCard();
+                
+              } else {
+                 // there are no more cards!
+                 display.setText("That was last card");
+                 nextButton.disable();
+              }
+           } // close if
+        } // close method
+     } // close inner class
+
+  
+   public class OpenMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
+             JFileChooser fileOpen = new JFileChooser();
+             fileOpen.showOpenDialog(frame);
+             loadFile(fileOpen.getSelectedFile());
+        }
+    }
+
+   private void loadFile(File file) {
+      cardList = new ArrayList();
+      try {
+         BufferedReader reader = new BufferedReader(new FileReader(file));
+         String line = null;
+         while ((line = reader.readLine()) != null) {
+            makeCard(line);
+         }
+         reader.close();
+
+      } catch(Exception ex) {
+          System.out.println("couldn't read the card file");
+          ex.printStackTrace();
+      }
+
+     // now time to start
+     cardIterator = cardList.iterator();
+     showNextCard();
+   }
+
+   private void makeCard(String lineToParse) {
+   
+      StringTokenizer parser = new StringTokenizer(lineToParse, "/");
+      if (parser.hasMoreTokens()) {
+         QuizCard card = new QuizCard(parser.nextToken(), parser.nextToken());
+         cardList.add(card);
+      }
+   }
+
+   private void showNextCard() {
+        currentCard = (QuizCard) cardIterator.next();
+        display.setText(currentCard.getQuestion());
+        nextButton.setText("Show Answer");
+        isShowAnswer = true;
+   }
+} // close class
+      
+
+
+
+#+END_SRC
+
+* TODO 15 Make a Connection: /networking sockets and multithreading/
+
+** =chap15/DailyAdviceClient.java=
+
+#+BEGIN_SRC java -n :bangle chap15/DailyAdviceClient.java :padline no
+package chap15;
+
+import java.io.*;
+import java.net.*;
+
+public class DailyAdviceClient
+{
+    public void go() {
+        try {
+            Socket s = new Socket("127.0.0.1", 4242);
+            InputStreamReader streamReader = new InputStreamReader(s.getInputStream()); 
+            BufferedReader reader = new BufferedReader(streamReader);
+            
+            String advice = reader.readLine();
+            System.out.println("Today you should: " + advice);
+            reader.close();
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        DailyAdviceClient client = new DailyAdviceClient();
+        client.go();
+    }
+}
+#+END_SRC
+
+** =chap15/DailyAdviceServer.java=
+
+#+BEGIN_SRC java -n :bangle chap15/DailyAdviceServer.java :padline no
+package chap15;
+import java.io.*;
+import java.net.*;
+
+public class DailyAdviceServer
+{
+    String[] adviceList = {"Take smaller bites", "Go for the tight jeans. No they do NOT make you look fat",
+        "One word: inappropriate", "Just for today, be honest.  Tell your boss what you *really* think", 
+        "You might want to rethink that haircut"};
+        
+    public void go() {
+        try {
+            ServerSocket serverSock = new ServerSocket(4242);
+            while (true)
+            {
+                Socket sock = serverSock.accept();
+                
+                PrintWriter writer = new PrintWriter(sock.getOutputStream());
+                String advice = getAdvice();
+                writer.println(advice);
+                writer.close();
+                System.out.println(advice);
+            }
+        } catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    private String getAdvice() {
+        int random = (int) (Math.random() * adviceList.length);
+        return adviceList[random];
+    }
+    
+    public static void main(String[] args)
+    {
+        DailyAdviceServer server = new DailyAdviceServer();
+        server.go();
+    }
+
+}
+#+END_SRC
+
+** =chap15/MyRunnable.java=
+
+#+BEGIN_SRC java -n :bangle chap15/MyRunnable.java :padline no
+package chap15;
+
+public class MyRunnable implements Runnable
+{
+
+    public void run()
+    {
+        go();
+    }
+    
+    public void go() {
+        
+        //*
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex)
+        {
+            ex.printStackTrace();
+        }//*/
+        
+        doMore();
+    }
+    
+    public void doMore() {
+        System.out.println("top o' the stack");
+    }
+    
+    
+    public static void main(String[] args)
+    {
+        Runnable threadJob = new MyRunnable();
+        Thread myThread = new Thread(threadJob);
+        myThread.start();
+        System.out.println("back in main");
+    }
+
+}
+#+END_SRC
+
+** =chap15/RunThreads.java=
+
+#+BEGIN_SRC java -n :bangle chap15/RunThreads.java :padline no
+package chap15;
+
+public class RunThreads implements Runnable
+{
+    public static void main(String[] args) {
+        RunThreads runner = new RunThreads();
+        Thread alpha = new Thread(runner);
+        Thread beta = new Thread(runner);
+        alpha.setName("Alpha thread");
+        beta.setName("Beta thread");
+        alpha.start();
+        beta.start();
+    }
+    
+    public void run() {
+        for (int i = 0; i < 25; i++)
+        {
+            String threadName = Thread.currentThread().getName();
+            System.out.println(threadName + " is running");
+        }
+    }
+}
+#+END_SRC
+
+** =chap15/RyanAndMonicaJob.java=
+
+#+BEGIN_SRC java -n :bangle chap15/RyanAndMonicaJob.java :padline no
+package chap15;
+
+public class RyanAndMonicaJob implements Runnable
+{
+    private BankAccount account = new BankAccount();
+    
+    public static void main(String[] args) {
+        RyanAndMonicaJob theJob = new RyanAndMonicaJob();
+        Thread one = new Thread(theJob);
+        Thread two = new Thread(theJob);
+        one.setName("Ryan");
+        two.setName("Monica");
+        one.start();
+        two.start();
+    }
+    
+    public void run()
+    {
+        for (int x = 0; x < 10; x++) {
+            makeWithdrawal(10);
+            if (account.getBalance() < 0)
+            {
+                System.out.println("Overdrawn!");
+            }
+        }
+    }
+//  to demonstrate the "overdrawn" error remove the "synchronized" modifier
+    private synchronized void makeWithdrawal(int amount)
+    {
+        if (account.getBalance() >= amount)
+        {
+            System.out.println(Thread.currentThread().getName() + " is about to withdrawal");
+            try {
+                System.out.println(Thread.currentThread().getName() + " is going to sleep");
+                Thread.sleep(500);
+            } catch (InterruptedException ex) { ex.printStackTrace(); }
+            System.out.println(Thread.currentThread().getName() + " woke up");
+            account.withdraw(amount);
+            System.out.println(Thread.currentThread().getName() + " completes the withdrawal");
+        }
+        else
+        {
+            System.out.println("Sorry, not enough for " + Thread.currentThread().getName());
+        }
+    }
+
+}
+
+
+class BankAccount {
+    private int balance = 100;
+    
+    public int getBalance () {
+        return balance;
+    }
+    
+    public void withdraw(int amount) {
+        balance = balance - amount;
+    }
+}
+#+END_SRC
+
+** =chap15/SimpleChatClient.java=
+
+#+BEGIN_SRC java -n :bangle chap15/SimpleChatClient.java :padline no
+package chap15;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class SimpleChatClient
+{
+    JTextArea incoming;
+    JTextField outgoing;
+    BufferedReader reader;
+    PrintWriter writer;
+    Socket sock;
+    
+    public void go() {
+        JFrame frame = new JFrame("Ludicrously Simple Chat Client");
+        JPanel mainPanel = new JPanel();
+        incoming = new JTextArea(15, 50);
+        incoming.setLineWrap(true);
+        incoming.setWrapStyleWord(true);
+        incoming.setEditable(false);
+        JScrollPane qScroller = new JScrollPane(incoming);
+        qScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        qScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        outgoing = new JTextField(20);
+        JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new SendButtonListener());
+        mainPanel.add(qScroller);
+        mainPanel.add(outgoing);
+        mainPanel.add(sendButton);
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        setUpNetworking();
+        
+        Thread readerThread = new Thread(new IncomingReader());
+        readerThread.start();
+        
+        frame.setSize(650, 500);
+        frame.setVisible(true);
+        
+    }
+    
+    private void setUpNetworking() {
+        try {
+            sock = new Socket("127.0.0.1", 5000);
+            InputStreamReader streamReader = new InputStreamReader(sock.getInputStream());
+            reader = new BufferedReader(streamReader);
+            writer = new PrintWriter(sock.getOutputStream());
+            System.out.println("networking established");
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public class SendButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
+            try {
+                writer.println(outgoing.getText());
+                writer.flush();
+                
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            outgoing.setText("");
+            outgoing.requestFocus();
+        }
+    }
+    
+    public static void main(String[] args) {
+        new SimpleChatClient().go();
+    }
+    
+    class IncomingReader implements Runnable {
+        public void run() {
+            String message;
+            try {
+                while ((message = reader.readLine()) != null) {
+                    System.out.println("client read " + message);
+                    incoming.append(message + "\n");
+                }
+            } catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+    }
+}
+
+#+END_SRC
+
+** =chap15/SimpleChatClientA.java=
+
+#+BEGIN_SRC java -n :bangle chap15/SimpleChatClientA.java :padline no
+package chap15;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class SimpleChatClientA
+{
+    JTextField outgoing;
+    PrintWriter writer;
+    Socket sock;
+    
+    public void go() {
+        JFrame frame = new JFrame("Ludicrously Simple Chat Client");
+        JPanel mainPanel = new JPanel();
+        outgoing = new JTextField(20);
+        JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new SendButtonListener());
+        mainPanel.add(outgoing);
+        mainPanel.add(sendButton);
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        setUpNetworking();
+        frame.setSize(400, 500);
+        frame.setVisible(true);
+        
+    }
+    
+    private void setUpNetworking() {
+        try {
+            sock = new Socket("127.0.0.1", 5000);
+            writer = new PrintWriter(sock.getOutputStream());
+            System.out.println("networking established");
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
+    public class SendButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
+            try {
+                writer.println(outgoing.getText());
+                writer.flush();
+                
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            outgoing.setText("");
+            outgoing.requestFocus();
+        }
+    }
+    
+    public static void main(String[] args) {
+        new SimpleChatClientA().go();
+    }
+}
+#+END_SRC
+
+** =chap15/VerySimpleChatServer.java=
+
+#+BEGIN_SRC java -n :bangle chap15/VerySimpleChatServer.java :padline no
+package chap15;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+
+public class VerySimpleChatServer
+{
+    ArrayList clientOutputStreams;
+    
+    public class ClientHandler implements Runnable {
+        BufferedReader reader;
+        Socket sock;
+        
+        public ClientHandler(Socket clientSOcket) {
+            try {
+                sock = clientSOcket;
+                InputStreamReader isReader = new InputStreamReader(sock.getInputStream());
+                reader = new BufferedReader(isReader);
+                
+            } catch (Exception ex) { ex.printStackTrace(); }
+        }
+        
+        public void run() {
+            String message;
+            try {
+                while ((message = reader.readLine()) != null) {
+                    System.out.println("read " + message);
+                    tellEveryone(message);
+                }
+            } catch (Exception ex) { ex.printStackTrace(); }
+        }
+    }
+    
+    public static void main(String[] args) {
+        new VerySimpleChatServer().go();
+    }
+    
+    public void go() {
+        clientOutputStreams = new ArrayList();
+        try {
+            ServerSocket serverSock = new ServerSocket(5000);
+            while(true) {
+                Socket clientSocket = serverSock.accept();
+                PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
+                clientOutputStreams.add(writer);
+                
+                Thread t = new Thread(new ClientHandler(clientSocket));
+                t.start();
+                System.out.println("got a connection");
+            }
+        } catch (Exception ex) { ex.printStackTrace(); }
+    }
+    
+    public void tellEveryone(String message) {
+        Iterator it = clientOutputStreams.iterator();
+        while (it.hasNext()) {
+            try {
+                PrintWriter writer = (PrintWriter) it.next();
+                writer.println(message);
+                writer.flush();
+            } catch (Exception ex) { ex.printStackTrace(); }
+        }
+    }
+}
+#+END_SRC
+
+* 16 Data Structures: /collections and generics/
+
+** =chap16/Jukebox1.java=
+
+#+BEGIN_SRC java -n :tangle Jukebox1.java :padline no
+  // package chap16;
+
+  import java.io.BufferedReader;
+  import java.io.File;
+  import java.io.FileReader;
+  import java.util.ArrayList;
+
+  /** . */
+  public class Jukebox1 {
+    ArrayList<String> songList = new ArrayList<String>();
+
+    public static void main(String[] args) {
+      new Jukebox1().go();
+    }
+
+    public void go() {
+      getSongs();
+      System.out.println(songList);
+    }
+
+    /** . */
+    void getSongs() {
+      try {
+        File file = new File("SongList.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+          addSong(line);
+        }
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+
+    /** . */
+    void addSong(String lineToParse) {
+      String[] tokens = lineToParse.split("/");
+      songList.add(tokens[0]);
+    }
+  }
+#+END_SRC
+
+** =chap16/Jukebox3.java=
+
+#+BEGIN_SRC java -n :tangle Jukebox3.java :padline no
+  // package chap16;
+
+  import java.io.BufferedReader;
+  import java.io.File;
+  import java.io.FileReader;
+  import java.util.ArrayList;
+  import java.util.Collections;
+
+  /** . */
+  public class Jukebox3 {
+    ArrayList<Song> songList = new ArrayList<Song>();
+
+    public static void main(String[] args) {
+      new Jukebox3().go();
+    }
+
+    /** . */
+    public void go() {
+      getSongs();
+      System.out.println(songList);
+      Collections.sort(songList);
+      System.out.println(songList);
+    }
+
+    /** . */
+    void getSongs() {
+      try {
+        File file = new File("SongListMore.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+          addSong(line);
+        }
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+
+    /** . */
+    void addSong(String lineToParse) {
+      String[] tokens = lineToParse.split("/");
+      Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
+      songList.add(nextSong);
+    }
+  }
+#+END_SRC
+
+** =chap16/Jukebox5.java=
+
+#+BEGIN_SRC java -n :tangle Jukebox5.java :padline no
+  // package chap16;
+
+  import java.io.BufferedReader;
+  import java.io.File;
+  import java.io.FileReader;
+  import java.util.ArrayList;
+  import java.util.Collections;
+  import java.util.Comparator;
+
+  public class Jukebox5 {
+    ArrayList<Song> songList = new ArrayList<Song>();
+
+    public static void main(String[] args) {
+      new Jukebox5().go();
+    }
+
+    class ArtistCompare implements Comparator<Song> {
+      public int compare(Song one, Song two) {
+        return one.getArtist().compareTo(two.getArtist());
+      }
+    }
+
+    /** . */
+    public void go() {
+      getSongs();
+      System.out.println(songList);
+      Collections.sort(songList);
+      System.out.println(songList);
+
+      ArtistCompare artistCompare = new ArtistCompare();
+      Collections.sort(songList, artistCompare);
+
+      System.out.println(songList);
+    }
+
+    void getSongs() {
+      try {
+        File file = new File("SongListMore.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+          addSong(line);
+        }
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+
+    void addSong(String lineToParse) {
+      String[] tokens = lineToParse.split("/");
+      Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
+      songList.add(nextSong);
+    }
+  }
+#+END_SRC
+
+** =chap16/Jukebox6.java=
+
+#+BEGIN_SRC java -n :tangle Jukebox6.java :padline no
+  // package chap16;
+
+  import java.io.BufferedReader;
+  import java.io.File;
+  import java.io.FileReader;
+  import java.util.ArrayList;
+  import java.util.Collection;
+  import java.util.Collections;
+  import java.util.HashSet;
+  import java.util.List;
+
+  public class Jukebox6 {
+    ArrayList<SongBad> songList = new ArrayList<SongBad>();
+
+    /** . */
+    public static void main(String[] args) {
+      new Jukebox6().go();
+    }
+
+    /** . */
+    public void go() {
+      getSongs();
+      System.out.println(songList);
+      Collections.sort(songList);
+      System.out.println(songList);
+
+      HashSet<SongBad> songSet = new HashSet<SongBad>();
+      songSet.addAll(songList);
+      System.out.println(songSet);
+    }
+
+    /** . */
+    void getSongs() {
+      try {
+        File file = new File("SongListMore.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+          addSong(line);
+        }
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+
+    /** . */
+    void addSong(String lineToParse) {
+      String[] tokens = lineToParse.split("/");
+      SongBad nextSong = new SongBad(tokens[0], tokens[1], tokens[2], tokens[3]);
+      songList.add(nextSong);
+    }
+  }
+
+  /** . */
+  class SongBad implements Comparable<SongBad> {
+    String title;
+    String artist;
+    String rating;
+    String bpm;
+
+    /** . */
+    public SongBad(String t, String a, String r, String b) {
+      title = t;
+      artist = a;
+      rating = r;
+      bpm = b;
+    }
+
+    /** . */
+    public boolean equals(Object aSong) {
+      SongBad s = (SongBad) aSong;
+      return getTitle().equals(s.getTitle());
+    }
+
+    // leaving this out makes this a bad form of song.  Uncomment this
+    // to get rid of the duplicates
+    public int hashCode() {
+      return title.hashCode();
+    }
+
+    public int compareTo(SongBad s) {
+      return title.compareTo(s.getTitle());
+    }
+
+    public String getArtist() {
+      return artist;
+    }
+
+    public String getBpm() {
+      return bpm;
+    }
+
+    public String getRating() {
+      return rating;
+    }
+
+    public String getTitle() {
+      return title;
+    }
+
+    public String toString() {
+      return title;
+    }
+  }
+#+END_SRC
+
+** =chap16/Jukebox8.java=
+
+#+BEGIN_SRC java -n :tangle Jukebox8.java :padline no
+  // package chap16;
+
+  import java.io.BufferedReader;
+  import java.io.File;
+  import java.io.FileReader;
+  import java.util.ArrayList;
+  import java.util.Collection;
+  import java.util.Collections;
+  import java.util.List;
+  import java.util.TreeSet;
+
+  public class Jukebox8 {
+    ArrayList<Song> songList = new ArrayList<Song>();
+
+    public static void main(String[] args) {
+      new Jukebox8().go();
+    }
+
+    /** . */
+    public void go() {
+      getSongs();
+      System.out.println(songList);
+      Collections.sort(songList);
+      System.out.println(songList);
+
+      TreeSet<Song> songSet = new TreeSet<Song>();
+      songSet.addAll(songList);
+      System.out.println(songSet);
+    }
+
+    void getSongs() {
+      try {
+        File file = new File("SongListMore.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+          addSong(line);
+        }
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+
+    void addSong(String lineToParse) {
+      String[] tokens = lineToParse.split("/");
+      Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
+      songList.add(nextSong);
+    }
+  }
+#+END_SRC
+
+** =chap16/Song.java=
+
+#+BEGIN_SRC java -n :tangle Song.java :padline no
+  // package chap16;
+
+  public class Song implements Comparable<Song> {
+    String title;
+    String artist;
+    String rating;
+    String bpm;
+
+    /** . */
+    public Song(String t, String a, String r, String b) {
+      title = t;
+      artist = a;
+      rating = r;
+      bpm = b;
+    }
+
+    public boolean equals(Object aSong) {
+      Song s = (Song) aSong;
+      return getTitle().equals(s.getTitle());
+    }
+
+    public int hashCode() {
+      return title.hashCode();
+    }
+
+    public int compareTo(Song s) {
+      return title.compareTo(s.getTitle());
+    }
+
+    public String getArtist() {
+      return artist;
+    }
+
+    public String getBpm() {
+      return bpm;
+    }
+
+    public String getRating() {
+      return rating;
+    }
+
+    public String getTitle() {
+      return title;
+    }
+
+    public String toString() {
+      return title;
+    }
+  }
+#+END_SRC
+
+** =SongList.txt=
+
+#+BEGIN_EXAMPLE
+  Pink Moon/Nick Drake
+  Somersault/Zero 7
+  Shiva Moon/Prem Joshua
+  Circles/BT
+  Deep Channel/Afro Celts
+  Passenger/Headmix
+  Listen/Tahiti 80
+#+END_EXAMPLE
+
+** =SongListMore.txt=
+
+#+BEGIN_EXAMPLE
+  Pink Moon/Nick Drake/5/80
+  Somersault/Zero 7/4/84
+  Shiva Moon/Prem Joshua/6/120
+  Circles/BT/5/110
+  Deep Channel/Afro Celts/4/120
+  Passenger/Headmix/4/100
+  Listen/Tahiti 80/5/90
+  Listen/Tahiti 80/5/90
+  Listen/Tahiti 80/5/90
+  Circles/BT/5/110
+#+END_EXAMPLE
+* 17 Release Your Code: /packaging and deployment/
+
+- no code
+
+* 18 Distributed Computing: /RMI with a dash of servlets, EJB, and Jini/
+
+** =PhraseOMatic2.java=
+
+#+BEGIN_SRC java -n :bangle PhraseOMatic2.java :padline no
+  // package chap18;
+  public class PhraseOMatic2 {
+    public static String makePhrase() {
+
+      // make three sets of words to choose from
+      String[] wordListOne = {"24/7","multi-Tier","30,000 foot","B-to-B",
+                              "win-win","front-end", "web-based","pervasive",
+                              "smart", "six-sigma","critical-path", "dynamic"};
+
+      String[] wordListTwo = {"empowered", "sticky", "valued-added", "oriented",
+                              "centric", "distributed", "clustered", "branded",
+                              "outside-the-box", "positioned", "networked",
+                              "focused", "leveraged", "aligned", "targeted",
+                              "shared", "cooperative", "accelerated"};
+
+      String[] wordListThree = {"process", "tipping point", "solution",
+                                "architecture", "core competency", "strategy",
+                                "mindshare", "portal", "space", "vision",
+                                "paradigm", "mission"};
+
+      // find out how many words are in each list
+      int oneLength = wordListOne.length;
+      int twoLength = wordListTwo.length;
+      int threeLength = wordListThree.length;
+
+      // generate three random numbers, to pull random words from each list
+      int rand1 = (int) (Math.random() * oneLength);
+      int rand2 = (int) (Math.random() * twoLength);
+      int rand3 = (int) (Math.random() * threeLength);
+
+      // now build a phrase
+      String phrase = wordListOne[rand1] + " " + wordListTwo[rand2] + " "
+          + wordListThree[rand3];
+
+      // now return it
+      return ("What we need is a " + phrase);
+    } 
+  }
+#+END_SRC
+
+** =KathyServlet.java=
+
+#+BEGIN_SRC java -n :bangle KathyServlet.java :padline no
+  // package chap18;
+
+  import java.io.IOException;
+  import java.io.PrintWriter;
+  import javax.servlet.ServletException;
+  import javax.servlet.http.HttpServlet;
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+
+  public class KathyServlet extends HttpServlet {
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws  ServletException, IOException {
+
+      PrintWriter out;
+      response.setContentType("text/html");
+      out = response.getWriter();
+      out.println("<HTML><HEAD><TITLE>");
+      out.println("PhraseOmatic");
+      out.println("</TITLE></HEAD><BODY>");
+      String title = "PhraseOMatic has generated the following phrase.";
+      out.println("<H1>" + title + "</H1>");
+      out.println("<P>" + PhraseOMatic2.makePhrase());
+      out.println("<P><a href=\"KathyServlet\">make another phrase</a></p>");
+      out.println("</BODY></HTML>");
+      out.close();
+    }
+
+  }
+#+END_SRC
+
+** =ServiceServer.java= (the remote interface)
+
+#+BEGIN_SRC java -n :bangle ServiceServer.java :padline no
+  // package chap18;
+
+  import java.rmi.Remote;
+  import java.rmi.RemoteException;
+
+  public interface ServiceServer extends Remote {
+
+    Object[] getServiceList() throws RemoteException;
+
+    Service getService(Object serviceKey) throws RemoteException;
+  }
+#+END_SRC
+
+** =Service.java= (what the GUI services implement)
+
+#+BEGIN_SRC java -n :bangle Service.java :padline no
+  // package chap18;
+
+  import java.io.Serializable;
+  import javax.swing.JPanel;
+
+  public interface Service extends Serializable {
+    public JPanel getGuiPanel();
+  }
+#+END_SRC
+
+** =ServiceServerImpl.java= (the remote implementation)
+
+#+BEGIN_SRC java -n :bangle ServiceServerImpl.java :padline no
+  // package chap18;
+
+  import java.rmi.Naming;
+  import java.rmi.Remote;
+  import java.rmi.RemoteException;
+  import java.rmi.server.UnicastRemoteObject;
+  import java.util.HashMap;
+  import java.util.Set;
+
+  public class ServiceServerImpl extends UnicastRemoteObject
+      implements ServiceServer {
+
+    HashMap<String, Service> serviceList;
+
+    public ServiceServerImpl() throws RemoteException {
+      // start and set up services 
+      setUpServices();
+    }
+
+    private void setUpServices() {
+      serviceList = new HashMap<String, Service>();
+      serviceList.put("Dice Rolling Service", new DiceService());  
+      serviceList.put("Day of the Week Service", new DayOfTheWeekService());  
+      serviceList.put("Visual Music Service", new MiniMusicService());   
+    }
+
+    public Object[] getServiceList() {
+      System.out.println("in remote");
+      return serviceList.keySet().toArray();
+    }
+
+    public Service getService(Object serviceKey) throws RemoteException {        
+      Service theService = (Service) serviceList.get(serviceKey);       
+      return theService;
+    }
+
+    public static void main(String[] args) {
+
+      try {
+        Naming.rebind("ServiceServer", new ServiceServerImpl());
+      } catch (Exception ex) {
+      }
+      System.out.println("Remote service is running");
+    }
+
+  }
+#+END_SRC
+
+** =ServiceBrowser.java= (the client)
+
+#+BEGIN_SRC java -n :bangle ServiceBrowser.java :padline no
+  // package chap18;
+
+  import java.awt.BorderLayout;
+  import java.awt.Component;
+  import java.awt.Container;
+  import java.awt.event.ActionEvent;
+  import java.awt.event.ActionListener;
+  import java.lang.Object;
+  import java.rmi.Naming;
+  import java.rmi.Remote;
+  import javax.swing.JComboBox;
+  import javax.swing.JFrame;
+  import javax.swing.JPanel;
+
+  public class ServiceBrowser {
+
+    JPanel mainPanel;
+    JComboBox serviceList;
+    ServiceServer server;
+
+    public void buildGUI() {
+      JFrame frame = new JFrame("RMI Browser");
+      mainPanel = new JPanel();
+      frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+
+      Object[] services = getServicesList();
+
+      serviceList = new JComboBox(services);
+      frame.getContentPane().add(BorderLayout.NORTH, serviceList);
+
+      serviceList.addActionListener(new MyListListener());     
+
+      frame.setSize(500,500);
+      frame.setVisible(true);
+
+    }
+
+    void loadService(Object serviceSelection) {
+      try {
+        Service svc = server.getService(serviceSelection);
+
+        mainPanel.removeAll();
+        mainPanel.add(svc.getGuiPanel());
+        mainPanel.validate();
+        mainPanel.repaint();
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+
+
+
+    Object[] getServicesList() {
+
+      Object obj = null;
+      Object[] services = null;
+
+      try {
+        obj = Naming.lookup("rmi://127.0.0.1/ServiceServer");
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+      server = (ServiceServer) obj;
+
+
+      try {
+        services = server.getServiceList();
+      } catch (Exception ex) {
+        ex.printStackTrace();
+      }
+      return services;
+
+    }
+
+    class MyListListener implements ActionListener {
+      public void actionPerformed(ActionEvent ev) { 
+        // do things to get the selected service
+        Object selection =  serviceList.getSelectedItem();
+        loadService(selection);
+      }
+    }
+
+    public static void main(String[] args) {
+      new ServiceBrowser().buildGUI();
+    }
+  }
+#+END_SRC
+
+** =DiceService.java= (a universal service, implements Service)
+
+#+BEGIN_SRC java -n :bangle DiceService.java :padline no
+  // package chap18;
+
+  import java.awt.Component;
+  import java.awt.event.ActionEvent;
+  import java.awt.event.ActionListener;
+  import javax.swing.JButton;
+  import javax.swing.JComboBox;
+  import javax.swing.JLabel;
+  import javax.swing.JPanel;
+
+  public class DiceService implements Service {
+
+    JLabel label;
+    JComboBox numOfDice;
+
+    public JPanel getGuiPanel() {
+      JButton button = new JButton("Roll 'em!");
+      String[] choices = {"1", "2", "3", "4", "5"};
+      numOfDice = new JComboBox(choices);
+      label = new JLabel("dice values here");
+      button.addActionListener(new RollEmListener());
+      JPanel panel = new JPanel();
+      panel.add(numOfDice);
+      panel.add(button);
+      panel.add(label);
+      return panel;
+    }
+
+    public class RollEmListener implements ActionListener {
+      public void actionPerformed(ActionEvent ev) {
+        // roll the dice
+        String diceOutput = "";
+        String selection = (String)  numOfDice.getSelectedItem();
+        int numOfDiceToRoll = Integer.parseInt(selection);
+        for (int i = 0; i < numOfDiceToRoll; i++) {
+          int r = (int) ((Math.random() * 6) + 1);
+          diceOutput += (" " + r);
+        }
+        label.setText(diceOutput);
+      }
+    }
+
+  }
+#+END_SRC
+
+** =MiniMusicService.java= (a universal service, implements Service)
+
+#+BEGIN_SRC java -n :bangle MiniMusicService.java :padline no
+  // package chap18;
+
+  import java.awt.Color;
+  import java.awt.Component;
+  import java.awt.Dimension;
+  import java.awt.Graphics;
+  import java.awt.Graphics2D;
+  import java.awt.event.ActionEvent;
+  import java.awt.event.ActionListener;
+  import java.lang.Exception;
+  import java.lang.Math;
+  import java.lang.Object;
+  import java.lang.String;
+  import javax.sound.midi.ControllerEventListener;
+  import javax.sound.midi.MidiEvent;
+  import javax.sound.midi.MidiMessage;
+  import javax.sound.midi.MidiSystem;
+  import javax.sound.midi.Sequence;
+  import javax.sound.midi.Sequencer;
+  import javax.sound.midi.ShortMessage;
+  import javax.sound.midi.Track;
+  import javax.swing.JButton;
+  import javax.swing.JPanel;
+
+  public class MiniMusicService implements Service {
+
+    MyDrawPanel myPanel;
+
+    public JPanel getGuiPanel() {
+
+      JPanel mainPanel = new JPanel();
+      myPanel = new MyDrawPanel();
+      JButton playItButton = new JButton("Play it");
+      playItButton.addActionListener(new PlayItListener());
+      mainPanel.add(myPanel);
+      mainPanel.add(playItButton);
+      return mainPanel;
+    }
+
+
+    public class PlayItListener implements ActionListener {
+      public void actionPerformed(ActionEvent ev) {
+
+        try {
+          // make (and open) a sequencer, make a sequence and track
+          Sequencer sequencer = MidiSystem.getSequencer();         
+          sequencer.open();
+
+          sequencer.addControllerEventListener(myPanel, new int[] {127});
+          Sequence seq = new Sequence(Sequence.PPQ, 4);
+          Track track = seq.createTrack();     
+
+          // now make two midi events (containing a midi message)
+          for (int i = 0; i < 100; i += 4) {
+            int  rNum = (int) ((Math.random() * 50) + 1);
+            if (rNum < 38) {  // so now only do it if num <38 (75% of the time)
+              track.add(makeEvent(144,1,rNum,100,i));
+              track.add(makeEvent(176,1,127,0,i));
+              track.add(makeEvent(128,1,rNum,100,i + 2));
+            }
+          } // end loop
+
+          // add the events to the track            
+          // add the sequence to the sequencer, set timing, and start
+
+          sequencer.setSequence(seq);
+
+          sequencer.start();
+          sequencer.setTempoInBPM(220);
+        } catch (Exception ex) {
+          ex.printStackTrace();
+        }
+
+      } // close actionperformed
+    } // close inner class
+
+    public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+      MidiEvent event = null;
+      try {
+        ShortMessage a = new ShortMessage();
+        a.setMessage(comd, chan, one, two);
+        event = new MidiEvent(a, tick);
+      } catch (Exception e) {
+      }
+      return event;
+    }
+
+    class MyDrawPanel extends JPanel implements ControllerEventListener {
+
+      // only if we got an event do we want to paint
+      boolean msg = false;
+
+      public void controlChange(ShortMessage event) {
+        msg = true;       
+        repaint();         
+      }
+
+      public Dimension getPreferredSize() {
+        return new Dimension(300,300);
+      }
+
+      public void paintComponent(Graphics g) {
+        if (msg) {
+
+          Graphics2D g2 = (Graphics2D) g;
+
+          int r = (int) (Math.random() * 250);
+          int gr = (int) (Math.random() * 250);
+          int b = (int) (Math.random() * 250);
+
+          g.setColor(new Color(r,gr,b));
+
+          int ht = (int) ((Math.random() * 120) + 10);
+          int width = (int) ((Math.random() * 120) + 10);
+
+          int x = (int) ((Math.random() * 40) + 10);
+          int y =  (int) ((Math.random() * 40) + 10);        
+
+          g.fillRect(x,y,ht, width);
+          msg = false;
+
+        } // close if
+      } // close method
+    }  // close inner class
+
+  } // close class
+#+END_SRC
+
+** =DayOfTheWeekService.java= (a universal service, implements Service)
+
+#+BEGIN_SRC java -n :bangle DayOfTheWeekService.java :padline no
+  // package chap18;
+
+  import java.awt.Component;
+  import java.awt.GridLayout;
+  import java.awt.LayoutManager;
+  import java.awt.event.ActionEvent;
+  import java.awt.event.ActionListener;
+  import java.text.DateFormatSymbols;
+  import java.text.SimpleDateFormat;
+  import java.util.Calendar;
+  import java.util.Date;
+  import javax.swing.JButton;
+  import javax.swing.JComboBox;
+  import javax.swing.JLabel;
+  import javax.swing.JPanel;
+  import javax.swing.JTextField;
+
+  public class DayOfTheWeekService implements Service {
+
+    JLabel outputLabel;
+    JComboBox month;
+    JTextField day;
+    JTextField year;
+
+    public JPanel getGuiPanel() {
+    
+      JButton button = new JButton("Do it!");
+      button.addActionListener(new DoItListener());
+      outputLabel = new JLabel("date appears here");
+
+      DateFormatSymbols dateStuff = new DateFormatSymbols();      
+      month = new JComboBox(dateStuff.getMonths());
+      day = new JTextField(8);
+      year = new JTextField(8);
+
+      JPanel inputPanel = new JPanel(new GridLayout(3,2));
+      inputPanel.add(new JLabel("Month"));
+      inputPanel.add(month);
+      inputPanel.add(new JLabel("Day"));
+      inputPanel.add(day);
+      inputPanel.add(new JLabel("Year"));    
+      inputPanel.add(year);
+
+      JPanel panel = new JPanel();
+      panel.add(inputPanel);
+      panel.add(button);
+      panel.add(outputLabel);
+      return panel;
+    }
+
+    public class DoItListener implements ActionListener {
+      public void actionPerformed(ActionEvent ev) {
+        int monthNum = month.getSelectedIndex(); 
+        int dayNum = Integer.parseInt(day.getText());
+        int yearNum = Integer.parseInt(year.getText());
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.MONTH, monthNum);
+        c.set(Calendar.DAY_OF_MONTH, dayNum);
+        c.set(Calendar.YEAR, yearNum);
+        Date date = c.getTime();
+        String dayOfWeek = (new SimpleDateFormat("EEEE")).format(date);
+        outputLabel.setText(dayOfWeek);
+
+
+      }
+    }
+
+  }
+#+END_SRC
+
+* TODO A Appendix A: /Final code kitchen/
+
+** =AppendixA/BeatBoxFinal.java=
+
+#+BEGIN_SRC java -n :bangle AppendixA/BeatBoxFinal.java :padline no
+package AppendixA;
+// chapter 14
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import java.io.*;
+import javax.sound.midi.*;
+import java.util.*;
+import java.awt.event.*;
+import java.net.*;
+
+
+public class BeatBoxFinal {  // implements MetaEventListener 
+
+      JPanel mainPanel;
+      JList incomingList;
+      JTextField userMessage;
+      ArrayList<JCheckBox> checkboxList;
+      int nextNum;
+      ObjectInputStream in;
+      ObjectOutputStream out;
+      Vector<String> listVector = new Vector<String>();
+      String userName ;
+      HashMap<String, boolean[]> otherSeqsMap = new HashMap<String, boolean[]>();
+      Sequencer sequencer;
+      Sequence sequence;
+      Sequence mySequence = null;
+      Track track;
+      JFrame theFrame;
+
+      String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", 
+         "Open Hi-Hat","Acoustic Snare", "Crash Cymbal", "Hand Clap", 
+         "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga", 
+         "Cowbell", "Vibraslap", "Low-mid Tom", "High Agogo", 
+         "Open Hi Conga"};
+      int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
+    
+
+      public static void main (String[] args) {
+        new BeatBoxFinal().startUp(args[0]);
+      }
+      
+      public void startUp(String name) {
+          userName = name;
+          try {
+              Socket sock = new Socket("127.0.0.1", 4242);
+              out = new ObjectOutputStream(sock.getOutputStream());
+              in = new ObjectInputStream(sock.getInputStream());
+              Thread remote = new Thread(new RemoteReader());
+              remote.start();
+          }
+          catch (Exception ex) {
+              System.out.println("couldn't connect - you'll have to play alone.");
+          }
+          setUpMidi();
+          buildGUI();
+      }
+
+      public void buildGUI() {
+          theFrame = new JFrame("Cyber BeatBox");
+          theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          BorderLayout layout = new BorderLayout();
+          JPanel background = new JPanel(layout);
+          background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+          checkboxList = new ArrayList<JCheckBox>();
+          Box buttonBox = new Box(BoxLayout.Y_AXIS);
+
+          JButton start = new JButton("Start");
+          start.addActionListener(new MyStartListener());
+          buttonBox.add(start);
+          
+          
+          JButton stop = new JButton("Stop");
+          stop.addActionListener(new MyStopListener());
+          buttonBox.add(stop);
+
+          JButton upTempo = new JButton("Tempo Up");
+          upTempo.addActionListener(new MyUpTempoListener());
+          buttonBox.add(upTempo);
+
+           JButton downTempo = new JButton("Tempo Down");
+          downTempo.addActionListener(new MyDownTempoListener());
+          buttonBox.add(downTempo);
+          
+          JButton sendIt = new JButton("sendIt");
+          sendIt.addActionListener(new MySendListener());
+          buttonBox.add(sendIt);
+          
+
+          JButton saveIt = new JButton("Serialize It");  // new button
+          saveIt.addActionListener(new MySendListener());
+          buttonBox.add(saveIt);
+          
+          userMessage = new JTextField();
+          buttonBox.add(userMessage);
+          
+          incomingList = new JList();
+          incomingList.addListSelectionListener(new MyListSelectionListener());
+          incomingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+          JScrollPane theList = new JScrollPane(incomingList);
+          buttonBox.add(theList);
+          incomingList.setListData(listVector);
+          
+          Box nameBox = new Box(BoxLayout.Y_AXIS);
+          for (int i = 0; i < 16; i++) {
+              nameBox.add(new Label(instrumentNames[i]));
+          }
+        
+          background.add(BorderLayout.EAST, buttonBox);
+          background.add(BorderLayout.WEST, nameBox);
+
+          theFrame.getContentPane().add(background);
+          
+          GridLayout grid = new GridLayout(16,16);
+          grid.setVgap(1);
+          grid.setHgap(2);
+          mainPanel = new JPanel(grid);
+          background.add(BorderLayout.CENTER, mainPanel);
+
+
+          for (int i = 0; i < 256; i++) {                    
+                JCheckBox c = new JCheckBox();
+                c.setSelected(false);
+                checkboxList.add(c);
+                mainPanel.add(c);            
+          } // end loop
+
+          theFrame.setBounds(50,50,300,300);
+          theFrame.pack();
+          theFrame.setVisible(true);
+        } // close method
+
+
+     public void setUpMidi() {
+       try {
+        sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        // sequencer.addMetaEventListener(this);
+        sequence = new Sequence(Sequence.PPQ,4);
+        track = sequence.createTrack();
+        sequencer.setTempoInBPM(120);
+        
+       } catch(Exception e) {e.printStackTrace();}
+    } // close method
+
+    public void buildTrackAndStart()
+    {
+        // this will hold the instruments for each vertical column,
+        // in other words, each tick (may have multiple instruments)
+        ArrayList<Integer> trackList = null;
+
+        sequence.deleteTrack(track);
+        track = sequence.createTrack();
+
+
+        for (int i = 0; i < 16; i++){
+            trackList = new ArrayList<Integer>();
+            for (int j = 0; j < 16; j++){
+                JCheckBox jc = (JCheckBox) checkboxList.get(j + (16 * i));
+                if (jc.isSelected()){
+                    int key = instruments[i];
+                    trackList.add(key);
+                } 
+                else
+                {
+                    trackList.add(null);
+                }
+            } // close inner
+
+            makeTracks(trackList);
+        } // close outer
+
+     track.add(makeEvent(192,9,1,0,15)); // - so we always go to full 16 beats
+               
+   
+      
+       try {
+           
+           sequencer.setSequence(sequence);  
+           sequencer.setLoopCount(sequencer.LOOP_CONTINUOUSLY);                  
+           sequencer.start();
+           sequencer.setTempoInBPM(120);
+       } catch(Exception e) {e.printStackTrace();}
+ 
+      } // close method
+            
+//============================================================== inner class listeners           
+       
+      public class MyStartListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+             buildTrackAndStart();
+         }
+      }
+
+    public class MyStopListener implements ActionListener {
+       public void actionPerformed(ActionEvent a) {
+           sequencer.stop();
+       }
+    }
+
+    public class MyUpTempoListener implements ActionListener {
+       public void actionPerformed(ActionEvent a) {
+            float tempoFactor = sequencer.getTempoFactor();
+            sequencer.setTempoFactor((float)(tempoFactor * 1.03));
+       }
+    }
+
+    public class MyDownTempoListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+            float tempoFactor = sequencer.getTempoFactor();
+            sequencer.setTempoFactor((float)(tempoFactor * .97));
+        }
+    }
+
+    public class MySendListener implements ActionListener {    // new - save
+       public void actionPerformed(ActionEvent a) {
+          // make an arraylist of just the STATE of the checkboxes
+         boolean[] checkboxState = new boolean[256];
+
+         for (int i = 0; i < 256; i++) {
+             JCheckBox check = (JCheckBox) checkboxList.get(i);
+             if (check.isSelected()) {
+                checkboxState[i] = true;
+             }
+          }
+
+         try {
+             out.writeObject(userName + nextNum++ + ": " + userMessage.getText());
+            out.writeObject(checkboxState);
+         } catch(Exception ex) {
+             ex.printStackTrace();
+             System.out.println("sorry dude. Could not send it to the server");
+         }
+
+       } // close method
+     } // close inner class
+
+    public class MyListSelectionListener implements ListSelectionListener {
+        public void valueChanged(ListSelectionEvent le) {
+            if (!le.getValueIsAdjusting()) {
+                String selected = (String) incomingList.getSelectedValue();
+                if (selected != null) {
+                    boolean[] selectedState = (boolean[]) otherSeqsMap.get(selected);
+                    changeSequence(selectedState);
+                    sequencer.stop();
+                    buildTrackAndStart();
+                }
+            }
+        }
+    }
+    
+    public class RemoteReader implements Runnable {
+        boolean[] checkboxState = null;
+        String nameToShow = null;
+        Object obj = null;
+        
+        public void run() {
+            try {
+                while ((obj=in.readObject()) != null) {
+                    System.out.println("got an object from server");
+                    System.out.println(obj.getClass());
+                    String nameToShow = (String) obj;
+                    checkboxState = (boolean[]) in.readObject();
+                    otherSeqsMap.put(nameToShow, checkboxState);
+                    listVector.add(nameToShow);
+                    incomingList.setListData(listVector);
+                }
+            }catch (Exception e) { e.printStackTrace(); }
+        }
+    }
+
+
+//==============================================================       
+
+    public void changeSequence(boolean[] checkboxState) {
+        for (int i = 0; i < 256; i++) {
+            JCheckBox check = (JCheckBox) checkboxList.get(i);
+            if (checkboxState[i]) {
+                check.setSelected(true);
+            }
+            else
+            {
+                check.setSelected(false);
+            }
+        }
+    }
+    
+     public void makeTracks(ArrayList<Integer> list) {
+         Iterator it = list.iterator();
+         for (int i = 0; i < 16; i++) {
+             Integer num = (Integer) it.next();
+             if (num != null) {
+                 int numKey = num.intValue();
+                 track.add(makeEvent(144, 9, numKey, 100, i));
+                 track.add(makeEvent(128, 9, numKey, 100, i+1));
+             }
+         }
+      }
+        
+
+
+     public  MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+          MidiEvent event = null;
+          try {
+            ShortMessage a = new ShortMessage();
+            a.setMessage(comd, chan, one, two);
+            event = new MidiEvent(a, tick);
+            
+            }catch(Exception e) { }
+          return event;
+       }
+}
+          
+#+END_SRC
+
+** =AppendixA/MusicServer.java=
+
+#+BEGIN_SRC java -n :bangle AppendixA/MusicServer.java :padline no
+package AppendixA;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+
+public class MusicServer
+{
+    ArrayList clientOutputStreams;
+    
+    public static void main(String[] args) {
+        new MusicServer().go();
+    }
+    
+    public class ClientHandler implements Runnable {
+        ObjectInputStream in;
+        Socket sock;
+        
+        public ClientHandler(Socket clientSOcket) {
+            try {
+                sock = clientSOcket;
+                in = new ObjectInputStream(sock.getInputStream());
+                
+            } catch (Exception ex) { ex.printStackTrace(); }
+        }
+        
+        public void run() {
+            Object o1;
+            Object o2;
+            try {
+                while ((o1 = in.readObject()) != null) {
+                    o2 = in.readObject();
+                    System.out.println("read two objects");
+                    tellEveryone(o1, o2);
+                }
+            } catch (Exception ex) { ex.printStackTrace(); }
+        }
+    }
+    
+    
+    
+    public void go() {
+        clientOutputStreams = new ArrayList();
+        try {
+            ServerSocket serverSock = new ServerSocket(4242);
+            while(true) {
+                Socket clientSocket = serverSock.accept();
+                ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+                clientOutputStreams.add(out);
+                
+                Thread t = new Thread(new ClientHandler(clientSocket));
+                t.start();
+                System.out.println("got a connection");
+            }
+        } catch (Exception ex) { ex.printStackTrace(); }
+    }
+    
+    public void tellEveryone(Object one, Object two) {
+        Iterator it = clientOutputStreams.iterator();
+        while (it.hasNext()) {
+            try {
+                ObjectOutputStream out = (ObjectOutputStream) it.next();
+                out.writeObject(one);
+                out.writeObject(two);
+            } catch (Exception ex) { ex.printStackTrace(); }
+        }
+    }
+}
+#+END_SRC
+

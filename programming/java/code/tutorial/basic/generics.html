@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Generics</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Generics</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org585ddff"><code>generics/BoxDemo.java</code></a></li>
+<li><a href="#orge2d1f11"><code>generics/Box.java</code></a></li>
+<li><a href="#org665acb9"><code>generics/CountVowels.java</code></a></li>
+<li><a href="#orgaa38fe0"><code>generics/MultiplicationTable.java</code></a></li>
+<li><a href="#org733efc2"><code>generics/WildcardFixed.java</code></a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org585ddff" class="outline-2">
+<h2 id="org585ddff"><code>generics/BoxDemo.java</code></h2>
+<div class="outline-text-2" id="text-org585ddff">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Iterator</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">BoxDemo</span> {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> &lt;<span style="color: #0072b2; font-weight: bold;">U</span>&gt; <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">addBox</span>(<span style="color: #0072b2; font-weight: bold;">U</span> <span style="color: #e69f00; font-weight: bold;">u</span>, <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Box</span>&lt;<span style="color: #0072b2; font-weight: bold;">U</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">boxes</span>) {
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">Box</span>&lt;<span style="color: #0072b2; font-weight: bold;">U</span>&gt; <span style="color: #e69f00; font-weight: bold;">box</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Box</span>&lt;&gt;();
+<span class="linenr"> 9: </span>    box.set(u);
+<span class="linenr">10: </span>    boxes.add(box);
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> &lt;<span style="color: #0072b2; font-weight: bold;">U</span>&gt; <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">outputBoxes</span>(<span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Box</span>&lt;<span style="color: #0072b2; font-weight: bold;">U</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">boxes</span>) {
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">counter</span> = 0;
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Box</span>&lt;<span style="color: #0072b2; font-weight: bold;">U</span>&gt; <span style="color: #e69f00; font-weight: bold;">box</span> : boxes) {
+<span class="linenr">16: </span>      <span style="color: #0072b2; font-weight: bold;">U</span> <span style="color: #e69f00; font-weight: bold;">boxContents</span> = box.get();
+<span class="linenr">17: </span>      System.out.println(<span style="color: #848ea9;">"Box #"</span> + counter + <span style="color: #848ea9;">" contains ["</span> + boxContents.toString() + <span style="color: #848ea9;">"]"</span>);
+<span class="linenr">18: </span>      counter++;
+<span class="linenr">19: </span>    }
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">23: </span>    <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;<span style="color: #0072b2; font-weight: bold;">Box</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">listOfIntegerBoxes</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;();
+<span class="linenr">24: </span>    BoxDemo.&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;addBox(Integer.valueOf(10), listOfIntegerBoxes);
+<span class="linenr">25: </span>    BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
+<span class="linenr">26: </span>    BoxDemo.addBox(Integer.valueOf(30), listOfIntegerBoxes);
+<span class="linenr">27: </span>    BoxDemo.outputBoxes(listOfIntegerBoxes);
+<span class="linenr">28: </span>  }
+<span class="linenr">29: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge2d1f11" class="outline-2">
+<h2 id="orge2d1f11"><code>generics/Box.java</code></h2>
+<div class="outline-text-2" id="text-orge2d1f11">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #848ea9;">/**</span>
+<span class="linenr"> 2: </span><span style="color: #848ea9;"> * Generic version of the Box class.</span>
+<span class="linenr"> 3: </span><span style="color: #848ea9;"> *</span>
+<span class="linenr"> 4: </span><span style="color: #848ea9;"> * </span><span style="color: #d55e00; font-weight: bold;">@param</span><span style="color: #848ea9;"> </span><span style="color: #d55e00; font-weight: bold;">&lt;T&gt;</span><span style="color: #848ea9;"> the type of value being boxed</span>
+<span class="linenr"> 5: </span><span style="color: #848ea9;"> */</span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Box</span>&lt;<span style="color: #0072b2; font-weight: bold;">T</span>&gt; {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">T</span> <span style="color: #e69f00; font-weight: bold;">t</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">T stands for "Type"</span>
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">set</span>(<span style="color: #0072b2; font-weight: bold;">T</span> <span style="color: #e69f00; font-weight: bold;">t</span>) {
+<span class="linenr">11: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.t = t;
+<span class="linenr">12: </span>  }
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">T</span> <span style="color: #d55e00;">get</span>() {
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> t;
+<span class="linenr">16: </span>  }
+<span class="linenr">17: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org665acb9" class="outline-2">
+<h2 id="org665acb9"><code>generics/CountVowels.java</code></h2>
+<div class="outline-text-2" id="text-org665acb9">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">HashMap</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Iterator</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Map</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Set</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">CountVowels</span> {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (args.length &lt; 1) {
+<span class="linenr">11: </span>      System.err.println(<span style="color: #848ea9;">"Usage: java CountVowels &lt;word1 word2 ...&gt;"</span>);
+<span class="linenr">12: </span>      System.exit(1);
+<span class="linenr">13: </span>    }
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">Map</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>, <span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">msi</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">HashMap</span>&lt;&gt;();
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">s</span> : args) {
+<span class="linenr">18: </span>      <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">vowelCount</span> = 0;
+<span class="linenr">19: </span>      <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">length</span> = s.length();
+<span class="linenr">20: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; <span style="color: #0072b2; font-weight: bold;">length</span>; ++i) <span style="color: #56b4e9; font-weight: bold;">if</span> (isVowel(s.charAt(i))) ++vowelCount;
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>      msi.put(s, vowelCount);
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #0072b2; font-weight: bold;">Set</span>&lt;<span style="color: #0072b2; font-weight: bold;">String</span>&gt; <span style="color: #e69f00; font-weight: bold;">words</span> = msi.keySet();
+<span class="linenr">26: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">wd</span> : words) System.out.println(wd + <span style="color: #848ea9;">": "</span> + msi.get(wd));
+<span class="linenr">27: </span>  }
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #d55e00;">isVowel</span>(<span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">c</span>) {
+<span class="linenr">30: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> c == <span style="color: #848ea9;">'a'</span> || c == <span style="color: #848ea9;">'A'</span> || c == <span style="color: #848ea9;">'e'</span> || c == <span style="color: #848ea9;">'E'</span> || c == <span style="color: #848ea9;">'i'</span> || c == <span style="color: #848ea9;">'I'</span> || c == <span style="color: #848ea9;">'o'</span>
+<span class="linenr">31: </span>        || c == <span style="color: #848ea9;">'O'</span> || c == <span style="color: #848ea9;">'u'</span> || c == <span style="color: #848ea9;">'U'</span>;
+<span class="linenr">32: </span>  }
+<span class="linenr">33: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa38fe0" class="outline-2">
+<h2 id="orgaa38fe0"><code>generics/MultiplicationTable.java</code></h2>
+<div class="outline-text-2" id="text-orgaa38fe0">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Iterator</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Set</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">SortedMap</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">TreeMap</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">MultiplicationTable</span> {
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">Exception</span> {
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">begin</span> = 1, <span style="color: #e69f00; font-weight: bold;">end</span> = 9;
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (args.length == 2) {
+<span class="linenr">15: </span>      begin = Integer.parseInt(args[0]);
+<span class="linenr">16: </span>      end = Integer.parseInt(args[1]);
+<span class="linenr">17: </span>    }
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    <span style="color: #0072b2; font-weight: bold;">SortedMap</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">mt</span> = multTable(begin, end);
+<span class="linenr">20: </span>    printMultiplicationTable(mt);
+<span class="linenr">21: </span>    System.out.println();
+<span class="linenr">22: </span>  }
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">SortedMap</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;&gt; <span style="color: #d55e00;">multTable</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">begin</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">end</span>) {
+<span class="linenr">25: </span>
+<span class="linenr">26: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (begin &lt; 0 || end &lt; 0 || begin &gt; end) <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">27: </span>
+<span class="linenr">28: </span>    <span style="color: #0072b2; font-weight: bold;">SortedMap</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">mt</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">TreeMap</span>&lt;&gt;();
+<span class="linenr">29: </span>
+<span class="linenr">30: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = begin; i &lt;= end; ++i) {
+<span class="linenr">31: </span>      <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">li</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;();
+<span class="linenr">32: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">k</span> = begin; k &lt;= end; ++k) li.add(i * k);
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>      mt.put(i, li);
+<span class="linenr">35: </span>    }
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> mt;
+<span class="linenr">38: </span>  }
+<span class="linenr">39: </span>
+<span class="linenr">40: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">printMultiplicationTable</span>(<span style="color: #0072b2; font-weight: bold;">SortedMap</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>, <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt;&gt; <span style="color: #e69f00; font-weight: bold;">mt</span>) {
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>    <span style="color: #0072b2; font-weight: bold;">Set</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">keys</span> = mt.keySet();
+<span class="linenr">43: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span>[] <span style="color: #e69f00; font-weight: bold;">iKeys</span> = keys.toArray(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Integer</span>[0]);
+<span class="linenr">44: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">last</span> = iKeys[iKeys.length - 1];
+<span class="linenr">45: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">width</span> = Integer.toString(last * last).length() + 1;
+<span class="linenr">46: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">fmt</span> = <span style="color: #848ea9;">"%"</span> + width + <span style="color: #848ea9;">"d"</span>;
+<span class="linenr">47: </span>
+<span class="linenr">48: </span>    System.out.printf(<span style="color: #848ea9;">"%"</span> + width + <span style="color: #848ea9;">"s"</span>, <span style="color: #848ea9;">""</span>);
+<span class="linenr">49: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">k</span> : keys) System.out.printf(fmt, k);
+<span class="linenr">50: </span>    System.out.println();
+<span class="linenr">51: </span>
+<span class="linenr">52: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">k</span> : keys) {
+<span class="linenr">53: </span>      System.out.printf(fmt, k);
+<span class="linenr">54: </span>
+<span class="linenr">55: </span>      <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Integer</span>&gt; <span style="color: #e69f00; font-weight: bold;">li</span> = mt.get(k);
+<span class="linenr">56: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">i</span> : li) System.out.printf(fmt, i);
+<span class="linenr">57: </span>      System.out.println();
+<span class="linenr">58: </span>    }
+<span class="linenr">59: </span>  }
+<span class="linenr">60: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org733efc2" class="outline-2">
+<h2 id="org733efc2"><code>generics/WildcardFixed.java</code></h2>
+<div class="outline-text-2" id="text-org733efc2">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">WildcardFixed</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">foo</span>(<span style="color: #0072b2; font-weight: bold;">List</span>&lt;?&gt; <span style="color: #e69f00; font-weight: bold;">i</span>) {
+<span class="linenr"> 6: </span>    fooHelper(i);
+<span class="linenr"> 7: </span>  }
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> &lt;<span style="color: #0072b2; font-weight: bold;">T</span>&gt; <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">fooHelper</span>(<span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">T</span>&gt; <span style="color: #e69f00; font-weight: bold;">l</span>) {
+<span class="linenr">10: </span>    l.set(0, l.get(0));
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

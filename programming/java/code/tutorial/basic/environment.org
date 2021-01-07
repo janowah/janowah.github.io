@@ -1,0 +1,168 @@
+#+title: The Platform Environment
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+# 6
+
+* =environment/Echo.java=
+
+#+BEGIN_SRC java -n :bangle Echo.java :padline no
+  public class Echo {
+    public static void main(String[] args) {
+      for (String s : args) {
+        System.out.println(s);
+      }
+    }
+  }
+#+END_SRC
+
+* =environment/Env.java=
+
+#+BEGIN_SRC java -n :bangle Env.java :padline no
+  public class Env {
+    public static void main(String[] args) {
+      for (String env : args) {
+        String value = System.getenv(env);
+        if (value != null) {
+          System.out.format("%s=%s%n", env, value);
+        } else {
+          System.out.format("%s is" + " not assigned.%n", env);
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* =environment/EnvMap.java=
+
+#+BEGIN_SRC java -n :bangle EnvMap.java :padline no
+  import java.util.Map;
+
+  public class EnvMap {
+    public static void main(String[] args) {
+      Map<String, String> env = System.getenv();
+      for (String envName : env.keySet()) {
+        System.out.format("%s=%s%n", envName, env.get(envName));
+      }
+    }
+  }
+#+END_SRC
+
+* =environment/PassEnv.java=
+
+#+BEGIN_SRC java -n :bangle PassEnv.java :padline no
+  import java.util.Map;
+
+  public class PassEnv {
+    public static void main(String[] args) throws java.io.IOException {
+      System.out.println(System.getProperty("java.class.path"));
+      ProcessBuilder pb = new ProcessBuilder("java", "Env", "DRAGONBALLS");
+      Map<String, String> env = pb.environment();
+      env.put("DRAGONBALLS", "7");
+      pb.start();
+    }
+  }
+#+END_SRC
+
+* =environment/PersistentEcho.java=
+
+#+BEGIN_SRC java -n :bangle PersistentEcho.java :padline no
+  import java.io.FileInputStream;
+  import java.io.FileOutputStream;
+  import java.io.IOException;
+  import java.util.Properties;
+
+  public class PersistentEcho {
+    public static void main(String[] args) {
+      String argString = "";
+      boolean notProperty = true;
+
+      // Are there arguments?  If so retrieve them.
+      if (args.length > 0) {
+        for (String arg : args) {
+          argString += arg + " ";
+        }
+        argString = argString.trim();
+      }
+      // No arguments, is there an environment variable?  If so,
+      // retrieve it.
+      else if ((argString = System.getenv("PERSISTENTECHO")) != null) {
+      }
+      // No environment variable either. Retrieve property value.
+      else {
+        notProperty = false;
+        // Set argString to null.  If it's still null after we exit the
+        // try block, we've failed to retrieve the property value.
+        argString = null;
+        FileInputStream fileInputStream = null;
+        try {
+          fileInputStream = new FileInputStream("PersistentEcho.txt");
+          Properties inProperties = new Properties();
+          inProperties.load(fileInputStream);
+          argString = inProperties.getProperty("argString");
+        } catch (IOException e) {
+          System.err.println("Can't read property file.");
+          System.exit(1);
+        } finally {
+          if (fileInputStream != null) {
+            try {
+              fileInputStream.close();
+            } catch (IOException e) {
+            }
+            ;
+          }
+        }
+      }
+      if (argString == null) {
+        System.err.println("Couldn't find argString property");
+        System.exit(1);
+      }
+
+      // Somehow, we got the value. Echo it already!
+      System.out.println(argString);
+
+      // If we didn't retrieve the value from the property, save it in
+      // the property.
+      if (notProperty) {
+        Properties outProperties = new Properties();
+        outProperties.setProperty("argString", argString);
+        FileOutputStream fileOutputStream = null;
+        try {
+          fileOutputStream = new FileOutputStream("PersistentEcho.txt");
+          outProperties.store(fileOutputStream, "PersistentEcho properties");
+        } catch (IOException e) {
+        } finally {
+          if (fileOutputStream != null) {
+            try {
+              fileOutputStream.close();
+            } catch (IOException e) {
+            }
+            ;
+          }
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* =environment/PropertiesTest.java=
+
+#+BEGIN_SRC java -n :bangle PropertiesTest.java :padline no
+  import java.io.FileInputStream;
+  import java.util.Properties;
+
+  public class PropertiesTest {
+    public static void main(String[] args) throws Exception {
+
+      // set up new properties object from file "myProperties.txt"
+      FileInputStream propFile = new FileInputStream("myProperties.txt");
+      Properties p = new Properties(System.getProperties());
+      p.load(propFile);
+
+      // set the system properties
+      System.setProperties(p);
+      // display new properties
+      System.getProperties().list(System.out);
+    }
+  }
+#+END_SRC
+

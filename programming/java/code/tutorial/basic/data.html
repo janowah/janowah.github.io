@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Numbers and Strings</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Numbers and Strings</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0ee9eeb"><code>data/Adder.java</code></a></li>
+<li><a href="#orgda99e43"><code>data/Anagram.java</code></a></li>
+<li><a href="#org72bd7ba"><code>data/ArrayCopyDemo.java</code></a></li>
+<li><a href="#orgca2db36"><code>data/ArrayDemo.java</code></a></li>
+<li><a href="#org376e05c"><code>data/ArrayOfArraysDemo2.java</code></a></li>
+<li><a href="#org9d11b41"><code>data/ArrayOfArraysDemo.java</code></a></li>
+<li><a href="#org54f2b75"><code>data/ArrayOfStringsDemo.java</code></a></li>
+<li><a href="#orgd400ac6"><code>data/BasicMathDemo.java</code></a></li>
+<li><a href="#orgac8e327"><code>data/BostonAccentDemo.java</code></a></li>
+<li><a href="#org3c46c30"><code>data/CharacterDemo.java</code></a></li>
+<li><a href="#org9512167"><code>data/ComputeInitials.java</code></a></li>
+<li><a href="#org9e4f023"><code>data/ComputeResult.java</code></a></li>
+<li><a href="#org65156ad"><code>data/DecimalFormatDemo.java</code></a></li>
+<li><a href="#orgeede6c7"><code>data/ExponentialDemo.java</code></a></li>
+<li><a href="#orgaa06158"><code>data/FilenameDemo.java</code></a></li>
+<li><a href="#org8e550b1"><code>data/Filename.java</code></a></li>
+<li><a href="#org0f98fdd"><code>data/FPAdder.java</code></a></li>
+<li><a href="#org81450fe"><code>data/InsertDemo.java</code></a></li>
+<li><a href="#org21f182b"><code>data/MaxVariablesDemo.java</code></a></li>
+<li><a href="#org65414a1"><code>data/MinDemo.java</code></a></li>
+<li><a href="#org1b6c52a"><code>data/MinVariablesDemo.java</code></a></li>
+<li><a href="#org6be8092"><code>data/NumberDemo.java</code></a></li>
+<li><a href="#orge4aaa6c"><code>data/Palindrome.java</code></a></li>
+<li><a href="#orgb930ce0"><code>data/Point.java</code></a></li>
+<li><a href="#org8afac0e"><code>data/Rectangle.java</code></a></li>
+<li><a href="#org02665dc"><code>data/RegionMatchesDemo.java</code></a></li>
+<li><a href="#orgdba41ef"><code>data/ReverseString.java</code></a></li>
+<li><a href="#org8eee9c6"><code>data/ReverseStringTest.java</code></a></li>
+<li><a href="#orgbfb4ca9"><code>data/SimplePoint.java</code></a></li>
+<li><a href="#org696727f"><code>data/SimpleRectangle.java</code></a></li>
+<li><a href="#org8c30bdf"><code>data/StringBuilderDemo.java</code></a></li>
+<li><a href="#org44cac92"><code>data/StringDemo.java</code></a></li>
+<li><a href="#org11c18d6"><code>data/StringsDemo.java</code></a></li>
+<li><a href="#org96a73df"><code>data/TestFormat.java</code></a></li>
+<li><a href="#org88ee399"><code>data/ThisHappens.java</code></a></li>
+<li><a href="#org9e868b0"><code>data/ToStringDemo.java</code></a></li>
+<li><a href="#orgf9584c8"><code>data/TrigonometricDemo.java</code></a></li>
+<li><a href="#orgf0fc189"><code>data/Unboxing.java</code></a></li>
+<li><a href="#org2536273"><code>data/ValueOfDemo.java</code></a></li>
+<li><a href="#org1cbf606"><code>data/WhatHappens.java</code></a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0ee9eeb" class="outline-2">
+<h2 id="org0ee9eeb"><code>data/Adder.java</code></h2>
+<div class="outline-text-2" id="text-org0ee9eeb">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Adder</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">numArgs</span> = args.length;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">this program requires at least two arguments on the command line</span>
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (numArgs &lt; 2) {
+<span class="linenr"> 7: </span>      System.out.println(<span style="color: #848ea9;">"This program requires two command-line arguments."</span>);
+<span class="linenr"> 8: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr"> 9: </span>      <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">sum</span> = 0;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; <span style="color: #0072b2; font-weight: bold;">numArgs</span>; i++) {
+<span class="linenr">12: </span>        sum += Integer.valueOf(args[i]).intValue();
+<span class="linenr">13: </span>      }
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">print the sum</span>
+<span class="linenr">16: </span>      System.out.println(sum);
+<span class="linenr">17: </span>    }
+<span class="linenr">18: </span>  }
+<span class="linenr">19: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda99e43" class="outline-2">
+<h2 id="orgda99e43"><code>data/Anagram.java</code></h2>
+<div class="outline-text-2" id="text-orgda99e43">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Anagram</span> {
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>  <span style="color: #848ea9;">/**</span>
+<span class="linenr"> 4: </span><span style="color: #848ea9;">   * Tests whether the passed-in strings are anagrams -- containing the exact same number of each</span>
+<span class="linenr"> 5: </span><span style="color: #848ea9;">   * letter. Punctuation, case, and order don't matter.</span>
+<span class="linenr"> 6: </span><span style="color: #848ea9;">   *</span>
+<span class="linenr"> 7: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@return</span><span style="color: #848ea9;"> true if the strings are anagrams; otherwise, false</span>
+<span class="linenr"> 8: </span><span style="color: #848ea9;">   */</span>
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #d55e00;">areAnagrams</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string1</span>, <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string2</span>) {
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">workingCopy1</span> = removeJunk(string1);
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">workingCopy2</span> = removeJunk(string2);
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    workingCopy1 = workingCopy1.toLowerCase();
+<span class="linenr">15: </span>    workingCopy2 = workingCopy2.toLowerCase();
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    workingCopy1 = sort(workingCopy1);
+<span class="linenr">18: </span>    workingCopy2 = sort(workingCopy2);
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> workingCopy1.equals(workingCopy2);
+<span class="linenr">21: </span>  }
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>  <span style="color: #848ea9;">/**</span>
+<span class="linenr">24: </span><span style="color: #848ea9;">   * Removes punctuation </span><span style="color: #d55e00; font-weight: bold; font-style: italic;">&amp;</span><span style="color: #848ea9;"> spaces -- everything except letters from the passed-in string.</span>
+<span class="linenr">25: </span><span style="color: #848ea9;">   *</span>
+<span class="linenr">26: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@return</span><span style="color: #848ea9;"> a stripped copy of the passed-in string</span>
+<span class="linenr">27: </span><span style="color: #848ea9;">   */</span>
+<span class="linenr">28: </span>  <span style="color: #56b4e9; font-weight: bold;">protected</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">removeJunk</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string</span>) {
+<span class="linenr">29: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>;
+<span class="linenr">30: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">len</span> = string.length();
+<span class="linenr">31: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuilder</span> <span style="color: #e69f00; font-weight: bold;">dest</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuilder</span>(len);
+<span class="linenr">32: </span>    <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">c</span>;
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = (len - 1); i &gt;= 0; i--) {
+<span class="linenr">35: </span>      c = string.charAt(i);
+<span class="linenr">36: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (Character.isLetter(c)) {
+<span class="linenr">37: </span>        dest.append(c);
+<span class="linenr">38: </span>      }
+<span class="linenr">39: </span>    }
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> dest.toString();
+<span class="linenr">42: </span>  }
+<span class="linenr">43: </span>
+<span class="linenr">44: </span>  <span style="color: #848ea9;">/**</span>
+<span class="linenr">45: </span><span style="color: #848ea9;">   * Sorts the passed-in string.</span>
+<span class="linenr">46: </span><span style="color: #848ea9;">   *</span>
+<span class="linenr">47: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@return</span><span style="color: #848ea9;"> a sorted copy of the passed-in string</span>
+<span class="linenr">48: </span><span style="color: #848ea9;">   */</span>
+<span class="linenr">49: </span>  <span style="color: #56b4e9; font-weight: bold;">protected</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">sort</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string</span>) {
+<span class="linenr">50: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">charArray</span> = string.toCharArray();
+<span class="linenr">51: </span>
+<span class="linenr">52: </span>    <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.Arrays.sort(charArray);
+<span class="linenr">53: </span>
+<span class="linenr">54: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(charArray);
+<span class="linenr">55: </span>  }
+<span class="linenr">56: </span>
+<span class="linenr">57: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">58: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string1</span> = <span style="color: #848ea9;">"Cosmo and Laine:"</span>;
+<span class="linenr">59: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string2</span> = <span style="color: #848ea9;">"Maid, clean soon!"</span>;
+<span class="linenr">60: </span>
+<span class="linenr">61: </span>    System.out.println();
+<span class="linenr">62: </span>    System.out.println(<span style="color: #848ea9;">"Testing whether the following "</span> + <span style="color: #848ea9;">"strings are anagrams:"</span>);
+<span class="linenr">63: </span>    System.out.println(<span style="color: #848ea9;">"    String 1: "</span> + string1);
+<span class="linenr">64: </span>    System.out.println(<span style="color: #848ea9;">"    String 2: "</span> + string2);
+<span class="linenr">65: </span>    System.out.println();
+<span class="linenr">66: </span>
+<span class="linenr">67: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (areAnagrams(string1, string2)) {
+<span class="linenr">68: </span>      System.out.println(<span style="color: #848ea9;">"They ARE anagrams!"</span>);
+<span class="linenr">69: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">70: </span>      System.out.println(<span style="color: #848ea9;">"They are NOT anagrams!"</span>);
+<span class="linenr">71: </span>    }
+<span class="linenr">72: </span>    System.out.println();
+<span class="linenr">73: </span>  }
+<span class="linenr">74: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org72bd7ba" class="outline-2">
+<h2 id="org72bd7ba"><code>data/ArrayCopyDemo.java</code></h2>
+<div class="outline-text-2" id="text-org72bd7ba">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ArrayCopyDemo</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">copyFrom</span> = {<span style="color: #848ea9;">'d'</span>, <span style="color: #848ea9;">'e'</span>, <span style="color: #848ea9;">'c'</span>, <span style="color: #848ea9;">'a'</span>, <span style="color: #848ea9;">'f'</span>, <span style="color: #848ea9;">'f'</span>, <span style="color: #848ea9;">'e'</span>, <span style="color: #848ea9;">'i'</span>, <span style="color: #848ea9;">'n'</span>, <span style="color: #848ea9;">'a'</span>, <span style="color: #848ea9;">'t'</span>, <span style="color: #848ea9;">'e'</span>, <span style="color: #848ea9;">'d'</span>};
+<span class="linenr">4: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">copyTo</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[7];
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>    System.arraycopy(copyFrom, 2, copyTo, 0, 7);
+<span class="linenr">7: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(copyTo));
+<span class="linenr">8: </span>  }
+<span class="linenr">9: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgca2db36" class="outline-2">
+<h2 id="orgca2db36"><code>data/ArrayDemo.java</code></h2>
+<div class="outline-text-2" id="text-orgca2db36">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ArrayDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">int</span>[] <span style="color: #e69f00; font-weight: bold;">anArray</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">declare an array of integers</span>
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>    anArray = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">int</span>[10]; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">create an array of integers</span>
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">assign a value to each array element and print</span>
+<span class="linenr"> 8: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; anArray.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr"> 9: </span>      anArray[i] = i;
+<span class="linenr">10: </span>      System.out.print(anArray[i] + <span style="color: #848ea9;">" "</span>);
+<span class="linenr">11: </span>    }
+<span class="linenr">12: </span>    System.out.println();
+<span class="linenr">13: </span>  }
+<span class="linenr">14: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org376e05c" class="outline-2">
+<h2 id="org376e05c"><code>data/ArrayOfArraysDemo2.java</code></h2>
+<div class="outline-text-2" id="text-org376e05c">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ArrayOfArraysDemo2</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">int</span>[][] <span style="color: #e69f00; font-weight: bold;">aMatrix</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">int</span>[4][];
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">populate matrix</span>
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; aMatrix.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr"> 7: </span>      aMatrix[i] = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">int</span>[5]; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">create sub-array</span>
+<span class="linenr"> 8: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">j</span> = 0; j &lt; <span style="color: #0072b2; font-weight: bold;">aMatrix</span>[i].length; j++) {
+<span class="linenr"> 9: </span>        aMatrix[i][j] = i + j;
+<span class="linenr">10: </span>      }
+<span class="linenr">11: </span>    }
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">print matrix</span>
+<span class="linenr">14: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; aMatrix.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr">15: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">j</span> = 0; j &lt; <span style="color: #0072b2; font-weight: bold;">aMatrix</span>[i].length; j++) {
+<span class="linenr">16: </span>        System.out.print(aMatrix[i][j] + <span style="color: #848ea9;">" "</span>);
+<span class="linenr">17: </span>      }
+<span class="linenr">18: </span>      System.out.println();
+<span class="linenr">19: </span>    }
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9d11b41" class="outline-2">
+<h2 id="org9d11b41"><code>data/ArrayOfArraysDemo.java</code></h2>
+<div class="outline-text-2" id="text-org9d11b41">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ArrayOfArraysDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span>[][] <span style="color: #e69f00; font-weight: bold;">cartoons</span> = {
+<span class="linenr"> 4: </span>      {<span style="color: #848ea9;">"Flintstones"</span>, <span style="color: #848ea9;">"Fred"</span>, <span style="color: #848ea9;">"Wilma"</span>, <span style="color: #848ea9;">"Pebbles"</span>, <span style="color: #848ea9;">"Dino"</span>},
+<span class="linenr"> 5: </span>      {<span style="color: #848ea9;">"Rubbles"</span>, <span style="color: #848ea9;">"Barney"</span>, <span style="color: #848ea9;">"Betty"</span>, <span style="color: #848ea9;">"Bam Bam"</span>},
+<span class="linenr"> 6: </span>      {<span style="color: #848ea9;">"Jetsons"</span>, <span style="color: #848ea9;">"George"</span>, <span style="color: #848ea9;">"Jane"</span>, <span style="color: #848ea9;">"Elroy"</span>, <span style="color: #848ea9;">"Judy"</span>, <span style="color: #848ea9;">"Rosie"</span>, <span style="color: #848ea9;">"Astro"</span>},
+<span class="linenr"> 7: </span>      {<span style="color: #848ea9;">"Scooby Doo Gang"</span>, <span style="color: #848ea9;">"Scooby Doo"</span>, <span style="color: #848ea9;">"Shaggy"</span>, <span style="color: #848ea9;">"Velma"</span>, <span style="color: #848ea9;">"Fred"</span>, <span style="color: #848ea9;">"Daphne"</span>}
+<span class="linenr"> 8: </span>    };
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; cartoons.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr">11: </span>      System.out.print(cartoons[i][0] + <span style="color: #848ea9;">": "</span>);
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">j</span> = 1; j &lt; <span style="color: #0072b2; font-weight: bold;">cartoons</span>[i].length; j++) {
+<span class="linenr">13: </span>        System.out.print(cartoons[i][j] + <span style="color: #848ea9;">" "</span>);
+<span class="linenr">14: </span>      }
+<span class="linenr">15: </span>      System.out.println();
+<span class="linenr">16: </span>    }
+<span class="linenr">17: </span>  }
+<span class="linenr">18: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org54f2b75" class="outline-2">
+<h2 id="org54f2b75"><code>data/ArrayOfStringsDemo.java</code></h2>
+<div class="outline-text-2" id="text-org54f2b75">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ArrayOfStringsDemo</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">anArray</span> = {<span style="color: #848ea9;">"String One"</span>, <span style="color: #848ea9;">"String Two"</span>, <span style="color: #848ea9;">"String Three"</span>};
+<span class="linenr">4: </span>
+<span class="linenr">5: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">s</span> : anArray) {
+<span class="linenr">6: </span>      System.out.println(s.toLowerCase());
+<span class="linenr">7: </span>    }
+<span class="linenr">8: </span>  }
+<span class="linenr">9: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd400ac6" class="outline-2">
+<h2 id="orgd400ac6"><code>data/BasicMathDemo.java</code></h2>
+<div class="outline-text-2" id="text-orgd400ac6">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">BasicMathDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">a</span> = -191.635;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">b</span> = 43.74;
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">c</span> = 16, <span style="color: #e69f00; font-weight: bold;">d</span> = 45;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    System.out.printf(<span style="color: #848ea9;">"The absolute value "</span> + <span style="color: #848ea9;">"of %.3f is %.3f%n"</span>, a, Math.abs(a));
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    System.out.printf(<span style="color: #848ea9;">"The ceiling of "</span> + <span style="color: #848ea9;">"%.2f is %.0f%n"</span>, b, Math.ceil(b));
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    System.out.printf(<span style="color: #848ea9;">"The floor of "</span> + <span style="color: #848ea9;">"%.2f is %.0f%n"</span>, b, Math.floor(b));
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    System.out.printf(<span style="color: #848ea9;">"The rint of %.2f "</span> + <span style="color: #848ea9;">"is %.0f%n"</span>, b, Math.rint(b));
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    System.out.printf(<span style="color: #848ea9;">"The max of %d and "</span> + <span style="color: #848ea9;">"%d is %d%n"</span>, c, d, Math.max(c, d));
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    System.out.printf(<span style="color: #848ea9;">"The min of of %d "</span> + <span style="color: #848ea9;">"and %d is %d%n"</span>, c, d, Math.min(c, d));
+<span class="linenr">18: </span>  }
+<span class="linenr">19: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgac8e327" class="outline-2">
+<h2 id="orgac8e327"><code>data/BostonAccentDemo.java</code></h2>
+<div class="outline-text-2" id="text-orgac8e327">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">BostonAccentDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">bostonAccent</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">sentence</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">r</span> = <span style="color: #848ea9;">'r'</span>;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">h</span> = <span style="color: #848ea9;">'h'</span>;
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">translatedSentence</span> = sentence.replace(r, h);
+<span class="linenr"> 6: </span>    System.out.println(translatedSentence);
+<span class="linenr"> 7: </span>  }
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">translateThis</span> = <span style="color: #848ea9;">"Park the car in Harvard yard."</span>;
+<span class="linenr">11: </span>    bostonAccent(translateThis);
+<span class="linenr">12: </span>  }
+<span class="linenr">13: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c46c30" class="outline-2">
+<h2 id="org3c46c30"><code>data/CharacterDemo.java</code></h2>
+<div class="outline-text-2" id="text-org3c46c30">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">CharacterDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">args</span>[]) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">Character</span> <span style="color: #e69f00; font-weight: bold;">a</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Character</span>(<span style="color: #848ea9;">'a'</span>);
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">Character</span> <span style="color: #e69f00; font-weight: bold;">a2</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Character</span>(<span style="color: #848ea9;">'a'</span>);
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">Character</span> <span style="color: #e69f00; font-weight: bold;">b</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Character</span>(<span style="color: #848ea9;">'b'</span>);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">difference</span> = a.compareTo(b);
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (difference == 0) {
+<span class="linenr">10: </span>      System.out.println(<span style="color: #848ea9;">"a is equal to b."</span>);
+<span class="linenr">11: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> <span style="color: #56b4e9; font-weight: bold;">if</span> (difference &lt; 0) {
+<span class="linenr">12: </span>      System.out.println(<span style="color: #848ea9;">"a is less than b."</span>);
+<span class="linenr">13: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> <span style="color: #56b4e9; font-weight: bold;">if</span> (difference &gt; 0) {
+<span class="linenr">14: </span>      System.out.println(<span style="color: #848ea9;">"a is greater than b."</span>);
+<span class="linenr">15: </span>    }
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    System.out.println(<span style="color: #848ea9;">"a is "</span> + ((a.equals(a2)) ? <span style="color: #848ea9;">"equal"</span> : <span style="color: #848ea9;">"not equal"</span>) + <span style="color: #848ea9;">" to a2."</span>);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    System.out.println(
+<span class="linenr">20: </span>        <span style="color: #848ea9;">"The character "</span>
+<span class="linenr">21: </span>            + a.toString()
+<span class="linenr">22: </span>            + <span style="color: #848ea9;">" is "</span>
+<span class="linenr">23: </span>            + (Character.isUpperCase(a.charValue()) ? <span style="color: #848ea9;">"upper"</span> : <span style="color: #848ea9;">"lower"</span>)
+<span class="linenr">24: </span>            + <span style="color: #848ea9;">"case."</span>);
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9512167" class="outline-2">
+<h2 id="org9512167"><code>data/ComputeInitials.java</code></h2>
+<div class="outline-text-2" id="text-org9512167">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ComputeInitials</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">myName</span> = <span style="color: #848ea9;">"Fred F. Flintstone"</span>;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span> <span style="color: #e69f00; font-weight: bold;">myInitials</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>();
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">length</span> = myName.length();
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; <span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr"> 8: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (Character.isUpperCase(myName.charAt(i))) {
+<span class="linenr"> 9: </span>        myInitials.append(myName.charAt(i));
+<span class="linenr">10: </span>      }
+<span class="linenr">11: </span>    }
+<span class="linenr">12: </span>    System.out.println(<span style="color: #848ea9;">"My initials are: "</span> + myInitials);
+<span class="linenr">13: </span>  }
+<span class="linenr">14: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9e4f023" class="outline-2">
+<h2 id="org9e4f023"><code>data/ComputeResult.java</code></h2>
+<div class="outline-text-2" id="text-org9e4f023">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ComputeResult</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">original</span> = <span style="color: #848ea9;">"software"</span>;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuilder</span> <span style="color: #e69f00; font-weight: bold;">result</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuilder</span>(<span style="color: #848ea9;">"hi"</span>);
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">index</span> = original.indexOf(<span style="color: #848ea9;">'a'</span>);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">/*</span><span style="color: #009e73; font-style: italic;">1*/</span> result.setCharAt(0, original.charAt(0));
+<span class="linenr"> 8: </span>    <span style="color: #009e73; font-style: italic;">/*</span><span style="color: #009e73; font-style: italic;">2*/</span> result.setCharAt(1, original.charAt(original.length() - 1));
+<span class="linenr"> 9: </span>    <span style="color: #009e73; font-style: italic;">/*</span><span style="color: #009e73; font-style: italic;">3*/</span> result.insert(1, original.charAt(4));
+<span class="linenr">10: </span>    <span style="color: #009e73; font-style: italic;">/*</span><span style="color: #009e73; font-style: italic;">4*/</span> result.append(original.substring(1, 4));
+<span class="linenr">11: </span>    <span style="color: #009e73; font-style: italic;">/*</span><span style="color: #009e73; font-style: italic;">5*/</span> result.insert(3, (original.substring(index, index + 2) + <span style="color: #848ea9;">" "</span>));
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    System.out.println(result);
+<span class="linenr">14: </span>  }
+<span class="linenr">15: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65156ad" class="outline-2">
+<h2 id="org65156ad"><code>data/DecimalFormatDemo.java</code></h2>
+<div class="outline-text-2" id="text-org65156ad">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">text</span>.<span style="color: #0072b2; font-weight: bold;">DecimalFormat</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">DecimalFormatDemo</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">customFormat</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">pattern</span>, <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">value</span>) {
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">DecimalFormat</span> <span style="color: #e69f00; font-weight: bold;">myFormatter</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">DecimalFormat</span>(pattern);
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">output</span> = myFormatter.format(value);
+<span class="linenr"> 8: </span>    System.out.println(value + <span style="color: #848ea9;">"  "</span> + pattern + <span style="color: #848ea9;">"  "</span> + output);
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    customFormat(<span style="color: #848ea9;">"###,###.###"</span>, 123456.789);
+<span class="linenr">14: </span>    customFormat(<span style="color: #848ea9;">"###.##"</span>, 123456.789);
+<span class="linenr">15: </span>    customFormat(<span style="color: #848ea9;">"000000.000"</span>, 123.78);
+<span class="linenr">16: </span>    customFormat(<span style="color: #848ea9;">"$###,###.###"</span>, 12345.67);
+<span class="linenr">17: </span>  }
+<span class="linenr">18: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeede6c7" class="outline-2">
+<h2 id="orgeede6c7"><code>data/ExponentialDemo.java</code></h2>
+<div class="outline-text-2" id="text-orgeede6c7">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ExponentialDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">x</span> = 11.635;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">y</span> = 2.76;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    System.out.printf(<span style="color: #848ea9;">"The value of "</span> + <span style="color: #848ea9;">"e is %.4f%n"</span>, <span style="color: #d55e00; font-weight: bold;">Math</span>.E);
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    System.out.printf(<span style="color: #848ea9;">"exp(%.3f) "</span> + <span style="color: #848ea9;">"is %.3f%n"</span>, x, Math.exp(x));
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    System.out.printf(<span style="color: #848ea9;">"log(%.3f) is "</span> + <span style="color: #848ea9;">"%.3f%n"</span>, x, Math.log(x));
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    System.out.printf(<span style="color: #848ea9;">"pow(%.3f, %.3f) "</span> + <span style="color: #848ea9;">"is %.3f%n"</span>, x, y, Math.pow(x, y));
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    System.out.printf(<span style="color: #848ea9;">"sqrt(%.3f) is "</span> + <span style="color: #848ea9;">"%.3f%n"</span>, x, Math.sqrt(x));
+<span class="linenr">15: </span>  }
+<span class="linenr">16: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa06158" class="outline-2">
+<h2 id="orgaa06158"><code>data/FilenameDemo.java</code></h2>
+<div class="outline-text-2" id="text-orgaa06158">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FilenameDemo</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>    <span style="color: #56b4e9; font-weight: bold;">final</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">FPATH</span> = <span style="color: #848ea9;">"/home/user/index.html"</span>;
+<span class="linenr">4: </span>    <span style="color: #0072b2; font-weight: bold;">Filename</span> <span style="color: #e69f00; font-weight: bold;">myHomePage</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Filename</span>(FPATH, <span style="color: #848ea9;">'/'</span>, <span style="color: #848ea9;">'.'</span>);
+<span class="linenr">5: </span>    System.out.println(<span style="color: #848ea9;">"Extension = "</span> + myHomePage.extension());
+<span class="linenr">6: </span>    System.out.println(<span style="color: #848ea9;">"Filename = "</span> + myHomePage.filename());
+<span class="linenr">7: </span>    System.out.println(<span style="color: #848ea9;">"Path = "</span> + myHomePage.path());
+<span class="linenr">8: </span>  }
+<span class="linenr">9: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e550b1" class="outline-2">
+<h2 id="org8e550b1"><code>data/Filename.java</code></h2>
+<div class="outline-text-2" id="text-org8e550b1">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Filename</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">fullPath</span>;
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">pathSeparator</span>;
+<span class="linenr"> 4: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">extensionSeparator</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Filename</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span>, <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">sep</span>, <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">ext</span>) {
+<span class="linenr"> 7: </span>    fullPath = str;
+<span class="linenr"> 8: </span>    pathSeparator = sep;
+<span class="linenr"> 9: </span>    extensionSeparator = ext;
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">extension</span>() {
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">dot</span> = fullPath.lastIndexOf(extensionSeparator);
+<span class="linenr">14: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> fullPath.substring(dot + 1);
+<span class="linenr">15: </span>  }
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">gets filename without extension</span>
+<span class="linenr">18: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">filename</span>() {
+<span class="linenr">19: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">dot</span> = fullPath.lastIndexOf(extensionSeparator);
+<span class="linenr">20: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">sep</span> = fullPath.lastIndexOf(pathSeparator);
+<span class="linenr">21: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> fullPath.substring(sep + 1, dot);
+<span class="linenr">22: </span>  }
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">path</span>() {
+<span class="linenr">25: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">sep</span> = fullPath.lastIndexOf(pathSeparator);
+<span class="linenr">26: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> fullPath.substring(0, sep);
+<span class="linenr">27: </span>  }
+<span class="linenr">28: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f98fdd" class="outline-2">
+<h2 id="org0f98fdd"><code>data/FPAdder.java</code></h2>
+<div class="outline-text-2" id="text-org0f98fdd">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">text</span>.<span style="color: #0072b2; font-weight: bold;">DecimalFormat</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FPAdder</span> {
+<span class="linenr"> 4: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">numArgs</span> = args.length;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">this program requires at least two arguments on the command line</span>
+<span class="linenr"> 9: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (numArgs &lt; 2) {
+<span class="linenr">10: </span>      System.out.println(<span style="color: #848ea9;">"This program requires two command-line arguments."</span>);
+<span class="linenr">11: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">12: </span>      <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">sum</span> = 0.0;
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; <span style="color: #0072b2; font-weight: bold;">numArgs</span>; i++) {
+<span class="linenr">15: </span>        sum += Double.valueOf(args[i]).doubleValue();
+<span class="linenr">16: </span>      }
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">format the sum</span>
+<span class="linenr">19: </span>      <span style="color: #0072b2; font-weight: bold;">DecimalFormat</span> <span style="color: #e69f00; font-weight: bold;">myFormatter</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">DecimalFormat</span>(<span style="color: #848ea9;">"###,###.##"</span>);
+<span class="linenr">20: </span>      <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">output</span> = myFormatter.format(sum);
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">print the sum</span>
+<span class="linenr">23: </span>      System.out.println(output);
+<span class="linenr">24: </span>    }
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org81450fe" class="outline-2">
+<h2 id="org81450fe"><code>data/InsertDemo.java</code></h2>
+<div class="outline-text-2" id="text-org81450fe">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">InsertDemo</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span> <span style="color: #e69f00; font-weight: bold;">palindrome</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>(<span style="color: #848ea9;">"A man, a plan, a canal; Panama."</span>);
+<span class="linenr">4: </span>    palindrome.insert(15, <span style="color: #848ea9;">"a cat, "</span>);
+<span class="linenr">5: </span>    System.out.println(palindrome);
+<span class="linenr">6: </span>  }
+<span class="linenr">7: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org21f182b" class="outline-2">
+<h2 id="org21f182b"><code>data/MaxVariablesDemo.java</code></h2>
+<div class="outline-text-2" id="text-org21f182b">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">MaxVariablesDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">args</span>[]) {
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">integers</span>
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">byte</span> <span style="color: #e69f00; font-weight: bold;">largestByte</span> = <span style="color: #d55e00; font-weight: bold;">Byte</span>.MAX_VALUE;
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">short</span> <span style="color: #e69f00; font-weight: bold;">largestShort</span> = <span style="color: #d55e00; font-weight: bold;">Short</span>.MAX_VALUE;
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">largestInteger</span> = <span style="color: #d55e00; font-weight: bold;">Integer</span>.MAX_VALUE;
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #e69f00; font-weight: bold;">largestLong</span> = <span style="color: #d55e00; font-weight: bold;">Long</span>.MAX_VALUE;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">real numbers</span>
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">largestFloat</span> = <span style="color: #d55e00; font-weight: bold;">Float</span>.MAX_VALUE;
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">largestDouble</span> = <span style="color: #d55e00; font-weight: bold;">Double</span>.MAX_VALUE;
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">other primitive types</span>
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">aChar</span> = <span style="color: #848ea9;">'S'</span>;
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #e69f00; font-weight: bold;">aBoolean</span> = <span style="color: #d55e00; font-weight: bold;">true</span>;
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Display them all.</span>
+<span class="linenr">19: </span>    System.out.println(<span style="color: #848ea9;">"The largest byte value is "</span> + largestByte + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">20: </span>    System.out.println(<span style="color: #848ea9;">"The largest short value is "</span> + largestShort + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">21: </span>    System.out.println(<span style="color: #848ea9;">"The largest integer value is "</span> + largestInteger + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">22: </span>    System.out.println(<span style="color: #848ea9;">"The largest long value is "</span> + largestLong + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>    System.out.println(<span style="color: #848ea9;">"The largest float value is "</span> + largestFloat + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">25: </span>    System.out.println(<span style="color: #848ea9;">"The largest double value is "</span> + largestDouble + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (Character.isUpperCase(aChar)) {
+<span class="linenr">28: </span>      System.out.println(<span style="color: #848ea9;">"The character "</span> + aChar + <span style="color: #848ea9;">" is uppercase."</span>);
+<span class="linenr">29: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">30: </span>      System.out.println(<span style="color: #848ea9;">"The character "</span> + aChar + <span style="color: #848ea9;">" is lowercase."</span>);
+<span class="linenr">31: </span>    }
+<span class="linenr">32: </span>    System.out.println(<span style="color: #848ea9;">"The value of aBoolean is "</span> + aBoolean + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">33: </span>  }
+<span class="linenr">34: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65414a1" class="outline-2">
+<h2 id="org65414a1"><code>data/MinDemo.java</code></h2>
+<div class="outline-text-2" id="text-org65414a1">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">MinDemo</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">enrollmentPrice</span> = 45.875;
+<span class="linenr">5: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">closingPrice</span> = 54.375;
+<span class="linenr">6: </span>
+<span class="linenr">7: </span>    System.out.println(<span style="color: #848ea9;">"Your purchase price is: $"</span> + Math.min(enrollmentPrice, closingPrice));
+<span class="linenr">8: </span>  }
+<span class="linenr">9: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1b6c52a" class="outline-2">
+<h2 id="org1b6c52a"><code>data/MinVariablesDemo.java</code></h2>
+<div class="outline-text-2" id="text-org1b6c52a">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">MinVariablesDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">args</span>[]) {
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">integers</span>
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">byte</span> <span style="color: #e69f00; font-weight: bold;">smallestByte</span> = <span style="color: #d55e00; font-weight: bold;">Byte</span>.MIN_VALUE;
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">short</span> <span style="color: #e69f00; font-weight: bold;">smallestShort</span> = <span style="color: #d55e00; font-weight: bold;">Short</span>.MIN_VALUE;
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">smallestInteger</span> = <span style="color: #d55e00; font-weight: bold;">Integer</span>.MIN_VALUE;
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #e69f00; font-weight: bold;">smallestLong</span> = <span style="color: #d55e00; font-weight: bold;">Long</span>.MIN_VALUE;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">real numbers</span>
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">smallestFloat</span> = <span style="color: #d55e00; font-weight: bold;">Float</span>.MIN_VALUE;
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">smallestDouble</span> = <span style="color: #d55e00; font-weight: bold;">Double</span>.MIN_VALUE;
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">display them all</span>
+<span class="linenr">15: </span>    System.out.println(<span style="color: #848ea9;">"The smallest byte value is "</span> + smallestByte);
+<span class="linenr">16: </span>    System.out.println(<span style="color: #848ea9;">"The smallest short value is "</span> + smallestShort);
+<span class="linenr">17: </span>    System.out.println(<span style="color: #848ea9;">"The smallest integer value is "</span> + smallestInteger);
+<span class="linenr">18: </span>    System.out.println(<span style="color: #848ea9;">"The smallest long value is "</span> + smallestLong);
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    System.out.println(<span style="color: #848ea9;">"The smallest float value is "</span> + smallestFloat);
+<span class="linenr">21: </span>    System.out.println(<span style="color: #848ea9;">"The smallest double value is "</span> + smallestDouble);
+<span class="linenr">22: </span>  }
+<span class="linenr">23: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6be8092" class="outline-2">
+<h2 id="org6be8092"><code>data/NumberDemo.java</code></h2>
+<div class="outline-text-2" id="text-org6be8092">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">NumberDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">args</span>[]) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">Float</span> <span style="color: #e69f00; font-weight: bold;">floatOne</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Float</span>(14.78f - 13.78f);
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">Float</span> <span style="color: #e69f00; font-weight: bold;">floatTwo</span> = Float.valueOf(<span style="color: #848ea9;">"1.0"</span>);
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">Double</span> <span style="color: #e69f00; font-weight: bold;">doubleOne</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Double</span>(1.0);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">difference</span> = floatOne.compareTo(floatTwo);
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (difference == 0) {
+<span class="linenr">10: </span>      System.out.println(<span style="color: #848ea9;">"floatOne is equal to floatTwo."</span>);
+<span class="linenr">11: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> <span style="color: #56b4e9; font-weight: bold;">if</span> (difference &lt; 0) {
+<span class="linenr">12: </span>      System.out.println(<span style="color: #848ea9;">"floatOne is less than floatTwo."</span>);
+<span class="linenr">13: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> <span style="color: #56b4e9; font-weight: bold;">if</span> (difference &gt; 0) {
+<span class="linenr">14: </span>      System.out.println(<span style="color: #848ea9;">"floatOne is greater than floatTwo."</span>);
+<span class="linenr">15: </span>    }
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    System.out.println(
+<span class="linenr">18: </span>        <span style="color: #848ea9;">"floatOne is "</span> + ((floatOne.equals(doubleOne)) ? <span style="color: #848ea9;">"equal"</span> : <span style="color: #848ea9;">"not equal"</span>) + <span style="color: #848ea9;">" to doubleOne."</span>);
+<span class="linenr">19: </span>  }
+<span class="linenr">20: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge4aaa6c" class="outline-2">
+<h2 id="orge4aaa6c"><code>data/Palindrome.java</code></h2>
+<div class="outline-text-2" id="text-orge4aaa6c">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Palindrome</span> {
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #d55e00;">isPalindrome</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">stringToTest</span>) {
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">workingCopy</span> = removeJunk(stringToTest);
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">reversedCopy</span> = reverse(workingCopy);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> reversedCopy.equalsIgnoreCase(workingCopy);
+<span class="linenr"> 8: </span>  }
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  <span style="color: #56b4e9; font-weight: bold;">protected</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">removeJunk</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string</span>) {
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">len</span> = string.length();
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuilder</span> <span style="color: #e69f00; font-weight: bold;">dest</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuilder</span>(len);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">char</span> <span style="color: #e69f00; font-weight: bold;">c</span>;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = (len - 1); i &gt;= 0; i--) {
+<span class="linenr">16: </span>      c = string.charAt(i);
+<span class="linenr">17: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (Character.isLetterOrDigit(c)) {
+<span class="linenr">18: </span>        dest.append(c);
+<span class="linenr">19: </span>      }
+<span class="linenr">20: </span>    }
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> dest.toString();
+<span class="linenr">23: </span>  }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>  <span style="color: #56b4e9; font-weight: bold;">protected</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">reverse</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string</span>) {
+<span class="linenr">26: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuilder</span> <span style="color: #e69f00; font-weight: bold;">sb</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuilder</span>(string);
+<span class="linenr">27: </span>
+<span class="linenr">28: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> sb.reverse().toString();
+<span class="linenr">29: </span>  }
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">32: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">string</span> = <span style="color: #848ea9;">"Madam, I'm Adam."</span>;
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>    System.out.println();
+<span class="linenr">35: </span>    System.out.println(<span style="color: #848ea9;">"Testing whether the following "</span> + <span style="color: #848ea9;">"string is a palindrome:"</span>);
+<span class="linenr">36: </span>    System.out.println(<span style="color: #848ea9;">"    "</span> + string);
+<span class="linenr">37: </span>    System.out.println();
+<span class="linenr">38: </span>
+<span class="linenr">39: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (isPalindrome(string)) {
+<span class="linenr">40: </span>      System.out.println(<span style="color: #848ea9;">"It IS a palindrome!"</span>);
+<span class="linenr">41: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">42: </span>      System.out.println(<span style="color: #848ea9;">"It is NOT a palindrome!"</span>);
+<span class="linenr">43: </span>    }
+<span class="linenr">44: </span>    System.out.println();
+<span class="linenr">45: </span>  }
+<span class="linenr">46: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb930ce0" class="outline-2">
+<h2 id="orgb930ce0"><code>data/Point.java</code></h2>
+<div class="outline-text-2" id="text-orgb930ce0">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Point</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">x</span> = 0;
+<span class="linenr">3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">y</span> = 0;
+<span class="linenr">4: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">a constructor!</span>
+<span class="linenr">5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Point</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">y</span>) {
+<span class="linenr">6: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.x = x;
+<span class="linenr">7: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.y = y;
+<span class="linenr">8: </span>  }
+<span class="linenr">9: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8afac0e" class="outline-2">
+<h2 id="org8afac0e"><code>data/Rectangle.java</code></h2>
+<div class="outline-text-2" id="text-org8afac0e">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Rectangle</span> {
+<span class="linenr"> 2: </span>  <span style="color: #848ea9;">/** The width of this rectangle. */</span>
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">width</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #848ea9;">/** The height of this rectangle. */</span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">height</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>  <span style="color: #848ea9;">/** The origin (lower-left corner) of this rectangle. */</span>
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">Point</span> <span style="color: #e69f00; font-weight: bold;">origin</span>;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #848ea9;">/**</span>
+<span class="linenr">12: </span><span style="color: #848ea9;">   * Creates a rectangle with the specified size. The origin is (0, 0).</span>
+<span class="linenr">13: </span><span style="color: #848ea9;">   *</span>
+<span class="linenr">14: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@param</span><span style="color: #848ea9;"> w width of the rectangle</span>
+<span class="linenr">15: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@param</span><span style="color: #848ea9;"> h height of the rectangle</span>
+<span class="linenr">16: </span><span style="color: #848ea9;">   */</span>
+<span class="linenr">17: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Rectangle</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">w</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">h</span>) {
+<span class="linenr">18: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Point</span>(0, 0), w, h);
+<span class="linenr">19: </span>  }
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>  <span style="color: #848ea9;">/**</span>
+<span class="linenr">22: </span><span style="color: #848ea9;">   * Creates a rectangle with the specified origin and size.</span>
+<span class="linenr">23: </span><span style="color: #848ea9;">   *</span>
+<span class="linenr">24: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@param</span><span style="color: #848ea9;"> p origin of the rectangle</span>
+<span class="linenr">25: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@param</span><span style="color: #848ea9;"> w width of the rectangle</span>
+<span class="linenr">26: </span><span style="color: #848ea9;">   * </span><span style="color: #d55e00; font-weight: bold;">@param</span><span style="color: #848ea9;"> h height of the rectangle</span>
+<span class="linenr">27: </span><span style="color: #848ea9;">   */</span>
+<span class="linenr">28: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Rectangle</span>(<span style="color: #0072b2; font-weight: bold;">Point</span> <span style="color: #e69f00; font-weight: bold;">p</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">w</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">h</span>) {
+<span class="linenr">29: </span>    origin = p;
+<span class="linenr">30: </span>    width = w;
+<span class="linenr">31: </span>    height = h;
+<span class="linenr">32: </span>  }
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>  <span style="color: #848ea9;">/** Moves the rectangle to the specified origin. */</span>
+<span class="linenr">35: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">move</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">x</span>, <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">y</span>) {
+<span class="linenr">36: </span>    origin.x = x;
+<span class="linenr">37: </span>    origin.y = y;
+<span class="linenr">38: </span>  }
+<span class="linenr">39: </span>
+<span class="linenr">40: </span>  <span style="color: #848ea9;">/** Returns the computed area of the rectangle. */</span>
+<span class="linenr">41: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">area</span>() {
+<span class="linenr">42: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> width * height;
+<span class="linenr">43: </span>  }
+<span class="linenr">44: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org02665dc" class="outline-2">
+<h2 id="org02665dc"><code>data/RegionMatchesDemo.java</code></h2>
+<div class="outline-text-2" id="text-org02665dc">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">RegionMatchesDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">searchMe</span> = <span style="color: #848ea9;">"Green Eggs and Ham"</span>;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">findMe</span> = <span style="color: #848ea9;">"Eggs"</span>;
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">searchMeLength</span> = searchMe.length();
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">findMeLength</span> = findMe.length();
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #e69f00; font-weight: bold;">foundIt</span> = <span style="color: #d55e00; font-weight: bold;">false</span>;
+<span class="linenr"> 8: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt;= (searchMeLength - findMeLength); i++) {
+<span class="linenr"> 9: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (searchMe.regionMatches(i, findMe, 0, findMeLength)) {
+<span class="linenr">10: </span>        foundIt = <span style="color: #d55e00; font-weight: bold;">true</span>;
+<span class="linenr">11: </span>        System.out.println(searchMe.substring(i, i + findMeLength));
+<span class="linenr">12: </span>        <span style="color: #56b4e9; font-weight: bold;">break</span>;
+<span class="linenr">13: </span>      }
+<span class="linenr">14: </span>    }
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (!foundIt) System.out.println(<span style="color: #848ea9;">"No match found."</span>);
+<span class="linenr">16: </span>  }
+<span class="linenr">17: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdba41ef" class="outline-2">
+<h2 id="orgdba41ef"><code>data/ReverseString.java</code></h2>
+<div class="outline-text-2" id="text-orgdba41ef">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ReverseString</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">reverseIt</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">source</span>) {
+<span class="linenr">3: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>, <span style="color: #e69f00; font-weight: bold;">len</span> = source.length();
+<span class="linenr">4: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span> <span style="color: #e69f00; font-weight: bold;">dest</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>(len);
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (i = (len - 1); i &gt;= 0; i--) dest.append(source.charAt(i));
+<span class="linenr">7: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> dest.toString();
+<span class="linenr">8: </span>  }
+<span class="linenr">9: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8eee9c6" class="outline-2">
+<h2 id="org8eee9c6"><code>data/ReverseStringTest.java</code></h2>
+<div class="outline-text-2" id="text-org8eee9c6">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ReverseStringTest</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"What's going on?"</span>;
+<span class="linenr">4: </span>    System.out.println(ReverseString.reverseIt(str));
+<span class="linenr">5: </span>  }
+<span class="linenr">6: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbfb4ca9" class="outline-2">
+<h2 id="orgbfb4ca9"><code>data/SimplePoint.java</code></h2>
+<div class="outline-text-2" id="text-orgbfb4ca9">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">SimplePoint</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">x</span> = 0;
+<span class="linenr">3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">y</span> = 0;
+<span class="linenr">4: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org696727f" class="outline-2">
+<h2 id="org696727f"><code>data/SimpleRectangle.java</code></h2>
+<div class="outline-text-2" id="text-org696727f">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">SimpleRectangle</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">width</span> = 0;
+<span class="linenr">3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">height</span> = 0;
+<span class="linenr">4: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">SimplePoint</span> <span style="color: #e69f00; font-weight: bold;">origin</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">SimplePoint</span>();
+<span class="linenr">5: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c30bdf" class="outline-2">
+<h2 id="org8c30bdf"><code>data/StringBuilderDemo.java</code></h2>
+<div class="outline-text-2" id="text-org8c30bdf">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">StringBuilderDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">palindrome</span> = <span style="color: #848ea9;">"Dot saw I was Tod"</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuilder</span> <span style="color: #e69f00; font-weight: bold;">sb</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuilder</span>(palindrome);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    sb.reverse(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">reverse it</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    System.out.println(sb);
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org44cac92" class="outline-2">
+<h2 id="org44cac92"><code>data/StringDemo.java</code></h2>
+<div class="outline-text-2" id="text-org44cac92">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">StringDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">palindrome</span> = <span style="color: #848ea9;">"Dot saw I was Tod"</span>;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">len</span> = palindrome.length();
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">tempCharArray</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[len];
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">charArray</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[len];
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">put original string in an</span>
+<span class="linenr"> 9: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">array of chars</span>
+<span class="linenr">10: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; <span style="color: #0072b2; font-weight: bold;">len</span>; i++) {
+<span class="linenr">11: </span>      tempCharArray[i] = palindrome.charAt(i);
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">reverse array of chars</span>
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">j</span> = 0; j &lt; <span style="color: #0072b2; font-weight: bold;">len</span>; j++) {
+<span class="linenr">16: </span>      charArray[j] = tempCharArray[len - 1 - j];
+<span class="linenr">17: </span>    }
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">reversePalindrome</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(charArray);
+<span class="linenr">20: </span>    System.out.println(reversePalindrome);
+<span class="linenr">21: </span>  }
+<span class="linenr">22: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11c18d6" class="outline-2">
+<h2 id="org11c18d6"><code>data/StringsDemo.java</code></h2>
+<div class="outline-text-2" id="text-org11c18d6">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">StringsDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">palindrome</span> = <span style="color: #848ea9;">"Dot saw I was Tod"</span>;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">len</span> = palindrome.length();
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuilder</span> <span style="color: #e69f00; font-weight: bold;">dest</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuilder</span>(len);
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = (len - 1); i &gt;= 0; i--) {
+<span class="linenr"> 7: </span>      dest.append(palindrome.charAt(i));
+<span class="linenr"> 8: </span>    }
+<span class="linenr"> 9: </span>    System.out.format(<span style="color: #848ea9;">"%s%n"</span>, dest.toString());
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org96a73df" class="outline-2">
+<h2 id="org96a73df"><code>data/TestFormat.java</code></h2>
+<div class="outline-text-2" id="text-org96a73df">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Calendar</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Locale</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TestFormat</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #e69f00; font-weight: bold;">n</span> = 461012;
+<span class="linenr"> 8: </span>    System.out.format(<span style="color: #848ea9;">"%d%n"</span>, n);
+<span class="linenr"> 9: </span>    System.out.format(<span style="color: #848ea9;">"%08d%n"</span>, n);
+<span class="linenr">10: </span>    System.out.format(<span style="color: #848ea9;">"%+8d%n"</span>, n);
+<span class="linenr">11: </span>    System.out.format(<span style="color: #848ea9;">"%,8d%n"</span>, n);
+<span class="linenr">12: </span>    System.out.format(<span style="color: #848ea9;">"%+,8d%n%n"</span>, n);
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">pi</span> = <span style="color: #d55e00; font-weight: bold;">Math</span>.PI;
+<span class="linenr">15: </span>    System.out.format(<span style="color: #848ea9;">"%f%n"</span>, pi);
+<span class="linenr">16: </span>    System.out.format(<span style="color: #848ea9;">"%.3f%n"</span>, pi);
+<span class="linenr">17: </span>    System.out.format(<span style="color: #848ea9;">"%10.3f%n"</span>, pi);
+<span class="linenr">18: </span>    System.out.format(<span style="color: #848ea9;">"%-10.3f%n"</span>, pi);
+<span class="linenr">19: </span>    System.out.format(<span style="color: #d55e00; font-weight: bold;">Locale</span>.FRANCE, <span style="color: #848ea9;">"%-10.4f%n%n"</span>, pi);
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>    <span style="color: #0072b2; font-weight: bold;">Calendar</span> <span style="color: #e69f00; font-weight: bold;">c</span> = Calendar.getInstance();
+<span class="linenr">22: </span>    System.out.format(<span style="color: #848ea9;">"%tB %te, %tY%n"</span>, c, c, c);
+<span class="linenr">23: </span>    System.out.format(<span style="color: #848ea9;">"%tl:%tM %tp%n"</span>, c, c, c);
+<span class="linenr">24: </span>    System.out.format(<span style="color: #848ea9;">"%tD%n"</span>, c);
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org88ee399" class="outline-2">
+<h2 id="org88ee399"><code>data/ThisHappens.java</code></h2>
+<div class="outline-text-2" id="text-org88ee399">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ThisHappens</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>[] <span style="color: #e69f00; font-weight: bold;">stringBuffers</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>[10];
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; stringBuffers.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr"> 6: </span>      stringBuffers[i] = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>();
+<span class="linenr"> 7: </span>      stringBuffers[i].append(<span style="color: #848ea9;">"StringBuffer at index "</span> + i);
+<span class="linenr"> 8: </span>    }
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9e868b0" class="outline-2">
+<h2 id="org9e868b0"><code>data/ToStringDemo.java</code></h2>
+<div class="outline-text-2" id="text-org9e868b0">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ToStringDemo</span> {
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">d</span> = 858.48;
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">s</span> = Double.toString(d);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">dot</span> = s.indexOf(<span style="color: #848ea9;">'.'</span>);
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    System.out.println(dot + <span style="color: #848ea9;">" digits "</span> + <span style="color: #848ea9;">"before decimal point."</span>);
+<span class="linenr">10: </span>    System.out.println((s.length() - dot - 1) + <span style="color: #848ea9;">" digits after decimal point."</span>);
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9584c8" class="outline-2">
+<h2 id="orgf9584c8"><code>data/TrigonometricDemo.java</code></h2>
+<div class="outline-text-2" id="text-orgf9584c8">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TrigonometricDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">degrees</span> = 45.0;
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">radians</span> = Math.toRadians(degrees);
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    System.out.format(<span style="color: #848ea9;">"The value of pi "</span> + <span style="color: #848ea9;">"is %.4f%n"</span>, <span style="color: #d55e00; font-weight: bold;">Math</span>.PI);
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    System.out.format(<span style="color: #848ea9;">"The sine of %.1f "</span> + <span style="color: #848ea9;">"degrees is %.4f%n"</span>, degrees, Math.sin(radians));
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    System.out.format(<span style="color: #848ea9;">"The cosine of %.1f "</span> + <span style="color: #848ea9;">"degrees is %.4f%n"</span>, degrees, Math.cos(radians));
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    System.out.format(<span style="color: #848ea9;">"The tangent of %.1f "</span> + <span style="color: #848ea9;">"degrees is %.4f%n"</span>, degrees, Math.tan(radians));
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    System.out.format(
+<span class="linenr">15: </span>        <span style="color: #848ea9;">"The arcsine of %.4f "</span> + <span style="color: #848ea9;">"is %.4f degrees %n"</span>,
+<span class="linenr">16: </span>        Math.sin(radians), Math.toDegrees(Math.asin(Math.sin(radians))));
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>    System.out.format(
+<span class="linenr">19: </span>        <span style="color: #848ea9;">"The arccosine of %.4f "</span> + <span style="color: #848ea9;">"is %.4f degrees %n"</span>,
+<span class="linenr">20: </span>        Math.cos(radians), Math.toDegrees(Math.acos(Math.cos(radians))));
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>    System.out.format(
+<span class="linenr">23: </span>        <span style="color: #848ea9;">"The arctangent of %.4f "</span> + <span style="color: #848ea9;">"is %.4f degrees %n"</span>,
+<span class="linenr">24: </span>        Math.tan(radians), Math.toDegrees(Math.atan(Math.tan(radians))));
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0fc189" class="outline-2">
+<h2 id="orgf0fc189"><code>data/Unboxing.java</code></h2>
+<div class="outline-text-2" id="text-orgf0fc189">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">ArrayList</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">List</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Unboxing</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">Integer</span> <span style="color: #e69f00; font-weight: bold;">i</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Integer</span>(-8);
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">1. Unboxing through method invocation</span>
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">absVal</span> = absoluteValue(i);
+<span class="linenr">12: </span>    System.out.println(<span style="color: #848ea9;">"absolute value of "</span> + i + <span style="color: #848ea9;">" = "</span> + absVal);
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">List</span>&lt;<span style="color: #0072b2; font-weight: bold;">Double</span>&gt; <span style="color: #e69f00; font-weight: bold;">ld</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ArrayList</span>&lt;&gt;();
+<span class="linenr">15: </span>    ld.add(3.1416); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">PI is autoboxed through method invocation.</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">2. Unboxing through assignment</span>
+<span class="linenr">18: </span>    <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #e69f00; font-weight: bold;">phi</span> = ld.get(0);
+<span class="linenr">19: </span>    System.out.println(<span style="color: #848ea9;">"phi = "</span> + phi);
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">absoluteValue</span>(<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span>) {
+<span class="linenr">23: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> (i &lt; 0) ? -i : i;
+<span class="linenr">24: </span>  }
+<span class="linenr">25: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2536273" class="outline-2">
+<h2 id="org2536273"><code>data/ValueOfDemo.java</code></h2>
+<div class="outline-text-2" id="text-org2536273">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ValueOfDemo</span> {
+<span class="linenr"> 2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">this program requires two</span>
+<span class="linenr"> 5: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">arguments on the command line</span>
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (args.length == 2) {
+<span class="linenr"> 7: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">convert strings to numbers</span>
+<span class="linenr"> 8: </span>      <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">a</span> = (Float.valueOf(args[0])).floatValue();
+<span class="linenr"> 9: </span>      <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #e69f00; font-weight: bold;">b</span> = (Float.valueOf(args[1])).floatValue();
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">do some arithmetic</span>
+<span class="linenr">12: </span>      System.out.println(<span style="color: #848ea9;">"a + b = "</span> + (a + b));
+<span class="linenr">13: </span>      System.out.println(<span style="color: #848ea9;">"a - b = "</span> + (a - b));
+<span class="linenr">14: </span>      System.out.println(<span style="color: #848ea9;">"a * b = "</span> + (a * b));
+<span class="linenr">15: </span>      System.out.println(<span style="color: #848ea9;">"a / b = "</span> + (a / b));
+<span class="linenr">16: </span>      System.out.println(<span style="color: #848ea9;">"a % b = "</span> + (a % b));
+<span class="linenr">17: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">18: </span>      System.out.println(<span style="color: #848ea9;">"This program "</span> + <span style="color: #848ea9;">"requires two command-line arguments."</span>);
+<span class="linenr">19: </span>    }
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1cbf606" class="outline-2">
+<h2 id="org1cbf606"><code>data/WhatHappens.java</code></h2>
+<div class="outline-text-2" id="text-org1cbf606">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #009e73; font-style: italic;">//</span>
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">WhatHappens</span> {
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>[] <span style="color: #e69f00; font-weight: bold;">stringBuffers</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>[10];
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; stringBuffers.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr"> 7: </span>      stringBuffers[i].append(<span style="color: #848ea9;">"StringBuffer at index "</span> + i);
+<span class="linenr"> 8: </span>    }
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

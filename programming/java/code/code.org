@@ -7,7 +7,7 @@
   - [[file:head-first/head-first.html][head-first]]
   - [[file:think-java/think-java.html][think-java]]
   - tutorial
-    - [[file:tutorial/basic/java-8-basic-tutorial.html][basic]]
+    - [[file:tutorial/basic/index.html][basic]]
     - [[file:tutorial/specialized/java-8-specialized-tutorial.html][specialized]]
   - [[file:practical/practical.org][practical]]
 - jkee
