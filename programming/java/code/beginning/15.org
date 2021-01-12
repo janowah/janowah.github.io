@@ -1,0 +1,1207 @@
+#+title: ch15 - A Collection of Useful Classes
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+
+# suc, bs, obs
+
+* 1.TryRegex
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Smith, where Jones had had 'had', had had 'had had'.
+                     ^^^ ^^^  ^^^   ^^^ ^^^  ^^^ ^^^  
+#+END_EXAMPLE
+
+** =TryRegexOne.java=
+
+#+BEGIN_SRC java -n :tangle TryRegexOne.java :padline no
+  import java.util.Arrays;
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class TryRegexOne {
+
+    public static void main(String[] args) {
+      //  A regex and a string in which to search are specified
+      String regEx = "had";
+      String str = "Smith, where Jones had had 'had', had had 'had had'.";
+
+      // The matches in the output will be marked (fixed-width font
+      // required)
+      char[] marker = new char[str.length()];
+      Arrays.fill(marker, ' '); // So we can later replace spaces with marker characters
+
+      //  Obtain the required matcher
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+
+      // Find every match and mark it
+      while (m.find()) {
+        System.out.println("Pattern found at Start: " + m.start() + " End: " + m.end());
+        Arrays.fill(marker, m.start(), m.end(), '^');
+      }
+
+      // Show the object string with matches marked under it
+      System.out.println(str);
+      System.out.println(new String(marker));
+    }
+  }
+#+END_SRC
+
+* 2.TryRegex
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Ted and Ned Hodge hid their hod and huddled in the hedge.
+                    ^^^       ^^^     ^^^            ^^^   
+#+END_EXAMPLE
+
+** =TryRegexTwo.java=
+
+#+BEGIN_SRC java -n :tangle TryRegexTwo.java :padline no
+  import java.util.Arrays;
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class TryRegexTwo {
+
+    public static void main(String[] args) {
+
+      //  A regex and a string in which to search are specified
+      String regEx = "h.d";
+      String str = "Ted and Ned Hodge hid their hod and huddled in the hedge.";
+
+      // The matches in the output will be marked (fixed-width font required)
+      char[] marker = new char[str.length()];
+      Arrays.fill(marker, ' '); // So we can later replace spaces with marker characters
+
+      //  Obtain the required matcher
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+
+      // Find every match and mark it
+      while (m.find()) {
+        // System.out.println("Pattern found at Start: " + m.start() + " End: " + m.end());
+        Arrays.fill(marker, m.start(), m.end(), '^');
+      }
+
+      // Show the object string with matches marked under it
+      System.out.println(str);
+      System.out.println(new String(marker));
+    }
+  }
+#+END_SRC
+
+* 3.TryRegex
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Ted and Ned Hodge hid their hod and huddled in the hedge.
+                    ^^^       ^^^                          
+#+END_EXAMPLE
+
+** =TryRegexThree.java=
+
+#+BEGIN_SRC java -n :tangle TryRegexThree.java :padline no
+  import java.util.Arrays;
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class TryRegexThree {
+
+    public static void main(String[] args) {
+
+      // A regex and a string in which to search are specified
+      String regEx = "h[aio]d";
+      String str = "Ted and Ned Hodge hid their hod and huddled in the hedge.";
+
+      // The matches in the output will be marked (fixed-width font required)
+      char[] marker = new char[str.length()];
+      Arrays.fill(marker, ' '); //  So we can later replace spaces with marker characters
+
+      // Obtain the required matcher
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+
+      // Find every match and mark it
+      while (m.find()) {
+        System.out.println("Pattern found at Start: " + m.start() + " End: " + m.end());
+        Arrays.fill(marker, m.start(), m.end(), '^');
+      }
+
+      // Show the object string with matches marked under it
+      System.out.println(str);
+      System.out.println(new String(marker));
+    }
+  }
+#+END_SRC
+
+* 4.TryRegex
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Ted and Ned Hodge hid their hod and huddled in the hedge.
+              ^^^   ^^^       ^^^     ^^^            ^^^   
+#+END_EXAMPLE
+
+** =TryRegexFour.java=
+
+#+BEGIN_SRC java -n :tangle TryRegexFour.java :padline no
+  import java.util.Arrays;
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class TryRegexFour {
+    public static void main(String[] args) {
+      //  A regex and a string in which to search are specified
+      String regEx = "[h|H][aeiou]d";
+      String str = "Ted and Ned Hodge hid their hod and huddled in the hedge.";
+
+      // The matches in the output will be marked (fixed-width font required)
+      char[] marker = new char[str.length()];
+      Arrays.fill(marker, ' '); //  So we can later replace spaces with marker characters
+
+      //  Obtain the required matcher
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+
+      // Find every match and mark it
+      while (m.find()) {
+        //      System.out.println("Pattern found at Start: "+m.start()+" End: "+m.end());
+        Arrays.fill(marker, m.start(), m.end(), '^');
+      }
+
+      // Show the object string with matches marked under it
+      System.out.println(str);
+      System.out.println(new String(marker));
+    }
+  }
+#+END_SRC
+
+* 5.TryRegex
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Ted and Ned Hodge hid their hod and huddled in the hedge.
+                   ^^^^^     ^^^^^                         
+#+END_EXAMPLE
+
+** =TryRegexFive.java=
+
+#+BEGIN_SRC java -n :tangle TryRegexFive.java :padline no
+  import java.util.Arrays;
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class TryRegexFive {
+    public static void main(String[] args) {
+      //  A regex and a string in which to search are specified
+      String regEx = "\\sh.d\\s";
+      String str = "Ted and Ned Hodge hid their hod and huddled in the hedge.";
+
+      // The matches in the output will be marked (fixed-width font required)
+      char[] marker = new char[str.length()];
+      Arrays.fill(marker, ' '); //  So we can later replace spaces with marker characters
+
+      //  Obtain the required matcher
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+
+      // Find every match and mark it
+      while (m.find()) {
+        //      System.out.println("Pattern found at Start: "+m.start()+" End: "+m.end());
+        Arrays.fill(marker, m.start(), m.end(), '^');
+      }
+
+      // Show the object string with matches marked under it
+      System.out.println(str);
+      System.out.println(new String(marker));
+    }
+  }
+#+END_SRC
+
+* 6.TryRegex
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Ted and Ned Hodge hid their hod and huddled in the hedge.
+             ^^^^^^^                                ^^^^^^^
+#+END_EXAMPLE
+
+** =TryRegexSix.java=
+
+#+BEGIN_SRC java -n :tangle TryRegexSix.java :padline no
+  import java.util.Arrays;
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class TryRegexSix {
+    public static void main(String[] args) {
+      //  A regex and a string in which to search are specified
+      String regEx = "\\s[h|H][e|o]dge[\\s|\\.]";
+      String str = "Ted and Ned Hodge hid their hod and huddled in the hedge.";
+
+      // The matches in the output will be marked (fixed-width font required)
+      char[] marker = new char[str.length()];
+      Arrays.fill(marker, ' '); //  So we can later replace spaces with marker characters
+
+      //  Obtain the required matcher
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+
+      // Find every match and mark it
+      while (m.find()) {
+        //      System.out.println("Pattern found at Start: "+m.start()+" End: "+m.end());
+        Arrays.fill(marker, m.start(), m.end(), '^');
+      }
+
+      // Show the object string with matches marked under it
+      System.out.println(str);
+      System.out.println(new String(marker));
+    }
+  }
+#+END_SRC
+
+* Dice
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  You have six throws of a pair of dice.
+  The objective is to get a double six. Here goes...
+
+  First throw: 4, 2
+  Second throw: 4, 5
+  Third throw: 4, 3
+  Fourth throw: 2, 5
+  Fifth throw: 6, 6
+      You win!!
+#+END_EXAMPLE
+
+** =Dice.java=
+
+#+BEGIN_SRC java -n :tangle Dice.java :padline no
+  import java.util.Random;
+
+  public class Dice {
+
+    public static void main(String[] args) {
+      System.out.println(
+          "You have six throws of a pair of dice.\n"
+              + "The objective is to get a double six. Here goes...\n");
+
+      Random diceValues = new Random(); // Random number generator
+      String[] goes = {
+        "First", "Second", "Third",
+        "Fourth", "Fifth", "Sixth"
+      };
+      int die1 = 0; // First die value
+      int die2 = 0; // Second die value
+
+      for (String go : goes) {
+        die1 = 1 + diceValues.nextInt(6); // Number from 1 to 6
+        die2 = 1 + diceValues.nextInt(6); // Number from 1 to 6
+        System.out.println(go + " throw: " + die1 + ", " + die2);
+
+        if (die1 + die2 == 12) { // Is it double 6?
+          System.out.println("    You win!!"); // Yes !!!
+          return;
+        }
+      }
+      System.out.println("Sorry, you lost...");
+      return;
+    }
+  }
+#+END_SRC
+
+* FindingIntegers
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  256
+  16
+  -2.5
+  6.25
+  .243
+  0.1234
+#+END_EXAMPLE
+
+** =FindingIntegers.java=
+
+#+BEGIN_SRC java -n :tangle FindingIntegers.java :padline no
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  public class FindingIntegers {
+
+    public static void main(String[] args) {
+
+      String regEx = "[+|-]?(\\d+(\\.\\d*)?)|(\\.\\d+)";
+      String str =
+          "256 is the square of 16 and -2.5 squared is 6.25 " + "and -.243 is less than 0.1234.";
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+      int i = 0;
+      String subStr = null;
+      while (m.find()) {
+        System.out.println(m.group()); // Output the substring matched
+      }
+    }
+  }
+#+END_SRC
+
+* RearrangeText
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Original Code:
+  double result = Math.pow( 3.0, 16.0); 
+  double resultSquared = Math.pow(2 ,result );
+  double hypotenuse = Math.sqrt(Math.pow(2.0, 30.0)+Math.pow(2 , 40.0));
+
+  New Code:
+  double result = Math.pow(16.0,3.0); 
+  double resultSquared = Math.pow(result,2);
+  double hypotenuse = Math.sqrt(Math.pow(30.0,2.0)+Math.pow(40.0,2));
+#+END_EXAMPLE
+
+** =RearrangeText.java=
+
+#+BEGIN_SRC java -n :tangle RearrangeText.java :padline no
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  public class RearrangeText {
+
+    public static void main(String[] args) {
+      String regEx =
+          "(Math.pow)" // Math.pow
+              + "\\s*\\(" // Opening parenthesis
+              + "\\s*([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))" // First argument
+              + "\\s*,\\s*" // Comma
+              + "([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))" // Second argument
+              + "\\s*\\)"; // Closing parenthesis
+
+      // String regEx =
+      // "(Math.pow)\\s*\\(\\s*([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))\\s*,\\s*([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))\\s*\\)";
+      String oldCode =
+          "double result = Math.pow( 3.0, 16.0); "
+              + "\ndouble resultSquared = Math.pow(2 ,result );"
+              + "\ndouble hypotenuse = Math.sqrt(Math.pow(2.0, 30.0)+Math.pow(2 , 40.0));";
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(oldCode);
+
+      StringBuffer newCode = new StringBuffer();
+      while (m.find()) {
+        m.appendReplacement(newCode, "$1\\($5,$2\\)");
+      }
+      m.appendTail(newCode);
+
+      System.out.println("Original Code:\n" + oldCode.toString());
+      System.out.println("\nNew Code:\n" + newCode.toString());
+    }
+  }
+#+END_SRC
+
+* ScanString
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  String is:
+  Smith , where Jones had had 'had', had had 'had had'.
+  Token sought is: had
+  Token is    : Smith
+  Token is    : ,
+  Token is    : where
+  Token is    : Jones
+  Token found!: had
+  Token found!: had
+  Token is    : 'had',
+  Token found!: had
+  Token found!: had
+  Token is    : 'had
+  Token is    : had'.
+  4 instances of "had" were found.
+#+END_EXAMPLE
+
+** =ScanString.java=
+
+#+BEGIN_SRC java -n :tangle ScanString.java :padline no
+  import java.util.Scanner;
+  import java.util.regex.Pattern;
+
+  public class ScanString {
+
+    public static void main(String[] args) {
+
+      String str = "Smith , where Jones had had 'had', had had 'had had'.";
+      String regex = "had";
+      System.out.println("String is:\n" + str + "\nToken sought is: " + regex);
+
+      Pattern had = Pattern.compile(regex);
+      Scanner strScan = new Scanner(str);
+      // strScan.useDelimiter("\\s'|\\s*'?[.|,]\\s*|\\s");
+      int hadCount = 0;
+      while (strScan.hasNext()) {
+        if (strScan.hasNext(had)) {
+          ++hadCount;
+          System.out.println("Token found!: " + strScan.next(had));
+        } else {
+          System.out.println("Token is    : " + strScan.next());
+        }
+      }
+      System.out.println(hadCount + " instances of \"" + regex + "\" were found.");
+    }
+  }
+#+END_SRC
+
+* SearchAndReplace
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  My goat hasn't got any nose.
+  How does your goat smell then?
+  My goat smells horrible.
+#+END_EXAMPLE
+
+** =SearchAndReplace.java=
+
+#+BEGIN_SRC java -n :tangle SearchAndReplace.java :padline no
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  class SearchAndReplace {
+
+    public static void main(String[] args) {
+      String joke =
+          "My dog hasn't got any nose.\n"
+              + "How does your dog smell then?\n"
+              + "My dog smells horrible.\n";
+      String regEx = "dog";
+
+      Pattern doggone = Pattern.compile(regEx);
+      Matcher m = doggone.matcher(joke);
+
+      StringBuffer newJoke = new StringBuffer();
+      while (m.find()) {
+        m.appendReplacement(newJoke, "goat");
+      }
+      m.appendTail(newJoke);
+      System.out.println(newJoke.toString());
+    }
+  }
+#+END_SRC
+
+* SortingUsingComparator
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Original order:
+  Danielle Steel
+  John Grisham
+  Tom Clancy
+  Christina Schwartz
+  Patricia Cornwell
+  Bill Bryson
+
+  Order after sorting using comparator:
+  Danielle Steel
+  Christina Schwartz
+  John Grisham
+  Patricia Cornwell
+  Tom Clancy
+  Bill Bryson
+
+  Order after sorting using Comparable method:
+  Bill Bryson
+  Tom Clancy
+  Patricia Cornwell
+  John Grisham
+  Christina Schwartz
+  Danielle Steel
+#+END_EXAMPLE
+
+** =ComparePersons.java=
+
+#+BEGIN_SRC java -n :tangle suc/ComparePersons.java :padline no
+  import java.util.Comparator;
+
+  public class ComparePersons implements Comparator<Person> {
+
+    // Method to compare Person objects - order is descending
+    public int compare(Person person1, Person person2) {
+      int result = -person1.getSurname().compareTo(person2.getSurname());
+      return result == 0 ? -person1.getFirstName().compareTo(person2.getFirstName()) : result;
+    }
+
+    // Method to compare with another comparator
+    public boolean equals(Object collator) {
+      if (this == collator) { // If argument is the same object
+        return true; // then it must be equal
+      }
+      if (collator == null) { // If argument is null
+        return false; // then it can't be equal
+      }
+      return getClass() == collator.getClass(); // Class must be the same for equal
+    }
+  }
+#+END_SRC
+
+** =Person.java=
+
+#+BEGIN_SRC java -n :tangle suc/Person.java :padline no
+  public class Person implements Comparable<Person> {
+
+    // Constructor
+    public Person(String firstName, String surname) {
+      this.firstName = firstName;
+      this.surname = surname;
+    }
+
+    public String toString() {
+      return firstName + " " + surname;
+    }
+
+    // Compare Person objects
+    public int compareTo(Person person) {
+      int result = surname.compareTo(person.surname);
+      return result == 0 ? firstName.compareTo(person.firstName) : result;
+    }
+
+    public String getFirstName() {
+      return firstName;
+    }
+
+    public String getSurname() {
+      return surname;
+    }
+
+    private String firstName; // First name of person
+    private String surname; // Second name of person
+  }
+#+END_SRC
+
+** =TrySortingWithComparator.java=
+
+#+BEGIN_SRC java -n :tangle suc/TrySortingWithComparator.java :padline no
+  import java.util.Arrays;
+
+  public class TrySortingWithComparator {
+
+    public static void main(String[] args) {
+      Person[] authors = {
+        new Person("Danielle", "Steel"),
+        new Person("John", "Grisham"),
+        new Person("Tom", "Clancy"),
+        new Person("Christina", "Schwartz"),
+        new Person("Patricia", "Cornwell"),
+        new Person("Bill", "Bryson")
+      };
+
+      System.out.println("Original order:");
+      for (Person author : authors) {
+        System.out.println(author);
+      }
+
+      Arrays.sort(authors, new ComparePersons()); // Sort using comparator
+
+      System.out.println("\nOrder after sorting using comparator:");
+      for (Person author : authors) {
+        System.out.println(author);
+      }
+
+      Arrays.sort(authors); // Sort using Comparable method
+
+      System.out.println("\nOrder after sorting using Comparable method:");
+      for (Person author : authors) {
+        System.out.println(author);
+      }
+    }
+  }
+#+END_SRC
+
+* StringTokenizing
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Number of tokens: 10
+  To
+  be
+  or
+  not
+  to
+  be
+  that
+  is
+  the
+  question
+#+END_EXAMPLE
+
+** =StringTokenizing.java=
+
+#+BEGIN_SRC java -n :tangle StringTokenizing.java :padline no
+  public class StringTokenizing {
+
+    public static void main(String[] args) {
+      String text = "To be or not to be, that is the question."; // String to segment
+      String delimiters = "\\s+|,\\s*|\\.\\s*";
+
+      // Analyze the string
+      String[] tokens = text.split(delimiters);
+
+      // Output the tokens
+      System.out.println("Number of tokens: " + tokens.length);
+      for (String token : tokens) {
+        System.out.println(token);
+      }
+    }
+  }
+#+END_SRC
+
+* BinarySearch
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Order after sorting into ascending sequence:
+  Bill Bryson
+  Tom Clancy
+  Patricia Cornwell
+  John Grisham
+  Christina Schwartz
+  Danielle Steel
+
+  In search of authors:
+  Christina Schwartz was found at index position 4
+  Ned Kelly was not found. Return value is -5
+  Tom Clancy was found at index position 1
+  Charles Dickens was not found. Return value is -4
+#+END_EXAMPLE
+
+** =Person.java=
+
+#+BEGIN_SRC java -n :tangle bs/Person.java :padline no
+  public class Person implements Comparable<Person> {
+    // Constructor
+    public Person(String firstName, String surname) {
+      this.firstName = firstName;
+      this.surname = surname;
+    }
+
+    public String toString() {
+      return firstName + " " + surname;
+    }
+
+    // Compare Person objects
+    public int compareTo(Person person) {
+      int result = surname.compareTo(person.surname);
+      return result == 0 ? firstName.compareTo(person.firstName) : result;
+    }
+
+    public String getFirstName() {
+      return firstName;
+    }
+
+    public String getSurname() {
+      return surname;
+    }
+
+    private String firstName; // First name of person
+    private String surname; // Second name of person
+  }
+#+END_SRC
+
+** =TryBinarySearch.java=
+
+#+BEGIN_SRC java -n :tangle bs/TryBinarySearch.java :padline no
+  import java.util.Arrays;
+
+  public class TryBinarySearch {
+
+    public static void main(String[] args) {
+
+      Person[] authors = {
+        new Person("Danielle", "Steel"),
+        new Person("John", "Grisham"),
+        new Person("Tom", "Clancy"),
+        new Person("Christina", "Schwartz"),
+        new Person("Patricia", "Cornwell"),
+        new Person("Bill", "Bryson")
+      };
+
+      Arrays.sort(authors); // Sort using Comparable method
+
+      System.out.println("\nOrder after sorting into ascending sequence:");
+      for (Person author : authors) {
+        System.out.println(author);
+      }
+
+      // Search for authors
+      Person[] people = {
+        new Person("Christina", "Schwartz"),
+        new Person("Ned", "Kelly"),
+        new Person("Tom", "Clancy"),
+        new Person("Charles", "Dickens")
+      };
+      int index = 0;
+      System.out.println("\nIn search of authors:");
+      for (Person person : people) {
+        index = Arrays.binarySearch(authors, person);
+        if (index >= 0) {
+          System.out.println(person + " was found at index position " + index);
+        } else {
+          System.out.println(person + " was not found. Return value is " + index);
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* Calendar
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Enter your birth date as dd mm yyyy: 
+  05 04 1949
+  You were born on a Tuesday
+  This year you are 71 years old.
+  In 2020 your birthday was on a Sunday.
+#+END_EXAMPLE
+
+** =FormattedInput.java=
+
+#+BEGIN_SRC java -n :tangle FormattedInput.java :padline no
+  import java.io.BufferedReader;
+  import java.io.IOException;
+  import java.io.InputStreamReader;
+  import java.io.StreamTokenizer;
+
+  public class FormattedInput {
+
+    // Method to read an int value
+    public int readInt() throws InvalidUserInputException {
+      if (readToken() != tokenizer.TT_NUMBER) {
+        throw new InvalidUserInputException(" readInt() failed. " + "Input data not numeric");
+      }
+
+      if (tokenizer.nval > (double) Integer.MAX_VALUE
+          || tokenizer.nval < (double) Integer.MIN_VALUE) {
+        throw new InvalidUserInputException(
+            " readInt() failed. " + "Input outside range of type int ");
+      }
+
+      if (tokenizer.nval != (double) (int) tokenizer.nval) {
+        throw new InvalidUserInputException(" readInt() failed. " + "Input not an integer");
+      }
+      return (int) tokenizer.nval;
+    }
+
+    // Method to read a long value
+    public long readLong() throws InvalidUserInputException {
+      if (readToken() != tokenizer.TT_NUMBER) {
+        throw new InvalidUserInputException(" readLong() failed. " + "Input data not numeric");
+      }
+
+      if (tokenizer.nval > (double) Long.MAX_VALUE || tokenizer.nval < (double) Long.MIN_VALUE) {
+        throw new InvalidUserInputException(
+            " readLong() failed. " + "Input outside range of type long ");
+      }
+
+      if (tokenizer.nval != (double) (long) tokenizer.nval) {
+        throw new InvalidUserInputException(" readLong() failed. " + "Input not an integer");
+      }
+      return (long) tokenizer.nval;
+    }
+
+    // Method to read a double value
+    public double readDouble() throws InvalidUserInputException {
+      if (readToken() != tokenizer.TT_NUMBER) {
+        throw new InvalidUserInputException(" readDouble() failed. " + "Input data not numeric");
+      }
+      return tokenizer.nval;
+    }
+
+    // Method to read a double value
+    public float readFloat() throws InvalidUserInputException {
+      if (readToken() != tokenizer.TT_NUMBER) {
+        throw new InvalidUserInputException(" readFloat() failed. " + "Input data not numeric");
+      }
+      return (float) tokenizer.nval;
+    }
+
+    // Method to read a string
+    public String readString() throws InvalidUserInputException {
+      if (readToken() == tokenizer.TT_WORD || ttype == '\"' || ttype == '\'') {
+        return tokenizer.sval;
+      } else {
+        throw new InvalidUserInputException(" readString() failed. " + "Input data is not a string");
+      }
+    }
+
+    // Helper method to read the next token
+    private int readToken() {
+      try {
+        ttype = tokenizer.nextToken();
+        return ttype;
+
+      } catch (IOException e) { // Error reading in nextToken()
+        e.printStackTrace(System.err);
+        System.exit(1); // End the program
+      }
+      return 0;
+    }
+
+    // Object to tokenize input from the standard input stream
+    private StreamTokenizer tokenizer =
+        new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+    private int ttype; // Stores the token type code
+  }
+#+END_SRC
+
+** =InvalidUserInputException.java=
+
+#+BEGIN_SRC java -n :tangle InvalidUserInputException.java :padline no
+  public class InvalidUserInputException extends Exception {
+    public InvalidUserInputException() {}
+
+    public InvalidUserInputException(String message) {
+      super(message);
+    }
+  }
+#+END_SRC
+
+** =TryCalendar.java=
+
+#+BEGIN_SRC java -n :tangle TryCalendar.java :padline no
+  import static java.util.Calendar.*;
+
+  import java.text.DateFormatSymbols;
+  import java.util.GregorianCalendar;
+
+  class TryCalendar {
+    public static void main(String[] args) {
+      FormattedInput in = new FormattedInput();
+
+      // Get the date of birth from the keyboard
+      int day = 0;
+      int month = 0;
+      int year = 0;
+
+      System.out.println("Enter your birth date as dd mm yyyy: ");
+      try {
+        day = in.readInt();
+        month = in.readInt();
+        year = in.readInt();
+      } catch (InvalidUserInputException e) {
+        System.out.println("Invalid input - terminating...");
+        System.exit(1);
+      }
+
+      // Create birth date calendar - month is 0 to 11
+      GregorianCalendar birthdate = new GregorianCalendar(year, month - 1, day);
+      GregorianCalendar today = new GregorianCalendar(); // Today's date
+
+      // Create this year's birthday
+      GregorianCalendar birthday =
+          new GregorianCalendar(today.get(YEAR), birthdate.get(MONTH), birthdate.get(DATE));
+
+      int age = today.get(today.YEAR) - birthdate.get(YEAR);
+
+      String[] weekdays = new DateFormatSymbols().getWeekdays(); // Get day names
+
+      System.out.println("You were born on a " + weekdays[birthdate.get(DAY_OF_WEEK)]);
+      System.out.println(
+          "This year you " + (birthday.after(today) ? "will be " : "are ") + age + " years old.");
+      System.out.println(
+          "In "
+              + today.get(YEAR)
+              + " your birthday "
+              + (today.before(birthday) ? "will be" : "was")
+              + " on a "
+              + weekdays[birthday.get(DAY_OF_WEEK)]
+              + ".");
+    }
+  }
+#+END_SRC
+
+* CapturingGroups
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Group 0: 256
+  Group 1: 256
+  Group 2: null
+  Group 3: null
+  Group 0: 16
+  Group 1: 16
+  Group 2: null
+  Group 3: null
+  Group 0: -2.5
+  Group 1: 2.5
+  Group 2: .5
+  Group 3: null
+  Group 0: 6.25
+  Group 1: 6.25
+  Group 2: .25
+  Group 3: null
+  Group 0: .243
+  Group 1: null
+  Group 2: null
+  Group 3: .243
+  Group 0: 0.1234
+  Group 1: 0.1234
+  Group 2: .1234
+  Group 3: null
+#+END_EXAMPLE
+
+** =TryCapturingGroups.java=
+
+#+BEGIN_SRC java -n :tangle TryCapturingGroups.java :padline no
+  import java.util.regex.Matcher;
+  import java.util.regex.Pattern;
+
+  public class TryCapturingGroups {
+
+    public static void main(String[] args) {
+      String regEx = "[+|-]?(\\d+(\\.\\d*)?)|(\\.\\d+)";
+      String str =
+          "256 is the square of 16 and -2.5 squared is 6.25 " + "and -.243 is less than 0.1234.";
+      Pattern pattern = Pattern.compile(regEx);
+      Matcher m = pattern.matcher(str);
+      while (m.find()) {
+        for (int i = 0; i <= m.groupCount(); i++) {
+          System.out.println("Group " + i + ": " + m.group(i)); // Group i substring
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* DateFormats
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  The Date for United States:
+          In FULL is Wednesday, December 16, 2020
+          In LONG is December 16, 2020
+          In MEDIUM is Dec 16, 2020
+          In SHORT is 12/16/20
+
+  The Date for United Kingdom:
+          In FULL is Wednesday, 16 December 2020
+          In LONG is 16 December 2020
+          In MEDIUM is 16-Dec-2020
+          In SHORT is 16/12/20
+
+  The Date for Germany:
+          In FULL is Mittwoch, 16. Dezember 2020
+          In LONG is 16. Dezember 2020
+          In MEDIUM is 16.12.2020
+          In SHORT is 16.12.20
+
+  The Date for France:
+          In FULL is mercredi 16 décembre 2020
+          In LONG is 16 décembre 2020
+          In MEDIUM is 16 déc. 2020
+          In SHORT is 16/12/20
+#+END_EXAMPLE
+
+** =TryDateFormats.java=
+
+#+BEGIN_SRC java -n :tangle TryDateFormats.java :padline no
+  import static java.text.DateFormat.*; // Import names of constants
+  import static java.util.Locale.*; // Import names of constants
+
+  import java.text.DateFormat;
+  import java.util.Date;
+  import java.util.Locale;
+
+  public class TryDateFormats {
+
+    public static void main(String[] args) {
+      Date today = new Date();
+      Locale[] locales = {US, UK, GERMANY, FRANCE};
+      int[] styles = {FULL, LONG, MEDIUM, SHORT};
+      String[] styleNames = {"FULL", "LONG", "MEDIUM", "SHORT"};
+
+      // Output the date for each locale in four styles
+      DateFormat fmt = null;
+      for (Locale locale : locales) {
+        System.out.println("\nThe Date for " + locale.getDisplayCountry() + ":");
+        for (int i = 0; i < styles.length; i++) {
+          fmt = DateFormat.getDateInstance(styles[i], locale);
+          System.out.println("\tIn " + styleNames[i] + " is " + fmt.format(today));
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* Observer
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  $ java Horrific
+  It's Mr.Hyde
+  Freaky Weirdo: Real cool, man. Where can I get that stuff?
+  It's Mr.Hyde
+  Slim Sagebrush: What in tarnation's goin' on here?
+  It's Mr.Hyde
+  Phil McCavity: I'm your local dentist - here's my card.
+  It's Mr.Hyde
+  Eileen Backwards: Oh, no, it's horrible - those teeth!
+  It's Mr.Hyde
+  Officer: What's all this then?
+#+END_EXAMPLE
+
+** =Horrific.java=
+
+#+BEGIN_SRC java -n :tangle obs/Horrific.java :padline no
+  // Try out observers
+  import java.util.Observer;
+
+  public class Horrific {
+
+    public static void main(String[] args) {
+
+      JekyllAndHyde man = new JekyllAndHyde(); // Create Dr. Jekyll
+
+      Observer[] crowd = {
+        new Person("Officer", "What's all this then?"),
+        new Person("Eileen Backwards", "Oh, no, it's horrible - those teeth!"),
+        new Person("Phil McCavity", "I'm your local dentist - here's my card."),
+        new Person("Slim Sagebrush", "What in tarnation's goin' on here?"),
+        new Person("Freaky Weirdo", "Real cool, man. Where can I get that stuff?")
+      };
+
+      // Add the observers
+      for (Observer observer : crowd) {
+        man.addObserver(observer);
+      }
+
+      man.drinkPotion(); // Dr. Jekyll drinks up
+    }
+  }
+#+END_SRC
+
+** =JekyllAndHyde.java=
+
+#+BEGIN_SRC java -n :tangle obs/JekyllAndHyde.java :padline no
+  import java.util.Observable;
+
+  public class JekyllAndHyde extends Observable {
+
+    public void drinkPotion() {
+      name = "Mr.Hyde";
+      setChanged();
+      notifyObservers();
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    private String name = "Dr. Jekyll";
+  }
+#+END_SRC
+
+** =Person.java=
+
+#+BEGIN_SRC java -n :tangle obs/Person.java :padline no
+  import java.util.Observable;
+  import java.util.Observer;
+
+  public class Person implements Observer {
+
+    // Constructor
+    public Person(String name, String says) {
+      this.name = name;
+      this.says = says;
+    }
+
+    // Called when observing an object that changes
+    public void update(Observable thing, Object o) {
+      System.out.println("It's " + ((JekyllAndHyde) thing).getName() + "\n" + name + ": " + says);
+    }
+
+    private String name; // Person's identity
+    private String says; // What they say when startled
+  }
+#+END_SRC
+
+* Scanner
+
+** =output=
+
+#+BEGIN_EXAMPLE
+  Enter an integer: 42
+  You entered: 42
+  Enter a floating-point value: 10
+  You entered: 10.0
+  Enter a boolean value(true or false): false
+  You entered: false
+#+END_EXAMPLE
+
+** =TryScanner.java=
+
+#+BEGIN_SRC java -n :tangle TryScanner.java :padline no
+  import java.util.InputMismatchException;
+  import java.util.Scanner;
+
+  public class TryScanner {
+
+    public static void main(String[] args) {
+      Scanner kbScan = new Scanner(System.in); // Create the scanner
+      int selectRead = 1; // Selects the read operation
+      final int MAXTRIES = 3; // Maximum attempts at input
+      int tries = 0; // Number of input attempts
+
+      while (tries < MAXTRIES) {
+        try {
+          switch (selectRead) {
+            case 1:
+              System.out.print("Enter an integer: ");
+              System.out.println("You entered: " + kbScan.nextLong());
+              ++selectRead; // Select next read operation
+              tries = 0; // Reset count of tries
+
+            case 2:
+              System.out.print("Enter a floating-point value: ");
+              System.out.println("You entered: " + kbScan.nextDouble());
+              ++selectRead; // Select next read operation
+              tries = 0; // Reset count of tries
+
+            case 3:
+              System.out.print("Enter a boolean value(true or false): ");
+              System.out.println("You entered: " + kbScan.nextBoolean());
+          }
+          break;
+        } catch (InputMismatchException e) {
+          String input = kbScan.next();
+          System.out.println("\"" + input + "\" is not valid input.");
+          if (tries < MAXTRIES) {
+            System.out.println("Try again.");
+          } else {
+            System.out.println(" Terminating program.");
+            System.exit(1);
+          }
+        }
+      }
+    }
+  }
+#+END_SRC

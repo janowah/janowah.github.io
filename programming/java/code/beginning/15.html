@@ -1,0 +1,1568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ch15 - A Collection of Useful Classes</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">ch15 - A Collection of Useful Classes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgde4e891">1.TryRegex</a>
+<ul>
+<li><a href="#org9bdab74"><code>output</code></a></li>
+<li><a href="#orgb38bb4a"><code>TryRegexOne.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orgcd181b5">2.TryRegex</a>
+<ul>
+<li><a href="#org1c9d3e5"><code>output</code></a></li>
+<li><a href="#orga3d9432"><code>TryRegexTwo.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org01f64f3">3.TryRegex</a>
+<ul>
+<li><a href="#orgfaa43ee"><code>output</code></a></li>
+<li><a href="#org75c6852"><code>TryRegexThree.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org789d73c">4.TryRegex</a>
+<ul>
+<li><a href="#orga45fa40"><code>output</code></a></li>
+<li><a href="#orgba811d0"><code>TryRegexFour.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org92a28c0">5.TryRegex</a>
+<ul>
+<li><a href="#orgcaa54ff"><code>output</code></a></li>
+<li><a href="#orgd3dde30"><code>TryRegexFive.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org2924169">6.TryRegex</a>
+<ul>
+<li><a href="#org90a491d"><code>output</code></a></li>
+<li><a href="#org1cb79d4"><code>TryRegexSix.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orgf81c18a">Dice</a>
+<ul>
+<li><a href="#org9e89eb2"><code>output</code></a></li>
+<li><a href="#org4ad12db"><code>Dice.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org89edea3">FindingIntegers</a>
+<ul>
+<li><a href="#orgab983e1"><code>output</code></a></li>
+<li><a href="#orgf0226bc"><code>FindingIntegers.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org24f0245">RearrangeText</a>
+<ul>
+<li><a href="#org45def45"><code>output</code></a></li>
+<li><a href="#org27ddd73"><code>RearrangeText.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org234fa75">ScanString</a>
+<ul>
+<li><a href="#orgd98332a"><code>output</code></a></li>
+<li><a href="#org8725458"><code>ScanString.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org6e0d370">SearchAndReplace</a>
+<ul>
+<li><a href="#org6970a32"><code>output</code></a></li>
+<li><a href="#org1eba874"><code>SearchAndReplace.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org9128d92">SortingUsingComparator</a>
+<ul>
+<li><a href="#orga17b27f"><code>output</code></a></li>
+<li><a href="#org18d465c"><code>ComparePersons.java</code></a></li>
+<li><a href="#org7652da2"><code>Person.java</code></a></li>
+<li><a href="#org49cce7d"><code>TrySortingWithComparator.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orge6ae53f">StringTokenizing</a>
+<ul>
+<li><a href="#orga799730"><code>output</code></a></li>
+<li><a href="#orga99e104"><code>StringTokenizing.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orgb04eacf">BinarySearch</a>
+<ul>
+<li><a href="#orgd184eea"><code>output</code></a></li>
+<li><a href="#org86bdc8e"><code>Person.java</code></a></li>
+<li><a href="#orga87554b"><code>TryBinarySearch.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org2cfb004">Calendar</a>
+<ul>
+<li><a href="#org1a69f92"><code>output</code></a></li>
+<li><a href="#org72ef07b"><code>FormattedInput.java</code></a></li>
+<li><a href="#org7e1d69c"><code>InvalidUserInputException.java</code></a></li>
+<li><a href="#org6ca6ca1"><code>TryCalendar.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orgd1839e7">CapturingGroups</a>
+<ul>
+<li><a href="#org9d7d8bb"><code>output</code></a></li>
+<li><a href="#org350d8b6"><code>TryCapturingGroups.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orgb4d7dc2">DateFormats</a>
+<ul>
+<li><a href="#org3b33b7b"><code>output</code></a></li>
+<li><a href="#org4699dd6"><code>TryDateFormats.java</code></a></li>
+</ul>
+</li>
+<li><a href="#org8bda4b9">Observer</a>
+<ul>
+<li><a href="#orgb76c0c0"><code>output</code></a></li>
+<li><a href="#orgfdb545c"><code>Horrific.java</code></a></li>
+<li><a href="#org0545fbd"><code>JekyllAndHyde.java</code></a></li>
+<li><a href="#org3ce831c"><code>Person.java</code></a></li>
+</ul>
+</li>
+<li><a href="#orgdd058ae">Scanner</a>
+<ul>
+<li><a href="#org5ee151b"><code>output</code></a></li>
+<li><a href="#orga330ca3"><code>TryScanner.java</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgde4e891" class="outline-2">
+<h2 id="orgde4e891">1.TryRegex</h2>
+<div class="outline-text-2" id="text-orgde4e891">
+</div>
+<div id="outline-container-org9bdab74" class="outline-3">
+<h3 id="org9bdab74"><code>output</code></h3>
+<div class="outline-text-3" id="text-org9bdab74">
+<pre class="example">
+Smith, where Jones had had 'had', had had 'had had'.
+                   ^^^ ^^^  ^^^   ^^^ ^^^  ^^^ ^^^  
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb38bb4a" class="outline-3">
+<h3 id="orgb38bb4a"><code>TryRegexOne.java</code></h3>
+<div class="outline-text-3" id="text-orgb38bb4a">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryRegexOne</span> {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 8: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">A regex and a string in which to search are specified</span>
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"had"</span>;
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Smith, where Jones had had 'had', had had 'had had'."</span>;
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">The matches in the output will be marked (fixed-width font</span>
+<span class="linenr">13: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">required)</span>
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">marker</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[str.length()];
+<span class="linenr">15: </span>    Arrays.fill(marker, <span style="color: #848ea9;">' '</span>); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">So we can later replace spaces with marker characters</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">Obtain the required matcher</span>
+<span class="linenr">18: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">19: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Find every match and mark it</span>
+<span class="linenr">22: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">23: </span>      System.out.println(<span style="color: #848ea9;">"Pattern found at Start: "</span> + m.start() + <span style="color: #848ea9;">" End: "</span> + m.end());
+<span class="linenr">24: </span>      Arrays.fill(marker, m.start(), m.end(), <span style="color: #848ea9;">'^'</span>);
+<span class="linenr">25: </span>    }
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Show the object string with matches marked under it</span>
+<span class="linenr">28: </span>    System.out.println(str);
+<span class="linenr">29: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(marker));
+<span class="linenr">30: </span>  }
+<span class="linenr">31: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcd181b5" class="outline-2">
+<h2 id="orgcd181b5">2.TryRegex</h2>
+<div class="outline-text-2" id="text-orgcd181b5">
+</div>
+<div id="outline-container-org1c9d3e5" class="outline-3">
+<h3 id="org1c9d3e5"><code>output</code></h3>
+<div class="outline-text-3" id="text-org1c9d3e5">
+<pre class="example">
+Ted and Ned Hodge hid their hod and huddled in the hedge.
+                  ^^^       ^^^     ^^^            ^^^   
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga3d9432" class="outline-3">
+<h3 id="orga3d9432"><code>TryRegexTwo.java</code></h3>
+<div class="outline-text-3" id="text-orga3d9432">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryRegexTwo</span> {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">A regex and a string in which to search are specified</span>
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"h.d"</span>;
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Ted and Ned Hodge hid their hod and huddled in the hedge."</span>;
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">The matches in the output will be marked (fixed-width font required)</span>
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">marker</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[str.length()];
+<span class="linenr">15: </span>    Arrays.fill(marker, <span style="color: #848ea9;">' '</span>); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">So we can later replace spaces with marker characters</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">Obtain the required matcher</span>
+<span class="linenr">18: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">19: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Find every match and mark it</span>
+<span class="linenr">22: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">23: </span>      <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">System.out.println("Pattern found at Start: " + m.start() + " End: " + m.end());</span>
+<span class="linenr">24: </span>      Arrays.fill(marker, m.start(), m.end(), <span style="color: #848ea9;">'^'</span>);
+<span class="linenr">25: </span>    }
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Show the object string with matches marked under it</span>
+<span class="linenr">28: </span>    System.out.println(str);
+<span class="linenr">29: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(marker));
+<span class="linenr">30: </span>  }
+<span class="linenr">31: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org01f64f3" class="outline-2">
+<h2 id="org01f64f3">3.TryRegex</h2>
+<div class="outline-text-2" id="text-org01f64f3">
+</div>
+<div id="outline-container-orgfaa43ee" class="outline-3">
+<h3 id="orgfaa43ee"><code>output</code></h3>
+<div class="outline-text-3" id="text-orgfaa43ee">
+<pre class="example">
+Ted and Ned Hodge hid their hod and huddled in the hedge.
+                  ^^^       ^^^                          
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org75c6852" class="outline-3">
+<h3 id="org75c6852"><code>TryRegexThree.java</code></h3>
+<div class="outline-text-3" id="text-org75c6852">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryRegexThree</span> {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">A regex and a string in which to search are specified</span>
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"h[aio]d"</span>;
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Ted and Ned Hodge hid their hod and huddled in the hedge."</span>;
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">The matches in the output will be marked (fixed-width font required)</span>
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">marker</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[str.length()];
+<span class="linenr">15: </span>    Arrays.fill(marker, <span style="color: #848ea9;">' '</span>); <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">So we can later replace spaces with marker characters</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Obtain the required matcher</span>
+<span class="linenr">18: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">19: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Find every match and mark it</span>
+<span class="linenr">22: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">23: </span>      System.out.println(<span style="color: #848ea9;">"Pattern found at Start: "</span> + m.start() + <span style="color: #848ea9;">" End: "</span> + m.end());
+<span class="linenr">24: </span>      Arrays.fill(marker, m.start(), m.end(), <span style="color: #848ea9;">'^'</span>);
+<span class="linenr">25: </span>    }
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Show the object string with matches marked under it</span>
+<span class="linenr">28: </span>    System.out.println(str);
+<span class="linenr">29: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(marker));
+<span class="linenr">30: </span>  }
+<span class="linenr">31: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org789d73c" class="outline-2">
+<h2 id="org789d73c">4.TryRegex</h2>
+<div class="outline-text-2" id="text-org789d73c">
+</div>
+<div id="outline-container-orga45fa40" class="outline-3">
+<h3 id="orga45fa40"><code>output</code></h3>
+<div class="outline-text-3" id="text-orga45fa40">
+<pre class="example">
+Ted and Ned Hodge hid their hod and huddled in the hedge.
+            ^^^   ^^^       ^^^     ^^^            ^^^   
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgba811d0" class="outline-3">
+<h3 id="orgba811d0"><code>TryRegexFour.java</code></h3>
+<div class="outline-text-3" id="text-orgba811d0">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryRegexFour</span> {
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">A regex and a string in which to search are specified</span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"[h|H][aeiou]d"</span>;
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Ted and Ned Hodge hid their hod and huddled in the hedge."</span>;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">The matches in the output will be marked (fixed-width font required)</span>
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">marker</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[str.length()];
+<span class="linenr">13: </span>    Arrays.fill(marker, <span style="color: #848ea9;">' '</span>); <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">So we can later replace spaces with marker characters</span>
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">Obtain the required matcher</span>
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Find every match and mark it</span>
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">21: </span>      <span style="color: #009e73; font-style: italic;">//      </span><span style="color: #009e73; font-style: italic;">System.out.println("Pattern found at Start: "+m.start()+" End: "+m.end());</span>
+<span class="linenr">22: </span>      Arrays.fill(marker, m.start(), m.end(), <span style="color: #848ea9;">'^'</span>);
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Show the object string with matches marked under it</span>
+<span class="linenr">26: </span>    System.out.println(str);
+<span class="linenr">27: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(marker));
+<span class="linenr">28: </span>  }
+<span class="linenr">29: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92a28c0" class="outline-2">
+<h2 id="org92a28c0">5.TryRegex</h2>
+<div class="outline-text-2" id="text-org92a28c0">
+</div>
+<div id="outline-container-orgcaa54ff" class="outline-3">
+<h3 id="orgcaa54ff"><code>output</code></h3>
+<div class="outline-text-3" id="text-orgcaa54ff">
+<pre class="example">
+Ted and Ned Hodge hid their hod and huddled in the hedge.
+                 ^^^^^     ^^^^^                         
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd3dde30" class="outline-3">
+<h3 id="orgd3dde30"><code>TryRegexFive.java</code></h3>
+<div class="outline-text-3" id="text-orgd3dde30">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryRegexFive</span> {
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">A regex and a string in which to search are specified</span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"\\sh.d\\s"</span>;
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Ted and Ned Hodge hid their hod and huddled in the hedge."</span>;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">The matches in the output will be marked (fixed-width font required)</span>
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">marker</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[str.length()];
+<span class="linenr">13: </span>    Arrays.fill(marker, <span style="color: #848ea9;">' '</span>); <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">So we can later replace spaces with marker characters</span>
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">Obtain the required matcher</span>
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Find every match and mark it</span>
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">21: </span>      <span style="color: #009e73; font-style: italic;">//      </span><span style="color: #009e73; font-style: italic;">System.out.println("Pattern found at Start: "+m.start()+" End: "+m.end());</span>
+<span class="linenr">22: </span>      Arrays.fill(marker, m.start(), m.end(), <span style="color: #848ea9;">'^'</span>);
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Show the object string with matches marked under it</span>
+<span class="linenr">26: </span>    System.out.println(str);
+<span class="linenr">27: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(marker));
+<span class="linenr">28: </span>  }
+<span class="linenr">29: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2924169" class="outline-2">
+<h2 id="org2924169">6.TryRegex</h2>
+<div class="outline-text-2" id="text-org2924169">
+</div>
+<div id="outline-container-org90a491d" class="outline-3">
+<h3 id="org90a491d"><code>output</code></h3>
+<div class="outline-text-3" id="text-org90a491d">
+<pre class="example">
+Ted and Ned Hodge hid their hod and huddled in the hedge.
+           ^^^^^^^                                ^^^^^^^
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1cb79d4" class="outline-3">
+<h3 id="org1cb79d4"><code>TryRegexSix.java</code></h3>
+<div class="outline-text-3" id="text-org1cb79d4">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryRegexSix</span> {
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">A regex and a string in which to search are specified</span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"\\s[h|H][e|o]dge[\\s|\\.]"</span>;
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Ted and Ned Hodge hid their hod and huddled in the hedge."</span>;
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">The matches in the output will be marked (fixed-width font required)</span>
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">char</span>[] <span style="color: #e69f00; font-weight: bold;">marker</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">char</span>[str.length()];
+<span class="linenr">13: </span>    Arrays.fill(marker, <span style="color: #848ea9;">' '</span>); <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">So we can later replace spaces with marker characters</span>
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #009e73; font-style: italic;">//  </span><span style="color: #009e73; font-style: italic;">Obtain the required matcher</span>
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Find every match and mark it</span>
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">21: </span>      <span style="color: #009e73; font-style: italic;">//      </span><span style="color: #009e73; font-style: italic;">System.out.println("Pattern found at Start: "+m.start()+" End: "+m.end());</span>
+<span class="linenr">22: </span>      Arrays.fill(marker, m.start(), m.end(), <span style="color: #848ea9;">'^'</span>);
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Show the object string with matches marked under it</span>
+<span class="linenr">26: </span>    System.out.println(str);
+<span class="linenr">27: </span>    System.out.println(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">String</span>(marker));
+<span class="linenr">28: </span>  }
+<span class="linenr">29: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf81c18a" class="outline-2">
+<h2 id="orgf81c18a">Dice</h2>
+<div class="outline-text-2" id="text-orgf81c18a">
+</div>
+<div id="outline-container-org9e89eb2" class="outline-3">
+<h3 id="org9e89eb2"><code>output</code></h3>
+<div class="outline-text-3" id="text-org9e89eb2">
+<pre class="example">
+You have six throws of a pair of dice.
+The objective is to get a double six. Here goes...
+
+First throw: 4, 2
+Second throw: 4, 5
+Third throw: 4, 3
+Fourth throw: 2, 5
+Fifth throw: 6, 6
+    You win!!
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4ad12db" class="outline-3">
+<h3 id="org4ad12db"><code>Dice.java</code></h3>
+<div class="outline-text-3" id="text-org4ad12db">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Random</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Dice</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 6: </span>    System.out.println(
+<span class="linenr"> 7: </span>        <span style="color: #848ea9;">"You have six throws of a pair of dice.\n"</span>
+<span class="linenr"> 8: </span>            + <span style="color: #848ea9;">"The objective is to get a double six. Here goes...\n"</span>);
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">Random</span> <span style="color: #e69f00; font-weight: bold;">diceValues</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Random</span>(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Random number generator</span>
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">goes</span> = {
+<span class="linenr">12: </span>      <span style="color: #848ea9;">"First"</span>, <span style="color: #848ea9;">"Second"</span>, <span style="color: #848ea9;">"Third"</span>,
+<span class="linenr">13: </span>      <span style="color: #848ea9;">"Fourth"</span>, <span style="color: #848ea9;">"Fifth"</span>, <span style="color: #848ea9;">"Sixth"</span>
+<span class="linenr">14: </span>    };
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">die1</span> = 0; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">First die value</span>
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">die2</span> = 0; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Second die value</span>
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">go</span> : goes) {
+<span class="linenr">19: </span>      die1 = 1 + diceValues.nextInt(6); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Number from 1 to 6</span>
+<span class="linenr">20: </span>      die2 = 1 + diceValues.nextInt(6); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Number from 1 to 6</span>
+<span class="linenr">21: </span>      System.out.println(go + <span style="color: #848ea9;">" throw: "</span> + die1 + <span style="color: #848ea9;">", "</span> + die2);
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (die1 + die2 == 12) { <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Is it double 6?</span>
+<span class="linenr">24: </span>        System.out.println(<span style="color: #848ea9;">"    You win!!"</span>); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Yes !!!</span>
+<span class="linenr">25: </span>        <span style="color: #56b4e9; font-weight: bold;">return</span>;
+<span class="linenr">26: </span>      }
+<span class="linenr">27: </span>    }
+<span class="linenr">28: </span>    System.out.println(<span style="color: #848ea9;">"Sorry, you lost..."</span>);
+<span class="linenr">29: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span>;
+<span class="linenr">30: </span>  }
+<span class="linenr">31: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org89edea3" class="outline-2">
+<h2 id="org89edea3">FindingIntegers</h2>
+<div class="outline-text-2" id="text-org89edea3">
+</div>
+<div id="outline-container-orgab983e1" class="outline-3">
+<h3 id="orgab983e1"><code>output</code></h3>
+<div class="outline-text-3" id="text-orgab983e1">
+<pre class="example">
+256
+16
+-2.5
+6.25
+.243
+0.1234
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf0226bc" class="outline-3">
+<h3 id="orgf0226bc"><code>FindingIntegers.java</code></h3>
+<div class="outline-text-3" id="text-orgf0226bc">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FindingIntegers</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"[+|-]?(\\d+(\\.\\d*)?)|(\\.\\d+)"</span>;
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> =
+<span class="linenr">10: </span>        <span style="color: #848ea9;">"256 is the square of 16 and -2.5 squared is 6.25 "</span> + <span style="color: #848ea9;">"and -.243 is less than 0.1234."</span>;
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0;
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">subStr</span> = <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">16: </span>      System.out.println(m.group()); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Output the substring matched</span>
+<span class="linenr">17: </span>    }
+<span class="linenr">18: </span>  }
+<span class="linenr">19: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24f0245" class="outline-2">
+<h2 id="org24f0245">RearrangeText</h2>
+<div class="outline-text-2" id="text-org24f0245">
+</div>
+<div id="outline-container-org45def45" class="outline-3">
+<h3 id="org45def45"><code>output</code></h3>
+<div class="outline-text-3" id="text-org45def45">
+<pre class="example">
+Original Code:
+double result = Math.pow( 3.0, 16.0); 
+double resultSquared = Math.pow(2 ,result );
+double hypotenuse = Math.sqrt(Math.pow(2.0, 30.0)+Math.pow(2 , 40.0));
+
+New Code:
+double result = Math.pow(16.0,3.0); 
+double resultSquared = Math.pow(result,2);
+double hypotenuse = Math.sqrt(Math.pow(30.0,2.0)+Math.pow(40.0,2));
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org27ddd73" class="outline-3">
+<h3 id="org27ddd73"><code>RearrangeText.java</code></h3>
+<div class="outline-text-3" id="text-org27ddd73">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">RearrangeText</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> =
+<span class="linenr"> 8: </span>        <span style="color: #848ea9;">"(Math.pow)"</span> <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Math.pow</span>
+<span class="linenr"> 9: </span>            + <span style="color: #848ea9;">"\\s*\\("</span> <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Opening parenthesis</span>
+<span class="linenr">10: </span>            + <span style="color: #848ea9;">"\\s*([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))"</span> <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">First argument</span>
+<span class="linenr">11: </span>            + <span style="color: #848ea9;">"\\s*,\\s*"</span> <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Comma</span>
+<span class="linenr">12: </span>            + <span style="color: #848ea9;">"([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))"</span> <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Second argument</span>
+<span class="linenr">13: </span>            + <span style="color: #848ea9;">"\\s*\\)"</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Closing parenthesis</span>
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">String regEx =</span>
+<span class="linenr">16: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">"(Math.pow)\\s*\\(\\s*([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))\\s*,\\s*([+|-]?(\\d+\\.?\\d*|\\.\\d+)|([a-zA-Z]\\w*))\\s*\\)";</span>
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">oldCode</span> =
+<span class="linenr">18: </span>        <span style="color: #848ea9;">"double result = Math.pow( 3.0, 16.0); "</span>
+<span class="linenr">19: </span>            + <span style="color: #848ea9;">"\ndouble resultSquared = Math.pow(2 ,result );"</span>
+<span class="linenr">20: </span>            + <span style="color: #848ea9;">"\ndouble hypotenuse = Math.sqrt(Math.pow(2.0, 30.0)+Math.pow(2 , 40.0));"</span>;
+<span class="linenr">21: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">22: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(oldCode);
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span> <span style="color: #e69f00; font-weight: bold;">newCode</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>();
+<span class="linenr">25: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">26: </span>      m.appendReplacement(newCode, <span style="color: #848ea9;">"$1\\($5,$2\\)"</span>);
+<span class="linenr">27: </span>    }
+<span class="linenr">28: </span>    m.appendTail(newCode);
+<span class="linenr">29: </span>
+<span class="linenr">30: </span>    System.out.println(<span style="color: #848ea9;">"Original Code:\n"</span> + oldCode.toString());
+<span class="linenr">31: </span>    System.out.println(<span style="color: #848ea9;">"\nNew Code:\n"</span> + newCode.toString());
+<span class="linenr">32: </span>  }
+<span class="linenr">33: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org234fa75" class="outline-2">
+<h2 id="org234fa75">ScanString</h2>
+<div class="outline-text-2" id="text-org234fa75">
+</div>
+<div id="outline-container-orgd98332a" class="outline-3">
+<h3 id="orgd98332a"><code>output</code></h3>
+<div class="outline-text-3" id="text-orgd98332a">
+<pre class="example">
+String is:
+Smith , where Jones had had 'had', had had 'had had'.
+Token sought is: had
+Token is    : Smith
+Token is    : ,
+Token is    : where
+Token is    : Jones
+Token found!: had
+Token found!: had
+Token is    : 'had',
+Token found!: had
+Token found!: had
+Token is    : 'had
+Token is    : had'.
+4 instances of "had" were found.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8725458" class="outline-3">
+<h3 id="org8725458"><code>ScanString.java</code></h3>
+<div class="outline-text-3" id="text-org8725458">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Scanner</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ScanString</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> = <span style="color: #848ea9;">"Smith , where Jones had had 'had', had had 'had had'."</span>;
+<span class="linenr"> 9: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regex</span> = <span style="color: #848ea9;">"had"</span>;
+<span class="linenr">10: </span>    System.out.println(<span style="color: #848ea9;">"String is:\n"</span> + str + <span style="color: #848ea9;">"\nToken sought is: "</span> + regex);
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">had</span> = Pattern.compile(regex);
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">Scanner</span> <span style="color: #e69f00; font-weight: bold;">strScan</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Scanner</span>(str);
+<span class="linenr">14: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">strScan.useDelimiter("\\s'|\\s*'?[.|,]\\s*|\\s");</span>
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">hadCount</span> = 0;
+<span class="linenr">16: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (strScan.hasNext()) {
+<span class="linenr">17: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (strScan.hasNext(had)) {
+<span class="linenr">18: </span>        ++hadCount;
+<span class="linenr">19: </span>        System.out.println(<span style="color: #848ea9;">"Token found!: "</span> + strScan.next(had));
+<span class="linenr">20: </span>      } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">21: </span>        System.out.println(<span style="color: #848ea9;">"Token is    : "</span> + strScan.next());
+<span class="linenr">22: </span>      }
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>    System.out.println(hadCount + <span style="color: #848ea9;">" instances of \""</span> + regex + <span style="color: #848ea9;">"\" were found."</span>);
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e0d370" class="outline-2">
+<h2 id="org6e0d370">SearchAndReplace</h2>
+<div class="outline-text-2" id="text-org6e0d370">
+</div>
+<div id="outline-container-org6970a32" class="outline-3">
+<h3 id="org6970a32"><code>output</code></h3>
+<div class="outline-text-3" id="text-org6970a32">
+<pre class="example">
+My goat hasn't got any nose.
+How does your goat smell then?
+My goat smells horrible.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1eba874" class="outline-3">
+<h3 id="org1eba874"><code>SearchAndReplace.java</code></h3>
+<div class="outline-text-3" id="text-org1eba874">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">SearchAndReplace</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">joke</span> =
+<span class="linenr"> 8: </span>        <span style="color: #848ea9;">"My dog hasn't got any nose.\n"</span>
+<span class="linenr"> 9: </span>            + <span style="color: #848ea9;">"How does your dog smell then?\n"</span>
+<span class="linenr">10: </span>            + <span style="color: #848ea9;">"My dog smells horrible.\n"</span>;
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"dog"</span>;
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">doggone</span> = Pattern.compile(regEx);
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = doggone.matcher(joke);
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>    <span style="color: #0072b2; font-weight: bold;">StringBuffer</span> <span style="color: #e69f00; font-weight: bold;">newJoke</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StringBuffer</span>();
+<span class="linenr">17: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">18: </span>      m.appendReplacement(newJoke, <span style="color: #848ea9;">"goat"</span>);
+<span class="linenr">19: </span>    }
+<span class="linenr">20: </span>    m.appendTail(newJoke);
+<span class="linenr">21: </span>    System.out.println(newJoke.toString());
+<span class="linenr">22: </span>  }
+<span class="linenr">23: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9128d92" class="outline-2">
+<h2 id="org9128d92">SortingUsingComparator</h2>
+<div class="outline-text-2" id="text-org9128d92">
+</div>
+<div id="outline-container-orga17b27f" class="outline-3">
+<h3 id="orga17b27f"><code>output</code></h3>
+<div class="outline-text-3" id="text-orga17b27f">
+<pre class="example">
+Original order:
+Danielle Steel
+John Grisham
+Tom Clancy
+Christina Schwartz
+Patricia Cornwell
+Bill Bryson
+
+Order after sorting using comparator:
+Danielle Steel
+Christina Schwartz
+John Grisham
+Patricia Cornwell
+Tom Clancy
+Bill Bryson
+
+Order after sorting using Comparable method:
+Bill Bryson
+Tom Clancy
+Patricia Cornwell
+John Grisham
+Christina Schwartz
+Danielle Steel
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org18d465c" class="outline-3">
+<h3 id="org18d465c"><code>ComparePersons.java</code></h3>
+<div class="outline-text-3" id="text-org18d465c">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Comparator</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">ComparePersons</span> <span style="color: #56b4e9; font-weight: bold;">implements</span> <span style="color: #0072b2; font-weight: bold;">Comparator</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to compare Person objects - order is descending</span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">compare</span>(<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">person1</span>, <span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">person2</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">result</span> = -person1.getSurname().compareTo(person2.getSurname());
+<span class="linenr"> 8: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> result == 0 ? -person1.getFirstName().compareTo(person2.getFirstName()) : result;
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to compare with another comparator</span>
+<span class="linenr">12: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">boolean</span> <span style="color: #d55e00;">equals</span>(<span style="color: #0072b2; font-weight: bold;">Object</span> <span style="color: #e69f00; font-weight: bold;">collator</span>) {
+<span class="linenr">13: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (<span style="color: #56b4e9; font-weight: bold;">this</span> == collator) { <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">If argument is the same object</span>
+<span class="linenr">14: </span>      <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">true</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">then it must be equal</span>
+<span class="linenr">15: </span>    }
+<span class="linenr">16: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (collator == <span style="color: #d55e00; font-weight: bold;">null</span>) { <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">If argument is null</span>
+<span class="linenr">17: </span>      <span style="color: #56b4e9; font-weight: bold;">return</span> <span style="color: #d55e00; font-weight: bold;">false</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">then it can't be equal</span>
+<span class="linenr">18: </span>    }
+<span class="linenr">19: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> getClass() == collator.getClass(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Class must be the same for equal</span>
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7652da2" class="outline-3">
+<h3 id="org7652da2"><code>Person.java</code></h3>
+<div class="outline-text-3" id="text-org7652da2">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #56b4e9; font-weight: bold;">implements</span> <span style="color: #0072b2; font-weight: bold;">Comparable</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; {
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Constructor</span>
+<span class="linenr"> 4: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Person</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">firstName</span>, <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">surname</span>) {
+<span class="linenr"> 5: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.firstName = firstName;
+<span class="linenr"> 6: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.surname = surname;
+<span class="linenr"> 7: </span>  }
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">toString</span>() {
+<span class="linenr">10: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> firstName + <span style="color: #848ea9;">" "</span> + surname;
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Compare Person objects</span>
+<span class="linenr">14: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">compareTo</span>(<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">person</span>) {
+<span class="linenr">15: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">result</span> = surname.compareTo(person.surname);
+<span class="linenr">16: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> result == 0 ? firstName.compareTo(person.firstName) : result;
+<span class="linenr">17: </span>  }
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getFirstName</span>() {
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> firstName;
+<span class="linenr">21: </span>  }
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getSurname</span>() {
+<span class="linenr">24: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> surname;
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">firstName</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">First name of person</span>
+<span class="linenr">28: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">surname</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Second name of person</span>
+<span class="linenr">29: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49cce7d" class="outline-3">
+<h3 id="org49cce7d"><code>TrySortingWithComparator.java</code></h3>
+<div class="outline-text-3" id="text-org49cce7d">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TrySortingWithComparator</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 6: </span>    <span style="color: #0072b2; font-weight: bold;">Person</span>[] <span style="color: #e69f00; font-weight: bold;">authors</span> = {
+<span class="linenr"> 7: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Danielle"</span>, <span style="color: #848ea9;">"Steel"</span>),
+<span class="linenr"> 8: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"John"</span>, <span style="color: #848ea9;">"Grisham"</span>),
+<span class="linenr"> 9: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Tom"</span>, <span style="color: #848ea9;">"Clancy"</span>),
+<span class="linenr">10: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Christina"</span>, <span style="color: #848ea9;">"Schwartz"</span>),
+<span class="linenr">11: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Patricia"</span>, <span style="color: #848ea9;">"Cornwell"</span>),
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Bill"</span>, <span style="color: #848ea9;">"Bryson"</span>)
+<span class="linenr">13: </span>    };
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    System.out.println(<span style="color: #848ea9;">"Original order:"</span>);
+<span class="linenr">16: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">author</span> : authors) {
+<span class="linenr">17: </span>      System.out.println(author);
+<span class="linenr">18: </span>    }
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    Arrays.sort(authors, <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">ComparePersons</span>()); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Sort using comparator</span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>    System.out.println(<span style="color: #848ea9;">"\nOrder after sorting using comparator:"</span>);
+<span class="linenr">23: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">author</span> : authors) {
+<span class="linenr">24: </span>      System.out.println(author);
+<span class="linenr">25: </span>    }
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>    Arrays.sort(authors); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Sort using Comparable method</span>
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>    System.out.println(<span style="color: #848ea9;">"\nOrder after sorting using Comparable method:"</span>);
+<span class="linenr">30: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">author</span> : authors) {
+<span class="linenr">31: </span>      System.out.println(author);
+<span class="linenr">32: </span>    }
+<span class="linenr">33: </span>  }
+<span class="linenr">34: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge6ae53f" class="outline-2">
+<h2 id="orge6ae53f">StringTokenizing</h2>
+<div class="outline-text-2" id="text-orge6ae53f">
+</div>
+<div id="outline-container-orga799730" class="outline-3">
+<h3 id="orga799730"><code>output</code></h3>
+<div class="outline-text-3" id="text-orga799730">
+<pre class="example">
+Number of tokens: 10
+To
+be
+or
+not
+to
+be
+that
+is
+the
+question
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga99e104" class="outline-3">
+<h3 id="orga99e104"><code>StringTokenizing.java</code></h3>
+<div class="outline-text-3" id="text-orga99e104">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">StringTokenizing</span> {
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 4: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">text</span> = <span style="color: #848ea9;">"To be or not to be, that is the question."</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">String to segment</span>
+<span class="linenr"> 5: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">delimiters</span> = <span style="color: #848ea9;">"\\s+|,\\s*|\\.\\s*"</span>;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Analyze the string</span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">tokens</span> = text.split(delimiters);
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Output the tokens</span>
+<span class="linenr">11: </span>    System.out.println(<span style="color: #848ea9;">"Number of tokens: "</span> + tokens.length);
+<span class="linenr">12: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">token</span> : tokens) {
+<span class="linenr">13: </span>      System.out.println(token);
+<span class="linenr">14: </span>    }
+<span class="linenr">15: </span>  }
+<span class="linenr">16: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb04eacf" class="outline-2">
+<h2 id="orgb04eacf">BinarySearch</h2>
+<div class="outline-text-2" id="text-orgb04eacf">
+</div>
+<div id="outline-container-orgd184eea" class="outline-3">
+<h3 id="orgd184eea"><code>output</code></h3>
+<div class="outline-text-3" id="text-orgd184eea">
+<pre class="example">
+Order after sorting into ascending sequence:
+Bill Bryson
+Tom Clancy
+Patricia Cornwell
+John Grisham
+Christina Schwartz
+Danielle Steel
+
+In search of authors:
+Christina Schwartz was found at index position 4
+Ned Kelly was not found. Return value is -5
+Tom Clancy was found at index position 1
+Charles Dickens was not found. Return value is -4
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org86bdc8e" class="outline-3">
+<h3 id="org86bdc8e"><code>Person.java</code></h3>
+<div class="outline-text-3" id="text-org86bdc8e">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #56b4e9; font-weight: bold;">implements</span> <span style="color: #0072b2; font-weight: bold;">Comparable</span>&lt;<span style="color: #0072b2; font-weight: bold;">Person</span>&gt; {
+<span class="linenr"> 2: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Constructor</span>
+<span class="linenr"> 3: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Person</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">firstName</span>, <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">surname</span>) {
+<span class="linenr"> 4: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.firstName = firstName;
+<span class="linenr"> 5: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.surname = surname;
+<span class="linenr"> 6: </span>  }
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">toString</span>() {
+<span class="linenr"> 9: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> firstName + <span style="color: #848ea9;">" "</span> + surname;
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Compare Person objects</span>
+<span class="linenr">13: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">compareTo</span>(<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">person</span>) {
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">result</span> = surname.compareTo(person.surname);
+<span class="linenr">15: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> result == 0 ? firstName.compareTo(person.firstName) : result;
+<span class="linenr">16: </span>  }
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getFirstName</span>() {
+<span class="linenr">19: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> firstName;
+<span class="linenr">20: </span>  }
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getSurname</span>() {
+<span class="linenr">23: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> surname;
+<span class="linenr">24: </span>  }
+<span class="linenr">25: </span>
+<span class="linenr">26: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">firstName</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">First name of person</span>
+<span class="linenr">27: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">surname</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Second name of person</span>
+<span class="linenr">28: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga87554b" class="outline-3">
+<h3 id="orga87554b"><code>TryBinarySearch.java</code></h3>
+<div class="outline-text-3" id="text-orga87554b">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Arrays</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryBinarySearch</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">Person</span>[] <span style="color: #e69f00; font-weight: bold;">authors</span> = {
+<span class="linenr"> 8: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Danielle"</span>, <span style="color: #848ea9;">"Steel"</span>),
+<span class="linenr"> 9: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"John"</span>, <span style="color: #848ea9;">"Grisham"</span>),
+<span class="linenr">10: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Tom"</span>, <span style="color: #848ea9;">"Clancy"</span>),
+<span class="linenr">11: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Christina"</span>, <span style="color: #848ea9;">"Schwartz"</span>),
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Patricia"</span>, <span style="color: #848ea9;">"Cornwell"</span>),
+<span class="linenr">13: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Bill"</span>, <span style="color: #848ea9;">"Bryson"</span>)
+<span class="linenr">14: </span>    };
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>    Arrays.sort(authors); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Sort using Comparable method</span>
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>    System.out.println(<span style="color: #848ea9;">"\nOrder after sorting into ascending sequence:"</span>);
+<span class="linenr">19: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">author</span> : authors) {
+<span class="linenr">20: </span>      System.out.println(author);
+<span class="linenr">21: </span>    }
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Search for authors</span>
+<span class="linenr">24: </span>    <span style="color: #0072b2; font-weight: bold;">Person</span>[] <span style="color: #e69f00; font-weight: bold;">people</span> = {
+<span class="linenr">25: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Christina"</span>, <span style="color: #848ea9;">"Schwartz"</span>),
+<span class="linenr">26: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Ned"</span>, <span style="color: #848ea9;">"Kelly"</span>),
+<span class="linenr">27: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Tom"</span>, <span style="color: #848ea9;">"Clancy"</span>),
+<span class="linenr">28: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Charles"</span>, <span style="color: #848ea9;">"Dickens"</span>)
+<span class="linenr">29: </span>    };
+<span class="linenr">30: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">index</span> = 0;
+<span class="linenr">31: </span>    System.out.println(<span style="color: #848ea9;">"\nIn search of authors:"</span>);
+<span class="linenr">32: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #e69f00; font-weight: bold;">person</span> : people) {
+<span class="linenr">33: </span>      index = Arrays.binarySearch(authors, person);
+<span class="linenr">34: </span>      <span style="color: #56b4e9; font-weight: bold;">if</span> (index &gt;= 0) {
+<span class="linenr">35: </span>        System.out.println(person + <span style="color: #848ea9;">" was found at index position "</span> + index);
+<span class="linenr">36: </span>      } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">37: </span>        System.out.println(person + <span style="color: #848ea9;">" was not found. Return value is "</span> + index);
+<span class="linenr">38: </span>      }
+<span class="linenr">39: </span>    }
+<span class="linenr">40: </span>  }
+<span class="linenr">41: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2cfb004" class="outline-2">
+<h2 id="org2cfb004">Calendar</h2>
+<div class="outline-text-2" id="text-org2cfb004">
+</div>
+<div id="outline-container-org1a69f92" class="outline-3">
+<h3 id="org1a69f92"><code>output</code></h3>
+<div class="outline-text-3" id="text-org1a69f92">
+<pre class="example">
+Enter your birth date as dd mm yyyy: 
+05 04 1949
+You were born on a Tuesday
+This year you are 71 years old.
+In 2020 your birthday was on a Sunday.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org72ef07b" class="outline-3">
+<h3 id="org72ef07b"><code>FormattedInput.java</code></h3>
+<div class="outline-text-3" id="text-org72ef07b">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">BufferedReader</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">IOException</span>;
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">InputStreamReader</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">io</span>.<span style="color: #0072b2; font-weight: bold;">StreamTokenizer</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">FormattedInput</span> {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to read an int value</span>
+<span class="linenr"> 9: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">readInt</span>() <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> {
+<span class="linenr">10: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (readToken() != <span style="color: #d55e00; font-weight: bold;">tokenizer</span>.TT_NUMBER) {
+<span class="linenr">11: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readInt() failed. "</span> + <span style="color: #848ea9;">"Input data not numeric"</span>);
+<span class="linenr">12: </span>    }
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (tokenizer.nval &gt; (<span style="color: #0072b2; font-weight: bold;">double</span>) <span style="color: #d55e00; font-weight: bold;">Integer</span>.MAX_VALUE
+<span class="linenr">15: </span>        || tokenizer.nval &lt; (<span style="color: #0072b2; font-weight: bold;">double</span>) <span style="color: #d55e00; font-weight: bold;">Integer</span>.<span style="color: #0072b2; font-weight: bold;">MIN_VALUE</span>) {
+<span class="linenr">16: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(
+<span class="linenr">17: </span>          <span style="color: #848ea9;">" readInt() failed. "</span> + <span style="color: #848ea9;">"Input outside range of type int "</span>);
+<span class="linenr">18: </span>    }
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (tokenizer.nval != (<span style="color: #0072b2; font-weight: bold;">double</span>) (<span style="color: #0072b2; font-weight: bold;">int</span>) tokenizer.nval) {
+<span class="linenr">21: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readInt() failed. "</span> + <span style="color: #848ea9;">"Input not an integer"</span>);
+<span class="linenr">22: </span>    }
+<span class="linenr">23: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> (<span style="color: #0072b2; font-weight: bold;">int</span>) tokenizer.nval;
+<span class="linenr">24: </span>  }
+<span class="linenr">25: </span>
+<span class="linenr">26: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to read a long value</span>
+<span class="linenr">27: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">long</span> <span style="color: #d55e00;">readLong</span>() <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> {
+<span class="linenr">28: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (readToken() != <span style="color: #d55e00; font-weight: bold;">tokenizer</span>.TT_NUMBER) {
+<span class="linenr">29: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readLong() failed. "</span> + <span style="color: #848ea9;">"Input data not numeric"</span>);
+<span class="linenr">30: </span>    }
+<span class="linenr">31: </span>
+<span class="linenr">32: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (tokenizer.nval &gt; (<span style="color: #0072b2; font-weight: bold;">double</span>) <span style="color: #d55e00; font-weight: bold;">Long</span>.MAX_VALUE || tokenizer.nval &lt; (<span style="color: #0072b2; font-weight: bold;">double</span>) <span style="color: #d55e00; font-weight: bold;">Long</span>.<span style="color: #0072b2; font-weight: bold;">MIN_VALUE</span>) {
+<span class="linenr">33: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(
+<span class="linenr">34: </span>          <span style="color: #848ea9;">" readLong() failed. "</span> + <span style="color: #848ea9;">"Input outside range of type long "</span>);
+<span class="linenr">35: </span>    }
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (tokenizer.nval != (<span style="color: #0072b2; font-weight: bold;">double</span>) (<span style="color: #0072b2; font-weight: bold;">long</span>) tokenizer.nval) {
+<span class="linenr">38: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readLong() failed. "</span> + <span style="color: #848ea9;">"Input not an integer"</span>);
+<span class="linenr">39: </span>    }
+<span class="linenr">40: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> (<span style="color: #0072b2; font-weight: bold;">long</span>) tokenizer.nval;
+<span class="linenr">41: </span>  }
+<span class="linenr">42: </span>
+<span class="linenr">43: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to read a double value</span>
+<span class="linenr">44: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">double</span> <span style="color: #d55e00;">readDouble</span>() <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> {
+<span class="linenr">45: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (readToken() != <span style="color: #d55e00; font-weight: bold;">tokenizer</span>.TT_NUMBER) {
+<span class="linenr">46: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readDouble() failed. "</span> + <span style="color: #848ea9;">"Input data not numeric"</span>);
+<span class="linenr">47: </span>    }
+<span class="linenr">48: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> tokenizer.nval;
+<span class="linenr">49: </span>  }
+<span class="linenr">50: </span>
+<span class="linenr">51: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to read a double value</span>
+<span class="linenr">52: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">float</span> <span style="color: #d55e00;">readFloat</span>() <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> {
+<span class="linenr">53: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (readToken() != <span style="color: #d55e00; font-weight: bold;">tokenizer</span>.TT_NUMBER) {
+<span class="linenr">54: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readFloat() failed. "</span> + <span style="color: #848ea9;">"Input data not numeric"</span>);
+<span class="linenr">55: </span>    }
+<span class="linenr">56: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> (<span style="color: #0072b2; font-weight: bold;">float</span>) tokenizer.nval;
+<span class="linenr">57: </span>  }
+<span class="linenr">58: </span>
+<span class="linenr">59: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Method to read a string</span>
+<span class="linenr">60: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">readString</span>() <span style="color: #56b4e9; font-weight: bold;">throws</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> {
+<span class="linenr">61: </span>    <span style="color: #56b4e9; font-weight: bold;">if</span> (readToken() == <span style="color: #d55e00; font-weight: bold;">tokenizer</span>.TT_WORD || ttype == <span style="color: #848ea9;">'\"'</span> || ttype == <span style="color: #848ea9;">'\''</span>) {
+<span class="linenr">62: </span>      <span style="color: #56b4e9; font-weight: bold;">return</span> tokenizer.sval;
+<span class="linenr">63: </span>    } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">64: </span>      <span style="color: #56b4e9; font-weight: bold;">throw</span> <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span>(<span style="color: #848ea9;">" readString() failed. "</span> + <span style="color: #848ea9;">"Input data is not a string"</span>);
+<span class="linenr">65: </span>    }
+<span class="linenr">66: </span>  }
+<span class="linenr">67: </span>
+<span class="linenr">68: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Helper method to read the next token</span>
+<span class="linenr">69: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #d55e00;">readToken</span>() {
+<span class="linenr">70: </span>    <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">71: </span>      ttype = tokenizer.nextToken();
+<span class="linenr">72: </span>      <span style="color: #56b4e9; font-weight: bold;">return</span> ttype;
+<span class="linenr">73: </span>
+<span class="linenr">74: </span>    } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">IOException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) { <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Error reading in nextToken()</span>
+<span class="linenr">75: </span>      e.printStackTrace(System.err);
+<span class="linenr">76: </span>      System.exit(1); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">End the program</span>
+<span class="linenr">77: </span>    }
+<span class="linenr">78: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> 0;
+<span class="linenr">79: </span>  }
+<span class="linenr">80: </span>
+<span class="linenr">81: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Object to tokenize input from the standard input stream</span>
+<span class="linenr">82: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">StreamTokenizer</span> <span style="color: #e69f00; font-weight: bold;">tokenizer</span> =
+<span class="linenr">83: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">StreamTokenizer</span>(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">BufferedReader</span>(<span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">InputStreamReader</span>(System.in)));
+<span class="linenr">84: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">ttype</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Stores the token type code</span>
+<span class="linenr">85: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e1d69c" class="outline-3">
+<h3 id="org7e1d69c"><code>InvalidUserInputException.java</code></h3>
+<div class="outline-text-3" id="text-org7e1d69c">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr">1: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">Exception</span> {
+<span class="linenr">2: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">InvalidUserInputException</span>() {}
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">InvalidUserInputException</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">message</span>) {
+<span class="linenr">5: </span>    <span style="color: #56b4e9; font-weight: bold;">super</span>(message);
+<span class="linenr">6: </span>  }
+<span class="linenr">7: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ca6ca1" class="outline-3">
+<h3 id="org6ca6ca1"><code>TryCalendar.java</code></h3>
+<div class="outline-text-3" id="text-org6ca6ca1">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">Calendar</span>.*;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">text</span>.<span style="color: #0072b2; font-weight: bold;">DateFormatSymbols</span>;
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span>;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryCalendar</span> {
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">FormattedInput</span> <span style="color: #e69f00; font-weight: bold;">in</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">FormattedInput</span>();
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Get the date of birth from the keyboard</span>
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">day</span> = 0;
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">month</span> = 0;
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">year</span> = 0;
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>    System.out.println(<span style="color: #848ea9;">"Enter your birth date as dd mm yyyy: "</span>);
+<span class="linenr">16: </span>    <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">17: </span>      day = in.readInt();
+<span class="linenr">18: </span>      month = in.readInt();
+<span class="linenr">19: </span>      year = in.readInt();
+<span class="linenr">20: </span>    } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">InvalidUserInputException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">21: </span>      System.out.println(<span style="color: #848ea9;">"Invalid input - terminating..."</span>);
+<span class="linenr">22: </span>      System.exit(1);
+<span class="linenr">23: </span>    }
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create birth date calendar - month is 0 to 11</span>
+<span class="linenr">26: </span>    <span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span> <span style="color: #e69f00; font-weight: bold;">birthdate</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span>(year, month - 1, day);
+<span class="linenr">27: </span>    <span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span> <span style="color: #e69f00; font-weight: bold;">today</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span>(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Today's date</span>
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create this year's birthday</span>
+<span class="linenr">30: </span>    <span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span> <span style="color: #e69f00; font-weight: bold;">birthday</span> =
+<span class="linenr">31: </span>        <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">GregorianCalendar</span>(today.get(YEAR), birthdate.get(MONTH), birthdate.get(DATE));
+<span class="linenr">32: </span>
+<span class="linenr">33: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">age</span> = today.get(<span style="color: #d55e00; font-weight: bold;">today</span>.YEAR) - birthdate.get(YEAR);
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>    <span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">weekdays</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">DateFormatSymbols</span>().getWeekdays(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Get day names</span>
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>    System.out.println(<span style="color: #848ea9;">"You were born on a "</span> + weekdays[birthdate.get(DAY_OF_WEEK)]);
+<span class="linenr">38: </span>    System.out.println(
+<span class="linenr">39: </span>        <span style="color: #848ea9;">"This year you "</span> + (birthday.after(today) ? <span style="color: #848ea9;">"will be "</span> : <span style="color: #848ea9;">"are "</span>) + age + <span style="color: #848ea9;">" years old."</span>);
+<span class="linenr">40: </span>    System.out.println(
+<span class="linenr">41: </span>        <span style="color: #848ea9;">"In "</span>
+<span class="linenr">42: </span>            + today.get(YEAR)
+<span class="linenr">43: </span>            + <span style="color: #848ea9;">" your birthday "</span>
+<span class="linenr">44: </span>            + (today.before(birthday) ? <span style="color: #848ea9;">"will be"</span> : <span style="color: #848ea9;">"was"</span>)
+<span class="linenr">45: </span>            + <span style="color: #848ea9;">" on a "</span>
+<span class="linenr">46: </span>            + weekdays[birthday.get(DAY_OF_WEEK)]
+<span class="linenr">47: </span>            + <span style="color: #848ea9;">"."</span>);
+<span class="linenr">48: </span>  }
+<span class="linenr">49: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd1839e7" class="outline-2">
+<h2 id="orgd1839e7">CapturingGroups</h2>
+<div class="outline-text-2" id="text-orgd1839e7">
+</div>
+<div id="outline-container-org9d7d8bb" class="outline-3">
+<h3 id="org9d7d8bb"><code>output</code></h3>
+<div class="outline-text-3" id="text-org9d7d8bb">
+<pre class="example">
+Group 0: 256
+Group 1: 256
+Group 2: null
+Group 3: null
+Group 0: 16
+Group 1: 16
+Group 2: null
+Group 3: null
+Group 0: -2.5
+Group 1: 2.5
+Group 2: .5
+Group 3: null
+Group 0: 6.25
+Group 1: 6.25
+Group 2: .25
+Group 3: null
+Group 0: .243
+Group 1: null
+Group 2: null
+Group 3: .243
+Group 0: 0.1234
+Group 1: 0.1234
+Group 2: .1234
+Group 3: null
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org350d8b6" class="outline-3">
+<h3 id="org350d8b6"><code>TryCapturingGroups.java</code></h3>
+<div class="outline-text-3" id="text-org350d8b6">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Matcher</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">regex</span>.<span style="color: #0072b2; font-weight: bold;">Pattern</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryCapturingGroups</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">regEx</span> = <span style="color: #848ea9;">"[+|-]?(\\d+(\\.\\d*)?)|(\\.\\d+)"</span>;
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">str</span> =
+<span class="linenr"> 9: </span>        <span style="color: #848ea9;">"256 is the square of 16 and -2.5 squared is 6.25 "</span> + <span style="color: #848ea9;">"and -.243 is less than 0.1234."</span>;
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">Pattern</span> <span style="color: #e69f00; font-weight: bold;">pattern</span> = Pattern.compile(regEx);
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">Matcher</span> <span style="color: #e69f00; font-weight: bold;">m</span> = pattern.matcher(str);
+<span class="linenr">12: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (m.find()) {
+<span class="linenr">13: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt;= m.groupCount(); i++) {
+<span class="linenr">14: </span>        System.out.println(<span style="color: #848ea9;">"Group "</span> + i + <span style="color: #848ea9;">": "</span> + m.group(i)); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Group i substring</span>
+<span class="linenr">15: </span>      }
+<span class="linenr">16: </span>    }
+<span class="linenr">17: </span>  }
+<span class="linenr">18: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4d7dc2" class="outline-2">
+<h2 id="orgb4d7dc2">DateFormats</h2>
+<div class="outline-text-2" id="text-orgb4d7dc2">
+</div>
+<div id="outline-container-org3b33b7b" class="outline-3">
+<h3 id="org3b33b7b"><code>output</code></h3>
+<div class="outline-text-3" id="text-org3b33b7b">
+<pre class="example">
+The Date for United States:
+        In FULL is Wednesday, December 16, 2020
+        In LONG is December 16, 2020
+        In MEDIUM is Dec 16, 2020
+        In SHORT is 12/16/20
+
+The Date for United Kingdom:
+        In FULL is Wednesday, 16 December 2020
+        In LONG is 16 December 2020
+        In MEDIUM is 16-Dec-2020
+        In SHORT is 16/12/20
+
+The Date for Germany:
+        In FULL is Mittwoch, 16. Dezember 2020
+        In LONG is 16. Dezember 2020
+        In MEDIUM is 16.12.2020
+        In SHORT is 16.12.20
+
+The Date for France:
+        In FULL is mercredi 16 décembre 2020
+        In LONG is 16 décembre 2020
+        In MEDIUM is 16 déc. 2020
+        In SHORT is 16/12/20
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4699dd6" class="outline-3">
+<h3 id="org4699dd6"><code>TryDateFormats.java</code></h3>
+<div class="outline-text-3" id="text-org4699dd6">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">text</span>.<span style="color: #d55e00; font-weight: bold;">DateFormat</span>.*; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Import names of constants</span>
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #d55e00; font-weight: bold;">Locale</span>.*; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Import names of constants</span>
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">text</span>.<span style="color: #0072b2; font-weight: bold;">DateFormat</span>;
+<span class="linenr"> 5: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Date</span>;
+<span class="linenr"> 6: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Locale</span>;
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryDateFormats</span> {
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr">11: </span>    <span style="color: #0072b2; font-weight: bold;">Date</span> <span style="color: #e69f00; font-weight: bold;">today</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Date</span>();
+<span class="linenr">12: </span>    <span style="color: #0072b2; font-weight: bold;">Locale</span>[] <span style="color: #e69f00; font-weight: bold;">locales</span> = {US, UK, GERMANY, FRANCE};
+<span class="linenr">13: </span>    <span style="color: #0072b2; font-weight: bold;">int</span>[] <span style="color: #e69f00; font-weight: bold;">styles</span> = {FULL, LONG, MEDIUM, SHORT};
+<span class="linenr">14: </span>    <span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">styleNames</span> = {<span style="color: #848ea9;">"FULL"</span>, <span style="color: #848ea9;">"LONG"</span>, <span style="color: #848ea9;">"MEDIUM"</span>, <span style="color: #848ea9;">"SHORT"</span>};
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Output the date for each locale in four styles</span>
+<span class="linenr">17: </span>    <span style="color: #0072b2; font-weight: bold;">DateFormat</span> <span style="color: #e69f00; font-weight: bold;">fmt</span> = <span style="color: #d55e00; font-weight: bold;">null</span>;
+<span class="linenr">18: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Locale</span> <span style="color: #e69f00; font-weight: bold;">locale</span> : locales) {
+<span class="linenr">19: </span>      System.out.println(<span style="color: #848ea9;">"\nThe Date for "</span> + locale.getDisplayCountry() + <span style="color: #848ea9;">":"</span>);
+<span class="linenr">20: </span>      <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">i</span> = 0; i &lt; styles.<span style="color: #0072b2; font-weight: bold;">length</span>; i++) {
+<span class="linenr">21: </span>        fmt = DateFormat.getDateInstance(styles[i], locale);
+<span class="linenr">22: </span>        System.out.println(<span style="color: #848ea9;">"\tIn "</span> + styleNames[i] + <span style="color: #848ea9;">" is "</span> + fmt.format(today));
+<span class="linenr">23: </span>      }
+<span class="linenr">24: </span>    }
+<span class="linenr">25: </span>  }
+<span class="linenr">26: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8bda4b9" class="outline-2">
+<h2 id="org8bda4b9">Observer</h2>
+<div class="outline-text-2" id="text-org8bda4b9">
+</div>
+<div id="outline-container-orgb76c0c0" class="outline-3">
+<h3 id="orgb76c0c0"><code>output</code></h3>
+<div class="outline-text-3" id="text-orgb76c0c0">
+<pre class="example">
+$ java Horrific
+It's Mr.Hyde
+Freaky Weirdo: Real cool, man. Where can I get that stuff?
+It's Mr.Hyde
+Slim Sagebrush: What in tarnation's goin' on here?
+It's Mr.Hyde
+Phil McCavity: I'm your local dentist - here's my card.
+It's Mr.Hyde
+Eileen Backwards: Oh, no, it's horrible - those teeth!
+It's Mr.Hyde
+Officer: What's all this then?
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgfdb545c" class="outline-3">
+<h3 id="orgfdb545c"><code>Horrific.java</code></h3>
+<div class="outline-text-3" id="text-orgfdb545c">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Try out observers</span>
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Observer</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Horrific</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">JekyllAndHyde</span> <span style="color: #e69f00; font-weight: bold;">man</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">JekyllAndHyde</span>(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create Dr. Jekyll</span>
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">Observer</span>[] <span style="color: #e69f00; font-weight: bold;">crowd</span> = {
+<span class="linenr">11: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Officer"</span>, <span style="color: #848ea9;">"What's all this then?"</span>),
+<span class="linenr">12: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Eileen Backwards"</span>, <span style="color: #848ea9;">"Oh, no, it's horrible - those teeth!"</span>),
+<span class="linenr">13: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Phil McCavity"</span>, <span style="color: #848ea9;">"I'm your local dentist - here's my card."</span>),
+<span class="linenr">14: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Slim Sagebrush"</span>, <span style="color: #848ea9;">"What in tarnation's goin' on here?"</span>),
+<span class="linenr">15: </span>      <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Person</span>(<span style="color: #848ea9;">"Freaky Weirdo"</span>, <span style="color: #848ea9;">"Real cool, man. Where can I get that stuff?"</span>)
+<span class="linenr">16: </span>    };
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>    <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Add the observers</span>
+<span class="linenr">19: </span>    <span style="color: #56b4e9; font-weight: bold;">for</span> (<span style="color: #0072b2; font-weight: bold;">Observer</span> <span style="color: #e69f00; font-weight: bold;">observer</span> : crowd) {
+<span class="linenr">20: </span>      man.addObserver(observer);
+<span class="linenr">21: </span>    }
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>    man.drinkPotion(); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Dr. Jekyll drinks up</span>
+<span class="linenr">24: </span>  }
+<span class="linenr">25: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0545fbd" class="outline-3">
+<h3 id="org0545fbd"><code>JekyllAndHyde.java</code></h3>
+<div class="outline-text-3" id="text-org0545fbd">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Observable</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">JekyllAndHyde</span> <span style="color: #56b4e9; font-weight: bold;">extends</span> <span style="color: #0072b2; font-weight: bold;">Observable</span> {
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">drinkPotion</span>() {
+<span class="linenr"> 6: </span>    name = <span style="color: #848ea9;">"Mr.Hyde"</span>;
+<span class="linenr"> 7: </span>    setChanged();
+<span class="linenr"> 8: </span>    notifyObservers();
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #d55e00;">getName</span>() {
+<span class="linenr">12: </span>    <span style="color: #56b4e9; font-weight: bold;">return</span> name;
+<span class="linenr">13: </span>  }
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">name</span> = <span style="color: #848ea9;">"Dr. Jekyll"</span>;
+<span class="linenr">16: </span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3ce831c" class="outline-3">
+<h3 id="org3ce831c"><code>Person.java</code></h3>
+<div class="outline-text-3" id="text-org3ce831c">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Observable</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Observer</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">Person</span> <span style="color: #56b4e9; font-weight: bold;">implements</span> <span style="color: #0072b2; font-weight: bold;">Observer</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Constructor</span>
+<span class="linenr"> 7: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #d55e00;">Person</span>(<span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">name</span>, <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">says</span>) {
+<span class="linenr"> 8: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.name = name;
+<span class="linenr"> 9: </span>    <span style="color: #56b4e9; font-weight: bold;">this</span>.says = says;
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>  <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Called when observing an object that changes</span>
+<span class="linenr">13: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">update</span>(<span style="color: #0072b2; font-weight: bold;">Observable</span> <span style="color: #e69f00; font-weight: bold;">thing</span>, <span style="color: #0072b2; font-weight: bold;">Object</span> <span style="color: #e69f00; font-weight: bold;">o</span>) {
+<span class="linenr">14: </span>    System.out.println(<span style="color: #848ea9;">"It's "</span> + ((<span style="color: #0072b2; font-weight: bold;">JekyllAndHyde</span>) thing).getName() + <span style="color: #848ea9;">"\n"</span> + name + <span style="color: #848ea9;">": "</span> + says);
+<span class="linenr">15: </span>  }
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">name</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Person's identity</span>
+<span class="linenr">18: </span>  <span style="color: #56b4e9; font-weight: bold;">private</span> <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">says</span>; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">What they say when startled</span>
+<span class="linenr">19: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd058ae" class="outline-2">
+<h2 id="orgdd058ae">Scanner</h2>
+<div class="outline-text-2" id="text-orgdd058ae">
+</div>
+<div id="outline-container-org5ee151b" class="outline-3">
+<h3 id="org5ee151b"><code>output</code></h3>
+<div class="outline-text-3" id="text-org5ee151b">
+<pre class="example">
+Enter an integer: 42
+You entered: 42
+Enter a floating-point value: 10
+You entered: 10.0
+Enter a boolean value(true or false): false
+You entered: false
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga330ca3" class="outline-3">
+<h3 id="orga330ca3"><code>TryScanner.java</code></h3>
+<div class="outline-text-3" id="text-orga330ca3">
+<div class="org-src-container">
+<pre class="src src-java"><span class="linenr"> 1: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">InputMismatchException</span>;
+<span class="linenr"> 2: </span><span style="color: #56b4e9; font-weight: bold;">import</span> <span style="color: #d55e00; font-weight: bold;">java</span>.<span style="color: #d55e00; font-weight: bold;">util</span>.<span style="color: #0072b2; font-weight: bold;">Scanner</span>;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">class</span> <span style="color: #0072b2; font-weight: bold;">TryScanner</span> {
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>  <span style="color: #56b4e9; font-weight: bold;">public</span> <span style="color: #56b4e9; font-weight: bold;">static</span> <span style="color: #0072b2; font-weight: bold;">void</span> <span style="color: #d55e00;">main</span>(<span style="color: #0072b2; font-weight: bold;">String</span>[] <span style="color: #e69f00; font-weight: bold;">args</span>) {
+<span class="linenr"> 7: </span>    <span style="color: #0072b2; font-weight: bold;">Scanner</span> <span style="color: #e69f00; font-weight: bold;">kbScan</span> = <span style="color: #56b4e9; font-weight: bold;">new</span> <span style="color: #0072b2; font-weight: bold;">Scanner</span>(System.in); <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Create the scanner</span>
+<span class="linenr"> 8: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">selectRead</span> = 1; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Selects the read operation</span>
+<span class="linenr"> 9: </span>    <span style="color: #56b4e9; font-weight: bold;">final</span> <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">MAXTRIES</span> = 3; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Maximum attempts at input</span>
+<span class="linenr">10: </span>    <span style="color: #0072b2; font-weight: bold;">int</span> <span style="color: #e69f00; font-weight: bold;">tries</span> = 0; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Number of input attempts</span>
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>    <span style="color: #56b4e9; font-weight: bold;">while</span> (tries &lt; <span style="color: #0072b2; font-weight: bold;">MAXTRIES</span>) {
+<span class="linenr">13: </span>      <span style="color: #56b4e9; font-weight: bold;">try</span> {
+<span class="linenr">14: </span>        <span style="color: #56b4e9; font-weight: bold;">switch</span> (selectRead) {
+<span class="linenr">15: </span>          <span style="color: #56b4e9; font-weight: bold;">case</span> 1:
+<span class="linenr">16: </span>            System.out.print(<span style="color: #848ea9;">"Enter an integer: "</span>);
+<span class="linenr">17: </span>            System.out.println(<span style="color: #848ea9;">"You entered: "</span> + kbScan.nextLong());
+<span class="linenr">18: </span>            ++selectRead; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Select next read operation</span>
+<span class="linenr">19: </span>            tries = 0; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Reset count of tries</span>
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>          <span style="color: #56b4e9; font-weight: bold;">case</span> 2:
+<span class="linenr">22: </span>            System.out.print(<span style="color: #848ea9;">"Enter a floating-point value: "</span>);
+<span class="linenr">23: </span>            System.out.println(<span style="color: #848ea9;">"You entered: "</span> + kbScan.nextDouble());
+<span class="linenr">24: </span>            ++selectRead; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Select next read operation</span>
+<span class="linenr">25: </span>            tries = 0; <span style="color: #009e73; font-style: italic;">// </span><span style="color: #009e73; font-style: italic;">Reset count of tries</span>
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>          <span style="color: #56b4e9; font-weight: bold;">case</span> 3:
+<span class="linenr">28: </span>            System.out.print(<span style="color: #848ea9;">"Enter a boolean value(true or false): "</span>);
+<span class="linenr">29: </span>            System.out.println(<span style="color: #848ea9;">"You entered: "</span> + kbScan.nextBoolean());
+<span class="linenr">30: </span>        }
+<span class="linenr">31: </span>        <span style="color: #56b4e9; font-weight: bold;">break</span>;
+<span class="linenr">32: </span>      } <span style="color: #56b4e9; font-weight: bold;">catch</span> (<span style="color: #0072b2; font-weight: bold;">InputMismatchException</span> <span style="color: #e69f00; font-weight: bold;">e</span>) {
+<span class="linenr">33: </span>        <span style="color: #0072b2; font-weight: bold;">String</span> <span style="color: #e69f00; font-weight: bold;">input</span> = kbScan.next();
+<span class="linenr">34: </span>        System.out.println(<span style="color: #848ea9;">"\""</span> + input + <span style="color: #848ea9;">"\" is not valid input."</span>);
+<span class="linenr">35: </span>        <span style="color: #56b4e9; font-weight: bold;">if</span> (tries &lt; <span style="color: #0072b2; font-weight: bold;">MAXTRIES</span>) {
+<span class="linenr">36: </span>          System.out.println(<span style="color: #848ea9;">"Try again."</span>);
+<span class="linenr">37: </span>        } <span style="color: #56b4e9; font-weight: bold;">else</span> {
+<span class="linenr">38: </span>          System.out.println(<span style="color: #848ea9;">" Terminating program."</span>);
+<span class="linenr">39: </span>          System.exit(1);
+<span class="linenr">40: </span>        }
+<span class="linenr">41: </span>      }
+<span class="linenr">42: </span>    }
+<span class="linenr">43: </span>  }
+<span class="linenr">44: </span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

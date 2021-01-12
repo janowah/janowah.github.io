@@ -15,7 +15,7 @@
 12) Serializing Objects
 13) Generic Class Types
 14) The Collections Framework
-15) A Collection of Useful Classes
+15) [[file:15.html][A Collection of Useful Classes]]
 16) Threads
 17) Creating Windows
 18) Handling Events

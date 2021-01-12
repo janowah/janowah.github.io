@@ -86,5 +86,5 @@ d g (calc-group-digits)
 
 #+END_EXAMPLE
 
-[[file:~/janowah/emacs/guides.html][back]]
+[[../guides.html][back]]
 

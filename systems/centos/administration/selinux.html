@@ -24,15 +24,29 @@
 - chcon
   - chcon -R --reference /etc/openvpn /etc/openvpn ; restore
   - chcon -R --reference=/var/ftp /var/ftp/
+  - chcon -t ssh_home_t ; change type for single file
 
 CREATE EXCEPTION
-- ausearch - a tool to query audit daemon logs
-- audit2allow - generate SELinux policy allow/dontaudit rules from
-  logs of denied operations
-- semodule - Manage SELinux policy modules.
-
 - ausearch -c 'java' --raw | audit2allow -M my-java
 - semodule -i my-java.pp 
+
+SWITCHES
+-u USER 
+-r ROLE
+-t TYPE
+
+TOOLS
+- selinux(8) - NSA Security-Enhanced Linux (SELinux)
+- sestatus(8) - SELinux status tool
+- chcon(1) - change file SELinux security context
+- restorecon(8) - restore file(s) default SELinux security contexts
+- semanage(8) - SELinux Policy Management tool
+- getsebool(8) - get SELinux boolean value(s)
+- setsebool(8) - set SELinux boolean value
+- ausearch(8)  - a tool to query audit daemon logs
+- semodule(8) - Manage SELinux policy modules
+- audit2allow(1) - generate SELinux policy allow/dontaudit rules from
+  logs of denied operations
 </pre>
 
 <p>
