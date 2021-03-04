@@ -1,30 +1,30 @@
 #+title: Beginning Java
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
 
-1) Introducing Java
-2) Programs, Data, Variables, and Calculation
-3) Loops and Logic
-4) Arrays and Strings
-5) Defining Classes
-6) Extending Classes and Inheritance
-7) Exceptions
-8) Understanding Streams
-9) Accessing Files and Directories
-10) Writing Files
-11) Reading Files
-12) Serializing Objects
-13) Generic Class Types
-14) The Collections Framework
-15) [[file:15.html][A Collection of Useful Classes]]
-16) Threads
-17) Creating Windows
-18) Handling Events
-19) Drawing in a Window
-20) Extending the GUI
-21) Filing and Printing Documents 	  	  	 
-22) Java and XML
-23) Creating and Modifying XML Documents
-24) Talking to Databases
-25) The JDBC in Action
+1. Introducing Java
+2. Programs, Data, Variables, and Calculation
+3. Loops and Logic
+4. Arrays and Strings
+5. Defining Classes
+6. Extending Classes and Inheritance
+7. Exceptions
+8. Understanding Streams
+9. Accessing Files and Directories
+10. [[file:10.html][Writing Files]]
+11. Reading Files
+12. Serializing Objects
+13. Generic Class Types
+14. The Collections Framework
+15. [[file:15.html][A Collection of Useful Classes]]
+16. Threads
+17. Creating Windows
+18. Handling Events
+19. Drawing in a Window
+20. Extending the GUI
+21. Filing and Printing Documents 	  	  	 
+22. Java and XML
+23. Creating and Modifying XML Documents
+24. Talking to Databases
+25. The JDBC in Action
 
 [[../code.html][back]]
