@@ -1,21 +1,45 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>youtube-dl</title>
+<meta name="generator" content="Org mode" />
 </head>
 <body>
-<h1>youtube-dl</h1>
+<div id="content">
+<h1 class="title">youtube-dl</h1>
 
-<pre>
+<div id="outline-container-org0ec3fe9" class="outline-2">
+<h2 id="org0ec3fe9">examples</h2>
+<div class="outline-text-2" id="text-org0ec3fe9">
+<pre class="example">
 youtube-dl -x https://www.youtube.com/
 youtube-dl -xa file.txt
 
-SWITCHES
+youtube-dl --dump-json --flat-playlist "https://www.youtube.com/c/CHANNEL/videos" | jq -r '"\(.title)\nhttps://youtu.be/\(.id)\n"' &gt; list.txt
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org317d4eb" class="outline-2">
+<h2 id="org317d4eb">switches</h2>
+<div class="outline-text-2" id="text-org317d4eb">
+<pre class="example">
 -x, --extract-audio
 -a, --batch-file FILE
-
-ffprobe
 </pre>
-<a href="./tools.html">back</a>
+
+<p>
+<a href="tools.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
 </body>
 </html>

@@ -1,0 +1,20 @@
+#+title: youtube-dl
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* examples
+
+#+BEGIN_EXAMPLE
+  youtube-dl -x https://www.youtube.com/
+  youtube-dl -xa file.txt
+
+  youtube-dl --dump-json --flat-playlist "https://www.youtube.com/c/CHANNEL/videos" | jq -r '"\(.title)\nhttps://youtu.be/\(.id)\n"' > list.txt
+#+END_EXAMPLE
+
+* switches
+
+#+BEGIN_EXAMPLE
+  -x, --extract-audio
+  -a, --batch-file FILE
+#+END_EXAMPLE
+
+[[file:tools.html][back]]
