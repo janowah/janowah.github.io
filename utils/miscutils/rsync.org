@@ -1,0 +1,42 @@
+#+title: rsync
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+* switches
+
+#+BEGIN_EXAMPLE
+  -a, --archive               archive mode; equals -rlptgoD (no -H,-A,-X)
+  -v, --verbose               increase verbosity
+  -t, --times                 preserve modification times
+  -n, --dry-run               perform a trial run with no changes made
+
+  -e, --rsh=COMMAND           specify the remote shell to use
+
+      --progress              show progress during transfer
+  -c, --checksum              skip based on checksum, not mod-time & size
+  -i, --itemize-changes       output a change-summary for all updates
+      --delete                delete extraneous files from dest dirs
+
+  -b, --backup                make backups (see --suffix & --backup-dir)
+#+END_EXAMPLE
+
+* examples
+
+** ssh
+
+#+BEGIN_SRC sh
+  # homer-pc is a host alias in ~/.ssh
+
+  # mirror
+  rsync -avt -e ssh --delete --progress /home/homer/public_html/ \
+        homer-pc:/var/www/html/
+
+  rsync -avt -e ssh --progress file.txt homer-pc:/home/homer/test/
+#+END_SRC
+
+** diff
+
+#+BEGIN_SRC sh
+  rsync -avt --checksum --itemize-changes A/ B/
+#+END_SRC
+
+[[./miscutils.html][back]]
