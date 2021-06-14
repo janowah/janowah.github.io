@@ -1,6 +1,5 @@
 
-usb
-
+                                 usb
 
 | make                 | size | interface | contents          | location |
 |----------------------+------+-----------+-------------------+----------|
@@ -15,7 +14,7 @@ usb
 | sandisk cruzer edge  | 16GB |       2.0 | centos 7 x64 min  |          |
 | sandisk ultra 1      | 16GB |       3.0 | ubuntu 14.04.3    |          |
 | sandisk              | 32GB |       3.0 | centos 7 x64      |          |
-| sandisk ultra 2      | 16GB |       3.0 | openbsd 6.4       |          |
+| sandisk ultra 2      | 16GB |       3.0 | fedora 33 LIVE    |          |
 |----------------------+------+-----------+-------------------+----------|
 | integral             | 2GB  |       2.0 | data (bc) --x--   |          |
 | sandisk cruzer edge  | 32GB |       2.0 | data (jc)         |          |
