@@ -1,0 +1,24 @@
+#+title: janowah
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+- nfo
+  - [[file:books/books.html][books]]
+  - [[file:links.html][links]]
+  - [[file:misc/misc.html][misc]]
+  - [[file:music/music.html][music]]
+- kb
+  - [[file:guides/guides.html][guides]]
+  - [[file:maths/maths.html][maths]]
+  - [[file:networking/networking.html][networking]]
+  - [[file:programming/programming.html][programming]]
+  - software
+    - [[file:emacs/emacs.html][emacs]]
+    - [[file:latex/latex.html][latex]]
+    - [[file:tools/tools.html][tools]]
+    - [[file:utils/utils.html][utils]]
+    - [[file:software/software.html][windows]]
+  - [[file:systems/systems.html][systems]]
+- reference
+  - [[file:data/data.html][data]]
+  - [[file:courses/courses.html][courses]]
+

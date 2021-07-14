@@ -1,0 +1,50 @@
+#+title: tools
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* L1 physical
+
+- ifconfig/ ipconfig
+  - ip address/ subnet mask
+  - default gateway
+  - dhcp or static
+  - ethtool
+- link-light, cable etc.
+- two troubleshooting interfaces
+  - interface commands
+  - link lights
+
+* L2
+
+- arp, nd, tcpdump
+
+* L3
+
+- ping
+  - ip connectivity.  address + ip
+- traceroute
+  - ip path
+
+* L4
+
+- netstat, netcat, tcpdump
+
+* L5+
+
+- dig
+  - domain internet gropher
+  - query dns server
+- whois
+- curl/ telnet/ wget
+- nslookup
+- logs, debuggers
+
+* unsorted
+
+- ip addr show
+- looking glass
+
+- .pcap ; packet capture
+- wireshark
+- netem
+
+[[file:networking.html][back]]

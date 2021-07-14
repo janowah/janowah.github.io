@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>network layers</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">network layers</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org95e21b6">osi &amp; tcp/ip</a></li>
+<li><a href="#org33e6d45">tcp/ip</a></li>
+<li><a href="#org14ee148">notes</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org95e21b6" class="outline-2">
+<h2 id="org95e21b6">osi &amp; tcp/ip</h2>
+<div class="outline-text-2" id="text-org95e21b6">
+<pre class="example">
+| Layer | osi          | tcp/ip      | data    |
+|-------+--------------+-------------+---------|
+|     7 | application  | application |         |
+|     6 | presentation | application |         |
+|     5 | session      | application |         |
+|-------+--------------+-------------+---------|
+|     4 | transport    | transport   | segment |
+|-------+--------------+-------------+---------|
+|     3 | network      | internet    | packet  |
+|-------+--------------+-------------+---------|
+|     2 | data-link    | link        | frame   |
+|     1 | physical     | link        | bits    |
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org33e6d45" class="outline-2">
+<h2 id="org33e6d45">tcp/ip</h2>
+<div class="outline-text-2" id="text-org33e6d45">
+<pre class="example">
+application  ; data
+transport    ; tcp/ udp
+internet     ; ip/ /icmp/ igmp
+link         ; frame
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org14ee148" class="outline-2">
+<h2 id="org14ee148">notes</h2>
+<div class="outline-text-2" id="text-org14ee148">
+<ul class="org-ul">
+<li>troubleshooting bottom up</li>
+<li>The application layer is the actual protocol spoken over these
+connections.</li>
+<li>The presentation layer lets programs exchange data with one another.</li>
+<li>The session layer handles opening, using, and closing transport
+layer connections.</li>
+<li>Data flows at the transport layer.</li>
+<li>The network layer maps connectivity between hosts</li>
+<li>The datalink layer transforms the network’s upper layers into the
+signals transmitted over the wire.</li>
+</ul>
+
+<p>
+<a href="networking.html">back</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="validation"></p>
+</div>
+</body>
+</html>

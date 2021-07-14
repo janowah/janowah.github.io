@@ -1,0 +1,43 @@
+#+title: network layers
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+* osi & tcp/ip
+
+#+BEGIN_EXAMPLE
+  | Layer | osi          | tcp/ip      | data    |
+  |-------+--------------+-------------+---------|
+  |     7 | application  | application |         |
+  |     6 | presentation | application |         |
+  |     5 | session      | application |         |
+  |-------+--------------+-------------+---------|
+  |     4 | transport    | transport   | segment |
+  |-------+--------------+-------------+---------|
+  |     3 | network      | internet    | packet  |
+  |-------+--------------+-------------+---------|
+  |     2 | data-link    | link        | frame   |
+  |     1 | physical     | link        | bits    |
+#+END_EXAMPLE
+
+* tcp/ip
+
+#+BEGIN_EXAMPLE
+  application  ; data
+  transport    ; tcp/ udp
+  internet     ; ip/ /icmp/ igmp
+  link         ; frame
+#+END_EXAMPLE
+
+* notes
+
+- troubleshooting bottom up
+- The application layer is the actual protocol spoken over these
+  connections.
+- The presentation layer lets programs exchange data with one another.
+- The session layer handles opening, using, and closing transport
+  layer connections.
+- Data flows at the transport layer.
+- The network layer maps connectivity between hosts
+- The datalink layer transforms the network’s upper layers into the
+  signals transmitted over the wire.
+
+[[file:networking.html][back]]
