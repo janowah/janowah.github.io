@@ -8,6 +8,8 @@
 - Henning Mankell / Sidetracked (KW5)
 - Henning Mankell / The Fifth Woman (KW6)
 - Henning Mankell / One Step Behind (KW7)
+- Henning Mankell / Firewall (KW8)
+- Henning Mankell / Before the Frost (LW1)
 - Jo Nesbø / The Bat (HH1)
 
 [[file:books.html][back]]
