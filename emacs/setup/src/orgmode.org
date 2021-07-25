@@ -16,6 +16,8 @@
         '((sequence "TODO" "|" "DONE" "INFO")))
 
   (setq org-src-window-setup 'current-window)
+
+  (require 'org-tempo) ;; for templates
 #+END_SRC
 
 [[../setup.html][back]]

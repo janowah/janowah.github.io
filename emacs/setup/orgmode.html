@@ -3,15 +3,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>orgmode</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 </head>
 <body>
 <div id="content">
 <h1 class="title">orgmode</h1>
 <div class="org-src-container">
-
 <pre class="src src-elisp">(add-hook 'org-mode-hook 'org-indent-mode)
 
 (<span style="color: #a020f0;">setq</span> org-html-head-include-default-style nil)
@@ -26,6 +26,8 @@
       '((sequence <span style="color: #8b2252;">"TODO"</span> <span style="color: #8b2252;">"|"</span> <span style="color: #8b2252;">"DONE"</span> <span style="color: #8b2252;">"INFO"</span>)))
 
 (<span style="color: #a020f0;">setq</span> org-src-window-setup 'current-window)
+
+(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">org-tempo</span>) <span style="color: #b22222;">;; </span><span style="color: #b22222;">for templates</span>
 </pre>
 </div>
 
