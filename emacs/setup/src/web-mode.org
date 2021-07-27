@@ -1,0 +1,13 @@
+#+title: web-mode
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC elisp
+  (load "~/.emacs.d/web-mode.el")
+
+  (defun my-web-mode-hook ()
+    "Hooks for Web mode."
+    (setq web-mode-markup-indent-offset 2))
+
+  (add-hook 'web-mode-hook  'my-web-mode-hook)
+#+END_SRC
+

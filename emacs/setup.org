@@ -15,7 +15,7 @@
   - [[./setup/eww.html][eww]]
   - [[./setup/package.html][package]]
   - [[file:setup/ediff.html][ediff]]
-  - web mode
+  - [[file:setup/web-mode.html][web-mode]]
   - magit
 - reference
   - [[./setup/registers.html][registers]]
