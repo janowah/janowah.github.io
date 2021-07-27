@@ -1,0 +1,26 @@
+#+title: ido
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+
+#+BEGIN_SRC elisp
+
+  ;; enable
+  (ido-mode 1)
+  (ido-everywhere 1)
+
+  ;; variables
+  (setq ido-enable-flex-matching t)
+  (setq ido-create-new-buffer 'prompt)
+  (setq ido-enable-tramp-completion t)
+
+  ;; bindings
+  (global-set-key (kbd "<f7>") 'ido-bookmark-jump)
+
+  ;; https://www.emacswiki.org/emacs/InteractivelyDoThings
+  ;; Display ido results vertically, rather than horizontally
+  ;; (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+
+  ;; idomenu.el ; melpa
+  ;; (global-set-key (kbd "M-i") 'idomenu)
+#+END_SRC
+
+[[../setup.html][back]]
