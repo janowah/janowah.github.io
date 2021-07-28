@@ -5,9 +5,11 @@
   - [[./setup/defaults.html][defaults]]
   - [[./setup/aliases.html][aliases]]
   - [[./setup/orgmode.html][orgmode]]
-  - [[./setup/functions.html][functions]]
   - [[./setup/ido.html][ido]]
-  - [[file:setup/my-functions.html][my functions]]
+  - functions
+    - [[./setup/functions.html][functions]]
+    - [[file:setup/my-functions.html][custom]]
+    - [[file:setup/archived-functions.html][archived]]
 - standard packages
   - [[./setup/babel.html][babel]]
   - [[./setup/dired.html][dired]]
@@ -25,7 +27,7 @@
   - [[./setup/themes.html][themes]]
   - [[./setup/vimish-fold.html][vimish fold]]
   - [[./setup/bindings.html][key bindings]]
-- platforms
+- fonts
   - [[./setup/linux.html][linux]]
   - [[./setup/windows.html][windows]]
 - .emacs

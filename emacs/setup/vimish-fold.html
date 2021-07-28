@@ -1,11 +1,19 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>vimish-fold</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>vimish-fold</h1>
-<pre>
-commands
+<div id="content">
+<h1 class="title">vimish-fold</h1>
+<div class="org-src-container">
+<pre class="src src-elisp">commands
 ========
 - create fold
   - vimish-fold vf
@@ -29,26 +37,31 @@ commands
 
 aliases
 =======
-(defalias 'vf 'vimish-fold)
-(defalias 'vd 'vimish-fold-delete)
-(defalias 'vda 'vimish-fold-delete-all)
-(defalias 'vfgm 'vimish-fold-global-mode)
-(defalias 'vfm 'vimish-fold-mode)
-(defalias 'vn 'vimish-fold-next-fold)
-(defalias 'vp 'vimish-fold-previous-fold)
-(defalias 'vr 'vimish-fold-refold)
-(defalias 'vra 'vimish-fold-refold-all)
-(defalias 'vt 'vimish-fold-toggle)
-(defalias 'vta 'vimish-fold-toggle-all)
-(defalias 'vu 'vimish-fold-unfold)
-(defalias 'vua 'vimish-fold-unfold-all)
-(global-set-key (kbd "&lt;H-tab&gt;") 'vimish-fold-toggle)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vf</span> 'vimish-fold)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vd</span> 'vimish-fold-delete)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vda</span> 'vimish-fold-delete-all)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vfgm</span> 'vimish-fold-global-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vfm</span> 'vimish-fold-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vn</span> 'vimish-fold-next-fold)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vp</span> 'vimish-fold-previous-fold)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vr</span> 'vimish-fold-refold)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vra</span> 'vimish-fold-refold-all)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vt</span> 'vimish-fold-toggle)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vta</span> 'vimish-fold-toggle-all)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vu</span> 'vimish-fold-unfold)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vua</span> 'vimish-fold-unfold-all)
+(global-set-key (kbd <span class="org-string">"&amp;lt;H-tab&amp;gt;"</span>) 'vimish-fold-toggle)
 
 
 header-width
 ============
-(setq vimish-fold-header-width 70)
+(<span class="org-keyword">setq</span> vimish-fold-header-width 70)
 </pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
 </body>
 </html>

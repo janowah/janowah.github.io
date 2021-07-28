@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>wget</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
 <div id="content">
@@ -15,15 +16,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0968b66">SWITCHES</a></li>
-<li><a href="#orgb4223eb">EXAMPLES</a></li>
+<li><a href="#orga6139f4">SWITCHES</a></li>
+<li><a href="#org4441570">EXAMPLES</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0968b66" class="outline-2">
-<h2 id="org0968b66">SWITCHES</h2>
-<div class="outline-text-2" id="text-org0968b66">
+<div id="outline-container-orga6139f4" class="outline-2">
+<h2 id="orga6139f4">SWITCHES</h2>
+<div class="outline-text-2" id="text-orga6139f4">
 <pre class="example">
 -r  --recursive
 -np --no-parent
@@ -41,17 +42,17 @@
 </div>
 </div>
 
-<div id="outline-container-orgb4223eb" class="outline-2">
-<h2 id="orgb4223eb">EXAMPLES</h2>
-<div class="outline-text-2" id="text-orgb4223eb">
+<div id="outline-container-org4441570" class="outline-2">
+<h2 id="org4441570">EXAMPLES</h2>
+<div class="outline-text-2" id="text-org4441570">
 <pre class="example">
 
 wget -r -nH -nd -np -R index.html* http://example.com/
 
-  wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
-  wget -r -np --timestamping --user=homer --ask-password https://example.com
+wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
+wget -r -np --timestamping --user=homer --ask-password https://example.com
 
-  wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com/files
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent https://example.com/files
 </pre>
 
 <pre class="example">
@@ -62,9 +63,6 @@ need -r to download files
 </pre>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

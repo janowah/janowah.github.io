@@ -7,39 +7,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ido</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
 <h1 class="title">ido</h1>
 <div class="org-src-container">
 <pre class="src src-elisp">
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">enable</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">enable</span>
 (ido-mode 1)
 (ido-everywhere 1)
 
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">variables</span>
-(<span style="color: #b4fa70;">setq</span> ido-enable-flex-matching t)
-(<span style="color: #b4fa70;">setq</span> ido-create-new-buffer 'prompt)
-(<span style="color: #b4fa70;">setq</span> ido-enable-tramp-completion t)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">variables</span>
+(<span class="org-keyword">setq</span> ido-enable-flex-matching t)
+(<span class="org-keyword">setq</span> ido-create-new-buffer 'prompt)
+(<span class="org-keyword">setq</span> ido-enable-tramp-completion t)
 
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">bindings</span>
-(global-set-key (kbd <span style="color: #e9b96e;">"&lt;f7&gt;"</span>) 'ido-bookmark-jump)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">bindings</span>
+(global-set-key (kbd <span class="org-string">"&lt;f7&gt;"</span>) 'ido-bookmark-jump)
 
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">https://www.emacswiki.org/emacs/InteractivelyDoThings</span>
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">Display ido results vertically, rather than horizontally</span>
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">(setq ido-decorations (quote ("\n-&gt; " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">https://www.emacswiki.org/emacs/InteractivelyDoThings</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Display ido results vertically, rather than horizontally</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(setq ido-decorations (quote ("\n-&gt; " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))</span>
 
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">idomenu.el ; melpa</span>
-<span style="color: #73d216;">;; </span><span style="color: #73d216;">(global-set-key (kbd "M-i") 'idomenu)</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">idomenu.el ; melpa</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(global-set-key (kbd "M-i") 'idomenu)</span>
 </pre>
 </div>
 
 <p>
 <a href="../setup.html">back</a>
 </p>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

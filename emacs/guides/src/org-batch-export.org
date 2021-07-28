@@ -1,0 +1,48 @@
+#+title: batch org export to html
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil 
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+* =tree=
+
+#+BEGIN_SRC text
+  .
+  ├── file.org
+  ├── htmlize.css
+  └── org-render-html-minimal.el
+#+END_SRC
+
+* =org-render-html-minimal.el=
+
+#+BEGIN_SRC elisp
+  (require 'org)
+  (load "~/.emacs.d/htmlize.el")
+  (require 'htmlize)
+  (setq org-html-htmlize-output-type 'css)
+
+  (setq org-html-head-include-default-style nil)
+  (setq org-html-head-include-scripts nil)
+  (setq org-export-html-validation-link "")
+  (setq org-html-validation-link nil)
+#+END_SRC
+
+* =htmlize.css=
+
+- load theme you want to use
+- =M-x org-html-htmlize-generate-css=
+
+* =file.org=
+
+#+BEGIN_SRC org
+  ,#+title: Title
+  ,#+options: num:nil ^:nil creator:nil author:nil timestamp:nil html-postamble:nil
+  ,#+html_head: <link rel="stylesheet" type="text/css" href="htmlize.css"/>
+#+END_SRC
+
+* command
+
+#+BEGIN_SRC sh
+  emacs file.org --batch -Q --load org-render-html-minimal.el -f org-html-export-to-html --kill
+#+END_SRC
+
+[[../guides.html][back]]

@@ -1,14 +1,38 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ssh</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-<h1>ssh</h1>
+<div id="content">
+<h1 class="title">ssh</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org17f234f">how it works</a></li>
+<li><a href="#orge1b3ca5">commands</a></li>
+<li><a href="#org202ba85">copy keys to locations on client and server</a></li>
+<li><a href="#org12fb5ea">quick steps</a></li>
+<li><a href="#orgf0f48cf">server configuration</a></li>
+<li><a href="#org6415d09">client configuration</a></li>
+<li><a href="#orgd796721">other</a></li>
+<li><a href="#org4f4e701">references</a></li>
+</ul>
+</div>
+</div>
 
-<pre>
-* how it works
-id_rsa ; private key. kept with client
+<div id="outline-container-org17f234f" class="outline-2">
+<h2 id="org17f234f">how it works</h2>
+<div class="outline-text-2" id="text-org17f234f">
+<div class="org-src-container">
+<pre class="src src-text">id_rsa ; private key. kept with client
 id_rsa.pub ; public key. goes on server. contains email address
 
 user@server
@@ -19,44 +43,103 @@ user@client
 
 server will use key first if available
 dirs must be 700. files 600
+</pre>
+</div>
+</div>
+</div>
 
-* commands 
-ssh-keygen -t rsa ; generate ssh keys
+<div id="outline-container-orge1b3ca5" class="outline-2">
+<h2 id="orge1b3ca5">commands</h2>
+<div class="outline-text-2" id="text-orge1b3ca5">
+<div class="org-src-container">
+<pre class="src src-text">ssh-keygen -t rsa ; generate ssh keys
 ssh-add ~/.ssh/id_rsa
 ssh-add -l ; list
+</pre>
+</div>
+</div>
+</div>
 
-* copy keys to locations on client and server
-client location: (/home/homer/.ssh/id_rsa): 
+<div id="outline-container-org202ba85" class="outline-2">
+<h2 id="org202ba85">copy keys to locations on client and server</h2>
+<div class="outline-text-2" id="text-org202ba85">
+<div class="org-src-container">
+<pre class="src src-text">client location: (/home/homer/.ssh/id_rsa): 
 passphrase: monkey
 server location: ~/.ssh/authorized_keys
+</pre>
+</div>
+</div>
+</div>
 
-* quick steps
-1) create a public/private key pair on the client or server
+<div id="outline-container-org12fb5ea" class="outline-2">
+<h2 id="org12fb5ea">quick steps</h2>
+<div class="outline-text-2" id="text-org12fb5ea">
+<div class="org-src-container">
+<pre class="src src-text">1) create a public/private key pair on the client or server
    - =ssh-keygen -t rsa=
 2) copy client key to ~/.ssh on client; private key should be 600
-3) cat id_rsa.pub >> ~/.ssh/authorized_keys ; on server
+3) cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys ; on server
 4) $ restorecon -Rv ~/.ssh 
-  
-* server configuration
-/etc/ssh/sshd_config 
-- keys only and no root
-  - PermitRootLogin no
-  - PasswordAuthentication no
-
-* client configuration
-/home/homer/.ssh/config
-
-Host myshortname realname.example.com
-    HostName realname.example.com
-    IdentityFile ~/.ssh/realname_rsa # private key for realname
-    User remoteusername
-
-* other
-- firewall rules
-
-* references
-  https://wiki.centos.org/HowTos/Network/SecuringSSH
 </pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0f48cf" class="outline-2">
+<h2 id="orgf0f48cf">server configuration</h2>
+<div class="outline-text-2" id="text-orgf0f48cf">
+<p>
+<code>/etc/ssh/sshd_config</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">keys only and no root</span>
+PermitRootLogin no
+PasswordAuthentication no
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6415d09" class="outline-2">
+<h2 id="org6415d09">client configuration</h2>
+<div class="outline-text-2" id="text-org6415d09">
+<p>
+<code>/home/homer/.ssh/config</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-conf">Host myshortname realname.example.com
+    HostName realname.example.com
+    IdentityFile ~/.ssh/realname_rsa <span class="org-comment-delimiter"># </span><span class="org-comment">private key for realname</span>
+    User remoteusername
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd796721" class="outline-2">
+<h2 id="orgd796721">other</h2>
+<div class="outline-text-2" id="text-orgd796721">
+<ul class="org-ul">
+<li>firewall rules</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4f4e701" class="outline-2">
+<h2 id="org4f4e701">references</h2>
+<div class="outline-text-2" id="text-org4f4e701">
+<ul class="org-ul">
+<li><a href="https://wiki.centos.org/HowTos/Network/SecuringSSH">https://wiki.centos.org/HowTos/Network/SecuringSSH</a></li>
+</ul>
+
+<p>
 <a href="./tools.html">back</a>
+</p>
+</div>
+</div>
+</div>
 </body>
 </html>

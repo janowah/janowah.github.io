@@ -7,103 +7,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>my functions</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
 <h1 class="title">my functions</h1>
 <div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">xx-re ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">xx-re</span> ()
-  <span style="color: #8b2252;">"replace all newlines with one blank line in buffer"</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">let</span> ((case-fold-search t))
+<pre class="src src-elisp"><span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">xx-re ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">xx-re</span> ()
+  <span class="org-doc">"replace all newlines with one blank line in buffer"</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((case-fold-search t))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"[\n]"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"\n\n"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"[\n]"</span> nil t)
+      (replace-match <span class="org-string">"\n\n"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"[\n]\\{3,\\}"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"\n\n"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"[\n]\\{3,\\}"</span> nil t)
+      (replace-match <span class="org-string">"\n\n"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[]\"')]?</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[.?!]</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[]\"')]?</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;"> +"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"\\1\\2\\3  "</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">(</span></span><span class="org-string">[]\"')]?</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">)</span></span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">(</span></span><span class="org-string">[.?!]</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">)</span></span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">(</span></span><span class="org-string">[]\"')]?</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">)</span></span><span class="org-string"> +"</span> nil t)
+      (replace-match <span class="org-string">"\\1\\2\\3  "</span>))
     (fill-region (point-min) (point-max))))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">xx-ascii ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">&#8220; &#8221; &#8217; &#8216; &#8211;  &#8230;</span>
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">xx-ascii ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">&#8220; &#8221; &#8217; &#8216; &#8211;  &#8230;</span>
 
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">xx-ascii</span> ()
-  <span style="color: #8b2252;">"asciify quotation characters"</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">let</span> ((case-fold-search t))
+(<span class="org-keyword">defun</span> <span class="org-function-name">xx-ascii</span> ()
+  <span class="org-doc">"asciify quotation characters"</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((case-fold-search t))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8220;"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"\""</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"&#8220;"</span> nil t)
+      (replace-match <span class="org-string">"\""</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8221;"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"\""</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"&#8221;"</span> nil t)
+      (replace-match <span class="org-string">"\""</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8217;"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"'"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"&#8217;"</span> nil t)
+      (replace-match <span class="org-string">"'"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8216;"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"'"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"&#8216;"</span> nil t)
+      (replace-match <span class="org-string">"'"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8211;"</span> t)
-      (replace-match <span style="color: #8b2252;">"-"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"&#8211;"</span> t)
+      (replace-match <span class="org-string">"-"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"&#8230;"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"..."</span>))))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"&#8230;"</span> nil t)
+      (replace-match <span class="org-string">"..."</span>))))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">xx-months ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">xx-months</span> ()
-  <span style="color: #8b2252;">"enumerate months"</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">let</span> ((case-fold-search t))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">xx-months ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">xx-months</span> ()
+  <span class="org-doc">"enumerate months"</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((case-fold-search t))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"January"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"01"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"January"</span> nil t)
+      (replace-match <span class="org-string">"01"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"February"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"02"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"February"</span> nil t)
+      (replace-match <span class="org-string">"02"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"March"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"03"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"March"</span> nil t)
+      (replace-match <span class="org-string">"03"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"April"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"04"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"April"</span> nil t)
+      (replace-match <span class="org-string">"04"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"May"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"05"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"May"</span> nil t)
+      (replace-match <span class="org-string">"05"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"June"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"06"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"June"</span> nil t)
+      (replace-match <span class="org-string">"06"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"July"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"07"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"July"</span> nil t)
+      (replace-match <span class="org-string">"07"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"August"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"08"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"August"</span> nil t)
+      (replace-match <span class="org-string">"08"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"September"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"09"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"September"</span> nil t)
+      (replace-match <span class="org-string">"09"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"October"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"10"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"October"</span> nil t)
+      (replace-match <span class="org-string">"10"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"November"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"11"</span>))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"November"</span> nil t)
+      (replace-match <span class="org-string">"11"</span>))
     (goto-char (point-min))
-    (<span style="color: #a020f0;">while</span> (search-forward-regexp <span style="color: #8b2252;">"December"</span> nil t)
-      (replace-match <span style="color: #8b2252;">"12"</span>))))
+    (<span class="org-keyword">while</span> (search-forward-regexp <span class="org-string">"December"</span> nil t)
+      (replace-match <span class="org-string">"12"</span>))))
 </pre>
 </div>
 
 <p>
 <a href="../setup.html">back</a>
 </p>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

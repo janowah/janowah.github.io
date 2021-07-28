@@ -1,7 +1,7 @@
 #+title: functions
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
-
-* current
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
 
 #+BEGIN_SRC elisp
   ;; - delete-duplicate-lines
@@ -149,68 +149,6 @@
       (bookmark-insert bname))
 
   (global-set-key (kbd "H-i") 'ido-bookmark-insert)
-#+END_SRC
-
-* archived
-
-#+BEGIN_SRC elisp
-  ;; - move-line
-  ;; - ora-dired-rsync
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; move-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;; https://www.emacswiki.org/emacs/MoveLine
-
-    (defun move-line-up ()
-      (interactive)
-      (transpose-lines 1)
-      (forward-line -2))
-
-    (defun move-line-down ()
-      (interactive)
-      (forward-line 1)
-      (transpose-lines 1)
-      (forward-line -1))
-
-    (global-set-key (kbd "M-") 'move-line-up)
-    (global-set-key (kbd "M-") 'move-line-down)
-
-    ; has to be in text mode
-    ; moves point to start of line
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;; ora-dired-rsync ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;; http://oremacs.com/2016/02/24/dired-rsync/
-    ;; changed command from rsync -arvz --progress
-    ;;;###autoload
-    (defun ora-dired-rsync (dest)
-      (interactive
-       (list
-        (expand-file-name
-         (read-file-name
-          "Rsync to:"
-          (dired-dwim-target-directory)))))
-      ;; store all selected files into "files" list
-      (let ((files (dired-get-marked-files
-                    nil current-prefix-arg))
-            ;; the rsync command
-            (tmtxt/rsync-command
-             "rsync -avt --progress "))
-        ;; add all selected file names as arguments
-        ;; to the rsync command
-        (dolist (file files)
-          (setq tmtxt/rsync-command
-                (concat tmtxt/rsync-command
-                        (shell-quote-argument file)
-                        " ")))
-        ;; append the destination
-        (setq tmtxt/rsync-command
-              (concat tmtxt/rsync-command
-                      (shell-quote-argument dest)))
-        ;; run the async shell command
-        (async-shell-command tmtxt/rsync-command "*rsync*")
-        ;; finally, switch to that window
-        (other-window 1)))
-
-    (define-key dired-mode-map "Y" 'ora-dired-rsync)
 #+END_SRC
 
 [[../setup.html][back]]

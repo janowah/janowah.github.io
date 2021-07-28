@@ -1,5 +1,7 @@
 #+title: dired
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:t
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
 
 * insert subdirectories
   

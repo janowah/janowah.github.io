@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ImageMagick</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
 <div id="content">
@@ -15,17 +16,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org774e2d8">tools</a></li>
-<li><a href="#org140e61e">identify</a></li>
-<li><a href="#org6e7dd67">convert</a></li>
-<li><a href="#orgf0b0236">mogrify</a></li>
+<li><a href="#orga672eda">tools</a></li>
+<li><a href="#orgbbec3dd">identify</a></li>
+<li><a href="#org4fe61db">convert</a></li>
+<li><a href="#org235bd2b">mogrify</a></li>
+<li><a href="#org243d8a4">compare</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org774e2d8" class="outline-2">
-<h2 id="org774e2d8">tools</h2>
-<div class="outline-text-2" id="text-org774e2d8">
+<div id="outline-container-orga672eda" class="outline-2">
+<h2 id="orga672eda">tools</h2>
+<div class="outline-text-2" id="text-orga672eda">
 <pre class="example">
 - ImageMagick(1) :: ImageMagick - is a free software suite for the
                     creation, modification and display of bitmap
@@ -47,18 +49,18 @@
 </div>
 </div>
 
-<div id="outline-container-org140e61e" class="outline-2">
-<h2 id="org140e61e">identify</h2>
-<div class="outline-text-2" id="text-org140e61e">
+<div id="outline-container-orgbbec3dd" class="outline-2">
+<h2 id="orgbbec3dd">identify</h2>
+<div class="outline-text-2" id="text-orgbbec3dd">
 <pre class="example">
 identify -format "%w x %h :%x x %y" out.jpg
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org6e7dd67" class="outline-2">
-<h2 id="org6e7dd67">convert</h2>
-<div class="outline-text-2" id="text-org6e7dd67">
+<div id="outline-container-org4fe61db" class="outline-2">
+<h2 id="org4fe61db">convert</h2>
+<div class="outline-text-2" id="text-org4fe61db">
 <pre class="example">
 # resample
 convert  2000-02-07-1.jpg -resample 150x150 out2.jpg
@@ -74,9 +76,9 @@ convert *.jpg 300-out.pdf
 </div>
 </div>
 
-<div id="outline-container-orgf0b0236" class="outline-2">
-<h2 id="orgf0b0236">mogrify</h2>
-<div class="outline-text-2" id="text-orgf0b0236">
+<div id="outline-container-org235bd2b" class="outline-2">
+<h2 id="org235bd2b">mogrify</h2>
+<div class="outline-text-2" id="text-org235bd2b">
 <pre class="example">
 mogrify -path ../150/ -resample 150x150 *.jpg
 mogrify -path ../150/ -resample 300x300 *.jpg
@@ -85,9 +87,15 @@ mogrify -path output/ -resize 300 *.jpg
 </pre>
 </div>
 </div>
+
+<div id="outline-container-org243d8a4" class="outline-2">
+<h2 id="org243d8a4">compare</h2>
+<div class="outline-text-2" id="text-org243d8a4">
+<pre class="example">
+compare -compose src ./-000.jpg ../150/01_2000-10-09-1.jpg diff.jpg
+</pre>
 </div>
-<div id="postamble" class="status">
-<p class="validation"></p>
+</div>
 </div>
 </body>
 </html>

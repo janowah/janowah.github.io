@@ -1,31 +1,78 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>zip</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-<h1>zip</h1>
+<div id="content">
+<h1 class="title">zip</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9d8f097">notes</a></li>
+<li><a href="#org5ea292a">create</a></li>
+<li><a href="#org074fc88">extract</a></li>
+<li><a href="#org613562b">examples</a></li>
+</ul>
+</div>
+</div>
 
-<pre>
-NOTES
-  - using zip on the command line by default ~ backup files
-    weren't archived
+<div id="outline-container-org9d8f097" class="outline-2">
+<h2 id="org9d8f097">notes</h2>
+<div class="outline-text-2" id="text-org9d8f097">
+<ul class="org-ul">
+<li>using zip on the command line by default ~ backup files weren't
+archived</li>
+</ul>
+</div>
+</div>
 
-CREATE
-  - zip -r target source
-  - zip -j target source/*  ; leave out top level directory
-    -j --junk-paths         ; do not store directory names
-
-EXTRACT
-  - unzip -l foo.zip   ; list
-  - unzip foo.zip      ; unzip
-  - unzip -tq foo.zip  ; test
-    -q quiet
-    -t test
-
-EXAMPLES
-zip -r /mnt/home/homer/logs.zip /var/logs/
+<div id="outline-container-org5ea292a" class="outline-2">
+<h2 id="org5ea292a">create</h2>
+<div class="outline-text-2" id="text-org5ea292a">
+<div class="org-src-container">
+<pre class="src src-text">- zip -r target source
+- zip -j target source/*  ; leave out top level directory
+  -j --junk-paths         ; do not store directory names
 </pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org074fc88" class="outline-2">
+<h2 id="org074fc88">extract</h2>
+<div class="outline-text-2" id="text-org074fc88">
+<div class="org-src-container">
+<pre class="src src-text">- unzip -l foo.zip   ; list
+- unzip foo.zip      ; unzip
+- unzip -tq foo.zip  ; test
+  -q quiet
+  -t test
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org613562b" class="outline-2">
+<h2 id="org613562b">examples</h2>
+<div class="outline-text-2" id="text-org613562b">
+<div class="org-src-container">
+<pre class="src src-text">zip -r /mnt/home/homer/logs.zip /var/logs/
+</pre>
+</div>
+
+<p>
 <a href="./tools.html">back</a>
+</p>
+</div>
+</div>
+</div>
 </body>
-<html>
+</html>

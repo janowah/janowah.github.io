@@ -1,0 +1,73 @@
+#+title: 3rd Party Packages
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+#+BEGIN_SRC elisp  
+  category: 
+  source: 
+  link:
+
+  bookmark+
+  color-theme
+  yasnippet
+
+  dired+
+  hippie-list
+  smex
+
+  melpa
+  - ace-jump-mode-20140616.115.el
+  - flatui-theme-20150531.143.el ; :theme:melpa:
+  - htmlize-20130207.1202.el
+  - organic-green-theme-20151028.520.el ; :theme:mepla
+  - ox-twbs-20151223.1120.el
+  - pastelmac-theme-20151030.1936.el ; theme:melpa:
+  - powershell-20150301.1812.el
+  - powershell-20160127.2123.el
+
+  themes
+  - ample-flat-theme.el
+  - ample-light-theme.el
+  - ample-theme.el
+  - cofi-dark-theme.el
+  - color-theme-wombat.el
+  - darktooth-theme.el
+  - monotropic-theme.el
+  - tsdh-dark-theme.el
+  - zenburn-theme.el
+
+  unsorted files
+  - csv-mode.el
+  - dired+-20141025.2126.el
+  - dired-details.el
+  - god-mode-20140413.420.el
+  - hippie-list.el
+  - line-comment-banner.el
+  - longlines.el
+  - minimal-master
+  - popup-20140207.1702.el
+  - rainbow-mode.el
+  - smex-20140131.1006.el
+  - smex-3.0.el
+
+  unsorted packages
+  - auto-complete-1.3.1
+  - bookmark+-20130824.1207
+  - color-theme-6.6.0
+  - elpa
+    - color-theme-20080305.34
+    - color-theme-solarized-20150110.936
+    - dired+-20141025.2126
+  - Flashcard
+  - my-projectile
+  - org-8.2.1
+  - yasnippet-20141117.327
+  - yasnippet-master
+  - zenburn-emacs-master
+
+  wiki
+  - xkey-chord.el
+#+END_SRC
+
+[[../setup.html][back]]

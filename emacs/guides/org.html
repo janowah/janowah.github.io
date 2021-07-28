@@ -1,84 +1,181 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>org</h1>
-<pre>
+<div id="content">
+<h1 class="title">org</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf91ce0b">navigating headings</a></li>
+<li><a href="#org430fd04">exporting tables</a></li>
+<li><a href="#orge8ece71">export backends</a></li>
+<li><a href="#orgb7309b5">orgmode export options</a></li>
+<li><a href="#org4d92785">archiving</a>
+<ul>
+<li><a href="#orga6d2c7c">commands</a></li>
+<li><a href="#org19c0aea">global archive</a></li>
+<li><a href="#orged78caf">archive to different files</a></li>
+</ul>
+</li>
+<li><a href="#org3895740">html export styling</a>
+<ul>
+<li><a href="#orgf197e0e">external css</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 
-navigating headings
-===================  
-
-C-c C-u  outline-up-heading  ; moves up level
-C-c C-f  org-forward-heading-same-level	 ; same level
+<div id="outline-container-orgf91ce0b" class="outline-2">
+<h2 id="orgf91ce0b">navigating headings</h2>
+<div class="outline-text-2" id="text-orgf91ce0b">
+<div class="org-src-container">
+<pre class="src src-text">C-c C-u  outline-up-heading  ; moves up level
+C-c C-f  org-forward-heading-same-level  ; same level
 C-c C-j  org-goto
 C-c C-b  org-backward-heading-same-level
+</pre>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org430fd04" class="outline-2">
+<h2 id="org430fd04">exporting tables</h2>
+<div class="outline-text-2" id="text-org430fd04">
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-level-1">* table</span>
+<span class="org-org-special-keyword">:PROPERTIES:</span>
+<span class="org-org-special-keyword">:TABLE_EXPORT_FILE:</span> <span class="org-org-property-value">c:/Users/merkur/Desktop/table.txt</span>
+<span class="org-org-special-keyword">:TABLE_EXPORT_FORMAT:</span> <span class="org-org-property-value">orgtbl-to-tsv</span>
+<span class="org-org-special-keyword">:END:      </span>
+</pre>
+</div>
 
-exporting tables
-================
-* table
-:PROPERTIES:
-:TABLE_EXPORT_FILE: c:/Users/merkur/Desktop/table.txt
-:TABLE_EXPORT_FORMAT: orgtbl-to-tsv
-:END:      
+<div class="org-src-container">
+<pre class="src src-text">M-x org-table-export ; export table
+</pre>
+</div>
 
-M-x org-table-export ; export table
-(setq org-table-export-default-format "orgtbl-to-csv")
+<div class="org-src-container">
+<pre class="src src-elisp">(<span class="org-keyword">setq</span> org-table-export-default-format <span class="org-string">"orgtbl-to-csv"</span>)
+</pre>
+</div>
+</div>
+</div>
 
+<div id="outline-container-orge8ece71" class="outline-2">
+<h2 id="orge8ece71">export backends</h2>
+<div class="outline-text-2" id="text-orge8ece71">
+<ol class="org-ol">
+<li>customise org-export-backends</li>
+<li>load file</li>
+</ol>
 
-export backends
-===============
-1) customise org-export-backends
-2) load file
+<div class="org-src-container">
+<pre class="src src-elisp">(<span class="org-keyword">setq</span> org-export-backends '(org ascii html icalendar latex))
+(<span class="org-keyword">require</span> '<span class="org-constant">ox-org</span>)
 
-  (setq org-export-backends '(org ascii html icalendar latex))
-  (require 'ox-org)
-  
-  (setq org-export-backends '(man ascii html icalendar latex))
-  (require 'ox-man)
-  
-  (setq org-export-backends '(texinfo ascii html icalendar latex))
-  (require 'ox-texinfo)
+(<span class="org-keyword">setq</span> org-export-backends '(man ascii html icalendar latex))
+(<span class="org-keyword">require</span> '<span class="org-constant">ox-man</span>)
 
+(<span class="org-keyword">setq</span> org-export-backends '(texinfo ascii html icalendar latex))
+(<span class="org-keyword">require</span> '<span class="org-constant">ox-texinfo</span>)
+</pre>
+</div>
+</div>
+</div>
 
-orgmode export options
-======================
-
-- ^:nil t {}    ; TeX-like syntax ^ & _
+<div id="outline-container-orgb7309b5" class="outline-2">
+<h2 id="orgb7309b5">orgmode export options</h2>
+<div class="outline-text-2" id="text-orgb7309b5">
+<div class="org-src-container">
+<pre class="src src-text">- ^:nil t {}    ; TeX-like syntax ^ &amp; _
 - author:nil
 - creator:nil
 - email:nil
 - num:nil t
 - timestamp:nil ; creation time
 - toc:t 2 nil   ; table of contents, can set the level limit
+</pre>
+</div>
 
-#+title: basic template
-#+options: ^:nil num:nil toc:nil timestamp:nil author:nil creator:nil email:nil
-#+date: 2017-01-01
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-document-info-keyword">#+title:</span> <span class="org-org-document-title">basic template</span>
+<span class="org-org-meta-line">#+options: ^:nil num:nil toc:nil timestamp:nil author:nil creator:nil email:nil</span>
+<span class="org-org-document-info-keyword">#+date:</span> <span class="org-org-document-info">2017-01-01</span>
+</pre>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org4d92785" class="outline-2">
+<h2 id="org4d92785">archiving</h2>
+<div class="outline-text-2" id="text-org4d92785">
+</div>
+<div id="outline-container-orga6d2c7c" class="outline-3">
+<h3 id="orga6d2c7c">commands</h3>
+<div class="outline-text-3" id="text-orga6d2c7c">
+<div class="org-src-container">
+<pre class="src src-text">C-c C-x C-a  org-archive-subtree-default ; archive entry
+C-c C-x C-s  org-advertized-archive-subtree ; archive subtree
+C-u C-c C-x C-s ; search under headline to see what can be archived
+</pre>
+</div>
+</div>
+</div>
 
-archiving
-=========
-commands
-  C-c C-x C-a  org-archive-subtree-default ; archive entry
-  C-c C-x C-s  org-advertized-archive-subtree ; archive subtree
-  C-u C-c C-x C-s ; search under headline to see what can be archived
+<div id="outline-container-org19c0aea" class="outline-3">
+<h3 id="org19c0aea">global archive</h3>
+<div class="outline-text-3" id="text-org19c0aea">
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+archive: filename.org::</span>
+</pre>
+</div>
+</div>
+</div>
 
-global archive
-  #+archive: filename.org::
+<div id="outline-container-orged78caf" class="outline-3">
+<h3 id="orged78caf">archive to different files</h3>
+<div class="outline-text-3" id="text-orged78caf">
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-level-1">* Books</span>
+<span class="org-org-special-keyword">  :PROPERTIES:</span>
+  <span class="org-org-special-keyword">:ARCHIVE:</span> <span class="org-org-property-value">track-books.org::* Read books</span>
+<span class="org-org-special-keyword">  :END:</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
 
-archive to different files
-  * Books
-    :PROPERTIES:
-    :ARCHIVE: track-books.org::* Read books
-    :END:
+<div id="outline-container-org3895740" class="outline-2">
+<h2 id="org3895740">html export styling</h2>
+<div class="outline-text-2" id="text-org3895740">
+</div>
+<div id="outline-container-orgf197e0e" class="outline-3">
+<h3 id="orgf197e0e">external css</h3>
+<div class="outline-text-3" id="text-orgf197e0e">
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+HTML_HEAD: &amp;lt;link rel="stylesheet" type="text/css" href="style.css" /&amp;gt;</span>
+</pre>
+</div>
 
-html export styling
-===================
-external css
-  #+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
-  </pre>
+<p>
 <a href="../guides.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

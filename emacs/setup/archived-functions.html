@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>archived functions</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+<div id="content">
+<h1 class="title">archived functions</h1>
+<div class="org-src-container">
+<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">- move-line</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- ora-dired-rsync</span>
+
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">move-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">https://www.emacswiki.org/emacs/MoveLine</span>
+
+  (<span class="org-keyword">defun</span> <span class="org-function-name">move-line-up</span> ()
+    (<span class="org-keyword">interactive</span>)
+    (transpose-lines 1)
+    (forward-line -2))
+
+  (<span class="org-keyword">defun</span> <span class="org-function-name">move-line-down</span> ()
+    (<span class="org-keyword">interactive</span>)
+    (forward-line 1)
+    (transpose-lines 1)
+    (forward-line -1))
+
+  (global-set-key (kbd <span class="org-string">"M-"</span>) 'move-line-up)
+  (global-set-key (kbd <span class="org-string">"M-"</span>) 'move-line-down)
+
+  <span class="org-comment-delimiter">; </span><span class="org-comment">has to be in text mode</span>
+  <span class="org-comment-delimiter">; </span><span class="org-comment">moves point to start of line</span>
+
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">ora-dired-rsync ;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">http://oremacs.com/2016/02/24/dired-rsync/</span>
+  <span class="org-comment-delimiter">;; </span><span class="org-comment">changed command from rsync -arvz --progress</span>
+  <span class="org-comment-delimiter">;;;</span><span class="org-comment">###autoload</span>
+  (<span class="org-keyword">defun</span> <span class="org-function-name">ora-dired-rsync</span> (dest)
+    (<span class="org-keyword">interactive</span>
+     (list
+      (expand-file-name
+       (read-file-name
+        <span class="org-string">"Rsync to:"</span>
+        (dired-dwim-target-directory)))))
+    <span class="org-comment-delimiter">;; </span><span class="org-comment">store all selected files into "files" list</span>
+    (<span class="org-keyword">let</span> ((files (dired-get-marked-files
+                  nil current-prefix-arg))
+          <span class="org-comment-delimiter">;; </span><span class="org-comment">the rsync command</span>
+          (tmtxt/rsync-command
+           <span class="org-string">"rsync -avt --progress "</span>))
+      <span class="org-comment-delimiter">;; </span><span class="org-comment">add all selected file names as arguments</span>
+      <span class="org-comment-delimiter">;; </span><span class="org-comment">to the rsync command</span>
+      (<span class="org-keyword">dolist</span> (file files)
+        (<span class="org-keyword">setq</span> tmtxt/rsync-command
+              (concat tmtxt/rsync-command
+                      (shell-quote-argument file)
+                      <span class="org-string">" "</span>)))
+      <span class="org-comment-delimiter">;; </span><span class="org-comment">append the destination</span>
+      (<span class="org-keyword">setq</span> tmtxt/rsync-command
+            (concat tmtxt/rsync-command
+                    (shell-quote-argument dest)))
+      <span class="org-comment-delimiter">;; </span><span class="org-comment">run the async shell command</span>
+      (async-shell-command tmtxt/rsync-command <span class="org-string">"*rsync*"</span>)
+      <span class="org-comment-delimiter">;; </span><span class="org-comment">finally, switch to that window</span>
+      (other-window 1)))
+
+  (define-key dired-mode-map <span class="org-string">"Y"</span> 'ora-dired-rsync)
+</pre>
+</div>
+
+<p>
+<a href="../setup.html">back</a>
+</p>
+</div>
+</body>
+</html>

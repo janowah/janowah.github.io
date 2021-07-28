@@ -1,0 +1,27 @@
+#+title: build
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+#+BEGIN_SRC elisp  
+  centos
+  ======  
+
+  giflib-devel
+  gtk3-devel ; icons
+  libX11-devel.x86_64
+  libXaw-devel
+  libjpeg-turbo-devel.x86_64 
+  libpng-devel
+  libtiff-devel
+  libxml2-devel ; eww
+  ncurses-devel
+
+  - download, extract and navigate to directory
+  - ./configure
+  - make
+  - /src/emacs -Q ; test
+  - make install
+#+END_SRC
+
+[[../setup.html][back]]

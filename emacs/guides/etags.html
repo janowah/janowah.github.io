@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>etags</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
@@ -15,19 +16,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb4ef7e2">make tags</a></li>
-<li><a href="#org80cf57e">use tags?</a></li>
-<li><a href="#org508dfb2">switches</a></li>
-<li><a href="#org8ff23ec">mark</a></li>
-<li><a href="#orge5592bc">help</a></li>
-<li><a href="#org3559004">how to</a></li>
+<li><a href="#org0856e5b">make tags</a></li>
+<li><a href="#org8086f7b">use tags?</a></li>
+<li><a href="#orge406a22">switches</a></li>
+<li><a href="#org0a71130">mark</a></li>
+<li><a href="#orgc0ed6c7">help</a></li>
+<li><a href="#org8219b8e">how to</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb4ef7e2" class="outline-2">
-<h2 id="orgb4ef7e2">make tags</h2>
-<div class="outline-text-2" id="text-orgb4ef7e2">
+<div id="outline-container-org0856e5b" class="outline-2">
+<h2 id="org0856e5b">make tags</h2>
+<div class="outline-text-2" id="text-org0856e5b">
 <pre class="example">
 etags -R * ; this didn't work for sub directory
 etags -R *.c
@@ -38,9 +39,9 @@ $etags hello.cpp
 </div>
 </div>
 
-<div id="outline-container-org80cf57e" class="outline-2">
-<h2 id="org80cf57e">use tags?</h2>
-<div class="outline-text-2" id="text-org80cf57e">
+<div id="outline-container-org8086f7b" class="outline-2">
+<h2 id="org8086f7b">use tags?</h2>
+<div class="outline-text-2" id="text-org8086f7b">
 <pre class="example">
 load
 visit-tags-table
@@ -51,9 +52,9 @@ M-, ; xref-pop-marker-stack
 </div>
 </div>
 
-<div id="outline-container-org508dfb2" class="outline-2">
-<h2 id="org508dfb2">switches</h2>
-<div class="outline-text-2" id="text-org508dfb2">
+<div id="outline-container-orge406a22" class="outline-2">
+<h2 id="orge406a22">switches</h2>
+<div class="outline-text-2" id="text-orge406a22">
 <pre class="example">
 -R, --no-regex
 
@@ -65,9 +66,9 @@ freely intermixed with filenames and the --regex option.
 </div>
 </div>
 
-<div id="outline-container-org8ff23ec" class="outline-2">
-<h2 id="org8ff23ec">mark</h2>
-<div class="outline-text-2" id="text-org8ff23ec">
+<div id="outline-container-org0a71130" class="outline-2">
+<h2 id="org0a71130">mark</h2>
+<div class="outline-text-2" id="text-org0a71130">
 <pre class="example">
 C-x C-SPC runs the command pop-global-mark
 C-u C-SPC local
@@ -75,33 +76,30 @@ C-u C-SPC local
 </div>
 </div>
 
-<div id="outline-container-orge5592bc" class="outline-2">
-<h2 id="orge5592bc">help</h2>
-<div class="outline-text-2" id="text-orge5592bc">
+<div id="outline-container-orgc0ed6c7" class="outline-2">
+<h2 id="orgc0ed6c7">help</h2>
+<div class="outline-text-2" id="text-orgc0ed6c7">
 <pre class="example">
 etags --help
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org3559004" class="outline-2">
-<h2 id="org3559004">how to</h2>
-<div class="outline-text-2" id="text-org3559004">
+<div id="outline-container-org8219b8e" class="outline-2">
+<h2 id="org8219b8e">how to</h2>
+<div class="outline-text-2" id="text-org8219b8e">
 <ul class="org-ul">
 <li>include the standard library (or just the functions that i'm using)</li>
 <li>even to just get the prototype</li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-sh">find /usr/include/ -type f -name <span style="color: #66cccc;">\*</span>.h <span style="color: #66cccc;">\</span>
-     -exec etags --append -o ~/Desktop/INCLUDE_TAGS {<span style="color: #66cccc;">\}</span> <span style="color: #66cccc;">\;</span>
+<pre class="src src-sh">find /usr/include/ -type f -name <span class="org-string">\*</span>.h <span class="org-sh-escaped-newline">\</span>
+     -exec etags --append -o ~/Desktop/INCLUDE_TAGS {<span class="org-string">\}</span> <span class="org-string">\;</span>
 </pre>
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

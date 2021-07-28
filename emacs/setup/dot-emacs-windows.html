@@ -1,322 +1,335 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>.emacs windows</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>.emacs windows</h1>
-<pre>
+<div id="content">
+<h1 class="title">.emacs windows</h1>
+<div class="org-src-container">
+<pre class="src src-elisp">
+<span class="org-comment-delimiter">;; </span><span class="org-comment">-*- mode: lisp-interaction -*-</span>
 
-;; -*- mode: lisp-interaction -*-
+<span class="org-comment-delimiter">;; </span><span class="org-comment">updated 2017-08-18</span>
 
-;; updated 2017-08-18
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">defaults ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; defaults ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(setq visible-bell 1)
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message "")
+(<span class="org-keyword">setq</span> visible-bell 1)
+(<span class="org-keyword">setq</span> inhibit-startup-screen t)
+(<span class="org-keyword">setq</span> initial-scratch-message <span class="org-string">""</span>)
 (blink-cursor-mode -1)
 (tool-bar-mode -1)
 (set-scroll-bar-mode nil)
-(setq make-backup-files nil)
-(setq sentence-end-double-space nil)
+(<span class="org-keyword">setq</span> make-backup-files nil)
+(<span class="org-keyword">setq</span> sentence-end-double-space nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
-(setq confirm-kill-emacs 'yes-or-no-p)
-(setq save-interprogram-paste-before-kill t)
+(<span class="org-keyword">setq</span> confirm-kill-emacs 'yes-or-no-p)
+(<span class="org-keyword">setq</span> save-interprogram-paste-before-kill t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; aliases ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">aliases ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-(defalias 'afm 'auto-fill-mode)
-(defalias 'bi 'bookmark-insert)
-(defalias 'cib 'clone-indirect-buffer-other-window)
-(defalias 'cl 'center-line)
-(defalias 'cnm 'column-number-mode)
-(defalias 'cr 'capitalize-region)
-(defalias 'crak 'copy-rectangle-as-kill)
-(defalias 'cw 'count-words)
-(defalias 'ddkl 'dired-do-kill-lines)
-(defalias 'ddl 'delete-duplicate-lines)
-(defalias 'dr 'downcase-region)
-(defalias 'dtw 'delete-trailing-whitespace)
-(defalias 'eb 'eval-buffer)
-(defalias 'elb 'eww-list-bookmarks)
-(defalias 'elm 'emacs-lisp-mode)
-(defalias 'eof 'eww-open-file)
-(defalias 'fl 'flush-lines)
-(defalias 'gflm 'global-font-lock-mode)
-(defalias 'glnm 'global-linum-mode)
-(defalias 'hlm 'hl-line-mode)
-(defalias 'ib 'ibuffer)
-(defalias 'ibj 'ido-bookmark-jump)
-(defalias 'ido 'ido-mode)
-(defalias 'ikm 'insert-kbd-macro)
-(defalias 'ir 'indent-rigidly)
-(defalias 'kl 'keep-lines)
-(defalias 'kp 'kill-paragraph)
-(defalias 'lcb 'line-comment-banner)
-(defalias 'lim 'lisp-interaction-mode)
-(defalias 'llm 'longlines-mode)
-(defalias 'lnm 'linum-mode)
-(defalias 'lt 'load-theme)
-(defalias 'mo 'multi-occur)
-(defalias 'nlkm 'name-last-kbd-macro)
-(defalias 'obt 'org-babel-tangle)
-(defalias 'ocs 'org-copy-subtree)
-(defalias 'oim 'org-indent-mode)
-(defalias 'ops 'org-paste-subtree)
-(defalias 'org 'org-mode)
-(defalias 'osm 'orgstruct-mode)
-(defalias 'osp 'org-set-property)
-(defalias 'otm 'orgtbl-mode)
-(defalias 'ottap 'org-table-transpose-table-at-point)
-(defalias 'oxs 'org-cut-subtree)
-(defalias 'rb 'rename-buffer)
-(defalias 'rr 'replace-regexp)
-(defalias 'rs 'replace-string)
-(defalias 'rsb 're-search-backward)
-(defalias 'rsf 're-search-forward)
-(defalias 'rvb 'revert-buffer)
-(defalias 'sb 'search-backward)
-(defalias 'sc 'sort-columns)
-(defalias 'sf 'search-forward)
-(defalias 'sfc 'set-fill-column)
-(defalias 'sl 'sort-lines)
-(defalias 'tm 'text-mode)
-(defalias 'tsd 'text-scale-decrease)
-(defalias 'tsi 'text-scale-increase)
-(defalias 'tw 'transpose-windows)
-(defalias 'ur 'upcase-region)
-(defalias 'vm 'view-mode)
-(defalias 'wdir 'wdired-change-to-wdired-mode)
-(defalias 'wsm 'whitespace-mode)
-(defalias 'yld 'yas-load-directory)
-(defalias 'yr 'yank-rectangle)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">afm</span> 'auto-fill-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">bi</span> 'bookmark-insert)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">cib</span> 'clone-indirect-buffer-other-window)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">cl</span> 'center-line)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">cnm</span> 'column-number-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">cr</span> 'capitalize-region)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">crak</span> 'copy-rectangle-as-kill)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">cw</span> 'count-words)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ddkl</span> 'dired-do-kill-lines)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ddl</span> 'delete-duplicate-lines)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">dr</span> 'downcase-region)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">dtw</span> 'delete-trailing-whitespace)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">eb</span> 'eval-buffer)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">elb</span> 'eww-list-bookmarks)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">elm</span> 'emacs-lisp-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">eof</span> 'eww-open-file)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">fl</span> 'flush-lines)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">gflm</span> 'global-font-lock-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">glnm</span> 'global-linum-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">hlm</span> 'hl-line-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ib</span> 'ibuffer)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ibj</span> 'ido-bookmark-jump)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ido</span> 'ido-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ikm</span> 'insert-kbd-macro)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ir</span> 'indent-rigidly)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">kl</span> 'keep-lines)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">kp</span> 'kill-paragraph)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">lcb</span> 'line-comment-banner)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">lim</span> 'lisp-interaction-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">llm</span> 'longlines-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">lnm</span> 'linum-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">lt</span> 'load-theme)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">mo</span> 'multi-occur)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">nlkm</span> 'name-last-kbd-macro)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">obt</span> 'org-babel-tangle)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ocs</span> 'org-copy-subtree)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">oim</span> 'org-indent-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ops</span> 'org-paste-subtree)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">org</span> 'org-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">osm</span> 'orgstruct-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">osp</span> 'org-set-property)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">otm</span> 'orgtbl-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ottap</span> 'org-table-transpose-table-at-point)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">oxs</span> 'org-cut-subtree)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">rb</span> 'rename-buffer)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">rr</span> 'replace-regexp)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">rs</span> 'replace-string)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">rsb</span> 're-search-backward)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">rsf</span> 're-search-forward)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">rvb</span> 'revert-buffer)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">sb</span> 'search-backward)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">sc</span> 'sort-columns)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">sf</span> 'search-forward)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">sfc</span> 'set-fill-column)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">sl</span> 'sort-lines)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">tm</span> 'text-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">tsd</span> 'text-scale-decrease)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">tsi</span> 'text-scale-increase)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">tw</span> 'transpose-windows)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">ur</span> 'upcase-region)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">vm</span> 'view-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">wdir</span> 'wdired-change-to-wdired-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">wsm</span> 'whitespace-mode)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">yld</span> 'yas-load-directory)
+(<span class="org-keyword">defalias</span> '<span class="org-function-name">yr</span> 'yank-rectangle)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; windows ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">windows ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-;; fonts
-(set-default-font "Consolas-14")
-;; (set-default-font "PragmataPro-14")
-;; (set-default-font "Source Code Pro-14")
+<span class="org-comment-delimiter">;; </span><span class="org-comment">fonts</span>
+(set-default-font <span class="org-string">"Consolas-14"</span>)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(set-default-font "PragmataPro-14")</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(set-default-font "Source Code Pro-14")</span>
 
-;; Super and Hyper for windows
-(setq w32-pass-lwindow-to-system nil 
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Super and Hyper for windows</span>
+(<span class="org-keyword">setq</span> w32-pass-lwindow-to-system nil 
       w32-pass-rwindow-to-system nil 
       w32-pass-apps-to-system nil 
-      w32-lwindow-modifier 'super	; Left Windows key 
-      w32-rwindow-modifier 'super	; Right Windows key 
-      w32-apps-modifier 'hyper)		; Menu key
+      w32-lwindow-modifier 'super       <span class="org-comment-delimiter">; </span><span class="org-comment">Left Windows key </span>
+      w32-rwindow-modifier 'super       <span class="org-comment-delimiter">; </span><span class="org-comment">Right Windows key </span>
+      w32-apps-modifier 'hyper)         <span class="org-comment-delimiter">; </span><span class="org-comment">Menu key</span>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-(global-set-key (kbd "H-b") 'ibuffer)
-(global-set-key (kbd "H-r") 'replace-regexp)
-(global-set-key (kbd "H-w") 'other-window)
-(global-set-key (kbd "H-l") 'bookmark-bmenu-list)
-(global-set-key (kbd "H-s") 'save-buffer)
-(global-set-key (kbd "H-c") 'calendar)
-(global-set-key (kbd "H-j") 'jump-to-register)
-(global-set-key (kbd "H-x") 'smex)
-(global-set-key (kbd "H-f") 'ido-bookmark-jump)
-(global-set-key (kbd "H-q") 'auto-fill-mode)
+(global-set-key (kbd <span class="org-string">"H-b"</span>) 'ibuffer)
+(global-set-key (kbd <span class="org-string">"H-r"</span>) 'replace-regexp)
+(global-set-key (kbd <span class="org-string">"H-w"</span>) 'other-window)
+(global-set-key (kbd <span class="org-string">"H-l"</span>) 'bookmark-bmenu-list)
+(global-set-key (kbd <span class="org-string">"H-s"</span>) 'save-buffer)
+(global-set-key (kbd <span class="org-string">"H-c"</span>) 'calendar)
+(global-set-key (kbd <span class="org-string">"H-j"</span>) 'jump-to-register)
+(global-set-key (kbd <span class="org-string">"H-x"</span>) 'smex)
+(global-set-key (kbd <span class="org-string">"H-f"</span>) 'ido-bookmark-jump)
+(global-set-key (kbd <span class="org-string">"H-q"</span>) 'auto-fill-mode)
 
-(global-set-key (kbd "H-0") 'delete-window)
-(global-set-key (kbd "H-1") 'delete-other-windows)
-(global-set-key (kbd "H-2") 'split-window-below)
-(global-set-key (kbd "H-3") 'split-window-right)
-(global-set-key (kbd "H-u") 'transpose-windows)
-(global-set-key (kbd "H-9") 'toggle-current-window-dedication)
+(global-set-key (kbd <span class="org-string">"H-0"</span>) 'delete-window)
+(global-set-key (kbd <span class="org-string">"H-1"</span>) 'delete-other-windows)
+(global-set-key (kbd <span class="org-string">"H-2"</span>) 'split-window-below)
+(global-set-key (kbd <span class="org-string">"H-3"</span>) 'split-window-right)
+(global-set-key (kbd <span class="org-string">"H-u"</span>) 'transpose-windows)
+(global-set-key (kbd <span class="org-string">"H-9"</span>) 'toggle-current-window-dedication)
 
-(global-set-key (kbd "H-C-o") 'org-mode)
-(global-set-key (kbd "H-C-w") 'whitespace-mode)
-(global-set-key (kbd "H-C-t") 'text-mode)
-(global-set-key (kbd "H-C-v") 'visual-line-mode)
-(global-set-key (kbd "H-C-c") 'c-mode)
-(global-set-key (kbd "H-C-r") 'view-mode)
+(global-set-key (kbd <span class="org-string">"H-C-o"</span>) 'org-mode)
+(global-set-key (kbd <span class="org-string">"H-C-w"</span>) 'whitespace-mode)
+(global-set-key (kbd <span class="org-string">"H-C-t"</span>) 'text-mode)
+(global-set-key (kbd <span class="org-string">"H-C-v"</span>) 'visual-line-mode)
+(global-set-key (kbd <span class="org-string">"H-C-c"</span>) 'c-mode)
+(global-set-key (kbd <span class="org-string">"H-C-r"</span>) 'view-mode)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ido ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">ido ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
 (ido-mode 1)
 (ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-(setq ido-create-new-buffer 'prompt)
-(setq ido-enable-tramp-completion t)
+(<span class="org-keyword">setq</span> ido-enable-flex-matching t)
+(<span class="org-keyword">setq</span> ido-create-new-buffer 'prompt)
+(<span class="org-keyword">setq</span> ido-enable-tramp-completion t)
 
-;; https://www.emacswiki.org/emacs/InteractivelyDoThings
-;; Display ido results vertically, rather than horizontally
-;; (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+<span class="org-comment-delimiter">;; </span><span class="org-comment">https://www.emacswiki.org/emacs/InteractivelyDoThings</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Display ido results vertically, rather than horizontally</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(setq ido-decorations (quote ("\n-&gt; " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))</span>
 
-;; or install ido-vertical-mode
+<span class="org-comment-delimiter">;; </span><span class="org-comment">or install ido-vertical-mode</span>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; orgmode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">orgmode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
 (add-hook 'org-mode-hook 'org-indent-mode)
-  
-(setq org-html-head-include-default-style nil)
-(setq org-html-head-include-scripts nil)
 
-(setq org-export-html-validation-link "")
+(<span class="org-keyword">setq</span> org-html-head-include-default-style nil)
+(<span class="org-keyword">setq</span> org-html-head-include-scripts nil)
 
-(setq org-html-validation-link nil)
-(setq org-use-speed-commands t)
+(<span class="org-keyword">setq</span> org-export-html-validation-link <span class="org-string">""</span>)
 
-(setq org-todo-keywords
-     '((sequence "TODO" "|" "DONE" "INFO")))
+(<span class="org-keyword">setq</span> org-html-validation-link nil)
+(<span class="org-keyword">setq</span> org-use-speed-commands t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; eshell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(<span class="org-keyword">setq</span> org-todo-keywords
+     '((sequence <span class="org-string">"TODO"</span> <span class="org-string">"|"</span> <span class="org-string">"DONE"</span> <span class="org-string">"INFO"</span>)))
 
-(defun eshell/clear ()
-  "clear the eshell buffer."
-  (interactive)
-  (let ((inhibit-read-only t))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">eshell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">eshell/clear</span> ()
+  <span class="org-doc">"clear the eshell buffer."</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((inhibit-read-only t))
     (erase-buffer)))
 
-(setq eshell-prompt-function
-      (lambda nil ">"))
+(<span class="org-keyword">setq</span> eshell-prompt-function
+      (<span class="org-keyword">lambda</span> nil <span class="org-doc">"&gt;"</span>))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;; functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-;; - delete-duplicate-lines
-;; - transpose-windows
-;; - toggle-current-window-dedication
-;; - remove-dos-eol
-;; - ido-bookmark-jump
-;; - unfill-paragraph
-;; - org-begin-template
-;; - xah-new-empty-buffer
-;; - insert-todays-date
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- delete-duplicate-lines</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- transpose-windows</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- toggle-current-window-dedication</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- remove-dos-eol</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- ido-bookmark-jump</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- unfill-paragraph</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- org-begin-template</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- xah-new-empty-buffer</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- insert-todays-date</span>
 
-;;;;;;;;;;;;;;;;;;;;;;; delete-duplicate-lines ;;;;;;;;;;;;;;;;;;;;;;;
-(defun delete-duplicate-lines (beg end) 
-  (interactive "r") 
-  (let ((lines (split-string (buffer-substring beg end) "\n"))) 
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">delete-duplicate-lines ;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">delete-duplicate-lines</span> (beg end) 
+  (<span class="org-keyword">interactive</span> <span class="org-string">"r"</span>) 
+  (<span class="org-keyword">let</span> ((lines (split-string (buffer-substring beg end) <span class="org-string">"\n"</span>))) 
     (delete-region beg end) 
     (insert 
-     (mapconcat #'identity (delete-dups lines) "\n")))) 
+     (mapconcat #'identity (delete-dups lines) <span class="org-string">"\n"</span>)))) 
 
-;;;;;;;;;;;;;;;;;;;;;;;;; transpose-windows ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun transpose-windows (arg)
-  "Transpose the buffers shown in two windows."
-  (interactive "p")
-  (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
-    (while (/= arg 0)
-      (let ((this-win (window-buffer))
-	    (next-win (window-buffer (funcall selector))))
-	(set-window-buffer (selected-window) next-win)
-	(set-window-buffer (funcall selector) this-win)
-	(select-window (funcall selector)))
-      (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">transpose-windows ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">transpose-windows</span> (arg)
+  <span class="org-doc">"Transpose the buffers shown in two windows."</span>
+  (<span class="org-keyword">interactive</span> <span class="org-string">"p"</span>)
+  (<span class="org-keyword">let</span> ((selector (<span class="org-keyword">if</span> (&gt;= arg 0) 'next-window 'previous-window)))
+    (<span class="org-keyword">while</span> (/= arg 0)
+      (<span class="org-keyword">let</span> ((this-win (window-buffer))
+            (next-win (window-buffer (funcall selector))))
+        (set-window-buffer (selected-window) next-win)
+        (set-window-buffer (funcall selector) this-win)
+        (select-window (funcall selector)))
+      (<span class="org-keyword">setq</span> arg (<span class="org-keyword">if</span> (plusp arg) (1- arg) (1+ arg))))))
 
-;;;;;;;;;;;;;;;;;; toggle-current-window-dedication ;;;;;;;;;;;;;;;;;;
-(defun toggle-current-window-dedication ()
-  (interactive)
-  (let* ((window    (selected-window))
-	 (dedicated (window-dedicated-p window)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;; </span><span class="org-comment">toggle-current-window-dedication ;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">toggle-current-window-dedication</span> ()
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let*</span> ((window    (selected-window))
+         (dedicated (window-dedicated-p window)))
     (set-window-dedicated-p window (not dedicated))
-    (message "Window %sdedicated to %s"
-	     (if dedicated "no longer " "")
-	     (buffer-name))))
+    (message <span class="org-string">"Window %sdedicated to %s"</span>
+             (<span class="org-keyword">if</span> dedicated <span class="org-string">"no longer "</span> <span class="org-string">""</span>)
+             (buffer-name))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; remove-dos-eol ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; http://stackoverflow.com/questions/730751/hiding-m-in-emacs
-(defun remove-dos-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (setq buffer-display-table (make-display-table))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">remove-dos-eol ;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">http://stackoverflow.com/questions/730751/hiding-m-in-emacs</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">remove-dos-eol</span> ()
+  <span class="org-doc">"Do not show ^M in files containing mixed UNIX and DOS line endings."</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">setq</span> buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-;;;;;;;;;;;;;;;;;;;;;;;;; ido-bookmark-jump ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'bookmark)
- (defun ido-bookmark-jump (bname)
-    "*Switch to bookmark interactively using `ido'."
-    (interactive (list (ido-completing-read "Bookmark: " (bookmark-all-names) nil t)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">ido-bookmark-jump ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">require</span> '<span class="org-constant">bookmark</span>)
+ (<span class="org-keyword">defun</span> <span class="org-function-name">ido-bookmark-jump</span> (bname)
+    <span class="org-doc">"*Switch to bookmark interactively using `</span><span class="org-doc"><span class="org-constant">ido</span></span><span class="org-doc">'."</span>
+    (<span class="org-keyword">interactive</span> (list (ido-completing-read <span class="org-string">"Bookmark: "</span> (bookmark-all-names) nil t)))
     (bookmark-jump bname))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;; unfill-paragraph ;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Stefan Monnier . It is the opposite of fill-paragraph    
-(defun unfill-paragraph (&optional region)
-  "Takes a multi-line paragraph and makes it into a single line of text."
-  (interactive (progn (barf-if-buffer-read-only) '(t)))
-  (let ((fill-column (point-max)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">unfill-paragraph ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Stefan Monnier . It is the opposite of fill-paragraph    </span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">unfill-paragraph</span> (<span class="org-type">&amp;optional</span> region)
+  <span class="org-doc">"Takes a multi-line paragraph and makes it into a single line of text."</span>
+  (<span class="org-keyword">interactive</span> (<span class="org-keyword">progn</span> (barf-if-buffer-read-only) '(t)))
+  (<span class="org-keyword">let</span> ((fill-column (point-max)))
     (fill-paragraph nil region)))
 
-(define-key global-map "\M-Q" 'unfill-paragraph)
+(define-key global-map <span class="org-string">"\M-Q"</span> 'unfill-paragraph)
 
-;;;;;;;;;;;;;;;;;;;;;;;;; org-begin-template ;;;;;;;;;;;;;;;;;;;;;;;;;
-;; http://pragmaticemacs.com/author/bjm/page/3/
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">org-begin-template ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">http://pragmaticemacs.com/author/bjm/page/3/</span>
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; function to wrap blocks of text in org templates                       ;;
-;; e.g. latex or src etc                                                  ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun org-begin-template ()
-  "Make a template at point."
-  (interactive)
-  (if (org-at-table-p)
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">function to wrap blocks of text in org templates                       ;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">e.g. latex or src etc                                                  ;;</span>
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-begin-template</span> ()
+  <span class="org-doc">"Make a template at point."</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">if</span> (org-at-table-p)
       (call-interactively 'org-table-rotate-recalc-marks)
-    (let* ((choices '(("s" . "SRC")
-                      ("e" . "EXAMPLE")
-                      ("q" . "QUOTE")
-                      ("v" . "VERSE")
-                      ("c" . "CENTER")
-                      ("l" . "LaTeX")
-                      ("h" . "HTML")
-                      ("a" . "ASCII")))
+    (<span class="org-keyword">let*</span> ((choices '((<span class="org-string">"s"</span> . <span class="org-string">"SRC"</span>)
+                      (<span class="org-string">"e"</span> . <span class="org-string">"EXAMPLE"</span>)
+                      (<span class="org-string">"q"</span> . <span class="org-string">"QUOTE"</span>)
+                      (<span class="org-string">"v"</span> . <span class="org-string">"VERSE"</span>)
+                      (<span class="org-string">"c"</span> . <span class="org-string">"CENTER"</span>)
+                      (<span class="org-string">"l"</span> . <span class="org-string">"LaTeX"</span>)
+                      (<span class="org-string">"h"</span> . <span class="org-string">"HTML"</span>)
+                      (<span class="org-string">"a"</span> . <span class="org-string">"ASCII"</span>)))
            (key
             (key-description
              (vector
               (read-key
-               (concat (propertize "Template type: " 'face 'minibuffer-prompt)
-                       (mapconcat (lambda (choice)
+               (concat (propertize <span class="org-string">"Template type: "</span> 'face 'minibuffer-prompt)
+                       (mapconcat (<span class="org-keyword">lambda</span> (choice)
                                     (concat (propertize (car choice) 'face 'font-lock-type-face)
-                                            ": "
+                                            <span class="org-string">": "</span>
                                             (cdr choice)))
                                   choices
-                                  ", ")))))))
-      (let ((result (assoc key choices)))
-        (when result
-          (let ((choice (cdr result)))
-            (cond
+                                  <span class="org-string">", "</span>)))))))
+      (<span class="org-keyword">let</span> ((result (assoc key choices)))
+        (<span class="org-keyword">when</span> result
+          (<span class="org-keyword">let</span> ((choice (cdr result)))
+            (<span class="org-keyword">cond</span>
              ((region-active-p)
-              (let ((start (region-beginning))
+              (<span class="org-keyword">let</span> ((start (region-beginning))
                     (end (region-end)))
                 (goto-char end)
-                (insert "#+END_" choice "\n")
+                (insert <span class="org-string">"#+END_"</span> choice <span class="org-string">"\n"</span>)
                 (goto-char start)
-                (insert "#+BEGIN_" choice "\n")))
+                (insert <span class="org-string">"#+BEGIN_"</span> choice <span class="org-string">"\n"</span>)))
              (t
-              (insert "#+BEGIN_" choice "\n")
-              (save-excursion (insert "#+END_" choice))))))))))
+              (insert <span class="org-string">"#+BEGIN_"</span> choice <span class="org-string">"\n"</span>)
+              (<span class="org-keyword">save-excursion</span> (insert <span class="org-string">"#+END_"</span> choice))))))))))
 
-;;bind to key
-;; (define-key org-mode-map (kbd "C-<") 'org-begin-template) !!!!
+<span class="org-comment-delimiter">;;</span><span class="org-comment">bind to key</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">(define-key org-mode-map (kbd "C-&lt;") 'org-begin-template) !!!!</span>
 
-;;;;;;;;;;;;;;;;;;;;;;;; xah-new-empty-buffer ;;;;;;;;;;;;;;;;;;;;;;;;
-(defun xah-new-empty-buffer ()
-  "Open a new empty buffer.
-URL `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
-Version 2015-06-12"
-  (interactive)
-  (let ((xahbuf (generate-new-buffer "untitled")))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">xah-new-empty-buffer ;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">xah-new-empty-buffer</span> ()
+  <span class="org-doc">"Open a new empty buffer.</span>
+<span class="org-doc">URL `</span><span class="org-doc"><span class="org-constant">http://ergoemacs.org/emacs/emacs_new_empty_buffer.html</span></span><span class="org-doc">'</span>
+<span class="org-doc">Version 2015-06-12"</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((xahbuf (generate-new-buffer <span class="org-string">"untitled"</span>)))
     (switch-to-buffer xahbuf)
-    (funcall (and initial-major-mode))
-    (setq buffer-offer-save t)))
+    (funcall (<span class="org-keyword">and</span> initial-major-mode))
+    (<span class="org-keyword">setq</span> buffer-offer-save t)))
 
-(global-set-key (kbd "<f6>") 'xah-new-empty-buffer)
+(global-set-key (kbd <span class="org-string">"&lt;f6&gt;"</span>) 'xah-new-empty-buffer)
 
-;;;;;;;;;;;;;;;;;;;;;;;;; insert-todays-date ;;;;;;;;;;;;;;;;;;;;;;;;;
-;; from http://emacswiki.org/emacs/InsertingTodaysDate
-(defun insert-todays-date (arg)
-  (interactive "P")
-  (insert (if arg
-              (format-time-string "%d-%m-%Y")
-            (format-time-string "%Y-%m-%d %a %H:%M"))))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">insert-todays-date ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">from http://emacswiki.org/emacs/InsertingTodaysDate</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">insert-todays-date</span> (arg)
+  (<span class="org-keyword">interactive</span> <span class="org-string">"P"</span>)
+  (insert (<span class="org-keyword">if</span> arg
+              (format-time-string <span class="org-string">"%d-%m-%Y"</span>)
+            (format-time-string <span class="org-string">"%Y-%m-%d %a %H:%M"</span>))))
 
-(global-set-key (kbd "<f5>") 'insert-todays-date)
+(global-set-key (kbd <span class="org-string">"&lt;f5&gt;"</span>) 'insert-todays-date)
 
 </pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
 </body>
 </html>

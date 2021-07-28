@@ -1,0 +1,27 @@
+#+title: babel
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+* .emacs
+
+#+BEGIN_SRC elisp  
+  (package-initialize)
+  (require 'cl)
+  (require 'ob-tangle)
+  (org-babel-load-file "~/config.org")
+#+END_SRC
+
+* tangle
+
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC text :tangle foo.txt :padline no
+    nfo
+  ,#+END_SRC
+
+  ,#+BEGIN_SRC cpp -n :tangle foo.cpp :padline no
+    line numbers
+  ,#+END_SRC
+#+END_SRC
+
+[[../setup.html][back]]

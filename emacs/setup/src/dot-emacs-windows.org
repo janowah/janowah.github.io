@@ -1,0 +1,320 @@
+#+title: .emacs windows
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+#+BEGIN_SRC elisp  
+
+  ;; -*- mode: lisp-interaction -*-
+
+  ;; updated 2017-08-18
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; defaults ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (setq visible-bell 1)
+  (setq inhibit-startup-screen t)
+  (setq initial-scratch-message "")
+  (blink-cursor-mode -1)
+  (tool-bar-mode -1)
+  (set-scroll-bar-mode nil)
+  (setq make-backup-files nil)
+  (setq sentence-end-double-space nil)
+  (put 'downcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+  (setq confirm-kill-emacs 'yes-or-no-p)
+  (setq save-interprogram-paste-before-kill t)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; aliases ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (defalias 'afm 'auto-fill-mode)
+  (defalias 'bi 'bookmark-insert)
+  (defalias 'cib 'clone-indirect-buffer-other-window)
+  (defalias 'cl 'center-line)
+  (defalias 'cnm 'column-number-mode)
+  (defalias 'cr 'capitalize-region)
+  (defalias 'crak 'copy-rectangle-as-kill)
+  (defalias 'cw 'count-words)
+  (defalias 'ddkl 'dired-do-kill-lines)
+  (defalias 'ddl 'delete-duplicate-lines)
+  (defalias 'dr 'downcase-region)
+  (defalias 'dtw 'delete-trailing-whitespace)
+  (defalias 'eb 'eval-buffer)
+  (defalias 'elb 'eww-list-bookmarks)
+  (defalias 'elm 'emacs-lisp-mode)
+  (defalias 'eof 'eww-open-file)
+  (defalias 'fl 'flush-lines)
+  (defalias 'gflm 'global-font-lock-mode)
+  (defalias 'glnm 'global-linum-mode)
+  (defalias 'hlm 'hl-line-mode)
+  (defalias 'ib 'ibuffer)
+  (defalias 'ibj 'ido-bookmark-jump)
+  (defalias 'ido 'ido-mode)
+  (defalias 'ikm 'insert-kbd-macro)
+  (defalias 'ir 'indent-rigidly)
+  (defalias 'kl 'keep-lines)
+  (defalias 'kp 'kill-paragraph)
+  (defalias 'lcb 'line-comment-banner)
+  (defalias 'lim 'lisp-interaction-mode)
+  (defalias 'llm 'longlines-mode)
+  (defalias 'lnm 'linum-mode)
+  (defalias 'lt 'load-theme)
+  (defalias 'mo 'multi-occur)
+  (defalias 'nlkm 'name-last-kbd-macro)
+  (defalias 'obt 'org-babel-tangle)
+  (defalias 'ocs 'org-copy-subtree)
+  (defalias 'oim 'org-indent-mode)
+  (defalias 'ops 'org-paste-subtree)
+  (defalias 'org 'org-mode)
+  (defalias 'osm 'orgstruct-mode)
+  (defalias 'osp 'org-set-property)
+  (defalias 'otm 'orgtbl-mode)
+  (defalias 'ottap 'org-table-transpose-table-at-point)
+  (defalias 'oxs 'org-cut-subtree)
+  (defalias 'rb 'rename-buffer)
+  (defalias 'rr 'replace-regexp)
+  (defalias 'rs 'replace-string)
+  (defalias 'rsb 're-search-backward)
+  (defalias 'rsf 're-search-forward)
+  (defalias 'rvb 'revert-buffer)
+  (defalias 'sb 'search-backward)
+  (defalias 'sc 'sort-columns)
+  (defalias 'sf 'search-forward)
+  (defalias 'sfc 'set-fill-column)
+  (defalias 'sl 'sort-lines)
+  (defalias 'tm 'text-mode)
+  (defalias 'tsd 'text-scale-decrease)
+  (defalias 'tsi 'text-scale-increase)
+  (defalias 'tw 'transpose-windows)
+  (defalias 'ur 'upcase-region)
+  (defalias 'vm 'view-mode)
+  (defalias 'wdir 'wdired-change-to-wdired-mode)
+  (defalias 'wsm 'whitespace-mode)
+  (defalias 'yld 'yas-load-directory)
+  (defalias 'yr 'yank-rectangle)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; windows ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; fonts
+  (set-default-font "Consolas-14")
+  ;; (set-default-font "PragmataPro-14")
+  ;; (set-default-font "Source Code Pro-14")
+
+  ;; Super and Hyper for windows
+  (setq w32-pass-lwindow-to-system nil 
+        w32-pass-rwindow-to-system nil 
+        w32-pass-apps-to-system nil 
+        w32-lwindow-modifier 'super	; Left Windows key 
+        w32-rwindow-modifier 'super	; Right Windows key 
+        w32-apps-modifier 'hyper)		; Menu key
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;; key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (global-set-key (kbd "H-b") 'ibuffer)
+  (global-set-key (kbd "H-r") 'replace-regexp)
+  (global-set-key (kbd "H-w") 'other-window)
+  (global-set-key (kbd "H-l") 'bookmark-bmenu-list)
+  (global-set-key (kbd "H-s") 'save-buffer)
+  (global-set-key (kbd "H-c") 'calendar)
+  (global-set-key (kbd "H-j") 'jump-to-register)
+  (global-set-key (kbd "H-x") 'smex)
+  (global-set-key (kbd "H-f") 'ido-bookmark-jump)
+  (global-set-key (kbd "H-q") 'auto-fill-mode)
+
+  (global-set-key (kbd "H-0") 'delete-window)
+  (global-set-key (kbd "H-1") 'delete-other-windows)
+  (global-set-key (kbd "H-2") 'split-window-below)
+  (global-set-key (kbd "H-3") 'split-window-right)
+  (global-set-key (kbd "H-u") 'transpose-windows)
+  (global-set-key (kbd "H-9") 'toggle-current-window-dedication)
+
+  (global-set-key (kbd "H-C-o") 'org-mode)
+  (global-set-key (kbd "H-C-w") 'whitespace-mode)
+  (global-set-key (kbd "H-C-t") 'text-mode)
+  (global-set-key (kbd "H-C-v") 'visual-line-mode)
+  (global-set-key (kbd "H-C-c") 'c-mode)
+  (global-set-key (kbd "H-C-r") 'view-mode)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ido ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (setq ido-enable-flex-matching t)
+  (setq ido-create-new-buffer 'prompt)
+  (setq ido-enable-tramp-completion t)
+
+  ;; https://www.emacswiki.org/emacs/InteractivelyDoThings
+  ;; Display ido results vertically, rather than horizontally
+  ;; (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+
+  ;; or install ido-vertical-mode
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; orgmode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (add-hook 'org-mode-hook 'org-indent-mode)
+  
+  (setq org-html-head-include-default-style nil)
+  (setq org-html-head-include-scripts nil)
+
+  (setq org-export-html-validation-link "")
+
+  (setq org-html-validation-link nil)
+  (setq org-use-speed-commands t)
+
+  (setq org-todo-keywords
+       '((sequence "TODO" "|" "DONE" "INFO")))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; eshell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (defun eshell/clear ()
+    "clear the eshell buffer."
+    (interactive)
+    (let ((inhibit-read-only t))
+      (erase-buffer)))
+
+  (setq eshell-prompt-function
+        (lambda nil ">"))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; - delete-duplicate-lines
+  ;; - transpose-windows
+  ;; - toggle-current-window-dedication
+  ;; - remove-dos-eol
+  ;; - ido-bookmark-jump
+  ;; - unfill-paragraph
+  ;; - org-begin-template
+  ;; - xah-new-empty-buffer
+  ;; - insert-todays-date
+
+  ;;;;;;;;;;;;;;;;;;;;;;; delete-duplicate-lines ;;;;;;;;;;;;;;;;;;;;;;;
+  (defun delete-duplicate-lines (beg end) 
+    (interactive "r") 
+    (let ((lines (split-string (buffer-substring beg end) "\n"))) 
+      (delete-region beg end) 
+      (insert 
+       (mapconcat #'identity (delete-dups lines) "\n")))) 
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;; transpose-windows ;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (defun transpose-windows (arg)
+    "Transpose the buffers shown in two windows."
+    (interactive "p")
+    (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+      (while (/= arg 0)
+        (let ((this-win (window-buffer))
+              (next-win (window-buffer (funcall selector))))
+          (set-window-buffer (selected-window) next-win)
+          (set-window-buffer (funcall selector) this-win)
+          (select-window (funcall selector)))
+        (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+
+  ;;;;;;;;;;;;;;;;;; toggle-current-window-dedication ;;;;;;;;;;;;;;;;;;
+  (defun toggle-current-window-dedication ()
+    (interactive)
+    (let* ((window    (selected-window))
+           (dedicated (window-dedicated-p window)))
+      (set-window-dedicated-p window (not dedicated))
+      (message "Window %sdedicated to %s"
+               (if dedicated "no longer " "")
+               (buffer-name))))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;; remove-dos-eol ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; http://stackoverflow.com/questions/730751/hiding-m-in-emacs
+  (defun remove-dos-eol ()
+    "Do not show ^M in files containing mixed UNIX and DOS line endings."
+    (interactive)
+    (setq buffer-display-table (make-display-table))
+    (aset buffer-display-table ?\^M []))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;; ido-bookmark-jump ;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (require 'bookmark)
+   (defun ido-bookmark-jump (bname)
+      "*Switch to bookmark interactively using `ido'."
+      (interactive (list (ido-completing-read "Bookmark: " (bookmark-all-names) nil t)))
+      (bookmark-jump bname))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;; unfill-paragraph ;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Stefan Monnier . It is the opposite of fill-paragraph    
+  (defun unfill-paragraph (&optional region)
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive (progn (barf-if-buffer-read-only) '(t)))
+    (let ((fill-column (point-max)))
+      (fill-paragraph nil region)))
+
+  (define-key global-map "\M-Q" 'unfill-paragraph)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;; org-begin-template ;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; http://pragmaticemacs.com/author/bjm/page/3/
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; function to wrap blocks of text in org templates                       ;;
+  ;; e.g. latex or src etc                                                  ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (defun org-begin-template ()
+    "Make a template at point."
+    (interactive)
+    (if (org-at-table-p)
+        (call-interactively 'org-table-rotate-recalc-marks)
+      (let* ((choices '(("s" . "SRC")
+                        ("e" . "EXAMPLE")
+                        ("q" . "QUOTE")
+                        ("v" . "VERSE")
+                        ("c" . "CENTER")
+                        ("l" . "LaTeX")
+                        ("h" . "HTML")
+                        ("a" . "ASCII")))
+             (key
+              (key-description
+               (vector
+                (read-key
+                 (concat (propertize "Template type: " 'face 'minibuffer-prompt)
+                         (mapconcat (lambda (choice)
+                                      (concat (propertize (car choice) 'face 'font-lock-type-face)
+                                              ": "
+                                              (cdr choice)))
+                                    choices
+                                    ", ")))))))
+        (let ((result (assoc key choices)))
+          (when result
+            (let ((choice (cdr result)))
+              (cond
+               ((region-active-p)
+                (let ((start (region-beginning))
+                      (end (region-end)))
+                  (goto-char end)
+                  (insert "#+END_" choice "\n")
+                  (goto-char start)
+                  (insert "#+BEGIN_" choice "\n")))
+               (t
+                (insert "#+BEGIN_" choice "\n")
+                (save-excursion (insert "#+END_" choice))))))))))
+
+  ;;bind to key
+  ;; (define-key org-mode-map (kbd "C-<") 'org-begin-template) !!!!
+
+  ;;;;;;;;;;;;;;;;;;;;;;;; xah-new-empty-buffer ;;;;;;;;;;;;;;;;;;;;;;;;
+  (defun xah-new-empty-buffer ()
+    "Open a new empty buffer.
+  URL `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
+  Version 2015-06-12"
+    (interactive)
+    (let ((xahbuf (generate-new-buffer "untitled")))
+      (switch-to-buffer xahbuf)
+      (funcall (and initial-major-mode))
+      (setq buffer-offer-save t)))
+
+  (global-set-key (kbd "<f6>") 'xah-new-empty-buffer)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;; insert-todays-date ;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; from http://emacswiki.org/emacs/InsertingTodaysDate
+  (defun insert-todays-date (arg)
+    (interactive "P")
+    (insert (if arg
+                (format-time-string "%d-%m-%Y")
+              (format-time-string "%Y-%m-%d %a %H:%M"))))
+
+  (global-set-key (kbd "<f5>") 'insert-todays-date)
+
+#+END_SRC
+
+[[../setup.html][back]]

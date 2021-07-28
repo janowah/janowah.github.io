@@ -1,13 +1,15 @@
 #+title: tidy
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
 
 * examples
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC sh
   tidy  --vertical-space yes foo.html > tidied.html
   tidy  --vertical-space yes -wrap 80 foo.html > tidied.html
   tidy  --vertical-space yes foo.html > tidied.html
-#+END_EXAMPLE
+#+END_SRC
 
 * switches
 

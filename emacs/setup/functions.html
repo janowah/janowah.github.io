@@ -3,242 +3,167 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>functions</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
 <h1 class="title">functions</h1>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">current</h2>
-<div class="outline-text-2" id="text-1">
 <div class="org-src-container">
+<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">- delete-duplicate-lines</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- transpose-windows</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- toggle-current-window-dedication</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- remove-dos-eol</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- ido-bookmark-jump</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- unfill-paragraph</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- org-begin-template</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- xah-new-empty-buffer</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- insert-todays-date</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">- ido-bookmark-insert</span>
 
-<pre class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">- delete-duplicate-lines</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- transpose-windows</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- toggle-current-window-dedication</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- remove-dos-eol</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- ido-bookmark-jump</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- unfill-paragraph</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- org-begin-template</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- xah-new-empty-buffer</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- insert-todays-date</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- ido-bookmark-insert</span>
-
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">delete-duplicate-lines ;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">delete-duplicate-lines</span> (beg end)
-  (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"r"</span>)
-  (<span style="color: #a020f0;">let</span> ((lines (split-string (buffer-substring beg end) <span style="color: #8b2252;">"\n"</span>)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">delete-duplicate-lines ;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">delete-duplicate-lines</span> (beg end)
+  (<span class="org-keyword">interactive</span> <span class="org-string">"r"</span>)
+  (<span class="org-keyword">let</span> ((lines (split-string (buffer-substring beg end) <span class="org-string">"\n"</span>)))
     (delete-region beg end)
     (insert
-     (mapconcat #'identity (delete-dups lines) <span style="color: #8b2252;">"\n"</span>))))
+     (mapconcat #'identity (delete-dups lines) <span class="org-string">"\n"</span>))))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">transpose-windows ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">transpose-windows</span> (arg)
-  <span style="color: #8b2252;">"Transpose the buffers shown in two windows."</span>
-  (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"p"</span>)
-  (<span style="color: #a020f0;">let</span> ((selector (<span style="color: #a020f0;">if</span> (&gt;= arg 0) 'next-window 'previous-window)))
-    (<span style="color: #a020f0;">while</span> (/= arg 0)
-      (<span style="color: #a020f0;">let</span> ((this-win (window-buffer))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">transpose-windows ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">transpose-windows</span> (arg)
+  <span class="org-doc">"Transpose the buffers shown in two windows."</span>
+  (<span class="org-keyword">interactive</span> <span class="org-string">"p"</span>)
+  (<span class="org-keyword">let</span> ((selector (<span class="org-keyword">if</span> (&gt;= arg 0) 'next-window 'previous-window)))
+    (<span class="org-keyword">while</span> (/= arg 0)
+      (<span class="org-keyword">let</span> ((this-win (window-buffer))
             (next-win (window-buffer (funcall selector))))
         (set-window-buffer (selected-window) next-win)
         (set-window-buffer (funcall selector) this-win)
         (select-window (funcall selector)))
-      (<span style="color: #a020f0;">setq</span> arg (<span style="color: #a020f0;">if</span> (plusp arg) (1- arg) (1+ arg))))))
+      (<span class="org-keyword">setq</span> arg (<span class="org-keyword">if</span> (plusp arg) (1- arg) (1+ arg))))))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">toggle-current-window-dedication ;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">toggle-current-window-dedication</span> ()
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">let*</span> ((window    (selected-window))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;; </span><span class="org-comment">toggle-current-window-dedication ;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">toggle-current-window-dedication</span> ()
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let*</span> ((window    (selected-window))
          (dedicated (window-dedicated-p window)))
     (set-window-dedicated-p window (not dedicated))
-    (message <span style="color: #8b2252;">"Window %sdedicated to %s"</span>
-             (<span style="color: #a020f0;">if</span> dedicated <span style="color: #8b2252;">"no longer "</span> <span style="color: #8b2252;">""</span>)
+    (message <span class="org-string">"Window %sdedicated to %s"</span>
+             (<span class="org-keyword">if</span> dedicated <span class="org-string">"no longer "</span> <span class="org-string">""</span>)
              (buffer-name))))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">remove-dos-eol ;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">http://stackoverflow.com/questions/730751/hiding-m-in-emacs</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">remove-dos-eol</span> ()
-  <span style="color: #8b2252;">"Do not show ^M in files containing mixed UNIX and DOS line endings."</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">setq</span> buffer-display-table (make-display-table))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">remove-dos-eol ;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">http://stackoverflow.com/questions/730751/hiding-m-in-emacs</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">remove-dos-eol</span> ()
+  <span class="org-doc">"Do not show ^M in files containing mixed UNIX and DOS line endings."</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">setq</span> buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">ido-bookmark-jump ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">bookmark</span>)
- (<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ido-bookmark-jump</span> (bname)
-    <span style="color: #8b2252;">"*Switch to bookmark interactively using `</span><span style="color: #008b8b;">ido</span><span style="color: #8b2252;">'."</span>
-    (<span style="color: #a020f0;">interactive</span> (list (ido-completing-read <span style="color: #8b2252;">"Bookmark: "</span> (bookmark-all-names) nil t)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">ido-bookmark-jump ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">require</span> '<span class="org-constant">bookmark</span>)
+ (<span class="org-keyword">defun</span> <span class="org-function-name">ido-bookmark-jump</span> (bname)
+    <span class="org-doc">"*Switch to bookmark interactively using `</span><span class="org-doc"><span class="org-constant">ido</span></span><span class="org-doc">'."</span>
+    (<span class="org-keyword">interactive</span> (list (ido-completing-read <span class="org-string">"Bookmark: "</span> (bookmark-all-names) nil t)))
     (bookmark-jump bname))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">unfill-paragraph ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">Stefan Monnier . It is the opposite of fill-paragraph</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">unfill-paragraph</span> (<span style="color: #228b22;">&amp;optional</span> region)
-  <span style="color: #8b2252;">"Takes a multi-line paragraph and makes it into a single line of text."</span>
-  (<span style="color: #a020f0;">interactive</span> (<span style="color: #a020f0;">progn</span> (barf-if-buffer-read-only) '(t)))
-  (<span style="color: #a020f0;">let</span> ((fill-column (point-max)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">unfill-paragraph ;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">Stefan Monnier . It is the opposite of fill-paragraph</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">unfill-paragraph</span> (<span class="org-type">&amp;optional</span> region)
+  <span class="org-doc">"Takes a multi-line paragraph and makes it into a single line of text."</span>
+  (<span class="org-keyword">interactive</span> (<span class="org-keyword">progn</span> (barf-if-buffer-read-only) '(t)))
+  (<span class="org-keyword">let</span> ((fill-column (point-max)))
     (fill-paragraph nil region)))
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">org-begin-template ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">http://pragmaticemacs.com/author/bjm/page/3/</span>
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">org-begin-template ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">http://pragmaticemacs.com/author/bjm/page/3/</span>
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">function to wrap blocks of text in org templates                       ;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">e.g. latex or src etc                                                  ;;</span>
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">org-begin-template</span> ()
-  <span style="color: #8b2252;">"Make a template at point."</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">if</span> (org-at-table-p)
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">function to wrap blocks of text in org templates                       ;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">e.g. latex or src etc                                                  ;;</span>
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">org-begin-template</span> ()
+  <span class="org-doc">"Make a template at point."</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">if</span> (org-at-table-p)
       (call-interactively 'org-table-rotate-recalc-marks)
-    (<span style="color: #a020f0;">let*</span> ((choices '((<span style="color: #8b2252;">"s"</span> . <span style="color: #8b2252;">"SRC"</span>)
-                      (<span style="color: #8b2252;">"e"</span> . <span style="color: #8b2252;">"EXAMPLE"</span>)
-                      (<span style="color: #8b2252;">"q"</span> . <span style="color: #8b2252;">"QUOTE"</span>)
-                      (<span style="color: #8b2252;">"v"</span> . <span style="color: #8b2252;">"VERSE"</span>)
-                      (<span style="color: #8b2252;">"c"</span> . <span style="color: #8b2252;">"CENTER"</span>)
-                      (<span style="color: #8b2252;">"l"</span> . <span style="color: #8b2252;">"LaTeX"</span>)
-                      (<span style="color: #8b2252;">"h"</span> . <span style="color: #8b2252;">"HTML"</span>)
-                      (<span style="color: #8b2252;">"a"</span> . <span style="color: #8b2252;">"ASCII"</span>)))
+    (<span class="org-keyword">let*</span> ((choices '((<span class="org-string">"s"</span> . <span class="org-string">"SRC"</span>)
+                      (<span class="org-string">"e"</span> . <span class="org-string">"EXAMPLE"</span>)
+                      (<span class="org-string">"q"</span> . <span class="org-string">"QUOTE"</span>)
+                      (<span class="org-string">"v"</span> . <span class="org-string">"VERSE"</span>)
+                      (<span class="org-string">"c"</span> . <span class="org-string">"CENTER"</span>)
+                      (<span class="org-string">"l"</span> . <span class="org-string">"LaTeX"</span>)
+                      (<span class="org-string">"h"</span> . <span class="org-string">"HTML"</span>)
+                      (<span class="org-string">"a"</span> . <span class="org-string">"ASCII"</span>)))
            (key
             (key-description
              (vector
               (read-key
-               (concat (propertize <span style="color: #8b2252;">"Template type: "</span> 'face 'minibuffer-prompt)
-                       (mapconcat (<span style="color: #a020f0;">lambda</span> (choice)
+               (concat (propertize <span class="org-string">"Template type: "</span> 'face 'minibuffer-prompt)
+                       (mapconcat (<span class="org-keyword">lambda</span> (choice)
                                     (concat (propertize (car choice) 'face 'font-lock-type-face)
-                                            <span style="color: #8b2252;">": "</span>
+                                            <span class="org-string">": "</span>
                                             (cdr choice)))
                                   choices
-                                  <span style="color: #8b2252;">", "</span>)))))))
-      (<span style="color: #a020f0;">let</span> ((result (assoc key choices)))
-        (<span style="color: #a020f0;">when</span> result
-          (<span style="color: #a020f0;">let</span> ((choice (cdr result)))
-            (<span style="color: #a020f0;">cond</span>
+                                  <span class="org-string">", "</span>)))))))
+      (<span class="org-keyword">let</span> ((result (assoc key choices)))
+        (<span class="org-keyword">when</span> result
+          (<span class="org-keyword">let</span> ((choice (cdr result)))
+            (<span class="org-keyword">cond</span>
              ((region-active-p)
-              (<span style="color: #a020f0;">let</span> ((start (region-beginning))
+              (<span class="org-keyword">let</span> ((start (region-beginning))
                     (end (region-end)))
                 (goto-char end)
-                (insert <span style="color: #8b2252;">"#+END_"</span> choice <span style="color: #8b2252;">"\n"</span>)
+                (insert <span class="org-string">"#+END_"</span> choice <span class="org-string">"\n"</span>)
                 (goto-char start)
-                (insert <span style="color: #8b2252;">"#+BEGIN_"</span> choice <span style="color: #8b2252;">"\n"</span>)))
+                (insert <span class="org-string">"#+BEGIN_"</span> choice <span class="org-string">"\n"</span>)))
              (t
-              (insert <span style="color: #8b2252;">"#+BEGIN_"</span> choice <span style="color: #8b2252;">"\n"</span>)
-              (<span style="color: #a020f0;">save-excursion</span> (insert <span style="color: #8b2252;">"#+END_"</span> choice))))))))))
+              (insert <span class="org-string">"#+BEGIN_"</span> choice <span class="org-string">"\n"</span>)
+              (<span class="org-keyword">save-excursion</span> (insert <span class="org-string">"#+END_"</span> choice))))))))))
 
-<span style="color: #b22222;">;;</span><span style="color: #b22222;">bind to key</span>
-<span style="color: #b22222;">; </span><span style="color: #b22222;">(define-key org-mode-map (kbd "C-&lt;") 'org-begin-template) !!!</span>
+<span class="org-comment-delimiter">;;</span><span class="org-comment">bind to key</span>
+<span class="org-comment-delimiter">; </span><span class="org-comment">(define-key org-mode-map (kbd "C-&lt;") 'org-begin-template) !!!</span>
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">xah-new-empty-buffer ;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">xah-new-empty-buffer</span> ()
-  <span style="color: #8b2252;">"Open a new empty buffer.</span>
-<span style="color: #8b2252;">URL `</span><span style="color: #008b8b;">http://ergoemacs.org/emacs/emacs_new_empty_buffer.html</span><span style="color: #8b2252;">'</span>
-<span style="color: #8b2252;">Version 2015-06-12"</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">let</span> ((xahbuf (generate-new-buffer <span style="color: #8b2252;">"untitled"</span>)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">xah-new-empty-buffer ;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">xah-new-empty-buffer</span> ()
+  <span class="org-doc">"Open a new empty buffer.</span>
+<span class="org-doc">URL `</span><span class="org-doc"><span class="org-constant">http://ergoemacs.org/emacs/emacs_new_empty_buffer.html</span></span><span class="org-doc">'</span>
+<span class="org-doc">Version 2015-06-12"</span>
+  (<span class="org-keyword">interactive</span>)
+  (<span class="org-keyword">let</span> ((xahbuf (generate-new-buffer <span class="org-string">"untitled"</span>)))
     (switch-to-buffer xahbuf)
-    (funcall (<span style="color: #a020f0;">and</span> initial-major-mode))
-    (<span style="color: #a020f0;">setq</span> buffer-offer-save t)))
+    (funcall (<span class="org-keyword">and</span> initial-major-mode))
+    (<span class="org-keyword">setq</span> buffer-offer-save t)))
 
-(global-set-key (kbd <span style="color: #8b2252;">"&lt;f6&gt;"</span>) 'xah-new-empty-buffer)
+(global-set-key (kbd <span class="org-string">"&lt;f6&gt;"</span>) 'xah-new-empty-buffer)
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">insert-todays-date ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">from http://emacswiki.org/emacs/InsertingTodaysDate</span>
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">insert-todays-date</span> (arg)
-  (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"P"</span>)
-  (insert (<span style="color: #a020f0;">if</span> arg
-              (format-time-string <span style="color: #8b2252;">"%d-%m-%Y"</span>)
-            (format-time-string <span style="color: #8b2252;">"%Y-%m-%d %a %H:%M"</span>))))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">insert-todays-date ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">from http://emacswiki.org/emacs/InsertingTodaysDate</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">insert-todays-date</span> (arg)
+  (<span class="org-keyword">interactive</span> <span class="org-string">"P"</span>)
+  (insert (<span class="org-keyword">if</span> arg
+              (format-time-string <span class="org-string">"%d-%m-%Y"</span>)
+            (format-time-string <span class="org-string">"%Y-%m-%d %a %H:%M"</span>))))
 
-(global-set-key (kbd <span style="color: #8b2252;">"&lt;f5&gt;"</span>) 'insert-todays-date)
+(global-set-key (kbd <span class="org-string">"&lt;f5&gt;"</span>) 'insert-todays-date)
 
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">ido-bookmark-insert ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">bookmark</span>)
- (<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ido-bookmark-insert</span> (bname)
-    <span style="color: #8b2252;">"*Insert to bookmark interactively using `</span><span style="color: #008b8b;">ido</span><span style="color: #8b2252;">'."</span>
-    (<span style="color: #a020f0;">interactive</span> (list (ido-completing-read <span style="color: #8b2252;">"Bookmark: "</span> (bookmark-all-names) nil t)))
+<span class="org-comment-delimiter">;;;;;;;;;;;;;;;;;;;;;;;; </span><span class="org-comment">ido-bookmark-insert ;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+(<span class="org-keyword">require</span> '<span class="org-constant">bookmark</span>)
+ (<span class="org-keyword">defun</span> <span class="org-function-name">ido-bookmark-insert</span> (bname)
+    <span class="org-doc">"*Insert to bookmark interactively using `</span><span class="org-doc"><span class="org-constant">ido</span></span><span class="org-doc">'."</span>
+    (<span class="org-keyword">interactive</span> (list (ido-completing-read <span class="org-string">"Bookmark: "</span> (bookmark-all-names) nil t)))
     (bookmark-insert bname))
 
-(global-set-key (kbd <span style="color: #8b2252;">"H-i"</span>) 'ido-bookmark-insert)
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">archived</h2>
-<div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-
-<pre class="src src-elisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">- move-line</span>
-<span style="color: #b22222;">;; </span><span style="color: #b22222;">- ora-dired-rsync</span>
-
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">move-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-  <span style="color: #b22222;">;; </span><span style="color: #b22222;">https://www.emacswiki.org/emacs/MoveLine</span>
-
-  (<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">move-line-up</span> ()
-    (<span style="color: #a020f0;">interactive</span>)
-    (transpose-lines 1)
-    (forward-line -2))
-
-  (<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">move-line-down</span> ()
-    (<span style="color: #a020f0;">interactive</span>)
-    (forward-line 1)
-    (transpose-lines 1)
-    (forward-line -1))
-
-  (global-set-key (kbd <span style="color: #8b2252;">"M-"</span>) 'move-line-up)
-  (global-set-key (kbd <span style="color: #8b2252;">"M-"</span>) 'move-line-down)
-
-  <span style="color: #b22222;">; </span><span style="color: #b22222;">has to be in text mode</span>
-  <span style="color: #b22222;">; </span><span style="color: #b22222;">moves point to start of line</span>
-
-<span style="color: #b22222;">;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #b22222;">ora-dired-rsync ;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-  <span style="color: #b22222;">;; </span><span style="color: #b22222;">http://oremacs.com/2016/02/24/dired-rsync/</span>
-  <span style="color: #b22222;">;; </span><span style="color: #b22222;">changed command from rsync -arvz --progress</span>
-  <span style="color: #b22222;">;;;</span><span style="color: #b22222;">###autoload</span>
-  (<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">ora-dired-rsync</span> (dest)
-    (<span style="color: #a020f0;">interactive</span>
-     (list
-      (expand-file-name
-       (read-file-name
-        <span style="color: #8b2252;">"Rsync to:"</span>
-        (dired-dwim-target-directory)))))
-    <span style="color: #b22222;">;; </span><span style="color: #b22222;">store all selected files into "files" list</span>
-    (<span style="color: #a020f0;">let</span> ((files (dired-get-marked-files
-                  nil current-prefix-arg))
-          <span style="color: #b22222;">;; </span><span style="color: #b22222;">the rsync command</span>
-          (tmtxt/rsync-command
-           <span style="color: #8b2252;">"rsync -avt --progress "</span>))
-      <span style="color: #b22222;">;; </span><span style="color: #b22222;">add all selected file names as arguments</span>
-      <span style="color: #b22222;">;; </span><span style="color: #b22222;">to the rsync command</span>
-      (<span style="color: #a020f0;">dolist</span> (file files)
-        (<span style="color: #a020f0;">setq</span> tmtxt/rsync-command
-              (concat tmtxt/rsync-command
-                      (shell-quote-argument file)
-                      <span style="color: #8b2252;">" "</span>)))
-      <span style="color: #b22222;">;; </span><span style="color: #b22222;">append the destination</span>
-      (<span style="color: #a020f0;">setq</span> tmtxt/rsync-command
-            (concat tmtxt/rsync-command
-                    (shell-quote-argument dest)))
-      <span style="color: #b22222;">;; </span><span style="color: #b22222;">run the async shell command</span>
-      (async-shell-command tmtxt/rsync-command <span style="color: #8b2252;">"*rsync*"</span>)
-      <span style="color: #b22222;">;; </span><span style="color: #b22222;">finally, switch to that window</span>
-      (other-window 1)))
-
-  (define-key dired-mode-map <span style="color: #8b2252;">"Y"</span> 'ora-dired-rsync)
+(global-set-key (kbd <span class="org-string">"H-i"</span>) 'ido-bookmark-insert)
 </pre>
 </div>
 
 <p>
 <a href="../setup.html">back</a>
 </p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

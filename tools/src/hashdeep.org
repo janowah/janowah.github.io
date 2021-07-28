@@ -1,5 +1,7 @@
 #+title: hashdeep
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
 
 #+BEGIN_EXAMPLE
   md5deep -rlz ./

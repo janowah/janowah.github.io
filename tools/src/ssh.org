@@ -1,0 +1,78 @@
+#+title: ssh
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
+
+* how it works
+
+#+BEGIN_SRC text
+  id_rsa ; private key. kept with client
+  id_rsa.pub ; public key. goes on server. contains email address
+
+  user@server
+  ~/.ssh/authorized_keys contains id_rsa.pub
+
+  user@client
+  ~/.ssh/id_rsa
+
+  server will use key first if available
+  dirs must be 700. files 600
+#+END_SRC
+
+* commands 
+
+#+BEGIN_SRC text
+  ssh-keygen -t rsa ; generate ssh keys
+  ssh-add ~/.ssh/id_rsa
+  ssh-add -l ; list
+#+END_SRC
+
+* copy keys to locations on client and server
+
+#+BEGIN_SRC text
+  client location: (/home/homer/.ssh/id_rsa): 
+  passphrase: monkey
+  server location: ~/.ssh/authorized_keys
+#+END_SRC
+
+* quick steps
+
+#+BEGIN_SRC text
+  1) create a public/private key pair on the client or server
+     - =ssh-keygen -t rsa=
+  2) copy client key to ~/.ssh on client; private key should be 600
+  3) cat id_rsa.pub >> ~/.ssh/authorized_keys ; on server
+  4) $ restorecon -Rv ~/.ssh 
+#+END_SRC
+  
+* server configuration
+
+=/etc/ssh/sshd_config=
+
+#+BEGIN_SRC conf
+  # keys only and no root
+  PermitRootLogin no
+  PasswordAuthentication no
+#+END_SRC
+
+* client configuration
+
+=/home/homer/.ssh/config=
+
+#+BEGIN_SRC conf
+  Host myshortname realname.example.com
+      HostName realname.example.com
+      IdentityFile ~/.ssh/realname_rsa # private key for realname
+      User remoteusername
+#+END_SRC
+
+* other
+
+- firewall rules
+
+* references
+
+- https://wiki.centos.org/HowTos/Network/SecuringSSH
+
+[[./tools.html][back]]
+

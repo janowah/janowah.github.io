@@ -1,5 +1,7 @@
 #+title: web-mode
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
 
 #+BEGIN_SRC elisp
   (load "~/.emacs.d/web-mode.el")
@@ -11,3 +13,4 @@
   (add-hook 'web-mode-hook  'my-web-mode-hook)
 #+END_SRC
 
+[[../setup.html][back]]

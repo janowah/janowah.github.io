@@ -1,0 +1,24 @@
+#+title: themes
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+#+BEGIN_SRC elisp  
+  - xemacs
+  - solarized
+  - zen-and-art
+  - cyberpunk
+  - hober
+  - ujelly
+  - anti-zenburn-theme
+
+  (setq package-list '(cyberpunk-theme
+                       gotham-theme
+                       solarized-theme
+                       zen-and-art-theme
+  ))
+
+  - custom-set-themes and faces?
+#+END_SRC
+
+[[../setup.html][back]]

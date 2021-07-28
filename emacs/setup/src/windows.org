@@ -1,0 +1,21 @@
+#+title: windows
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+#+BEGIN_SRC elisp  
+  ;; fonts
+  ; (set-default-font "Consolas-14")
+  ; (set-default-font "PragmataPro-14")
+  ; (set-default-font "Source Code Pro-14")
+
+  ;; Super and Hyper for windows
+  (setq w32-pass-lwindow-to-system nil 
+        w32-pass-rwindow-to-system nil 
+        w32-pass-apps-to-system nil 
+        w32-lwindow-modifier 'super	; Left Windows key 
+        w32-rwindow-modifier 'super	; Right Windows key 
+        w32-apps-modifier 'hyper)		; Menu key
+#+END_SRC
+
+[[../setup.html][back]]

@@ -1,37 +1,49 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>package</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>package</h1>
-<pre>
-(package-initialize)
-  
-(setq package-list '(dired+ bookmark+ yasnippet csv-mode))
-(setq package-list '(htmlize ox-twbs vimish-fold))
-(setq package-list '(ace-jump-mode))
+<div id="content">
+<h1 class="title">package</h1>
+<div class="org-src-container">
+<pre class="src src-elisp">(package-initialize)
 
-(require 'package)
+(<span class="org-keyword">setq</span> package-list '(dired+ bookmark+ yasnippet csv-mode))
+(<span class="org-keyword">setq</span> package-list '(htmlize ox-twbs vimish-fold))
+(<span class="org-keyword">setq</span> package-list '(ace-jump-mode))
+
+(<span class="org-keyword">require</span> '<span class="org-constant">package</span>)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+             '(<span class="org-string">"melpa"</span> . <span class="org-string">"http://melpa.org/packages/"</span>) t)
 
 (add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/"))
+             '(<span class="org-string">"org"</span> . <span class="org-string">"http://orgmode.org/elpa/"</span>))
 
-;; fetch the list of packages available
-(unless package-archive-contents
+<span class="org-comment-delimiter">;; </span><span class="org-comment">fetch the list of packages available</span>
+(<span class="org-keyword">unless</span> package-archive-contents
   (package-refresh-contents))
 
-;; install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
+<span class="org-comment-delimiter">;; </span><span class="org-comment">install the missing packages</span>
+(<span class="org-keyword">dolist</span> (package package-list)
+  (<span class="org-keyword">unless</span> (package-installed-p package)
     (package-install package)))
 
-;; upgrade installed packages
-;; U  package-menu-mark-upgrades
-;; x  package-menu-execute
+<span class="org-comment-delimiter">;; </span><span class="org-comment">upgrade installed packages</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">U  package-menu-mark-upgrades</span>
+<span class="org-comment-delimiter">;; </span><span class="org-comment">x  package-menu-execute</span>
 </pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
 </body>
 </html>

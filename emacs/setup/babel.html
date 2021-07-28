@@ -1,27 +1,50 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>babel</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>babel</h1>
-<pre>
-.emacs
-------
-(package-initialize)
-(require 'cl)
-(require 'ob-tangle)
-(org-babel-load-file "~/config.org")
+<div id="content">
+<h1 class="title">babel</h1>
 
-tangle
-------
-#+BEGIN_SRC text :tangle foo.txt :padline no
-  nfo
-#+END_SRC
-
-#+BEGIN_SRC cpp -n :tangle foo.cpp :padline no
-  line numbers
-#+END_SRC
+<div id="outline-container-org21f1c0f" class="outline-2">
+<h2 id="org21f1c0f">.emacs</h2>
+<div class="outline-text-2" id="text-org21f1c0f">
+<div class="org-src-container">
+<pre class="src src-elisp">(package-initialize)
+(<span class="org-keyword">require</span> '<span class="org-constant">cl</span>)
+(<span class="org-keyword">require</span> '<span class="org-constant">ob-tangle</span>)
+(org-babel-load-file <span class="org-string">"~/config.org"</span>)
 </pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1102bc4" class="outline-2">
+<h2 id="org1102bc4">tangle</h2>
+<div class="outline-text-2" id="text-org1102bc4">
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-block-begin-line">#+BEGIN_SRC text :tangle foo.txt :padline no</span>
+<span class="org-org-block">  nfo</span>
+<span class="org-org-block-end-line">#+END_SRC</span>
+
+<span class="org-org-block-begin-line">#+BEGIN_SRC cpp -n :tangle foo.cpp :padline no</span>
+<span class="org-org-block">  </span><span class="org-org-block"><span class="org-type">line</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-variable-name">numbers</span></span>
+<span class="org-org-block-end-line">#+END_SRC</span>
+</pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
+</div>
+</div>
 </body>
 </html>

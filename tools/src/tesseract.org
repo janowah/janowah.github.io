@@ -1,11 +1,17 @@
 #+title: tesseract
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
 
 #+BEGIN_EXAMPLE
   tesseract image.tif text.txt
+#+END_EXAMPLE
 
+#+BEGIN_SRC sh
   # save selected pages as high-res images and ocr
   pdftopng -f 1 -l 10 -r 600 foo.pdf png/
   for filename in *; do tesseract "$filename" "$filename"; done
-#+END_EXAMPLE
+#+END_SRC
+
+
 

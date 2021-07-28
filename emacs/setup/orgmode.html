@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>orgmode</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
@@ -14,29 +15,26 @@
 <div class="org-src-container">
 <pre class="src src-elisp">(add-hook 'org-mode-hook 'org-indent-mode)
 
-(<span style="color: #a020f0;">setq</span> org-html-head-include-default-style nil)
-(<span style="color: #a020f0;">setq</span> org-html-head-include-scripts nil)
+(<span class="org-keyword">setq</span> org-html-head-include-default-style nil)
+(<span class="org-keyword">setq</span> org-html-head-include-scripts nil)
 
-(<span style="color: #a020f0;">setq</span> org-export-html-validation-link <span style="color: #8b2252;">""</span>)
+(<span class="org-keyword">setq</span> org-export-html-validation-link <span class="org-string">""</span>)
 
-(<span style="color: #a020f0;">setq</span> org-html-validation-link nil)
-(<span style="color: #a020f0;">setq</span> org-use-speed-commands t)
+(<span class="org-keyword">setq</span> org-html-validation-link nil)
+(<span class="org-keyword">setq</span> org-use-speed-commands t)
 
-(<span style="color: #a020f0;">setq</span> org-todo-keywords
-      '((sequence <span style="color: #8b2252;">"TODO"</span> <span style="color: #8b2252;">"|"</span> <span style="color: #8b2252;">"DONE"</span> <span style="color: #8b2252;">"INFO"</span>)))
+(<span class="org-keyword">setq</span> org-todo-keywords
+      '((sequence <span class="org-string">"TODO"</span> <span class="org-string">"|"</span> <span class="org-string">"DONE"</span> <span class="org-string">"INFO"</span>)))
 
-(<span style="color: #a020f0;">setq</span> org-src-window-setup 'current-window)
+(<span class="org-keyword">setq</span> org-src-window-setup 'current-window)
 
-(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">org-tempo</span>) <span style="color: #b22222;">;; </span><span style="color: #b22222;">for templates</span>
+(<span class="org-keyword">require</span> '<span class="org-constant">org-tempo</span>) <span class="org-comment-delimiter">;; </span><span class="org-comment">for templates</span>
 </pre>
 </div>
 
 <p>
 <a href="../setup.html">back</a>
 </p>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

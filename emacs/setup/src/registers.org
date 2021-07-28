@@ -1,0 +1,49 @@
+#+title: registers
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+* commands
+
+#+BEGIN_SRC elisp
+  jump-to-register	; C-x r j, H-j
+  copy-to-register	; C-x r x
+  insert-register		; C-x r i
+  increment-register	; C-x r +
+  list-registers
+  append-to-register
+    (global-set-key (kbd "C-x r a") 'append-to-register)
+  prepend-to-register
+    (global-set-key (kbd "C-x r p") 'prepend-to-register)
+#+END_SRC
+
+* numbers
+
+#+BEGIN_SRC text
+  number-to-register	; C-x r n
+    C-x r n a		; 0 into register a
+    C-u 1 C-x r n b	; 1 into register b
+  increment-register	; C-x r +
+    C-x r + a		; increment register by 1
+    C-u 2 C-x r + a	; increment register by 2
+#+END_SRC
+
+* folders
+
+#+BEGIN_SRC elisp
+  (set-register ?~ '(file . "~/"))
+  (set-register ?D '(file . "~/Desktop"))
+  (set-register ?W '(file . "d:/wk01/"))
+#+END_SRC
+
+* files
+
+#+BEGIN_SRC elisp  
+  (set-register ?. '(file . "~/.emacs"))
+  (set-register ?y '(file . "d:/wk01/today.txt"))
+  (set-register ?t '(file . "d:/wk01/yesterday.txt"))
+  (set-register ?w '(file . "d:/wk01/01.org"))
+  (set-register ?l '(file . "d:/wk52/52.org"))
+#+END_SRC
+
+[[../setup.html][back]]

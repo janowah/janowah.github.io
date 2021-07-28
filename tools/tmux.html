@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tmux</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
 <div id="content">
@@ -15,26 +16,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0ded845">intro</a></li>
-<li><a href="#orgddc9d2b">help</a></li>
-<li><a href="#org59633ba">navigation</a></li>
-<li><a href="#orgb76f2f6">session managment</a></li>
-<li><a href="#org0e67e14">copy and paste</a>
+<li><a href="#org367dbb2">intro</a></li>
+<li><a href="#orgd7fcfaf">help</a></li>
+<li><a href="#orga2a6030">navigation</a></li>
+<li><a href="#orge3e9400">session managment</a></li>
+<li><a href="#org78f3957">copy and paste</a>
 <ul>
-<li><a href="#org795c811">copy-mode commands</a></li>
-<li><a href="#orgc8d1fb6">paste buffers</a></li>
+<li><a href="#orge8bbbc2">copy-mode commands</a></li>
+<li><a href="#org060fae7">paste buffers</a></li>
 </ul>
 </li>
-<li><a href="#org9f9792f">panes</a></li>
-<li><a href="#org4d6951c">suspend</a></li>
-<li><a href="#org9e6653e">misc commands</a></li>
+<li><a href="#orgd4bf865">panes</a></li>
+<li><a href="#orgbd9f4bb">suspend</a></li>
+<li><a href="#orgebe6537">misc commands</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0ded845" class="outline-2">
-<h2 id="org0ded845">intro</h2>
-<div class="outline-text-2" id="text-org0ded845">
+<div id="outline-container-org367dbb2" class="outline-2">
+<h2 id="org367dbb2">intro</h2>
+<div class="outline-text-2" id="text-org367dbb2">
 <pre class="example">
 C-b c ; create new
 C-b x ; quit
@@ -45,9 +46,9 @@ sessions &gt; windows &gt; panes
 </div>
 </div>
 
-<div id="outline-container-orgddc9d2b" class="outline-2">
-<h2 id="orgddc9d2b">help</h2>
-<div class="outline-text-2" id="text-orgddc9d2b">
+<div id="outline-container-orgd7fcfaf" class="outline-2">
+<h2 id="orgd7fcfaf">help</h2>
+<div class="outline-text-2" id="text-orgd7fcfaf">
 <pre class="example">
 C-b ? ; help
 q ; quit
@@ -59,9 +60,9 @@ tmux source-file ~/.tmux.conf ; reload current config
 </div>
 </div>
 
-<div id="outline-container-org59633ba" class="outline-2">
-<h2 id="org59633ba">navigation</h2>
-<div class="outline-text-2" id="text-org59633ba">
+<div id="outline-container-orga2a6030" class="outline-2">
+<h2 id="orga2a6030">navigation</h2>
+<div class="outline-text-2" id="text-orga2a6030">
 <pre class="example">
 Ctrl-b c	; new window
 Ctrl-b n	; next window
@@ -76,9 +77,9 @@ C-b '		; prompt for window (enter index 0, 1 etc.)
 </div>
 </div>
 
-<div id="outline-container-orgb76f2f6" class="outline-2">
-<h2 id="orgb76f2f6">session managment</h2>
-<div class="outline-text-2" id="text-orgb76f2f6">
+<div id="outline-container-orge3e9400" class="outline-2">
+<h2 id="orge3e9400">session managment</h2>
+<div class="outline-text-2" id="text-orge3e9400">
 <pre class="example">
 tmux new -s session_name
 C-b d				; to disconnect
@@ -94,9 +95,9 @@ C-b $				; `rename-session'
 </div>
 </div>
 
-<div id="outline-container-org0e67e14" class="outline-2">
-<h2 id="org0e67e14">copy and paste</h2>
-<div class="outline-text-2" id="text-org0e67e14">
+<div id="outline-container-org78f3957" class="outline-2">
+<h2 id="org78f3957">copy and paste</h2>
+<div class="outline-text-2" id="text-org78f3957">
 <pre class="example">
 1) C-b [ ; `copy-mode' wait for indicator in top right
 2) select text
@@ -109,9 +110,9 @@ this works between sessions
 </p>
 </div>
 
-<div id="outline-container-org795c811" class="outline-3">
-<h3 id="org795c811">copy-mode commands</h3>
-<div class="outline-text-3" id="text-org795c811">
+<div id="outline-container-orge8bbbc2" class="outline-3">
+<h3 id="orge8bbbc2">copy-mode commands</h3>
+<div class="outline-text-3" id="text-orge8bbbc2">
 <pre class="example">
 C-r ; search up
 C-s ; search down
@@ -119,9 +120,9 @@ C-s ; search down
 </div>
 </div>
 
-<div id="outline-container-orgc8d1fb6" class="outline-3">
-<h3 id="orgc8d1fb6">paste buffers</h3>
-<div class="outline-text-3" id="text-orgc8d1fb6">
+<div id="outline-container-org060fae7" class="outline-3">
+<h3 id="org060fae7">paste buffers</h3>
+<div class="outline-text-3" id="text-org060fae7">
 <pre class="example">
 C-b = ; `choose-buffer'
 
@@ -132,9 +133,9 @@ C-b - ; `delete-buffer'
 </div>
 </div>
 
-<div id="outline-container-org9f9792f" class="outline-2">
-<h2 id="org9f9792f">panes</h2>
-<div class="outline-text-2" id="text-org9f9792f">
+<div id="outline-container-orgd4bf865" class="outline-2">
+<h2 id="orgd4bf865">panes</h2>
+<div class="outline-text-2" id="text-orgd4bf865">
 <pre class="example">
 C-b %     ; vertical split window into panes
 C-b {     ; swap panes. C-b } also
@@ -151,9 +152,9 @@ C-b M -&gt;/&lt;-	; Resize pane in steps of five cells.
 </div>
 </div>
 
-<div id="outline-container-org4d6951c" class="outline-2">
-<h2 id="org4d6951c">suspend</h2>
-<div class="outline-text-2" id="text-org4d6951c">
+<div id="outline-container-orgbd9f4bb" class="outline-2">
+<h2 id="orgbd9f4bb">suspend</h2>
+<div class="outline-text-2" id="text-orgbd9f4bb">
 <pre class="example">
 C-b C-z ; `suspend-client'
 fg ; to unsuspend
@@ -163,9 +164,9 @@ fg ; to unsuspend
 </div>
 </div>
 
-<div id="outline-container-org9e6653e" class="outline-2">
-<h2 id="org9e6653e">misc commands</h2>
-<div class="outline-text-2" id="text-org9e6653e">
+<div id="outline-container-orgebe6537" class="outline-2">
+<h2 id="orgebe6537">misc commands</h2>
+<div class="outline-text-2" id="text-orgebe6537">
 <pre class="example">
 C-b t ; time. `clock-mode'
 </pre>
@@ -175,9 +176,6 @@ C-b t ; time. `clock-mode'
 </p>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

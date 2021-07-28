@@ -1,0 +1,100 @@
+#+title: org
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:t
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+* navigating headings
+
+#+BEGIN_SRC text
+  C-c C-u  outline-up-heading  ; moves up level
+  C-c C-f  org-forward-heading-same-level	 ; same level
+  C-c C-j  org-goto
+  C-c C-b  org-backward-heading-same-level
+#+END_SRC
+
+* exporting tables
+
+#+BEGIN_SRC org
+  ,* table
+  :PROPERTIES:
+  :TABLE_EXPORT_FILE: c:/Users/merkur/Desktop/table.txt
+  :TABLE_EXPORT_FORMAT: orgtbl-to-tsv
+  :END:      
+#+END_SRC
+
+#+BEGIN_SRC text
+  M-x org-table-export ; export table
+#+END_SRC
+
+#+BEGIN_SRC elisp
+  (setq org-table-export-default-format "orgtbl-to-csv")
+#+END_SRC
+
+* export backends
+
+1) customise org-export-backends
+2) load file
+
+#+BEGIN_SRC elisp
+  (setq org-export-backends '(org ascii html icalendar latex))
+  (require 'ox-org)
+
+  (setq org-export-backends '(man ascii html icalendar latex))
+  (require 'ox-man)
+
+  (setq org-export-backends '(texinfo ascii html icalendar latex))
+  (require 'ox-texinfo)
+#+END_SRC
+
+* orgmode export options
+
+#+BEGIN_SRC text
+  - ^:nil t {}    ; TeX-like syntax ^ & _
+  - author:nil
+  - creator:nil
+  - email:nil
+  - num:nil t
+  - timestamp:nil ; creation time
+  - toc:t 2 nil   ; table of contents, can set the level limit
+#+END_SRC
+
+#+BEGIN_SRC org
+  ,#+title: basic template
+  ,#+options: ^:nil num:nil toc:nil timestamp:nil author:nil creator:nil email:nil
+  ,#+date: 2017-01-01
+#+END_SRC
+
+* archiving
+
+** commands
+
+#+BEGIN_SRC text
+  C-c C-x C-a  org-archive-subtree-default ; archive entry
+  C-c C-x C-s  org-advertized-archive-subtree ; archive subtree
+  C-u C-c C-x C-s ; search under headline to see what can be archived
+#+END_SRC
+
+** global archive
+
+#+BEGIN_SRC org
+  ,#+archive: filename.org::
+#+END_SRC
+
+** archive to different files
+
+#+BEGIN_SRC org
+  ,* Books
+    :PROPERTIES:
+    :ARCHIVE: track-books.org::* Read books
+    :END:
+#+END_SRC
+
+* html export styling
+
+** external css
+
+#+BEGIN_SRC org
+  ,#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+#+END_SRC
+
+[[../guides.html][back]]

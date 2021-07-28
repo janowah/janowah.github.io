@@ -7,23 +7,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>web-mode</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
 <h1 class="title">web-mode</h1>
 <div class="org-src-container">
-<pre class="src src-elisp">(load <span style="color: #8b2252;">"~/.emacs.d/web-mode.el"</span>)
+<pre class="src src-elisp">(load <span class="org-string">"~/.emacs.d/web-mode.el"</span>)
 
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">my-web-mode-hook</span> ()
-  <span style="color: #8b2252;">"Hooks for Web mode."</span>
-  (<span style="color: #a020f0;">setq</span> web-mode-markup-indent-offset 2))
+(<span class="org-keyword">defun</span> <span class="org-function-name">my-web-mode-hook</span> ()
+  <span class="org-doc">"Hooks for Web mode."</span>
+  (<span class="org-keyword">setq</span> web-mode-markup-indent-offset 2))
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 </pre>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
+
+<p>
+<a href="../setup.html">back</a>
+</p>
 </div>
 </body>
 </html>

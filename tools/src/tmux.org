@@ -1,5 +1,7 @@
 #+title: tmux
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
 
 * intro
 

@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>dired</title>
 <meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
 <div id="content">
@@ -15,24 +16,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfdbd187">insert subdirectories</a></li>
-<li><a href="#orgb118bfc">find</a></li>
-<li><a href="#orgbfe2aa4">shell commands</a></li>
-<li><a href="#org9d41d16">replace text across multiple marked files</a></li>
-<li><a href="#orgb3e19fd">diff using a shell command</a></li>
-<li><a href="#org51646b6">using dired diff</a></li>
-<li><a href="#orgfbbf977">show the modification times of files</a></li>
-<li><a href="#orge3e40cf">open file using default application</a></li>
-<li><a href="#org11ca2f4">copy marked filenames</a></li>
-<li><a href="#orgf5ad871">default target directory</a></li>
-<li><a href="#org49fa25f">compression</a></li>
+<li><a href="#orgbae6544">insert subdirectories</a></li>
+<li><a href="#orgc19309a">find</a></li>
+<li><a href="#org5c0bc79">shell commands</a></li>
+<li><a href="#org4c8ef59">replace text across multiple marked files</a></li>
+<li><a href="#org02506cb">diff using a shell command</a></li>
+<li><a href="#org0b29bc6">using dired diff</a></li>
+<li><a href="#orgdb7b8fe">show the modification times of files</a></li>
+<li><a href="#orgde33c75">open file using default application</a></li>
+<li><a href="#org34a60c0">copy marked filenames</a></li>
+<li><a href="#org8ce8888">default target directory</a></li>
+<li><a href="#org96fda04">compression</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgfdbd187" class="outline-2">
-<h2 id="orgfdbd187">insert subdirectories</h2>
-<div class="outline-text-2" id="text-orgfdbd187">
+<div id="outline-container-orgbae6544" class="outline-2">
+<h2 id="orgbae6544">insert subdirectories</h2>
+<div class="outline-text-2" id="text-orgbae6544">
 <ul class="org-ul">
 <li>i     ; dired-maybe-insert-subdir</li>
 <li>C-u k ; dired-do-kill-lines</li>
@@ -40,9 +41,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgb118bfc" class="outline-2">
-<h2 id="orgb118bfc">find</h2>
-<div class="outline-text-2" id="text-orgb118bfc">
+<div id="outline-container-orgc19309a" class="outline-2">
+<h2 id="orgc19309a">find</h2>
+<div class="outline-text-2" id="text-orgc19309a">
 <ul class="org-ul">
 <li>find-name-dired</li>
 <li>find-grep-dired</li>
@@ -50,9 +51,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgbfe2aa4" class="outline-2">
-<h2 id="orgbfe2aa4">shell commands</h2>
-<div class="outline-text-2" id="text-orgbfe2aa4">
+<div id="outline-container-org5c0bc79" class="outline-2">
+<h2 id="org5c0bc79">shell commands</h2>
+<div class="outline-text-2" id="text-org5c0bc79">
 <ul class="org-ul">
 <li>! dired-do-shell-command</li>
 <li>rsync -avt * ~/Desktop ; rsync marked files. locks emacs.</li>
@@ -60,9 +61,9 @@
 </div>
 </div>
 
-<div id="outline-container-org9d41d16" class="outline-2">
-<h2 id="org9d41d16">replace text across multiple marked files</h2>
-<div class="outline-text-2" id="text-org9d41d16">
+<div id="outline-container-org4c8ef59" class="outline-2">
+<h2 id="org4c8ef59">replace text across multiple marked files</h2>
+<div class="outline-text-2" id="text-org4c8ef59">
 <ul class="org-ul">
 <li>Q ; dired-do-find-regexp-and-replace</li>
 <li>save in ibuffer using S</li>
@@ -70,9 +71,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgb3e19fd" class="outline-2">
-<h2 id="orgb3e19fd">diff using a shell command</h2>
-<div class="outline-text-2" id="text-orgb3e19fd">
+<div id="outline-container-org02506cb" class="outline-2">
+<h2 id="org02506cb">diff using a shell command</h2>
+<div class="outline-text-2" id="text-org02506cb">
 <ol class="org-ol">
 <li>mark two files
 <ul class="org-ul">
@@ -83,9 +84,9 @@
 </div>
 </div>
 
-<div id="outline-container-org51646b6" class="outline-2">
-<h2 id="org51646b6">using dired diff</h2>
-<div class="outline-text-2" id="text-org51646b6">
+<div id="outline-container-org0b29bc6" class="outline-2">
+<h2 id="org0b29bc6">using dired diff</h2>
+<div class="outline-text-2" id="text-org0b29bc6">
 <ol class="org-ol">
 <li>the file where the cursor is is the first file</li>
 <li>=</li>
@@ -94,27 +95,27 @@
 </div>
 </div>
 
-<div id="outline-container-orgfbbf977" class="outline-2">
-<h2 id="orgfbbf977">show the modification times of files</h2>
-<div class="outline-text-2" id="text-orgfbbf977">
+<div id="outline-container-orgdb7b8fe" class="outline-2">
+<h2 id="orgdb7b8fe">show the modification times of files</h2>
+<div class="outline-text-2" id="text-orgdb7b8fe">
 <pre class="example">
 ! ls -la --time-style=long-iso * ; all marked files
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orge3e40cf" class="outline-2">
-<h2 id="orge3e40cf">open file using default application</h2>
-<div class="outline-text-2" id="text-orge3e40cf">
+<div id="outline-container-orgde33c75" class="outline-2">
+<h2 id="orgde33c75">open file using default application</h2>
+<div class="outline-text-2" id="text-orgde33c75">
 <ul class="org-ul">
 <li>W ; browse-url-of-dired-file</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org11ca2f4" class="outline-2">
-<h2 id="org11ca2f4">copy marked filenames</h2>
-<div class="outline-text-2" id="text-org11ca2f4">
+<div id="outline-container-org34a60c0" class="outline-2">
+<h2 id="org34a60c0">copy marked filenames</h2>
+<div class="outline-text-2" id="text-org34a60c0">
 <ul class="org-ul">
 <li>w ; dired-copy-filename-as-kill</li>
 <li>C-u 0 w ; absolute file name</li>
@@ -122,30 +123,30 @@
 </div>
 </div>
 
-<div id="outline-container-orgf5ad871" class="outline-2">
-<h2 id="orgf5ad871">default target directory</h2>
-<div class="outline-text-2" id="text-orgf5ad871">
+<div id="outline-container-org8ce8888" class="outline-2">
+<h2 id="org8ce8888">default target directory</h2>
+<div class="outline-text-2" id="text-org8ce8888">
 <p>
 change default target directory from current to next window
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(<span style="color: #b4fa70; font-weight: bold;">setq</span> dired-dwim-target t)
+<pre class="src src-elisp">(<span class="org-keyword">setq</span> dired-dwim-target t)
 
 M-: eval-expression
-(<span style="color: #b4fa70; font-weight: bold;">setq</span> dired-dwim-target t)
-(<span style="color: #b4fa70; font-weight: bold;">setq</span> dired-dwim-target nil)
+(<span class="org-keyword">setq</span> dired-dwim-target t)
+(<span class="org-keyword">setq</span> dired-dwim-target nil)
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org49fa25f" class="outline-2">
-<h2 id="org49fa25f">compression</h2>
-<div class="outline-text-2" id="text-org49fa25f">
+<div id="outline-container-org96fda04" class="outline-2">
+<h2 id="org96fda04">compression</h2>
+<div class="outline-text-2" id="text-org96fda04">
 <div class="org-src-container">
-<pre class="src src-elisp">Z <span style="color: #73d216; font-style: italic;">; </span><span style="color: #73d216; font-style: italic;">dired-do-compress</span>
-c <span style="color: #73d216; font-style: italic;">; </span><span style="color: #73d216; font-style: italic;">dired-do-compress-to</span>
+<pre class="src src-elisp">Z <span class="org-comment-delimiter">; </span><span class="org-comment">dired-do-compress</span>
+c <span class="org-comment-delimiter">; </span><span class="org-comment">dired-do-compress-to</span>
 </pre>
 </div>
 
@@ -154,9 +155,6 @@ c <span style="color: #73d216; font-style: italic;">; </span><span style="color:
 </p>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>

@@ -1,11 +1,19 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>eww</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>eww</h1>
-<pre>
-Windows
+<div id="content">
+<h1 class="title">eww</h1>
+<div class="org-src-container">
+<pre class="src src-elisp">Windows
 =======
 
   copy these files into the emacs bin directory
@@ -22,15 +30,20 @@ Windows
 Navigation
 ==========
 
-  (require 'eww)
+  (<span class="org-keyword">require</span> '<span class="org-constant">eww</span>)
 
-  (load "~/.emacs.d/0-melpa/ace-jump-mode-20140616.115.el")
-  (require 'ace-jump-mode)
-  (load "~/.emacs.d/0-wiki/key-chord.el")
-  (require 'key-chord)
+  (load <span class="org-string">"~/.emacs.d/0-melpa/ace-jump-mode-20140616.115.el"</span>)
+  (<span class="org-keyword">require</span> '<span class="org-constant">ace-jump-mode</span>)
+  (load <span class="org-string">"~/.emacs.d/0-wiki/key-chord.el"</span>)
+  (<span class="org-keyword">require</span> '<span class="org-constant">key-chord</span>)
   (key-chord-mode +1)
-  (key-chord-define-global "jk" 'ace-jump-mode)
+  (key-chord-define-global <span class="org-string">"jk"</span> 'ace-jump-mode)
 </pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
 </body>
 </html>

@@ -1,52 +1,63 @@
-
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-publish</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>org-publish</h1>
-<pre>
+<div id="content">
+<h1 class="title">org-publish</h1>
+<div class="org-src-container">
+<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">to local directory</span>
+(<span class="org-keyword">setq</span> org-publish-project-alist
+      '((<span class="org-string">"org"</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/Desktop/0-publish/projects"</span>
+         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/Desktop/0-publish/projects-html"</span>
+         <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+         <span class="org-builtin">:section-numbers</span> nil
+         <span class="org-builtin">:with-toc</span> nil
+         <span class="org-builtin">:recursive</span> t )))
 
-;; to local directory
-(setq org-publish-project-alist
-      '(("org"
-         :base-directory "~/Desktop/0-publish/projects"
-         :publishing-directory "~/Desktop/0-publish/projects-html"
-         :publishing-function org-html-publish-to-html
-         :section-numbers nil
-         :with-toc nil
-	 :recursive t )))
+<span class="org-comment-delimiter">;; </span><span class="org-comment">to server</span>
+(<span class="org-keyword">setq</span> org-publish-project-alist
+      '((<span class="org-string">"org"</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/Desktop/0-publish/projects"</span>
+         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"/ssh:alias:/var/www/html/projects"</span>
+         <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+         <span class="org-builtin">:section-numbers</span> nil
+         <span class="org-builtin">:with-toc</span> nil
+         <span class="org-builtin">:recursive</span> t )))
 
-;; to server
-(setq org-publish-project-alist
-      '(("org"
-         :base-directory "~/Desktop/0-publish/projects"
-         :publishing-directory "/ssh:alias:/var/www/html/projects"
-         :publishing-function org-html-publish-to-html
-         :section-numbers nil
-         :with-toc nil
-         :recursive t )))
-
-;; complete
-(setq org-publish-project-alist
-      '(("org"
-	 :base-directory "~/Desktop/source"
-	 :publishing-directory "~/Desktop/destination"
-	 :publishing-function org-html-publish-to-html
-	 :html-head-include-default-style nil
-	 :html-head-include-scripts nil
-	 :html-validation-link nil 
-	 :section-numbers nil
-	 :with-latex nil
-	 :with-creator nil
-	 :with-author nil
-	 :with-timestamps nil
-	 :with-toc nil
-	 :html-head "<link rel=\"stylesheet\"
-                      href=\"my.css\" type=\"text/css\"/>"
-	 :html-preamble t
-	 :recursive t )))
+<span class="org-comment-delimiter">;; </span><span class="org-comment">complete</span>
+(<span class="org-keyword">setq</span> org-publish-project-alist
+      '((<span class="org-string">"org"</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/Desktop/source"</span>
+         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/Desktop/destination"</span>
+         <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+         <span class="org-builtin">:html-head-include-default-style</span> nil
+         <span class="org-builtin">:html-head-include-scripts</span> nil
+         <span class="org-builtin">:html-validation-link</span> nil 
+         <span class="org-builtin">:section-numbers</span> nil
+         <span class="org-builtin">:with-latex</span> nil
+         <span class="org-builtin">:with-creator</span> nil
+         <span class="org-builtin">:with-author</span> nil
+         <span class="org-builtin">:with-timestamps</span> nil
+         <span class="org-builtin">:with-toc</span> nil
+         <span class="org-builtin">:html-head</span> <span class="org-string">"&lt;link rel=\"stylesheet\"</span>
+<span class="org-string">                      href=\"my.css\" type=\"text/css\"/&gt;"</span>
+         <span class="org-builtin">:html-preamble</span> t
+         <span class="org-builtin">:recursive</span> t )))
 </pre>
+</div>
+
+<p>
 <a href="../guides.html">back</a>
+</p>
+</div>
 </body>
 </html>

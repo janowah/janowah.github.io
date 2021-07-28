@@ -1,0 +1,48 @@
+#+title: org-publish
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil toc:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+#+BEGIN_SRC elisp
+  ;; to local directory
+  (setq org-publish-project-alist
+        '(("org"
+           :base-directory "~/Desktop/0-publish/projects"
+           :publishing-directory "~/Desktop/0-publish/projects-html"
+           :publishing-function org-html-publish-to-html
+           :section-numbers nil
+           :with-toc nil
+           :recursive t )))
+
+  ;; to server
+  (setq org-publish-project-alist
+        '(("org"
+           :base-directory "~/Desktop/0-publish/projects"
+           :publishing-directory "/ssh:alias:/var/www/html/projects"
+           :publishing-function org-html-publish-to-html
+           :section-numbers nil
+           :with-toc nil
+           :recursive t )))
+
+  ;; complete
+  (setq org-publish-project-alist
+        '(("org"
+           :base-directory "~/Desktop/source"
+           :publishing-directory "~/Desktop/destination"
+           :publishing-function org-html-publish-to-html
+           :html-head-include-default-style nil
+           :html-head-include-scripts nil
+           :html-validation-link nil 
+           :section-numbers nil
+           :with-latex nil
+           :with-creator nil
+           :with-author nil
+           :with-timestamps nil
+           :with-toc nil
+           :html-head "<link rel=\"stylesheet\"
+                        href=\"my.css\" type=\"text/css\"/>"
+           :html-preamble t
+           :recursive t )))
+#+END_SRC
+
+[[../guides.html][back]]

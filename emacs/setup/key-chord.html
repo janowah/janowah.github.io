@@ -1,19 +1,31 @@
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>key-chord</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 <body>
-<h1>key-chord</h1>
-<pre>
-;; http://www.emacswiki.org/emacs/key-chord.el
+<div id="content">
+<h1 class="title">key-chord</h1>
+<div class="org-src-container">
+<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">http://www.emacswiki.org/emacs/key-chord.el</span>
 
-(require 'key-chord)
+(<span class="org-keyword">require</span> '<span class="org-constant">key-chord</span>)
 (key-chord-mode +1)
 
-(key-chord-define-global "jk" 'ace-jump-mode)
-(key-chord-define-global "nb" 'xah-new-empty-buffer)
-
+(key-chord-define-global <span class="org-string">"jk"</span> 'ace-jump-mode)
+(key-chord-define-global <span class="org-string">"nb"</span> 'xah-new-empty-buffer)
 </pre>
+</div>
+
+<p>
 <a href="../setup.html">back</a>
+</p>
+</div>
 </body>
 </html>

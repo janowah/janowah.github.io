@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>batch org export to html</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+<div id="content">
+<h1 class="title">batch org export to html</h1>
+
+<div id="outline-container-org9e3fe12" class="outline-2">
+<h2 id="org9e3fe12"><code>tree</code></h2>
+<div class="outline-text-2" id="text-org9e3fe12">
+<div class="org-src-container">
+<pre class="src src-text">.
+&#9500;&#9472;&#9472; file.org
+&#9500;&#9472;&#9472; htmlize.css
+&#9492;&#9472;&#9472; org-render-html-minimal.el
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9143c26" class="outline-2">
+<h2 id="org9143c26"><code>org-render-html-minimal.el</code></h2>
+<div class="outline-text-2" id="text-org9143c26">
+<div class="org-src-container">
+<pre class="src src-elisp">(<span class="org-keyword">require</span> '<span class="org-constant">org</span>)
+(load <span class="org-string">"~/.emacs.d/htmlize.el"</span>)
+(<span class="org-keyword">require</span> '<span class="org-constant">htmlize</span>)
+(<span class="org-keyword">setq</span> org-html-htmlize-output-type 'css)
+
+(<span class="org-keyword">setq</span> org-html-head-include-default-style nil)
+(<span class="org-keyword">setq</span> org-html-head-include-scripts nil)
+(<span class="org-keyword">setq</span> org-export-html-validation-link <span class="org-string">""</span>)
+(<span class="org-keyword">setq</span> org-html-validation-link nil)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49d1b35" class="outline-2">
+<h2 id="org49d1b35"><code>htmlize.css</code></h2>
+<div class="outline-text-2" id="text-org49d1b35">
+<ul class="org-ul">
+<li>load theme you want to use</li>
+<li><code>M-x org-html-htmlize-generate-css</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaa326d7" class="outline-2">
+<h2 id="orgaa326d7"><code>file.org</code></h2>
+<div class="outline-text-2" id="text-orgaa326d7">
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-document-info-keyword">#+title:</span> <span class="org-org-document-title">Title</span>
+<span class="org-org-meta-line">#+options: num:nil ^:nil creator:nil author:nil timestamp:nil html-postamble:nil</span>
+<span class="org-org-meta-line">#+html_head: &lt;link rel="stylesheet" type="text/css" href="htmlize.css"/&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb92acf5" class="outline-2">
+<h2 id="orgb92acf5">command</h2>
+<div class="outline-text-2" id="text-orgb92acf5">
+<div class="org-src-container">
+<pre class="src src-sh">emacs file.org --batch -Q --load org-render-html-minimal.el -f org-html-export-to-html --kill
+</pre>
+</div>
+
+<p>
+<a href="../guides.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

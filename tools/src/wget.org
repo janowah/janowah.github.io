@@ -1,5 +1,7 @@
 #+title: wget
 #+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
 
 * SWITCHES
 
@@ -22,7 +24,7 @@
 
 #+BEGIN_EXAMPLE
 
-wget -r -nH -nd -np -R index.html* http://example.com/
+  wget -r -nH -nd -np -R index.html* http://example.com/
 
   wget -r --timestamping --user=homer --ask-password ftp://powerplant.net
   wget -r -np --timestamping --user=homer --ask-password https://example.com

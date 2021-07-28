@@ -1,0 +1,37 @@
+#+title: zip
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="style.css"/>
+
+* notes
+
+- using zip on the command line by default ~ backup files weren't
+  archived
+
+* create
+
+#+BEGIN_SRC text
+  - zip -r target source
+  - zip -j target source/*  ; leave out top level directory
+    -j --junk-paths         ; do not store directory names
+#+END_SRC
+
+* extract
+
+#+BEGIN_SRC text
+  - unzip -l foo.zip   ; list
+  - unzip foo.zip      ; unzip
+  - unzip -tq foo.zip  ; test
+    -q quiet
+    -t test
+#+END_SRC
+
+* examples
+
+#+BEGIN_SRC text
+  zip -r /mnt/home/homer/logs.zip /var/logs/
+#+END_SRC
+
+[[./tools.html][back]]
+
+
