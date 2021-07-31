@@ -1,0 +1,59 @@
+#+title: php books
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+
+#+BEGIN_EXAMPLE
+  %T: Building a Web Application with PHP and MariaDB
+  %A: Sai Srinivas Sriparasa
+  %D: 2014
+  %N: 978-1-78398-162-5
+  %P: 239
+  %I: Packt
+
+  %T: Modern PHP
+  %A: Josh Lockhart
+  %D: 2015
+  %N: 978-1-4919-0501-2
+  %P: 245
+  %I: O'Reilly
+
+  %T: Instant PHP Web Scraping
+  %A: Jacob Ward
+  %D: 2013
+  %N: 978-1-78216-477-7
+  %P: 60
+  %I: Packt
+
+  %T: Webbots, Spiders and Screen Scrapers 2e
+  %A: Michael Schrenk
+  %D: 2012
+  %N: 978-1-59327-397-2
+  %P: 362
+  %I: No Starch
+
+  %T: Webbots, Spiders and Screen Scrapers
+  %A: Michael Schrenk
+  %D: 2007
+  %N: 978-1-59-327120-6
+  %P: 328 
+  %I: No Starch
+
+  %T: PHP and MySQL Web Development 4e
+  %A: Luke Welling, Laura Thomson
+  %D: 2009
+  %N: 978-0-672-32916-6
+  %P: 968
+  %I: Pearson
+
+  %T: Beginning PHP5, Apache, and MySQL Web Development
+  %A: Elizabeth Naramore, Jason Gerner, Yann Le Scouarnec, Jeremy Stolz, Michael K. Glass
+  %D: 2005
+  %N: 978-0-7645-7966-0
+  %P: 798
+  %I: Wrox
+#+END_EXAMPLE
+
+[[./php.html][back]]
+
+
+
+

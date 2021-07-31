@@ -9,6 +9,7 @@
 - [[file:erlang/erlang.html][erlang]]
 - [[file:java/java.html][java]]
 - [[file:javascript/javascript.html][javascript]]
+- [[file:php/php.html][php]]
 - [[file:powershell/powershell.html][powershell]]
 - [[file:python/python.html][python]]
 - [[file:sql/sql.html][sql]]

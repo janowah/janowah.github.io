@@ -12,6 +12,46 @@
 <body>
 <div id="content">
 <h1 class="title">org-publish</h1>
+
+<div id="outline-container-org2b050e9" class="outline-2">
+<h2 id="org2b050e9">setup</h2>
+<div class="outline-text-2" id="text-org2b050e9">
+<ul class="org-ul">
+<li><p>
+export css selectors
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span class="org-keyword">setq</span> org-html-htmlize-output-type 'css)
+</pre>
+</div></li>
+
+<li><p>
+force
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">C-u org-publish-all
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc3d2540" class="outline-2">
+<h2 id="orgc3d2540">notes</h2>
+<div class="outline-text-2" id="text-orgc3d2540">
+<ul class="org-ul">
+<li>it will mirror the directory structure</li>
+<li>won't overide the file variables</li>
+<li>using <code>:html-htmlize-output-type css</code> doesn't work</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org97b9d54" class="outline-2">
+<h2 id="org97b9d54">variables</h2>
+<div class="outline-text-2" id="text-org97b9d54">
 <div class="org-src-container">
 <pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">to local directory</span>
 (<span class="org-keyword">setq</span> org-publish-project-alist
@@ -36,20 +76,19 @@
 <span class="org-comment-delimiter">;; </span><span class="org-comment">complete</span>
 (<span class="org-keyword">setq</span> org-publish-project-alist
       '((<span class="org-string">"org"</span>
-         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/Desktop/source"</span>
-         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/Desktop/destination"</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/src/"</span>
+         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/destination"</span>
          <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
          <span class="org-builtin">:html-head-include-default-style</span> nil
          <span class="org-builtin">:html-head-include-scripts</span> nil
-         <span class="org-builtin">:html-validation-link</span> nil 
+         <span class="org-builtin">:html-validation-link</span> nil
          <span class="org-builtin">:section-numbers</span> nil
          <span class="org-builtin">:with-latex</span> nil
          <span class="org-builtin">:with-creator</span> nil
          <span class="org-builtin">:with-author</span> nil
          <span class="org-builtin">:with-timestamps</span> nil
          <span class="org-builtin">:with-toc</span> nil
-         <span class="org-builtin">:html-head</span> <span class="org-string">"&lt;link rel=\"stylesheet\"</span>
-<span class="org-string">                      href=\"my.css\" type=\"text/css\"/&gt;"</span>
+         <span class="org-builtin">:html-head</span> <span class="org-string">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"my.css\"/&gt;"</span>
          <span class="org-builtin">:html-preamble</span> t
          <span class="org-builtin">:recursive</span> t )))
 </pre>
@@ -58,6 +97,8 @@
 <p>
 <a href="../guides.html">back</a>
 </p>
+</div>
+</div>
 </div>
 </body>
 </html>

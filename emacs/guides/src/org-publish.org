@@ -3,6 +3,28 @@
 #+options: html-postamble:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="../style.css"/>
 
+* setup
+
+- export css selectors
+
+  #+BEGIN_SRC elisp
+    (setq org-html-htmlize-output-type 'css)
+  #+END_SRC
+
+- force
+
+  #+BEGIN_SRC text
+    C-u org-publish-all
+  #+END_SRC
+
+* notes
+
+- it will mirror the directory structure
+- won't overide the file variables
+- using =:html-htmlize-output-type css= doesn't work
+
+* variables
+
 #+BEGIN_SRC elisp
   ;; to local directory
   (setq org-publish-project-alist
@@ -27,20 +49,19 @@
   ;; complete
   (setq org-publish-project-alist
         '(("org"
-           :base-directory "~/Desktop/source"
-           :publishing-directory "~/Desktop/destination"
+           :base-directory "~/src/"
+           :publishing-directory "~/destination"
            :publishing-function org-html-publish-to-html
            :html-head-include-default-style nil
            :html-head-include-scripts nil
-           :html-validation-link nil 
+           :html-validation-link nil
            :section-numbers nil
            :with-latex nil
            :with-creator nil
            :with-author nil
            :with-timestamps nil
            :with-toc nil
-           :html-head "<link rel=\"stylesheet\"
-                        href=\"my.css\" type=\"text/css\"/>"
+           :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"my.css\"/>"
            :html-preamble t
            :recursive t )))
 #+END_SRC
