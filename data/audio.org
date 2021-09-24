@@ -1,0 +1,10 @@
+#+title: audio
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+- headphones
+  - Sennheiser HD 300
+  - Grado SR80e
+  - AKG K100
+
+- earphones
+  - Sennheiser CX 3.00

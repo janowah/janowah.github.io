@@ -16,15 +16,19 @@
 
 * raspberry pi 3
 
+#+begin_example
+  Product	: Raspberry Pi 3 Model B Rev 1.2
+  Memory	: 908MiB System memory
+  Network	: SMSC9512/9514 Fast Ethernet Adapter
+  Network	: Wireless interface
+#+end_example
+
 - Raspberry Pi 3 Model B Rev 1.2
 - centos
   - armv7l
   - http://mirror.centos.org/altarch/7/isos/armhfp/CentOS-Userland-7-armv7hl-Minimal-1708-RaspberryPi3.img.xz
 - dmesg
   - CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7), cr=10c5383d
-- uname -a 
-  - Linux centos-rpi3 4.9.50-v7.1.el7 #1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux
-- https://www.openbsd.org/arm64.html
 - cat /proc/cpuinfo
   - model name      : ARMv7 Processor rev 4 (v7l)
   - Hardware        : BCM2835
@@ -32,21 +36,17 @@
 * Raspberry Pi 2 Model B Rev 1.1
 
 #+BEGIN_EXAMPLE
-  Processor: ARMv7 Processor rev 5 (v7l)
-  Memory: 926MiB System memory
-  Disk:
-  Network: SMSC9512/9514 Fast Ethernet Adapter
+  Product		: Raspberry Pi 2 Model B Rev 1.1
+  Description	: ARMv7 Processor rev 5 (v7l)
+  Memory		: 924MiB System memory
+  Network		: SMSC9512/9514 Fast Ethernet Adapter
 #+END_EXAMPLE
 
-- Raspberry Pi 2 Model B Rev 1.1
-- model b
 - 832-6274
 - centos
   - http://mirror.centos.org/altarch/7/isos/armhfp/CentOS-Userland-7-armv7hl-Minimal-1708-RaspberryPi2.img.xz
 - dmesg
   - CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
-- uname -a
-  - Linux centos-rpi2 4.9.50-v7.1.el7 #1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux
 - cat /proc/cpuinfo
   - model name      : ARMv7 Processor rev 5 (v7l)
   - Hardware        : BCM2835

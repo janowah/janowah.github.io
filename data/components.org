@@ -1,0 +1,22 @@
+#+title: components
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+- Hauppauge WinTV-HVR-1100
+  - https://www.hauppauge.co.uk/site/products/data_hvr1100.html
+- graphics cards
+  - Radeon HD 5000
+  - asus radeon
+- sound cards
+  - Turtle Beach Santa Cruz
+    - Interface: PCI
+- blu-ray
+  - asus
+- dvd
+  - samsung
+  - Samsung SM 332B/DWR
+    - 2002-08
+- cd
+  - Hitachi CDR-7930
+    - 1996-11
+- firewire
+  - Adaptec AFW-2100

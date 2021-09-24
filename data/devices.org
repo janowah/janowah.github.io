@@ -1,57 +1,69 @@
-#+title: devices
+#+title: portable devices
 #+options: num:nil ^:nil creator:nil author:nil timestamp:nil
 
 * music
 
 ** mp3 players
 
-*** sony NW-A45
+*** Sony NW-A45
 
 - capacity: 16GB
 
-*** sony NWZ-E585
+*** Sony NWZ-E585
 
 - capacity: 16GB
 - power: 5V
 
-*** sony NWZ-E444
+*** Sony NWZ-E444
 
 - capacity: 8GB
 - url
 
-*** sony good
+*** Sony NWZ-S638F
 
-*** sony stick
+*** Sony NW-E002F
 
 - capacity: 512MB
 
-*** cowon
+*** Cowon iAudio X5V
+
+- capacity: 20GB
 
 ** iPod
 
-issues
-- have to use itunes
-- sound isn't great
-- probably need to spinrite the drives
-- doesn't support flac
+# issues
+# - have to use itunes
+# - sound isn't great
+# - probably need to spinrite the drives
+# - doesn't support flac
 
 *** Apple iPod Touch - 3rd Gen
 
 - capacity: 32GB
 - model: A1318
 - power:
+- Intro. 	September 9, 2009 	Disc. 	September 1, 2010
 
 *** Apple iPod 5th Gen
 
 - capacity: 30GB
 - model: A1136  
 - power 5-30V 1A Max
+- Intro. 	October 12, 2005 	Disc. 	September 12, 2006
 
 *** Apple iPod Classic 4th Gen
 
 - capacity: 20GB
 - model: A1099
 - power 5-30V 1A Max
+- Intro. 	June 28, 2005 	Disc. 	October 12, 2005
+
+*** Apple iPod nano 3rd Gen
+
+- capacity: 4GB
+- model: A1236
+- power 5-30V 1A Max
+- Intro. 	September 5, 2007* 	Disc. 	September 9, 2008
 
 ** MiniDisc
 
@@ -61,7 +73,8 @@ issues
 ** discman
 
 - Philips AX2500 Portable CD Player
-
+- Sony D-FJ61
+  
 ** walkman
 
 - Panasonic RQ-CR55
@@ -69,18 +82,13 @@ issues
 - Sony WM-FX16
 - Sony WM-FX10
 
-** hifi
-
-- Marantz PM4400 Stereo Amplifier
-- Marantz CD5400 CD Player
-- Yamaha TX-396L Natural Sound AM/FM Stereo Tuner
-- Wharfedale Diamond 9.1 Speakers
-- Stanton STR8-60 Direct Drive Turntable
-
 * ereader
 
-- kindle
-- sony ereader
+- Kindle Paperwhite DP75SDI
+- Kindle Keyboard D00901
+  - FCC ID: XSX-1013
+  - x3
+- Sony PRS-505
 
 * phones
 
@@ -99,3 +107,18 @@ issues
 - os: android 4
 
 ** nokia
+
+- model: e51-1
+- model: 6100
+- model: 6150 SAT
+
+* tablet
+
+- Asus Nexus 7
+  - model: K008
+  - capacity: 16GB
+
+* camera
+
+- Nikon Coolpix P530
+- Panasonic DMC-FS3

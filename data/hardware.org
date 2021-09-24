@@ -1,0 +1,26 @@
+#+title: hardware
+#+options: num:nil ^:nil creator:nil author:nil timestamp:nil toc:nil
+
+* computer
+
+- keyboards
+  - Corsair Gaming K63 Keyboard
+- monitors
+  - hp 24ea
+- mice
+  - Logitech M100
+- printers
+  - brother
+- scanners
+  - fuji ix500
+
+* audio
+
+** hifi
+
+- Marantz PM4400 Stereo Amplifier
+- Marantz CD5400 CD Player
+- Yamaha TX-396L Natural Sound AM/FM Stereo Tuner
+- Wharfedale Diamond 9.1 Speakers
+- Stanton STR8-60 Direct Drive Turntable
+- mixer

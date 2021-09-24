@@ -4,8 +4,10 @@
 - [[./sd-cards.txt][sd cards]]
 - [[./usb.txt][usb drives]]
 - [[file:hard-disks.html][hard disks]]
-- hardware
 - [[file:devices.html][devices]]
+- [[file:hardware.html][hardware]]
 - [[file:computers.html][computers]]
+- [[file:components.html][components]]
+- [[file:audio.html][audio]]
 
 [[../index.html][back]]
