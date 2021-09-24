@@ -1,0 +1,11 @@
+#+title: status
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+#+BEGIN_EXAMPLE
+  $ git status
+
+  git status -s
+#+END_EXAMPLE
+
+[[file:git.html][back]]

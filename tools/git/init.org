@@ -1,0 +1,29 @@
+#+title: init
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+cat ~/.gitconfig 
+
+* setup and add one file
+
+#+BEGIN_EXAMPLE
+  git init
+
+  git add README.txt 
+  git commit -m "update README"
+
+  git add some-source-file.c
+  git commit -m "add some-source-file"
+#+END_EXAMPLE
+
+* files
+
+- README.txt
+- LICENCE
+- Makefile
+- .gitignore
+- NEWS
+- TODO
+- FAQ
+
+[[file:git.html][back]]  

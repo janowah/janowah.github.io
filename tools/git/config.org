@@ -1,0 +1,87 @@
+#+title: config
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+* =.gitconfig=
+
+#+BEGIN_SRC conf
+  [core]
+          editor = emacs
+  [user]
+          email = you@example.com
+          name = Your Name
+  [color]
+          ui = auto
+          diff = auto
+  [alias]
+          co = checkout
+          br = branch
+          ci = commit
+          st = status
+          ss = status -s
+          unstage = reset HEAD --
+          ls = log --stat
+          last = log -1 HEAD
+  [blame]
+          coloring = repeatedLines
+#+END_SRC
+
+* commands
+
+** set
+
+#+BEGIN_EXAMPLE
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+  git config --global core.editor emacs
+#+END_EXAMPLE
+
+** show all variables
+
+#+BEGIN_EXAMPLE
+  git config --list --show-origin ; --show-origin show origin of config
+  (file, standard input, blob, command line)
+
+  git config --list ;   -l, --list            list all
+#+END_EXAMPLE
+
+** get. check value of variable
+
+#+BEGIN_EXAMPLE
+  git config user.name
+
+  $ git config core.filemode
+  false
+#+END_EXAMPLE
+
+** check where variable is set
+
+#+BEGIN_EXAMPLE
+  $ git config --show-origin rerere.autoUpdate
+
+  $ git config --show-origin core.bare
+  file:.git/config	false
+#+END_EXAMPLE
+
+* precedence
+
+files
+#+BEGIN_EXAMPLE
+  1) .git/config --local
+  2) ~/.gitconfig or ~/.config/git/config . --global
+  3) /etc/gitconfig . --system t
+#+END_EXAMPLE
+
+commands
+
+#+BEGIN_EXAMPLE
+  --global              use global config file
+  --system              use system config file
+  --local               use repository config file
+#+END_EXAMPLE
+
+
+* aliases
+* colours
+
+[[file:git.html][back]]

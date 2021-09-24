@@ -1,0 +1,10 @@
+#+title: commit
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+#+begin_example
+  skip staging
+  -a option to the git commit
+#+end_example
+
+[[file:git.html][back]]

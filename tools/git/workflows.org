@@ -1,0 +1,36 @@
+#+title: workflows
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+* looking at existing project
+
+#+begin_example
+  git clone https://gitlab.com/user/proejct.git
+  git log --pretty=oneline
+  git checkout 003187 # first commit
+#+end_example
+
+* branch from head
+
+#+begin_example
+  git branch test
+  git add .
+  git commit -m ""
+#+end_example
+
+* merge 
+
+#+begin_example
+  git checkout master
+  git merge hotfix # where hotfix is a branch
+#+end_example
+
+* rebase
+
+* check against remote
+
+- fetch etc.
+
+git fetch origin
+
+[[file:git.html][back]]

@@ -1,0 +1,9 @@
+#+title: clone
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+#+begin_example
+  git clone https://gitlab.com/user/project.git
+#+end_example
+
+[[file:git.html][back]]

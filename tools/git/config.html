@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>config</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">config</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org80c83f7"><code>.gitconfig</code></a></li>
+<li><a href="#orgfee30ca">commands</a>
+<ul>
+<li><a href="#org61062f4">set</a></li>
+<li><a href="#orgef4c67d">show all variables</a></li>
+<li><a href="#org6d66bc6">get. check value of variable</a></li>
+<li><a href="#org797f145">check where variable is set</a></li>
+</ul>
+</li>
+<li><a href="#org5daf0c8">precedence</a></li>
+<li><a href="#org060d0ec">aliases</a></li>
+<li><a href="#org9d4679b">colours</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org80c83f7" class="outline-2">
+<h2 id="org80c83f7"><code>.gitconfig</code></h2>
+<div class="outline-text-2" id="text-org80c83f7">
+<div class="org-src-container">
+<pre class="src src-conf">[<span style="color: #8cc4ff;">core</span>]
+        <span style="color: #fcaf3e;">editor</span> = emacs
+[<span style="color: #8cc4ff;">user</span>]
+        <span style="color: #fcaf3e;">email</span> = you@example.com
+        <span style="color: #fcaf3e;">name</span> = Your Name
+[<span style="color: #8cc4ff;">color</span>]
+        <span style="color: #fcaf3e;">ui</span> = auto
+        <span style="color: #fcaf3e;">diff</span> = auto
+[<span style="color: #8cc4ff;">alias</span>]
+        <span style="color: #fcaf3e;">co</span> = checkout
+        <span style="color: #fcaf3e;">br</span> = branch
+        <span style="color: #fcaf3e;">ci</span> = commit
+        <span style="color: #fcaf3e;">st</span> = status
+        <span style="color: #fcaf3e;">ss</span> = status -s
+        <span style="color: #fcaf3e;">unstage</span> = reset HEAD --
+        <span style="color: #fcaf3e;">ls</span> = log --stat
+        <span style="color: #fcaf3e;">last</span> = log -1 HEAD
+[<span style="color: #8cc4ff;">blame</span>]
+        <span style="color: #fcaf3e;">coloring</span> = repeatedLines
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfee30ca" class="outline-2">
+<h2 id="orgfee30ca">commands</h2>
+<div class="outline-text-2" id="text-orgfee30ca">
+</div>
+<div id="outline-container-org61062f4" class="outline-3">
+<h3 id="org61062f4">set</h3>
+<div class="outline-text-3" id="text-org61062f4">
+<pre class="example" id="orga73de4f">
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git config --global core.editor emacs
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgef4c67d" class="outline-3">
+<h3 id="orgef4c67d">show all variables</h3>
+<div class="outline-text-3" id="text-orgef4c67d">
+<pre class="example" id="org4d8a488">
+git config --list --show-origin ; --show-origin show origin of config
+(file, standard input, blob, command line)
+
+git config --list ;   -l, --list            list all
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6d66bc6" class="outline-3">
+<h3 id="org6d66bc6">get. check value of variable</h3>
+<div class="outline-text-3" id="text-org6d66bc6">
+<pre class="example" id="org3df3eb0">
+git config user.name
+
+$ git config core.filemode
+false
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org797f145" class="outline-3">
+<h3 id="org797f145">check where variable is set</h3>
+<div class="outline-text-3" id="text-org797f145">
+<pre class="example" id="org2b47d2a">
+$ git config --show-origin rerere.autoUpdate
+
+$ git config --show-origin core.bare
+file:.git/config	false
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5daf0c8" class="outline-2">
+<h2 id="org5daf0c8">precedence</h2>
+<div class="outline-text-2" id="text-org5daf0c8">
+<p>
+files
+</p>
+<pre class="example" id="org79e9239">
+1) .git/config --local
+2) ~/.gitconfig or ~/.config/git/config . --global
+3) /etc/gitconfig . --system t
+</pre>
+
+<p>
+commands
+</p>
+
+<pre class="example" id="org77df160">
+--global              use global config file
+--system              use system config file
+--local               use repository config file
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org060d0ec" class="outline-2">
+<h2 id="org060d0ec">aliases</h2>
+</div>
+<div id="outline-container-org9d4679b" class="outline-2">
+<h2 id="org9d4679b">colours</h2>
+<div class="outline-text-2" id="text-org9d4679b">
+<p>
+<a href="git.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

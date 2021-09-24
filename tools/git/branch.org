@@ -1,0 +1,44 @@
+#+title: branch
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+* list current branches
+
+#+begin_example
+  git branch
+  
+  ,*-indicates currently checked out branch
+#+end_example
+
+* create named branch
+
+#+begin_example
+  git branch testing
+#+end_example
+
+* delete.  after merging etc. 
+
+#+begin_example
+  $ git branch -d hotfix
+  Deleted branch hotfix (3a0874c).
+#+end_example
+
+* view last commit on each branch
+
+#+begin_example
+  git branch -v
+#+end_example
+
+* see which branches are already merged into the branch you're on
+
+#+begin_example
+  git branch --merged
+#+end_example
+
+* To see all the branches that contain work you haven't yet merged in
+
+#+begin_example
+  git branch --no-merged
+#+end_example
+
+[[file:git.html][back]]

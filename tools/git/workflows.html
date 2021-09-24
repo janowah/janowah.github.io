@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>workflows</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">workflows</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org549f6e3">looking at existing project</a></li>
+<li><a href="#orgb978c5c">branch from head</a></li>
+<li><a href="#org677558f">merge</a></li>
+<li><a href="#orgf2af627">rebase</a></li>
+<li><a href="#orgfdf164e">check against remote</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org549f6e3" class="outline-2">
+<h2 id="org549f6e3">looking at existing project</h2>
+<div class="outline-text-2" id="text-org549f6e3">
+<pre class="example" id="org46c0c68">
+git clone https://gitlab.com/user/proejct.git
+git log --pretty=oneline
+git checkout 003187 # first commit
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb978c5c" class="outline-2">
+<h2 id="orgb978c5c">branch from head</h2>
+<div class="outline-text-2" id="text-orgb978c5c">
+<pre class="example" id="org3e20864">
+git branch test
+git add .
+git commit -m ""
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org677558f" class="outline-2">
+<h2 id="org677558f">merge</h2>
+<div class="outline-text-2" id="text-org677558f">
+<pre class="example" id="org1da0763">
+git checkout master
+git merge hotfix # where hotfix is a branch
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf2af627" class="outline-2">
+<h2 id="orgf2af627">rebase</h2>
+</div>
+
+<div id="outline-container-orgfdf164e" class="outline-2">
+<h2 id="orgfdf164e">check against remote</h2>
+<div class="outline-text-2" id="text-orgfdf164e">
+<ul class="org-ul">
+<li>fetch etc.</li>
+</ul>
+
+<p>
+git fetch origin
+</p>
+
+<p>
+<a href="git.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

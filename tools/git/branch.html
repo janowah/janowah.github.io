@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>branch</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">branch</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9ce7577">list current branches</a></li>
+<li><a href="#org150962b">create named branch</a></li>
+<li><a href="#org1fb621d">delete.  after merging etc.</a></li>
+<li><a href="#org04b0318">view last commit on each branch</a></li>
+<li><a href="#org85716cc">see which branches are already merged into the branch you're on</a></li>
+<li><a href="#org5fda547">To see all the branches that contain work you haven't yet merged in</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9ce7577" class="outline-2">
+<h2 id="org9ce7577">list current branches</h2>
+<div class="outline-text-2" id="text-org9ce7577">
+<pre class="example" id="org1fc1c2f">
+git branch
+
+*-indicates currently checked out branch
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org150962b" class="outline-2">
+<h2 id="org150962b">create named branch</h2>
+<div class="outline-text-2" id="text-org150962b">
+<pre class="example" id="org3a18250">
+git branch testing
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1fb621d" class="outline-2">
+<h2 id="org1fb621d">delete.  after merging etc.</h2>
+<div class="outline-text-2" id="text-org1fb621d">
+<pre class="example" id="org9c50cbc">
+$ git branch -d hotfix
+Deleted branch hotfix (3a0874c).
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org04b0318" class="outline-2">
+<h2 id="org04b0318">view last commit on each branch</h2>
+<div class="outline-text-2" id="text-org04b0318">
+<pre class="example" id="orgb45734f">
+git branch -v
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org85716cc" class="outline-2">
+<h2 id="org85716cc">see which branches are already merged into the branch you're on</h2>
+<div class="outline-text-2" id="text-org85716cc">
+<pre class="example" id="org5469bc9">
+git branch --merged
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5fda547" class="outline-2">
+<h2 id="org5fda547">To see all the branches that contain work you haven't yet merged in</h2>
+<div class="outline-text-2" id="text-org5fda547">
+<pre class="example" id="org5c10d88">
+git branch --no-merged
+</pre>
+
+<p>
+<a href="git.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
