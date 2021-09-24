@@ -1,0 +1,146 @@
+#+title: make
+#+options: ^:nil num:nil author:nil email:nil creator:nil timestamp:nil
+#+options: html-postamble:nil
+
+* format
+
+#+begin_src makefile
+  variables = var
+  
+  target: prerequisites
+  #<TAB> recipe
+#+end_src
+
+* variables
+
+#+begin_src makefile
+  $@	# first target
+  $^	# all prerequisites
+  $<	# first prequisite
+  $?	# prerequisites newer than the target
+  
+  NAMED = name
+  $(NAME)
+#+end_src
+
+* assignment
+
+#+begin_example
+  :=	# expand the value before assignment
+#+end_example
+
+* templates
+
+** c
+
+#+begin_src makefile -n
+  CC = gcc
+  CFLAGS = -g -Wall
+  
+  hello: hello.c
+          $(CC) $(CFLAGS) -o $@ $^
+  
+  clean:
+          rm -f hello 
+#+end_src
+
+** c++
+
+*** basic
+
+#+begin_src makefile -n
+  CC=g++
+  CCOPTS=-pedantic -Wall -O2
+  
+  HelloWorld: HelloWorld.cpp
+          $(CC) $(CCOPTS) -o $@ $^
+  
+  clean:
+          rm -f HelloWorld
+#+end_src
+
+*** extra
+
+#+begin_src makefile -n
+  lint:
+          python2	~/cpplint.py --filter=-legal/copyright HelloWorld.cpp
+#+end_src
+
+** java
+
+*** basic
+
+#+begin_src makefile -n
+  JAVAC = javac
+  JAVAOPTS = -Xlint:all
+  
+  HelloWorld: HelloWorld.java
+          $(JAVAC) $(JAVAOPTS) $<
+  
+  run:
+          java HelloWorld
+  
+  clean:
+          rm -f HelloWorld.class
+#+end_src
+
+*** complete
+
+#+begin_src makefile -n
+  JAVAC = javac
+  JAVAOPTS = -Xlint:all
+  # -g	# debug
+  SOURCE = EchoServer2
+  
+  # pass in variable
+  # replace file extensions
+  
+  LINT = java -jar ~/checkstyle-8.2-all.jar -c /google_checks.xml
+  FORMAT = java -jar ~/google-java-format-1.7-all-deps.jar -i
+  
+  compile: $(SOURCE).java
+          $(JAVAC) $(JAVAOPTS) $<
+  
+  lint: $(SOURCE).java
+           $(LINT) $<
+  
+  format: $(SOURCE).java
+           $(FORMAT) $<
+  
+  run: $(SOURCE).class
+          java $(SOURCE)
+  
+  deps: $(SOURCE).class
+          jdeps -v $<
+  
+  archive: $(SOURCE).java
+          jar vcf $(SOURCE).jar $<
+  
+  clean:
+          rm -f $(SOURCE).class $(SOURCE).jar
+#+end_src
+
+** latex
+
+#+begin_src makefile -n
+  1: file.tex
+          latexmk -pdf $<
+          exiftool -all:all= file.pdf
+          qpdf --linearize file.pdf out.pdf
+#+end_src
+
+* scripts
+
+** =makeall.sh=
+
+#+begin_src sh
+  #!/bin/csh
+  foreach x (*)
+    if (-d $x) then
+       echo "-------------- $x -----------------"
+       (cd $x;make -f makefile.gcc clean;make -f makefile.gcc)
+    endif
+  end
+#+end_src
+
+[[file:tools.html][back]]

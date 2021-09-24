@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>make</title>
+<meta name="generator" content="Org mode" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">make</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org60eb5af">format</a></li>
+<li><a href="#org7abdd90">variables</a></li>
+<li><a href="#org06fc037">assignment</a></li>
+<li><a href="#org6cb372e">templates</a>
+<ul>
+<li><a href="#org5762a7f">c</a></li>
+<li><a href="#orgae85171">c++</a>
+<ul>
+<li><a href="#org6bb2343">basic</a></li>
+<li><a href="#org09839d3">extra</a></li>
+</ul>
+</li>
+<li><a href="#org3ac020b">java</a>
+<ul>
+<li><a href="#org1d13f48">basic</a></li>
+<li><a href="#org73cf081">complete</a></li>
+</ul>
+</li>
+<li><a href="#orgce3fb0d">latex</a></li>
+</ul>
+</li>
+<li><a href="#org1654931">scripts</a>
+<ul>
+<li><a href="#org518dcd8"><code>makeall.sh</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org60eb5af" class="outline-2">
+<h2 id="org60eb5af">format</h2>
+<div class="outline-text-2" id="text-org60eb5af">
+<div class="org-src-container">
+<pre class="src src-makefile"><span style="color: #a0522d;">variables</span> = var
+
+<span style="color: #0000ff;">target</span>: prerequisites
+<span style="color: #b22222;">#</span><span style="color: #b22222;">&lt;TAB&gt; recipe</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7abdd90" class="outline-2">
+<h2 id="org7abdd90">variables</h2>
+<div class="outline-text-2" id="text-org7abdd90">
+<div class="org-src-container">
+<pre class="src src-makefile">$@      <span style="color: #b22222;"># </span><span style="color: #b22222;">first target</span>
+$<span style="color: #008b8b;">^</span>      <span style="color: #b22222;"># </span><span style="color: #b22222;">all prerequisites</span>
+$<span style="color: #008b8b;">&lt;</span>      <span style="color: #b22222;"># </span><span style="color: #b22222;">first prequisite</span>
+$<span style="color: #008b8b;">?</span>      <span style="color: #b22222;"># </span><span style="color: #b22222;">prerequisites newer than the target</span>
+
+<span style="color: #a0522d;">NAMED</span> = name
+$(<span style="color: #a0522d;">NAME</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06fc037" class="outline-2">
+<h2 id="org06fc037">assignment</h2>
+<div class="outline-text-2" id="text-org06fc037">
+<pre class="example" id="org5ac3b50">
+:=	# expand the value before assignment
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6cb372e" class="outline-2">
+<h2 id="org6cb372e">templates</h2>
+<div class="outline-text-2" id="text-org6cb372e">
+</div>
+<div id="outline-container-org5762a7f" class="outline-3">
+<h3 id="org5762a7f">c</h3>
+<div class="outline-text-3" id="text-org5762a7f">
+<div class="org-src-container">
+<pre class="src src-makefile"><span class="linenr">1: </span><span style="color: #a0522d;">CC</span> = gcc
+<span class="linenr">2: </span><span style="color: #a0522d;">CFLAGS</span> = -g -Wall
+<span class="linenr">3: </span>
+<span class="linenr">4: </span><span style="color: #0000ff;">hello</span>: hello.c
+<span class="linenr">5: </span>        $(<span style="color: #a0522d;">CC</span>) $(<span style="color: #a0522d;">CFLAGS</span>) -o <span style="color: #0000ff;">$</span><span style="color: #008b8b;">@</span> $<span style="color: #008b8b;">^</span>
+<span class="linenr">6: </span>
+<span class="linenr">7: </span><span style="color: #0000ff;">clean</span>:
+<span class="linenr">8: </span>        rm -f hello 
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae85171" class="outline-3">
+<h3 id="orgae85171">c++</h3>
+<div class="outline-text-3" id="text-orgae85171">
+</div>
+<div id="outline-container-org6bb2343" class="outline-4">
+<h4 id="org6bb2343">basic</h4>
+<div class="outline-text-4" id="text-org6bb2343">
+<div class="org-src-container">
+<pre class="src src-makefile"><span class="linenr">1: </span><span style="color: #a0522d;">CC</span>=g++
+<span class="linenr">2: </span><span style="color: #a0522d;">CCOPTS</span>=-pedantic -Wall -O2
+<span class="linenr">3: </span>
+<span class="linenr">4: </span><span style="color: #0000ff;">HelloWorld</span>: HelloWorld.cpp
+<span class="linenr">5: </span>        $(<span style="color: #a0522d;">CC</span>) $(<span style="color: #a0522d;">CCOPTS</span>) -o <span style="color: #0000ff;">$</span><span style="color: #008b8b;">@</span> $<span style="color: #008b8b;">^</span>
+<span class="linenr">6: </span>
+<span class="linenr">7: </span><span style="color: #0000ff;">clean</span>:
+<span class="linenr">8: </span>        rm -f HelloWorld
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org09839d3" class="outline-4">
+<h4 id="org09839d3">extra</h4>
+<div class="outline-text-4" id="text-org09839d3">
+<div class="org-src-container">
+<pre class="src src-makefile"><span class="linenr">1: </span><span style="color: #0000ff;">lint</span>:
+<span class="linenr">2: </span>        python2 ~/cpplint.py --filter=-legal/copyright HelloWorld.cpp
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3ac020b" class="outline-3">
+<h3 id="org3ac020b">java</h3>
+<div class="outline-text-3" id="text-org3ac020b">
+</div>
+<div id="outline-container-org1d13f48" class="outline-4">
+<h4 id="org1d13f48">basic</h4>
+<div class="outline-text-4" id="text-org1d13f48">
+<div class="org-src-container">
+<pre class="src src-makefile"><span class="linenr"> 1: </span><span style="color: #a0522d;">JAVAC</span> = javac
+<span class="linenr"> 2: </span><span style="color: #a0522d;">JAVAOPTS</span> = -Xlint:all
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #0000ff;">HelloWorld</span>: HelloWorld.java
+<span class="linenr"> 5: </span>        $(<span style="color: #a0522d;">JAVAC</span>) $(<span style="color: #a0522d;">JAVAOPTS</span>) $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span><span style="color: #0000ff;">run</span>:
+<span class="linenr"> 8: </span>        java HelloWorld
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span style="color: #0000ff;">clean</span>:
+<span class="linenr">11: </span>        rm -f HelloWorld.class
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73cf081" class="outline-4">
+<h4 id="org73cf081">complete</h4>
+<div class="outline-text-4" id="text-org73cf081">
+<div class="org-src-container">
+<pre class="src src-makefile"><span class="linenr"> 1: </span><span style="color: #a0522d;">JAVAC</span> = javac
+<span class="linenr"> 2: </span><span style="color: #a0522d;">JAVAOPTS</span> = -Xlint:all
+<span class="linenr"> 3: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">-g    # debug</span>
+<span class="linenr"> 4: </span><span style="color: #a0522d;">SOURCE</span> = EchoServer2
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">pass in variable</span>
+<span class="linenr"> 7: </span><span style="color: #b22222;"># </span><span style="color: #b22222;">replace file extensions</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span style="color: #a0522d;">LINT</span> = java -jar ~/checkstyle-8.2-all.jar -c /google_checks.xml
+<span class="linenr">10: </span><span style="color: #a0522d;">FORMAT</span> = java -jar ~/google-java-format-1.7-all-deps.jar -i
+<span class="linenr">11: </span>
+<span class="linenr">12: </span><span style="color: #0000ff;">compile</span>: $(<span style="color: #a0522d;">SOURCE</span>).java
+<span class="linenr">13: </span>        $(<span style="color: #a0522d;">JAVAC</span>) $(<span style="color: #a0522d;">JAVAOPTS</span>) $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr">14: </span>
+<span class="linenr">15: </span><span style="color: #0000ff;">lint</span>: $(<span style="color: #a0522d;">SOURCE</span>).java
+<span class="linenr">16: </span>         $(<span style="color: #a0522d;">LINT</span>) $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr">17: </span>
+<span class="linenr">18: </span><span style="color: #0000ff;">format</span>: $(<span style="color: #a0522d;">SOURCE</span>).java
+<span class="linenr">19: </span>         $(<span style="color: #a0522d;">FORMAT</span>) $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr">20: </span>
+<span class="linenr">21: </span><span style="color: #0000ff;">run</span>: $(<span style="color: #a0522d;">SOURCE</span>).class
+<span class="linenr">22: </span>        java $(<span style="color: #a0522d;">SOURCE</span>)
+<span class="linenr">23: </span>
+<span class="linenr">24: </span><span style="color: #0000ff;">deps</span>: $(<span style="color: #a0522d;">SOURCE</span>).class
+<span class="linenr">25: </span>        jdeps -v $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr">26: </span>
+<span class="linenr">27: </span><span style="color: #0000ff;">archive</span>: $(<span style="color: #a0522d;">SOURCE</span>).java
+<span class="linenr">28: </span>        jar vcf $(<span style="color: #a0522d;">SOURCE</span>).jar $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr">29: </span>
+<span class="linenr">30: </span><span style="color: #0000ff;">clean</span>:
+<span class="linenr">31: </span>        rm -f $(<span style="color: #a0522d;">SOURCE</span>).class $(<span style="color: #a0522d;">SOURCE</span>).jar
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce3fb0d" class="outline-3">
+<h3 id="orgce3fb0d">latex</h3>
+<div class="outline-text-3" id="text-orgce3fb0d">
+<div class="org-src-container">
+<pre class="src src-makefile"><span class="linenr">1: </span><span style="color: #0000ff;">1</span>: file.tex
+<span class="linenr">2: </span>        latexmk -pdf $<span style="color: #008b8b;">&lt;</span>
+<span class="linenr">3: </span>        <span style="color: #0000ff;">exiftool -all</span>:<span style="color: #a0522d;">all</span>= file.pdf
+<span class="linenr">4: </span>        qpdf --linearize file.pdf out.pdf
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1654931" class="outline-2">
+<h2 id="org1654931">scripts</h2>
+<div class="outline-text-2" id="text-org1654931">
+</div>
+<div id="outline-container-org518dcd8" class="outline-3">
+<h3 id="org518dcd8"><code>makeall.sh</code></h3>
+<div class="outline-text-3" id="text-org518dcd8">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">csh</span>
+foreach x (*)
+  <span style="color: #a020f0;">if</span> (-d $<span style="color: #a0522d;">x</span>) <span style="color: #a020f0;">then</span>
+     <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"-------------- $x -----------------"</span>
+     (<span style="color: #483d8b;">cd</span> $<span style="color: #a0522d;">x</span>;make -f makefile.gcc clean;make -f makefile.gcc)
+  endif
+end
+</pre>
+</div>
+
+<p>
+<a href="tools.html">back</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
