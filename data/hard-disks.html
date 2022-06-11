@@ -12,10 +12,10 @@
 <div id="content">
 <h1 class="title">hard disks</h1>
 
-<div id="outline-container-orgc37382a" class="outline-2">
-<h2 id="orgc37382a">internal 3.5"</h2>
-<div class="outline-text-2" id="text-orgc37382a">
-<pre class="example">
+<div id="outline-container-orgb18e2a4" class="outline-2">
+<h2 id="orgb18e2a4">internal 3.5"</h2>
+<div class="outline-text-2" id="text-orgb18e2a4">
+<pre class="example" id="orgda39062">
 |   | size  | location  | contents      | interface | ff   | make model        |        dom | fs   |
 |---+-------+-----------+---------------+-----------+------+-------------------+------------+------|
 | a | 80GB  | pc        | blank         | ide       | 3.5" | WD Caviar         | 2002-08-04 |      |
@@ -34,50 +34,55 @@
 | n | 2TB   | server    | data          | sata      | 3.5" | Seagate Barracuda | 2013-01-28 | ext4 |
 | o | 2TB   | server    | data          | sata      | 3.5" | Seagate Barracuda | 2017-11-23 | ext4 |
 | p | 2TB   | server    | data          | sata      | 3.5" | Seagate Barracuda | 2021-01-11 | ext4 |
+| q | 4TB   | server    | data          | sata      | 3.5" |                   |            | ext4 |
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org8d53f6d" class="outline-2">
-<h2 id="org8d53f6d">internal 2.5"</h2>
-<div class="outline-text-2" id="text-org8d53f6d">
-<pre class="example">
-|   | size  | location    | contents  | interface | ff   | make model         |        dom | fs     |
-|---+-------+-------------+-----------+-----------+------+--------------------+------------+--------|
-|   | 250GB | dell laptop | -         | sata      | 2.5" | Hitachi Travelstar | 2008-07-xx | 0      |
-|   | 320GB | enclosure   | -         | sata      | 2.5" | WD Scorpio Blue    | 2009-07-24 | 0      |
-|   | 500GB | lenovo      | windows 7 | sata      | 2.5" | Hitachi            |            | ntfs   |
-|---+-------+-------------+-----------+-----------+------+--------------------+------------+--------|
-| m | 120GB | press       | -         | sata      | 2.5" | ocz agility 3      |            |        |
-|   | 120GB | press       | -         | sata      | 2.5" | Samsung 840        |            | erased |
-|   | 240GB | -           | ubuntu    | sata      | 2.5" | Kingston           |            |        |
+<div id="outline-container-orgaefea9b" class="outline-2">
+<h2 id="orgaefea9b">internal 2.5"</h2>
+<div class="outline-text-2" id="text-orgaefea9b">
+<pre class="example" id="orga1c2bc7">
+|   | size  | location    | contents   | interface | ff   | make model         |        dom |   fs |
+|---+-------+-------------+------------+-----------+------+--------------------+------------+------|
+|   | 250GB | dell laptop | -          | sata      | 2.5" | Hitachi Travelstar | 2008-07-xx |    0 |
+|   | 320GB | enclosure   | -          | sata      | 2.5" | WD Scorpio Blue    | 2009-07-24 |    0 |
+|   | 500GB | lenovo      | windows 7  | sata      | 2.5" | Hitachi            |            | ntfs |
+|---+-------+-------------+------------+-----------+------+--------------------+------------+------|
+| m | 120GB | press       | -          | sata      | 2.5" | ocz agility 3      |            |      |
+|   | 120GB | press       | obsd       | sata      | 2.5" | Samsung 840        |            |      |
+|   | 240GB | -           | ubuntu     | sata      | 2.5" | Kingston           |            |      |
+|   | 240GB |             | windows 10 | sata      | 2.5" | SanDisk            |            |      |
+|   | 256GB |             | windows 10 | sata      | 2.5" | KingFast           |            |      |
+|   | 256GB |             | windows 10 | sata      | 2.5" | SanDisk            | 2016-12-04 |      |
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org4d3ba40" class="outline-2">
-<h2 id="org4d3ba40">external 2.5"</h2>
-<div class="outline-text-2" id="text-org4d3ba40">
-<pre class="example">
-|   | size  | contents | interface | make    | model                      | power          |   fs |
-|---+-------+----------+-----------+---------+----------------------------+----------------+------|
-| 1 | 320GB |          |       2.0 | Seagate | External Drive (0300)      | 12 VDC/ 2.0 A  |    0 |
-| 2 | 500GB |          |       2.0 | Seagate | Free Agent Desktop         | 12 VDC/ 2.0 A* |    0 |
-|---+-------+----------+-----------+---------+----------------------------+----------------+------|
-| 3 | 250GB |          |       2.0 | WD      | My Passport                | -              |    0 |
-| 4 | 500GB |          |       2.0 | WD      | My Passport                | -              |    0 |
-|---+-------+----------+-----------+---------+----------------------------+----------------+------|
-| c | 2TB   | media    |       3.0 | Seagate | Backup Plus Portable Drive | -              | ext4 |
-| d | 2TB   | ufs      |       3.0 | WD      | Elements SE                | -              | ext4 |
-| e | 2TB   | n backup |       3.0 | WD      | Elements SE                | -              | ext4 |
+<div id="outline-container-orga51586b" class="outline-2">
+<h2 id="orga51586b">external 2.5"</h2>
+<div class="outline-text-2" id="text-orga51586b">
+<pre class="example" id="orgb6b7343">
+|   | size  | contents  | interface | make    | model                      | power          | fs   |
+|---+-------+-----------+-----------+---------+----------------------------+----------------+------|
+| 1 | 320GB |           |       2.0 | Seagate | External Drive (0300)      | 12 VDC/ 2.0 A  | 0    |
+| 2 | 500GB |           |       2.0 | Seagate | Free Agent Desktop         | 12 VDC/ 2.0 A* | 0    |
+|---+-------+-----------+-----------+---------+----------------------------+----------------+------|
+| 3 | 250GB |           |       2.0 | WD      | My Passport                | -              | 0    |
+| 4 | 500GB |           |       2.0 | WD      | My Passport                | -              | 0    |
+|---+-------+-----------+-----------+---------+----------------------------+----------------+------|
+| c | 2TB   | media (o) |       3.0 | Seagate | Backup Plus Portable Drive | -              | ext4 |
+| d | 2TB   | ufs       |       3.0 | WD      | Elements SE                | -              | ext4 |
+| e | 2TB   | data (n)  |       3.0 | WD      | Elements SE                | -              | ext4 |
+| f | 4TB   |           |       3.0 | Seagate | Expansion SW               | -              | ntfs |
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org2c7ac89" class="outline-2">
-<h2 id="org2c7ac89">other</h2>
-<div class="outline-text-2" id="text-org2c7ac89">
-<pre class="example">
+<div id="outline-container-org2f43e5f" class="outline-2">
+<h2 id="org2f43e5f">other</h2>
+<div class="outline-text-2" id="text-org2f43e5f">
+<pre class="example" id="orgaa5c6c9">
 | size  | location | contents   | interface | ff   | make | model  |        dom |
 |-------+----------+------------+-----------+------+------+--------+------------|
 | 320GB | dell     | windows 10 | sata      | 3.5" | WD   | Caviar | 2008-04-17 |
@@ -88,9 +93,6 @@
 </p>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="validation"></p>
 </div>
 </body>
 </html>
